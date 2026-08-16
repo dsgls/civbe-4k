@@ -3,15 +3,15 @@
   <Box Size="full,full" Anchor="C,C" Color="0,0,0,0" ConsumeMouse="1" />
 
   <!-- Content -->
-  <Box Size="parent,117" Color="0,0,0,150" Anchor="L,B"/>
-  <Box ID="BottomBox" Color="0,0,0,255" Size="parent,117" Anchor="L,B"/>
+  <Box Size="parent,234" Color="0,0,0,150" Anchor="L,B"/>
+  <Box ID="BottomBox" Color="0,0,0,255" Size="parent,234" Anchor="L,B"/>
 
-  <Container Size="parent,parent-38" Anchor="C,T" Offset="0,0">
+  <Container Size="parent,parent-76" Anchor="C,T" Offset="0,0">
     <!-- Breadcrumb bar -->
-    <Grid Style="Grid9BlackGradientContainer" Size="parent+20,87" Offset="-10,-5" Anchor="L,T">
-      <Grid Style="Grid9BlackGradientSubContainer" Size="parent-190,41" Offset="0,41" Anchor="C,T">
-        <Button ID="BackButton" Style="BackButtonCircle" Size="43,43" Anchor="R,C" Offset="-22,0" ToolTip="TXT_KEY_BACK_BUTTON" />
-        <Stack ID="BreadcrumbsStack" StackGrowth="Right" Anchor="L,T" Offset="6,8" StackPadding="-5" />
+    <Grid Style="Grid9BlackGradientContainer" Size="parent+40,174" Offset="-20,-10" Anchor="L,T">
+      <Grid Style="Grid9BlackGradientSubContainer" Size="parent-380,82" Offset="0,82" Anchor="C,T">
+        <Button ID="BackButton" Style="BackButtonCircle" Size="86,86" Anchor="R,C" Offset="-44,0" ToolTip="TXT_KEY_BACK_BUTTON" />
+        <Stack ID="BreadcrumbsStack" StackGrowth="Right" Anchor="L,T" Offset="12,16" StackPadding="-10" />
       </Grid>
     </Grid>
 
@@ -25,35 +25,35 @@
     <LuaContext ID="DiplomacyState_War"						FileName="Assets/DLC/Expansion1/UI/InGame/Diplomacy/States/DiplomacyState_War"						Hidden="1"/>
 
     <!-- Info Cards -->
-    <Container ID="SelectedPlayerInfoCardPlaceholder" Size="500,160" Anchor="L,B" Offset="0,90"/>
-    <Container ID="ActivePlayerInfoCardPlaceholder" Size="500,160" Anchor="R,B" Offset="0,90"/>
-    <Container ID="SelectedPlayerActivityPlaceholder" Size="500,160" Anchor="R,B" Offset="0,90"/>
+    <Container ID="SelectedPlayerInfoCardPlaceholder" Size="1000,320" Anchor="L,B" Offset="0,180"/>
+    <Container ID="ActivePlayerInfoCardPlaceholder" Size="1000,320" Anchor="R,B" Offset="0,180"/>
+    <Container ID="SelectedPlayerActivityPlaceholder" Size="1000,320" Anchor="R,B" Offset="0,180"/>
     
     <!-- Summary Button -->
-    <Image Size="50,81" Texture="SummaryButtonBacking.dds" Anchor="L,T" Offset="20,-5">
-      <Button ID="SummaryButton" Style="DiploSummaryButton" Size="43,43" Anchor="C,B" Offset="0,5" ToolTip="TXT_KEY_DIPLOMACYUI_SUMMARY"/>
+    <Image Size="100,162" Texture="SummaryButtonBacking.dds" Anchor="L,T" Offset="40,-10">
+      <Button ID="SummaryButton" Style="DiploSummaryButton" Size="86,86" Anchor="C,B" Offset="0,10" ToolTip="TXT_KEY_DIPLOMACYUI_SUMMARY"/>
     </Image>
 
 
     <!-- Player Ribbon -->
-    <Container ID="RibbonContent" Size="80,parent" Offset="0,72">
+    <Container ID="RibbonContent" Size="160,parent" Offset="0,144">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".5" Function="Root" Speed="2" Size="parent,parent" ID="BracketAlpha">
-        <SlideAnim Start="-90,0" End="0,0" Cycle="Once" Pause=".9" Function="OutQuint" Speed="2" Size="parent,parent" ID="BracketSlide">
-          <Box Size="40,100" Color="0,0,0,255" Offset="-5,4" ID="PlayerRibbonBacking"/>
-          <Grid ID="RelationshipsBracket" Anchor="R,T" Offset="0,73" Style="Grid9RelationshipsBracket" Size="46, 0"/>
+        <SlideAnim Start="-180,0" End="0,0" Cycle="Once" Pause=".9" Function="OutQuint" Speed="2" Size="parent,parent" ID="BracketSlide">
+          <Box Size="80,200" Color="0,0,0,255" Offset="-10,8" ID="PlayerRibbonBacking"/>
+          <Grid ID="RelationshipsBracket" Anchor="R,T" Offset="0,146" Style="Grid9RelationshipsBracket" Size="92, 0"/>
         </SlideAnim>
       </AlphaAnim>
 
       <AlphaAnim Style="DiploAlphaAnim" ID="PlayerRibbon_PlayerHighlight" Pause=".05">
-        <Image Texture="PlayerRibbon_PlayerHighlight.dds" Size="105,78"/>
+        <Image Texture="PlayerRibbon_PlayerHighlight.dds" Size="210,156"/>
       </AlphaAnim>
 
-      <Stack ID="PlayerRibbon_Stack" StackGrowth="Bottom" Anchor="L,T" Offset="0,75" Padding="0" />
+      <Stack ID="PlayerRibbon_Stack" StackGrowth="Bottom" Anchor="L,T" Offset="0,150" Padding="0" />
 
-      <GridButton ID="PlayerRibbon_PlayerButton" Size="80,80" Anchor="L,T" Offset="0,0" Color="0,0,0,0">
-        <AlphaAnim Style="DiploAlphaAnim" Offset="20,0">
+      <GridButton ID="PlayerRibbon_PlayerButton" Size="160,160" Anchor="L,T" Offset="0,0" Color="0,0,0,0">
+        <AlphaAnim Style="DiploAlphaAnim" Offset="40,0">
           <SlideAnim Style="DiploSlideH" ID="PlayerSlide">
-            <Image ID="PlayerRibbon_PlayerIcon" Size="80,80" Anchor="L,T" Offset="0,0"/>
+            <Image ID="PlayerRibbon_PlayerIcon" Size="160,160" Anchor="L,T" Offset="0,0"/>
           </SlideAnim>
         </AlphaAnim>
       </GridButton>
@@ -65,45 +65,45 @@
   <LuaContext ID="WarSpoilsBuilder" FileName="Assets/DLC/Expansion1/UI/InGame/Diplomacy/WarSpoilsBuilder" Hidden="1" />
 
   <!-- Header -->
-  <Image Texture="CloseButtonBacking.dds" Size="108,38" Anchor="R,T"/>
-  <Grid Size="parent-60,40" Anchor="C,T" Style="FullscreenHeader">
-    <Stack StackGrowth="Right" StackPadding="5" Anchor="L,C" Offset="45,0" ID="HeaderYieldStack">
-      <Grid Style="Grid9YieldBacking" Size="50,18" ID="MyDiploCapitalContainer" Color="255,255,255,200" ToolTip="TXT_KEY_DIPLO_CAPITAL_TT">
-        <Label String="[ICON_DIPLO_CAPITAL]999" Anchor="L,B" Offset="2,-1" Style="DiploCapitalText" ID="MyDiploLabel"/>
+  <Image Texture="CloseButtonBacking.dds" Size="216,76" Anchor="R,T"/>
+  <Grid Size="parent-120,80" Anchor="C,T" Style="FullscreenHeader">
+    <Stack StackGrowth="Right" StackPadding="10" Anchor="L,C" Offset="90,0" ID="HeaderYieldStack">
+      <Grid Style="Grid9YieldBacking" Size="100,36" ID="MyDiploCapitalContainer" Color="255,255,255,200" ToolTip="TXT_KEY_DIPLO_CAPITAL_TT">
+        <Label String="[ICON_DIPLO_CAPITAL]999" Anchor="L,B" Offset="4,-2" Style="DiploCapitalText" ID="MyDiploLabel"/>
       </Grid>
-      <Grid Style="Grid9YieldBacking" Size="50,18" ID="MyHarmonyContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_HARMONY">
-        <Label String="[ICON_HARMONY]999" Anchor="L,B" Offset="2,-1" Style="HarmonyText" ID="MyHarmonyLabel"/>
+      <Grid Style="Grid9YieldBacking" Size="100,36" ID="MyHarmonyContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_HARMONY">
+        <Label String="[ICON_HARMONY]999" Anchor="L,B" Offset="4,-2" Style="HarmonyText" ID="MyHarmonyLabel"/>
       </Grid>
-      <Grid Style="Grid9YieldBacking" Size="50,18" ID="MyPurityContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_PURITY">
-        <Label String="[ICON_PURITY]999" Anchor="L,B" Offset="2,-1" Style="PurityText" ID="MyPurityLabel"/>
+      <Grid Style="Grid9YieldBacking" Size="100,36" ID="MyPurityContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_PURITY">
+        <Label String="[ICON_PURITY]999" Anchor="L,B" Offset="4,-2" Style="PurityText" ID="MyPurityLabel"/>
       </Grid>
-      <Grid Style="Grid9YieldBacking" Size="50,18" ID="MySupremacyContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_SUPREMACY">
-        <Label String="[ICON_SUPREMACY]999" Anchor="L,B" Offset="2,-1" Style="SupremacyText" ID="MySupremacyLabel"/>
+      <Grid Style="Grid9YieldBacking" Size="100,36" ID="MySupremacyContainer" Color="255,255,255,200" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_SUPREMACY">
+        <Label String="[ICON_SUPREMACY]999" Anchor="L,B" Offset="4,-2" Style="SupremacyText" ID="MySupremacyLabel"/>
       </Grid>
     </Stack>
     <Label ID="NameLabel" Anchor="C,C" Style="GradientHeader" String="{TXT_KEY_DIPLOMACY_OVERVIEW:upper}" />
   </Grid>
 
   <!-- Close button -->
-  <Button Style="CloseButton" ID="CloseButton" Anchor="R,T" Offset="0,-2"/>
+  <Button Style="CloseButton" ID="CloseButton" Anchor="R,T" Offset="0,-4"/>
 
   <Container ID="SummaryPlaceholder" Size="parent,parent" Anchor="C,C"/>
 
   <!-- Advisor -->
   <Container ID="Advisor" Size="parent,parent" Anchor="C,C" Hidden="true">
     <Box Size="parent,parent" Color="0,0,0,50" ConsumeMouse="1"/>
-    <Grid Style="Grid9DetailSix140" Size="500,300" Anchor="C,C">
-      <Label Anchor="C,T" Offset="0,10" Style="FontNormal26" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_DIPLOMACYUI_ADVISOR_HEADER:upper}" ID="PlayerTitleLabel"/>
-      <Label ID="AdvisorText" Anchor="C,T" Offset="0,130" WrapWidth="480" Style="FontNormal18" FontStyle="SoftShadow" ColorSet="Beige_Black_Alpha" String="INTRO GOES HERE"/>
-      <FlipAnim Anchor="C,T" Size="64,64" Offset="0,50" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="115,138,176,255">
-        <Image ID="TutorialRecommendation" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds">
-          <ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds"/>
+    <Grid Style="Grid9DetailSix140" Size="1000,600" Anchor="C,C">
+      <Label Anchor="C,T" Offset="0,20" Style="FontNormal26" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_DIPLOMACYUI_ADVISOR_HEADER:upper}" ID="PlayerTitleLabel"/>
+      <Label ID="AdvisorText" Anchor="C,T" Offset="0,260" WrapWidth="960" Style="FontNormal18" FontStyle="SoftShadow" ColorSet="Beige_Black_Alpha" String="INTRO GOES HERE"/>
+      <FlipAnim Anchor="C,T" Size="128,128" Offset="0,100" Columns="7" Speed="30" Pause="0" StepSize="128,0" FrameCount="35" Texture="LoadingAnim.dds" Color="115,138,176,255">
+        <Image ID="TutorialRecommendation" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds">
+          <ScrollAnim Offset="0,0" Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds"/>
         </Image>
       </FlipAnim>
 
-      <Stack ID="AdvisorButtonStack" Anchor="C,B" StackGrowth="Right" Padding="10" Offset="0,10">
-        <GridButton ID="AdvisorCloseButton" Style="BaseButton" Size="150,35" String="TXT_KEY_CLOSE" />
-        <GridButton ID="AdvisorShowMeButton" Style="BaseButton" Size="150,35" String="TXT_KEY_ADVISOR_SHOW_ME" />
+      <Stack ID="AdvisorButtonStack" Anchor="C,B" StackGrowth="Right" Padding="20" Offset="0,20">
+        <GridButton ID="AdvisorCloseButton" Style="BaseButton" Size="300,70" String="TXT_KEY_CLOSE" />
+        <GridButton ID="AdvisorShowMeButton" Style="BaseButton" Size="300,70" String="TXT_KEY_ADVISOR_SHOW_ME" />
       </Stack>
     </Grid>
   </Container>
@@ -115,40 +115,40 @@
 
   <!-- Player Ribbon Entry -->
   <Instance Name="PlayerRibbonEntry">
-    <Container ID="Content" Size="75,68">
-      <AlphaAnim Style="DiploAlphaAnim" Offset="20,0" ID="InitialAlpha">
-        <SlideAnim Style="DiploSlideH" Size="75,68" ID="InitialSlide">
-          <SlideAnim Style="DiploSlideH" ID="OtherSlide" Size="75,68">
-            <Grid Color="0,0,0,255" Size="100,68" Anchor="C,C" Offset="-50,0" ID="CurvyBits"/>
+    <Container ID="Content" Size="150,136">
+      <AlphaAnim Style="DiploAlphaAnim" Offset="40,0" ID="InitialAlpha">
+        <SlideAnim Style="DiploSlideH" Size="150,136" ID="InitialSlide">
+          <SlideAnim Style="DiploSlideH" ID="OtherSlide" Size="150,136">
+            <Grid Color="0,0,0,255" Size="200,136" Anchor="C,C" Offset="-100,0" ID="CurvyBits"/>
             <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent">
-              <SlideAnim Start="80,0" End="0,0" Cycle="Once" Pause="0" Function="Root" Speed="2" Size="parent,parent">
-                <Image Texture="Diplo_RelationshipIndicators.dds" Size="30,30" Offset="-20,0" Anchor="R,C" ID="RelationshipToOthers" Hidden="1"/>
+              <SlideAnim Start="160,0" End="0,0" Cycle="Once" Pause="0" Function="Root" Speed="2" Size="parent,parent">
+                <Image Texture="Diplo_RelationshipIndicators.dds" Size="60,60" Offset="-40,0" Anchor="R,C" ID="RelationshipToOthers" Hidden="1"/>
               </SlideAnim>
             </AlphaAnim>
-            <Container ID="HoverContent" Size="75,68" Anchor="L,C" ShowOnMouseOver="1">
+            <Container ID="HoverContent" Size="150,136" Anchor="L,C" ShowOnMouseOver="1">
               <AlphaAnim Style="DiploAlphaAnim" Pause=".06">
                 <SlideAnim Style="DiploSlideH">
-                  <Grid Style="Grid9GeneralButtonDark" Size="280,parent" Offset="40,0">
-                    <Grid Style="Grid9GeneralButtonDark" Size="68,68" AnchorSide="O,I" Anchor="R,C">
-                      <Stack ID="TraitsStack" Offset="0,0" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="78" Padding="3" />
+                  <Grid Style="Grid9GeneralButtonDark" Size="560,parent" Offset="80,0">
+                    <Grid Style="Grid9GeneralButtonDark" Size="136,136" AnchorSide="O,I" Anchor="R,C">
+                      <Stack ID="TraitsStack" Offset="0,0" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="156" Padding="6" />
                     </Grid>
-                    <Stack Anchor="L,T" StackGrowth="Down" Offset="30,5">
+                    <Stack Anchor="L,T" StackGrowth="Down" Offset="60,10">
                       <Label ID="Name" Style="WhiteShadow" String="$LEADER NAME HERE" />
-                      <Label ID="CivName"  Style="GrayShadow16" WrapWidth="250" String="$CIV NAME HERE" />
+                      <Label ID="CivName"  Style="GrayShadow16" WrapWidth="500" String="$CIV NAME HERE" />
                     </Stack>
-                    <Label ID="Relationship" Offset="30,5" Anchor="L,B" Style="GrayShadow16" String="$RELATIONSHIP" />
-                    <Image	ID="BigCivIcon" StretchMode="None" Size="90,80" Anchor="R,B" Color="100,118,155,90"/>
+                    <Label ID="Relationship" Offset="60,10" Anchor="L,B" Style="GrayShadow16" String="$RELATIONSHIP" />
+                    <Image	ID="BigCivIcon" StretchMode="None" Size="180,160" Anchor="R,B" Color="100,118,155,90"/>
                   </Grid>
                 </SlideAnim>
               </AlphaAnim>
             </Container>
-            <Button ID="Button" Size="72,68">
-              <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Anchor="C,C" >
-                <Image ID="Icon" Size="64,64" Anchor="C,C" />
+            <Button ID="Button" Size="144,136">
+              <Image Texture="PlayerRibbon_Backing.dds" Size="136,136" Anchor="C,C" >
+                <Image ID="Icon" Size="128,128" Anchor="C,C" />
               </Image>
-              <Image Texture="PlayerRibbon_RelationshipIndicators.dds" Size="88,75" Hidden="0" Anchor="L,T" Offset="-46,-4" ID="RelationshipIndicator"/>
+              <Image Texture="PlayerRibbon_RelationshipIndicators.dds" Size="176,150" Hidden="0" Anchor="L,T" Offset="-92,-8" ID="RelationshipIndicator"/>
             </Button>
-            <Image Texture="PlayerRibbon_Talk.dds" Size="33,32" Anchor="R,T" Offset="0,-5" Hidden="1" ID="TalkIndicator"/>
+            <Image Texture="PlayerRibbon_Talk.dds" Size="66,64" Anchor="R,T" Offset="0,-10" Hidden="1" ID="TalkIndicator"/>
           </SlideAnim>
         </SlideAnim>
       </AlphaAnim>
@@ -157,11 +157,11 @@
 
   <!-- Breadcrumb Entry -->
   <Instance Name="BreadcrumbEntry">
-    <Container ID="Content" Size="40,100">
+    <Container ID="Content" Size="80,200">
       <AlphaAnim Style="DiploAlphaAnim" ID="BreadcrumbAlpha">
         <SlideAnim Style="DiploSlideH" ID="BreadcrumbSlide">
           <GridButton ID="Button" Style="BreadCrumb">
-            <Label ID="Label" Style="GrayShadow" Anchor="C,C" Offset="-2,2"/>
+            <Label ID="Label" Style="GrayShadow" Anchor="C,C" Offset="-4,4"/>
           </GridButton>
         </SlideAnim>
       </AlphaAnim>
@@ -175,84 +175,84 @@
 
   <!-- Info Card -->
   <Instance Name="InfoCard">
-    <Box Color="0,0,0,0" ID="Content" Size="590,250" Anchor="L,T" Offset="0,0">
+    <Box Color="0,0,0,0" ID="Content" Size="1180,500" Anchor="L,T" Offset="0,0">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="CardAlphaAnim">
-        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="CardSlideAnim">
+        <SlideAnim Start="-600,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="CardSlideAnim">
           <Grid Style="Grid9DropShadow" Size="parent,parent" Color="0,0,0,200" Anchor="C,B" Offset="0,0" ID="CardBackingDropShadow">
-            <Grid ID="CardBacking" Style="Grid9Card" Size="480,200" Anchor="C,B" Offset="0,0">
-              <Box Size="parent,50" Color="0,0,0,0">
-                <Box Style="CivIcon64" 	Anchor="L,T" Offset="-2,-2"/>
-                <Box Color="255,255,255,12" Offset="58,0" Size="2,55"/>
-                <Stack StackGrowth="Down" Offset="65,5" >
+            <Grid ID="CardBacking" Style="Grid9Card" Size="960,400" Anchor="C,B" Offset="0,0">
+              <Box Size="parent,100" Color="0,0,0,0">
+                <Box Style="CivIcon64" 	Anchor="L,T" Offset="-4,-4"/>
+                <Box Color="255,255,255,12" Offset="116,0" Size="4,110"/>
+                <Stack StackGrowth="Down" Offset="130,10" >
                   <Label ID="Name" Style="WhiteShadow22" Anchor="L,T" Align="Left" String="LEADER NAME HERE"/>
-                  <Label ID="NameSmall" Style="WhiteShadow22" Anchor="L,T" Align="Left" String="LEADER NAME HERE" FontSize="16" Hidden="1"/>
+                  <Label ID="NameSmall" Style="WhiteShadow22" Anchor="L,T" Align="Left" String="LEADER NAME HERE" FontSize="32" Hidden="1"/>
                   <Label ID="CivName" Style="GrayShadow16" Anchor="L,T" Align="Left" String="Faction Name Here" />
-                  <Label ID="CivNameSmall" Style="GrayShadow16" Anchor="L,T" Align="Left" String="LEADER NAME HERE" FontSize="14" Hidden="1"/>
+                  <Label ID="CivNameSmall" Style="GrayShadow16" Anchor="L,T" Align="Left" String="LEADER NAME HERE" FontSize="28" Hidden="1"/>
                 </Stack>
-                <Stack StackGrowth="Down" Anchor="R,T" Offset="5,10" Padding="2">
-                  <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="60,18" ID="RespectContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_RESPECTDESC}">
-                    <Label String="[ICON_RESPECT]" Anchor="L,B" Offset="2,-1" ID="RespectLabel"/>
-                    <Stack StackGrowth="Right" Offset="25,-2" Anchor="L,B">
-                      <Label Style="RespectText" FontSize="22" String="99" ID="RespectLVLValue"/>
-                      <Label Style="RespectText" FontSize="16" Anchor="L,B" String="99" ID="RespectPossValue"/>
+                <Stack StackGrowth="Down" Anchor="R,T" Offset="10,20" Padding="4">
+                  <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="120,36" ID="RespectContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_RESPECTDESC}">
+                    <Label String="[ICON_RESPECT]" Anchor="L,B" Offset="4,-2" ID="RespectLabel"/>
+                    <Stack StackGrowth="Right" Offset="50,-4" Anchor="L,B">
+                      <Label Style="RespectText" FontSize="44" String="99" ID="RespectLVLValue"/>
+                      <Label Style="RespectText" FontSize="32" Anchor="L,B" String="99" ID="RespectPossValue"/>
                     </Stack>
-                    <Image Texture="Diplo_RespectMeter.dds" Size="7,19" Anchor="R,B" TextureOffset="7,0" Color="200,200,200,255"/>
-                    <TextureBar ID="RespectMeter" Texture="Diplo_RespectMeter.dds" TextureOffset="14,0" Size="7,19" Anchor="R,B" Direction="Up"/>
+                    <Image Texture="Diplo_RespectMeter.dds" Size="14,38" Anchor="R,B" TextureOffset="14,0" Color="200,200,200,255"/>
+                    <TextureBar ID="RespectMeter" Texture="Diplo_RespectMeter.dds" TextureOffset="28,0" Size="14,38" Anchor="R,B" Direction="Up"/>
                   </Grid>
-                  <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="60,18" ID="FearContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_FEARDESC}">
-                    <Label String="[ICON_FEAR]" Anchor="L,B" Offset="2,-1" ID="FearLabel"/>
-                    <Stack StackGrowth="Right" Offset="25,-2" Anchor="L,B">
-                      <Label Style="FearText" FontSize="22" String="99" ID="FearLVLValue"/>
-                      <Label Style="FearText" FontSize="16" Anchor="L,B" String="99" ID="FearPossValue"/>
+                  <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="120,36" ID="FearContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_FEARDESC}">
+                    <Label String="[ICON_FEAR]" Anchor="L,B" Offset="4,-2" ID="FearLabel"/>
+                    <Stack StackGrowth="Right" Offset="50,-4" Anchor="L,B">
+                      <Label Style="FearText" FontSize="44" String="99" ID="FearLVLValue"/>
+                      <Label Style="FearText" FontSize="32" Anchor="L,B" String="99" ID="FearPossValue"/>
                     </Stack>
-                    <Image Texture="Diplo_FearMeter.dds" Size="7,19" Anchor="R,B" TextureOffset="7,0" Color="200,200,200,255"/>
-                    <TextureBar ID="FearMeter" Texture="Diplo_FearMeter.dds" TextureOffset="14,0" Size="7,19" Anchor="R,B" Direction="Up"/>
+                    <Image Texture="Diplo_FearMeter.dds" Size="14,38" Anchor="R,B" TextureOffset="14,0" Color="200,200,200,255"/>
+                    <TextureBar ID="FearMeter" Texture="Diplo_FearMeter.dds" TextureOffset="28,0" Size="14,38" Anchor="R,B" Direction="Up"/>
                   </Grid>
                 </Stack>
               </Box>
-              <Stack StackGrowth="Left" StackPadding="5" Anchor="R,B" Offset="5,5" ID="YieldStack">
-                <Grid Style="Grid9YieldBacking" Size="50,18" ID="DiploCapitalContainer" Color="255,255,255,200">
-                  <Label String="[ICON_DIPLO_CAPITAL] 999" Anchor="L,B" Offset="2,-1" Style="DiploCapitalText" ID="DiploLabel"/>
+              <Stack StackGrowth="Left" StackPadding="10" Anchor="R,B" Offset="10,10" ID="YieldStack">
+                <Grid Style="Grid9YieldBacking" Size="100,36" ID="DiploCapitalContainer" Color="255,255,255,200">
+                  <Label String="[ICON_DIPLO_CAPITAL] 999" Anchor="L,B" Offset="4,-2" Style="DiploCapitalText" ID="DiploLabel"/>
                 </Grid>
-                <Grid Style="Grid9YieldBacking" Size="50,18" ID="SupremacyContainer" Color="255,255,255,200">
-                  <Label String="[ICON_SUPREMACY] 999" Anchor="L,B" Offset="2,-1" Style="SupremacyText" ID="SupremacyLabel"/>
+                <Grid Style="Grid9YieldBacking" Size="100,36" ID="SupremacyContainer" Color="255,255,255,200">
+                  <Label String="[ICON_SUPREMACY] 999" Anchor="L,B" Offset="4,-2" Style="SupremacyText" ID="SupremacyLabel"/>
                 </Grid>
-                <Grid Style="Grid9YieldBacking" Size="50,18" ID="PurityContainer" Color="255,255,255,200">
-                  <Label String="[ICON_PURITY] 999" Anchor="L,B" Offset="2,-1" Style="PurityText" ID="PurityLabel"/>
+                <Grid Style="Grid9YieldBacking" Size="100,36" ID="PurityContainer" Color="255,255,255,200">
+                  <Label String="[ICON_PURITY] 999" Anchor="L,B" Offset="4,-2" Style="PurityText" ID="PurityLabel"/>
                 </Grid>
-                <Grid Style="Grid9YieldBacking" Size="50,18" ID="HarmonyContainer" Color="255,255,255,200">
-                  <Label String="[ICON_HARMONY] 999" Anchor="L,B" Offset="2,-1" Style="HarmonyText" ID="HarmonyLabel"/>
+                <Grid Style="Grid9YieldBacking" Size="100,36" ID="HarmonyContainer" Color="255,255,255,200">
+                  <Label String="[ICON_HARMONY] 999" Anchor="L,B" Offset="4,-2" Style="HarmonyText" ID="HarmonyLabel"/>
                 </Grid>
               </Stack>
 
-              <Image	ID="BigCivIcon"		Size="128,128"	Offset="-37,70" Anchor="C,T" Color="100,118,155,90"/>
-              <Container Size="78,115" Anchor="L,T" Offset="25,75">
-                <Grid Style="Grid9BlackGradientContainer" Size="115,110" Offset="0,10" Anchor="C,B">
-                  <Stack ID="TraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="78" Anchor="C,T" Offset="0,30" Padding="3" />
+              <Image	ID="BigCivIcon"		Size="256,256"	Offset="-74,140" Anchor="C,T" Color="100,118,155,90"/>
+              <Container Size="156,230" Anchor="L,T" Offset="50,150">
+                <Grid Style="Grid9BlackGradientContainer" Size="230,220" Offset="0,20" Anchor="C,B">
+                  <Stack ID="TraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="156" Anchor="C,T" Offset="0,60" Padding="6" />
                 </Grid>
-                <Label Style="DarkGrayShadow" Anchor="C,T" Offset="0,5" String="{TXT_KEY_DIPLOMACYUI_TRAITS:upper}" />
+                <Label Style="DarkGrayShadow" Anchor="C,T" Offset="0,10" String="{TXT_KEY_DIPLOMACYUI_TRAITS:upper}" />
               </Container>
-              <Container ID="AgreementsContent" Size="190,115" Anchor="R,T" Offset="3,75">
-                <Grid Style="Grid9BlackGradientContainer" Size="188,110" Offset="0,10" Anchor="R,B">
-                  <Stack StackGrowth="Right" Anchor="L,B" Offset="5,10" Padding="2" ID="EmptyServicesStack">
-                    <GridButton ID="PurchaseServiceButton1" Style="BaseButtonDark" Size="34,71" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
-                    <GridButton ID="PurchaseServiceButton2" Style="BaseButtonDark" Size="34,71" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
-                    <GridButton ID="PurchaseServiceButton3" Style="BaseButtonDark" Size="34,71" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
-                    <GridButton ID="PurchaseServiceButton4" Style="BaseButtonDark" Size="34,71" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
-                    <GridButton ID="PurchaseServiceButton5" Style="BaseButtonDark" Size="34,71" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
+              <Container ID="AgreementsContent" Size="380,230" Anchor="R,T" Offset="6,150">
+                <Grid Style="Grid9BlackGradientContainer" Size="376,220" Offset="0,20" Anchor="R,B">
+                  <Stack StackGrowth="Right" Anchor="L,B" Offset="10,20" Padding="4" ID="EmptyServicesStack">
+                    <GridButton ID="PurchaseServiceButton1" Style="BaseButtonDark" Size="68,142" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
+                    <GridButton ID="PurchaseServiceButton2" Style="BaseButtonDark" Size="68,142" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
+                    <GridButton ID="PurchaseServiceButton3" Style="BaseButtonDark" Size="68,142" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
+                    <GridButton ID="PurchaseServiceButton4" Style="BaseButtonDark" Size="68,142" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
+                    <GridButton ID="PurchaseServiceButton5" Style="BaseButtonDark" Size="68,142" ToolTip="TXT_KEY_DIPLOMACYUI_PURCHASESERVICES_TT"/>
                   </Stack>
-                  <Stack ID="AgreementsStack" StackGrowth="Right" Anchor="L,B" Offset="5,10" Padding="2" />
-                  <Label ID="OtherLeaderHasNoAgreements" Align="Center" Anchor="C,C" Style="GrayShadow16" WrapWidth="175" Hidden="0"/>
+                  <Stack ID="AgreementsStack" StackGrowth="Right" Anchor="L,B" Offset="10,20" Padding="4" />
+                  <Label ID="OtherLeaderHasNoAgreements" Align="Center" Anchor="C,C" Style="GrayShadow16" WrapWidth="350" Hidden="0"/>
                 </Grid>
-                <Label Style="DarkGrayShadow" Anchor="C,T" Offset="5,5" String="{TXT_KEY_DIPLOMACYUI_AGREEMENTS:upper}" />
+                <Label Style="DarkGrayShadow" Anchor="C,T" Offset="10,10" String="{TXT_KEY_DIPLOMACYUI_AGREEMENTS:upper}" />
               </Container>
 
-              <Grid Size="parent,20" Offset="0,56" Style="Grid9DiplomacyContainer">
+              <Grid Size="parent,40" Offset="0,112" Style="Grid9DiplomacyContainer">
                 <Box Color="0,0,0,150" Size="parent,parent"/>
-                <Label Anchor="C,C" ID="Relationship" Style="GrayGlow20" Offset="5,1" String="RELATIONSHIP" />
+                <Label Anchor="C,C" ID="Relationship" Style="GrayGlow20" Offset="10,2" String="RELATIONSHIP" />
               </Grid>
 
-              <CheckBox ID="ShowRelationshipCheckBox" Anchor="L,T" Offset="-5,-35" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="WhiteShadow16" TextAnchorSide="Right" TextOffset="40,0" String="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS" ToolTip="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS_TT" IsChecked="0" ConsumeMouse="1" Hidden="1"/>
+              <CheckBox ID="ShowRelationshipCheckBox" Anchor="L,T" Offset="-10,-70" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="WhiteShadow16" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS" ToolTip="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS_TT" IsChecked="0" ConsumeMouse="1" Hidden="1"/>
             </Grid>
           </Grid>
         </SlideAnim>
@@ -262,22 +262,22 @@
 
   <!-- RecentActivity -->
   <Instance Name="RecentActivity">
-    <Box Color="0,0,0,0" ID="Content" Size="580,250" Anchor="R,T" Offset="0,0">
+    <Box Color="0,0,0,0" ID="Content" Size="1160,500" Anchor="R,T" Offset="0,0">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="CardAlphaAnim">
-        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="CardSlideAnim">
+        <SlideAnim Start="-600,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="CardSlideAnim">
           <Grid ID="CardBackingDropShadow" Style="Grid9DropShadow" Size="parent,parent" Color="0,0,0,200" Anchor="C,B" Offset="0,0">
-            <Grid ID="CardBacking" Style="Grid9DiplomacyWindow" Size="480,200" Anchor="C,B" Offset="0,0">
-              <Label Style="WhiteShadow22" Anchor="L,T" Offset="10,8" String="TXT_KEY_DIPLOMACYUI_COMMUNIQUES"/>
-              <Container Size="parent-4,parent-33" Anchor="C,T" Offset="0,33">
-                <ScrollPanel ID="RecentActivityScrollPanel" Offset="4,0" Size="parent-8,parent" Vertical="true">
+            <Grid ID="CardBacking" Style="Grid9DiplomacyWindow" Size="960,400" Anchor="C,B" Offset="0,0">
+              <Label Style="WhiteShadow22" Anchor="L,T" Offset="20,16" String="TXT_KEY_DIPLOMACYUI_COMMUNIQUES"/>
+              <Container Size="parent-8,parent-66" Anchor="C,T" Offset="0,66">
+                <ScrollPanel ID="RecentActivityScrollPanel" Offset="8,0" Size="parent-16,parent" Vertical="true">
                   <ScrollBar Style="VertSlider" Anchor="R,T" AnchorSide="I,I" />
                   <Stack StackGrowth="Bottom" Anchor="L,T" Offset="0,0">
-                    <Stack ID="RecentActivityStack" StackGrowth="Bottom" Padding="2"/>
-                    <Container Size="10,20"/>
+                    <Stack ID="RecentActivityStack" StackGrowth="Bottom" Padding="4"/>
+                    <Container Size="20,40"/>
                   </Stack>
                 </ScrollPanel>
-                <Label ID="NoCommuniques" String="TXT_KEY_NO_COMMUNIQUES" Style="GrayShadow" Anchor="C,C" WrapWidth="470"/>
-                <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="parent,64" Anchor="L,B" ConsumeMouse="0"/>
+                <Label ID="NoCommuniques" String="TXT_KEY_NO_COMMUNIQUES" Style="GrayShadow" Anchor="C,C" WrapWidth="940"/>
+                <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="parent,128" Anchor="L,B" ConsumeMouse="0"/>
               </Container>
             </Grid>
           </Grid>
@@ -288,32 +288,32 @@
 
   <!-- Communique Entry -->
   <Instance Name="CommuniqueEntry">
-    <Grid ID="Content" Style="Grid9DiplomacyContainer" Size="parent-20,100">
-      <Stack ID="ContentStack" StackGrowth="Down" Padding="10">
-        <Grid Size="parent, 30" Style="GridColumnHeader2" Color="255,255,255,150">
-          <Stack ID="HeaderStack" StackGrowth="Right" Offset="5,0" Anchor="L,C">
-            <Grid ID="NewIndicator" Style="BadgeGrid" Size="40,39">
+    <Grid ID="Content" Style="Grid9DiplomacyContainer" Size="parent-40,200">
+      <Stack ID="ContentStack" StackGrowth="Down" Padding="20">
+        <Grid Size="parent, 60" Style="GridColumnHeader2" Color="255,255,255,150">
+          <Stack ID="HeaderStack" StackGrowth="Right" Offset="10,0" Anchor="L,C">
+            <Grid ID="NewIndicator" Style="BadgeGrid" Size="80,78">
               <Label ID="NewLabel" Style="UpgradeText" String="{TXT_KEY_UI_NEW:upper}" Anchor="C,C"/>
             </Grid>
             <Label ID="Header" Style="GrayGlow20" Anchor="L,C" String="COMMUNIQUE NAME HERE" />
           </Stack>
-          <Grid ID="RespectDeltaContainer" Size="58,40" Style="Grid9CostContainer" Anchor="R,C" Offset="-5,0" Color="255,255,255,150">
-            <Stack Anchor="R,C" Offset="10,2" StackGrowth="Right" Padding="-5">
-              <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="21,10" Stopped="1">
+          <Grid ID="RespectDeltaContainer" Size="116,80" Style="Grid9CostContainer" Anchor="R,C" Offset="-10,0" Color="255,255,255,150">
+            <Stack Anchor="R,C" Offset="20,4" StackGrowth="Right" Padding="-10">
+              <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="42,20" Stopped="1">
                 <Label ID="RespectDelta"/>
               </AlphaAnim>
               <Label String="[ICON_RESPECT]"/>
             </Stack>
           </Grid>
         </Grid>
-        <Label ID="Message" Style="GrayShadow" Anchor="L,T" Offset="10,0" WrapWidth="470" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+        <Label ID="Message" Style="GrayShadow" Anchor="L,T" Offset="20,0" WrapWidth="940" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
       </Stack>
     </Grid>
   </Instance>
 
   <!-- Small Trait Entry -->
   <Instance Name="SmallTraitEntry">
-    <Container ID="Content" Size="32,32">
+    <Container ID="Content" Size="64,64">
       <GridButton ID="Button" Style="BaseButtonDark" Size="parent,parent"/>
       <Image ID="Icon" Size="parent,parent"/>
     </Container>
@@ -321,9 +321,9 @@
 
   <!-- Small Agreement Entry -->
   <Instance Name="SmallAgreementEntry">
-    <Grid Style="Grid9AgreementsBacking" ID="Content" Size="34,71" ConsumeMouse="1">
-      <Image ID="PolicyIcon" Size="32,32" Anchor="C,T" Offset="0,3" />
-      <Box Style="CivIcon32"	Anchor="C,T" Offset="0,38"/>
+    <Grid Style="Grid9AgreementsBacking" ID="Content" Size="68,142" ConsumeMouse="1">
+      <Image ID="PolicyIcon" Size="64,64" Anchor="C,T" Offset="0,6" />
+      <Box Style="CivIcon32"	Anchor="C,T" Offset="0,76"/>
     </Grid>
   </Instance>
 

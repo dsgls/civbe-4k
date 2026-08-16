@@ -8,48 +8,48 @@
 	<!-- ========================<({  Banner template for Player's Cities  })>======================== -->
 	<Instance Name="TeamCityBanner">
     <WorldAnchor ID="Anchor" Alpha="0.6">
-      <Grid ID="CityBannerShadow" Anchor="C,C" AnchorSide="O,I" Size="140,64" Offset="0,20" Texture="Assets/UI/Art/Icons/CityBannerShadow.dds" SliceCorner="1,1" SliceSize="62,62" SliceTextureSize="64,64"/>
+      <Grid ID="CityBannerShadow" Anchor="C,C" AnchorSide="O,I" Size="280,128" Offset="0,40" Texture="Assets/UI/Art/Icons/CityBannerShadow.dds" SliceCorner="2,2" SliceSize="124,124" SliceTextureSize="128,128"/>
 
       <!-- Covert Ops / Espionage -->
       <WorldAnchor ID="CovertOpsAnchor">
-        <Container ID="CovertOps"			Offset="0,-10"	Anchor="C,B" Hidden="1">
-          <Image							Offset="0,10"	Anchor="C,T"	Size="296,64"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
-          <Image ID="IntrigueHighlight"	Offset="0,-1"	Anchor="C,T"	Size="237,50"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerColorHighlight.dds"/>
-          <Image							Offset="0,-1"	Anchor="C,T"	Size="237,50"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBGNear.dds"/>
-          <Container						Offset="0,11"	Size="102,24" Anchor="C,T">
-            <Image ID="IntrigueBG"		Offset="0,0"	Size="102,24" Anchor="L,T" TextureOffset="0,0" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
-            <Image ID="Intrigue"		Offset="1,1"	Size="102,24" Anchor="L,T" TextureOffset="0,24" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
+        <Container ID="CovertOps"			Offset="0,-20"	Anchor="C,B" Hidden="1">
+          <Image							Offset="0,20"	Anchor="C,T"	Size="592,128"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
+          <Image ID="IntrigueHighlight"	Offset="0,-2"	Anchor="C,T"	Size="474,100"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerColorHighlight.dds"/>
+          <Image							Offset="0,-2"	Anchor="C,T"	Size="474,100"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBGNear.dds"/>
+          <Container						Offset="0,22"	Size="204,48" Anchor="C,T">
+            <Image ID="IntrigueBG"		Offset="0,0"	Size="204,48" Anchor="L,T" TextureOffset="0,0" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
+            <Image ID="Intrigue"		Offset="2,2"	Size="204,48" Anchor="L,T" TextureOffset="0,48" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
           </Container>
         </Container>
       </WorldAnchor>
 
       <WorldAnchor ID="CovertOpsIntelReportAnchor">
         <!-- Covert Intel -->
-        <Grid ID="IntelReport" Anchor="L,T" Offset="119,-35" Size="350,400" Style="GridWindowWithHeader" ConsumeMouse="1" Hidden="1">
-          <Label ID="IntelTitle" Anchor="L,T" Offset="10,20" Style="FontNormal20" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
-          <Box ID="TabRow" Anchor="L,T" Offset="9,54" Size="parent-18,32" Color="255,200,0,0">
-            <GridButton ID="IntelReportTab" Anchor="L,T" Offset="0,0" Size="200,32" Style="TabInactive">
+        <Grid ID="IntelReport" Anchor="L,T" Offset="238,-70" Size="700,800" Style="GridWindowWithHeader" ConsumeMouse="1" Hidden="1">
+          <Label ID="IntelTitle" Anchor="L,T" Offset="20,40" Style="FontNormal20" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
+          <Box ID="TabRow" Anchor="L,T" Offset="18,108" Size="parent-36,64" Color="255,200,0,0">
+            <GridButton ID="IntelReportTab" Anchor="L,T" Offset="0,0" Size="400,64" Style="TabInactive">
               <Label Anchor="C,C" Offset="0,0" Style="FontNormal14" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
             </GridButton>
-            <GridButton ID="OPsHistoryTab" Anchor="L,T" Offset="100,0" Size="200,32" Style="TabInactive">
+            <GridButton ID="OPsHistoryTab" Anchor="L,T" Offset="200,0" Size="400,64" Style="TabInactive">
               <Label Anchor="C,C" Offset="0,0" Style="FontNormal14" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="{TXT_KEY_COVERT_OPS_HISTORY:upper}"/>
             </GridButton>
           </Box>
-          <Grid ID="IntelReportArea" Anchor="L,T" Offset="7,82" Size="Parent-14,Parent-100" Style="GridSetupGameSectionBackground" Hidden="1">
-            <ScrollPanel ID="IntelScroll" Anchor="L,T" Offset="5,10" Size="parent-32,parent-20" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
+          <Grid ID="IntelReportArea" Anchor="L,T" Offset="14,164" Size="Parent-28,Parent-200" Style="GridSetupGameSectionBackground" Hidden="1">
+            <ScrollPanel ID="IntelScroll" Anchor="L,T" Offset="10,20" Size="parent-64,parent-40" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
               <Stack ID="IntelStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
-          <Grid ID="OPsHistoryArea" Anchor="L,T" Offset="7,82" Size="Parent-14,Parent-100" Style="GridSetupGameSectionBackground">
-            <ScrollPanel ID="HistoryScroll" Anchor="L,T" Offset="5,10" Size="parent-32,parent-20" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
+          <Grid ID="OPsHistoryArea" Anchor="L,T" Offset="14,164" Size="Parent-28,Parent-200" Style="GridSetupGameSectionBackground">
+            <ScrollPanel ID="HistoryScroll" Anchor="L,T" Offset="10,20" Size="parent-64,parent-40" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
               <Stack ID="HistoryStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
-          <Grid ID="CounterIntelArea" Anchor="L,T" Offset="7,50" Size="Parent-14,Parent-50" Style="GridSetupGameSectionBackground">
-            <ScrollPanel ID="CounterIntelScroll" Anchor="L,T" Offset="5,10" Size="parent-32,180" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider"/>
+          <Grid ID="CounterIntelArea" Anchor="L,T" Offset="14,100" Size="Parent-28,Parent-100" Style="GridSetupGameSectionBackground">
+            <ScrollPanel ID="CounterIntelScroll" Anchor="L,T" Offset="10,20" Size="parent-64,360" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider"/>
               <Stack ID="CounterIntelStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
@@ -57,75 +57,75 @@
       </WorldAnchor>
 
       <!-- CityBannerButton and hover highlighting-->
-      <Button	ID="BannerButton"				Anchor="C,C"					Size="160,40" ToolTip="TXT_KEY_CITY_ENTER_CITY_SCREEN">
-        <Grid		ID="CityBannerButtonBase"		Anchor="C,C" AnchorSide="O,I"	Size="140,64"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds" SliceCorner="16,32" SliceSize="2,2" SliceTextureSize="32,64"/>
-        <Image		ID="CityBannerButtonBaseLeft"	Anchor="L,C" AnchorSide="O,I"	Size="48,64"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
-        <Image		ID="CityBannerButtonBaseRight"	Anchor="R,C" AnchorSide="O,I"	Size="48,64"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
+      <Button	ID="BannerButton"				Anchor="C,C"					Size="320,80" ToolTip="TXT_KEY_CITY_ENTER_CITY_SCREEN">
+        <Grid		ID="CityBannerButtonBase"		Anchor="C,C" AnchorSide="O,I"	Size="280,128"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds" SliceCorner="32,64" SliceSize="4,4" SliceTextureSize="64,128"/>
+        <Image		ID="CityBannerButtonBaseLeft"	Anchor="L,C" AnchorSide="O,I"	Size="96,128"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
+        <Image		ID="CityBannerButtonBaseRight"	Anchor="R,C" AnchorSide="O,I"	Size="96,128"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
       </Button>
       <!-- CityBannerBackground -->
-      <Grid			ID="CityBannerBackground"		Anchor="C,C" Offset="0,-1" Size="111,64" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds" SliceCorner="16,32" SliceSize="1,1" SliceTextureSize="32,64">
-        <Image		ID="CityBannerLeftBackground"	Offset="0,-1" Anchor="R,B" AnchorSide="O,I"	Size="48,64" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds" >
-          <Button ID="CityBannerProductionButton" Anchor="L,C" NoStateChange="1"	Size="48,64"/>
-          <Image	ID="CityBannerProductionImage"	Anchor="C,C" Offset="3,0"		Size="45,45" />
+      <Grid			ID="CityBannerBackground"		Anchor="C,C" Offset="0,-2" Size="222,128" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds" SliceCorner="32,64" SliceSize="2,2" SliceTextureSize="64,128">
+        <Image		ID="CityBannerLeftBackground"	Offset="0,-2" Anchor="R,B" AnchorSide="O,I"	Size="96,128" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds" >
+          <Button ID="CityBannerProductionButton" Anchor="L,C" NoStateChange="1"	Size="96,128"/>
+          <Image	ID="CityBannerProductionImage"	Anchor="C,C" Offset="6,0"		Size="90,90" />
         </Image>
-        <Image		ID="CityBannerRightBackground"		Offset="0,1" Anchor="L,C" AnchorSide="O,I"	Size="48,64" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds">
-          <Label	ID="CityPopulation"				Anchor="C,C" Offset="-3,1" Style="FontNormal20" ForceNonIME="1"/>
+        <Image		ID="CityBannerRightBackground"		Offset="0,2" Anchor="L,C" AnchorSide="O,I"	Size="96,128" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds">
+          <Label	ID="CityPopulation"				Anchor="C,C" Offset="-6,2" Style="FontNormal20" ForceNonIME="1"/>
         </Image>
       </Grid>
       <!-- CityBannerBackground HL -->
-      <Image			ID="CityBannerBackgroundHL"		Anchor="C,C" Size="141,32" Texture="Assets/UI/Art/Icons/CityBannerBackgroundHL.dds" Hidden="0">
+      <Image			ID="CityBannerBackgroundHL"		Anchor="C,C" Size="282,64" Texture="Assets/UI/Art/Icons/CityBannerBackgroundHL.dds" Hidden="0">
         <!-- GrowthMeter CityBannerGrowthBackground -->
-        <Box										Anchor="L,C"	Offset="-8,0"	Size="8,42" Color="0,0,0,0">
-          <TextureBar ID="GrowthBarShadow"		Anchor="C,B"	Offset="-1,0"	Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>
-          <TextureBar ID="GrowthBar"				Anchor="C,B"	Offset="-1,0"	Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>
-          <Label		ID="CityGrowth"				Anchor="L,T" AnchorSide="O,I" Offset="1,0" Color0="PlayerColor1,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" ForceNonIME="1"/>
+        <Box										Anchor="L,C"	Offset="-16,0"	Size="16,84" Color="0,0,0,0">
+          <TextureBar ID="GrowthBarShadow"		Anchor="C,B"	Offset="-2,0"	Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>
+          <TextureBar ID="GrowthBar"				Anchor="C,B"	Offset="-2,0"	Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>
+          <Label		ID="CityGrowth"				Anchor="L,T" AnchorSide="O,I" Offset="2,0" Color0="PlayerColor1,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" ForceNonIME="1"/>
         </Box>
         <!-- ProductionMeter  -->
-        <Box Anchor="R,C" Offset="-6,0" Size="8,42" Color="0,0,0,0" Hidden="0">
-          <TextureBar ID="ProductionBarShadow" Anchor="C,B" Offset="0,0" Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>/>
-          <TextureBar ID="ProductionBar" Anchor="C,B" Offset="0,0" Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>/>
-          <Label ID="BuildGrowth" Anchor="R,T" AnchorSide="O,I" Offset="2,0" Color0="PlayerColor1,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" ForceNonIME="1" Hidden="0"/>
+        <Box Anchor="R,C" Offset="-12,0" Size="16,84" Color="0,0,0,0" Hidden="0">
+          <TextureBar ID="ProductionBarShadow" Anchor="C,B" Offset="0,0" Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>/>
+          <TextureBar ID="ProductionBar" Anchor="C,B" Offset="0,0" Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds"/>/>
+          <Label ID="BuildGrowth" Anchor="R,T" AnchorSide="O,I" Offset="4,0" Color0="PlayerColor1,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" ForceNonIME="1" Hidden="0"/>
         </Box>
       </Image>
       <!-- CityProductionName -->
-      <Label ID="CityProductionName" Anchor="C,C" Offset="0,6" Style="FontNormal14" FontStyle="Base" Hidden="1"/>
-      <Box Anchor="C,C" Size="160,40" Color="0,0,0,0">
+      <Label ID="CityProductionName" Anchor="C,C" Offset="0,12" Style="FontNormal14" FontStyle="Base" Hidden="1"/>
+      <Box Anchor="C,C" Size="320,80" Color="0,0,0,0">
         <!-- CityName -->
         <Stack ID="NameStack" Anchor="C,C" Offset="0,0" StackGrowth="Right" Padding="0">
-          <Image ID="CityTypeIcon" Offset="-6,-1" Texture="Assets/UI/Art/Icons/StarIcon.dds"/>
+          <Image ID="CityTypeIcon" Offset="-12,-2" Texture="Assets/UI/Art/Icons/StarIcon.dds"/>
           <Label ID="CityName" Anchor="L,C" Offset="0,0" Style="FontNormal22"/>
         </Stack>
       </Box>
-      <Button ID="EjectGarrison" Style="Button_128" Offset="0,40" Anchor="C,T" Hidden="1"/>
+      <Button ID="EjectGarrison" Style="Button_128" Offset="0,80" Anchor="C,T" Hidden="1"/>
       <!--  CityBannerHealthBar CityBannerStrengthFrame CityCapitalIcon CityStrength CityRangeStrikeButton -->
-      <Box Anchor="C,C" Offset="0,-32" Size="128,48" Color="0,0,0,0">
+      <Box Anchor="C,C" Offset="0,-64" Size="256,96" Color="0,0,0,0">
         <!--<Image ID="GarrisonFrame" Anchor="C,C" Offset="0,-4" Size="256,48" Texture="Assets/UI/Art/Icons/CityBannerGarrisonArea.dds"/>
          CityBannerStrengthFrame  -->
-        <Image ID="CityBannerStrengthFrame" Anchor="C,C" Offset="0,-6" Size="79,32" Color="PlayerColor2,255" Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
-          <Image ID="ShieldIcon" Anchor="C,C" Offset="-15,5" Color="PlayerColor1,255" Texture="Assets/UI/Art/Icons/ShieldIcon.dds"/>
-          <Label ID="CityStrength" Anchor="C,C" Offset="6,5" Style="FontNormal16" Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
+        <Image ID="CityBannerStrengthFrame" Anchor="C,C" Offset="0,-12" Size="158,64" Color="PlayerColor2,255" Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
+          <Image ID="ShieldIcon" Anchor="C,C" Offset="-30,10" Color="PlayerColor1,255" Texture="Assets/UI/Art/Icons/ShieldIcon.dds"/>
+          <Label ID="CityStrength" Anchor="C,C" Offset="12,10" Style="FontNormal16" Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
         </Image>
         <!--  CityAttackFrame -->
-        <Image ID="CityAttackFrame" Anchor="C,C" Offset="0,85" Size="128,64" Color="PlayerColor2,255" Texture="Assets/UI/Art/Icons/CityBannerStrikeFrame.dds" Hidden="1">
+        <Image ID="CityAttackFrame" Anchor="C,C" Offset="0,170" Size="256,128" Color="PlayerColor2,255" Texture="Assets/UI/Art/Icons/CityBannerStrikeFrame.dds" Hidden="1">
 
-          <Stack	ID="CityAttackStack" Anchor="C,C" StackGrowth="Right" Padding="0" Offset="0,-8">
-            <Container Size="20,64" Offset="0,16">
-              <SlideAnim Start="-30,0" End="-10,0" Speed="0.7">
+          <Stack	ID="CityAttackStack" Anchor="C,C" StackGrowth="Right" Padding="0" Offset="0,-16">
+            <Container Size="40,128" Offset="0,32">
+              <SlideAnim Start="-60,0" End="-20,0" Speed="0.7">
                 <AlphaAnim AlphaStart="1.0" AlphaEnd="0" Speed="0.7">
                   <Image Texture="Assets/UI/Art/City/BombardArrowLeft.dds"/>
                 </AlphaAnim>
               </SlideAnim>
             </Container>
-            <Container		ID="CityRangeStrikeContainer"	Anchor="C,C"	Size="44,40" Hidden="1">
-              <Button		ID="CityRangeStrikeButton"		Anchor="C,C"	Size="64,64" Texture="Assets/UI/Art/Icons/CityBombard.dds" ToolTip="TXT_KEY_CITY_MAKE_RANGED_ATTACK"/>
-              <AlphaAnim									Anchor="C,C"	Size="64,64" Texture="Assets/UI/Art/Icons/CityBombard.dds" Pause="0" Cycle="Bounce" Speed="1.2" AlphaStart="0.7" AlphaEnd="0.1"/>
+            <Container		ID="CityRangeStrikeContainer"	Anchor="C,C"	Size="88,80" Hidden="1">
+              <Button		ID="CityRangeStrikeButton"		Anchor="C,C"	Size="128,128" Texture="Assets/UI/Art/Icons/CityBombard.dds" ToolTip="TXT_KEY_CITY_MAKE_RANGED_ATTACK"/>
+              <AlphaAnim									Anchor="C,C"	Size="128,128" Texture="Assets/UI/Art/Icons/CityBombard.dds" Pause="0" Cycle="Bounce" Speed="1.2" AlphaStart="0.7" AlphaEnd="0.1"/>
             </Container>
-            <Container		ID="AntiOrbitalStrikeContainer" Anchor="C,C"	Size="44,40" Hidden="1">
-              <Button		ID="AntiOrbitalStrikeButton"	Anchor="C,C"	Size="64,64" Texture="Assets/UI/Art/Icons/CityAttackOrbital.dds" ToolTip="TXT_KEY_CITY_MAKE_ORBITAL_ATTACK"/>
-              <AlphaAnim									Anchor="C,C"	Size="64,64" Texture="Assets/UI/Art/Icons/CityAttackOrbital.dds" Pause="0" Cycle="Bounce" Speed="1.2" AlphaStart="0.7" AlphaEnd="0.1"/>
+            <Container		ID="AntiOrbitalStrikeContainer" Anchor="C,C"	Size="88,80" Hidden="1">
+              <Button		ID="AntiOrbitalStrikeButton"	Anchor="C,C"	Size="128,128" Texture="Assets/UI/Art/Icons/CityAttackOrbital.dds" ToolTip="TXT_KEY_CITY_MAKE_ORBITAL_ATTACK"/>
+              <AlphaAnim									Anchor="C,C"	Size="128,128" Texture="Assets/UI/Art/Icons/CityAttackOrbital.dds" Pause="0" Cycle="Bounce" Speed="1.2" AlphaStart="0.7" AlphaEnd="0.1"/>
             </Container>
-            <Container Size="20,64" Offset="0,16">
-              <SlideAnim Start="20,0" End="0,0" Speed="0.7">
+            <Container Size="40,128" Offset="0,32">
+              <SlideAnim Start="40,0" End="0,0" Speed="0.7">
                 <AlphaAnim AlphaStart="1.0" AlphaEnd="0" Speed="0.7">
                   <Image Texture="Assets/UI/Art/City/BombardArrowRight.dds"/>
                 </AlphaAnim>
@@ -134,23 +134,23 @@
           </Stack>
         </Image>
         <!-- CityBannerHealthBarBase color needs Color="255,255,0,255" when its the Capital -->
-        <Image ID="CityBannerHealthBarBase" StretchMode="None" Anchor="C,B" Color="0,0,0,255" Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" Size="230,7"  Hidden="1" Offset="1,13">
-          <Image Anchor="C,B" Offset="-2,0" Size="215,8" Color="255,255,255,255" Texture="Assets/UI/Art/Icons/CityBannerHealthBarBack.dds">
-            <TextureBar ID="CityBannerHealthBar" Anchor="L,T" Offset="0,0" Size="215,8" Direction="Right" Texture="Assets/UI/Art/Icons/CityBannerHealthBar.dds"/>
+        <Image ID="CityBannerHealthBarBase" StretchMode="None" Anchor="C,B" Color="0,0,0,255" Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" Size="460,14"  Hidden="1" Offset="2,26">
+          <Image Anchor="C,B" Offset="-4,0" Size="430,16" Color="255,255,255,255" Texture="Assets/UI/Art/Icons/CityBannerHealthBarBack.dds">
+            <TextureBar ID="CityBannerHealthBar" Anchor="L,T" Offset="0,0" Size="430,16" Direction="Right" Texture="Assets/UI/Art/Icons/CityBannerHealthBar.dds"/>
           </Image>
         </Image>
       </Box>
-      <Container ID="CityMouseOverGlow" Anchor="C,C" Size="160,40" ShowOnMouseOver="1">
-        <Image ID="CityBannerBackgroundIcon" Anchor="C,C" Size="111,64" Offset="0,1" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds"/>
-        <Image ID="CityBannerBGRightHL" Anchor="R,C" AnchorSide="O,I" Size="32,64" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds"/>
-        <Image ID="CityBannerBGLeftHL" Anchor="L,C" AnchorSide="O,I" Size="32,64" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds"/>
-        <AlphaAnim ID="CityBannerButtonGlow" Size="111,64" Offset="0,-12" Texture="Assets/UI/Art/Icons/CityBannerButtonGlow.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
-        <AlphaAnim Anchor="L,C" AnchorSide="O,I" Size="48,64" Texture="Assets/UI/Art/Icons/CityBannerButtonGlowLeft.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
-        <AlphaAnim Anchor="R,C" AnchorSide="O,I" Size="48,64" Texture="Assets/UI/Art/Icons/CityBannerButtonGlowRight.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
+      <Container ID="CityMouseOverGlow" Anchor="C,C" Size="320,80" ShowOnMouseOver="1">
+        <Image ID="CityBannerBackgroundIcon" Anchor="C,C" Size="222,128" Offset="0,2" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds"/>
+        <Image ID="CityBannerBGRightHL" Anchor="R,C" AnchorSide="O,I" Size="64,128" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds"/>
+        <Image ID="CityBannerBGLeftHL" Anchor="L,C" AnchorSide="O,I" Size="64,128" Color="PlayerColor2,100" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds"/>
+        <AlphaAnim ID="CityBannerButtonGlow" Size="222,128" Offset="0,-24" Texture="Assets/UI/Art/Icons/CityBannerButtonGlow.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
+        <AlphaAnim Anchor="L,C" AnchorSide="O,I" Size="96,128" Texture="Assets/UI/Art/Icons/CityBannerButtonGlowLeft.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
+        <AlphaAnim Anchor="R,C" AnchorSide="O,I" Size="96,128" Texture="Assets/UI/Art/Icons/CityBannerButtonGlowRight.dds" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="2" AlphaEnd=".50"/>
       </Container>
       <!-- List of Icons -->
-      <Grid ID="StatusBacking" Anchor="C,C" Offset="0,32" Size="30,22" Color="PlayerColor2,255" Texture="CityBannerStatusFrame.dds" SliceCorner="28,12" SliceTextureSize="57,22">
-        <Stack ID="IconsStack" Anchor="C,T" Offset="0,4" StackGrowth="Right" Padding="3">
+      <Grid ID="StatusBacking" Anchor="C,C" Offset="0,64" Size="60,44" Color="PlayerColor2,255" Texture="CityBannerStatusFrame.dds" SliceCorner="56,24" SliceTextureSize="114,44">
+        <Stack ID="IconsStack" Anchor="C,T" Offset="0,8" StackGrowth="Right" Padding="6">
           <Label ID="RazingIcon" Anchor="C,C" Offset="0,0" String="[ICON_RAZING]" Hidden="1"/>
           <Label ID="ResistanceIcon" Anchor="C,C" Offset="0,0" String="[ICON_RESISTANCE]" Hidden="1"/>
           <Label ID="ConnectedIcon" Anchor="C,C" Offset="0,0" String="[ICON_CONNECTED]" Hidden="1"/>
@@ -167,47 +167,47 @@
 	<!-- ========================<({  Other Players' Banners  })>======================== -->
 	<Instance Name="OtherCityBanner">
 		<WorldAnchor ID="Anchor" Alpha="0.6">
-			<Grid ID="CityBannerShadow" Anchor="C,C" AnchorSide="O,I" Size="140,64" Offset="0,20" Texture="Assets/UI/Art/Icons/CityBannerShadow.dds" SliceCorner="1,1" SliceSize="62,62" SliceTextureSize="64,64"/>
+			<Grid ID="CityBannerShadow" Anchor="C,C" AnchorSide="O,I" Size="280,128" Offset="0,40" Texture="Assets/UI/Art/Icons/CityBannerShadow.dds" SliceCorner="2,2" SliceSize="124,124" SliceTextureSize="128,128"/>
       <!-- Covert Ops / Espionage -->
       <WorldAnchor ID="CovertOpsAnchor">
-        <Container ID="CovertOps"			Offset="0,-10"	Anchor="C,B" Hidden="1">
-          <Image							Offset="0,10"	Anchor="C,T"	Size="296,64"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
-          <Image ID="IntrigueHighlight"	Offset="0,-1"	Anchor="C,T"	Size="237,50"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerColorHighlight.dds"/>
-          <Image							Offset="0,-1"	Anchor="C,T"	Size="237,50"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBGNear.dds"/>
-          <Container						Offset="0,11"	Size="102,24" Anchor="C,T">
-            <Image ID="IntrigueBG"		Offset="0,0"	Size="102,24" Anchor="L,T" TextureOffset="0,0" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
-            <Image ID="Intrigue"		Offset="1,1"	Size="102,24" Anchor="L,T" TextureOffset="0,24" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
+        <Container ID="CovertOps"			Offset="0,-20"	Anchor="C,B" Hidden="1">
+          <Image							Offset="0,20"	Anchor="C,T"	Size="592,128"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
+          <Image ID="IntrigueHighlight"	Offset="0,-2"	Anchor="C,T"	Size="474,100"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerColorHighlight.dds"/>
+          <Image							Offset="0,-2"	Anchor="C,T"	Size="474,100"	Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBGNear.dds"/>
+          <Container						Offset="0,22"	Size="204,48" Anchor="C,T">
+            <Image ID="IntrigueBG"		Offset="0,0"	Size="204,48" Anchor="L,T" TextureOffset="0,0" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
+            <Image ID="Intrigue"		Offset="2,2"	Size="204,48" Anchor="L,T" TextureOffset="0,48" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds"/>
           </Container>
         </Container>
       </WorldAnchor>
 
       <WorldAnchor ID="CovertOpsIntelReportAnchor">
         <!-- Covert Intel -->
-        <Grid ID="IntelReport" Anchor="L,T" Offset="125,-28" Size="350,400" Style="GridWindowWithHeader" ConsumeMouse="1" Hidden="1">
-          <Label ID="IntelTitle" Anchor="L,T" Offset="10,20" Style="FontNormal20" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
-          <Box ID="TabRow" Anchor="L,T" Offset="9,54" Size="parent-18,32" Color="255,200,0,0">
-            <GridButton ID="IntelReportTab" Anchor="L,T" Offset="0,0" Size="200,32" Style="TabInactive">
+        <Grid ID="IntelReport" Anchor="L,T" Offset="250,-56" Size="700,800" Style="GridWindowWithHeader" ConsumeMouse="1" Hidden="1">
+          <Label ID="IntelTitle" Anchor="L,T" Offset="20,40" Style="FontNormal20" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
+          <Box ID="TabRow" Anchor="L,T" Offset="18,108" Size="parent-36,64" Color="255,200,0,0">
+            <GridButton ID="IntelReportTab" Anchor="L,T" Offset="0,0" Size="400,64" Style="TabInactive">
               <Label Anchor="C,C" Offset="0,0" Style="FontNormal14" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="{TXT_KEY_COVERT_INTEL_REPORT:upper}"/>
             </GridButton>
-            <GridButton ID="OPsHistoryTab" Anchor="L,T" Offset="100,0" Size="200,32" Style="TabInactive">
+            <GridButton ID="OPsHistoryTab" Anchor="L,T" Offset="200,0" Size="400,64" Style="TabInactive">
               <Label Anchor="C,C" Offset="0,0" Style="FontNormal14" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="{TXT_KEY_COVERT_OPS_HISTORY:upper}"/>
             </GridButton>
           </Box>
-          <Grid ID="IntelReportArea" Anchor="L,T" Offset="7,82" Size="Parent-14,Parent-100" Style="GridSetupGameSectionBackground" Hidden="1">
-            <ScrollPanel ID="IntelScroll" Anchor="L,T" Offset="5,10" Size="parent-32,parent-20" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
+          <Grid ID="IntelReportArea" Anchor="L,T" Offset="14,164" Size="Parent-28,Parent-200" Style="GridSetupGameSectionBackground" Hidden="1">
+            <ScrollPanel ID="IntelScroll" Anchor="L,T" Offset="10,20" Size="parent-64,parent-40" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
               <Stack ID="IntelStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
-          <Grid ID="OPsHistoryArea" Anchor="L,T" Offset="7,82" Size="Parent-14,Parent-100" Style="GridSetupGameSectionBackground">
-            <ScrollPanel ID="HistoryScroll" Anchor="L,T" Offset="5,10" Size="parent-32,parent-20" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
+          <Grid ID="OPsHistoryArea" Anchor="L,T" Offset="14,164" Size="Parent-28,Parent-200" Style="GridSetupGameSectionBackground">
+            <ScrollPanel ID="HistoryScroll" Anchor="L,T" Offset="10,20" Size="parent-64,parent-40" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider" Length="parent"/>
               <Stack ID="HistoryStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
-          <Grid ID="CounterIntelArea" Anchor="L,T" Offset="7,50" Size="Parent-14,Parent-50" Style="GridSetupGameSectionBackground">
-            <ScrollPanel ID="CounterIntelScroll" Anchor="L,T" Offset="5,10" Size="parent-32,180" Vertical="1" AutoScrollBar="false" MouseWheel="1">
-              <ScrollBar Anchor="R,T" Offset="0,0" Size="20,180" AnchorSide="O,I" Style="VertSlider"/>
+          <Grid ID="CounterIntelArea" Anchor="L,T" Offset="14,100" Size="Parent-28,Parent-100" Style="GridSetupGameSectionBackground">
+            <ScrollPanel ID="CounterIntelScroll" Anchor="L,T" Offset="10,20" Size="parent-64,360" Vertical="1" AutoScrollBar="false" MouseWheel="1">
+              <ScrollBar Anchor="R,T" Offset="0,0" Size="40,360" AnchorSide="O,I" Style="VertSlider"/>
               <Stack ID="CounterIntelStack" Anchor="L,T" StackGrowth="Bottom" StackPadding="0"/>
             </ScrollPanel>
           </Grid>
@@ -218,22 +218,22 @@
 			<Container			ID="IsThisStation" />
 			
 			<!-- CityBannerButton -->
-			<Button				ID="BannerButton"				Anchor="C,C" Size="257,48" Alpha="0.8">
+			<Button				ID="BannerButton"				Anchor="C,C" Size="514,96" Alpha="0.8">
 				<!-- OtherCityBanner CityBannerBackground -->
-				<Grid			ID="CityBannerButtonBase"		Anchor="C,C" AnchorSide="O,I" Size="140,64" Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds" SliceCorner="16,32" SliceSize="1,1" SliceTextureSize="32,64"/>
-				<Image			ID="CityBannerButtonBaseLeft"	Anchor="L,C" AnchorSide="O,I" Size="48,64" Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
-				<Image			ID="CityBannerButtonBaseRight"	Anchor="R,C" AnchorSide="O,I" Size="48,64" Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
+				<Grid			ID="CityBannerButtonBase"		Anchor="C,C" AnchorSide="O,I" Size="280,128" Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds" SliceCorner="32,64" SliceSize="2,2" SliceTextureSize="64,128"/>
+				<Image			ID="CityBannerButtonBaseLeft"	Anchor="L,C" AnchorSide="O,I" Size="96,128" Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
+				<Image			ID="CityBannerButtonBaseRight"	Anchor="R,C" AnchorSide="O,I" Size="96,128" Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
 				<!-- CityBannerBackground -->
-				<Grid			ID="CityBannerBackground"	Offset="0,-1"	Anchor="C,C" Size="111,64" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds" SliceCorner="16,32" SliceSize="1,1" SliceTextureSize="32,64">
-					<Image		ID="CityBannerLeftBackground" Offset="0,1"	Anchor="R,C" AnchorSide="O,I" Size="48,64" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerRightBackgroundOther.dds" >
-						<Image	ID="StatusIconBG"				Anchor="C,C" Offset="2,0" Texture="Assets/UI/Art/Notification/CityStateMeterBlack32.dds" Size="32,32" Hidden="1"/>
-						<Image	ID="StatusIcon"					Anchor="C,C" Offset="2,0" Texture="Assets/UI/Art/Notification/CityStateMilitaristic.dds" Size="32,32"/>
+				<Grid			ID="CityBannerBackground"	Offset="0,-2"	Anchor="C,C" Size="222,128" Texture="Assets/UI/Art/Icons/CityBannerBackground.dds" SliceCorner="32,64" SliceSize="2,2" SliceTextureSize="64,128">
+					<Image		ID="CityBannerLeftBackground" Offset="0,2"	Anchor="R,C" AnchorSide="O,I" Size="96,128" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerRightBackgroundOther.dds" >
+						<Image	ID="StatusIconBG"				Anchor="C,C" Offset="4,0" Texture="Assets/UI/Art/Notification/CityStateMeterBlack32.dds" Size="64,64" Hidden="1"/>
+						<Image	ID="StatusIcon"					Anchor="C,C" Offset="4,0" Texture="Assets/UI/Art/Notification/CityStateMilitaristic.dds" Size="64,64"/>
 					</Image>
-					<Image		ID="CityBannerRightBackground" Offset="0,1"	Anchor="L,C" AnchorSide="O,I" Size="48,64" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds">
-						<Label	ID="CityPopulation"				Anchor="C,C" Offset="-3,1" Style="FontNormal20" ForceNonIME="1"/>
+					<Image		ID="CityBannerRightBackground" Offset="0,2"	Anchor="L,C" AnchorSide="O,I" Size="96,128" Color="PlayerColor2,180" Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds">
+						<Label	ID="CityPopulation"				Anchor="C,C" Offset="-6,2" Style="FontNormal20" ForceNonIME="1"/>
 					</Image>
 				</Grid>
-				<Image			ID="CityBannerBackgroundHL" Anchor="C,C" Size="141,32" Texture="Assets/UI/Art/Icons/CityBannerBackgroundHL.dds" />
+				<Image			ID="CityBannerBackgroundHL" Anchor="C,C" Size="282,64" Texture="Assets/UI/Art/Icons/CityBannerBackgroundHL.dds" />
 
 				<!-- OtherCityBanner CityName -->
 				<!-- Status Meter
@@ -243,28 +243,28 @@
 					<Image		ID="StatusMeterMarker"		Anchor="C,C" Offset="0,1" AnchorSide="O,I" Texture="Assets/UI/Art/Notification/CityStateMeterFrameIcon16.dds" Size="16,16" />
 				</Image>-->
 				<Stack			ID="NameStack"				Anchor="C,C"	Offset="0,0" StackGrowth="Right" Padding="0">
-					<Image		ID="CityTypeIcon"							Offset="-6,-1" Texture="Assets/UI/Art/Icons/StarIcon.dds"/>
-					<Image		ID="MinorIndicator"			Anchor="L,C" Offset="-10,-2" Color="100,200,100,255" Size="32,32" Texture="Assets/UI/Art/Icons/CivSymbolAtlas32.dds"/>
+					<Image		ID="CityTypeIcon"							Offset="-12,-2" Texture="Assets/UI/Art/Icons/StarIcon.dds"/>
+					<Image		ID="MinorIndicator"			Anchor="L,C" Offset="-20,-4" Color="100,200,100,255" Size="64,64" Texture="Assets/UI/Art/Icons/CivSymbolAtlas32.dds"/>
 					<Label		ID="CityName"				Anchor="L,C" Style="FontNormal22"/>
 				</Stack>
 				<!-- CityBannerStrengthFrame  -->
-				<Image			ID="CityBannerStrengthFrame"	Anchor="C,C" Offset="0,-38" Size="79,32" Color="255,0,255,255" Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
-					<Image		ID="ShieldIcon"					Anchor="C,C" Offset="-12,5" Color="255,0,255,255" Texture="Assets/UI/Art/Icons/ShieldIcon.dds"/>
-					<Label		ID="CityStrength"				Anchor="C,C" Offset="6,5" Style="FontNormal16" ForceNonIME="1"/>
+				<Image			ID="CityBannerStrengthFrame"	Anchor="C,C" Offset="0,-76" Size="158,64" Color="255,0,255,255" Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
+					<Image		ID="ShieldIcon"					Anchor="C,C" Offset="-24,10" Color="255,0,255,255" Texture="Assets/UI/Art/Icons/ShieldIcon.dds"/>
+					<Label		ID="CityStrength"				Anchor="C,C" Offset="12,10" Style="FontNormal16" ForceNonIME="1"/>
 				</Image>
 				<!-- CityBannerHealthBarBase color needs Color="255,255,0,255" when its the Capital -->
-				<Image ID="CityBannerHealthBarBase" StretchMode="None" Anchor="C,B" Color="0,0,0,255" Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" Size="230,7"  Hidden="1" Offset="1,45">
-				  <Image Anchor="C,B" Offset="-2,0" Size="215,8" Color="255,255,255,255" Texture="Assets/UI/Art/Icons/CityBannerHealthBarBack.dds">
-					<TextureBar ID="CityBannerHealthBar" Anchor="L,T" Offset="0,0" Size="215,8" Direction="Right" Texture="Assets/UI/Art/Icons/CityBannerHealthBar.dds"/>
+				<Image ID="CityBannerHealthBarBase" StretchMode="None" Anchor="C,B" Color="0,0,0,255" Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" Size="460,14"  Hidden="1" Offset="2,90">
+				  <Image Anchor="C,B" Offset="-4,0" Size="430,16" Color="255,255,255,255" Texture="Assets/UI/Art/Icons/CityBannerHealthBarBack.dds">
+					<TextureBar ID="CityBannerHealthBar" Anchor="L,T" Offset="0,0" Size="430,16" Direction="Right" Texture="Assets/UI/Art/Icons/CityBannerHealthBar.dds"/>
 				  </Image>
 				</Image>
 				<!-- STUFF NOT USED -->
-				<Label			ID="CityProductionName"			Anchor="C,C" Offset="0,5" Style="FontNormal14" FontStyle="Base" Hidden="1"/>
-				<Label			ID="BuildGrowth"				Anchor="C,C" Offset="0,-22" Color0="219,110,38,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" Hidden="1"/>
+				<Label			ID="CityProductionName"			Anchor="C,C" Offset="0,10" Style="FontNormal14" FontStyle="Base" Hidden="1"/>
+				<Label			ID="BuildGrowth"				Anchor="C,C" Offset="0,-44" Color0="219,110,38,255" Color1="0,0,0,200" Style="FontNormal14" FontStyle="Stroke" Hidden="1"/>
 			</Button>
 			<!-- List of Icons -->
-      <Grid ID="StatusBacking" Anchor="C,C" Offset="0,32" Size="128,22" Color="PlayerColor2,255" Texture="CityBannerStatusFrame.dds" SliceCorner="28,12" SliceTextureSize="57,22">
-        <Stack ID="IconsStack" Anchor="C,C" Offset="0,4" StackGrowth="Right" Padding="3">
+      <Grid ID="StatusBacking" Anchor="C,C" Offset="0,64" Size="256,44" Color="PlayerColor2,255" Texture="CityBannerStatusFrame.dds" SliceCorner="56,24" SliceTextureSize="114,44">
+        <Stack ID="IconsStack" Anchor="C,C" Offset="0,8" StackGrowth="Right" Padding="6">
           <Label ID="RazingIcon" Anchor="C,C" Offset="0,0" String="[ICON_RAZING]" Style="FontNormal18" FontStyle="Shadow" Hidden="1"/>
           <Label ID="ResistanceIcon" Anchor="C,C" Offset="0,0" String="[ICON_RESISTANCE]" Style="FontNormal18" FontStyle="Shadow" Hidden="1"/>
           <Label ID="ConnectedIcon" Anchor="C,C" Offset="0,0" String="[ICON_CONNECTED]" Style="FontNormal18" FontStyle="Shadow" Hidden="1"/>
@@ -281,27 +281,27 @@
 	<Instance Name="SVRangeStrikeButton">
 		<WorldAnchor ID="Anchor">
 			<!--  CityRangeStrikeButton -->
-			<Button ID="CityRangeStrikeButton" Anchor="C,C" Size="48,48" Offset="0,21" Texture="Assets/UI/Art/Icons/CityBombard_Small.dds" Sampler="Linear" ToolTip="TXT_KEY_CITY_MAKE_RANGED_ATTACK">
-				<AlphaAnim ID="StrengthAlpha" Anchor="C,C" Size="48,48" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
+			<Button ID="CityRangeStrikeButton" Anchor="C,C" Size="96,96" Offset="0,42" Texture="Assets/UI/Art/Icons/CityBombard_Small.dds" Sampler="Linear" ToolTip="TXT_KEY_CITY_MAKE_RANGED_ATTACK">
+				<AlphaAnim ID="StrengthAlpha" Anchor="C,C" Size="96,96" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
 				<Container ShowOnMouseOver="1" Size="parent,parent">
-					<AlphaAnim ID="MouseOver" Anchor="C,C" Size="48,48" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
+					<AlphaAnim ID="MouseOver" Anchor="C,C" Size="96,96" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
 				</Container>
 			</Button>
-			<AlphaAnim ID="CityRangeStrikeAnim" Anchor="C,C" Offset="0,21" Size="48,48" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
+			<AlphaAnim ID="CityRangeStrikeAnim" Anchor="C,C" Offset="0,42" Size="96,96" Texture="Assets/UI/Art/Icons/CityBannerStrengthAlpha_Small.dds" Sampler="Linear" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd="0"/>
 		</WorldAnchor>
 	</Instance>
 	
 	<!--   =========== Intel Report =============   -->
 	<Instance Name="IntelInstance">
-		<Grid ID="IntelReportTop" Anchor="L,T" Size="307,50" Style="GridListElementGray">
-			<Label ID="IntelString" Anchor="L,C" Offset="4,0" Size="271,50" WrapWidth="272" FontSize="14" Color1="0,0,0,255" FontStyle="Shadow" String="$History$"/>
+		<Grid ID="IntelReportTop" Anchor="L,T" Size="614,100" Style="GridListElementGray">
+			<Label ID="IntelString" Anchor="L,C" Offset="8,0" Size="542,100" WrapWidth="544" FontSize="28" Color1="0,0,0,255" FontStyle="Shadow" String="$History$"/>
 		</Grid>
 	</Instance>
 	
 	<!--   =========== Ops History =============   -->
 	<Instance Name="OpsHistoryInstance">
-		<Grid ID="OpsHistoryTop" Anchor="L,T" Size="307,50" Style="GridListElementGray">
-			<Label ID="RecordString" Anchor="L,C" Offset="4,0" Size="271,50" WrapWidth="272" FontSize="14" Color1="0,0,0,255" FontStyle="Shadow" String="$History$"/>
+		<Grid ID="OpsHistoryTop" Anchor="L,T" Size="614,100" Style="GridListElementGray">
+			<Label ID="RecordString" Anchor="L,C" Offset="8,0" Size="542,100" WrapWidth="544" FontSize="28" Color1="0,0,0,255" FontStyle="Shadow" String="$History$"/>
 		</Grid>
 	</Instance>
 </Context>

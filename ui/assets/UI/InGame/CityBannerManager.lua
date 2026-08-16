@@ -81,10 +81,10 @@ function UpdateRangeIcons(cityBanner)
 		if (controls.CityAttackFrame ~= nil) then
 			if (ShouldShowRangeStrikeButton(city) or ShouldShowAntiOrbitalStrikeButton(city)) then
 				if(controls.IconsStack:GetSizeX() ~= 3) then
-					controls.CityAttackFrame:SetOffsetY(105);
+					controls.CityAttackFrame:SetOffsetY(210);
 					controls.CityAttackFrame:SetColor(0,0,0,0);
 				else
-					controls.CityAttackFrame:SetOffsetY(85);
+					controls.CityAttackFrame:SetOffsetY(170);
 					controls.CityAttackFrame:SetColor(primaryColor);
 				end
 
@@ -572,7 +572,7 @@ function RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
 
 			else
 				IconHookup( civInfo.PortraitIndex, 32, civInfo.AlphaIconAtlas, controls.StatusIcon );
-				controls.StatusIcon:SetOffsetX(2);
+				controls.StatusIcon:SetOffsetX(4);
 				controls.StatusIconBG:SetHide( true );
             	--controls.StatusMeterFrame:SetHide( true );
 			end
@@ -1109,7 +1109,7 @@ function SetUpMinorMeter( iMajor, iMinor, controls, minorColor )
 	if (GetCityStateStatusType(iMajor, iMinor) == "MINOR_FRIENDSHIP_STATUS_NEUTRAL") then
 		controls.StatusIcon:SetColor( minorColor );
 		controls.StatusIconBG:SetHide( true );
-    	controls.StatusIcon:SetOffsetX( -5 );
+    	controls.StatusIcon:SetOffsetX( -10 );
     end
 	
 	-- If INF is 0, don't bother showing the meter

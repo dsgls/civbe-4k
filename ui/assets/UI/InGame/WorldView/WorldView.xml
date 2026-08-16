@@ -16,7 +16,7 @@
     
     <LuaContext FileName="Assets/UI/InGame/InfoCorner"					ID="InfoCorner"/>
     
-	<SlideAnim ID="TestAnim" Start="0,0" End="300,0" Function="OutQuad" Speed="0.3" Stopped="1" Cycle="Once" >
+	<SlideAnim ID="TestAnim" Start="0,0" End="600,0" Function="OutQuad" Speed="0.3" Stopped="1" Cycle="Once" >
 		<LuaContext FileName="Assets/UI/InGame/WorldView/DiploCorner"	ID="DiploCorner" />
 	</SlideAnim>
   <LuaContext FileName="Assets/UI/InGame/WorldView/ActionInfoPanel"	ID="ActionInfoPanel" />

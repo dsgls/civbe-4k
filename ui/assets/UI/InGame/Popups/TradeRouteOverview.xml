@@ -2,111 +2,111 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Scott Lewis (Firaxis Games) -->
 <Context ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow">
 	<Instance Name="TRInstance">
-		<Box ID="Root" Offset="0,0" Anchor="L,T" Size="1000,42" Color="255,255,255,0">
-			<Stack Anchor="L,C" StackGrowth="Right" Offset="0,0" Padding="1">
-				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="35,42">
+		<Box ID="Root" Offset="0,0" Anchor="L,T" Size="2000,84" Color="255,255,255,0">
+			<Stack Anchor="L,C" StackGrowth="Right" Offset="0,0" Padding="2">
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="70,84">
 					<Image Anchor="C,C" Style="LandTrade" ID="Domain_Land" Hidden="1"/>
 					<Image Anchor="C,C" Style="SeaTrade" ID="Domain_Sea" Hidden="1"/>
 				</Box>
-				<Box Anchor="L,C" Color="255.255.255.0" Offset="10,4" Size="35,42">
-          <Image ID="FromCivIcon" Size="32,32" Offset="0,0" Anchor="L,T" Texture="CivSymbolsColor256.dds"/>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="20,8" Size="70,84">
+          <Image ID="FromCivIcon" Size="64,64" Offset="0,0" Anchor="L,T" Texture="CivSymbolsColor256.dds"/>
 				</Box>
-				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="202,42">
-					<Label Anchor="L,C" Offset="5,0" String="FromCity" TruncateWidth="200" Style="FontNormal18" FontStyle="Stroke" ID="FromCity"/>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="404,84">
+					<Label Anchor="L,C" Offset="10,0" String="FromCity" TruncateWidth="400" Style="FontNormal18" FontStyle="Stroke" ID="FromCity"/>
 				</Box>
-				<Box Anchor="L,C" Color="255.255.255.0" Offset="10,4" Size="35,42">
-          <Image ID="ToCivIcon" Size="32,32" Offset="0,0" Anchor="L,T" Texture="CivSymbolsColor256.dds"/>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="20,8" Size="70,84">
+          <Image ID="ToCivIcon" Size="64,64" Offset="0,0" Anchor="L,T" Texture="CivSymbolsColor256.dds"/>
 				</Box>
-				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="202,42">
-					<Label Anchor="L,C" Offset="5,0" String="ToSite" TruncateWidth="200" Style="FontNormal18" FontStyle="Stroke" ID="ToSite"/>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="404,84">
+					<Label Anchor="L,C" Offset="10,0" String="ToSite" TruncateWidth="400" Style="FontNormal18" FontStyle="Stroke" ID="ToSite"/>
 				</Box>
-				<Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="100,42">
+				<Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="200,84">
 					<Label ID="TurnsLeft" Anchor="C,C" Offset="0,0" Style="FontNormal18" FontStyle="Stroke" />
 				</Box>
-        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="70,42">
+        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="140,84">
           <CheckBox ID="AutoRenew" Anchor="C,C" String=""/>
         </Box>
-        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Padding="2,0" Size="130,42">
-          <Label ID="TradeRouteInfo" Anchor="L,C" Offset="3,0" Style="FontNormal18" FontStyle="Stroke" WrapWidth="220"/>
+        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Padding="4,0" Size="260,84">
+          <Label ID="TradeRouteInfo" Anchor="L,C" Offset="6,0" Style="FontNormal18" FontStyle="Stroke" WrapWidth="440"/>
         </Box>
 			</Stack>
-      <Box Color="151,184,229,100" Padding="0,0" Anchor="L,B" Size="940,1" Offset="0,0"/>
+      <Box Color="151,184,229,100" Padding="0,0" Anchor="L,B" Size="1880,2" Offset="0,0"/>
 	</Box>
 	</Instance>
 	<Box Style="BGBlock_ClearTopBar"/>
-	<Grid Size="990,600" Anchor="C,C" Offset="0,6" Padding="0,0" Style="GridWindowWithHeader">
-    <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
-		<Image ID="CivIcon" Size="48,48" Offset="-1,-1" Anchor="C,C" Texture="CivSymbolsColor512.dds"/>
+	<Grid Size="1980,1200" Anchor="C,C" Offset="0,12" Padding="0,0" Style="GridWindowWithHeader">
+    <Button	ID="CloseButton"			Anchor="R,T" Offset="14,14"	Style="CloseButton"/>
+		<Image ID="CivIcon" Size="96,96" Offset="-2,-2" Anchor="C,C" Texture="CivSymbolsColor512.dds"/>
     
-		<Label Offset="15,14" Style="MenuTitleCaption" String="{TXT_KEY_TRADE_ROUTE_OVERVIEW:upper}" />
+		<Label Offset="30,28" Style="MenuTitleCaption" String="{TXT_KEY_TRADE_ROUTE_OVERVIEW:upper}" />
 		<!-- Top Panel  -->
-    <Grid Style="ProductionListHeaderGrid" Anchor="C,T" Offset="0,50" Size="957,45" Padding="0,0">
-		<Box ID="TabContainer" Anchor="C,T" Size="850,32" Offset="0,0" Padding="0" Color="0,0,0,0">			
-          <GridButton	ID="TabButtonYourTR" Anchor="L,T" Offset="0,5"	Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_EXISTING_TR_TT">
+    <Grid Style="ProductionListHeaderGrid" Anchor="C,T" Offset="0,100" Size="1914,90" Padding="0,0">
+		<Box ID="TabContainer" Anchor="C,T" Size="1700,64" Offset="0,0" Padding="0" Color="0,0,0,0">			
+          <GridButton	ID="TabButtonYourTR" Anchor="L,T" Offset="0,10"	Size="600,64"  Style="TabInactive" ToolTip="TXT_KEY_TO_EXISTING_TR_TT">
             <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_EXISTING_TR:upper}" />
           </GridButton>
-          <GridButton ID="TabButtonAvailableTR" Anchor="L,T" Offset="0,5" Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_AVAILABLE_TR_TT">
+          <GridButton ID="TabButtonAvailableTR" Anchor="L,T" Offset="0,10" Size="600,64"  Style="TabInactive" ToolTip="TXT_KEY_TO_AVAILABLE_TR_TT">
             <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_AVAILABLE_TR:upper}" />
           </GridButton>
-          <GridButton ID="TabButtonTRWithYou" Anchor="L,T" Offset="0,5" Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_OTHERS_TR_TT">
+          <GridButton ID="TabButtonTRWithYou" Anchor="L,T" Offset="0,10" Size="600,64"  Style="TabInactive" ToolTip="TXT_KEY_TO_OTHERS_TR_TT">
             <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_TR_WITH_YOU:upper}" />
           </GridButton>
 		</Box>
-      <Grid Style="TabSpacerDark" Anchor="C,B" Offset="0,7" Size="957,5"/>
+      <Grid Style="TabSpacerDark" Anchor="C,B" Offset="0,14" Size="1914,10"/>
 		</Grid>
     
 		<!-- Content Panel -->
-		<Box Size="940,459" Color="36,42,54,255" Offset="17,88">
+		<Box Size="1880,918" Color="36,42,54,255" Offset="34,176">
 			<!-- Column Backgrounds-->
 			<Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0">
-				<Grid Anchor="L,T" Size="39,459" Style="CivilopediaListItem"/>
-				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
-        <Grid Anchor="L,T" Size="246,459" Style="CivilopediaListItem"/>
-				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
-				<Grid Anchor="L,T" Size="246,459" Style="CivilopediaListItem"/>
-				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
-        <Grid Anchor="L,T" Size="100,459" Style="CivilopediaListItem"/>
-        <Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
-				<Grid Anchor="L,T" Size="70,459" Style="CivilopediaListItem"/>
-				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+				<Grid Anchor="L,T" Size="78,918" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="2,918" Color="151,184,229,100"/>
+        <Grid Anchor="L,T" Size="492,918" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="2,918" Color="151,184,229,100"/>
+				<Grid Anchor="L,T" Size="492,918" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="2,918" Color="151,184,229,100"/>
+        <Grid Anchor="L,T" Size="200,918" Style="CivilopediaListItem"/>
+        <Box Anchor="L,T" Size="2,918" Color="151,184,229,100"/>
+				<Grid Anchor="L,T" Size="140,918" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="2,918" Color="151,184,229,100"/>
 			</Stack>
 			<!-- Column Headers -->
 			<Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0">
-				<GridButton ID="Domain" Anchor="L,C" Size="39,45" Style="ColumnHeader">
+				<GridButton ID="Domain" Anchor="L,C" Size="78,90" Style="ColumnHeader">
 					<Label Anchor="C,C" Offset="0,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_DOMAIN" ToolTip="TXT_KEY_TRO_COL_DOMAIN_TT"/>
 				</GridButton>
-        <GridButton ID="FromOwnerHeader" Anchor="L,C" Size="46,45" Style="ColumnHeader" Offset="1,0">
-					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="28,28" ToolTip="TXT_KEY_TRO_COL_FROM_CIV_TT"/>
+        <GridButton ID="FromOwnerHeader" Anchor="L,C" Size="92,90" Style="ColumnHeader" Offset="2,0">
+					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="56,56" ToolTip="TXT_KEY_TRO_COL_FROM_CIV_TT"/>
 				</GridButton>
-        <GridButton ID="FromCityHeader" Anchor="L,C" Size="200,45" Style="ColumnHeader">
-					<Label Anchor="L,C" Offset="5,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_FROM_CITY" ToolTip="TXT_KEY_TRO_COL_FROM_CITY_TT"/>
+        <GridButton ID="FromCityHeader" Anchor="L,C" Size="400,90" Style="ColumnHeader">
+					<Label Anchor="L,C" Offset="10,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_FROM_CITY" ToolTip="TXT_KEY_TRO_COL_FROM_CITY_TT"/>
 				</GridButton>
-        <GridButton ID="ToOwnerHeader" Anchor="L,C" Size="46,45" Style="ColumnHeader" Offset="1,0">
-					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="28,28" ToolTip="TXT_KEY_TRO_COL_TO_CIV_TT"/>
+        <GridButton ID="ToOwnerHeader" Anchor="L,C" Size="92,90" Style="ColumnHeader" Offset="2,0">
+					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="56,56" ToolTip="TXT_KEY_TRO_COL_TO_CIV_TT"/>
 				</GridButton>
-        <GridButton ID="ToCityHeader" Anchor="L,C" Size="200,45" Style="ColumnHeader">
-					<Label Anchor="L,C" Offset="5,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_TO_CITY" ToolTip="TXT_KEY_TRO_COL_TO_CITY_TT"/>
+        <GridButton ID="ToCityHeader" Anchor="L,C" Size="400,90" Style="ColumnHeader">
+					<Label Anchor="L,C" Offset="10,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_TO_CITY" ToolTip="TXT_KEY_TRO_COL_TO_CITY_TT"/>
 				</GridButton>
-        <GridButton ID="TurnsLeft" Anchor="L,C" Size="100,45" Style="ColumnHeader" Offset="1,0">
-					<Label Anchor="C,C" Offset="0,-1" WrapWidth="90" Style="FontNormal18" String="TXT_KEY_TURNS_REMAINING" ToolTip="TXT_KEY_TRO_COL_TURNS_REMAINING_TT"/>
+        <GridButton ID="TurnsLeft" Anchor="L,C" Size="200,90" Style="ColumnHeader" Offset="2,0">
+					<Label Anchor="C,C" Offset="0,-2" WrapWidth="180" Style="FontNormal18" String="TXT_KEY_TURNS_REMAINING" ToolTip="TXT_KEY_TRO_COL_TURNS_REMAINING_TT"/>
 				</GridButton>
-        <GridButton ID="AutoRenew" Anchor="L,C" Size="70,45" Style="ColumnHeader" Offset="1,0">
-          <Label Anchor="C,C" Offset="0,-1" WrapWidth="70" Style="FontNormal18" String="TXT_KEY_AUTO_RENEW" ToolTip="TXT_KEY_TRO_COL_AUTO_RENEW_TT"/>
+        <GridButton ID="AutoRenew" Anchor="L,C" Size="140,90" Style="ColumnHeader" Offset="2,0">
+          <Label Anchor="C,C" Offset="0,-2" WrapWidth="140" Style="FontNormal18" String="TXT_KEY_AUTO_RENEW" ToolTip="TXT_KEY_TRO_COL_AUTO_RENEW_TT"/>
         </GridButton>
-        <Box ID="TradeRouteInfos" Anchor="L,C" Size="230,45" Offset="0,0" Color="0,0,0,0">
-          <Label Anchor="L,C" WrapWidth="220" Offset="5,-1" Style="FontNormal18" String="TXT_KEY_ROUTE_DESCRIPTION" />
+        <Box ID="TradeRouteInfos" Anchor="L,C" Size="460,90" Offset="0,0" Color="0,0,0,0">
+          <Label Anchor="L,C" WrapWidth="440" Offset="10,-2" Style="FontNormal18" String="TXT_KEY_ROUTE_DESCRIPTION" />
         </Box>
 			</Stack>
 			<!-- City List -->
-      <Box Color="21,24,32,255" Size="15,457" Anchor="R,T" Offset="-16,1"/>
-			<ScrollPanel Anchor="L,T" Offset="0,45" Size="940,400" Vertical="1" AutoScrollBar="1" ID="MainScroll">
-				<ScrollBar AnchorSide="O,I" Offset="0,-45" Style="VertSlider" Anchor="R,T" Length="457" ID="MainScrollBar"/>
-				<Stack Anchor="L,T" Size="784,440" StackGrowth="Bottom" Padding="0" ID="MainStack">
+      <Box Color="21,24,32,255" Size="30,914" Anchor="R,T" Offset="-32,2"/>
+			<ScrollPanel Anchor="L,T" Offset="0,90" Size="1880,800" Vertical="1" AutoScrollBar="1" ID="MainScroll">
+				<ScrollBar AnchorSide="O,I" Offset="0,-90" Style="VertSlider" Anchor="R,T" Length="914" ID="MainScrollBar"/>
+				<Stack Anchor="L,T" Size="1568,880" StackGrowth="Bottom" Padding="0" ID="MainStack">
           </Stack>
 			</ScrollPanel>
 
 		</Box>
 		<!-- Bottom Panel -->
-		<Grid Anchor="C,B" Offset="0,50" Style="TabSpacerDark" Size="957,5"/>
+		<Grid Anchor="C,B" Offset="0,100" Style="TabSpacerDark" Size="1914,10"/>
 	</Grid>
 </Context>

@@ -209,23 +209,23 @@ function OnFearRespectTooltip( respectStageVal,reqRespectStageVal,fearStageVal,r
 	tipControlTable.RespectReq:SetText(reqRespectStageVal);
 	tipControlTable.RespectVal:SetText(respectStageVal);
 	tipControlTable.RespectImage:SetTextureOffsetVal(0,reqImageOffsetY);
-	tipControlTable.FearImage:SetTextureOffsetVal(0,reqImageOffsetY+34);
+	tipControlTable.FearImage:SetTextureOffsetVal(0,reqImageOffsetY+(34 * 2));
 	if(respectStageVal < reqRespectStageVal) then
 		tipControlTable.RespectCheck:SetHide(true);
-		tipControlTable.RespectHeaderStack:SetOffsetX(2);
+		tipControlTable.RespectHeaderStack:SetOffsetX(4);
 		tipControlTable.RespectExplanation:SetHide(false);
 	else
 		tipControlTable.RespectCheck:SetHide(false);
-		tipControlTable.RespectHeaderStack:SetOffsetX(32);
+		tipControlTable.RespectHeaderStack:SetOffsetX(64);
 		tipControlTable.RespectExplanation:SetHide(true);
 	end
 	if(fearStageVal < reqFearStageVal) then
 		tipControlTable.FearCheck:SetHide(true);
-		tipControlTable.FearHeaderStack:SetOffsetX(2);
+		tipControlTable.FearHeaderStack:SetOffsetX(4);
 		tipControlTable.FearExplanation:SetHide(false);
 	else
 		tipControlTable.FearCheck:SetHide(false);
-		tipControlTable.FearHeaderStack:SetOffsetX(32);
+		tipControlTable.FearHeaderStack:SetOffsetX(64);
 		tipControlTable.FearExplanation:SetHide(true);
 	end
 	local headerString : string = Locale.Lookup("{TXT_KEY_DIPLOMACYUI_REQUIREMENTS:upper}");
@@ -293,7 +293,7 @@ function UpdateRelationshipOptions()
 			instance.RespectRequirement:SetText("[ICON_RESPECT]"..GameInfo.Stages[reqRespectStageType].UIOrder);
 
 			local reqImageOffsetY : number = 0;
-			local offsetIncrementY : number = 67;
+			local offsetIncrementY : number = 67 * 2;
 			local tooltipString : string = "";
 			local isBlockekd : boolean = false;
 			if (respectStageVal >= reqRespectStageVal and fearStageVal < reqFearStageVal) then
@@ -504,7 +504,7 @@ function ShowRelationshipFlyout(relationshipLevel : number)
 		else
 			if(relationshipLevel == 4) then
 				instance.FlyoutText:SetAnchor("R,C");
-				instance.FlyoutText:SetOffsetX(-80);
+				instance.FlyoutText:SetOffsetX(-160);
 			end
 			instance.FlyoutAlpha:SetToBeginning();
 			instance.FlyoutAlpha:Play();
@@ -585,7 +585,7 @@ function OnInitialize(isHotload : boolean)
 		local instance = {};
 		ContextPtr:BuildInstanceForControl("RelationshipLevel", instance, Controls.RelationshipMeterStack);
 		instance.RelationshipLevel = relationshipLevel.ID;
-		instance.Pip:SetTextureOffsetVal(0,30*relationshipLevel.ID);
+		instance.Pip:SetTextureOffsetVal(0,(30*relationshipLevel.ID) * 2);
 		instance.FlyoutText:SetText(Locale.Lookup("TXT_KEY_DIPLO_PROPOSING").. ":  [COLOR_".. relationshipLevel.Type.. "]" .. Locale.Lookup("{"..relationshipLevel.Description..":upper}"));
 		instance.Flyout:SetHide(true);
 		instance.Flyout:SetSizeX(instance.FlyoutText:GetSizeX() + 10);

@@ -5,40 +5,40 @@
   <!-- =================================================================== -->
   <!--   Currently Researching   -->
   <!-- =================================================================== -->
-  <GridButton		ID="ActiveStyle"								Offset="0,30"		Size="380,71" StateOffsetIncrement="0,0" Style="TechCorner" >
-    <Stack																			Offset="60,34"  Size="32,32" StackGrowth="Right" Padding="-8">
+  <GridButton		ID="ActiveStyle"								Offset="0,60"		Size="760,142" StateOffsetIncrement="0,0" Style="TechCorner" >
+    <Stack																			Offset="120,68"  Size="64,64" StackGrowth="Right" Padding="-16">
       <Button		ID="B1_back"			Anchor="C,C"									Style="Button64" >
-        <Button ID="B1"						Anchor="C,C"									Size="64,64"	NoStateChange="1"  />
+        <Button ID="B1"						Anchor="C,C"									Size="128,128"	NoStateChange="1"  />
       </Button>
       <Button		ID="B2_back"			Anchor="C,C"									Style="Button64" >
-        <Button ID="B2"						Anchor="C,C"									Size="64,64"	NoStateChange="1"  />
+        <Button ID="B2"						Anchor="C,C"									Size="128,128"	NoStateChange="1"  />
       </Button>
       <Button		ID="B3_back"			Anchor="C,C"									Style="Button64" >
-        <Button ID="B3"						Anchor="C,C"									Size="64,64"	NoStateChange="1"  />
+        <Button ID="B3"						Anchor="C,C"									Size="128,128"	NoStateChange="1"  />
       </Button>
       <Button		ID="B4_back"			Anchor="C,C"									Style="Button64" >
-        <Button ID="B4"						Anchor="C,C"									Size="64,64"	NoStateChange="1"  />
+        <Button ID="B4"						Anchor="C,C"									Size="128,128"	NoStateChange="1"  />
       </Button>
       <Button		ID="B5_back"			Anchor="C,C"									Style="Button64" >
-        <Button ID="B5"						Anchor="C,C"									Size="64,64"	NoStateChange="1"  />
+        <Button ID="B5"						Anchor="C,C"									Size="128,128"	NoStateChange="1"  />
       </Button>
     </Stack>
 		
-  <Label				ID="TechText"										Offset="70,10"	Style="FontNormal20" Color0="33,190,247,255" Color1="33,190,247,100" FontStyle="Glow" />
-  <Label				ID="FinishedTechText"						Offset="70,10"	Style="FontNormal20" Color0="33,190,247,255" Color1="33,190,247,100" FontStyle="Glow" Hidden="1"/>
+  <Label				ID="TechText"										Offset="140,20"	Style="FontNormal20" Color0="33,190,247,255" Color1="33,190,247,100" FontStyle="Glow" />
+  <Label				ID="FinishedTechText"						Offset="140,20"	Style="FontNormal20" Color0="33,190,247,255" Color1="33,190,247,100" FontStyle="Glow" Hidden="1"/>
   
 		
   <!-- =================================================================== -->
   <!--    Image Frame and Meters (Regular and Energy) -->
   <!-- =================================================================== -->
-  <Button				ID="BigTechButton"							Offset="2,0"		Size="64,64"	NoStateChange="1"   >
-		<Image			ID="TechIcon"			Anchor="C,C"	Offset="-1,1"		Size="64,64"	Color="78,183,255" Texture="TechnologyAtlas512.dds" />
+  <Button				ID="BigTechButton"							Offset="4,0"		Size="128,128"	NoStateChange="1"   >
+		<Image			ID="TechIcon"			Anchor="C,C"	Offset="-2,2"		Size="128,128"	Color="78,183,255" Texture="TechnologyAtlas512.dds" />
   </Button>
 
   
-  <Image																								Offset="62,30"	Size="230,7"	StretchMode="None"  Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" >
-    <Image			ID="TechProgressThisTurn"	Anchor="L,C"  Offset="7,0"		Size="213,7"  StretchMode="None"	Texture="assets/UI/Art/WorldView/TechProgressFill_dark.dds" />
-    <Image			ID="TechProgress"					Anchor="L,C"  Offset="7,0"		Size="213,7"  StretchMode="None"	Texture="assets/UI/Art/WorldView/TechProgressFill.dds" />
+  <Image																								Offset="124,60"	Size="460,14"	StretchMode="None"  Texture="assets/UI/Art/WorldView/TechProgressBacking.dds" >
+    <Image			ID="TechProgressThisTurn"	Anchor="L,C"  Offset="14,0"		Size="426,14"  StretchMode="None"	Texture="assets/UI/Art/WorldView/TechProgressFill_dark.dds" />
+    <Image			ID="TechProgress"					Anchor="L,C"  Offset="14,0"		Size="426,14"  StretchMode="None"	Texture="assets/UI/Art/WorldView/TechProgressFill.dds" />
   </Image>
 
   </GridButton>

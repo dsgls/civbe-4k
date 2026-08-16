@@ -190,7 +190,7 @@ function ApplyMouseOverAcrossTableOfControls( controls  )
 
 						currentControl.highlightRefCount = currentControl.highlightRefCount + 1;
 						if (currentControl.highlightRefCount > 0) then
-							currentControl:SetTextureOffsetVal( 0, 32 );
+							currentControl:SetTextureOffsetVal( 0, 64 );
 						end
 					end
 				end

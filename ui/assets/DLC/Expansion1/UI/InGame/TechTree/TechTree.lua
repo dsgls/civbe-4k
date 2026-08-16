@@ -37,14 +37,14 @@ local g_colorNodeSelectedCursor			= 0xffe09050;
 local g_colorNotResearchedSmallIcons	= 0xfff0e0d0;
 
 -- TechWebAtlas:
-local g_textureTearFullNotResearched	= { u=1,	v=1 };		-- 68x68
-local g_textureTearFullResearched		= { u=69,	v=1 };
-local g_textureTearFullSelected			= { u=137,	v=1 };
-local g_textureTearFullAvailable		= { u=205,	v=1 };
-local g_textureTearLeafNotResearched	= { u=1,	v=70 };
-local g_textureTearLeafResearched		= { u=54,	v=70 };
-local g_textureTearLeafSelected			= { u=107,	v=70 };
-local g_textureTearLeafAvailable		= { u=160,	v=70 };
+local g_textureTearFullNotResearched	= { u=1 * 2,	v=1 * 2 };		-- 68x68
+local g_textureTearFullResearched		= { u=69 * 2,	v=1 * 2 };
+local g_textureTearFullSelected			= { u=137 * 2,	v=1 * 2 };
+local g_textureTearFullAvailable		= { u=205 * 2,	v=1 * 2 };
+local g_textureTearLeafNotResearched	= { u=1 * 2,	v=70 * 2 };
+local g_textureTearLeafResearched		= { u=54 * 2,	v=70 * 2 };
+local g_textureTearLeafSelected			= { u=107 * 2,	v=70 * 2 };
+local g_textureTearLeafAvailable		= { u=160 * 2,	v=70 * 2 };
 
 
 local m_textColors = {};
@@ -92,7 +92,7 @@ m_colorAffinity["AFFINITY_TYPE_HARMONY"] 	= 0xffa7d74a;
 m_colorAffinity["AFFINITY_TYPE_PURITY"] 	= 0xff1d1ad8;
 m_colorAffinity["AFFINITY_TYPE_SUPREMACY"] 	= 0xff2fbcff;
 
-local AFFINITY_RING_SIZE	:number				= 46;		-- 46x46
+local AFFINITY_RING_SIZE	:number				= 46 * 2;		-- 46x46
 local m_affinityRingUVIndex	:table				= {};			
 m_affinityRingUVIndex[AFFINITY.harmony]			= {u=0,v=0};
 m_affinityRingUVIndex[AFFINITY.purity]			= {u=1,v=0};
@@ -151,7 +151,7 @@ local civType 				= GameInfo.Civilizations[g_player:GetCivilizationType()].Type;
 local activeTeamID 			= Game.GetActiveTeam();
 local activeTeam 			= Teams[activeTeamID];
 
-local g_radiusScalar		:number = 400;		-- applied to the GridRadius value set on a tech entry to produce the true screen-unit value
+local g_radiusScalar		:number = 400 * 2;		-- applied to the GridRadius value set on a tech entry to produce the true screen-unit value
 local g_gridRatio			:number = 0.6;		-- default ratio of y-axis to x-axis. Anything other than 1 will produce an elliptical look to the web
 local g_lineInstances 		:table = {};		-- offsets are synced with table above for corresponding, actual line coordinates to draw
 
@@ -737,9 +737,9 @@ function RealizeTechQueue( thisTechButton, techID )
 
 	-- Reposition if a leaf
 	if ( thisTechButton.isLeaf ) then
-		thisTechButton.TechQueueLabel:SetOffsetVal( 52, 0 );
+		thisTechButton.TechQueueLabel:SetOffsetVal( 104, 0 );
 	else
-		thisTechButton.TechQueueLabel:SetOffsetVal( 70, 0 );
+		thisTechButton.TechQueueLabel:SetOffsetVal( 140, 0 );
 	end
 
 end
@@ -816,7 +816,7 @@ function RefreshDisplayOfSpecificTech( tech )
 			end
 		
 			--advisorInstance.AdvisorMarking:ChangeParent( thisTechButton.bg );
-			advisorInstance.AdvisorMarking:SetOffsetVal( 0, -2 );
+			advisorInstance.AdvisorMarking:SetOffsetVal( 0, -4 );
 			--advisorInstance.AdvisorBackground:SetOffsetVal( advisorX, advisorY );
 			advisorInstance.AdvisorMarking:SetToolTipString( advisorTooltip );
 			
@@ -949,9 +949,9 @@ function RefreshDisplayOfSpecificTech( tech )
 				selectedArt.FullPieces:SetHide( true );
 				selectedArt.LeafPieces:SetHide( false );
 
-				accoutrementx 	= x - 34;
-				accoutrementy 	= y - 30;
-				meterx 			= width + thisTechButton.bg:GetSizeX() - 11;
+				accoutrementx 	= x - 34 * 2;
+				accoutrementy 	= y - 30 * 2;
+				meterx 			= width + thisTechButton.bg:GetSizeX() - 11 * 2;
 				metery  		= 1;
 				meterHeight 	= selectedArt.AmountLeaf:GetSizeY();
 
@@ -973,9 +973,9 @@ function RefreshDisplayOfSpecificTech( tech )
 				selectedArt.FullPieces:SetHide( false );
 				selectedArt.LeafPieces:SetHide( true );
 					
-				accoutrementx 	= x - 46;
-				accoutrementy 	= y - 36;
-				meterx 			= width + thisTechButton.bg:GetSizeX() - 10;
+				accoutrementx 	= x - 46 * 2;
+				accoutrementy 	= y - 36 * 2;
+				meterx 			= width + thisTechButton.bg:GetSizeX() - 10 * 2;
 				metery  		= 0;
 				meterHeight 	= selectedArt.AmountFull:GetSizeY();
 
@@ -1039,7 +1039,7 @@ function RefreshDisplayOfSpecificTech( tech )
 	
 
 	-- Update extends of web if this node pushes it out some.
-	local TECH_NODE_WIDTH = 250;
+	local TECH_NODE_WIDTH = 250 * 2;
 	if (x - TECH_NODE_WIDTH) < g_webExtents.xmin then
 		g_webExtents.xmin = (x - TECH_NODE_WIDTH);
 	elseif x > g_webExtents.xmax then
@@ -1092,7 +1092,7 @@ function GetTechXY( tech )
 			for i,child in ipairs(parentButton.children) do
 				if (child.ID == tech.ID) then
 					local parentx:number ,parenty :number = parentButton.TechButton:GetOffsetVal();
-					return parentx + 38, parenty + (36 + (i*69));
+					return parentx + (38 * 2), parenty + ((36 + (i*69)) * 2);
 				end
 			end
 			print("WARNING: A leaf tech couldn't be dynamically positioned against it's parent.", tech.Type, parentTech.Type );
@@ -1146,7 +1146,7 @@ function ShowTechState( thisTechButton, techStateString )
 		end	
 
 		thisTechButton.Tear 			:SetTextureOffsetVal ( m_textureBgLeaf[techStateString].u, m_textureBgLeaf[techStateString].v );		
-		thisTechButton.TechButton		:SetSizeVal(50, 50);
+		thisTechButton.TechButton		:SetSizeVal(100, 100);
 		--thisTechButton.spacer			:SetHide(false);
 		thisTechButton.bg 				:SetHide(false);
 		thisTechButton.Tear 			:SetHide(false);
@@ -1686,13 +1686,13 @@ end
 -- ===========================================================================
 function DrawBackground()
 
-	local MAX_BOUNDS	= 1900;
+	local MAX_BOUNDS	= 1900 * 2;
 	local MAX_SPARKLES	= 200;
 
 	g_BGLineManager:ResetInstances();
 
 	-- Draw multiple rings pointing to center
-	for distance=100,MAX_BOUNDS,370 do
+	for distance=100 * 2,MAX_BOUNDS,370 * 2 do
 		--DrawBackgroundOval( distance-5, 0x03f0c0b0 );	-- style it, slightly smaller ring with each ring
 		DrawBackgroundOval( distance, 0x14f0c0b0 );
 	end
@@ -1856,10 +1856,10 @@ function Initialize()
 		-- If a text icon exists, use it and bump the label in the button over.
 		if filterIconText ~= nil and filterIconText ~= "" then
 			controlTable.IconText:SetText( filterIconText );
-			labelControl:SetOffsetVal(35, 0);
+			labelControl:SetOffsetVal(70, 0);
 			filterLabel = filterIconText .." ".. filterLabel;
 		else
-			labelControl:SetOffsetVal(5, 0);	-- Move over ever so slightly anyway.
+			labelControl:SetOffsetVal(10, 0);	-- Move over ever so slightly anyway.
 			filterLabel = filterLabel;
 		end
 

@@ -518,7 +518,7 @@ function UpdateUnitPortrait( unit : table )
     local convertedKey = Locale.ConvertTextKey(name);
     convertedKey = Locale.ToUpper(convertedKey);
 
-	Controls.UnitName:SetFontSize( 24 );
+	Controls.UnitName:SetFontSize( 48 );
 	TruncateString(Controls.UnitName, 260, convertedKey);
 
 	-- Help text
@@ -538,13 +538,13 @@ function UpdateUnitPortrait( unit : table )
     local box_length = Controls.UnitNameButton:GetSizeVal();
     
     if (name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 20 );
+		Controls.UnitName:SetFontSize( 40 );
 	end
 	
 	name_length = Controls.UnitName:GetSizeVal();
 	
 	if(name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 14 );
+		Controls.UnitName:SetFontSize( 28 );
 	end
     
     -- Tool tip
@@ -632,19 +632,19 @@ function UpdateCityPortrait(city : table)
     convertedKey = Locale.ToUpper(convertedKey);
 
     Controls.UnitName:SetText(convertedKey);    
-	Controls.UnitName:SetFontSize( 24 );   
+	Controls.UnitName:SetFontSize( 48 );   
     
     local name_length = Controls.UnitName:GetSizeVal();
     local box_length = Controls.UnitNameButton:GetSizeVal();
     
     if (name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 20 );   
+		Controls.UnitName:SetFontSize( 40 );   
 	end
 	
 	name_length = Controls.UnitName:GetSizeVal();
 	
 	if(name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 14 );   
+		Controls.UnitName:SetFontSize( 28 );   
 	end
 
     --Hide various aspects of Unit Panel since they don't apply to the city.
@@ -698,7 +698,7 @@ function UpdateImprovementPortrait( improvementDBRow : table )
 	else
 		Controls.UnitName:SetToolTipType( nil );	-- no tooltip
 	end
-	Controls.UnitName:SetFontSize( 24 );
+	Controls.UnitName:SetFontSize( 48 );
     
 	-- Shrink font down if name is too big at current size.
 
@@ -706,13 +706,13 @@ function UpdateImprovementPortrait( improvementDBRow : table )
     local box_length	= Controls.UnitNameButton:GetSizeVal();
     
     if (name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 20 );
+		Controls.UnitName:SetFontSize( 40 );
 	end
 	
 	name_length = Controls.UnitName:GetSizeVal();
 	
 	if(name_length > (box_length - 50)) then
-		Controls.UnitName:SetFontSize( 14 );
+		Controls.UnitName:SetFontSize( 28 );
 	end  
 
     -- Hide various aspects of Unit Panel since they don't apply to improvements.
@@ -1048,10 +1048,10 @@ function UpdateImprovementStatus(improvementInfo : table, plot)
 		Controls.UnitStatRangedAttack:SetToolTipType( nil );
 
 		if wonderStatusToolTip ~= nil then			
-			Controls.UnitStatNameRangedAttack:SetOffsetY(1);
+			Controls.UnitStatNameRangedAttack:SetOffsetY(2);
 			Controls.UnitStatNameRangedAttack:SetToolTipString(wonderStatusToolTip);
 		else
-			Controls.UnitStatNameRangedAttack:SetOffsetY(8);
+			Controls.UnitStatNameRangedAttack:SetOffsetY(16);
 			Controls.UnitStatNameRangedAttack:SetToolTipType( nil );
 		end
 	else

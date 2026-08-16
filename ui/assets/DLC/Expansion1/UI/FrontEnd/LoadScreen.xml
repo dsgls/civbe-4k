@@ -5,57 +5,57 @@
 
 			<!-- Keep this box's black... black, for super-wide & 4k screen monitors; otherwise the 3d world shows through on load! -->
 			<Box Anchor="T,L" Size="Full,Full" Color="0,0,0,255">
-				<Image ID="BackgroundImage" Anchor="C,C" Size="200,200" Sampler="Linear" StretchMode="Fill"/>
+				<Image ID="BackgroundImage" Anchor="C,C" Size="400,400" Sampler="Linear" StretchMode="Fill"/>
 			</Box>
 
       
-			<Grid ID="TextBacking" Style="BlackGradient" Size="700,400" Color="0,0,0,255" Anchor="C,B">
-				<Label ID="BackgroundText" Style="WhiteShadowDark" Anchor="L,T" Offset="25,25" WrapWidth="660" String="..."/>
+			<Grid ID="TextBacking" Style="BlackGradient" Size="1400,800" Color="0,0,0,255" Anchor="C,B">
+				<Label ID="BackgroundText" Style="WhiteShadowDark" Anchor="L,T" Offset="50,50" WrapWidth="1320" String="..."/>
 			</Grid>
 		</AlphaAnim>
 
     <Container		ID="PrologueContainer"		Anchor="C,C" Hidden="1">
 			<Box									Anchor="C,C" Size="Full,Full" Color="0,0,0,100"/>
-			<Box									Anchor="C,C" Size="1000,700" Color="0,0,0,0" Offset="0,0">
-				<Grid Style="Grid9DetailFive140"	Anchor="C,C" Size="parent,parent-20">
-					<Grid							Anchor="T,L" Size="Parent,45" Offset="0,0" Style="ProductionListHeaderGrid">
-						<Label	ID="Title" WrapWidth="445" Anchor="C,T" Offset="0,7" Style="MenuTitleCaption" String="TXT_KEY_GAME_SELECTION_SCREEN"/>
+			<Box									Anchor="C,C" Size="2000,1400" Color="0,0,0,0" Offset="0,0">
+				<Grid Style="Grid9DetailFive140"	Anchor="C,C" Size="parent,parent-40">
+					<Grid							Anchor="T,L" Size="Parent,90" Offset="0,0" Style="ProductionListHeaderGrid">
+						<Label	ID="Title" WrapWidth="890" Anchor="C,T" Offset="0,14" Style="MenuTitleCaption" String="TXT_KEY_GAME_SELECTION_SCREEN"/>
 					</Grid>
-					<Grid		ID="TextContainer" Anchor="C,T" Size="parent,110" Offset="0,40" Style="GridColumnHeader">
-						<Label	ID="Info1" Style="WhiteShadow" Offset="15,5" WrapWidth="975" LeadingOffset="4" String="It's the dawn of mankind..."/>
+					<Grid		ID="TextContainer" Anchor="C,T" Size="parent,220" Offset="0,80" Style="GridColumnHeader">
+						<Label	ID="Info1" Style="WhiteShadow" Offset="30,10" WrapWidth="1950" LeadingOffset="8" String="It's the dawn of mankind..."/>
 					</Grid>
-					<Grid Style="TabSpacerDark" Size="parent,5" Offset="0,35"/>
-					<Image		ID="PrologueImage" Texture="prologue_affinities.dds" Anchor="C,T" Offset="0,150" Size="1000,460" StretchMode="Fill"/>
+					<Grid Style="TabSpacerDark" Size="parent,10" Offset="0,70"/>
+					<Image		ID="PrologueImage" Texture="prologue_affinities.dds" Anchor="C,T" Offset="0,300" Size="2000,920" StretchMode="Fill"/>
 					<Container	ID="AffinityInfo" Hidden="1">
-						<Label	ID="PurityTitle"	Anchor="R,T" Offset="-314,510" Style="FontNormal24" Color="Purity" Size="200,40" WrapWidth="200" String="{TXT_KEY_AFFINITY_TYPE_PURITY:upper}"/>
-						<Label	ID="SupremacyTitle" Anchor="R,T" Offset="-630,510" Style="FontNormal24" Color="Supremacy" Size="200,40" WrapWidth="200" String="{TXT_KEY_AFFINITY_TYPE_SUPREMACY:upper}"/>
-						<Label	ID="HarmonyTitle"	Anchor="R,T" Offset="-948,510" Style="FontNormal24" Color="Harmony" Size="200,40" WrapWidth="200" String="{TXT_KEY_AFFINITY_TYPE_HARMONY:upper}"/>
-            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="20,535" Size="300,65" AutoScrollBar="1">
+						<Label	ID="PurityTitle"	Anchor="R,T" Offset="-628,1020" Style="FontNormal24" Color="Purity" Size="400,80" WrapWidth="400" String="{TXT_KEY_AFFINITY_TYPE_PURITY:upper}"/>
+						<Label	ID="SupremacyTitle" Anchor="R,T" Offset="-1260,1020" Style="FontNormal24" Color="Supremacy" Size="400,80" WrapWidth="400" String="{TXT_KEY_AFFINITY_TYPE_SUPREMACY:upper}"/>
+						<Label	ID="HarmonyTitle"	Anchor="R,T" Offset="-1896,1020" Style="FontNormal24" Color="Harmony" Size="400,80" WrapWidth="400" String="{TXT_KEY_AFFINITY_TYPE_HARMONY:upper}"/>
+            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="40,1070" Size="600,130" AutoScrollBar="1">
               <ScrollBar	Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="0,0" Length="parent" />
-              <Label	ID="PurityInfo"		Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="30,60" WrapWidth="300" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_PURITY_INFO"/>
+              <Label	ID="PurityInfo"		Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="60,120" WrapWidth="600" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_PURITY_INFO"/>
             </ScrollPanel>
-            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="346,535" Size="300,65" AutoScrollBar="1">
+            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="692,1070" Size="600,130" AutoScrollBar="1">
               <ScrollBar	Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="0,0" Length="parent" />
-              <Label	ID="SupremacyInfo"	Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="300,60" WrapWidth="300" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_SUPREMACY_INFO"/>
+              <Label	ID="SupremacyInfo"	Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="600,120" WrapWidth="600" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_SUPREMACY_INFO"/>
             </ScrollPanel>
-            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="673,535" Size="300,65" AutoScrollBar="1">
+            <ScrollPanel	Anchor="L,T" Vertical="1" Offset="1346,1070" Size="600,130" AutoScrollBar="1">
               <ScrollBar	Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="0,0" Length="parent" />
-              <Label	ID="HarmonyInfo"	Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="300,60" WrapWidth="300" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_HARMONY_INFO"/>
+              <Label	ID="HarmonyInfo"	Anchor="L,T" Offset="0,0" Style="FontNormal16" Color="CoolGray" Size="600,120" WrapWidth="600" String="TXT_KEY_BEGIN_GAME_PROLOGUE_AFFINITIES_HARMONY_INFO"/>
             </ScrollPanel>
 					</Container>
-					<Grid Style="Grid9DetailFive140" Anchor="C,B" Size="parent,81">
-						<GridButton ID="PrologueButton" Anchor="C,C" Size="175,35" Style="BaseButton" String="{TXT_KEY_BEGIN_GAME_BUTTON_CONTINUE:upper}"/>
+					<Grid Style="Grid9DetailFive140" Anchor="C,B" Size="parent,162">
+						<GridButton ID="PrologueButton" Anchor="C,C" Size="350,70" Style="BaseButton" String="{TXT_KEY_BEGIN_GAME_BUTTON_CONTINUE:upper}"/>
 					</Grid>
 				</Grid>
 			</Box>
 		</Container>
 
 		<Container ID="ActivateContainer" Size="Full,Full">
-			<Grid Style="CurvedFrame" Size="130,40" Anchor="C,B" Color="255,255,255,200"/>
-			<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\TimerFrame.dds" Size="121,121">
+			<Grid Style="CurvedFrame" Size="260,80" Anchor="C,B" Color="255,255,255,200"/>
+			<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\TimerFrame.dds" Size="242,242">
 				<Button Anchor="C,C" ID="ActivateButton" Style="GoButton">
 					<AlphaAnim Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed=".5" AlphaStart="0" AlphaEnd="1">
-						<Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="GoButton.dds" TextureOffset="0,82" />
+						<Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="GoButton.dds" TextureOffset="0,164" />
 					</AlphaAnim>
 				</Button>
 			</Image>
@@ -63,30 +63,30 @@
 
 		<Container ID="IntroContainer" Anchor="C,C" Hidden="1">
 			<Box Anchor="C,C" Size="Full,Full" Color="0,0,0,100"/>
-			<Grid Style="Grid9DetailFive140" Anchor="C,C" Size="500, 480">
-				<Grid Anchor="T,L" Size="Parent,45" Offset="0,0" Style="ProductionListHeaderGrid">
-					<Label WrapWidth="445" Anchor="C,T" Offset="0,7" Style="MenuTitleCaption" String="{TXT_KEY_ADVISOR_INTRO_TITLE:upper}"/>
+			<Grid Style="Grid9DetailFive140" Anchor="C,C" Size="1000, 960">
+				<Grid Anchor="T,L" Size="Parent,90" Offset="0,0" Style="ProductionListHeaderGrid">
+					<Label WrapWidth="890" Anchor="C,T" Offset="0,14" Style="MenuTitleCaption" String="{TXT_KEY_ADVISOR_INTRO_TITLE:upper}"/>
 				</Grid>
 
-				<Stack Anchor="C,T" Offset="0,60" Padding="15">
+				<Stack Anchor="C,T" Offset="0,120" Padding="30">
 					<!--<Image Size="96,96" Anchor="C,T"/>-->
-					<FlipAnim Anchor="C,T" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="115,138,176,255">
-						<Image ID="TutorialRecommendation" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds">
-							<ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds"/>
+					<FlipAnim Anchor="C,T" Size="128,128" Columns="7" Speed="30" Pause="0" StepSize="128,0" FrameCount="35" Texture="LoadingAnim.dds" Color="115,138,176,255">
+						<Image ID="TutorialRecommendation" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds">
+							<ScrollAnim Offset="0,0" Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds"/>
 						</Image>
 					</FlipAnim>
-					<Label Style="WhiteShadow" Anchor="L,T" Offset="20,0" WrapWidth="460" LeadingOffset="4" String="TXT_KEY_ADVISOR_INTRO"/>
-					<Stack Anchor="L,C" StackGrowth="Right" Padding="10">
-						<Label Style="GrayGlow" Anchor="L,C" AnchorSide="L,C" Offset="10,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
-						<PullDown Anchor="L,C" Style="GenericPullDown" ScrollThreshold="200"   SpaceForScroll="0" Size="250,32" ID="TutorialLevelPull" ToolTip="TXT_KEY_OPSCREEN_TUTORIAL_LEVEL_TT" />
+					<Label Style="WhiteShadow" Anchor="L,T" Offset="40,0" WrapWidth="920" LeadingOffset="8" String="TXT_KEY_ADVISOR_INTRO"/>
+					<Stack Anchor="L,C" StackGrowth="Right" Padding="20">
+						<Label Style="GrayGlow" Anchor="L,C" AnchorSide="L,C" Offset="20,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
+						<PullDown Anchor="L,C" Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="500,64" ID="TutorialLevelPull" ToolTip="TXT_KEY_OPSCREEN_TUTORIAL_LEVEL_TT" />
 					</Stack>
-					<CheckBox ID="DontShowAdvisorIntroCheckBox"	TextAnchorSide="Right" String="TXT_KEY_DONT_SHOW_ADVISOR_INTRO"	ToolTip="TXT_KEY_DONT_SHOW_ADVISOR_INTRO_TT" LeadingOffset="0" WrapWidth="350" Style="WhiteShadow" Anchor="L,C" />
+					<CheckBox ID="DontShowAdvisorIntroCheckBox"	TextAnchorSide="Right" String="TXT_KEY_DONT_SHOW_ADVISOR_INTRO"	ToolTip="TXT_KEY_DONT_SHOW_ADVISOR_INTRO_TT" LeadingOffset="0" WrapWidth="700" Style="WhiteShadow" Anchor="L,C" />
 				</Stack>
 
-				<Grid Style="Grid9DetailFive140" Anchor="C,B" Size="parent,81">
-					<Stack Anchor="C,B" Offset="0,20" StackGrowth="Right" Padding="10">
-						<GridButton ID="IntroPlayButton" Size="225,42" Style="BaseButton" WrapWidth="200" Align="center" LeadingOffset="-2" String="{TXT_KEY_ADVISOR_INTRO_PLAY_NORMALLY:upper}"/>
-						<GridButton ID="IntroGuidedTourButton" Size="225,42" Style="BaseButton" WrapWidth="200" Align="center" LeadingOffset="-2" String="{TXT_KEY_ADVISOR_INTRO_PLAY_GUIDED_TOUR:upper}"/>
+				<Grid Style="Grid9DetailFive140" Anchor="C,B" Size="parent,162">
+					<Stack Anchor="C,B" Offset="0,40" StackGrowth="Right" Padding="20">
+						<GridButton ID="IntroPlayButton" Size="450,84" Style="BaseButton" WrapWidth="400" Align="center" LeadingOffset="-4" String="{TXT_KEY_ADVISOR_INTRO_PLAY_NORMALLY:upper}"/>
+						<GridButton ID="IntroGuidedTourButton" Size="450,84" Style="BaseButton" WrapWidth="400" Align="center" LeadingOffset="-4" String="{TXT_KEY_ADVISOR_INTRO_PLAY_GUIDED_TOUR:upper}"/>
 					</Stack>
 				</Grid>
 			</Grid>

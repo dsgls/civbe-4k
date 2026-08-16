@@ -377,7 +377,7 @@ end
 function OnReadyCheck( bChecked )
 
 	local TEXTURE_OFFSET_CHECK_ON	= 0;
-	local TEXTURE_OFFSET_CHECK_OFF	= 64;
+	local TEXTURE_OFFSET_CHECK_OFF	= 64 * 2;
 	local uiButton					= Controls.LocalReadyCheck:GetButton();
 
 	if bChecked then
@@ -832,7 +832,7 @@ function UpdatePlayer( slotInstance, playerInfo )
 
 			if(Network.IsPlayerHotJoining(playerID)) then
 				-- Player is hot joining.
-				slotInstance.ConnectionStatus:SetTextureOffsetVal(0,32);
+				slotInstance.ConnectionStatus:SetTextureOffsetVal(0,64);
 				slotInstance.ConnectionStatus:SetToolTipString( PlayerConnectingStr );
 			elseif(Network.IsPlayerConnected(playerID)) then
 				-- fully connected
@@ -840,7 +840,7 @@ function UpdatePlayer( slotInstance, playerInfo )
 				slotInstance.ConnectionStatus:SetToolTipString( PlayerConnectedStr );
 			else
 				-- Not connected
-				slotInstance.ConnectionStatus:SetTextureOffsetVal(0,96);
+				slotInstance.ConnectionStatus:SetTextureOffsetVal(0,192);
 				slotInstance.ConnectionStatus:SetToolTipString( PlayerNotConnectedStr );		
 			end		
 

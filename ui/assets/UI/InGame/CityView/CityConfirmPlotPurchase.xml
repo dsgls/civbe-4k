@@ -2,17 +2,17 @@
 
 	<Box Size="Full,Full" Color="0,0,0,150" Anchor="C,C" ConsumeMouse="1"/>
 	
-	<Grid		Size="450,200"			Anchor="C,C" Style="CityConfirmDialogGrid" >
+	<Grid		Size="900,400"			Anchor="C,C" Style="CityConfirmDialogGrid" >
 		
 		<Stack		Anchor="C,T" Size="0,0"		Offset="0,0"		StackGrowth="Right" Padding="0">				
-			<Label	Anchor="R,T" Offset="0,20" WrapWidth="450" Style="CityConfirmDialogLabel"   String="TXT_KEY_CONFIRM_PLOT_PURCHASE"	 />
+			<Label	Anchor="R,T" Offset="0,40" WrapWidth="900" Style="CityConfirmDialogLabel"   String="TXT_KEY_CONFIRM_PLOT_PURCHASE"	 />
 		</Stack>
 		
-		<GridButton	ID="CancelButton"	Anchor="L,B" Offset="20,20" Size="150,30" Style="BaseButton">
+		<GridButton	ID="CancelButton"	Anchor="L,B" Offset="40,40" Size="300,60" Style="BaseButton">
 			<Label Style="CityButtonText" Anchor="C,C" String="{TXT_KEY_CANCEL_BUTTON:upper}" />
 		</GridButton>
 
-		<GridButton	ID="BuyButton"		Anchor="R,B" Offset="20,20" Size="150,30" Style="BaseButton" >
+		<GridButton	ID="BuyButton"		Anchor="R,B" Offset="40,40" Size="300,60" Style="BaseButton" >
 			<Label	ID="BuyLabel"		Style="CityButtonText" Anchor="C,C" String="?buy?" />
 		</GridButton>
 		

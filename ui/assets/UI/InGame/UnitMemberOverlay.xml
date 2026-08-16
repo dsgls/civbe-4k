@@ -5,8 +5,8 @@
     <Instance Name="UnitMemberOverlay" >
       <WorldAnchor ID="Anchor">
 			  <Label ID="InfoTxt1" Anchor="C,T" String="" Hidden="1"/>
-        <Label ID="InfoTxt2" Anchor="C,T" Offset="0,16" String="" Hidden="1"/>
-        <Bar ID="TargetColor" Offset="0,32" Size="32,8" Direction="Up" FGColor="0,255,0,255" BGColor="0,0,0,255" Hidden="1" />
+        <Label ID="InfoTxt2" Anchor="C,T" Offset="0,32" String="" Hidden="1"/>
+        <Bar ID="TargetColor" Offset="0,64" Size="64,16" Direction="Up" FGColor="0,255,0,255" BGColor="0,0,0,255" Hidden="1" />
       </WorldAnchor>
     </Instance>
 

@@ -6,20 +6,20 @@
 	<SlideAnim			ID="GamestateTransitionAnimOut" Speed="5" Start="0,0" End="0,0" Cycle="Once" Stopped="1" />
 	
 		
-	<SlideAnim			ID="AnimBarTop"			Start="0,-64" End="0,0" Function="OutQuad" Speed="5.0" Stopped="1" Cycle="Once" Anchor="C,C" Size="full,full">
+	<SlideAnim			ID="AnimBarTop"			Start="0,-128" End="0,0" Function="OutQuad" Speed="5.0" Stopped="1" Cycle="Once" Anchor="C,C" Size="full,full">
 		<AlphaAnim		ID="AnimAlphaTop"		Size="full,full" Anchor="C,C" Offset="0,0" Cycle="Once" Speed="4" AlphaStart="0" AlphaEnd="1">	
-			<Box		ID="BlackBarTop"		Size="full,64"	Anchor="C,T" Color="0,0,0,255">
-				<Box							Size="full,3"	Anchor="C,B" Color="50,50,50,200" >
-					<Box						Size="full,1"	Anchor="C,C" Color="100,100,100,200" />
+			<Box		ID="BlackBarTop"		Size="full,128"	Anchor="C,T" Color="0,0,0,255">
+				<Box							Size="full,6"	Anchor="C,B" Color="50,50,50,200" >
+					<Box						Size="full,2"	Anchor="C,C" Color="100,100,100,200" />
 				</Box>
 			</Box>
 		</AlphaAnim>
 	</SlideAnim>
-	<SlideAnim			ID="AnimBarBottom"		Start="0,64" End="0,0" Function="OutQuad" Speed="5.0" Stopped="1" Cycle="Once" Anchor="C,C" Size="full,full">
+	<SlideAnim			ID="AnimBarBottom"		Start="0,128" End="0,0" Function="OutQuad" Speed="5.0" Stopped="1" Cycle="Once" Anchor="C,C" Size="full,full">
 		<AlphaAnim		ID="AnimAlphaBottom"	Size="full,full"	Anchor="C,C" Offset="0,0" Cycle="Once" Speed="4" AlphaStart="0" AlphaEnd="1">	
-			<Box		ID="BlackBarBottom"		Size="full,64"		Anchor="C,B" Color="0,0,0,255" >
-				<Box							Size="full,3"		Anchor="C,T" Color="50,50,50,200" >
-					<Box						Size="full,1"		Anchor="C,C" Color="100,100,100,200" />
+			<Box		ID="BlackBarBottom"		Size="full,128"		Anchor="C,B" Color="0,0,0,255" >
+				<Box							Size="full,6"		Anchor="C,T" Color="50,50,50,200" >
+					<Box						Size="full,2"		Anchor="C,C" Color="100,100,100,200" />
 				</Box>
 			</Box>
 		</AlphaAnim>
@@ -27,36 +27,36 @@
 	
 	<!-- Leader Dialogue -->		
 	<Box			ID="RootOptions" 		Anchor="C,C"	Offset="0,0"		Size="Full,Full" Color="0,0,0,0">	
-		<Grid		ID="LeaderSpeechFrame" 	Anchor="R,C"	Offset="20,-150"	Size="610,160"				Style="GridWindowWithHeader" >
+		<Grid		ID="LeaderSpeechFrame" 	Anchor="R,C"	Offset="40,-300"	Size="1220,320"				Style="GridWindowWithHeader" >
 			
-			<Grid							Anchor="L,T"	Offset="7,48"		Size="parent-12,parent-20"	Style="GridSetupGameSectionBackground" />
-      <Container Size="Parent-12,45" Offset="4,4">
-        <Box		ID="CivIconFrame"	Size="45,45"	Anchor="L,T" Offset="0,0" Color="0,0,0,0">
-          <Image	ID="CivIconBG"		Size="45,45"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-          <Image	ID="CivIcon"		Size="32,32"	Anchor="C,C" Offset="1,0" Texture="CivSymbolsColor512.dds"/>
-          <Image	ID="CivIconHighlight"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+			<Grid							Anchor="L,T"	Offset="14,96"		Size="parent-24,parent-40"	Style="GridSetupGameSectionBackground" />
+      <Container Size="Parent-24,90" Offset="8,8">
+        <Box		ID="CivIconFrame"	Size="90,90"	Anchor="L,T" Offset="0,0" Color="0,0,0,0">
+          <Image	ID="CivIconBG"		Size="90,90"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="CivIcon"		Size="64,64"	Anchor="C,C" Offset="2,0" Texture="CivSymbolsColor512.dds"/>
+          <Image	ID="CivIconHighlight"		Size="90,90"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
         </Box>
-			  <Label	ID="TitleText"			Anchor="L,C"	Offset="55,0"	Style="FontNormal22"	LeadingOffset="-4" WrapWidth="450" FontStyle="SoftShadow"  Color0="150,190,220,255" Color1="0,0,0,255" />
-			  <Label	ID="MoodText"			Anchor="R,C"	Offset="15,0"							Style="FontNormal18" 	String="NEUTRAL"			FontStyle="SoftShadow"   />
+			  <Label	ID="TitleText"			Anchor="L,C"	Offset="110,0"	Style="FontNormal22"	LeadingOffset="-8" WrapWidth="900" FontStyle="SoftShadow"  Color0="150,190,220,255" Color1="0,0,0,255" />
+			  <Label	ID="MoodText"			Anchor="R,C"	Offset="30,0"							Style="FontNormal18" 	String="NEUTRAL"			FontStyle="SoftShadow"   />
       </Container>
-			<Box											Offset="0,40"		Size="parent,150" Color="0,0,0,0" >
-				<Label	ID="LeaderSpeech"	Anchor="C,C"	Offset="0,0"		WrapWidth="450"	Style="FontNormal20"	Color0="150,190,220,255" String="Message Area For AI." />
+			<Box											Offset="0,80"		Size="parent,300" Color="0,0,0,0" >
+				<Label	ID="LeaderSpeech"	Anchor="C,C"	Offset="0,0"		WrapWidth="900"	Style="FontNormal20"	Color0="150,190,220,255" String="Message Area For AI." />
 			</Box>
 			
-			<Box							Anchor="C,T" Offset="0,188"  Size="275,230" Color="10,10,10,150">
-				<Stack			ID="TalkOptionStack" Anchor="C,T"		Offset="0,8" Padding="1" StackGrowth="Bottom" >
+			<Box							Anchor="C,T" Offset="0,376"  Size="550,460" Color="10,10,10,150">
+				<Stack			ID="TalkOptionStack" Anchor="C,T"		Offset="0,16" Padding="2" StackGrowth="Bottom" >
 					<GridButton ID="WarButton"		Style="BaseButton"  Offset="0,0"	String="TXT_KEY_DIPLO_DECLARE_WAR" />
 					<GridButton ID="TradeButton"	Style="BaseButton"  Offset="0,0"	String="TXT_KEY_DIPLO_TRADE_BUTTON" />
 					<GridButton ID="DemandButton"	Style="BaseButton"  Offset="0,0"	String="TXT_KEY_DIPLO_DEMAND_BUTTON" />
 					<GridButton ID="DiscussButton"	Style="BaseButton"  Offset="0,0"	String="TXT_KEY_DIPLO_DISCUSS_BUTTON" />
 				</Stack>
-				<GridButton		ID="BackButton"		Style="BaseButton"  Offset="0,8"	String="TXT_KEY_GOODBYE_BUTTON" Anchor="C,B" />
+				<GridButton		ID="BackButton"		Style="BaseButton"  Offset="0,16"	String="TXT_KEY_GOODBYE_BUTTON" Anchor="C,B" />
 				
 				<!-- borders -->
-				<Box Anchor="C,T" Size="parent,1" Color="Black,255" />
-				<Box Anchor="C,B" Size="parent,1" Color="Black,255" />
-				<Box Anchor="L,C" Size="1,parent" Color="Black,255" />
-				<Box Anchor="R,C" Size="1,parent" Color="Black,255" />
+				<Box Anchor="C,T" Size="parent,2" Color="Black,255" />
+				<Box Anchor="C,B" Size="parent,2" Color="Black,255" />
+				<Box Anchor="L,C" Size="2,parent" Color="Black,255" />
+				<Box Anchor="R,C" Size="2,parent" Color="Black,255" />
 			</Box>
 			
 		</Grid>				

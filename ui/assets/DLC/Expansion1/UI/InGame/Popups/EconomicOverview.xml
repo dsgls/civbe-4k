@@ -2,21 +2,21 @@
 <Context Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha">
 
 	<Box Style="BGBlock_ClearTopBar" />
-  <Grid Size="990, 640" Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
-    <Button	ID="CloseButton" Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+  <Grid Size="1980, 1280" Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+    <Button	ID="CloseButton" Anchor="R,T" Offset="14,14"	Style="CloseButton"/>
 
 		<!-- Panel Header Text -->
 		<Label Style="MenuTitleCaption" String="{TXT_KEY_ECONOMIC_OVERVIEW:upper}" ID="Title" />
 
 		<!-- Top Panel  -->
-		<Grid Anchor="C,T" Size="parent-13,45" Offset="0,48" Style="ProductionListHeaderGrid" ID="TabContainer">
-      <GridButton	ID="GeneralInfoButton" Anchor="L,B" Offset="0,4"	Size="300,32"  Style="TabInactive">
+		<Grid Anchor="C,T" Size="parent-26,90" Offset="0,96" Style="ProductionListHeaderGrid" ID="TabContainer">
+      <GridButton	ID="GeneralInfoButton" Anchor="L,B" Offset="0,8"	Size="600,64"  Style="TabInactive">
         <Label Style="TabTextStyle" String="{TXT_KEY_GENERAL_INFORMATION:upper}" />
       </GridButton>
-      <GridButton ID="HealthButton" Anchor="L,B" Offset="0,4" Size="300,32"  Style="TabInactive">
+      <GridButton ID="HealthButton" Anchor="L,B" Offset="0,8" Size="600,64"  Style="TabInactive">
         <Label Style="TabTextStyle" String="{TXT_KEY_HEALTH_AND_RESOURCES:upper}" />
       </GridButton>
-      <Grid Style="TabSpacerDark" Size="parent,5" Offset="0,3" Anchor="L,B"/>
+      <Grid Style="TabSpacerDark" Size="parent,10" Offset="0,6" Anchor="L,B"/>
 		</Grid>
 	</Grid>
 

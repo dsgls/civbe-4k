@@ -266,7 +266,7 @@ function UpdatePlayerData( pPlayer, controlTable )
 			controlTable.ConnectionStatus:SetHide(false);
 			if(Network.IsPlayerHotJoining(pPlayer:GetID())) then
 				-- Player is hot joining.
-				controlTable.ConnectionStatus:SetTextureOffsetVal(0,32);
+				controlTable.ConnectionStatus:SetTextureOffsetVal(0,64);
 				controlTable.ConnectionStatus:SetToolTipString( PlayerConnectingStr );
 			elseif(pPlayer.IsConnected ~= nil and pPlayer:IsConnected()) then
 				-- fully connected
@@ -274,7 +274,7 @@ function UpdatePlayerData( pPlayer, controlTable )
 				controlTable.ConnectionStatus:SetToolTipString( PlayerConnectedStr );
 			else
 				-- Not connected
-				controlTable.ConnectionStatus:SetTextureOffsetVal(0,96);
+				controlTable.ConnectionStatus:SetTextureOffsetVal(0,192);
 				controlTable.ConnectionStatus:SetToolTipString( PlayerNotConnectedStr );		
 			end		
     else
@@ -320,7 +320,7 @@ function UpdateVoiceChat( iPlayerID, voiceChatIcon, chatting, teamChat )
   if(chatting) then
     voiceChatIcon:SetHide(false);
     if(teamChat) then
-      voiceChatIcon:SetTextureOffsetVal(32,0);
+      voiceChatIcon:SetTextureOffsetVal(64,0);
     else
       voiceChatIcon:SetTextureOffsetVal(0,0);
     end
@@ -351,7 +351,7 @@ function MPListEntryClick()
 		Controls.MPListScroll:SetSizeX(Controls.MPListStack:GetSizeX());
 		Controls.MPListScroll:CalculateInternalSize();
 		if( Controls.MPListScroll:GetRatio() < 1 ) then
-			Controls.MPListScroll:SetOffsetX( 15 );
+			Controls.MPListScroll:SetOffsetX( 30 );
 		end
 		Controls.MPListScroll:ReprocessAnchoring();   	
 	end
@@ -521,7 +521,7 @@ function UpdateAndSort()
 	Controls.MPListScroll:SetSizeX(Controls.MPListStack:GetSizeX());
 	Controls.MPListScroll:CalculateInternalSize();
 	if( Controls.MPListScroll:GetRatio() < 1 ) then
-		Controls.MPListScroll:SetOffsetX( 15 );
+		Controls.MPListScroll:SetOffsetX( 30 );
 	end
 	Controls.MPListScroll:ReprocessAnchoring();   
 

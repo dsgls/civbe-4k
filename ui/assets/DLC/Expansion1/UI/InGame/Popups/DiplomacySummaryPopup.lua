@@ -62,7 +62,7 @@ function Update()
 	if (IsScrollbarShowing(Controls.ScrollPanel)) then
 		Controls.Grid:SetSizeX(1008+16);
 	else
-		Controls.Grid:SetSizeX(1008);
+		Controls.Grid:SetSizeX(2016);
 	end
 
 	Controls.Grid:ReprocessAnchoring();
@@ -139,8 +139,8 @@ function InitEntryInstance(instance : table, player : object)
 	IconHookup(civInfo.PortraitIndex, 128, civInfo.AlphaIconAtlas, instance.BigCivIcon);
 	instance.CivName:SetText(Locale.Lookup(civInfo.Description));
 
-	local relationshipOffset : number = 75*relationshipInfo.ID;
-	instance.RelationshipIndicator:SetTextureOffsetVal(50,relationshipOffset);
+	local relationshipOffset : number = (75*relationshipInfo.ID) * 2;
+	instance.RelationshipIndicator:SetTextureOffsetVal(50 * 2,relationshipOffset);
 
 	if (player:IsAlive()) then
 		instance.Icon:SetColor(0xffffffff);
@@ -201,7 +201,7 @@ function InitEntryInstance(instance : table, player : object)
 	for i=1,3 do
 		if(m_topThree[i] ~= nil and m_topThree[i] == player:GetID()) then
 			instance.Rank:SetHide(false);
-			instance.Rank:SetTextureOffsetVal(0,(i-1)*56);
+			instance.Rank:SetTextureOffsetVal(0,(i-1)*56 * 2);
 		end
 	end
 	instance.Score:SetText(player:GetScore());

@@ -258,7 +258,7 @@ function ShowWindow()
 		objectiveInstance.Objective:SetText(Locale.ConvertTextKey(newObjective:GetSummary()));
 
 		if(newObjective:AreSuccessConditionsMet())then
-			objectiveInstance.ActiveCheckBox:SetTextureOffsetVal(0, 32);	-- 2nd texture in strip is checked
+			objectiveInstance.ActiveCheckBox:SetTextureOffsetVal(0, 64);	-- 2nd texture in strip is checked
 		end
 	end
 

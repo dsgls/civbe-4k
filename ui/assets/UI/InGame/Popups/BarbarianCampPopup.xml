@@ -4,7 +4,7 @@
     <Box Style="BGBlock_ClearTopBar" />
 
 
-    <Grid Size="400,270" Anchor="C,C" Offset="0,0"  Style="Grid9DetailFive140" >
+    <Grid Size="800,540" Anchor="C,C" Offset="0,0"  Style="Grid9DetailFive140" >
 
         
 
@@ -12,15 +12,15 @@
       <Box Style="MenuLeftSideTreatment"/>
       <Box Style="MenuRightSideTreatment"/>
 
-        <Label Anchor="C,T" Offset="0,15" Style="FontNormal20" FontStyle="Shadow" Color="CoolGray" String="{TXT_KEY_POP_ALIEN_CLEARED:upper}" ID="TitleLabel"/>
+        <Label Anchor="C,T" Offset="0,30" Style="FontNormal20" FontStyle="Shadow" Color="CoolGray" String="{TXT_KEY_POP_ALIEN_CLEARED:upper}" ID="TitleLabel"/>
 
-        <Box Size="350,190" Anchor="C,T" Offset="0,60"  Color="255,255,255,0" >
-            <Label Anchor="L,T" Offset="10,10" WrapWidth="350" LeadingOffset="3"  Style="FontNormal16" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="Congratulations!" ID="DescriptionLabel" />
+        <Box Size="700,380" Anchor="C,T" Offset="0,120"  Color="255,255,255,0" >
+            <Label Anchor="L,T" Offset="20,20" WrapWidth="700" LeadingOffset="6"  Style="FontNormal16" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="Congratulations!" ID="DescriptionLabel" />
         </Box>
 
-      <GridButton Size="200,36" Anchor="C,B" Style="BaseButton" AnchorSide="I,O" Offset="0,0" ID="CloseButton" Hidden="0">
+      <GridButton Size="400,72" Anchor="C,B" Style="BaseButton" AnchorSide="I,O" Offset="0,0" ID="CloseButton" Hidden="0">
 
-        <Label Anchor="C,C" Offset="0,-2" String="TXT_KEY_CLOSE"  Color0="182,203,228,255" Color1="0,0,0,128" Color2="255,255,200,255" Style="FontNormal22" FontStyle="Shadow" />
+        <Label Anchor="C,C" Offset="0,-4" String="TXT_KEY_CLOSE"  Color0="182,203,228,255" Color1="0,0,0,128" Color2="255,255,200,255" Style="FontNormal22" FontStyle="Shadow" />
 
       </GridButton>
 

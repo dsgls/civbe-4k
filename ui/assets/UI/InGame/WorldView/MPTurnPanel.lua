@@ -131,15 +131,15 @@ function SetupIconSize(controlTable)
 	controlTable.CivIconFrame:SetSize(g_curIconSize.mainSize);
 
 	controlTable.CivIconBG:SetSize(g_curIconSize.mainSize);
-	controlTable.CivIconBG:SetTextureSizeVal(g_curIconSize.mainSize.x, g_curIconSize.mainSize.y);
+	controlTable.CivIconBG:SetTextureSizeVal(g_curIconSize.mainSize.x * 2, g_curIconSize.mainSize.y * 2);
 	--controlTable.CivIconBG:NormalizeTexture();
 	
 	controlTable.CivIconHighlight:SetSize(g_curIconSize.mainSize);
-	controlTable.CivIconHighlight:SetTextureSizeVal(g_curIconSize.mainSize.x, g_curIconSize.mainSize.y);
+	controlTable.CivIconHighlight:SetTextureSizeVal(g_curIconSize.mainSize.x * 2, g_curIconSize.mainSize.y * 2);
 	--controlTable.CivIconHighlight:NormalizeTexture();
 	
 	controlTable.CivIcon:SetSize(g_curIconSize.iconSize);
-	controlTable.CivIcon:SetTextureSizeVal(g_curIconSize.iconSize.x, g_curIconSize.iconSize.y);
+	controlTable.CivIcon:SetTextureSizeVal(g_curIconSize.iconSize.x * 2, g_curIconSize.iconSize.y * 2);
 	--controlTable.Icon:NormalizeTexture();
 end
 

@@ -3,54 +3,54 @@
 
   <!-- GameInstance -->
 	<Instance Name="GameInstance" >
-		<Grid Size="935,80" Anchor="L,T" ID="GameItem" Style="CivilopediaListItem">
+		<Grid Size="1870,160" Anchor="L,T" ID="GameItem" Style="CivilopediaListItem">
 			<Stack Anchor="L,T" Offset="0,0" StackGrowth="Right" Padding="0" >
 			
 				<!-- Global Rank -->
-        <Box Size="100,parent" Offset="0,0" Anchor="L,T" Color="White.0" >
-          <Label Anchor="C,C" WrapWidth="100" LeadingOffset="0" Style="GrayGlow24" String="-1" ID="GlobalRank"/>
+        <Box Size="200,parent" Offset="0,0" Anchor="L,T" Color="White.0" >
+          <Label Anchor="C,C" WrapWidth="200" LeadingOffset="0" Style="GrayGlow24" String="-1" ID="GlobalRank"/>
         </Box>
 				
 				<!-- Game Info -->
-				<Box Size="100,parent" Color="White,0">
+				<Box Size="200,parent" Color="White,0">
 					<Label Anchor="C,C" Offset="0,0" Style="GrayGlow24" ID="Score"/>
 				</Box>
-				<Box Size="240,parent" Anchor="L,T" Color="White.0" >
-					<Image ID="CivSymbol" Size="45,45" Offset="0,0" Anchor="L,C" Texture="CivSymbolsColor360.dds" />
-					<Stack Anchor="L,C" Padding="0" Offset="48,0">
-						<Label ID="LeaderName" Anchor="L,C" WrapWidth="200" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="LEADER NAME"/>
-						<Label ID="SponsorName" Anchor="L,C" WrapWidth="250" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="SPONSOR NAME"/>
+				<Box Size="480,parent" Anchor="L,T" Color="White.0" >
+					<Image ID="CivSymbol" Size="90,90" Offset="0,0" Anchor="L,C" Texture="CivSymbolsColor360.dds" />
+					<Stack Anchor="L,C" Padding="0" Offset="96,0">
+						<Label ID="LeaderName" Anchor="L,C" WrapWidth="400" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="LEADER NAME"/>
+						<Label ID="SponsorName" Anchor="L,C" WrapWidth="500" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="SPONSOR NAME"/>
 					</Stack>
 				</Box>
-				<Box Size="200,64" Anchor="L,T" Color="White.0">
-					<Box Anchor="L,C" Color="White.0" Size="64,64" >
-						<Stack Anchor="C,C" Offset="78,0">
-							<Label WrapWidth="150" Style="WhiteShadow" String="TXT_KEY_DIPLO_LEADER_NAME" ID="WinningSponsorName"/>
-							<Label Style="GrayGlow" WrapWidth="150" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="WinType" />
+				<Box Size="400,128" Anchor="L,T" Color="White.0">
+					<Box Anchor="L,C" Color="White.0" Size="128,128" >
+						<Stack Anchor="C,C" Offset="156,0">
+							<Label WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_DIPLO_LEADER_NAME" ID="WinningSponsorName"/>
+							<Label Style="GrayGlow" WrapWidth="300" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="WinType" />
 						</Stack>
 					</Box>
 				</Box>
 				<!--Game Info-->
-				<Stack Offset="0,5" Anchor="L,T" StackGrowth="Down" Padding="15" ID="SettingStack">
-					<Stack Anchor="L,T" StackGrowth="Right" Padding="10,0">
+				<Stack Offset="0,10" Anchor="L,T" StackGrowth="Down" Padding="30" ID="SettingStack">
+					<Stack Anchor="L,T" StackGrowth="Right" Padding="20,0">
 						<Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
 						<Label ID="MapType" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
 					</Stack>
-					<Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+					<Stack Anchor="L,T" StackGrowth="Right" Padding="20,0" Offset="0,-30">
 						<Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
 						<Label ID="MapSize" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
 					</Stack>
-					<Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+					<Stack Anchor="L,T" StackGrowth="Right" Padding="20,0" Offset="0,-30">
 						<Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
 						<Label ID="Difficulty" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
 					</Stack>
-					<Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+					<Stack Anchor="L,T" StackGrowth="Right" Padding="20,0" Offset="0,-30">
 						<Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_GAME_SPEED"/>
 						<Label ID="Speed" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_GAME_SPEED"/>
 					</Stack>
 				</Stack>
-				<Stack Growth="Up" Anchor="R,B" Offset="10,25">
-					<Label Anchor="R,T" WrapWidth="200" LeadingOffset="-6" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="StartEraTurns" />
+				<Stack Growth="Up" Anchor="R,B" Offset="20,50">
+					<Label Anchor="R,T" WrapWidth="400" LeadingOffset="-12" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="StartEraTurns" />
 					<Label Anchor="R,T" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="TimeFinished" />
 				</Stack>
 			</Stack>
@@ -59,62 +59,62 @@
 	
   <Box ID="Background" Size="Full.Full" Color="Black.200" Hidden="1"/>
 
-  <Grid Size="990,620" Anchor="C,C" Offset="0,34" Style="Grid9DetailFive140" ConsumeMouse="1" ID="FrontEndFrame">
+  <Grid Size="1980,1240" Anchor="C,C" Offset="0,68" Style="Grid9DetailFive140" ConsumeMouse="1" ID="FrontEndFrame">
 
     <!-- Top Bar (Category Tabs) -->
-    <Box Anchor="C,T" AnchorSide="I.I" Offset="0,54"   Size="956,56" Color="255,255,255,0" >
-      <Stack Anchor="L,T" Size="926,32" Offset="0,3" Padding="0" StackGrowth="Right">
+    <Box Anchor="C,T" AnchorSide="I.I" Offset="0,108"   Size="1912,112" Color="255,255,255,0" >
+      <Stack Anchor="L,T" Size="1852,64" Offset="0,6" Padding="0" StackGrowth="Right">
 
-        <Button  Anchor="L,T" Size="160,24" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_FRIENDS" ToolTip="TXT_KEY_LEADERBOARD_FRIENDS_TT" ID="FriendsButton" >
+        <Button  Anchor="L,T" Size="320,48" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_FRIENDS" ToolTip="TXT_KEY_LEADERBOARD_FRIENDS_TT" ID="FriendsButton" >
           <ShowOnMouseOver>
-            <AlphaAnim Anchor="L,T" Size="160,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
-              <Grid   Size="160,27" Offset="0,-1" Padding="0,0" Style="Grid9FrameTurnsHL" />
+            <AlphaAnim Anchor="L,T" Size="320,54" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+              <Grid   Size="320,54" Offset="0,-2" Padding="0,0" Style="Grid9FrameTurnsHL" />
             </AlphaAnim>
           </ShowOnMouseOver>
-          <Grid Anchor="C,C" Offset="0,0" Size="160,26"  Style="Grid9FrameTurns" Hidden="1" ID="FriendsHighlight" />
+          <Grid Anchor="C,C" Offset="0,0" Size="320,52"  Style="Grid9FrameTurns" Hidden="1" ID="FriendsHighlight" />
         </Button>
 
-        <Button  Anchor="L,T" Size="160,24" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_PERSONAL" ToolTip="TXT_KEY_LEADERBOARD_PERSONAL_TT" ID="PersonalButton" >
+        <Button  Anchor="L,T" Size="320,48" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_PERSONAL" ToolTip="TXT_KEY_LEADERBOARD_PERSONAL_TT" ID="PersonalButton" >
           <ShowOnMouseOver>
-            <AlphaAnim Anchor="L,T" Size="160,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
-              <Grid   Size="160,27" Offset="0,-1" Padding="0,0" Style="Grid9FrameTurnsHL" />
+            <AlphaAnim Anchor="L,T" Size="320,54" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+              <Grid   Size="320,54" Offset="0,-2" Padding="0,0" Style="Grid9FrameTurnsHL" />
             </AlphaAnim>
           </ShowOnMouseOver>
-          <Grid Anchor="C,C" Offset="0,0" Size="160,26"  Style="Grid9FrameTurns" Hidden="1" ID="PersonalHighlight" />
+          <Grid Anchor="C,C" Offset="0,0" Size="320,52"  Style="Grid9FrameTurns" Hidden="1" ID="PersonalHighlight" />
         </Button>
 
-        <Button  Anchor="L,T" Size="160,24" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_GLOBAL" ToolTip="TXT_KEY_LEADERBOARD_GLOBAL_TT" ID="GlobalButton" >
+        <Button  Anchor="L,T" Size="320,48" Style="FontNormal18" Offset="0,0"  String="TXT_KEY_LEADERBOARD_GLOBAL" ToolTip="TXT_KEY_LEADERBOARD_GLOBAL_TT" ID="GlobalButton" >
           <ShowOnMouseOver>
-            <AlphaAnim Anchor="L,T" Size="160,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
-              <Grid   Size="160,27" Offset="0,-1" Padding="0,0" Style="Grid9FrameTurnsHL" />
+            <AlphaAnim Anchor="L,T" Size="320,54" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+              <Grid   Size="320,54" Offset="0,-2" Padding="0,0" Style="Grid9FrameTurnsHL" />
             </AlphaAnim>
           </ShowOnMouseOver>
-          <Grid Anchor="C,C" Offset="0,0" Size="160,26"  Style="Grid9FrameTurns" Hidden="1" ID="GlobalHighlight" />
+          <Grid Anchor="C,C" Offset="0,0" Size="320,52"  Style="Grid9FrameTurns" Hidden="1" ID="GlobalHighlight" />
         </Button>
 
-        <Label Anchor="L,T" Offset="0,10" Style="FontNormal18" String="TXT_KEY_LEADERBOARD_PULLDOWN">
-          <PullDown Offset="10,0" AnchorSide="o,i" Anchor="R,C" Style="GenericPullDown" ScrollThreshold="200"   SpaceForScroll="0" Size="350,32" ID="LeaderboardPull" ToolTip="TXT_KEY_LEADERBOARD_PULLDOWN_TT" />
+        <Label Anchor="L,T" Offset="0,20" Style="FontNormal18" String="TXT_KEY_LEADERBOARD_PULLDOWN">
+          <PullDown Offset="20,0" AnchorSide="o,i" Anchor="R,C" Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="700,64" ID="LeaderboardPull" ToolTip="TXT_KEY_LEADERBOARD_PULLDOWN_TT" />
         </Label>
       </Stack>
     </Box>
 
-    <Image Anchor="C,T" Offset="0,105" Texture="HorizontalTrim.dds" Size="956.5" />
+    <Image Anchor="C,T" Offset="0,210" Texture="HorizontalTrim.dds" Size="1912.10" />
 
-    <Image Anchor="C,B" Offset="0,105" Texture="HorizontalTrim.dds" Size="956.5" />
+    <Image Anchor="C,B" Offset="0,210" Texture="HorizontalTrim.dds" Size="1912.10" />
 
     <!-- Panel Header Text -->
     <Label Style="MenuTitleCaption" String="TXT_KEY_LEADERBOARD" ID="Title" />
 
 
-    <Box Anchor="C,B" AnchorSide="I.I" Offset="0,54"   Size="956,56" Color="255,255,255,0" >
+    <Box Anchor="C,B" AnchorSide="I.I" Offset="0,108"   Size="1912,112" Color="255,255,255,0" >
 
       <!-- Back Button  -->
-      <GridButton Anchor="L,B"  Style="SmallButton" Size="150,32"  Offset="14,0" StateOffsetIncrement="0,0" ID="BackButton"  >
+      <GridButton Anchor="L,B"  Style="SmallButton" Size="300,64"  Offset="28,0" StateOffsetIncrement="0,0" ID="BackButton"  >
         <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_BACK_BUTTON" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" />
       </GridButton>
 
       <!-- Refresh Button  -->
-      <GridButton Anchor="R,B"  Style="SmallButton" Size="150,32"  Offset="14,0" StateOffsetIncrement="0,0" ID="RefreshButton"  ToolTip="TXT_KEY_LEADERBOARD_REFRESH_TT">
+      <GridButton Anchor="R,B"  Style="SmallButton" Size="300,64"  Offset="28,0" StateOffsetIncrement="0,0" ID="RefreshButton"  ToolTip="TXT_KEY_LEADERBOARD_REFRESH_TT">
         <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_MULTIPLAYER_REFRESH_GAME_LIST" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" />
       </GridButton>
 
@@ -122,27 +122,27 @@
 
   </Grid>
 
-  <Grid Anchor="C,C" Offset="0,-150"  Style="WindowGrid" Size="956,24"  >
+  <Grid Anchor="C,C" Offset="0,-300"  Style="WindowGrid" Size="1912,48"  >
 
     <!-- Catagory Header -->
     <Stack Anchor="L,T" Offset="0,0" StackGrowth="Right" Padding="0" >
-      <Box Anchor="L,T" Color="White.0" Size="100,24" Offset="0,0">
+      <Box Anchor="L,T" Color="White.0" Size="200,48" Offset="0,0">
         <Label Anchor="C,C" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_LEADERBOARD_RANKING" />
       </Box>
 
-      <Box Anchor="L,T" Color="White.0" Size="100,24" Offset="0,0">
+      <Box Anchor="L,T" Color="White.0" Size="200,48" Offset="0,0">
         <Label Anchor="C,C" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_POP_SCORE" />
       </Box>
 
-      <Box Anchor="L,T"  Color="White.0" Size="240,24" Offset="0,0">
+      <Box Anchor="L,T"  Color="White.0" Size="480,48" Offset="0,0">
         <Label Anchor="C,C" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_LEADERBOARD_NAME" />
       </Box>
 
-      <Box Anchor="L,T" Color="White.0" Size="200,24" Offset="0,0">
+      <Box Anchor="L,T" Color="White.0" Size="400,48" Offset="0,0">
         <Label Anchor="C,C" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_HOF_RESULTS" />
       </Box>
 
-      <Box Anchor="L,T" Color="White.0" Size="316,24" Offset="0,0">
+      <Box Anchor="L,T" Color="White.0" Size="632,48" Offset="0,0">
         <Label Anchor="C,C" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_HOF_SETTINGS" />
       </Box>
 
@@ -150,13 +150,13 @@
     </Stack>
 
     <!-- Leaderboard Scores List -->
-    <ScrollPanel Offset="0,26" Anchor="L,T" AutoScrollBar="0" Size="954,370" Vertical="1" ID="ScoreScrollPanel" >
+    <ScrollPanel Offset="0,52" Anchor="L,T" AutoScrollBar="0" Size="1908,740" Vertical="1" ID="ScoreScrollPanel" >
 
-      <ScrollBar Style="VertSlider" Length="335" Offset="0.18" Anchor="R,T" AnchorSide="I,I" />
+      <ScrollBar Style="VertSlider" Length="670" Offset="0.36" Anchor="R,T" AnchorSide="I,I" />
       <UpButton  Offset="0.0"  Style="ScrollBarUp"  Anchor="R,T" AnchorSide="I,I" />
-      <DownButton Offset="0.350" Style="ScrollBarDown"  Anchor="R,T" AnchorSide="I,I" />
+      <DownButton Offset="0.700" Style="ScrollBarDown"  Anchor="R,T" AnchorSide="I,I" />
 
-      <Stack Anchor="L,T"  Offset="0,0" Size="260,400" StackGrowth="Bottom" Padding="5" ID="GameStack" />
+      <Stack Anchor="L,T"  Offset="0,0" Size="520,800" StackGrowth="Bottom" Padding="10" ID="GameStack" />
 
     </ScrollPanel>
 

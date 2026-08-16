@@ -3,8 +3,8 @@
 
 	<Instance Name="SettlerRecommendation" >
 		<WorldAnchor ID="Anchor" >
-      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
-        <Image Size="64,64" TextureOffset="64,384" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="274,274">
+        <Image Size="128,128" TextureOffset="128,768" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
       </Image>
 		</WorldAnchor>
 	</Instance>
@@ -13,8 +13,8 @@
 
 	<Instance Name="WorkerReccomendation" >
 		<WorldAnchor ID="Anchor" >
-      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
-        <Image Size="45,45" Anchor="C,C" ID="Icon" />
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="274,274">
+        <Image Size="90,90" Anchor="C,C" ID="Icon" />
       </Image>
 		</WorldAnchor>
 	</Instance>
@@ -23,8 +23,8 @@
 
   <Instance Name="ExplorerRecommendation" >
     <WorldAnchor ID="Anchor" >
-      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
-        <Image Size="64,64" TextureOffset="128,128" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="274,274">
+        <Image Size="128,128" TextureOffset="256,256" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
       </Image>
     </WorldAnchor>
   </Instance>

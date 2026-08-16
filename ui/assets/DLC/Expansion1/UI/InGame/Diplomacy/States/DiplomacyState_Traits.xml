@@ -2,37 +2,37 @@
 <Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
   <Container ID="Content" Size="parent,parent" Anchor="C,T">
     <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent" ID="WindowAlpha">
-      <SlideAnim Start="280,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="2" Size="parent,parent" ID="WindowSlide">
-        <Grid ID="MainWindowDropShadow" Style="Grid9DropShadow" Size="990, parent-77" Offset="0,77" Anchor="C,T"/>
-        <Grid ID="MainWindow" Style="Grid9DiplomacyWindow" Size="900,parent-77" Offset="0,77" Anchor="C,T">
-          <Container Offset="7,1" Size="888,32">
-            <Container Size="888,32" Anchor="C,C">
-              <Stack ID="HeaderStack" StackGrowth="Right" Anchor="L,C" Padding="5">
-                <Container Size="33,28" Offset="0,2"/>
+      <SlideAnim Start="560,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="2" Size="parent,parent" ID="WindowSlide">
+        <Grid ID="MainWindowDropShadow" Style="Grid9DropShadow" Size="1980, parent-154" Offset="0,154" Anchor="C,T"/>
+        <Grid ID="MainWindow" Style="Grid9DiplomacyWindow" Size="1800,parent-154" Offset="0,154" Anchor="C,T">
+          <Container Offset="14,2" Size="1776,64">
+            <Container Size="1776,64" Anchor="C,C">
+              <Stack ID="HeaderStack" StackGrowth="Right" Anchor="L,C" Padding="10">
+                <Container Size="66,56" Offset="0,4"/>
                 <Label ID="WindowHeader" Anchor="L,C" Style="GradientHeader" String="{TXT_KEY_DIPLOMACYUI_MANAGETRAITS:upper}" />
               </Stack>
             </Container>
           </Container>
           <AlphaAnim Anchor="C,C" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Function="Root" ID="ManageTraitsAlpha">
             <SlideAnim Begin="-10,0" End="0,0" Cycle="Once" Speed="3" Function="Root" ID="ManageTraitsSlide">
-              <Stack ID="TraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="900" Offset="0,10" Padding="15" Anchor="C,C"/>
+              <Stack ID="TraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="1800" Offset="0,20" Padding="30" Anchor="C,C"/>
             </SlideAnim>
           </AlphaAnim>
         </Grid>
 
         <AlphaAnim Anchor="C,T" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="2.5" Function="Root" ID="SelectTraitsAlpha" Stopped="1">
-          <Grid ID="SwitchTraitDropShadow" Style="Grid9DropShadow" Size="990, parent-77" Offset="0,77" Anchor="C,T"/>
+          <Grid ID="SwitchTraitDropShadow" Style="Grid9DropShadow" Size="1980, parent-154" Offset="0,154" Anchor="C,T"/>
           <SlideAnim Begin="0,50" Size="parent,parent" End="0,0" Cycle="Once" Speed="2.2" Function="Root" ID="SelectTraitsSlide" Stopped="1">
-            <Grid ID="SwitchTraitWindow" Style="Grid9DiplomacyWindow" Size="900,parent-77" Offset="0,77" Anchor="C,T">
-              <Container Offset="7,1" Size="888,32">
-                <Container Size="888,32" Anchor="C,C">
-                  <Stack ID="SwitchTraitHeaderStack" StackGrowth="Right" Anchor="L,C" Padding="5">
-                    <Container Size="33,28" Offset="0,2"/>
+            <Grid ID="SwitchTraitWindow" Style="Grid9DiplomacyWindow" Size="1800,parent-154" Offset="0,154" Anchor="C,T">
+              <Container Offset="14,2" Size="1776,64">
+                <Container Size="1776,64" Anchor="C,C">
+                  <Stack ID="SwitchTraitHeaderStack" StackGrowth="Right" Anchor="L,C" Padding="10">
+                    <Container Size="66,56" Offset="0,4"/>
                     <Label ID="SwitchTraitHeader" Anchor="L,C" Style="GradientHeader" String="{TXT_KEY_DIPLOMACYUI_SELECTTRAIT:upper}" />
                     <AlphaAnim Anchor="L,C" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Pause=".4" Function="Root" ID="IndicatorAlpha">
                       <SlideAnim Size="parent,parent" Begin="-20,0" End="0,0" Cycle="Once" Speed="3" Pause=".4" Function="Root" ID="IndicatorSlide">
-                        <Stack ID="SelectTraitHeaderStack" StackGrowth="Right" Padding ="10">
-                          <Image ID="SelectTraitIndicator" Texture="ManageTraits_SelectHeader.dds" Size="32,32" Hidden="1"/>
+                        <Stack ID="SelectTraitHeaderStack" StackGrowth="Right" Padding ="20">
+                          <Image ID="SelectTraitIndicator" Texture="ManageTraits_SelectHeader.dds" Size="64,64" Hidden="1"/>
                           <Label ID="SelectTraitLabel" Anchor="L,C" Style="GradientSubHeader" String="Political Trait" Hidden="1"/>
                         </Stack>
                       </SlideAnim>
@@ -40,48 +40,48 @@
                   </Stack>
                   <AlphaAnim Size="parent,parent" AlphaStart="0" AlphaEnd="1" Cycle="Once" Pause=".3" Speed="3" Function="Root" ID="CancelAlpha">
                     <SlideAnim Size="parent,parent" Begin="-20,0" End="0,0" Cycle="Once" Pause=".3" Speed="3" Function="Root" ID="CancelSlide">
-                      <GridButton TextAnchor="L,C" TextOffset="5" Anchor="R,T"  ID="CancelButton" Size="100,29" Style="ReturnButton" String="{TXT_KEY_CANCEL_BUTTON:upper}" Hidden="1"/>
+                      <GridButton TextAnchor="L,C" TextOffset="10" Anchor="R,T"  ID="CancelButton" Size="200,58" Style="ReturnButton" String="{TXT_KEY_CANCEL_BUTTON:upper}" Hidden="1"/>
                     </SlideAnim>
                   </AlphaAnim>
                 </Container>
-                <ScrollPanel ID="SelectTraitsPanel" Size="890,parent-115" Offset="0,33" Anchor="L,T" Vertical="true" AutoScrollBar="1">
+                <ScrollPanel ID="SelectTraitsPanel" Size="1780,parent-230" Offset="0,66" Anchor="L,T" Vertical="true" AutoScrollBar="1">
                   <ScrollBar ID="SelectTraitsScrollBar" Style="VertSlider" Anchor="R,T"/>
                   <Stack ID="ScrollPanelContentsStack" StackGrowth="Bottom" Anchor="C,T">
-                    <Stack ID="SelectTraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="900" Padding="15" Anchor="C,T"/>
-                    <Box ID="ScrollPanelPadding" Color="0,0,0,0" Size="500,32"/>
+                    <Stack ID="SelectTraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="1800" Padding="30" Anchor="C,T"/>
+                    <Box ID="ScrollPanelPadding" Color="0,0,0,0" Size="1000,64"/>
                   </Stack>
                 </ScrollPanel>
               </Container>
             </Grid>
           </SlideAnim>
-          <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="890,64" Offset="0,4" Anchor="C,B" ConsumeMouse="0"/>
+          <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="1780,128" Offset="0,8" Anchor="C,B" ConsumeMouse="0"/>
         </AlphaAnim>
 
-        <Box ID="ConfirmSwap" Size="900,parent-77" Offset="0,77" Anchor="C,T" ConsumeMouse="1" Color="0,0,0,200">
+        <Box ID="ConfirmSwap" Size="1800,parent-154" Offset="0,154" Anchor="C,T" ConsumeMouse="1" Color="0,0,0,200">
           <AlphaAnim Anchor="C,T" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Function="Root" ID="ConfirmSwapAlpha">
             <SlideAnim Begin="0,-50" Size="parent,parent" End="0,0" Cycle="Once" Speed="3" Function="Root" ID="ConfirmSwapSlide">
-              <Grid Style="Grid9DiplomacyWindow" Size="900,500" Anchor="C,C" Offset="0,20" ID="ConfirmSwapWindow">
-                <Label ID="ConfirmSwapHeader" Style="GradientHeader" Anchor="C,T" Offset="0,8" String="{TXT_KEY_DIPLOMACYUI_CONFIRMTRAITSWAP:upper}" />
-                <Stack StackGrowth="Down" Offset="0,50" Anchor="C,T" Padding="20" ID="WindowContentStack">
-                  <Label ID="LoseUpgradesText" Anchor="C,T" FontStyle="glow" Color0="159,13,27,255" Color1="154,8,22,100" Style="FontNormal18" String="TXT_KEY_DIPLOMACYUI_LOSEUPGRADES" WrapWidth="500"/>
-                  <Stack StackGrowth="Right" Anchor="C,T" Padding="10" ID="TraitsInstanceStack">
-                    <Container ID="OldTraitPlaceholder" Size="400,340" Anchor="L,C">
+              <Grid Style="Grid9DiplomacyWindow" Size="1800,1000" Anchor="C,C" Offset="0,40" ID="ConfirmSwapWindow">
+                <Label ID="ConfirmSwapHeader" Style="GradientHeader" Anchor="C,T" Offset="0,16" String="{TXT_KEY_DIPLOMACYUI_CONFIRMTRAITSWAP:upper}" />
+                <Stack StackGrowth="Down" Offset="0,100" Anchor="C,T" Padding="40" ID="WindowContentStack">
+                  <Label ID="LoseUpgradesText" Anchor="C,T" FontStyle="glow" Color0="159,13,27,255" Color1="154,8,22,100" Style="FontNormal18" String="TXT_KEY_DIPLOMACYUI_LOSEUPGRADES" WrapWidth="1000"/>
+                  <Stack StackGrowth="Right" Anchor="C,T" Padding="20" ID="TraitsInstanceStack">
+                    <Container ID="OldTraitPlaceholder" Size="800,680" Anchor="L,C">
                         <Label String="{TXT_KEY_DIPLOMACYUI_CURRENTLYSELECTED:upper}" Style="GradientSubHeader" Anchor="C,B"/>
                     </Container>
-                    <Image ID="Arrow" Texture="SwitchTrait_Arrow.dds" Size="39,37" Anchor="L,C" />
-                    <Grid Style="Grid9HighlightBox" Size="410,340" Anchor="L,C" Offset="0,-5">
-                      <Container ID="NewTraitPlaceholder" Size="400,340" Anchor="C,T" Offset="0,5">
-                        <Label String="{TXT_KEY_DIPLOMACYUI_NEWSELECTION:upper}" Style="GradientHeader" Anchor="C,B" Offset="0,5"/>
+                    <Image ID="Arrow" Texture="SwitchTrait_Arrow.dds" Size="78,74" Anchor="L,C" />
+                    <Grid Style="Grid9HighlightBox" Size="820,680" Anchor="L,C" Offset="0,-10">
+                      <Container ID="NewTraitPlaceholder" Size="800,680" Anchor="C,T" Offset="0,10">
+                        <Label String="{TXT_KEY_DIPLOMACYUI_NEWSELECTION:upper}" Style="GradientHeader" Anchor="C,B" Offset="0,10"/>
                       </Container>
                     </Grid>
                   </Stack>
-                  <Stack StackGrowth="Right" Anchor="C,T" Padding="10">
-                    <GridButton ID="CancelSwapButton" Style="BaseButton" Size="250,32" String="{TXT_KEY_CANCEL_BUTTON:upper}" />
-                    <GridButton ID="ConfirmSwapButton" Style="BaseButton" Size="250,32" String="{TXT_KEY_UNIT_UPGRADE_CONFIRM:upper}">
-                      <Grid ID="ConfirmSwapCostContainer" Style="Grid9CostContainer" Size="70,40" Anchor="R,C">
-                        <Stack ID="ConfirmSwapCostStack" StackGrowth="Right" Padding="2" Anchor="R,C" Offset="9,2" >
+                  <Stack StackGrowth="Right" Anchor="C,T" Padding="20">
+                    <GridButton ID="CancelSwapButton" Style="BaseButton" Size="500,64" String="{TXT_KEY_CANCEL_BUTTON:upper}" />
+                    <GridButton ID="ConfirmSwapButton" Style="BaseButton" Size="500,64" String="{TXT_KEY_UNIT_UPGRADE_CONFIRM:upper}">
+                      <Grid ID="ConfirmSwapCostContainer" Style="Grid9CostContainer" Size="140,80" Anchor="R,C">
+                        <Stack ID="ConfirmSwapCostStack" StackGrowth="Right" Padding="4" Anchor="R,C" Offset="18,4" >
                           <Label ID="ConfirmSwapCost" Style="DiploCapitalText20" String="$$$"/>
-                          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,3"/>
+                          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,6"/>
                         </Stack>
                       </Grid>
                     </GridButton>
@@ -96,12 +96,12 @@
     </AlphaAnim>
   </Container>
 
-  <Container Size="parent-60,40" Anchor="C,T" Offset="65,0">
+  <Container Size="parent-120,80" Anchor="C,T" Offset="130,0">
 
-    <SlideAnim Anchor="L,C" Start="0,0" End="0,40" Cycle="OneBounce" EndPause="2" Function="Root" Speed="2" Size="parent,parent" ID="DiploDeltaSlide" Stopped="1">
-      <Grid Style="Grid9YieldBacking" Size="50,18" ID="DiploDeltaContainer" Color="255,255,255,200">
+    <SlideAnim Anchor="L,C" Start="0,0" End="0,80" Cycle="OneBounce" EndPause="2" Function="Root" Speed="2" Size="parent,parent" ID="DiploDeltaSlide" Stopped="1">
+      <Grid Style="Grid9YieldBacking" Size="100,36" ID="DiploDeltaContainer" Color="255,255,255,200">
         <AlphaAnim AlphaStart=".4" AlphaEnd=".8" Cycle="Bounce" Speed="2" Size="parent,parent">
-          <Label String="-24" Anchor="L,B" Offset="2,-1" Style="RedGlow20" ID="DiploDelta"/>
+          <Label String="-24" Anchor="L,B" Offset="4,-2" Style="RedGlow20" ID="DiploDelta"/>
         </AlphaAnim>
       </Grid>
     </SlideAnim>
@@ -112,15 +112,15 @@
 
   <!-- Perk Entry Instance -->
   <Instance Name="PersonalityTraitLevelEntry">
-    <Grid ID="Content" Size="388,61" Anchor="R,T" Style="Grid9DiplomacyContainer">
+    <Grid ID="Content" Size="776,122" Anchor="R,T" Style="Grid9DiplomacyContainer">
       <GridButton ID="Button" Style="BaseButton" Size="parent,parent" />
-      <Image ID="Icon" Size="66,45" Offset="0,0" Anchor="R,C" Texture="ManageTraits_Upgrade.dds"/>
-      <Label ID="Description" Style="WhiteShadow" FontSize="14"  Anchor="L,C" Offset="5,0" WrapWidth="320" />
-      <Grid ID="CostContainer" Style="Grid9CostContainer" Offset="-15,-20" Size="70,40" Anchor="R,T">
-        <Stack ID="CostTextStack" StackGrowth="Right" Anchor="R,C" Offset="9,2" Padding="2" >
-          <Label ID="UpgradeText" Style="UpgradeText16" String="{TXT_KEY_DIPLOMACYUI_UPGRADEFOR:upper}" Offset="0,2"/>
+      <Image ID="Icon" Size="132,90" Offset="0,0" Anchor="R,C" Texture="ManageTraits_Upgrade.dds"/>
+      <Label ID="Description" Style="WhiteShadow" FontSize="28"  Anchor="L,C" Offset="10,0" WrapWidth="640" />
+      <Grid ID="CostContainer" Style="Grid9CostContainer" Offset="-30,-40" Size="140,80" Anchor="R,T">
+        <Stack ID="CostTextStack" StackGrowth="Right" Anchor="R,C" Offset="18,4" Padding="4" >
+          <Label ID="UpgradeText" Style="UpgradeText16" String="{TXT_KEY_DIPLOMACYUI_UPGRADEFOR:upper}" Offset="0,4"/>
           <Label ID="Cost" Style="DiploCapitalText20" String="Cost here"/>
-          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,3"/>
+          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,6"/>
         </Stack>
       </Grid>
       <Box ID="Unavailable" Size="parent,parent" Color="0,0,0,100" />
@@ -129,49 +129,49 @@
 
   <!-- Personality Trait -->
   <Instance Name="PersonalityTrait">
-    <Grid ID="Content" Size="400,311" Style="Grid9TraitContainer">
-      <Grid Style="Grid9DiplomacyContainer" Size="64,64" Anchor="L,T">
-        <Image ID="Icon" Size="64,64" Anchor="L,T" />
+    <Grid ID="Content" Size="800,622" Style="Grid9TraitContainer">
+      <Grid Style="Grid9DiplomacyContainer" Size="128,128" Anchor="L,T">
+        <Image ID="Icon" Size="128,128" Anchor="L,T" />
       </Grid>
-      <Label ID="CategoryName" Anchor="L,T" Offset="70,4" Style="GradientSubHeader" String="TRAIT CATEGORY HERE" KerningAdjustment="-1"/>
-      <Container Size="parent-64,38" Anchor="L,T" Offset="64,25">
-        <Label ID="Name" Anchor="L,C" Offset="5,0" Style="GradientHeader" String="TRAIT NAME HERE" WrapWidth="350" />
+      <Label ID="CategoryName" Anchor="L,T" Offset="140,8" Style="GradientSubHeader" String="TRAIT CATEGORY HERE" KerningAdjustment="-1"/>
+      <Container Size="parent-128,76" Anchor="L,T" Offset="128,50">
+        <Label ID="Name" Anchor="L,C" Offset="10,0" Style="GradientHeader" String="TRAIT NAME HERE" WrapWidth="700" />
       </Container>
 
-      <Box ID="TabRow" StackGrowth="Right" Anchor="C,T" Size="parent,32" Offset="0,70" Color="0,0,0,0">
-        <GridButton ID="PerksTab" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_PERKS:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_PERKS_TT}" Size="170,32" />
-        <GridButton ID="ServicesTab" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_SERVICES:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_SERVICES_TT}" Size="170,32" />
+      <Box ID="TabRow" StackGrowth="Right" Anchor="C,T" Size="parent,64" Offset="0,140" Color="0,0,0,0">
+        <GridButton ID="PerksTab" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_PERKS:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_PERKS_TT}" Size="340,64" />
+        <GridButton ID="ServicesTab" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_SERVICES:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_SERVICES_TT}" Size="340,64" />
       </Box>
-      <Container ID="PerksContent" Size="parent,205" Offset="6,100" Hidden="true">
+      <Container ID="PerksContent" Size="parent,410" Offset="12,200" Hidden="true">
         <Stack ID="PerksStack" StackGrowth="Bottom" Anchor="L,T" Offset="0,0" Padding="0" />
-        <Label ID="CantChange" Style="DarkGrayShadow" Anchor="C,B" Offset="0,0" WrapWidth="290" String="{TXT_KEY_DIPLOMACYUI_LOCKED:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_LOCKED_TT}"/>
+        <Label ID="CantChange" Style="DarkGrayShadow" Anchor="C,B" Offset="0,0" WrapWidth="580" String="{TXT_KEY_DIPLOMACYUI_LOCKED:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_LOCKED_TT}"/>
       </Container>
-      <Container ID="ServicesContent" Size="parent,265" Offset="5,100" Hidden="false">
-        <Grid Size="391,41" Anchor="L,T" Style="Grid9BlackGradientSubContainer">
-          <Label ID="RelationshipDescription" Style="GrayShadow" Anchor="L,C" Offset="5,2" String="PROGRESSIVE" WrapWidth="385"/>
+      <Container ID="ServicesContent" Size="parent,530" Offset="10,200" Hidden="false">
+        <Grid Size="782,82" Anchor="L,T" Style="Grid9BlackGradientSubContainer">
+          <Label ID="RelationshipDescription" Style="GrayShadow" Anchor="L,C" Offset="10,4" String="PROGRESSIVE" WrapWidth="770"/>
         </Grid>
-        <ScrollPanel ID="ServicesScrollPanel" Size="389,182" Anchor="L,T" Offset="1,0" Vertical="true" AutoScrollBar="1">
+        <ScrollPanel ID="ServicesScrollPanel" Size="778,364" Anchor="L,T" Offset="2,0" Vertical="true" AutoScrollBar="1">
           <Stack ID="ServicesStack" Anchor="L,T" StackGrowth="Bottom" Padding="0">
-            <Container ID="ServicesStackHeader" Size="parent-16,25">
-              <Box Size="parent-100,parent-5" Anchor="L,B" Color="28,34,48,0">
-                <Label Style="WhiteShadow14" Anchor="L,C" Offset="5,0" String="{TXT_KEY_DIPLOMACYUI_SERVICESOFFERED:upper}" />
+            <Container ID="ServicesStackHeader" Size="parent-32,50">
+              <Box Size="parent-200,parent-10" Anchor="L,B" Color="28,34,48,0">
+                <Label Style="WhiteShadow14" Anchor="L,C" Offset="10,0" String="{TXT_KEY_DIPLOMACYUI_SERVICESOFFERED:upper}" />
               </Box>
-              <Box Size="95,parent-5" Anchor="R,B" Color="28,34,48,0">
-                <Label Style="WhiteShadow14" Anchor="R,C" Offset="5,0" String="{TXT_KEY_DIPLOMACYUI_YOURECEIVE:upper}" />
+              <Box Size="190,parent-10" Anchor="R,B" Color="28,34,48,0">
+                <Label Style="WhiteShadow14" Anchor="R,C" Offset="10,0" String="{TXT_KEY_DIPLOMACYUI_YOURECEIVE:upper}" />
               </Box>
             </Container>
           </Stack>
           <ScrollBar ID="ServicesScrollBar" Style="VertSlider" Anchor="R,T"/>
         </ScrollPanel>
       </Container>
-      <Container ID="EmptyContent" Anchor="L,T" Hidden="1" Offset="0,25">
-        <Image ID="BannerImage" Size="400,261"/>
+      <Container ID="EmptyContent" Anchor="L,T" Hidden="1" Offset="0,50">
+        <Image ID="BannerImage" Size="800,522"/>
       </Container>
-      <GridButton ID="ChangeButton" Style="BaseButton" Anchor="C,B" AnchorSide="I,O" Size="parent,35" Offset="0,-25" String="{TXT_KEY_DIPLOMACYUI_SWITCHTRAIT:upper}">
-        <Grid ID="ChangeButtonCostContainer" Style="Grid9CostContainer" Size="70,40" Anchor="R,C">
-          <Stack ID="ChangeButtonCostStack" StackGrowth="Right" Padding="2" Anchor="R,C" Offset="9,2" >
+      <GridButton ID="ChangeButton" Style="BaseButton" Anchor="C,B" AnchorSide="I,O" Size="parent,70" Offset="0,-50" String="{TXT_KEY_DIPLOMACYUI_SWITCHTRAIT:upper}">
+        <Grid ID="ChangeButtonCostContainer" Style="Grid9CostContainer" Size="140,80" Anchor="R,C">
+          <Stack ID="ChangeButtonCostStack" StackGrowth="Right" Padding="4" Anchor="R,C" Offset="18,4" >
             <Label ID="ChangeButtonCost" Style="DiploCapitalText20" String="$$$"/>
-            <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,3"/>
+            <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,6"/>
           </Stack>
         </Grid>
       </GridButton>
@@ -180,13 +180,13 @@
 
   <!-- Service Entry -->
   <Instance Name="ServiceEntry">
-    <Grid ID="Content" Size="parent-15,64" Style="Grid9DiplomacyContainer" Color="255,255,255,200">
-      <Image ID="PolicyIcon" Size="32,32" Anchor="L,C" Offset="5,0" />
-      <Label ID="Name" Style="GradientHeader18" Anchor="L,T" Offset="45,5" String="$NAME OF SERVICE$" />
-      <Label ID="Description" Style="WhiteShadow16" Anchor="L,T" Offset="45,28" WrapWidth="250" String="$What the service does goes here here here d d d d d d d d d d d d d d d.$" />
-      <Container Anchor="R,C" Offset="0,0" Size="60, parent">
+    <Grid ID="Content" Size="parent-30,128" Style="Grid9DiplomacyContainer" Color="255,255,255,200">
+      <Image ID="PolicyIcon" Size="64,64" Anchor="L,C" Offset="10,0" />
+      <Label ID="Name" Style="GradientHeader18" Anchor="L,T" Offset="90,10" String="$NAME OF SERVICE$" />
+      <Label ID="Description" Style="WhiteShadow16" Anchor="L,T" Offset="90,56" WrapWidth="500" String="$What the service does goes here here here d d d d d d d d d d d d d d d.$" />
+      <Container Anchor="R,C" Offset="0,0" Size="120, parent">
         <Label ID="CapitalPerTurn" Style="DiploCapitalText" Anchor="C,C" String="+99[ICON_DIPLO_CAPITAL]" />
-        <Label Style="DarkGrayShadow" Anchor="C,C" Offset="0,15" String="TXT_KEY_DIPLOMACYUI_PERTURN"/>
+        <Label Style="DarkGrayShadow" Anchor="C,C" Offset="0,30" String="TXT_KEY_DIPLOMACYUI_PERTURN"/>
       </Container>
     </Grid>
   </Instance>

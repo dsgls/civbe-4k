@@ -2,37 +2,37 @@
 <Context Color0="Beige" Color1="Black,256" Style="FontNormal16" FontStyle="Shadow" >
 
     <Instance Name="ItemInstance" >
-        <Box Anchor="L,C" Offset="0,0" Size="330,53" Color="255,255,255,0" ID="Root">
-            <Button Anchor="L,C"  Size="330,53" Color="255,255,255,255"  Offset="0,0" StateOffsetIncrement="0,0" ID="Button" >
+        <Box Anchor="L,C" Offset="0,0" Size="660,106" Color="255,255,255,0" ID="Root">
+            <Button Anchor="L,C"  Size="660,106" Color="255,255,255,255"  Offset="0,0" StateOffsetIncrement="0,0" ID="Button" >
                 <ShowOnMouseOver>
-                    <AlphaAnim Anchor="L,C" Size="330,56" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
-                        <Grid   Size="330,56" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" />
+                    <AlphaAnim Anchor="L,C" Size="660,112" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+                        <Grid   Size="660,112" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" />
                     </AlphaAnim>
                 </ShowOnMouseOver>
-                <Image Anchor="L,C"  Size="64,64" Texture="Assets/UI/Art/Icons/MapSizeIcons256.dds" ID="Icon" />
-                <Label Anchor="L,C" Offset="64,0" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="Name" />
-                <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="340.1" />
+                <Image Anchor="L,C"  Size="128,128" Texture="Assets/UI/Art/Icons/MapSizeIcons256.dds" ID="Icon" />
+                <Label Anchor="L,C" Offset="128,0" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="Name" />
+                <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="680.2" />
             </Button>
-            <Box Anchor="L,T" Offset="8,8"  Size="300,36" Color="255,255,255,0"  Hidden="1">
-                <Label Anchor="L,T" Offset="0,0"  WrapWidth="300" LeadingOffset="3" Style="FontNormal16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="Help" />
+            <Box Anchor="L,T" Offset="16,16"  Size="600,72" Color="255,255,255,0"  Hidden="1">
+                <Label Anchor="L,T" Offset="0,0"  WrapWidth="600" LeadingOffset="6" Style="FontNormal16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="Help" />
             </Box>
         </Box>
     </Instance>
 
     <!--=======================================================================================================================-->
 
-    <Container Size="1024,700" Anchor="c,c" >
+    <Container Size="2048,1400" Anchor="c,c" >
 
-        <Box Anchor="R,T" Offset="72,204" Size="354,408" Color="255,255,255,0" >
+        <Box Anchor="R,T" Offset="144,408" Size="708,816" Color="255,255,255,0" >
 
-            <Grid Size="350,408" Padding="0,0" Style="GridBlackIndent8" Hidden="0" >
-                <Grid Size="354,408" Padding="0,0" Style="Grid9Frame" Hidden="0" >
+            <Grid Size="700,816" Padding="0,0" Style="GridBlackIndent8" Hidden="0" >
+                <Grid Size="708,816" Padding="0,0" Style="Grid9Frame" Hidden="0" >
 
-                    <Image AnchorSide="O.I" Offset="-11,115" Size="32,64" Texture="Assets/UI/Art/Controls/9 Grids/Dec32x64Left.dds" />
+                    <Image AnchorSide="O.I" Offset="-22,230" Size="64,128" Texture="Assets/UI/Art/Controls/9 Grids/Dec32x64Left.dds" />
 
-                    <ScrollPanel Offset="0,32" Size="330,372" Vertical="1" ID="ScrollPanel" >
+                    <ScrollPanel Offset="0,64" Size="660,744" Vertical="1" ID="ScrollPanel" >
                         <!-- Scroll Controls -->
-                        <ScrollBar Style="VertSlider" Length="332" Offset="0.18" Anchor="R,T" AnchorSide="O,I" />
+                        <ScrollBar Style="VertSlider" Length="664" Offset="0.36" Anchor="R,T" AnchorSide="O,I" />
                         <UpButton  Offset="0.0"  Style="ScrollBarUp"  Anchor="R,T" AnchorSide="O,I" />
                         <DownButton Offset="0.0" Style="ScrollBarDown"  Anchor="R,B" AnchorSide="O,I" />
 
@@ -42,9 +42,9 @@
                 </Grid>
             </Grid>
 
-            <Image Anchor="L,T" Offset="0,-1"  Size="354,45"   Texture="Assets/UI/Art/WorldView/SetupTab2.dds"  Hidden="0">
-                <Button Anchor="R,T" Size="32,32" Offset="0.0" TextureOffset="32,0" Texture="assets\UI\Art\Notification\CloseMinButtons.dds"  ToolTip="TXT_KEY_CLOSE"  ID="BackButton" Hidden="0"/>"
-                <Label Anchor="C,C" Offset="0,-7" Style="FontNormal20" ColorSet="Beige_Black_Alpha" String="TXT_KEY_CHOOSE_MAP_SIZE" FontStyle="Shadow" />
+            <Image Anchor="L,T" Offset="0,-2"  Size="708,90"   Texture="Assets/UI/Art/WorldView/SetupTab2.dds"  Hidden="0">
+                <Button Anchor="R,T" Size="64,64" Offset="0.0" TextureOffset="64,0" Texture="assets\UI\Art\Notification\CloseMinButtons.dds"  ToolTip="TXT_KEY_CLOSE"  ID="BackButton" Hidden="0"/>"
+                <Label Anchor="C,C" Offset="0,-14" Style="FontNormal20" ColorSet="Beige_Black_Alpha" String="TXT_KEY_CHOOSE_MAP_SIZE" FontStyle="Shadow" />
             </Image>
 
         </Box>

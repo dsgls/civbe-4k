@@ -16,7 +16,7 @@ function UpdateVoiceChat( iPlayerID, voiceChatIcon, chatting, teamChat )
 	if(chatting) then
 		voiceChatIcon:SetHide(false);
 		if(teamChat) then
-			voiceChatIcon:SetTextureOffsetVal(32,0);
+			voiceChatIcon:SetTextureOffsetVal(64,0);
 		else
 			voiceChatIcon:SetTextureOffsetVal(0,0);
 		end

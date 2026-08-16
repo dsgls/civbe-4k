@@ -3,11 +3,11 @@
 
   <Box Style="BGBlock_ClearTopBar" ID="BGBlock" />
 
-  <Grid Size="990,592" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" ID="InGameSet">
+  <Grid Size="1980,1184" Anchor="C,C" Offset="0,40" Style="Grid9DetailFive140" ConsumeMouse="1" ID="InGameSet">
 
-    <Box Anchor="C,B" AnchorSide="I.I" Offset="0,50"   Size="960,56" Color="255,255,255,0" >
+    <Box Anchor="C,B" AnchorSide="I.I" Offset="0,100"   Size="1920,112" Color="255,255,255,0" >
       <!-- Close Button  -->
-      <GridButton Anchor="L,B"  Style="SmallButton" Size="150,32"  Offset="14,0" StateOffsetIncrement="0,0" ID="BackButton"  >
+      <GridButton Anchor="L,B"  Style="SmallButton" Size="300,64"  Offset="28,0" StateOffsetIncrement="0,0" ID="BackButton"  >
         <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_CLOSE" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
       </GridButton>
     </Box>
@@ -17,10 +17,10 @@
     <Box Style="MenuRightSideTreatment"/>
 
     <!-- Top -->
-    <Image Anchor="C,T" AnchorSide="I.O" Size="256,64" Offset="0,-14"  Texture="assets\UI\Art\Icons\Top512IconTrim.dds" >
-      <Image ID="CivIconBG" Size="64.64" Anchor="C,C" Offset="-1,-1" TextureOffset="77,0" Texture="CivIconBGSizes.dds" />
-      <Image ID="CivIconShadow" Size="48.48" Anchor="C,C" Offset="0,0" Texture="CivSymbolAtlas48.dds" Color="Black.128"/>
-      <Image ID="Icon" Size="48,48" Offset="-1,-1"  Anchor="C,C" Texture="CivSymbolsColor512.dds" />
+    <Image Anchor="C,T" AnchorSide="I.O" Size="512,128" Offset="0,-28"  Texture="assets\UI\Art\Icons\Top512IconTrim.dds" >
+      <Image ID="CivIconBG" Size="128.128" Anchor="C,C" Offset="-2,-2" TextureOffset="154,0" Texture="CivIconBGSizes.dds" />
+      <Image ID="CivIconShadow" Size="96.96" Anchor="C,C" Offset="0,0" Texture="CivSymbolAtlas48.dds" Color="Black.128"/>
+      <Image ID="Icon" Size="96,96" Offset="-2,-2"  Anchor="C,C" Texture="CivSymbolsColor512.dds" />
     </Image>
     <!-- Panel Header Text -->
     <Label Style="MenuTitleCaption" String="TXT_KEY_DEMOGRAPHICS_TITLE" ID="Title" />
@@ -28,37 +28,37 @@
   </Grid>
 
 
-  <Container Size="956,658" Anchor="C,C" Offset="0,97" >
+  <Container Size="1912,1316" Anchor="C,C" Offset="0,194" >
     
     <!-- Column Headers WindowGrid -->
     <Stack Anchor="L,T" Growth="Bottom" ID="BigStack" >
 
-      <Grid Anchor="L,T" Offset="0,0"  Style="WindowGrid" Size="956,24"  >
+      <Grid Anchor="L,T" Offset="0,0"  Style="WindowGrid" Size="1912,48"  >
 
         <Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0" >
 
-          <Box Anchor="L,C" Size="206,24" Color="White.0" >
-            <Label Anchor="L,C" Offset="24,-2" Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_TYPE" />
+          <Box Anchor="L,C" Size="412,48" Color="White.0" >
+            <Label Anchor="L,C" Offset="48,-4" Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_TYPE" />
           </Box>
 
-          <Box Anchor="L,C" Size="150,24" Color="White.0" >
-            <Label Anchor="C,C" Offset="0,-2"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RANK" />
+          <Box Anchor="L,C" Size="300,48" Color="White.0" >
+            <Label Anchor="C,C" Offset="0,-4"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RANK" />
           </Box>
 
-          <Box Anchor="L,C" Size="150,24" Color="White.0" >
-            <Label Anchor="C,C" Offset="0,-2"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_VALUE" />
+          <Box Anchor="L,C" Size="300,48" Color="White.0" >
+            <Label Anchor="C,C" Offset="0,-4"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_VALUE" />
           </Box>
 
-          <Box Anchor="L,C" Size="150,24" Color="White.0" >
-            <Label Anchor="C,C" Offset="0,-2"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_BEST" />
+          <Box Anchor="L,C" Size="300,48" Color="White.0" >
+            <Label Anchor="C,C" Offset="0,-4"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_BEST" />
           </Box>
 
-          <Box Anchor="L,C" Size="150,24" Color="White.0" >
-            <Label Anchor="C,C" Offset="0,-2"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_AVERAGE" />
+          <Box Anchor="L,C" Size="300,48" Color="White.0" >
+            <Label Anchor="C,C" Offset="0,-4"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_AVERAGE" />
           </Box>
 
-          <Box Anchor="L,C" Size="150,24" Color="White.0" >
-            <Label Anchor="C,C" Offset="0,-2"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_WORST" />
+          <Box Anchor="L,C" Size="300,48" Color="White.0" >
+            <Label Anchor="C,C" Offset="0,-4"  Style="FontNormal20" String="TXT_KEY_DEMOGRAPHICS_RIVAL_WORST" />
           </Box>
 
         </Stack>
@@ -74,46 +74,46 @@
 
   <Instance Name="Entry" >
 
-    <Box Anchor="L,T" Offset="0,0"   Size="956,54" Color="White.0" >
+    <Box Anchor="L,T" Offset="0,0"   Size="1912,108" Color="White.0" >
       <Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0" >
 
-        <Container Anchor="L,C" Size="206,54" >
-          <Label Anchor="L,C" Offset="24,0" ID="Name" WrapWidth="170" />
+        <Container Anchor="L,C" Size="412,108" >
+          <Label Anchor="L,C" Offset="48,0" ID="Name" WrapWidth="340" />
         </Container>
 
-        <Container Anchor="L,C" Size="150,54" >
-          <Label Anchor="C,C" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" ID="Rank" WrapWidth="150" />
+        <Container Anchor="L,C" Size="300,108" >
+          <Label Anchor="C,C" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" ID="Rank" WrapWidth="300" />
         </Container>
 
-        <Box Anchor="L,C" Size="150,54"  ID="ValueTT" Color="White.0">
-          <Label Anchor="C,C" Offset="0,0" ID="Value" WrapWidth="150"/>
+        <Box Anchor="L,C" Size="300,108"  ID="ValueTT" Color="White.0">
+          <Label Anchor="C,C" Offset="0,0" ID="Value" WrapWidth="300"/>
         </Box>
 
-        <Box Anchor="L,C" Size="150,54" ID="BestTT" Color="White.0" >
-          <Image ID="BestIconBG" Size="32.32" Anchor="C,C" Offset="0,-12" TextureOffset="32,0" Texture="CivIconBGSizes.dds" />
-          <Image ID="BestIconShadow" Size="24.24" Anchor="C,C" Offset="1,-11" Texture="CivSymbolAtlas16.dds" Color="Black.128"/>
-          <Image ID="BestIcon" Size="24.24" Offset="0,-12"  Anchor="C,C" Texture="CivSymbolsColor256.dds" />
-          <Label Anchor="C,C" ID="Best" Offset="0,12" WrapWidth="150" Color0="0.200.0.255" Color1="Black" />
-
-        </Box>
-
-        <Box Anchor="L,C" Size="150,54" ID="AverageTT" Color="White.0" >
-          <Label Anchor="C,C" Offset="0,0" ID="Average"  WrapWidth="150" Color0="200.200.0.255" Color1="Black"/>
+        <Box Anchor="L,C" Size="300,108" ID="BestTT" Color="White.0" >
+          <Image ID="BestIconBG" Size="64.64" Anchor="C,C" Offset="0,-24" TextureOffset="64,0" Texture="CivIconBGSizes.dds" />
+          <Image ID="BestIconShadow" Size="48.48" Anchor="C,C" Offset="2,-22" Texture="CivSymbolAtlas16.dds" Color="Black.128"/>
+          <Image ID="BestIcon" Size="48.48" Offset="0,-24"  Anchor="C,C" Texture="CivSymbolsColor256.dds" />
+          <Label Anchor="C,C" ID="Best" Offset="0,24" WrapWidth="300" Color0="0.200.0.255" Color1="Black" />
 
         </Box>
 
-        <Box Anchor="L,C" Size="150,54" ID="WorstTT"  Color="White.0" >
-          <Image ID="WorstIconBG" Size="32.32" Anchor="C,C" Offset="0,-12" TextureOffset="32,0" Texture="CivIconBGSizes.dds" />
-          <Image ID="WorstIconShadow" Size="24.24" Anchor="C,C" Offset="1,-11" Texture="CivSymbolAtlas32.dds" Color="Black.128"/>
-          <Image ID="WorstIcon" Size="24.24" Offset="0,-12"  Anchor="C,C" Texture="CivSymbolsColor256.dds" />
-          <Label Anchor="C,C" ID="Worst" Offset="0,12" WrapWidth="150" Color0="200.0.0.255" Color1="Black" />
+        <Box Anchor="L,C" Size="300,108" ID="AverageTT" Color="White.0" >
+          <Label Anchor="C,C" Offset="0,0" ID="Average"  WrapWidth="300" Color0="200.200.0.255" Color1="Black"/>
+
+        </Box>
+
+        <Box Anchor="L,C" Size="300,108" ID="WorstTT"  Color="White.0" >
+          <Image ID="WorstIconBG" Size="64.64" Anchor="C,C" Offset="0,-24" TextureOffset="64,0" Texture="CivIconBGSizes.dds" />
+          <Image ID="WorstIconShadow" Size="48.48" Anchor="C,C" Offset="2,-22" Texture="CivSymbolAtlas32.dds" Color="Black.128"/>
+          <Image ID="WorstIcon" Size="48.48" Offset="0,-24"  Anchor="C,C" Texture="CivSymbolsColor256.dds" />
+          <Label Anchor="C,C" ID="Worst" Offset="0,24" WrapWidth="300" Color0="200.0.0.255" Color1="Black" />
 
         </Box>
 
 
 
       </Stack>
-      <Image Anchor="C,B" Offset="0,0" Texture="HorizontalTrim.dds" Size="956.2" />
+      <Image Anchor="C,B" Offset="0,0" Texture="HorizontalTrim.dds" Size="1912.4" />
     </Box>
   </Instance>
 

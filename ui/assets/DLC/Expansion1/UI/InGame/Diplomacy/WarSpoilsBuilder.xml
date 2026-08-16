@@ -3,74 +3,74 @@
   <Box ID="SelectSpoils" Size="parent,parent" ConsumeMouse="1" Color="0,0,0,200">
     <AlphaAnim ID="SelectSpoilsAlphaAnim" Anchor="C,T" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Function="Root" ID="SpoilsAlpha">
       <SlideAnim ID="SelectSpoilsSlideAnim" Begin="0,-50" Size="parent,parent" End="0,0" Cycle="Once" Speed="3" Function="Root" ID="SpoilsSlide">
-        <Grid Style="Grid9DiplomacyWindow" Size="900,700" Anchor="C,C" Offset="0,20" ID="SpoilsWindow">
-          <Label Style="GradientHeader" Anchor="C,T" Offset="0,8" String="{TXT_KEY_WAR_SPOILS:upper}" />
-          <Stack Anchor="C,T" Offset="0,34" StackGrowth="Bottom" Padding="0">
-            <Container Anchor="C,T" Size="parent,125">
-              <Image Texture="DiploWarSpoils_N_Defeat_888x125.dds" Size="888,125" Anchor="C,T"/>
-              <Grid ID="HelpBox" Style="GridWindowNoHeader" Size="830,80" Anchor="C,C" Color="255,255,255,200">
-                <Label ID="Help" Style="WhiteShadow" FontSize="16" Anchor="C,C" Offset="0,0" WrapWidth="800" String="TXT_KEY_WAR_SPOILS_WINNER_HELP" />
+        <Grid Style="Grid9DiplomacyWindow" Size="1800,1400" Anchor="C,C" Offset="0,40" ID="SpoilsWindow">
+          <Label Style="GradientHeader" Anchor="C,T" Offset="0,16" String="{TXT_KEY_WAR_SPOILS:upper}" />
+          <Stack Anchor="C,T" Offset="0,68" StackGrowth="Bottom" Padding="0">
+            <Container Anchor="C,T" Size="parent,250">
+              <Image Texture="DiploWarSpoils_N_Defeat_888x125.dds" Size="1776,250" Anchor="C,T"/>
+              <Grid ID="HelpBox" Style="GridWindowNoHeader" Size="1660,160" Anchor="C,C" Color="255,255,255,200">
+                <Label ID="Help" Style="WhiteShadow" FontSize="32" Anchor="C,C" Offset="0,0" WrapWidth="1600" String="TXT_KEY_WAR_SPOILS_WINNER_HELP" />
               </Grid>
             </Container>
 
             <!-- Spoils Selection -->
-            <Container Anchor="C,T" Size="parent,410">
+            <Container Anchor="C,T" Size="parent,820">
               <Stack Anchor="C,T" Offset="0,0" StackGrowth="Right" Padding="0">
                 <!-- Tech -->
-                <Container Size="375,parent">
-                  <Label ID="TechLabel" Style="WhiteShadow" FontSize="22" Anchor="C,T" Offset="0,10" String="$Your Tech" />
-                  <Grid Style="Grid9BlackGradientContainer" Size="parent,parent-50" Anchor="L,T" Offset="0,40">
-                    <ScrollPanel ID="TechScrollPanel" Size="parent-6,parent-8" Anchor="C,T" Offset="0,2" Vertical="true" AutoScrollBar="1">
+                <Container Size="750,parent">
+                  <Label ID="TechLabel" Style="WhiteShadow" FontSize="44" Anchor="C,T" Offset="0,20" String="$Your Tech" />
+                  <Grid Style="Grid9BlackGradientContainer" Size="parent,parent-100" Anchor="L,T" Offset="0,80">
+                    <ScrollPanel ID="TechScrollPanel" Size="parent-12,parent-16" Anchor="C,T" Offset="0,4" Vertical="true" AutoScrollBar="1">
                       <ScrollBar Style="VertSlider" Anchor="R,T"/>
-                      <Stack ID="TechStack" StackGrowth="Bottom" Anchor="L,T" Padding="3"/>
+                      <Stack ID="TechStack" StackGrowth="Bottom" Anchor="L,T" Padding="6"/>
                     </ScrollPanel>
                   </Grid>
                 </Container>
 
                 <!-- Cities -->
-                <Container Size="301,parent">
-                  <Label ID="CitiesLabel" Style="WhiteShadow" FontSize="22" Anchor="C,T" Offset="0,10" String="$Your Cities" />
-                  <Grid Style="Grid9BlackGradientContainer" Size="parent,parent-50" Anchor="L,T" Offset="0,40">
-                    <ScrollPanel ID="CityScrollPanel" Size="parent-6,parent-8" Anchor="C,T" Offset="0,2" Vertical="true" AutoScrollBar="1">
+                <Container Size="602,parent">
+                  <Label ID="CitiesLabel" Style="WhiteShadow" FontSize="44" Anchor="C,T" Offset="0,20" String="$Your Cities" />
+                  <Grid Style="Grid9BlackGradientContainer" Size="parent,parent-100" Anchor="L,T" Offset="0,80">
+                    <ScrollPanel ID="CityScrollPanel" Size="parent-12,parent-16" Anchor="C,T" Offset="0,4" Vertical="true" AutoScrollBar="1">
                       <ScrollBar Style="VertSlider" Anchor="R,T"/>
-                      <Stack ID="CityStack" StackGrowth="Bottom" Anchor="L,T" Padding="3"/>
+                      <Stack ID="CityStack" StackGrowth="Bottom" Anchor="L,T" Padding="6"/>
                     </ScrollPanel>
                   </Grid>
                 </Container>
 
                 <!-- Yields -->
-                <Container Size="200,parent">
-                  <Label ID="YieldsLabel" Style="WhiteShadow" FontSize="22" Anchor="C,T" Offset="0,10" String="$Your Yields" />
-                  <Stack StackGrowth="Bottom" Anchor="C,T" Padding="10" Offset="0,40">
-                    <Grid Style="Grid9BlackGradientContainer" Size="parent,125">
-                      <Stack StackGrowth="Bottom" Anchor="C,C" Padding="10">
-                        <Label ID="EnergyLabel" Style="WhiteShadow" FontSize="16" Anchor="L,C" String="$Energy: " />
-                        <Stack StackGrowth="Right" Anchor="L,T" Padding="5">
-                          <Grid Offset="0,0" Anchor="L,T" Size="parent-100,28" Padding="0,0" Style="ShellTextEditBackground">
-                            <EditBox ID="EnergyEditbox" CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  Anchor="L,C" Offset="10,0" Size="parent-20,22" Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,160" NumberInput="1" MaxLength="3"/>
+                <Container Size="400,parent">
+                  <Label ID="YieldsLabel" Style="WhiteShadow" FontSize="44" Anchor="C,T" Offset="0,20" String="$Your Yields" />
+                  <Stack StackGrowth="Bottom" Anchor="C,T" Padding="20" Offset="0,80">
+                    <Grid Style="Grid9BlackGradientContainer" Size="parent,250">
+                      <Stack StackGrowth="Bottom" Anchor="C,C" Padding="20">
+                        <Label ID="EnergyLabel" Style="WhiteShadow" FontSize="32" Anchor="L,C" String="$Energy: " />
+                        <Stack StackGrowth="Right" Anchor="L,T" Padding="10">
+                          <Grid Offset="0,0" Anchor="L,T" Size="parent-200,56" Padding="0,0" Style="ShellTextEditBackground">
+                            <EditBox ID="EnergyEditbox" CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  Anchor="L,C" Offset="20,0" Size="parent-40,44" Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,160" NumberInput="1" MaxLength="3"/>
                           </Grid>
-                          <Label Style="WhiteShadow" FontSize="22" Anchor="C,C" Offset="0,0" String="X"/>
-                          <Grid Size="30,23" Style="Grid9YieldBacking" Anchor="C,C" Offset="0,0">
+                          <Label Style="WhiteShadow" FontSize="44" Anchor="C,C" Offset="0,0" String="X"/>
+                          <Grid Size="60,46" Style="Grid9YieldBacking" Anchor="C,C" Offset="0,0">
                             <Label ID="EnergyWarScore" Anchor="C,C" Style="GradientHeader" String="99" />
                           </Grid>
                         </Stack>
                         
-                        <GridButton ID="MaxEnergyButton" Style="BaseButton" Size="125,30" Anchor="C,C" String="TXT_KEY_PEACE_MAX_RESOURCE" />
+                        <GridButton ID="MaxEnergyButton" Style="BaseButton" Size="250,60" Anchor="C,C" String="TXT_KEY_PEACE_MAX_RESOURCE" />
                       </Stack>
                     </Grid>
-                    <Grid Style="Grid9BlackGradientContainer" Size="parent,125">
-                      <Stack StackGrowth="Bottom" Anchor="C,C" Padding="10">
-                        <Label ID="CapitalLabel" Style="WhiteShadow" FontSize="16" Anchor="L,C" String="$Capital: " />
-                        <Stack StackGrowth="Right" Anchor="L,T" Padding="5">
-                          <Grid Offset="0,0" Anchor="L,T" Size="parent-100,28" Padding="0,0" Style="ShellTextEditBackground">
-                            <EditBox ID="CapitalEditbox" CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  Anchor="L,C" Offset="10,0" Size="parent-20,22" Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,160" NumberInput="1" MaxLength="3"/>
+                    <Grid Style="Grid9BlackGradientContainer" Size="parent,250">
+                      <Stack StackGrowth="Bottom" Anchor="C,C" Padding="20">
+                        <Label ID="CapitalLabel" Style="WhiteShadow" FontSize="32" Anchor="L,C" String="$Capital: " />
+                        <Stack StackGrowth="Right" Anchor="L,T" Padding="10">
+                          <Grid Offset="0,0" Anchor="L,T" Size="parent-200,56" Padding="0,0" Style="ShellTextEditBackground">
+                            <EditBox ID="CapitalEditbox" CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  Anchor="L,C" Offset="20,0" Size="parent-40,44" Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,160" NumberInput="1" MaxLength="3"/>
                           </Grid>
-                          <Label Style="WhiteShadow" FontSize="22" Anchor="C,C" Offset="0,0" String="X"/>
-                          <Grid Size="30,23" Style="Grid9YieldBacking" Anchor="C,C" Offset="0,0">
+                          <Label Style="WhiteShadow" FontSize="44" Anchor="C,C" Offset="0,0" String="X"/>
+                          <Grid Size="60,46" Style="Grid9YieldBacking" Anchor="C,C" Offset="0,0">
                             <Label ID="CapitalWarScore" Anchor="C,C" Style="GradientHeader" String="99" />
                           </Grid>
                         </Stack>
-                        <GridButton ID="MaxCapitalButton" Style="BaseButton" Size="125,30" Anchor="C,C" String="TXT_KEY_PEACE_MAX_RESOURCE" />
+                        <GridButton ID="MaxCapitalButton" Style="BaseButton" Size="250,60" Anchor="C,C" String="TXT_KEY_PEACE_MAX_RESOURCE" />
                       </Stack>
                     </Grid>
                   </Stack>
@@ -79,23 +79,23 @@
             </Container>
             
             <!-- Score -->
-            <Grid Style="GridWindowNoHeader" Size="325,68" Anchor="C,T">
+            <Grid Style="GridWindowNoHeader" Size="650,136" Anchor="C,T">
               <Stack StackGrowth="Right" Anchor="C,C" Offset="0,0">
-                <Container Size="65,25" Anchor="C,C">
-                  <Label ID="ScoreCommitted" Style="WhiteShadow" FontSize="20" Anchor="R,C" Offset="10,0" String="0/0"/>
+                <Container Size="130,50" Anchor="C,C">
+                  <Label ID="ScoreCommitted" Style="WhiteShadow" FontSize="40" Anchor="R,C" Offset="20,0" String="0/0"/>
                 </Container>
-                <Grid	ID="ProgressBar"	Size="164,25" Offset="0,0"	Anchor="C,C"	Style="Callout">
-                  <Image  ID="BarEmpty"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
-                  <Image  ID="BarCurrent"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
+                <Grid	ID="ProgressBar"	Size="328,50" Offset="0,0"	Anchor="C,C"	Style="Callout">
+                  <Image  ID="BarEmpty"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
+                  <Image  ID="BarCurrent"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
                 </Grid>
               </Stack>
             </Grid>
           </Stack>
 
           <!-- Confirm and Cancel -->
-          <Stack StackGrowth="Right" Anchor="C,B" Padding="10" Offset="0,6">
-            <GridButton ID="CancelSpoilsButton" Style="BaseButton" Size="250,32" String="{TXT_KEY_CANCEL_BUTTON:upper}" />
-            <GridButton ID="ConfirmSpoilsButton" Style="BaseButton" Size="250,32" String="{TXT_KEY_UNIT_UPGRADE_CONFIRM:upper}" />
+          <Stack StackGrowth="Right" Anchor="C,B" Padding="20" Offset="0,12">
+            <GridButton ID="CancelSpoilsButton" Style="BaseButton" Size="500,64" String="{TXT_KEY_CANCEL_BUTTON:upper}" />
+            <GridButton ID="ConfirmSpoilsButton" Style="BaseButton" Size="500,64" String="{TXT_KEY_UNIT_UPGRADE_CONFIRM:upper}" />
           </Stack>
         </Grid>
       </SlideAnim>
@@ -104,54 +104,54 @@
 
   <!-- Instances -->
   <Instance Name="TechItem">
-    <Container ID="Content" Size="355,85">
+    <Container ID="Content" Size="710,170">
       <GridButton ID="Button" Style="BaseButtonDark" Size="parent,parent">
-        <Container Size="64,64" Anchor="L,C" Offset="0,0">
-          <Image ID="Portrait" Size="64,64" Texture="TechnologyAtlas512.dds" />
-          <Image ID="AffinityRing" Size="46,46" Texture="TechIconAffinity138.dds" Offset="9,9" />
+        <Container Size="128,128" Anchor="L,C" Offset="0,0">
+          <Image ID="Portrait" Size="128,128" Texture="TechnologyAtlas512.dds" />
+          <Image ID="AffinityRing" Size="92,92" Texture="TechIconAffinity138.dds" Offset="18,18" />
         </Container>
-        <Grid Size="45,23" Style="Grid9YieldBacking" Anchor="R,T" Offset="30,5">
+        <Grid Size="90,46" Style="Grid9YieldBacking" Anchor="R,T" Offset="60,10">
           <Label ID="WarScore" Anchor="C,C" Style="GradientHeader" String="999" />
         </Grid>
-        <Image Texture="QuestActive_Checkbox.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Image ID="CheckBoxDisabled" Texture="Checkbox_Gray.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Image ID="Check" Texture="QuestActive_Checkmark.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Container Size="210,35" Anchor="L,T" Offset="70,3">
-          <Label ID="Name" Anchor="L,C" Offset="0,0" WrapWidth="210" Style="WhiteShadow" FontSize="17" String="$TECH NAME HERE$" />
+        <Image Texture="QuestActive_Checkbox.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Image ID="CheckBoxDisabled" Texture="Checkbox_Gray.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Image ID="Check" Texture="QuestActive_Checkmark.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Container Size="420,70" Anchor="L,T" Offset="140,6">
+          <Label ID="Name" Anchor="L,C" Offset="0,0" WrapWidth="420" Style="WhiteShadow" FontSize="34" String="$TECH NAME HERE$" />
         </Container>
-        <Container Size="225,45" Anchor="L,T" Offset="70,38">
-          <Image		ID="IconUnderlay1"					Anchor="L,C"	Offset="0,0"	Size="45,45"	Alpha="0.7" Hidden="0" />
-          <Image		ID="IconUnderlay2"					Anchor="L,C"	Offset="45,0"	Size="45,45"  Alpha="0.7" Hidden="0" />
-          <Image		ID="IconUnderlay3"					Anchor="L,C"	Offset="90,0"	Size="45,45"  Alpha="0.7" Hidden="0" />
-          <Image		ID="IconUnderlay4"					Anchor="L,C"	Offset="135,0"	Size="45,45"  Alpha="0.7" Hidden="0" />
-          <Image		ID="IconUnderlay5"					Anchor="L,C"	Offset="180,0"	Size="45,45"  Alpha="0.7" Hidden="0" />
-          <Button		ID="B1" NoStateChange="1"   Anchor="L,C"	Offset="0,0"	Size="45,45"	Alpha="0.8" ConsumeMouse="0" />
-          <Button		ID="B2" NoStateChange="1"   Anchor="L,C"	Offset="45,0"	Size="45,45"  Alpha="0.8" ConsumeMouse="0" />
-          <Button		ID="B3" NoStateChange="1"   Anchor="L,C"	Offset="90,0"	Size="45,45"  Alpha="0.8" ConsumeMouse="0" />
-          <Button		ID="B4" NoStateChange="1"   Anchor="L,C"	Offset="135,0"	Size="45,45"  Alpha="0.8" ConsumeMouse="0" />
-          <Button		ID="B5" NoStateChange="1"   Anchor="L,C"	Offset="180,0"	Size="45,45"  Alpha="0.8" ConsumeMouse="0" />
+        <Container Size="450,90" Anchor="L,T" Offset="140,76">
+          <Image		ID="IconUnderlay1"					Anchor="L,C"	Offset="0,0"	Size="90,90"	Alpha="0.7" Hidden="0" />
+          <Image		ID="IconUnderlay2"					Anchor="L,C"	Offset="90,0"	Size="90,90"  Alpha="0.7" Hidden="0" />
+          <Image		ID="IconUnderlay3"					Anchor="L,C"	Offset="180,0"	Size="90,90"  Alpha="0.7" Hidden="0" />
+          <Image		ID="IconUnderlay4"					Anchor="L,C"	Offset="270,0"	Size="90,90"  Alpha="0.7" Hidden="0" />
+          <Image		ID="IconUnderlay5"					Anchor="L,C"	Offset="360,0"	Size="90,90"  Alpha="0.7" Hidden="0" />
+          <Button		ID="B1" NoStateChange="1"   Anchor="L,C"	Offset="0,0"	Size="90,90"	Alpha="0.8" ConsumeMouse="0" />
+          <Button		ID="B2" NoStateChange="1"   Anchor="L,C"	Offset="90,0"	Size="90,90"  Alpha="0.8" ConsumeMouse="0" />
+          <Button		ID="B3" NoStateChange="1"   Anchor="L,C"	Offset="180,0"	Size="90,90"  Alpha="0.8" ConsumeMouse="0" />
+          <Button		ID="B4" NoStateChange="1"   Anchor="L,C"	Offset="270,0"	Size="90,90"  Alpha="0.8" ConsumeMouse="0" />
+          <Button		ID="B5" NoStateChange="1"   Anchor="L,C"	Offset="360,0"	Size="90,90"  Alpha="0.8" ConsumeMouse="0" />
         </Container>
       </GridButton>
     </Container>
   </Instance>
 
   <Instance Name="CityItem">
-    <Container ID="Content" Size="279,60">
+    <Container ID="Content" Size="558,120">
       <GridButton ID="Button" Style="BaseButtonDark" Size="parent,parent">
-        <Grid Size="45,23" Style="Grid9YieldBacking" Anchor="R,T" Offset="30,5">
+        <Grid Size="90,46" Style="Grid9YieldBacking" Anchor="R,T" Offset="60,10">
           <Label ID="WarScore" Anchor="C,C" Style="GradientHeader" String="999" />
         </Grid>
-        <Image Texture="QuestActive_Checkbox.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Image ID="CheckBoxDisabled" Texture="Checkbox_Gray.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Image ID="Check" Texture="QuestActive_Checkmark.dds" Size="32,32" Anchor="R,T" Offset="0,0" />
-        <Label ID="Name" Style="WhiteShadow" FontSize="18" WrapWidth="200" Anchor="L,T" Offset="5,5" String="$CITY NAME HERE" />
-        <Stack StackGrowth="Right" Anchor="L,B" Offset="0,5" Padding="5">
-          <Label ID="Petroleum" Style="WhiteShadow" FontSize="18" String="[ICON_PETROLEUM]" />
-          <Label ID="Geothermal" Style="WhiteShadow" FontSize="18" String="[ICON_GEOTHERMAL]" />
-          <Label ID="Titanium" Style="WhiteShadow" FontSize="18" String="[TITANIUM]" />
-          <Label ID="Firaxite" Style="WhiteShadow" FontSize="18" String="[ICON_FIRAXITE]" />
-          <Label ID="Xenomass" Style="WhiteShadow" FontSize="18" String="[ICON_XENOMASS]" />
-          <Label ID="Floatstone" Style="WhiteShadow" FontSize="18" String="[ICON_FLOAT_STONE]" />
+        <Image Texture="QuestActive_Checkbox.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Image ID="CheckBoxDisabled" Texture="Checkbox_Gray.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Image ID="Check" Texture="QuestActive_Checkmark.dds" Size="64,64" Anchor="R,T" Offset="0,0" />
+        <Label ID="Name" Style="WhiteShadow" FontSize="36" WrapWidth="400" Anchor="L,T" Offset="10,10" String="$CITY NAME HERE" />
+        <Stack StackGrowth="Right" Anchor="L,B" Offset="0,10" Padding="10">
+          <Label ID="Petroleum" Style="WhiteShadow" FontSize="36" String="[ICON_PETROLEUM]" />
+          <Label ID="Geothermal" Style="WhiteShadow" FontSize="36" String="[ICON_GEOTHERMAL]" />
+          <Label ID="Titanium" Style="WhiteShadow" FontSize="36" String="[TITANIUM]" />
+          <Label ID="Firaxite" Style="WhiteShadow" FontSize="36" String="[ICON_FIRAXITE]" />
+          <Label ID="Xenomass" Style="WhiteShadow" FontSize="36" String="[ICON_XENOMASS]" />
+          <Label ID="Floatstone" Style="WhiteShadow" FontSize="36" String="[ICON_FLOAT_STONE]" />
         </Stack>
       </GridButton>
     </Container>

@@ -11,31 +11,31 @@
     \|__|    \|_______|\|__| \|__|    \|__| |\_________\
                                             \|_________|  -->	
   <!-- Custom: NimbusSansCHS Medium -->
-  <FontNormal14 Font="n023014t.ttf" FontSize="12"/>
-  <FontNormal15 Font="n023014t.ttf" FontSize="13"/>
-  <FontNormal16 Font="n023014t.ttf" FontSize="14"/>
-  <FontNormal17 Font="n023014t.ttf" FontSize="15"/>
-  <FontNormal18 Font="n023014t.ttf" FontSize="16"/>
-  <FontNormal20 Font="n023014t.ttf" FontSize="18"/>
-  <FontNormal22 Font="n023014t.ttf" FontSize="20"/>
-  <FontNormal23 Font="n023014t.ttf" FontSize="21"/>
-  <FontNormal24 Font="n023014t.ttf" FontSize="22"/>
-  <FontNormal25 Font="n023014t.ttf" FontSize="23"/>
-  <FontNormal26 Font="n023014t.ttf" FontSize="24"/>
-  <FontNormal28 Font="n023014t.ttf" FontSize="26"/>
-  <FontNormal36 Font="n023014t.ttf" FontSize="36"/>
+  <FontNormal14 Font="n023014t.ttf" FontSize="24"/>
+  <FontNormal15 Font="n023014t.ttf" FontSize="26"/>
+  <FontNormal16 Font="n023014t.ttf" FontSize="28"/>
+  <FontNormal17 Font="n023014t.ttf" FontSize="30"/>
+  <FontNormal18 Font="n023014t.ttf" FontSize="32"/>
+  <FontNormal20 Font="n023014t.ttf" FontSize="36"/>
+  <FontNormal22 Font="n023014t.ttf" FontSize="40"/>
+  <FontNormal23 Font="n023014t.ttf" FontSize="42"/>
+  <FontNormal24 Font="n023014t.ttf" FontSize="44"/>
+  <FontNormal25 Font="n023014t.ttf" FontSize="46"/>
+  <FontNormal26 Font="n023014t.ttf" FontSize="48"/>
+  <FontNormal28 Font="n023014t.ttf" FontSize="52"/>
+  <FontNormal36 Font="n023014t.ttf" FontSize="72"/>
 
   <!-- Custom: NimbusSansCHS Medium -->
-  <FontTitle Font="n023014t.ttf" FontSize="18"/>
+  <FontTitle Font="n023014t.ttf" FontSize="36"/>
 
 
 	
   <!-- ======================================================
 					Beyond Earth styles  
   ====================================================== -->
-  <TestNormal   Font="n023014t.ttf" FontSize="22" Color0="255,0,0,255"   Color1="0,99,99,200"  FontStyle="Stroke" />
-  <TestOver     Font="n023014t.ttf" FontSize="26" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Glow"  />
-  <TestDown     Font="n023014t.ttf" FontSize="18" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Stroke"  />
-  <TestDisabled Font="n023014t.ttf" FontSize="26" Color0="90,90,90,190"  Color1="0,0,0,255"    FontStyle="Normal"  />
+  <TestNormal   Font="n023014t.ttf" FontSize="44" Color0="255,0,0,255"   Color1="0,99,99,200"  FontStyle="Stroke" />
+  <TestOver     Font="n023014t.ttf" FontSize="52" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Glow"  />
+  <TestDown     Font="n023014t.ttf" FontSize="36" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Stroke"  />
+  <TestDisabled Font="n023014t.ttf" FontSize="52" Color0="90,90,90,190"  Color1="0,0,0,255"    FontStyle="Normal"  />
 
 </StyleSheet>

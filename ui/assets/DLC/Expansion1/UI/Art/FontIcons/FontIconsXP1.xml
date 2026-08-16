@@ -2,43 +2,43 @@
 <FontIconsXP1>
 	<Atlas File="Assets/DLC/Expansion1/UI/Art/assets/FontIcons/FontIconsXP1.dds" />
 		<!--	Icon Name											          Starting pixel    Size in pixels   Glyph advance    Offset from baseline [optional] -->
-    <Icon Name="FEAR"										          Start="0,0"       Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RESPECT"								          Start="22,0"      Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="DIPLO_CAPITAL"					          Start="44,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="SUPREMACY_PURITY"				          Start="88,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="PURITY_HARMONY"					          Start="66,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="HARMONY_SUPREMACY"			          Start="110,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ARTIFACT_ALIEN"					          Start="198,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ARTIFACT_PROGENITOR"              Start="176,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ARTIFACT_OLDEARTH"                Start="154,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ARTIFACT_MIXED"					          Start="132,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RELATIONSHIP_LEVEL_WAR"           Start="220,0"			Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FEAR"										          Start="0,0"       Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RESPECT"								          Start="44,0"      Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="DIPLO_CAPITAL"					          Start="88,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="SUPREMACY_PURITY"				          Start="176,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="PURITY_HARMONY"					          Start="132,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="HARMONY_SUPREMACY"			          Start="220,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ARTIFACT_ALIEN"					          Start="396,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ARTIFACT_PROGENITOR"              Start="352,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ARTIFACT_OLDEARTH"                Start="308,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ARTIFACT_MIXED"					          Start="264,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RELATIONSHIP_LEVEL_WAR"           Start="440,0"			Size="44,44"     Advance="44"     Baseline="0,8" />
     
-    <Icon Name="RELATIONSHIP_LEVEL_HOSTILE"       Start="0,22"      Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RELATIONSHIP_LEVEL_NEUTRAL"       Start="22,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RELATIONSHIP_LEVEL_COOPERATIVE"   Start="44,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RELATIONSHIP_LEVEL_ALLIED"        Start="66,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="INVISIBLE"                        Start="88,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RESPECT_UP_ALOT"                  Start="110,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RESPECT_UP"                       Start="132,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RESPECT_DOWN_ALOT"                Start="154,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="RESPECT_DOWN"                     Start="176,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="RELATIONSHIP_LEVEL_HOSTILE"       Start="0,44"      Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RELATIONSHIP_LEVEL_NEUTRAL"       Start="44,44"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RELATIONSHIP_LEVEL_COOPERATIVE"   Start="88,44"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RELATIONSHIP_LEVEL_ALLIED"        Start="132,44"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="INVISIBLE"                        Start="176,44"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RESPECT_UP_ALOT"                  Start="220,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RESPECT_UP"                       Start="264,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RESPECT_DOWN_ALOT"                Start="308,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="RESPECT_DOWN"                     Start="352,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
 
-    <Icon Name="EGGS"                             Start="198,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="MINERALS"                         Start="220,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="SHELL"                            Start="0,44"      Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="VENTS"                            Start="22,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="CHELONIA"                         Start="44,44"     Size="22,22"     Advance="22"     Baseline="0,4" />m
-    <Icon Name="PLANKTON"                         Start="66,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="KRAKEN_NEST_OCEAN"                Start="88,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="SOUNDING_BELL_OCEAN"              Start="110,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="SUNKEN_VEHICLE_OCEAN"             Start="132,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="WRECKED_COLONY_LANDER_OCEAN"      Start="154,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="SUNKEN_SPACECRAFT_OCEAN"          Start="176,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ALIEN_HIVE_OCEAN"                 Start="198,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="ALIEN_HIVE"                       Start="220,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="EGGS"                             Start="396,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="MINERALS"                         Start="440,44"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="SHELL"                            Start="0,88"      Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="VENTS"                            Start="44,88"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="CHELONIA"                         Start="88,88"     Size="44,44"     Advance="44"     Baseline="0,8" />m
+    <Icon Name="PLANKTON"                         Start="132,88"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="KRAKEN_NEST_OCEAN"                Start="176,88"     Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="SOUNDING_BELL_OCEAN"              Start="220,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="SUNKEN_VEHICLE_OCEAN"             Start="264,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="WRECKED_COLONY_LANDER_OCEAN"      Start="308,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="SUNKEN_SPACECRAFT_OCEAN"          Start="352,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ALIEN_HIVE_OCEAN"                 Start="396,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="ALIEN_HIVE"                       Start="440,88"    Size="44,44"     Advance="44"     Baseline="0,8" />
 
-    <Icon Name="MARVEL"                           Start="0,66"      Size="22,22"     Advance="22"     Baseline="0,4" />
-    <Icon Name="QUEST"                           Start="22,66"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="MARVEL"                           Start="0,132"      Size="44,44"     Advance="44"     Baseline="0,8" />
+    <Icon Name="QUEST"                           Start="44,132"      Size="44,44"     Advance="44"     Baseline="0,8" />
 
 </FontIconsXP1>

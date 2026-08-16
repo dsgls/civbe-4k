@@ -12,31 +12,31 @@
   <Image ID="Movie" Size="parent,parent" Anchor="C,C" Hidden="true" Sampler="Linear" />
 
   <!-- Subtitles -->
-  <Label ID="Subtitles" Anchor="C,B" Offset="0,25" Align="center" Style="FontNormal24" />
+  <Label ID="Subtitles" Anchor="C,B" Offset="0,50" Align="center" Style="FontNormal24" />
 
   <!-- Game Over -->
   <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
-    <Grid ID="GameOverContent" Style="GridWindowWithHeader" Size="700,500" Anchor="C,C">
+    <Grid ID="GameOverContent" Style="GridWindowWithHeader" Size="1400,1000" Anchor="C,C">
       <!-- Header -->
-      <Label ID="Header" Offset="0,17" Anchor="C,U" Style="MenuTitleCaption" String="$GAME OVER$"/>
+      <Label ID="Header" Offset="0,34" Anchor="C,U" Style="MenuTitleCaption" String="$GAME OVER$"/>
 
       <!-- Image -->
-      <Image ID="Banner" Size="685,125" Anchor="C,T" Offset="0,48"/>
+      <Image ID="Banner" Size="1370,250" Anchor="C,T" Offset="0,96"/>
 
-      <Container Size="200,65" Anchor="L,T" Offset="20,110">
-        <Box Style="CivIcon64" 	Anchor="L,T" Offset="-2,-2" />
-        <Box Color="255,255,255,12" Offset="58,0" Size="2,55"/>
-        <Stack StackGrowth="Down" Offset="65,5" >
+      <Container Size="400,130" Anchor="L,T" Offset="40,220">
+        <Box Style="CivIcon64" 	Anchor="L,T" Offset="-4,-4" />
+        <Box Color="255,255,255,12" Offset="116,0" Size="4,110"/>
+        <Stack StackGrowth="Down" Offset="130,10" >
           <Label ID="Name" Style="WhiteShadow22" Anchor="L,T" Align="Right" String="LEADER NAME HERE" />
           <Label ID="CivName" Style="WhiteShadow16" Anchor="L,T" Align="Right" String="Faction Name Here" />
         </Stack>
       </Container>
 
-      <Label ID="Text" Style="GrayGlow20" Anchor="C,T" Offset="0,190" WrapWidth="680" String="Victory text here..." />
+      <Label ID="Text" Style="GrayGlow20" Anchor="C,T" Offset="0,380" WrapWidth="1360" String="Victory text here..." />
 
-      <Stack ID="ButtonStack" Anchor="C,B" Offset="0,30" StackGrowth="Right" Padding="10">
-        <GridButton ID="MainMenuButton" Style="BaseButton" Size="275,35" String="TXT_KEY_MENU_EXIT_TO_MAIN"/>
-        <GridButton ID="KeepPlayingButton" Style="BaseButton" Size="275,35" String="TXT_KEY_EXTENDED_GAME_YES"/>
+      <Stack ID="ButtonStack" Anchor="C,B" Offset="0,60" StackGrowth="Right" Padding="20">
+        <GridButton ID="MainMenuButton" Style="BaseButton" Size="550,70" String="TXT_KEY_MENU_EXIT_TO_MAIN"/>
+        <GridButton ID="KeepPlayingButton" Style="BaseButton" Size="550,70" String="TXT_KEY_EXTENDED_GAME_YES"/>
       </Stack>
     </Grid>
   </AlphaAnim>

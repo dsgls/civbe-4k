@@ -4,37 +4,37 @@
     <Box Size="parent,parent" ConsumeMouse="true" Color="0,0,0,100" />
     <SlideAnim ID="SlideAnim" Anchor="C,C" Style="DiploTraitPopupSlideAnim">
       <AlphaAnim ID="AlphaAnim" Style="DiploAlphaAnim">
-        <Grid Style="Grid9DetailFive140" Size="700,450" Anchor="C,C" Offset="0,0">
+        <Grid Style="Grid9DetailFive140" Size="1400,900" Anchor="C,C" Offset="0,0">
           <!--<Label Style="FontNormal20" Anchor="C,T" Offset="0,10" String="$Traits$" />-->
 
           <Stack StackGrowth="Bottom" Size="parent,parent">
             <!-- Category Buttons -->
-            <Container ID="CategoriesContent" Size="parent,70">
+            <Container ID="CategoriesContent" Size="parent,140">
               <Stack StackGrowth="Right" Anchor="C,T" Size="parent,parent">
-                <GridButton ID="CharacterTraitButton" Style="BaseButton" Size="175,70">
-                  <Image ID="CharacterTraitIcon" Size="64,64" Anchor="C,C" />
+                <GridButton ID="CharacterTraitButton" Style="BaseButton" Size="350,140">
+                  <Image ID="CharacterTraitIcon" Size="128,128" Anchor="C,C" />
                 </GridButton>
-                <GridButton ID="MilitaryTraitButton" Style="BaseButton" Size="175,70">
-                  <Image ID="MilitaryTraitIcon" Size="64,64" Anchor="C,C" />
+                <GridButton ID="MilitaryTraitButton" Style="BaseButton" Size="350,140">
+                  <Image ID="MilitaryTraitIcon" Size="128,128" Anchor="C,C" />
                 </GridButton>
-                <GridButton ID="PoliticalTraitButton" Style="BaseButton" Size="175,70">
-                  <Image ID="PoliticalTraitIcon" Size="64,64" Anchor="C,C" />
+                <GridButton ID="PoliticalTraitButton" Style="BaseButton" Size="350,140">
+                  <Image ID="PoliticalTraitIcon" Size="128,128" Anchor="C,C" />
                 </GridButton>
-                <GridButton ID="DomesticTraitButton" Style="BaseButton" Size="175,70">
-                  <Image ID="DomesticTraitIcon" Size="64,64" Anchor="C,C" />
+                <GridButton ID="DomesticTraitButton" Style="BaseButton" Size="350,140">
+                  <Image ID="DomesticTraitIcon" Size="128,128" Anchor="C,C" />
                 </GridButton>
               </Stack>
             </Container>
             
             <!-- Current Trait -->
-            <Container ID="CurrentTraitContent" Size="parent,parent-70">
-              <Label ID="CurrentTraitNameLabel" Style="FontNormal28" Anchor="C,T" Offset="0,20" String="Trait name here" />
-              <Stack ID="TraitLevelsStack" StackGrowth="Right" Size="parent,300" Padding="15" Anchor="C,B" Offset="0,5" />
+            <Container ID="CurrentTraitContent" Size="parent,parent-140">
+              <Label ID="CurrentTraitNameLabel" Style="FontNormal28" Anchor="C,T" Offset="0,40" String="Trait name here" />
+              <Stack ID="TraitLevelsStack" StackGrowth="Right" Size="parent,600" Padding="30" Anchor="C,B" Offset="0,10" />
             </Container>
           </Stack>
           
           <!-- Buttons -->
-          <GridButton ID="CancelButton" Style="BaseButton" Anchor="C,B" Size="150,30" Offset="0,-35" String="$Cancel$" />
+          <GridButton ID="CancelButton" Style="BaseButton" Anchor="C,B" Size="300,60" Offset="0,-70" String="$Cancel$" />
         </Grid>
       </AlphaAnim>
     </SlideAnim>
@@ -42,20 +42,20 @@
   
   <!-- Instances -->
   <Instance Name="TraitLevelInstance">
-    <Grid ID="Content" Style="Grid9DiploShadowedPanel" Size="210,300">
-      <Label ID="LevelLabel" Style="FontNormal20" Anchor="C,T" Offset="0,5" String="Level 99" />
-      <Label Style="FontNormal20" Anchor="C,T" Offset="0,30" String="TXT_KEY_TRAITS_OVERVIEW_POLICIES" />
-      <Stack ID="PoliciesStack" StackGrowth="Right" Size="parent,64" Anchor="C,T" Offset="0,50" Padding="5" />
-      <Label Style="FontNormal20" Anchor="C,T" Offset="0,130" String="TXT_KEY_TRAITS_OVERVIEW_BONUS" />
-      <Label ID="PerksLabel" Style="FontNormal18" Anchor="L,T" Offset="5,150" WrapWidth="210" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" />
-      <GridButton ID="LevelUpButton" Style="BaseButton" Size="parent-10,30" Anchor="C,B" Offset="0,10" String="TXT_KEY_TRAITS_OVERVIEW_LEVEL_UP" />
-      <Grid ID="Highlight" Style="Grid9DiploPanelHighlight" Size="parent+10,parent+2" Anchor="C,C" Offset="0,-3" />
+    <Grid ID="Content" Style="Grid9DiploShadowedPanel" Size="420,600">
+      <Label ID="LevelLabel" Style="FontNormal20" Anchor="C,T" Offset="0,10" String="Level 99" />
+      <Label Style="FontNormal20" Anchor="C,T" Offset="0,60" String="TXT_KEY_TRAITS_OVERVIEW_POLICIES" />
+      <Stack ID="PoliciesStack" StackGrowth="Right" Size="parent,128" Anchor="C,T" Offset="0,100" Padding="10" />
+      <Label Style="FontNormal20" Anchor="C,T" Offset="0,260" String="TXT_KEY_TRAITS_OVERVIEW_BONUS" />
+      <Label ID="PerksLabel" Style="FontNormal18" Anchor="L,T" Offset="10,300" WrapWidth="420" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" />
+      <GridButton ID="LevelUpButton" Style="BaseButton" Size="parent-20,60" Anchor="C,B" Offset="0,20" String="TXT_KEY_TRAITS_OVERVIEW_LEVEL_UP" />
+      <Grid ID="Highlight" Style="Grid9DiploPanelHighlight" Size="parent+20,parent+4" Anchor="C,C" Offset="0,-6" />
     </Grid>
   </Instance>
 
   <Instance Name="PolicyInstance">
-    <Container ID="Content" Size="64,64">
-      <Image ID="Icon" Size="64,64" />
+    <Container ID="Content" Size="128,128">
+      <Image ID="Icon" Size="128,128" />
     </Container>
   </Instance>
 </Context>

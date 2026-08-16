@@ -366,7 +366,7 @@ function SetCurrentArtifact( artifactData:ArtifactDataStruct, typeHint:number, c
 
 
 		if typeHint == SelectedType.LibraryCard then
-			m_currentArtifact.control.Background:SetTextureOffsetVal(0,64);
+			m_currentArtifact.control.Background:SetTextureOffsetVal(0,128);
 		elseif m_currentArtifact.typeHint == SelectedType.Slot then
 			Controls["DroppedItem"..tostring(m_currentArtifact.num)] = artifactData;
 			RealizeDropArea(m_currentArtifact.num);
@@ -583,7 +583,7 @@ function RealizeDropArea( num:number )
 		IconHookup(categoryIconIndex, 32, CATEGORY_ICONS_ATLAS, Controls["Type"..id]);		
 
 		if m_currentArtifact ~= nil and m_currentArtifact.artifactData == artifactData then
-			Controls["Drop"..id]:SetTextureOffsetVal(0,256);
+			Controls["Drop"..id]:SetTextureOffsetVal(0,512);
 		else
 			Controls["Drop"..id]:SetTextureOffsetVal(0,0);
 		end
@@ -593,7 +593,7 @@ function RealizeDropArea( num:number )
 		dragInstance.Draggable:RegisterCallback( Drag.eDown, function(dragStruct) OnDragbackDown(dragInstance,artifactData,num); end );
 		dragInstance.Draggable:RegisterCallback( Drag.eDrop, function(dragStruct) OnDragbackDrop(dragStruct,dragInstance,artifactData,num); end );
 	else
-		Controls["Drop"..id]:SetTextureOffsetVal( 32,0);
+		Controls["Drop"..id]:SetTextureOffsetVal( 64,0);
 
 		dragInstance.Draggable:ClearCallback( Drag.eDown );
 		dragInstance.Draggable:ClearCallback( Drag.eDrop );

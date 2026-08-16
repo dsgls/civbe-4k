@@ -3,24 +3,24 @@
 
 	<Box Style="BGBlock_ClearTopBar" />
 
-	<Grid Size="877,625" Anchor="C,C" Offset="0,0" Style="Grid9DetailSeven140" >
+	<Grid Size="1754,1250" Anchor="C,C" Offset="0,0" Style="Grid9DetailSeven140" >
 
-		<Image									Anchor="C,T" Offset="0,5" Size="875,45"  Texture="WonderTitleTop.dds" />
-		<Button	ID="CloseButton"				Anchor="R,T" Offset="5,8"	Style="CloseButton" ToolTip="TXT_KEY_CLOSE"/>	
+		<Image									Anchor="C,T" Offset="0,10" Size="1750,90"  Texture="WonderTitleTop.dds" />
+		<Button	ID="CloseButton"				Anchor="R,T" Offset="10,16"	Style="CloseButton" ToolTip="TXT_KEY_CLOSE"/>	
 		
-		<Label									Anchor="C,T" Offset="0,19" Color="CoolGray" Style="MenuTitleCaption" String="{TXT_KEY_WONDER_COMPLETED_TITLE:upper}" />
-		<ScrollPanel Disabled="1"				Anchor="C,T" Offset="0,55" Size="875,366" FullClip="1" >
-			<SlideAnim  ID="PanningAnimation"	Anchor="C,B" Size="Parent,Parent" Start="0,-100" End="0,-200" Cycle="Once" Speed="0.2" Function="OutSine" Pause="0" >
-				<Image	ID="WonderSplash"		Anchor="C,B" Offset="0,0" Size="875,656"  />
+		<Label									Anchor="C,T" Offset="0,38" Color="CoolGray" Style="MenuTitleCaption" String="{TXT_KEY_WONDER_COMPLETED_TITLE:upper}" />
+		<ScrollPanel Disabled="1"				Anchor="C,T" Offset="0,110" Size="1750,732" FullClip="1" >
+			<SlideAnim  ID="PanningAnimation"	Anchor="C,B" Size="Parent,Parent" Start="0,-200" End="0,-400" Cycle="Once" Speed="0.2" Function="OutSine" Pause="0" >
+				<Image	ID="WonderSplash"		Anchor="C,B" Offset="0,0" Size="1750,1312"  />
 			</SlideAnim>
 		</ScrollPanel>
-		<Box Anchor="C,B" Size="877,1" Offset="0,177" Color="0,0,0,255" ></Box>
+		<Box Anchor="C,B" Size="1754,2" Offset="0,354" Color="0,0,0,255" ></Box>
 
-		<Box Size="875,173" Anchor="C,B" Color="34,37,49,255" AnchorSide="O.I" Offset="0,30" >
-			<Image ID="WonderIcon"	Anchor="L,T" Offset="10,5" Size="64,64"  Texture="WonderAtlas512.dds" />
-			<Label ID="Title"		Anchor="L,T" Color="CoolGray" Offset="88,-52" Style="MenuSubTitleCaption" String="Wonders Name"  />
-			<Label ID="Stats"		Anchor="L,T" Offset="88,50" WrapWidth="330" LeadingOffset="2" String="Bonus information" Style="FontNormal16" FontStyle="Shadow" Color="CoolGray" />
-			<Label ID="Quote"		Anchor="L,T" Offset="450,12" WrapWidth="420" LeadingOffset="2" String="Quote" Style="FontNormal16" FontStyle="Shadow" Color="CoolGray"  />
+		<Box Size="1750,346" Anchor="C,B" Color="34,37,49,255" AnchorSide="O.I" Offset="0,60" >
+			<Image ID="WonderIcon"	Anchor="L,T" Offset="20,10" Size="128,128"  Texture="WonderAtlas512.dds" />
+			<Label ID="Title"		Anchor="L,T" Color="CoolGray" Offset="176,-104" Style="MenuSubTitleCaption" String="Wonders Name"  />
+			<Label ID="Stats"		Anchor="L,T" Offset="176,100" WrapWidth="660" LeadingOffset="4" String="Bonus information" Style="FontNormal16" FontStyle="Shadow" Color="CoolGray" />
+			<Label ID="Quote"		Anchor="L,T" Offset="900,24" WrapWidth="840" LeadingOffset="4" String="Quote" Style="FontNormal16" FontStyle="Shadow" Color="CoolGray"  />
 		</Box>
 	</Grid>
 

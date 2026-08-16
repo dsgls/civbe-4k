@@ -60,7 +60,7 @@ function IconLookup( offset, iconSize, atlas )
 				return;
 			end
 			
-			return Vector2( (offset % numCols) * iconSize, math.floor(offset / numCols) * iconSize ), filename;			
+			return Vector2( (offset % numCols) * iconSize * 2, math.floor(offset / numCols) * iconSize * 2 ), filename;			
 		end
 	end	
 
@@ -168,7 +168,8 @@ function IconHookup( offset, iconSize, atlas, imageControl, debugPrint )
 			end
 			
 			imageControl:SetTexture(filename);
-			imageControl:SetTextureOffsetVal( (offset % numCols) * iconSize, math.floor(offset / numCols) * iconSize );	
+			imageControl:SetTextureOffsetVal( (offset % numCols) * iconSize * 2, math.floor(offset / numCols) * iconSize * 2 );	
+			imageControl:SetSizeVal( iconSize * 2, iconSize * 2 );--[[ civbe-uiscale ]]
 		end
 	end	
 		
@@ -261,16 +262,16 @@ function CivIconHookup( playerID, iconSize, iconControl, teamColorControl, shado
 	 	if teamColorControl then
 	 		if(iconSize == teamSize80) then
 	 			teamColorControl:SetTexture( "CivIconBGSizes.dds" );
-				teamColorControl:SetTextureOffsetVal( 200, 0 );
+				teamColorControl:SetTextureOffsetVal( 400, 0 );
 	 		elseif(iconSize == teamSize64) then
 	 			teamColorControl:SetTexture( "CivIconBGSizes.dds" );
-				teamColorControl:SetTextureOffsetVal( 137, 0 );
+				teamColorControl:SetTextureOffsetVal( 274, 0 );
 			elseif(iconSize == teamSize57) then
 				teamColorControl:SetTexture( "CivIconBGSizes.dds" );
-				teamColorControl:SetTextureOffsetVal( 80, 0 );				
+				teamColorControl:SetTextureOffsetVal( 160, 0 );				
 			elseif(iconSize == teamSize45) then
 				teamColorControl:SetTexture( "CivIconBGSizes.dds" );
-				teamColorControl:SetTextureOffsetVal( 32, 0 );
+				teamColorControl:SetTextureOffsetVal( 64, 0 );
 			elseif(iconSize == teamSize32) then
 				teamColorControl:SetTexture( "CivIconBGSizes.dds" );
 				teamColorControl:SetTextureOffsetVal( 0, 0 );
@@ -287,16 +288,16 @@ function CivIconHookup( playerID, iconSize, iconControl, teamColorControl, shado
 	 	if highlightControl ~= nil then
 	 		if(iconSize == teamSize80) then
 	 			highlightControl:SetTexture( "CivIconBGSizes_Highlight.dds" );
-				highlightControl:SetTextureOffsetVal( 200, 0 );
+				highlightControl:SetTextureOffsetVal( 400, 0 );
 	 		elseif(iconSize == teamSize64) then
 	 			highlightControl:SetTexture( "CivIconBGSizes_Highlight.dds" );
-				highlightControl:SetTextureOffsetVal( 137, 0 );
+				highlightControl:SetTextureOffsetVal( 274, 0 );
 			elseif(iconSize == teamSize57) then
 				highlightControl:SetTexture( "CivIconBGSizes_Highlight.dds" );
-				highlightControl:SetTextureOffsetVal( 80, 0 );
+				highlightControl:SetTextureOffsetVal( 160, 0 );
 			elseif(iconSize == teamSize45) then
 				highlightControl:SetTexture( "CivIconBGSizes_Highlight.dds" );
-				highlightControl:SetTextureOffsetVal( 32, 0 );
+				highlightControl:SetTextureOffsetVal( 64, 0 );
 			elseif(iconSize == teamSize32) then
 				highlightControl:SetTexture( "CivIconBGSizes_Highlight.dds" );
 				highlightControl:SetTextureOffsetVal( 0, 0 );

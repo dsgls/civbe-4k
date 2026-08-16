@@ -4,54 +4,54 @@
 	<Box ID="BackDrop" Anchor="C,C" Size="Full,Full" Color="0,0,0,0" ConsumeMouse="0" >
 
 		<!-- Main panel -->
-		<Grid					ID="Panel"						Anchor="R,B" Offset="-8,70" Size="585,Parent-232"	Style="GridWindowWithHeader" ConsumeMouse="1">
-			<Button				ID="CloseButton"				Anchor="R,T" Offset="9,7"							Style="CloseButton"/>
+		<Grid					ID="Panel"						Anchor="R,B" Offset="-16,140" Size="1170,Parent-464"	Style="GridWindowWithHeader" ConsumeMouse="1">
+			<Button				ID="CloseButton"				Anchor="R,T" Offset="18,14"							Style="CloseButton"/>
 
 			<!-- Header -->
-			<Label Style="MenuTitleCaption"	Anchor="L,T" Offset="10,17"	String="{TXT_KEY_QUEST_LOG_TITLE:upper}" />
+			<Label Style="MenuTitleCaption"	Anchor="L,T" Offset="20,34"	String="{TXT_KEY_QUEST_LOG_TITLE:upper}" />
 			
 			<!-- Tabs -->
-			<Box				ID="TabRow"						Anchor="L,T" Offset="10,50" Size="Parent-30,32" Color="0,0,0,0">
+			<Box				ID="TabRow"						Anchor="L,T" Offset="20,100" Size="Parent-60,64" Color="0,0,0,0">
 				
-        <GridButton		ID="QuestsTab"					Anchor="L,T" Offset="0,0"	Size="170,32"  Style="TabInactive" ToolTip="TXT_KEY_MISSIONS_FILTER_TT">
+        <GridButton		ID="QuestsTab"					Anchor="L,T" Offset="0,0"	Size="340,64"  Style="TabInactive" ToolTip="TXT_KEY_MISSIONS_FILTER_TT">
 					<Label										Style="TabTextStyle" String="{TXT_KEY_MISSIONS_FILTER:upper}" />
-          <Grid ID="QuestTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-16,0" Size="45,40">
+          <Grid ID="QuestTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-32,0" Size="90,80">
             <Label ID="QuestTabUpdatedLabel" String="200" Anchor="C,C" Style="BadgeText"/>
           </Grid>
         </GridButton>
 
-        <GridButton		ID="DomesticQuestsTab"					Anchor="L,T" Offset="0,0"	Size="170,32"  Style="TabInactive" ToolTip="TXT_KEY_DOMESTIC_MISSIONS_FILTER_TT">
+        <GridButton		ID="DomesticQuestsTab"					Anchor="L,T" Offset="0,0"	Size="340,64"  Style="TabInactive" ToolTip="TXT_KEY_DOMESTIC_MISSIONS_FILTER_TT">
           <Label										Style="TabTextStyle" String="{TXT_KEY_DOMESTIC_MISSIONS_FILTER:upper}" />
-          <Grid ID="DomesticQuestTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-16,0" Size="45,40">
+          <Grid ID="DomesticQuestTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-32,0" Size="90,80">
             <Label ID="DomesticQuestTabUpdatedLabel" String="200" Anchor="C,C" Style="BadgeText"/>
           </Grid>
         </GridButton>
 
-        <GridButton		ID="VictoryTab"					Anchor="L,T" Offset="150,0" Size="170,32"  Style="TabInactive" ToolTip="TXT_KEY_VICTORIES_FILTER_TT">
+        <GridButton		ID="VictoryTab"					Anchor="L,T" Offset="300,0" Size="340,64"  Style="TabInactive" ToolTip="TXT_KEY_VICTORIES_FILTER_TT">
 					<Label										Style="TabTextStyle" String="{TXT_KEY_VICTORIES_FILTER:upper}" />
-          <Grid ID="VictoryTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-16,0" Size="45,40">
+          <Grid ID="VictoryTabUpdatedBadge" Style="BadgeGrid" Anchor="R,C" Offset="-32,0" Size="90,80">
             <Label ID="VictoryTabUpdatedLabel" String="200" Anchor="C,C" Style="BadgeText"/>
           </Grid>
 				</GridButton>	
         
 			</Box>				
-			<Box Style="TabSpacerDark" 							Anchor="L,T" Offset="7,78"	Size="Parent-16,5" />
+			<Box Style="TabSpacerDark" 							Anchor="L,T" Offset="14,156"	Size="Parent-32,10" />
 			
 			
-			<Grid				ID="OptionsPanel"				Anchor="L,T" Offset="7,82"		Size="Parent-17,40"	Style="ProductionListHeaderGrid">
-				<Stack											Anchor="R,T" Offset="0,0" StackGrowth="Left" Padding="10">
+			<Grid				ID="OptionsPanel"				Anchor="L,T" Offset="14,164"		Size="Parent-34,80"	Style="ProductionListHeaderGrid">
+				<Stack											Anchor="R,T" Offset="0,0" StackGrowth="Left" Padding="20">
 					<CheckBox	ID="FilterShowCompleted"		String="{TXT_KEY_QUEST_SHOW_COMPLETED:upper}"	Style="QuestFilterCheckBoxes" Anchor="R,C"  IsChecked="False" />
 					<CheckBox	ID="FilterShowFailed"			String="{TXT_KEY_QUEST_SHOW_FAILED:upper}"		Style="QuestFilterCheckBoxes" Anchor="R,C"  IsChecked="False" />
 				</Stack>
 			</Grid>
 							
 			<!-- Main content -->
-			<ScrollPanel		ID="MainContentScrollPanel"		Anchor="L,T" Offset="10,84"		Size="565,Parent-105"	Vertical="1" ConsumeMouse="1" >
-				<Stack			ID="MainContentStack"			Anchor="L,T" Offset="0,0"		Size="565,Parent"		StackGrowth="B" Padding="2"  />
+			<ScrollPanel		ID="MainContentScrollPanel"		Anchor="L,T" Offset="20,168"		Size="1130,Parent-210"	Vertical="1" ConsumeMouse="1" >
+				<Stack			ID="MainContentStack"			Anchor="L,T" Offset="0,0"		Size="1130,Parent"		StackGrowth="B" Padding="4"  />
 				<ScrollBar		ID="MainContentScrollBar"		Anchor="R,T" Offset="0,0"		Length="Parent"			Style="VertSlider" AnchorSide="O,I" />
 				<!-- No quests label -->
-				<Label			ID="NoQuestsLabel"				Anchor="C,T" Offset="0,200" WrapWidth="500" Style="FontNormal20" Color="162,179,204,255" String="TXT_KEY_NO_QUESTS_AVAILABLE" />
-        <Label			ID="NoDomesticQuestsLabel"				Anchor="C,T" Offset="0,200" WrapWidth="500" Style="FontNormal20" Color="162,179,204,255" String="TXT_KEY_NO_DOMESTIC_QUESTS_AVAILABLE" />
+				<Label			ID="NoQuestsLabel"				Anchor="C,T" Offset="0,400" WrapWidth="1000" Style="FontNormal20" Color="162,179,204,255" String="TXT_KEY_NO_QUESTS_AVAILABLE" />
+        <Label			ID="NoDomesticQuestsLabel"				Anchor="C,T" Offset="0,400" WrapWidth="1000" Style="FontNormal20" Color="162,179,204,255" String="TXT_KEY_NO_DOMESTIC_QUESTS_AVAILABLE" />
 			</ScrollPanel>
 		</Grid> 
 	</Box>
@@ -59,85 +59,85 @@
 	
 	<!-- Quest Entry -->
 	<Instance					Name="QuestEntryInstance">
-		<Container				ID="Top"						Anchor="L,T" Offset="0,0"		Size="565,48" >      
+		<Container				ID="Top"						Anchor="L,T" Offset="0,0"		Size="1130,96" >      
 			<Container			ID="ActiveControls"				Anchor="L,T" Offset="0,0"		Size="Parent,Parent" >
-				<GridButton		ID="ActiveExpandButton"			Anchor="L,T" Offset="1,0"		Size="Parent,Parent"	Style="BaseButton">
-					<Image		ID="ActiveBannerImage"			Anchor="L,T" Offset="1,1"		Size="50,46"			Style="QuestMissionTypeBanner" />
-					<Label		ID="ActiveExpandButtonLabel"	Anchor="L,C" Offset="60,0"		Style="QuestHeaderText" String="Quest Name Goes Here" />
+				<GridButton		ID="ActiveExpandButton"			Anchor="L,T" Offset="2,0"		Size="Parent,Parent"	Style="BaseButton">
+					<Image		ID="ActiveBannerImage"			Anchor="L,T" Offset="2,2"		Size="100,92"			Style="QuestMissionTypeBanner" />
+					<Label		ID="ActiveExpandButtonLabel"	Anchor="L,C" Offset="120,0"		Style="QuestHeaderText" String="Quest Name Goes Here" />
 				</GridButton>		
-				<Image			ID="ActiveObjectivesContracted"	Anchor="R,C" Offset="16,0"		Size="34,34"	Texture="Assets/UI/Art/Controls/QuestActive_Plus.dds"  ConsumeMouse="0"/>	
-				<Image			ID="ActiveObjectivesExpanded"	Anchor="R,C" Offset="16,0"		Size="34,34"	Texture="Assets/UI/Art/Controls/QuestActive_Minus.dds"  ConsumeMouse="0" Hidden="1"/>        
+				<Image			ID="ActiveObjectivesContracted"	Anchor="R,C" Offset="32,0"		Size="68,68"	Texture="Assets/UI/Art/Controls/QuestActive_Plus.dds"  ConsumeMouse="0"/>	
+				<Image			ID="ActiveObjectivesExpanded"	Anchor="R,C" Offset="32,0"		Size="68,68"	Texture="Assets/UI/Art/Controls/QuestActive_Minus.dds"  ConsumeMouse="0" Hidden="1"/>        
 			</Container>
 			<!-- Completed / Failed / etc... -->
 			<Container			ID="InactiveControls"			Anchor="R,T" Offset="0,0"		Size="Parent,Parent">
 				<GridButton		ID="InactiveExpandButton"		Anchor="L,T" Offset="0,0"		Size="Parent,Parent"	Style="BaseButton" >
-					<Image		ID="InactiveBannerImage"		Anchor="L,T" Offset="1,1"		Size="50,46"			Style="QuestMissionTypeBanner" />
-					<Label		ID="InactiveExpandButtonLabel"	Anchor="L,C" Offset="60,0"		Style="QuestHeaderText"			String="Quest Name Goes Here" />          
+					<Image		ID="InactiveBannerImage"		Anchor="L,T" Offset="2,2"		Size="100,92"			Style="QuestMissionTypeBanner" />
+					<Label		ID="InactiveExpandButtonLabel"	Anchor="L,C" Offset="120,0"		Style="QuestHeaderText"			String="Quest Name Goes Here" />          
 				</GridButton>		
-				<Image			ID="InactiveObjectivesContracted" Anchor="R,C" Offset="16,0"	Size="34,34" Texture="Assets/UI/Art/Controls/QuestInactive_Plus.dds" ConsumeMouse="0"/>	
-				<Image			ID="InactiveObjectivesExpanded"	Anchor="R,C" Offset="16,0"		Size="34,34" Texture="Assets/UI/Art/Controls/QuestInactive_Minus.dds" ConsumeMouse="0" Hidden="1"/>
+				<Image			ID="InactiveObjectivesContracted" Anchor="R,C" Offset="32,0"	Size="68,68" Texture="Assets/UI/Art/Controls/QuestInactive_Plus.dds" ConsumeMouse="0"/>	
+				<Image			ID="InactiveObjectivesExpanded"	Anchor="R,C" Offset="32,0"		Size="68,68" Texture="Assets/UI/Art/Controls/QuestInactive_Minus.dds" ConsumeMouse="0" Hidden="1"/>
 			</Container>
-      <Image				ID="UpdatedIcon"				Anchor="R,C"	Offset="50,-2"	Size="40,40"		Texture="assets/UI/Art/Controls/Badge.dds" Hidden="1"/>
+      <Image				ID="UpdatedIcon"				Anchor="R,C"	Offset="100,-4"	Size="80,80"		Texture="assets/UI/Art/Controls/Badge.dds" Hidden="1"/>
 		</Container>
 	</Instance>
 
 
 	<!-- Victory Entry -->
 	<Instance					Name="VictoryEntryInstance">
-		<Container				ID="Top"						Anchor="L,T" Offset="1,0"		Size="565,96" >
-			<Container			ID="ActiveControls"				Anchor="R,T" Offset="1,0"		Size="Parent,Parent" >
+		<Container				ID="Top"						Anchor="L,T" Offset="2,0"		Size="1130,192" >
+			<Container			ID="ActiveControls"				Anchor="R,T" Offset="2,0"		Size="Parent,Parent" >
 				<GridButton		ID="ActiveExpandButton"			Anchor="L,C" Offset="0,0"		Size="Parent,Parent" Style="VictoryButton" >
-					<Label		ID="ActiveExpandButtonLabel"	Anchor="L,T" Offset="98,2"		Style="VictoryHeaderText" String="Victory" />
+					<Label		ID="ActiveExpandButtonLabel"	Anchor="L,T" Offset="196,4"		Style="VictoryHeaderText" String="Victory" />
 				</GridButton>
-				<Stack			ID="ActiveCivStack"				Anchor="L,B" Offset="102,8" StackGrowth="Right" Padding="4" />		
-				<Image			ID="ActiveObjectivesContracted"	Anchor="R,T" Offset="0,0"		Size="34,34" ConsumeMouse="0"		Texture="Assets/UI/Art/Controls/QuestActive_Plus.dds" />
-				<Image			ID="ActiveObjectivesExpanded"	Anchor="R,T" Offset="0,0"		Size="34,34" ConsumeMouse="0"		Texture="Assets/UI/Art/Controls/QuestActive_Minus.dds" Hidden="1"/>
+				<Stack			ID="ActiveCivStack"				Anchor="L,B" Offset="204,16" StackGrowth="Right" Padding="8" />		
+				<Image			ID="ActiveObjectivesContracted"	Anchor="R,T" Offset="0,0"		Size="68,68" ConsumeMouse="0"		Texture="Assets/UI/Art/Controls/QuestActive_Plus.dds" />
+				<Image			ID="ActiveObjectivesExpanded"	Anchor="R,T" Offset="0,0"		Size="68,68" ConsumeMouse="0"		Texture="Assets/UI/Art/Controls/QuestActive_Minus.dds" Hidden="1"/>
 			</Container>			
-			<Container			ID="InactiveControls"			Anchor="R,T" Offset="1,0"		Size="Parent,Parent" >
+			<Container			ID="InactiveControls"			Anchor="R,T" Offset="2,0"		Size="Parent,Parent" >
 				<GridButton		ID="InactiveExpandButton"		Anchor="L,C" Offset="0,0"		Size="Parent,Parent" Style="VictoryButton" >
-					<Label		ID="InactiveExpandButtonLabel"	Anchor="L,T" Offset="98,2"		Style="VictoryHeaderText" String="Victory" />
+					<Label		ID="InactiveExpandButtonLabel"	Anchor="L,T" Offset="196,4"		Style="VictoryHeaderText" String="Victory" />
 				</GridButton>		
-				<Stack			ID="InactiveCivStack"			Anchor="L,B"	Offset="102,8" StackGrowth="Right" Padding="4" />	
-				<Image			ID="InactiveObjectivesContracted" Anchor="R,T"	Offset="0,0"	Size="34,34"	 ConsumeMouse="0"	Texture="Assets/UI/Art/Controls/QuestInactive_Plus.dds" />
-				<Image			ID="InactiveObjectivesExpanded"	Anchor="R,T"	Offset="0,0"	Size="34,34"	 ConsumeMouse="0"	Texture="Assets/UI/Art/Controls/QuestInactive_Minus.dds" Hidden="1"/>
+				<Stack			ID="InactiveCivStack"			Anchor="L,B"	Offset="204,16" StackGrowth="Right" Padding="8" />	
+				<Image			ID="InactiveObjectivesContracted" Anchor="R,T"	Offset="0,0"	Size="68,68"	 ConsumeMouse="0"	Texture="Assets/UI/Art/Controls/QuestInactive_Plus.dds" />
+				<Image			ID="InactiveObjectivesExpanded"	Anchor="R,T"	Offset="0,0"	Size="68,68"	 ConsumeMouse="0"	Texture="Assets/UI/Art/Controls/QuestInactive_Minus.dds" Hidden="1"/>
 			</Container>
-			<Box												Anchor="L,T"	Offset="0,0"	Size="90,90"		Color="0,0,0,255" />
-			<Image				ID="PortraitImage"				Anchor="L,B"	Offset="0,3"	Size="91,91" />
-			<Image				ID="UpdatedIcon"				Anchor="R,T"	Offset="35,-4"	Size="40,40"		Texture="assets/UI/Art/Controls/Badge.dds" Hidden="1"/>
+			<Box												Anchor="L,T"	Offset="0,0"	Size="180,180"		Color="0,0,0,255" />
+			<Image				ID="PortraitImage"				Anchor="L,B"	Offset="0,6"	Size="182,182" />
+			<Image				ID="UpdatedIcon"				Anchor="R,T"	Offset="70,-8"	Size="80,80"		Texture="assets/UI/Art/Controls/Badge.dds" Hidden="1"/>
 		</Container>
 	</Instance>
 
 
 	<!-- Reward Entry -->
 	<Instance					Name="RewardInstance">
-		<Container ID="Content"					Offset="0,-1"	Size="565,32">
-			<Box												Size="Parent-2,Parent"		Color="0,0,0,255"/>
-			<Box								Offset="1,0"	Size="Parent-2,Parent-1"	Color="29,34,44,255"/>
-			<Label ID="Header"	Anchor="L,C"	Offset="65,0"	Style="QuestRewardHeaderText"	String="" />
-			<Label ID="Reward"	Anchor="R,C"	Offset="24,0"	Style="QuestRewardText"	WrapWidth="500" LeadingOffset="-2" />
+		<Container ID="Content"					Offset="0,-2"	Size="1130,64">
+			<Box												Size="Parent-4,Parent"		Color="0,0,0,255"/>
+			<Box								Offset="2,0"	Size="Parent-4,Parent-2"	Color="29,34,44,255"/>
+			<Label ID="Header"	Anchor="L,C"	Offset="130,0"	Style="QuestRewardHeaderText"	String="" />
+			<Label ID="Reward"	Anchor="R,C"	Offset="48,0"	Style="QuestRewardText"	WrapWidth="1000" LeadingOffset="-4" />
 		</Container>		
 	</Instance>
 	
 	
 	<!-- Objective Entry -->
 	<Instance Name="ObjectiveEntryInstance">
-		<Container			ID="Content"					Anchor="L,T"	Offset="0,-1"	Size="565,36" >
+		<Container			ID="Content"					Anchor="L,T"	Offset="0,-2"	Size="1130,72" >
 			<Box																			Size="Parent,Parent"		Color="0,0,0,255"/>      
-			<Box															Offset="1,0"	Size="Parent-2,Parent-1"	Color="29,34,44,255"/>
-			<Grid			ID="Highlight"									Offset="1,-1"	Size="Parent-2,Parent"		Style="QuestItemHighlightGrid" Hidden="1" Alpha="0.8" />
+			<Box															Offset="2,0"	Size="Parent-4,Parent-2"	Color="29,34,44,255"/>
+			<Grid			ID="Highlight"									Offset="2,-2"	Size="Parent-4,Parent"		Style="QuestItemHighlightGrid" Hidden="1" Alpha="0.8" />
 			<Container		ID="ActiveControls"				Anchor="L,T"					Size="Parent,Parent" >
-				<Label		ID="ActiveCompleteLabel"		Anchor="L,C"	Offset="65,0"	Style="QuestCompleteText"	WrapWidth="380" />
-				<Label		ID="ActiveIncompleteLabel"		Anchor="L,C"	Offset="65,0"	Style="QuestIncompleteText" WrapWidth="380" />
-				<Image		ID="ActiveCheckBox"				Anchor="L,T"	Offset="26,0"	Size="32,32"	Style="QuestCheckButtons"  />
-				<GridButton ID="ActiveFocusButton"			Anchor="R,B"	Offset="18,4"	Size="94,28"	Style="GridListElementGreen" ColorSet="Gray_Black_Alpha" >
+				<Label		ID="ActiveCompleteLabel"		Anchor="L,C"	Offset="130,0"	Style="QuestCompleteText"	WrapWidth="760" />
+				<Label		ID="ActiveIncompleteLabel"		Anchor="L,C"	Offset="130,0"	Style="QuestIncompleteText" WrapWidth="760" />
+				<Image		ID="ActiveCheckBox"				Anchor="L,T"	Offset="52,0"	Size="64,64"	Style="QuestCheckButtons"  />
+				<GridButton ID="ActiveFocusButton"			Anchor="R,B"	Offset="36,8"	Size="188,56"	Style="GridListElementGreen" ColorSet="Gray_Black_Alpha" >
 					<Label									Anchor="C,C"	Offset="0,0" Style="FontNormal18" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_QUEST_LOG_SHOW_ME"/>
 				</GridButton>
 			</Container>
 			<Container		ID="InactiveControls"			Anchor="L,T"					Size="Parent,Parent" >
-				<Label		ID="InactiveCompleteLabel"		Anchor="L,C"	Offset="65,0"	Style="QuestCompleteText" WrapWidth="380" />
-				<Label		ID="InactiveIncompleteLabel"	Anchor="L,C"	Offset="65,0"	Style="QuestIncompleteText" WrapWidth="380" />
-				<Image		ID="InactiveCheckBox"			Anchor="L,C"	Offset="26,0"	Size="32,32"	Style="QuestCheckButtons"  />
-				<GridButton ID="InactiveFocusButton"		Anchor="R,C"	Offset="18,4"	Size="94,28" Style="GridListElementGreen" ColorSet="Gray_Black_Alpha" >
+				<Label		ID="InactiveCompleteLabel"		Anchor="L,C"	Offset="130,0"	Style="QuestCompleteText" WrapWidth="760" />
+				<Label		ID="InactiveIncompleteLabel"	Anchor="L,C"	Offset="130,0"	Style="QuestIncompleteText" WrapWidth="760" />
+				<Image		ID="InactiveCheckBox"			Anchor="L,C"	Offset="52,0"	Size="64,64"	Style="QuestCheckButtons"  />
+				<GridButton ID="InactiveFocusButton"		Anchor="R,C"	Offset="36,8"	Size="188,56" Style="GridListElementGreen" ColorSet="Gray_Black_Alpha" >
 					<Label									Anchor="C,C"	Offset="0,0" Style="FontNormal18" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_QUEST_LOG_SHOW_ME"/>
 				</GridButton>
 			</Container>
@@ -146,40 +146,40 @@
 
 	<!-- Message Entry -->
 	<Instance Name="MessageEntryInstance">
-		<Container ID="Grid"					Offset="0,-1">
-			<Box												Size="Parent-2,Parent"		Color="0,0,0,255"/>
-			<Box								Offset="1,0"	Size="Parent-2,Parent-1"	Color="29,34,44,255"/>
-			<Label ID="Label"	Anchor="L,C"	Offset="65,0"	Style="QuestDescriptionText" WrapWidth="470" />
+		<Container ID="Grid"					Offset="0,-2">
+			<Box												Size="Parent-4,Parent"		Color="0,0,0,255"/>
+			<Box								Offset="2,0"	Size="Parent-4,Parent-2"	Color="29,34,44,255"/>
+			<Label ID="Label"	Anchor="L,C"	Offset="130,0"	Style="QuestDescriptionText" WrapWidth="940" />
 		</Container>
 	</Instance>
 
 	<!-- CivVictoryEntry -->
 	<Instance Name="CivVictoryEntryInstance">
-		<Container															Size="49,65" >		
-			<Image		ID="PortraitBacking"	Anchor="C,B" Offset="0,9"	Size="49,49" Texture="Assets/UI/Art/Quests/VictoryIconBackingThemSmall.dds"  />
-      <Box		ID="CivIconFrame"	Size="57,57"	Anchor="C,B" Offset="0,6" Color="0,0,0,0">
-        <Image	ID="CivIconBG"		Size="57,57"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-        <Image	ID="CivIcon"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-        <Image	ID="CivIconHighlight"		Size="57,57"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+		<Container															Size="98,130" >		
+			<Image		ID="PortraitBacking"	Anchor="C,B" Offset="0,18"	Size="98,98" Texture="Assets/UI/Art/Quests/VictoryIconBackingThemSmall.dds"  />
+      <Box		ID="CivIconFrame"	Size="114,114"	Anchor="C,B" Offset="0,12" Color="0,0,0,0">
+        <Image	ID="CivIconBG"		Size="114,114"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+        <Image	ID="CivIcon"		Size="90,90"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+        <Image	ID="CivIconHighlight"		Size="114,114"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
       </Box>
-			<Box								Anchor="C,B" Offset="0,0"	Size="49,8" Color="14,19,49,255" />
-			<TextureBar	ID="VictoryProgress"	Anchor="C,B" Offset="0,0"	Size="48,8" Texture="Assets/UI/Art/Controls/VictoryProgressFill.dds"/>
-      <Image ID="First" Anchor="R,T" Texture="Assets/UI/Art/Quests/VictoryFirstPlace.dds" Size="26,42" Offset="-9,-11" Hidden="1"/>
+			<Box								Anchor="C,B" Offset="0,0"	Size="98,16" Color="14,19,49,255" />
+			<TextureBar	ID="VictoryProgress"	Anchor="C,B" Offset="0,0"	Size="96,16" Texture="Assets/UI/Art/Controls/VictoryProgressFill.dds"/>
+      <Image ID="First" Anchor="R,T" Texture="Assets/UI/Art/Quests/VictoryFirstPlace.dds" Size="52,84" Offset="-18,-22" Hidden="1"/>
 		</Container>
 	</Instance>
 
 	<!-- CivLeaderVictoryEntry - slightly bigger for whoever is leading! -->
 	<Instance Name="CivLeaderVictoryEntryInstance">
-		<Container															Size="64,64">			
-			<Image		ID="PortraitBacking"	Anchor="C,B" Offset="0,9"	Size="57,57" Texture="Assets/UI/Art/Quests/VictoryIconBackingThemLarge.dds"  />
-      <Box		ID="CivIconFrame"	Size="64,64"	Anchor="L,T" Offset="0,-5" Color="0,0,0,0">
-        <Image	ID="CivIconBG"		Size="64,64"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-        <Image	ID="CivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-        <Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+		<Container															Size="128,128">			
+			<Image		ID="PortraitBacking"	Anchor="C,B" Offset="0,18"	Size="114,114" Texture="Assets/UI/Art/Quests/VictoryIconBackingThemLarge.dds"  />
+      <Box		ID="CivIconFrame"	Size="128,128"	Anchor="L,T" Offset="0,-10" Color="0,0,0,0">
+        <Image	ID="CivIconBG"		Size="128,128"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+        <Image	ID="CivIcon"		Size="96,96"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+        <Image	ID="CivIconHighlight"		Size="128,128"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
       </Box>
-			<Box								Anchor="C,B" Offset="0,0"	Size="57,8" Color="14,19,49,255" />
-			<TextureBar	ID="VictoryProgress"	Anchor="C,B" Offset="0,0"	Size="57,8" Texture="Assets/UI/Art/Controls/VictoryProgressFill.dds"  />
-      <Image Anchor="R,T" Texture="Assets/UI/Art/Quests/VictoryFirstPlace.dds" Size="26,42" Offset="-6,-11"/>
+			<Box								Anchor="C,B" Offset="0,0"	Size="114,16" Color="14,19,49,255" />
+			<TextureBar	ID="VictoryProgress"	Anchor="C,B" Offset="0,0"	Size="114,16" Texture="Assets/UI/Art/Controls/VictoryProgressFill.dds"  />
+      <Image Anchor="R,T" Texture="Assets/UI/Art/Quests/VictoryFirstPlace.dds" Size="52,84" Offset="-12,-22"/>
 		</Container>
 	</Instance>
 

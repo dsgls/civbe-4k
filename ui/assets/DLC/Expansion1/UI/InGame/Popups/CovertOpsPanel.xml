@@ -4,7 +4,7 @@
 
   <Box ID="ParentSize" Size="parent,parent" Color="0,0,0,0" />
 
-  <ScrollPanel	ID="MainScrollPanel"	Offset="12,53" AutoScrollBar="1" Size="440,516" Vertical="1">
+  <ScrollPanel	ID="MainScrollPanel"	Offset="24,106" AutoScrollBar="1" Size="880,1032" Vertical="1">
     <Stack		ID="OuterStack"			Anchor="L,T" StackGrowth="Bottom" StackPadding="0">
       <Stack	ID="HQStack"			Anchor="L,T" StackGrowth="Bottom" />
       <Stack	ID="MissionStack"		Anchor="L,T" StackGrowth="Bottom" />
@@ -13,193 +13,193 @@
       <Stack	ID="CityStack"			Anchor="L,T" StackGrowth="Bottom" />
       <Stack  ID="ProjectStack"		Anchor="L,T" StackGrowth="Bottom" />
     </Stack>
-    <ScrollBar 	ID="MainScrollBar" Offset="-14,0"	Style="VertSlider"	Anchor="R,T" AnchorSide="O,I" />
+    <ScrollBar 	ID="MainScrollBar" Offset="-28,0"	Style="VertSlider"	Anchor="R,T" AnchorSide="O,I" />
   </ScrollPanel>
 
-  <Grid			ID="PlayerChoice" Offset="12,600"	Size="442,62"	Style="GridListElementGray" >
-    <GridButton ID="Cancel"	Offset="-100,0"	Size="150,32"	Anchor="C,C"	Style="BaseButton" String="{TXT_KEY_COVERT_CANCEL:upper}" />
-    <GridButton ID="Assign"	Offset="100,0"	Size="150,32"	Anchor="C,C"	Style="BaseButton" String="{TXT_KEY_COVERT_ASSIGN:upper}" />
+  <Grid			ID="PlayerChoice" Offset="24,1200"	Size="884,124"	Style="GridListElementGray" >
+    <GridButton ID="Cancel"	Offset="-200,0"	Size="300,64"	Anchor="C,C"	Style="BaseButton" String="{TXT_KEY_COVERT_CANCEL:upper}" />
+    <GridButton ID="Assign"	Offset="200,0"	Size="300,64"	Anchor="C,C"	Style="BaseButton" String="{TXT_KEY_COVERT_ASSIGN:upper}" />
   </Grid>
 
 
   <!-- =================== Dynamic pieces of UI =================== -->
 
   <Instance Name="WaitForTurnInstance">
-    <Grid ID="Header" Size="442,50" Style="GridListElementGray">
+    <Grid ID="Header" Size="884,100" Style="GridListElementGray">
       <Label Style="RedGlow20" Anchor="C,C" String="TXT_KEY_WAIT_FOR_YOUR_TURN" />
     </Grid>
   </Instance>
 
   <Instance Name="NationalSecurityProjectInstance">
-    <GridButton		ID="Project"			Size="442,80"	Style="GridListElementGray">
+    <GridButton		ID="Project"			Size="884,160"	Style="GridListElementGray">
       <Grid		ID="Selected"			Size="Parent,Parent" Style="GridListElementBlue"/>
-      <Stack								Offset="8,8" Padding="2">
+      <Stack								Offset="16,16" Padding="4">
         <Label	ID="ProjectNameLabel"	Style="GrayGlow20" String="ProjectNameLabel"/>
-        <Label	ID="ProjectEffectLabel" Style="WhiteShadow" WrapWidth="410" String="d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d" />
+        <Label	ID="ProjectEffectLabel" Style="WhiteShadow" WrapWidth="820" String="d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d" />
       </Stack>
     </GridButton>
   </Instance>
 
 
   <Instance Name="NationalSecurityProjectHeaderInstance">
-    <Grid					ID="Header" Size="442,100" Style="GridSecondaryPanelHeader">
-      <Stack				ID="ContentStack" Offset="5,2" Padding="2">
+    <Grid					ID="Header" Size="884,200" Style="GridSecondaryPanelHeader">
+      <Stack				ID="ContentStack" Offset="10,4" Padding="4">
         <Label								Style="GrayGlow20" String="TXT_KEY_NATIONAL_SECURITY_PROJECT_HEADER" />
         <Label			ID="ProjectNameLabel"	Style="WhiteShadow" String="$Project Name$" />
-        <Container		ID="UnavailableContent" Size="440,50" Hidden="true">
+        <Container		ID="UnavailableContent" Size="880,100" Hidden="true">
           <Label								Anchor="C,C" String="TXT_KEY_NATIONAL_SECURITY_PROJECT_UNAVAILABLE" Style="OpsText" />
         </Container>
-        <Container		ID="NoneSelectedContent" Size="440,50" Hidden="true">
-          <GridButton ID="SelectProjectButton" Size="250,32" Anchor="C,C" Style="BaseButton" String="TXT_KEY_SELECT_NATIONAL_SECURITY_PROJECT" />
+        <Container		ID="NoneSelectedContent" Size="880,100" Hidden="true">
+          <GridButton ID="SelectProjectButton" Size="500,64" Anchor="C,C" Style="BaseButton" String="TXT_KEY_SELECT_NATIONAL_SECURITY_PROJECT" />
         </Container>
-        <Container		ID="StartingProjectContent" Size="440,50" Hidden="true">
-          <GridButton ID="SwitchProjectFromStartingButton" Size="140,32" Offset="60,0"	Anchor="L,C" Style="BaseButton" String="TXT_KEY_CANCEL_BUTTON" />
-          <Grid		ID="ProgressBar"	Size="164,39" Offset="25,10"	Anchor="R,T"	Style="GridProgressBacking">
-            <Image  ID="BarEmpty"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
-            <Image  ID="BarNext"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
-            <Image  ID="BarCurrent"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
-            <Label	ID="Turns"			Anchor="R,B"	Offset="4,2"	FontSize="13"	String="99" />
+        <Container		ID="StartingProjectContent" Size="880,100" Hidden="true">
+          <GridButton ID="SwitchProjectFromStartingButton" Size="280,64" Offset="120,0"	Anchor="L,C" Style="BaseButton" String="TXT_KEY_CANCEL_BUTTON" />
+          <Grid		ID="ProgressBar"	Size="328,78" Offset="50,20"	Anchor="R,T"	Style="GridProgressBacking">
+            <Image  ID="BarEmpty"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
+            <Image  ID="BarNext"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
+            <Image  ID="BarCurrent"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
+            <Label	ID="Turns"			Anchor="R,B"	Offset="8,4"	FontSize="26"	String="99" />
           </Grid>
         </Container>
-        <Container		ID="ActiveContent"	Size="440,50" Hidden="true">
-          <Label		ID="EffectLabel"	Style="GrayShadow" Anchor="L,T" WrapWidth="350" String="d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d " />
-          <Button ID="SwitchProjectFromActiveButton" Style="SwapButton" Size="64,64" Offset="25,-15"	Anchor="R,C" ToolTip="TXT_KEY_CHOOSE_NEW_NATIONAL_SECURITY_PROJECT" />
+        <Container		ID="ActiveContent"	Size="880,100" Hidden="true">
+          <Label		ID="EffectLabel"	Style="GrayShadow" Anchor="L,T" WrapWidth="700" String="d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d " />
+          <Button ID="SwitchProjectFromActiveButton" Style="SwapButton" Size="128,128" Offset="50,-30"	Anchor="R,C" ToolTip="TXT_KEY_CHOOSE_NEW_NATIONAL_SECURITY_PROJECT" />
         </Container>
       </Stack>
     </Grid>
   </Instance>
 
   <Instance Name="HighIntrigueWarningInstance">
-    <Grid ID="Header" Size="442,60" Color="0,0,0,0">
+    <Grid ID="Header" Size="884,120" Color="0,0,0,0">
       <Label Style="ListHeader" Anchor="C,C" String="TXT_KEY_HIGH_INTRIGUE_WARNING" />
     </Grid>
   </Instance>
 
   <Instance Name="HeaderHQInstance">
-    <Grid ID="Header" Size="442,30" Style="GridSecondaryPanelHeader">
+    <Grid ID="Header" Size="884,60" Style="GridSecondaryPanelHeader">
       <Label			Style="ListHeader"	 String="{TXT_KEY_COVERT_AT_HEADQUARTERS:upper}" />
     </Grid>
   </Instance>
 
   <Instance Name="HeaderMissionInstance">
-    <Grid		ID="Header" Size="442,30"	Style="GridSecondaryPanelHeader">
+    <Grid		ID="Header" Size="884,60"	Style="GridSecondaryPanelHeader">
       <Label								Style="ListHeader" String="{TXT_KEY_COVERT_ON_ASSIGNMENT:upper}" />
     </Grid>
   </Instance>
 
   <Instance Name="HeaderCounterintelInstance">
-    <Grid			ID="Header" Size="442,30"	Style="GridSecondaryPanelHeader">
+    <Grid			ID="Header" Size="884,60"	Style="GridSecondaryPanelHeader">
       <Label									Style="ListHeader" String="{TXT_KEY_QUEST_COUNTERINTELLIGENCE_DESCRIPTION:upper}" />
       <!-- Saving a text key here -->
     </Grid>
   </Instance>
 
   <Instance Name="HeaderBlackMarketInstance">
-    <Grid			ID="Header" Size="442,30"	Style="GridSecondaryPanelHeader">
+    <Grid			ID="Header" Size="884,60"	Style="GridSecondaryPanelHeader">
       <Label									Style="ListHeader" String="{TXT_KEY_COVERT_BLACK_MARKET_HEADER:upper}" />      
     </Grid>
   </Instance>
 
   <Instance Name="HeaderBlackMarketToggleInstance">
-    <Grid ID="Header" Size="442,32" Style="GridSecondaryPanelHeader">
-      <GridButton ID="BuyModeButton" Anchor="L,C" Offset="0,0" Size="218,parent" Style="GridListElementGray" String="{TXT_KEY_TERM_BUYING:upper}">
-        <Grid		ID="BuySelected" Size="parent,parent" TextureOffset="0,130" Style="GridListElementGray" Hidden="1"/>
+    <Grid ID="Header" Size="884,64" Style="GridSecondaryPanelHeader">
+      <GridButton ID="BuyModeButton" Anchor="L,C" Offset="0,0" Size="436,parent" Style="GridListElementGray" String="{TXT_KEY_TERM_BUYING:upper}">
+        <Grid		ID="BuySelected" Size="parent,parent" TextureOffset="0,260" Style="GridListElementGray" Hidden="1"/>
       </GridButton>
-      <GridButton ID="SellModeButton" Anchor="R,C" Offset="0,0" Size="218,parent" Style="GridListElementGray" String="{TXT_KEY_TERM_SELLING:upper}">
-        <Grid		ID="SellSelected" Size="parent,parent" TextureOffset="0,130" Style="GridListElementGray" Hidden="1" />
+      <GridButton ID="SellModeButton" Anchor="R,C" Offset="0,0" Size="436,parent" Style="GridListElementGray" String="{TXT_KEY_TERM_SELLING:upper}">
+        <Grid		ID="SellSelected" Size="parent,parent" TextureOffset="0,260" Style="GridListElementGray" Hidden="1" />
       </GridButton>
     </Grid>
   </Instance>
 
   <Instance Name="HeaderCityInstance">
-    <Grid			ID="Header"		Size="442,30"	Style="GridSecondaryPanelHeader">
+    <Grid			ID="Header"		Size="884,60"	Style="GridSecondaryPanelHeader">
       <Label								Style="ListHeader" String="{TXT_KEY_COVERT_CHOOSE_CITY:upper}" />
     </Grid>
   </Instance>
 
 
   <Instance Name="NoneInstance">
-    <Grid			ID="None"		Offset="0,0"	Size="442,64" Style="GridListElementGray">
+    <Grid			ID="None"		Offset="0,0"	Size="884,128" Style="GridListElementGray">
       <Label	Style="OpsText"	Anchor="C,C"	String="{TXT_KEY_COVERT_NONE:upper}" />
     </Grid>
   </Instance>
 
 
   <Instance Name="SpyHQInstance">
-    <Grid			ID="Spy"		Offset="0,0"	Size="442,64" Style="GridListElementGray">
-      <Grid		ID="Selected"	Offset="0,0"	Size="442,64"	TextureOffset="0,130" Style="GridListElementBlue" Hidden="1" />
-      <Stack						Offset="4,4"	StackGrowth="Right"	Padding="2">
+    <Grid			ID="Spy"		Offset="0,0"	Size="884,128" Style="GridListElementGray">
+      <Grid		ID="Selected"	Offset="0,0"	Size="884,128"	TextureOffset="0,260" Style="GridListElementBlue" Hidden="1" />
+      <Stack						Offset="8,8"	StackGrowth="Right"	Padding="4">
         <Label	ID="Name"		Style="OpsText" Offset="0,0"	String="?RECRUITING NEW SPY?" />
-        <Image	ID="LevelValue"	Offset="0,0"	Size="16,24"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
+        <Image	ID="LevelValue"	Offset="0,0"	Size="32,48"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
       </Stack>
-      <GridButton ID="Assign"		Offset="4,25"	Size="200,32"	Anchor="L,T"	Style="BaseButton" String="{TXT_KEY_COVERT_ASSIGN:upper}" ToolTip="TXT_KEY_COVERT_ASSIGN_HELP" />
-      <Box		ID="Turns"		Offset="3,22"	Size="200,40"	Anchor="R,T"	Color="10,20,40,200">
-        <TextureBar				Offset="50,0"	Size="145,20"	Anchor="R,T"  />
-        <Label					Offset="50,0"					Anchor="R,B"	Style="OpTurns" String="?4 Turns?" />
+      <GridButton ID="Assign"		Offset="8,50"	Size="400,64"	Anchor="L,T"	Style="BaseButton" String="{TXT_KEY_COVERT_ASSIGN:upper}" ToolTip="TXT_KEY_COVERT_ASSIGN_HELP" />
+      <Box		ID="Turns"		Offset="6,44"	Size="400,80"	Anchor="R,T"	Color="10,20,40,200">
+        <TextureBar				Offset="100,0"	Size="290,40"	Anchor="R,T"  />
+        <Label					Offset="100,0"					Anchor="R,B"	Style="OpTurns" String="?4 Turns?" />
       </Box>
     </Grid>
   </Instance>
 
 
   <Instance Name="SpyMissionInstance">
-    <GridButton			ID="Spy"			Offset="0,0"	Size="442,92"	Style="GridListElementGray">
-      <Grid			ID="Selected"		Offset="0,0"	Size="442,92"	TextureOffset="0,130" Style="GridListElementBlue" Hidden="1" />
-      <Box			ID="CivIconFrame"	Size="43,43"	Anchor="L,T" Offset="4,3" Color="0,0,0,100">
-        <Image		ID="CivIconBG"		Size="45,45"	Anchor="L,T" Offset="-1,-1" Texture="CivIconBGSizes.dds"/>
-        <Image		ID="CivIcon"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-        <Image		ID="CivIconHighlight"		Size="45,45"	Anchor="L,T" Offset="-2,-2" Texture="CivIconBGSizes_Highlight.dds"/>
+    <GridButton			ID="Spy"			Offset="0,0"	Size="884,184"	Style="GridListElementGray">
+      <Grid			ID="Selected"		Offset="0,0"	Size="884,184"	TextureOffset="0,260" Style="GridListElementBlue" Hidden="1" />
+      <Box			ID="CivIconFrame"	Size="86,86"	Anchor="L,T" Offset="8,6" Color="0,0,0,100">
+        <Image		ID="CivIconBG"		Size="90,90"	Anchor="L,T" Offset="-2,-2" Texture="CivIconBGSizes.dds"/>
+        <Image		ID="CivIcon"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+        <Image		ID="CivIconHighlight"		Size="90,90"	Anchor="L,T" Offset="-4,-4" Texture="CivIconBGSizes_Highlight.dds"/>
       </Box>
-      <Stack								Offset="50,4"	StackGrowth="Right"	Padding="2">
+      <Stack								Offset="100,8"	StackGrowth="Right"	Padding="4">
         <Label		ID="Name"			Style="OpsText" Offset="0,0"	String="?Nancy?" />
-        <Image		ID="LevelValue"		Offset="0,0"	Size="16,24"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
+        <Image		ID="LevelValue"		Offset="0,0"	Size="32,48"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
       </Stack>
-      <Label			ID="CityName"		Style="OpsText" Offset="50,28"	String="?ALGER?" />
+      <Label			ID="CityName"		Style="OpsText" Offset="100,56"	String="?ALGER?" />
 
-      <GridButton		ID="Assign"			Anchor="L,T"	Offset="4,50"	Size="200,32"	Style="BaseButton" String="{TXT_KEY_COVERT_REASSIGN:upper}"  ToolTip="TXT_KEY_COVERT_REASSIGN_HELP" />
+      <GridButton		ID="Assign"			Anchor="L,T"	Offset="8,100"	Size="400,64"	Style="BaseButton" String="{TXT_KEY_COVERT_REASSIGN:upper}"  ToolTip="TXT_KEY_COVERT_REASSIGN_HELP" />
 
-      <Container Size="210,90"			Anchor="T,L"	Offset="220,0">
-        <Label		ID="Action"			Style="OpsText" Anchor="L,B"	Offset="4,44" WrapWidth="200" LeadingOffset="-2" String="" />
-        <Grid		ID="ProgressBar"	Anchor="L,B"	Offset="0,2"	Size="164,39"	Style="GridProgressBacking">
-          <Image	ID="BarEmpty"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
-          <Image	ID="BarNext"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
-          <Image	ID="BarCurrent"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
-          <Label	ID="Turns"			Anchor="R,B"	Offset="4,2"	FontSize="13"	String="" />
+      <Container Size="420,180"			Anchor="T,L"	Offset="440,0">
+        <Label		ID="Action"			Style="OpsText" Anchor="L,B"	Offset="8,88" WrapWidth="400" LeadingOffset="-4" String="" />
+        <Grid		ID="ProgressBar"	Anchor="L,B"	Offset="0,4"	Size="328,78"	Style="GridProgressBacking">
+          <Image	ID="BarEmpty"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
+          <Image	ID="BarNext"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
+          <Image	ID="BarCurrent"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
+          <Label	ID="Turns"			Anchor="R,B"	Offset="8,4"	FontSize="26"	String="" />
         </Grid>
-        <Image		ID="OperationIcon"	Anchor="R,B"	Offset="0,3"	Size="45,45"	TextureOffset="0,39" />
+        <Image		ID="OperationIcon"	Anchor="R,B"	Offset="0,6"	Size="90,90"	TextureOffset="0,78" />
       </Container>
 
-      <PullDown		ID="OperationList"	Anchor="R,T"	Offset="6,30"	Size="208,40" ScrollThreshold="250" AutoFlip="1">
+      <PullDown		ID="OperationList"	Anchor="R,T"	Offset="12,60"	Size="416,80" ScrollThreshold="500" AutoFlip="1">
         <ButtonData>
-          <GridButton				Anchor="R,T"	Offset="0,0"	Size="208,40"	Style="BaseButton" String="{TXT_KEY_COVERT_CHOOSE_OPERATION:upper}">
+          <GridButton				Anchor="R,T"	Offset="0,0"	Size="416,80"	Style="BaseButton" String="{TXT_KEY_COVERT_CHOOSE_OPERATION:upper}">
             <Image				Anchor="R,B"	Offset="0,0"	Texture="Assets/UI/Art/Controls/PullDownCorner.dds" />
           </GridButton>
         </ButtonData>
-        <GridData	ID="OpGrid"		Anchor="R,B"	Offset="19,-1"	AnchorSide="I,O" Size="300,400" Style="Grid9Frame27SquareBlack" Padding="0,0" />
+        <GridData	ID="OpGrid"		Anchor="R,B"	Offset="38,-2"	AnchorSide="I,O" Size="600,800" Style="Grid9Frame27SquareBlack" Padding="0,0" />
         <ScrollPanelData			Anchor="C,C"	Vertical="1"	AutoScrollBar="1" >
-          <ScrollBar				Anchor="R,C"	Offset="-1,1"	Style="VertSlider" AnchorSide="O,I"   />
+          <ScrollBar				Anchor="R,C"	Offset="-2,2"	Style="VertSlider" AnchorSide="O,I"   />
         </ScrollPanelData>
         <StackData StackGrowth="Bottom" Padding="0" Anchor="C,T"  />
 
         <!-- Operations List Item -->
         <InstanceData Name="OperationPulldownInstance" >
-          <GridButton ID="Operation"		Size="300,70"					Anchor="L,T"	Style="ZoomButton"  >
-            <Box Color="0,0,0,0" Size="64,64" Anchor="L,T">
-              <Image	ID="Icon"		Anchor="C,C"	Offset="0,0"	Size="45,45"											Texture="Assets/UI/Art/Controls/CovertOpsListIconBack.dds"	  />
+          <GridButton ID="Operation"		Size="600,140"					Anchor="L,T"	Style="ZoomButton"  >
+            <Box Color="0,0,0,0" Size="128,128" Anchor="L,T">
+              <Image	ID="Icon"		Anchor="C,C"	Offset="0,0"	Size="90,90"											Texture="Assets/UI/Art/Controls/CovertOpsListIconBack.dds"	  />
             </Box>
-            <Stack Anchor="L,C" Offset="68,5" StackPadding="2">
+            <Stack Anchor="L,C" Offset="136,10" StackPadding="4">
               <Label	ID="Action"			Style="OpsText" Offset="0,0"	String="?ACTION?" />
               <Label	ID="Difficulty"		Style="OpsText" Offset="0,0"	String="?DIFFICULTY?" />
               <!--<Image	ID="IntrigueBG"		Offset="65,0"	Size="102,24"	Anchor="L,B"	TextureOffset="0,0"		Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />-->
               <!--<Image	ID="Intrigue"		Offset="65,0"	Size="10,24"	Anchor="L,B"	TextureOffset="0,24"	Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />-->
 
-              <Stack Anchor="L,T" StackGrowth="Right" Padding="2">
+              <Stack Anchor="L,T" StackGrowth="Right" Padding="4">
                 <Label String="TXT_KEY_COVERT_LVL" FontStyle="stroke" Color0="182,203,228,255" Color1="0,0,0,100" Style="FontNormal18"/>
-                <Image	ID="ReqIntrigue" Size="20,24" Anchor="L,T" Offset="0,-3" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
+                <Image	ID="ReqIntrigue" Size="40,48" Anchor="L,T" Offset="0,-6" Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
                 <Label	ID="ReqIntrigueLabel" Anchor="L,T" String="0" Offset="0,0" FontStyle="stroke" Color0="182,203,228,255" Color1="0,0,0,100" Style="FontNormal18"/>
               </Stack>
             </Stack>
-            <Label	ID="TurnsValue"		Offset="6,7"	Anchor="R,T"	FontSize="12" FontStyle="Shadow" Color1="0,0,0,255" String="" />
-            <Label	ID="AddedArea"	Offset="65,4"	Anchor="R,B"	FontSize="24" String="+" Hidden="1">
+            <Label	ID="TurnsValue"		Offset="12,14"	Anchor="R,T"	FontSize="24" FontStyle="Shadow" Color1="0,0,0,255" String="" />
+            <Label	ID="AddedArea"	Offset="130,8"	Anchor="R,B"	FontSize="48" String="+" Hidden="1">
 
             </Label>
           </GridButton>
@@ -211,27 +211,27 @@
   </Instance>
 
   <Instance Name="SpyBlackMarketInstance">
-    <Grid			ID="Spy"			Offset="0,0"	Size="442,92"	Style="GridListElementGray">
-      <Grid			ID="Selected"		Offset="0,0"	Size="442,92"	TextureOffset="0,130" Style="GridListElementBlue" Hidden="1" />
-      <Image ID="ResourceIcon" Size="45,45" Anchor="L,T" Offset="0,0" />
-      <Stack								Offset="50,4"	StackGrowth="Right"	Padding="2">
+    <Grid			ID="Spy"			Offset="0,0"	Size="884,184"	Style="GridListElementGray">
+      <Grid			ID="Selected"		Offset="0,0"	Size="884,184"	TextureOffset="0,260" Style="GridListElementBlue" Hidden="1" />
+      <Image ID="ResourceIcon" Size="90,90" Anchor="L,T" Offset="0,0" />
+      <Stack								Offset="100,8"	StackGrowth="Right"	Padding="4">
         <Label		ID="Name"			Style="OpsText" Offset="0,0"	String="?Nancy?" />
-        <Image		ID="LevelValue"		Offset="0,0"	Size="16,24"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
+        <Image		ID="LevelValue"		Offset="0,0"	Size="32,48"	Anchor="L,T"	Texture="Assets/UI/Art/Icons/Chevrons.dds" />
       </Stack>
 
-      <Grid ID="Effect" Style="Grid9BlackGradientContainer" Size="200,86" Anchor="R,C" Offset="10,2">
-        <Label ID="EffectLabel" Anchor="C,C" WrapWidth="180" Offset="0,0" Style="OpsText" FontSize="16" Align="Center"/>
+      <Grid ID="Effect" Style="Grid9BlackGradientContainer" Size="400,172" Anchor="R,C" Offset="20,4">
+        <Label ID="EffectLabel" Anchor="C,C" WrapWidth="360" Offset="0,0" Style="OpsText" FontSize="32" Align="Center"/>
       </Grid>
       
-      <GridButton		ID="Assign"			Anchor="L,T"	Offset="4,50"	Size="200,32"	Style="BaseButton" String="{TXT_KEY_COVERT_REASSIGN:upper}"  ToolTip="TXT_KEY_COVERT_REASSIGN_HELP" />
+      <GridButton		ID="Assign"			Anchor="L,T"	Offset="8,100"	Size="400,64"	Style="BaseButton" String="{TXT_KEY_COVERT_REASSIGN:upper}"  ToolTip="TXT_KEY_COVERT_REASSIGN_HELP" />
 
-      <Container Size="210,90"			Anchor="T,L"	Offset="220,0">
-        <Label		ID="Action"			Style="OpsText" Anchor="L,B"	Offset="4,44" WrapWidth="200" LeadingOffset="-2" String="" />
-        <Grid		ID="ProgressBar"	Anchor="L,B"	Offset="0,2"	Size="164,39"	Style="GridProgressBacking">
-          <Image	ID="BarEmpty"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
-          <Image	ID="BarNext"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
-          <Image	ID="BarCurrent"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
-          <Label	ID="Turns"			Anchor="R,B"	Offset="4,2"	FontSize="13"	String="" />
+      <Container Size="420,180"			Anchor="T,L"	Offset="440,0">
+        <Label		ID="Action"			Style="OpsText" Anchor="L,B"	Offset="8,88" WrapWidth="400" LeadingOffset="-4" String="" />
+        <Grid		ID="ProgressBar"	Anchor="L,B"	Offset="0,4"	Size="328,78"	Style="GridProgressBacking">
+          <Image	ID="BarEmpty"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
+          <Image	ID="BarNext"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
+          <Image	ID="BarCurrent"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
+          <Label	ID="Turns"			Anchor="R,B"	Offset="8,4"	FontSize="26"	String="" />
         </Grid>
       </Container>
     </Grid>
@@ -239,56 +239,56 @@
 
   <!-- What a Spy look slike when in a city -->
   <Instance Name="SpyCityInstance">
-    <Grid			ID="Spy"			Offset="0,0"	Size="442,92"				Style="GridListElementGray">
-      <Box		ID="CivIconFrame"	Size="45,45"	Anchor="L,T" Offset="0,0" Color="0,0,0,0">
-        <Image	ID="CivIconBG"		Size="45,45"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-        <Image	ID="CivIcon"		Size="32,32"	Anchor="C,C" Offset="1,0" Texture="CivSymbolsColor512.dds"/>
-        <Image	ID="CivIconHighlight"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+    <Grid			ID="Spy"			Offset="0,0"	Size="884,184"				Style="GridListElementGray">
+      <Box		ID="CivIconFrame"	Size="90,90"	Anchor="L,T" Offset="0,0" Color="0,0,0,0">
+        <Image	ID="CivIconBG"		Size="90,90"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+        <Image	ID="CivIcon"		Size="64,64"	Anchor="C,C" Offset="2,0" Texture="CivSymbolsColor512.dds"/>
+        <Image	ID="CivIconHighlight"		Size="90,90"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
       </Box>
-      <Label		ID="Name"			Style="OpsText" Offset="50,4"	String="?Nancy?" />
-      <Label		ID="Action"			Style="OpsText" Offset="3,6"					Anchor="R,T"	String=""  />
-      <Label		ID="CityName"		Style="OpsText" Offset="50,28"	String="?ALGER?"  />
-      <GridButton ID="Assign"			Offset="4,55"	Size="150,32"	Anchor="L,T"	Style="BaseButton" String="?REASSIGN?" />
-      <Grid		ID="ProgressBar"	Offset="42,30"	Size="164,40"	Anchor="R,T"	Style="GridProgressBacking">
-        <Image  ID="BarEmpty"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
-        <Image  ID="BarNext"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
-        <Image  ID="BarCurrent"		Anchor="L,T"	Offset="4,4"	Size="155,16"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
-        <Label	ID="Turns"			Anchor="R,B"	Offset="4,2"	FontSize="13"	String="?4 TURNS?" />
+      <Label		ID="Name"			Style="OpsText" Offset="100,8"	String="?Nancy?" />
+      <Label		ID="Action"			Style="OpsText" Offset="6,12"					Anchor="R,T"	String=""  />
+      <Label		ID="CityName"		Style="OpsText" Offset="100,56"	String="?ALGER?"  />
+      <GridButton ID="Assign"			Offset="8,110"	Size="300,64"	Anchor="L,T"	Style="BaseButton" String="?REASSIGN?" />
+      <Grid		ID="ProgressBar"	Offset="84,60"	Size="328,80"	Anchor="R,T"	Style="GridProgressBacking">
+        <Image  ID="BarEmpty"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpBG.dds" />
+        <Image  ID="BarNext"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpNext.dds" />
+        <Image  ID="BarCurrent"		Anchor="L,T"	Offset="8,8"	Size="310,32"	Texture="Assets/UI/Art/Controls/ProgressBarCovertOpCurrent.dds" />
+        <Label	ID="Turns"			Anchor="R,B"	Offset="8,4"	FontSize="26"	String="?4 TURNS?" />
       </Grid>
     </Grid>
   </Instance>
 
 
   <Instance Name="CityInstance">
-    <GridButton		ID="City"				Offset="0,0"	Size="442,44"	Style="GridListElementGray"  ToolTip="TXT_KEY_COVERT_CHOOSE_CITY_HELP" >
-      <Grid		ID="Selected"			Offset="0,0"	Size="442,44"	TextureOffset="0,130" Style="GridListElementGray" Hidden="1" />
-      <Container	ID="CivIconFrame"		Offset="0,0"	Size="45,45"	Anchor="L,T" >
-        <Image	ID="CivIconBG"			Offset="0,0"	Size="45,45"	Anchor="L,T"  Texture="CivIconBGSizes.dds"/>
-        <Image	ID="CivIcon"			Offset="1,0"	Size="32,32"	Anchor="C,C"  Texture="CivSymbolsColor512.dds"/>
-        <Image	ID="CivIconHighlight"	Offset="0,0"	Size="45,45"	Anchor="C,C"  Texture="CivIconBGSizes_Highlight.dds"/>
+    <GridButton		ID="City"				Offset="0,0"	Size="884,88"	Style="GridListElementGray"  ToolTip="TXT_KEY_COVERT_CHOOSE_CITY_HELP" >
+      <Grid		ID="Selected"			Offset="0,0"	Size="884,88"	TextureOffset="0,260" Style="GridListElementGray" Hidden="1" />
+      <Container	ID="CivIconFrame"		Offset="0,0"	Size="90,90"	Anchor="L,T" >
+        <Image	ID="CivIconBG"			Offset="0,0"	Size="90,90"	Anchor="L,T"  Texture="CivIconBGSizes.dds"/>
+        <Image	ID="CivIcon"			Offset="2,0"	Size="64,64"	Anchor="C,C"  Texture="CivSymbolsColor512.dds"/>
+        <Image	ID="CivIconHighlight"	Offset="0,0"	Size="90,90"	Anchor="C,C"  Texture="CivIconBGSizes_Highlight.dds"/>
       </Container>
-      <Label		ID="Name"			Offset="50,4"	String="?Baltimore?" Style="OpsText" />
-      <Container						Offset="2,2"	Size="102,24"	Anchor="R,B">
-        <Image	ID="IntrigueBG"		Offset="0,0"	Size="102,24"	Anchor="L,B"	TextureOffset="0,0"		Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
-        <Image	ID="Intrigue"		Offset="0,0"	Size="10,24"	Anchor="L,B"	TextureOffset="0,24"	Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
+      <Label		ID="Name"			Offset="100,8"	String="?Baltimore?" Style="OpsText" />
+      <Container						Offset="4,4"	Size="204,48"	Anchor="R,B">
+        <Image	ID="IntrigueBG"		Offset="0,0"	Size="204,48"	Anchor="L,B"	TextureOffset="0,0"		Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
+        <Image	ID="Intrigue"		Offset="0,0"	Size="20,48"	Anchor="L,B"	TextureOffset="0,48"	Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
       </Container>
 
     </GridButton>
   </Instance>
 
   <Instance Name="BlackMarketInstance">
-    <GridButton		ID="BlackMarket"				Offset="0,0"	Size="442,44"	Style="GridListElementGray"  ToolTip="TXT_KEY_COVERT_CHOOSE_BLACK_MARKET_HELP" >
-      <Grid		ID="Selected"			Offset="0,0"	Size="442,44"	TextureOffset="0,130" Style="GridListElementGray" Hidden="1" />
-      <Image ID="Icon" Anchor="L,C" Size="45,45" Offset="0,0" />
-      <Label		ID="Name" Anchor="L,C"			Offset="50,0"	String="?ResourceName?" Style="OpsText" FontSize="16" WrapWidth="175"/>
-      <Stack ID="BlackMarketOptionsStack" Size="200,28" Anchor="R,C" Offset="10,0" StackGrowth="R" Padding="4">
-        <GridButton ID="QuantityDown"	Size="28,28" Style="BaseButton" String="[ICON_MINUS]" />        
-        <Grid ID="QuantityGrid" Size="32,28" Style="Grid9YieldBacking">
-          <Label ID="Quantity" Anchor="C,C" Style="GradientHeader" FontSize="14" String="88"/>
+    <GridButton		ID="BlackMarket"				Offset="0,0"	Size="884,88"	Style="GridListElementGray"  ToolTip="TXT_KEY_COVERT_CHOOSE_BLACK_MARKET_HELP" >
+      <Grid		ID="Selected"			Offset="0,0"	Size="884,88"	TextureOffset="0,260" Style="GridListElementGray" Hidden="1" />
+      <Image ID="Icon" Anchor="L,C" Size="90,90" Offset="0,0" />
+      <Label		ID="Name" Anchor="L,C"			Offset="100,0"	String="?ResourceName?" Style="OpsText" FontSize="32" WrapWidth="350"/>
+      <Stack ID="BlackMarketOptionsStack" Size="400,56" Anchor="R,C" Offset="20,0" StackGrowth="R" Padding="8">
+        <GridButton ID="QuantityDown"	Size="56,56" Style="BaseButton" String="[ICON_MINUS]" />        
+        <Grid ID="QuantityGrid" Size="64,56" Style="Grid9YieldBacking">
+          <Label ID="Quantity" Anchor="C,C" Style="GradientHeader" FontSize="28" String="88"/>
         </Grid>
-        <GridButton ID="QuantityUp"	Size="28,28" Style="BaseButton" String="[ICON_PLUS]" />
-        <Grid ID="CostGrid" Size="125,28" Style="Grid9YieldBacking">
-          <Label ID="Cost" Anchor="C,C" Style="GradientHeader" FontSize="14" String="[ICON_DIPLO_CAPITAL] 999 Per Turn"/>
+        <GridButton ID="QuantityUp"	Size="56,56" Style="BaseButton" String="[ICON_PLUS]" />
+        <Grid ID="CostGrid" Size="250,56" Style="Grid9YieldBacking">
+          <Label ID="Cost" Anchor="C,C" Style="GradientHeader" FontSize="28" String="[ICON_DIPLO_CAPITAL] 999 Per Turn"/>
         </Grid>
       </Stack>
     </GridButton>

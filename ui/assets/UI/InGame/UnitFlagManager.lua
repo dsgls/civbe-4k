@@ -525,7 +525,7 @@ local g_UnitFlagClass =
         elseif( pUnit:IsGarrisoned() ) then
             textureName = "UnitFlagBase.dds";
             maskName = "UnitFlagMask.dds";
-            self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 1 );
+            self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 2 );
         elseif( pUnit:GetFortifyTurns() > 0 ) then
             --[[
             if( pUnit:isRanged() )
@@ -538,25 +538,25 @@ local g_UnitFlagClass =
             --]]
                 textureName = "UnitFlagFortify.dds";
                 maskName = "UnitFlagFortifyMask.dds";
-                self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+                self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
             --end
 
         elseif( self.m_IsTrade ) then
             textureName = "UnitFlagTrade.dds";
             maskName = "UnitFlagTradeMask.dds";
-            self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+            self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 		elseif( self.m_IsOrbital ) then
             textureName = "UnitFlagOrbital.dds";
             maskName = "UnitFlagOrbitalMask.dds";
-            self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+            self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
         elseif( not self.m_IsCivilian ) then
             textureName = "UnitFlagBase.dds";
             maskName = "UnitFlagMask.dds";
-            self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+            self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
         else
             textureName = "UnitFlagCiv.dds";
             maskName = "UnitFlagCivMask.dds";
-            self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+            self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
         end
         
         self.m_Instance.UnitIconShadow:ReprocessAnchoring();

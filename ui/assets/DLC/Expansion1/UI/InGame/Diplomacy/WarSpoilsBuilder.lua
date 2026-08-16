@@ -9,10 +9,10 @@ local TITANIUM_RESOURCE_TYPE : number	= GameInfo.Resources["RESOURCE_TITANIUM"].
 local FIRAXITE_RESOURCE_TYPE : number	= GameInfo.Resources["RESOURCE_FIRAXITE"].ID;
 local XENOMASS_RESOURCE_TYPE : number	= GameInfo.Resources["RESOURCE_XENOMASS"].ID;
 local FLOAT_STONE_RESOURCE_TYPE : number = GameInfo.Resources["RESOURCE_FLOAT_STONE"].ID;
-local PROGRESS_BAR_WIDTH : number = 155;
+local PROGRESS_BAR_WIDTH : number = 155 * 2;
 
 -- Taken from TechTree.lua
-local AFFINITY_RING_SIZE	:number				= 46;		-- 46x46
+local AFFINITY_RING_SIZE	:number				= 46 * 2;		-- 46x46
 local m_affinityRingUVIndex	:table				= {};			
 m_affinityRingUVIndex[AFFINITY.harmony]			= {u=0,v=0};
 m_affinityRingUVIndex[AFFINITY.purity]			= {u=1,v=0};

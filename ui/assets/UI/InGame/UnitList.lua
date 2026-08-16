@@ -223,9 +223,9 @@ function UpdateDisplay()
         if( moves_left == max_moves ) then
             instance.MovementPip:SetTextureOffsetVal( 0, 0 );
         elseif( moves_left == 0 ) then
-            instance.MovementPip:SetTextureOffsetVal( 0, 96 );
+            instance.MovementPip:SetTextureOffsetVal( 0, 192 );
         else
-            instance.MovementPip:SetTextureOffsetVal( 0, 32 );
+            instance.MovementPip:SetTextureOffsetVal( 0, 64 );
         end  
         
 		instance.UnitStack:CalculateSize();

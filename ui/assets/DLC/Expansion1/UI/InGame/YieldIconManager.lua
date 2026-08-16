@@ -128,9 +128,9 @@ function SetYieldIcon( yieldType, amount, parent, record )
         if( yieldType < 4 ) then
             imageInstance.Image:SetTexture(defaultTexture);
             if( amount >= 6 ) then
-                imageInstance.Image:SetTextureOffsetVal( yieldType * 128, 512 );
+                imageInstance.Image:SetTextureOffsetVal( yieldType * 128 * 2, 512 * 2 );
             else
-                imageInstance.Image:SetTextureOffsetVal( yieldType * 128, 128 * ( amount - 1 ) );
+                imageInstance.Image:SetTextureOffsetVal( yieldType * 128 * 2, 128 * 2 * ( amount - 1 ) );
             end
 
 			imageInstance.Image:ChangeParent( parent );
@@ -153,9 +153,9 @@ function SetYieldIcon( yieldType, amount, parent, record )
 				textImageInstance.Image:SetTextureOffsetVal( GetNumberOffset( amount ) );
 				textImageInstance.Image:ChangeParent( imageInstance.Image );
 				table.insert( record.ImageInstances, textImageInstance );
-                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 512 );
+                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 512 * 2 );
             else
-                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 128 * ( amount - 1 ) );
+                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 128 * 2 * ( amount - 1 ) );
             end
             
 			imageInstance.Image:ChangeParent( parent );
@@ -168,9 +168,9 @@ function SetYieldIcon( yieldType, amount, parent, record )
        elseif (yieldType == 5) then
             imageInstance.Image:SetTexture(faithTexture);
             if( amount >= 5 ) then
-                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 512 );
+                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 512 * 2 );
             else
-                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 128 * ( amount - 1 ) );
+                imageInstance.Image:SetTextureOffsetVal( 0 * 128, 128 * 2 * ( amount - 1 ) );
             end
             
 			imageInstance.Image:ChangeParent( parent );
@@ -192,13 +192,13 @@ function GetNumberOffset( number )
         number = 12;
     end
     
-    local x = 128 * ((number - 6) % 4);
+    local x = 128 * 2 * ((number - 6) % 4);
     
     local y;
     if( number > 9 ) then
-        y = 768
+        y = 768 * 2
     else
-        y = 640;
+        y = 640 * 2;
     end
     
     return x, y;

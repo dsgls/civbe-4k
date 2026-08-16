@@ -2,9 +2,9 @@
 <Context ColorSet="Gray_Black" Style="FontNormal16" FontStyle="Shadow" Name="ToolTips" >
  
   <AlphaAnim Cycle="Once" Speed="5" AlphaStart="0" AlphaEnd="1" ID="ToolTipRoot" Hidden="1" >
-      <SlideAnim Start="20,0" End="0,0" Cycle="once" Speed="7" ID="ToolTipStore" Anchor="L,T" >
-          <Grid Offset="30,5" Size="60,12" Padding="8,8" Style="Callout" Color="White,240" Anchor="L,T" ID="ToolTipGrid" >
-              <Label Anchor="c,c" LeadingOffset="4" Style="FontNormal16" ID="ToolTipText" String="words" WrapWidth="320" />
+      <SlideAnim Start="40,0" End="0,0" Cycle="once" Speed="7" ID="ToolTipStore" Anchor="L,T" >
+          <Grid Offset="60,10" Size="120,24" Padding="16,16" Style="Callout" Color="White,240" Anchor="L,T" ID="ToolTipGrid" >
+              <Label Anchor="c,c" LeadingOffset="8" Style="FontNormal16" ID="ToolTipText" String="words" WrapWidth="640" />
           </Grid>
       </SlideAnim>
   </AlphaAnim> 

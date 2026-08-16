@@ -432,7 +432,7 @@ function InsertQuestEntry(quest)
 
 	else
 
-		local BANNER_IMAGE_HEIGHT	= 46;	
+		local BANNER_IMAGE_HEIGHT	= 46 * 2;	
 		local bannerTypeImage		= questInstance[prefix .. "BannerImage"];
 		bannerTypeImage:SetTextureOffsetVal(0, info.PortraitIndex * BANNER_IMAGE_HEIGHT );		-- affinity, covertops, domestic, exploration, diplomatic
 		--bannerTypeImage:SetAlpha( 0.5 );
@@ -543,7 +543,7 @@ function InsertQuestEntry(quest)
 				objectiveInstance.Highlight:SetHide( false );
 				objectiveInstance.Highlight:SetColor( 0xff62341F );
 			elseif (objective:DidSucceed()) then
-				checkBox:SetTextureOffsetVal(0, 32);	-- 2nd texture in strip is checked
+				checkBox:SetTextureOffsetVal(0, 64);	-- 2nd texture in strip is checked
 			end
 			
 			-- Focus Button (aka: "showme")

@@ -7,9 +7,9 @@
   </Container>
   
   <Instance Name="FiraxisLiveMessage" >
-    <Grid ID="Dialog" Size="400,78" Style="Grid9FiraxisLive" >
-      <Image ID="MessageIcon"	Anchor="L,C" Offset="17,C" Size="48,48" Texture="CivBEIcon.dds" />
-      <Stack ID="MessageArea" Anchor="L,T" Offset="82,17" StackGrown="Down" >
+    <Grid ID="Dialog" Size="800,156" Style="Grid9FiraxisLive" >
+      <Image ID="MessageIcon"	Anchor="L,C" Offset="34,C" Size="96,96" Texture="CivBEIcon.dds" />
+      <Stack ID="MessageArea" Anchor="L,T" Offset="164,34" StackGrown="Down" >
         <!-- Wrapwidth = DialogWidth(400) - (17 + IconWidth(24) + 17 + 17) -->
         <Label	ID="MessageTitle"	Anchor="L,T" Style="FiraxisLiveTitleText"/>
         <Label  ID="MessageText" Anchor="L,T" Style="FiraxisLiveMessageText"/>

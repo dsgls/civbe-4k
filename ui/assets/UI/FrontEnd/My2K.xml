@@ -4,20 +4,20 @@
 	<Box ID="My2KBG" Style="BGBlock" />
 
 	<Instance Name="2KMainMenuInstance" >
-		<Grid ID="Dialog" Size="500,400" Anchor="C,C" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,800" Anchor="C,C" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="12">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="24">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" />
 				
-				<Stack			ID="ButtonStack" Anchor="C,B"  Padding="24" StackGrowth="Bottom" >
-					<GridButton ID="LoginButton"	Size="400,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack			ID="ButtonStack" Anchor="C,B"  Padding="48" StackGrowth="Bottom" >
+					<GridButton ID="LoginButton"	Size="800,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="LoginText"		Anchor="C,C" Style="My2KButtonText" String="TXT_KEY_MY2K_ADDITION_LOGIN_USER"/>
 					</GridButton>
-					<GridButton ID="NewUserButton"	Size="400,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="NewUserButton"	Size="800,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="NewUserText"	Anchor="C,C" Style="My2KButtonText" String="TXT_KEY_MY2K_ADDITION_CREATE_NEW_USER" />
 					</GridButton>
-					<GridButton ID="CancelButton"	Size="400,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="CancelButton"	Size="800,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="CancelText"		Anchor="C,C" Style="My2KButtonText" String="TXT_KEY_MY2K_ADDITION_CANCEL" />
 					</GridButton>
 				</Stack>
@@ -26,34 +26,34 @@
 	</Instance>
 
 	<Instance Name="LoginDialogInstance" >
-		<Grid ID="Dialog" Size="500,500" Anchor="C,C" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,1000" Anchor="C,C" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
 
-				<Stack			ID="ContentStack" Anchor="C,B" Padding="12" StackGrowth="Bottom">
-					<Label		ID="Message" Anchor="L,T"  WrapWidth="440" Style="My2KMessageText" String="message" />
+				<Stack			ID="ContentStack" Anchor="C,B" Padding="24" StackGrowth="Bottom">
+					<Label		ID="Message" Anchor="L,T"  WrapWidth="880" Style="My2KMessageText" String="message" />
 
-					<Label		ID="EMailTitle" Anchor="L,T"  WrapWidth="440" Style="My2KTitleText" String="email" />
-					<Box Size="430,30" Offset="20,0" Color="110,120,150,100">
-						<Box			Size="426,26" Offset="2,2" Color="0,0,0,100" />
-						<EditBox ID="Email"  Offset="4,4" Anchor="L,T" Size="426,22" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
+					<Label		ID="EMailTitle" Anchor="L,T"  WrapWidth="880" Style="My2KTitleText" String="email" />
+					<Box Size="860,60" Offset="40,0" Color="110,120,150,100">
+						<Box			Size="852,52" Offset="4,4" Color="0,0,0,100" />
+						<EditBox ID="Email"  Offset="8,8" Anchor="L,T" Size="852,44" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
 					</Box>
 
-					<Label		ID="PasswordTitle" Anchor="L,T"  WrapWidth="440" Style="My2KTitleText" FontStyle="Shadow"
+					<Label		ID="PasswordTitle" Anchor="L,T"  WrapWidth="880" Style="My2KTitleText" FontStyle="Shadow"
 								String="password" />
-					<Box Size="430,30" Offset="20,0" Color="110,120,150,100">
-						<Box			Size="426,26" Offset="2,2" Color="0,0,0,100" />
-						<EditBox ID="Password"  Offset="4,4" Anchor="L,T" Size="426,22" EditMode="1" Obscure="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="1" />
+					<Box Size="860,60" Offset="40,0" Color="110,120,150,100">
+						<Box			Size="852,52" Offset="4,4" Color="0,0,0,100" />
+						<EditBox ID="Password"  Offset="8,8" Anchor="L,T" Size="852,44" EditMode="1" Obscure="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="1" />
 					</Box>
 				</Stack>
 
-				<Stack			ID="ButtonStack" Anchor="C,B" Padding="12" StackGrowth="Right" >
-					<GridButton ID="CancelButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack			ID="ButtonStack" Anchor="C,B" Padding="24" StackGrowth="Right" >
+					<GridButton ID="CancelButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="CancelText"		Anchor="C,C" String="CancelText"	Style="My2KButtonText" />
 					</GridButton>
-					<GridButton ID="LoginButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="LoginButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="LoginText"		Anchor="C,C" String="LoginText"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>
@@ -64,36 +64,36 @@
 
 
 	<Instance Name="NewUserDialogInstance" >
-		<Grid ID="Dialog" Size="500,460" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,920" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="TXT_KEY_MY2K_ADDITION_SIGN_UP_TITLE" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="TXT_KEY_MY2K_ADDITION_SIGN_UP_TITLE" />
 
-				<Stack			ID="ContentStack" Anchor="C,B" Padding="12" StackGrowth="Bottom">
+				<Stack			ID="ContentStack" Anchor="C,B" Padding="24" StackGrowth="Bottom">
 					
-					<Label		ID="Message" Anchor="C,T"  WrapWidth="440" Style="My2KMessageText" String="TXT_KEY_MY2K_ADDITION_CREATE_NEW_USER_MESSAGE" />
-					<Box Size="430,30" Offset="20,0" Color="110,120,150,100">
-						<Box			Size="426,26" Offset="2,2" Color="0,0,0,100" />
-						<EditBox ID="Email"  Offset="4,4" Anchor="L,T" Size="426,22" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
+					<Label		ID="Message" Anchor="C,T"  WrapWidth="880" Style="My2KMessageText" String="TXT_KEY_MY2K_ADDITION_CREATE_NEW_USER_MESSAGE" />
+					<Box Size="860,60" Offset="40,0" Color="110,120,150,100">
+						<Box			Size="852,52" Offset="4,4" Color="0,0,0,100" />
+						<EditBox ID="Email"  Offset="8,8" Anchor="L,T" Size="852,44" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
 					</Box>
 
-					<PullDown	ID="Year"	Style="GenericPullDown" ScrollThreshold="350" SpaceForScroll="0" Size="300,32" Offset="11,0" Anchor="R,T" EditMode="1" FocusStop="1" >
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_YEAR" />
+					<PullDown	ID="Year"	Style="GenericPullDown" ScrollThreshold="700" SpaceForScroll="0" Size="600,64" Offset="22,0" Anchor="R,T" EditMode="1" FocusStop="1" >
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_YEAR" />
 					</PullDown>
-					<PullDown	ID="Month"	Style="GenericPullDown" ScrollThreshold="400" Size="300,32" Offset="11,0" Anchor="R,T" FocusStop="2" >
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_MONTH" />
+					<PullDown	ID="Month"	Style="GenericPullDown" ScrollThreshold="800" Size="600,64" Offset="22,0" Anchor="R,T" FocusStop="2" >
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_MONTH" />
 					</PullDown>
-					<PullDown	ID="Day"	Style="GenericPullDown" ScrollThreshold="250" SpaceForScroll="0" Size="300,32" Offset="11,0" Anchor="R,T" FocusStop="3" >
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_DAY" />
+					<PullDown	ID="Day"	Style="GenericPullDown" ScrollThreshold="500" SpaceForScroll="0" Size="600,64" Offset="22,0" Anchor="R,T" FocusStop="3" >
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_DAY" />
 					</PullDown>
 				</Stack>
 
-				<Stack			ID="ButtonStack" Anchor="C,B" Padding="24" StackGrowth="Right" >
-					<GridButton ID="CancelButton"	Size="200,42" Anchor="C,T"			Style="My2KButton" FocusStop="4"  >
+				<Stack			ID="ButtonStack" Anchor="C,B" Padding="48" StackGrowth="Right" >
+					<GridButton ID="CancelButton"	Size="400,84" Anchor="C,T"			Style="My2KButton" FocusStop="4"  >
 						<Label	ID="CancelText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_CANCEL"	Style="My2KButtonText" />
 					</GridButton>
-					<GridButton ID="NewUserButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  FocusStop="5" >
+					<GridButton ID="NewUserButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  FocusStop="5" >
 						<Label	ID="NewUserText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_SIGN_UP"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>
@@ -102,26 +102,26 @@
 	</Instance>
 
 	<Instance Name="UserNameDialogInstance" >
-		<Grid ID="Dialog" Size="500,460" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,920" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
 
-				<Stack			ID="ContentStack" Anchor="C,T" Padding="12" StackGrowth="Bottom">
-					<Label		ID="Message" Anchor="C,T"  WrapWidth="440" Style="My2KMessageText" String="" />
-					<Label		ID="EMailTitle" Anchor="L,T"  WrapWidth="440" Style="My2KTitleText" String="email" />
-					<Box Size="430,30" Offset="20,0" Color="110,120,150,100">
-						<Box			Size="426,26" Offset="2,2" Color="0,0,0,100" />
-						<EditBox ID="Email"  Offset="4,4" Anchor="L,T" Size="426,22" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
+				<Stack			ID="ContentStack" Anchor="C,T" Padding="24" StackGrowth="Bottom">
+					<Label		ID="Message" Anchor="C,T"  WrapWidth="880" Style="My2KMessageText" String="" />
+					<Label		ID="EMailTitle" Anchor="L,T"  WrapWidth="880" Style="My2KTitleText" String="email" />
+					<Box Size="860,60" Offset="40,0" Color="110,120,150,100">
+						<Box			Size="852,52" Offset="4,4" Color="0,0,0,100" />
+						<EditBox ID="Email"  Offset="8,8" Anchor="L,T" Size="852,44" EditMode="1" Style="FontNormal24" MaxLength="64" String="" FocusStop="0" />
 					</Box>
 				</Stack>
 
-				<Stack			ID="ButtonStack" Anchor="C,B" Padding="24" StackGrowth="Right" >
-					<GridButton ID="CancelButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack			ID="ButtonStack" Anchor="C,B" Padding="48" StackGrowth="Right" >
+					<GridButton ID="CancelButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="CancelText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_CANCEL"	Style="My2KButtonText" />
 					</GridButton>
-					<GridButton ID="OkButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="OkButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="OkText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_SIGN_UP"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>
@@ -130,31 +130,31 @@
 	</Instance>
 		
 	<Instance Name="DOBDialogInstance" >
-		<Grid ID="Dialog" Size="500,460" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,920" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
 
-				<Stack		ID="ContentStack" Anchor="C,T" Padding="12" StackGrowth="Bottom">
-					<Label		ID="Message" Anchor="C,T"  WrapWidth="540" Style="My2KMessageText" String="message" />
+				<Stack		ID="ContentStack" Anchor="C,T" Padding="24" StackGrowth="Bottom">
+					<Label		ID="Message" Anchor="C,T"  WrapWidth="1080" Style="My2KMessageText" String="message" />
 
-					<PullDown	ID="Year"	Style="GenericPullDown" ScrollThreshold="350" SpaceForScroll="0" Size="300,32" Offset="11,0" Anchor="R,T" >
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_YEAR" />
+					<PullDown	ID="Year"	Style="GenericPullDown" ScrollThreshold="700" SpaceForScroll="0" Size="600,64" Offset="22,0" Anchor="R,T" >
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_YEAR" />
 					</PullDown>
-					<PullDown	ID="Month"	Style="GenericPullDown" ScrollThreshold="400" Size="300,32" Offset="11,0" Anchor="R,T" >
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_MONTH" />
+					<PullDown	ID="Month"	Style="GenericPullDown" ScrollThreshold="800" Size="600,64" Offset="22,0" Anchor="R,T" >
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_MONTH" />
 					</PullDown>
-					<PullDown	ID="Day"	Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="300,32" Offset="11,0" Anchor="R,T">
-						<Label Anchor="L,C" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_MY2K_ADDITION_DOB_DAY" />
+					<PullDown	ID="Day"	Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="600,64" Offset="22,0" Anchor="R,T">
+						<Label Anchor="L,C" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_MY2K_ADDITION_DOB_DAY" />
 					</PullDown>
 				</Stack>
 
-				<Stack			ID="ButtonStack" Anchor="C,B" Padding="24" StackGrowth="Right" >
-					<GridButton ID="CancelButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack			ID="ButtonStack" Anchor="C,B" Padding="48" StackGrowth="Right" >
+					<GridButton ID="CancelButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="CancelText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_CANCEL"	Style="My2KButtonText" />
 					</GridButton>
-					<GridButton ID="OkButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="OkButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="OkText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_SIGN_UP"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>
@@ -164,26 +164,26 @@
 	</Instance>
 
 	<Instance Name="LegalDialogInstance" >
-		<Grid ID="Dialog" Size="500,460" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,920" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
 					
-        <Label		ID="Message" Anchor="C,T"  WrapWidth="440" Offset ="0,0" Style="My2KMessageText" String="message" />
+        <Label		ID="Message" Anchor="C,T"  WrapWidth="880" Offset ="0,0" Style="My2KMessageText" String="message" />
 
-				<Stack ID="TOSStack" Anchor="C,B" Padding ="24" StackGrown="Bottom" >
+				<Stack ID="TOSStack" Anchor="C,B" Padding ="48" StackGrown="Bottom" >
           
-					<ScrollPanel	ID="ContentArea"	Anchor="C,T" Vertical="1" Size="400,250" AutoScrollBar="1" Color="0,0,0,128">
-						<ScrollBar	Anchor="R,T"  Style="VertSlider" AnchorSide="O,I"  Offset="0,0" Length="100"  />
-						<Stack	ID="ContentStack"	Anchor="C,C"  Padding="15" StackGrowth="Bottom" />
+					<ScrollPanel	ID="ContentArea"	Anchor="C,T" Vertical="1" Size="800,500" AutoScrollBar="1" Color="0,0,0,128">
+						<ScrollBar	Anchor="R,T"  Style="VertSlider" AnchorSide="O,I"  Offset="0,0" Length="200"  />
+						<Stack	ID="ContentStack"	Anchor="C,C"  Padding="30" StackGrowth="Bottom" />
 					</ScrollPanel>
 
-					<Stack			ID="ButtonStack"	Anchor="C,B" Padding="24" StackGrowth="Right" >
-						<GridButton ID="DisagreeAllButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+					<Stack			ID="ButtonStack"	Anchor="C,B" Padding="48" StackGrowth="Right" >
+						<GridButton ID="DisagreeAllButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 							<Label	ID="DisagreeAllText"		Anchor="C,C" String="CancelText"	Style="My2KButtonText" />
 						</GridButton>
-						<GridButton ID="AgreeAllButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+						<GridButton ID="AgreeAllButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 							<Label	ID="AgreeAllText"		Anchor="C,C" String="OkText"		Style="My2KButtonText" />
 						</GridButton>
 					</Stack>
@@ -194,9 +194,9 @@
 	</Instance>
 
 	<Instance Name="LegalItemInstance">
-		<Stack			ID="Group" Anchor="L,B" Padding="15" StackGrowth="Right" >
-			<Label ID="ItemName" Anchor="L,C" Style="My2KTitleText" WrapWidth="200" Style="FontNormal18" />
-			<GridButton ID="ReadButton"	Size="100,42" Anchor="R,C"			Style="My2KButton"  >
+		<Stack			ID="Group" Anchor="L,B" Padding="30" StackGrowth="Right" >
+			<Label ID="ItemName" Anchor="L,C" Style="My2KTitleText" WrapWidth="400" Style="FontNormal18" />
+			<GridButton ID="ReadButton"	Size="200,84" Anchor="R,C"			Style="My2KButton"  >
 				<Label	ID="ReadText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_READ"		Style="My2KButtonText" />
 			</GridButton>
 		</Stack>
@@ -204,17 +204,17 @@
 
 
 	<Instance Name="LegalItemDialogInstance" >
-    <Grid ID="Dialog" Size="900,660" Anchor="C,C" Offset="0,0" Style="My2KWindowPlain" >
+    <Grid ID="Dialog" Size="1800,1320" Anchor="C,C" Offset="0,0" Style="My2KWindowPlain" >
 
-    <Label			ID="Title" Offset="0,30" WrapWidth="840" Style="My2KTitleText" String="title" />
+    <Label			ID="Title" Offset="0,60" WrapWidth="1680" Style="My2KTitleText" String="title" />
       
-    <ScrollPanel	ID="ContentArea"	Anchor="C,T" Offset="0,74" Vertical="1" Size="840,500" AutoScrollBar="1">
-      <ScrollBar	Anchor="R,T"  Style="VertSlider" AnchorSide="O,I"  Offset="0,0" Length="300"  />
-      <Stack		ID="ContentStack"	Anchor="L,T"  Padding="10" StackGrowth="Bottom" />
+    <ScrollPanel	ID="ContentArea"	Anchor="C,T" Offset="0,148" Vertical="1" Size="1680,1000" AutoScrollBar="1">
+      <ScrollBar	Anchor="R,T"  Style="VertSlider" AnchorSide="O,I"  Offset="0,0" Length="600"  />
+      <Stack		ID="ContentStack"	Anchor="L,T"  Padding="20" StackGrowth="Bottom" />
     </ScrollPanel>
 
-    <Stack			ID="ButtonStack" Offset="0,30"	Anchor="C,B" Padding="24" StackGrowth="Right" >
-      <GridButton ID="OkButton"	Size="200,42" Anchor="C,T"			Style="My2KButton">
+    <Stack			ID="ButtonStack" Offset="0,60"	Anchor="C,B" Padding="48" StackGrowth="Right" >
+      <GridButton ID="OkButton"	Size="400,84" Anchor="C,T"			Style="My2KButton">
         <Label	ID="OkText"		Anchor="C,C" String="TXT_KEY_MY2K_ADDITION_OK"		Style="My2KButtonText" />
       </GridButton>
     </Stack>
@@ -223,21 +223,21 @@
 	</Instance>
 
 	<Instance Name="LegalTextInstance">
-		<Label	ID="LegalText" Style="My2KMessageText" Anchor="L,T" WrapWidth="830" TextAlign="Left" String="Area for a Legal string..." />
+		<Label	ID="LegalText" Style="My2KMessageText" Anchor="L,T" WrapWidth="1660" TextAlign="Left" String="Area for a Legal string..." />
 	</Instance>
 
 
 
 	<Instance Name="MessageDialogInstance" >
-		<Grid ID="Dialog" Size="500,460" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,920" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
-				<Label ID="Message" Anchor="C,T"  WrapWidth="440" Style="My2KMessageText" String="message" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
+				<Label ID="Message" Anchor="C,T"  WrapWidth="880" Style="My2KMessageText" String="message" />
 
-				<Stack ID="ButtonStack"	Anchor="C,B" Padding="24" StackGrowth="Bottom" >
-					<GridButton ID="OkButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack ID="ButtonStack"	Anchor="C,B" Padding="48" StackGrowth="Bottom" >
+					<GridButton ID="OkButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label ID="OkText"		Anchor="C,C" String="OkText"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>
@@ -247,18 +247,18 @@
 
 
 	<Instance Name="LogoutDialogInstance" >
-		<Grid ID="Dialog" Size="500,120" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
+		<Grid ID="Dialog" Size="1000,240" Anchor="C,C" Offset="0,0" Style="My2KWindow" >
 
-			<Stack ID="WindowData" Anchor="C,B" Offset="0,30" StackGrowth="Bottom" Padding="24">
+			<Stack ID="WindowData" Anchor="C,B" Offset="0,60" StackGrowth="Bottom" Padding="48">
 
-				<Label ID="Title" WrapWidth="440" Style="My2KTitleText" String="title" />
-				<Label ID="Message" Anchor="C,T"  WrapWidth="440" Style="My2KMessageText" String="message" />
+				<Label ID="Title" WrapWidth="880" Style="My2KTitleText" String="title" />
+				<Label ID="Message" Anchor="C,T"  WrapWidth="880" Style="My2KMessageText" String="message" />
 				
-				<Stack			ID="ButtonStack" Anchor="C,B" Padding="24" StackGrowth="Right" >
-					<GridButton ID="CancelButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+				<Stack			ID="ButtonStack" Anchor="C,B" Padding="48" StackGrowth="Right" >
+					<GridButton ID="CancelButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="CancelText"		Anchor="C,C" String="CancelText"	Style="My2KButtonText" />
 					</GridButton>
-					<GridButton ID="OkButton"	Size="200,42" Anchor="C,T"			Style="My2KButton"  >
+					<GridButton ID="OkButton"	Size="400,84" Anchor="C,T"			Style="My2KButton"  >
 						<Label	ID="OkText"		Anchor="C,C" String="OkText"		Style="My2KButtonText" />
 					</GridButton>
 				</Stack>

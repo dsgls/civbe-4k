@@ -5,16 +5,16 @@
 
   <Container	Anchor="C,C" Size="full,full" Padding="0,0">
     <Image ID="CivBELogo" Style="MainGameLogo" />
-    <Box Color="0,0,0,0" Offset="0,-100" Anchor="C,B" Size="480,480" Padding="0,0">
-      <AlphaAnim Anchor="C,B" Size="480,480" Pause=".2" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
-        <Stack Anchor="C,T" Offset="0,-10" StackGrowth="Down" ID="MainStack">
-          <Button Anchor="C,T" ID="StandardButton"		Size="280,35"	 Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_STANDARD_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_STANDARD_GAME_TT"/>
-          <Button Anchor="C,T" ID="InternetButton"		Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_INTERNET_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_INTERNET_GAME_TT" Hidden="1"/>
-          <Button Anchor="C,T" ID="LANButton"			Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_LAN_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_LAN_GAME_TT" Hidden="1"/>
-          <Button Anchor="C,T" ID="HotSeatButton"		Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_HOTSEAT_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_HOTSEAT_GAME_TT" />
-          <Button Anchor="C,T" ID="PitbossButton"		Size="280,35"   Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_PITBOSS_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_PITBOSS_GAME_TT" Hidden="1"/>
-          <Button Anchor="C,T" ID="ReconnectButton"		Size="280,35"   Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_RECONNECT:upper}"  Hidden="1" Disabled="true"/>
-          <Button Anchor="C,T" ID="BackButton"			Size="280,35"	Style="MainMenuButton" String="{TXT_KEY_MODDING_MENU_BACK:upper}" />
+    <Box Color="0,0,0,0" Offset="0,-200" Anchor="C,B" Size="960,960" Padding="0,0">
+      <AlphaAnim Anchor="C,B" Size="960,960" Pause=".2" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
+        <Stack Anchor="C,T" Offset="0,-20" StackGrowth="Down" ID="MainStack">
+          <Button Anchor="C,T" ID="StandardButton"		Size="560,70"	 Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_STANDARD_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_STANDARD_GAME_TT"/>
+          <Button Anchor="C,T" ID="InternetButton"		Size="560,70"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_INTERNET_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_INTERNET_GAME_TT" Hidden="1"/>
+          <Button Anchor="C,T" ID="LANButton"			Size="560,70"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_LAN_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_LAN_GAME_TT" Hidden="1"/>
+          <Button Anchor="C,T" ID="HotSeatButton"		Size="560,70"    Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_HOTSEAT_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_HOTSEAT_GAME_TT" />
+          <Button Anchor="C,T" ID="PitbossButton"		Size="560,70"   Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_PITBOSS_GAME:upper}" ToolTip="TXT_KEY_MULTIPLAYER_PITBOSS_GAME_TT" Hidden="1"/>
+          <Button Anchor="C,T" ID="ReconnectButton"		Size="560,70"   Style="MainMenuButton" String="{TXT_KEY_MULTIPLAYER_RECONNECT:upper}"  Hidden="1" Disabled="true"/>
+          <Button Anchor="C,T" ID="BackButton"			Size="560,70"	Style="MainMenuButton" String="{TXT_KEY_MODDING_MENU_BACK:upper}" />
         </Stack>
       </AlphaAnim>
     </Box>

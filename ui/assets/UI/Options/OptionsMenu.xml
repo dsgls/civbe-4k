@@ -3,81 +3,81 @@
 <Box Style="BGBlock" ID="BGBlock" />
   <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
     
-    <Grid Size="1024, 700"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
-      <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+    <Grid Size="2048, 1400"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+      <Button	ID="CloseButton"			Anchor="R,T" Offset="14,14"	Style="CloseButton"/>
       <Label Style="MenuTitleCaption" String="TITLE LABEL" ID="TitleLabel" />
       <!-- Top Panel  GridSquareHL8-->
-      <Grid Anchor="C,T" Size="parent-13,45" Offset="0,48" Style="ProductionListHeaderGrid" ID="TabContainer">
-        <GridButton	ID="GameButton" Anchor="L,B" Offset="0,4"	Size="210,32"  Style="TabInactive">
+      <Grid Anchor="C,T" Size="parent-26,90" Offset="0,96" Style="ProductionListHeaderGrid" ID="TabContainer">
+        <GridButton	ID="GameButton" Anchor="L,B" Offset="0,8"	Size="420,64"  Style="TabInactive">
           <Label Style="TabTextStyle" String="{TXT_KEY_GAME_OPTIONS:upper}" />
         </GridButton>
-        <GridButton ID="IFaceButton" Anchor="L,B" Offset="0,4" Size="210,32"  Style="TabInactive">
+        <GridButton ID="IFaceButton" Anchor="L,B" Offset="0,8" Size="420,64"  Style="TabInactive">
           <Label Style="TabTextStyle" String="{TXT_KEY_INTERFACE_OPTIONS:upper}" />
         </GridButton>
-        <GridButton ID="VideoButton" Anchor="L,B" Offset="0,4" Size="210,32"  Style="TabInactive">
+        <GridButton ID="VideoButton" Anchor="L,B" Offset="0,8" Size="420,64"  Style="TabInactive">
           <Label Style="TabTextStyle" String="{TXT_KEY_VIDEO_OPTIONS:upper}" />
         </GridButton>
-        <GridButton ID="AudioButton" Anchor="L,B" Offset="0,4" Size="210,32"  Style="TabInactive">
+        <GridButton ID="AudioButton" Anchor="L,B" Offset="0,8" Size="420,64"  Style="TabInactive">
           <Label Style="TabTextStyle" String="{TXT_KEY_AUDIO_OPTIONS:upper}" />
         </GridButton>
-        <GridButton ID="MultiplayerButton" Anchor="L,B" Offset="0,4" Size="210,32"  Style="TabInactive">
-          <Label Style="TabTextStyle" TruncateWidth="200" String="{TXT_KEY_MULTIPLAYER_OPTIONS:upper}" />
+        <GridButton ID="MultiplayerButton" Anchor="L,B" Offset="0,8" Size="420,64"  Style="TabInactive">
+          <Label Style="TabTextStyle" TruncateWidth="400" String="{TXT_KEY_MULTIPLAYER_OPTIONS:upper}" />
         </GridButton>
-        <Grid Style="TabSpacerDark" Size="parent,5" Offset="0,3" Anchor="L,B"/>
+        <Grid Style="TabSpacerDark" Size="parent,10" Offset="0,6" Anchor="L,B"/>
       </Grid>
 
       <!-- Game Options -->
-      <Container Size="parent,500" Offset="0,44" ID="GamePanel" Hidden="1" >
-        <Grid Anchor="L,C" Size="400,450" Offset="30,40" Style="CivilopediaListItem">
-          <Stack StackPadding="15" Anchor="C,C" Offset="0,-5">
-            <CheckBox ID="AutoWorkersDontReplaceCB"			String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE"			LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE_TT" />
-            <CheckBox ID="AutoWorkersDontRemoveFeaturesCB"	String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES"	LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES_TT" />
-            <CheckBox ID="NoRewardPopupsCheckbox"			String="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS"					LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS_TT" />
-            <CheckBox ID="NoTileRecommendationsCheckbox"	String="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS"			LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS_TT" />
-            <CheckBox ID="CivilianYieldsCheckbox"			String="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS"					LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS_TT"  />
-            <CheckBox ID="QuickSelectionAdvCheckbox"		String="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE"			LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE_TT"  />
-            <CheckBox ID="DisablePlanetfallFXCheckbox"		String="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX"				LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX_TT" />
-            <CheckBox ID="AutoLoginFiraxisLiveCheckbox" String="TXT_KEY_OPSCREEN_AUTO_LOGIN"            LeadingOffset="2" WrapWidth="360" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_LOGIN_TT" />
-            <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES" Size="300,32" ID="ResetMy2KMessagesButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES_TT" />
+      <Container Size="parent,1000" Offset="0,88" ID="GamePanel" Hidden="1" >
+        <Grid Anchor="L,C" Size="800,900" Offset="60,80" Style="CivilopediaListItem">
+          <Stack StackPadding="30" Anchor="C,C" Offset="0,-10">
+            <CheckBox ID="AutoWorkersDontReplaceCB"			String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE_TT" />
+            <CheckBox ID="AutoWorkersDontRemoveFeaturesCB"	String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES"	LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES_TT" />
+            <CheckBox ID="NoRewardPopupsCheckbox"			String="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS_TT" />
+            <CheckBox ID="NoTileRecommendationsCheckbox"	String="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS_TT" />
+            <CheckBox ID="CivilianYieldsCheckbox"			String="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS_TT"  />
+            <CheckBox ID="QuickSelectionAdvCheckbox"		String="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE_TT"  />
+            <CheckBox ID="DisablePlanetfallFXCheckbox"		String="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX"				LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX_TT" />
+            <CheckBox ID="AutoLoginFiraxisLiveCheckbox" String="TXT_KEY_OPSCREEN_AUTO_LOGIN"            LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_LOGIN_TT" />
+            <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES" Size="600,64" ID="ResetMy2KMessagesButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES_TT" />
           </Stack>
         </Grid>
-        <Grid Anchor="R,C" Size="550,450" Offset="30,40" Style="CivilopediaListItem">
-          <Slider Length="300" Anchor="C,T" ID="Tooltip1TimerSlider" Style="Slider" WheelSteps="10" Offset="0,30" ToolTip="TXT_KEY_OPSCREEN_TOOLTIP_1_TIMER_LENGTH_TT">
+        <Grid Anchor="R,C" Size="1100,900" Offset="60,80" Style="CivilopediaListItem">
+          <Slider Length="600" Anchor="C,T" ID="Tooltip1TimerSlider" Style="Slider" WheelSteps="10" Offset="0,60" ToolTip="TXT_KEY_OPSCREEN_TOOLTIP_1_TIMER_LENGTH_TT">
              <Label String="" Style="GrayGlow" Anchor="C,T" AnchorSide="i,o" ID="Tooltip1TimerLength" ToolTip="TXT_KEY_OPSCREEN_TOOLTIP_1_TIMER_LENGTH_TT" />
           </Slider>
-          <Stack Padding="10" Anchor="R,C" Offset="5,30">
-            <PullDown Anchor="C,C" Style="GenericPullDown" ScrollThreshold="200"   SpaceForScroll="0" Size="300,32" ID="TutorialPull" ToolTip="TXT_KEY_OPSCREEN_TUTORIAL_LEVEL_TT" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
+          <Stack Padding="20" Anchor="R,C" Offset="10,60">
+            <PullDown Anchor="C,C" Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="600,64" ID="TutorialPull" ToolTip="TXT_KEY_OPSCREEN_TUTORIAL_LEVEL_TT" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
             </PullDown>
-            <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_TUTORIAL" Size="300,32" ID="ResetTutorialButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_TUTORIAL_TT"/>
-            <CheckBox ID="HideAdvisorIntroCheckBox"	String="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO"			WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO_TT" />
-            <CheckBox ID="SinglePlayerAutoEndTurnCheckBox"	String="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN"			WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN_TT" />
-            <CheckBox ID="SPQuickCombatCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT"			WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT_TT" />
-            <CheckBox ID="SPQuickMovementCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT"		WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT_TT" />
-            <CheckBox ID="MultiplayerAutoEndTurnCheckbox"	String="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN"		WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN_TT" />
-			      <CheckBox ID="MPQuickCombatCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT"		WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT_TT" />
-            <CheckBox ID="MPQuickMovementCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT"	WrapWidth="350" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT_TT" />
+            <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_TUTORIAL" Size="600,64" ID="ResetTutorialButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_TUTORIAL_TT"/>
+            <CheckBox ID="HideAdvisorIntroCheckBox"	String="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO_TT" />
+            <CheckBox ID="SinglePlayerAutoEndTurnCheckBox"	String="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN_TT" />
+            <CheckBox ID="SPQuickCombatCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT_TT" />
+            <CheckBox ID="SPQuickMovementCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT_TT" />
+            <CheckBox ID="MultiplayerAutoEndTurnCheckbox"	String="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN_TT" />
+			      <CheckBox ID="MPQuickCombatCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT_TT" />
+            <CheckBox ID="MPQuickMovementCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT"	WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT_TT" />
           </Stack>
         </Grid>
       </Container>
 
       <!-- Interface Options -->
-      <Container Size="parent,500" Offset="0,44" ID="IFacePanel" Hidden="1">
-        <Stack Anchor="L,T" Padding="20" Offset="30,70" >
-          <Grid Anchor="L,T" Size="965,150" Offset="0,0" Style="CivilopediaListItem">
-            <Stack Anchor="R,C" Offset="60,0" Padding="15">
-              <Label Anchor="R,T" Style="WhiteShadow" LeadingOffset="-10" WrapWidth="300" String="TXT_KEY_OPSCREEN_TURNS_FOR_AUTOSAVES" ToolTip="TXT_KEY_OPSCREEN_TURNS_FOR_AUTOSAVES_TT" >
-                <Grid Anchor="R,C" Offset="5,0" AnchorSide="O,I"  Size="50,30" Style="GridColumnHeader">
-                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,-1" EditMode="1" Size="40,18" Anchor="C,C" ID="AutosaveTurnsEdit" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
+      <Container Size="parent,1000" Offset="0,88" ID="IFacePanel" Hidden="1">
+        <Stack Anchor="L,T" Padding="40" Offset="60,140" >
+          <Grid Anchor="L,T" Size="1930,300" Offset="0,0" Style="CivilopediaListItem">
+            <Stack Anchor="R,C" Offset="120,0" Padding="30">
+              <Label Anchor="R,T" Style="WhiteShadow" LeadingOffset="-20" WrapWidth="600" String="TXT_KEY_OPSCREEN_TURNS_FOR_AUTOSAVES" ToolTip="TXT_KEY_OPSCREEN_TURNS_FOR_AUTOSAVES_TT" >
+                <Grid Anchor="R,C" Offset="10,0" AnchorSide="O,I"  Size="100,60" Style="GridColumnHeader">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" EditMode="1" Size="80,36" Anchor="C,C" ID="AutosaveTurnsEdit" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
                 </Grid>
               </Label>
-              <Label Anchor="R,T" Style="WhiteShadow" LeadingOffset="0" WrapWidth="300" String="TXT_KEY_OPSCREEN_MAX_AUTOSAVES_KEPT" ToolTip="TXT_KEY_OPSCREEN_MAX_AUTOSAVES_KEPT_TT" >
-                <Grid Anchor="R,C" Offset="5,0" AnchorSide="O,I"  Size="50,30" Style="GridColumnHeader">
-                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,-1" EditMode="1" Size="40,18" Anchor="C,C" ID="AutosaveMaxEdit" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
+              <Label Anchor="R,T" Style="WhiteShadow" LeadingOffset="0" WrapWidth="600" String="TXT_KEY_OPSCREEN_MAX_AUTOSAVES_KEPT" ToolTip="TXT_KEY_OPSCREEN_MAX_AUTOSAVES_KEPT_TT" >
+                <Grid Anchor="R,C" Offset="10,0" AnchorSide="O,I"  Size="100,60" Style="GridColumnHeader">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" EditMode="1" Size="80,36" Anchor="C,C" ID="AutosaveMaxEdit" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
                 </Grid>
               </Label>
-              <PullDown Anchor="R,T" Offset="-45,0" Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="250,32" ID="BindMousePull" ToolTip="TXT_KEY_BIND_MOUSE_TT" >
-                <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" String="{TXT_KEY_BIND_MOUSE:upper}" />
+              <PullDown Anchor="R,T" Offset="-90,0" Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="500,64" ID="BindMousePull" ToolTip="TXT_KEY_BIND_MOUSE_TT" >
+                <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" String="{TXT_KEY_BIND_MOUSE:upper}" />
               </PullDown>
             </Stack>
             <Stack Offset="0,0" Anchor="L,C">
@@ -88,8 +88,8 @@
             </Stack>
           </Grid>
           <!--front end only interface options-->
-          <Grid Size="965,170" Anchor="L,T" Style="CivilopediaListItem">
-            <Stack Anchor="R,T" Padding="8" Hidden="0" >
+          <Grid Size="1930,340" Anchor="L,T" Style="CivilopediaListItem">
+            <Stack Anchor="R,T" Padding="16" Hidden="0" >
               <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA" IsChecked="1" ID="EnableMapInertiaCheck" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA_TT" />
               <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY" IsChecked="1" ID="EnableTransparentMinimap" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY_TT" />
               <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO" IsChecked="1" ID="SkipIntroVideoCheck" ToolTip="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO_TT" />
@@ -97,22 +97,22 @@
 			  <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_AUTOSIZE_UI" IsChecked="1" ID="AutoUIAssetsCheck" ToolTip="TXT_KEY_OPSCREEN_AUTOSIZE_UI_TT" />              
               <CheckBox Anchor="R,C" String="TXT_KEY_OPSCREEN_USE_SMALL_UI" Style="WhiteShadow" IsChecked="0" ID="SmallUIAssetsCheck" NoStateChange="1" Disabled="1" ToolTip="TXT_KEY_OPSCREEN_USE_SMALL_UI_TT" />
 			  -->
-              <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="LanguagePull" Hidden="1" >
-                <Label Anchor="L,C" Style="WhiteShadow" AnchorSide="O,I" Offset="10,0" String="TXT_KEY_OPSCREEN_SELECT_LANG" />
+              <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="LanguagePull" Hidden="1" >
+                <Label Anchor="L,C" Style="WhiteShadow" AnchorSide="O,I" Offset="20,0" String="TXT_KEY_OPSCREEN_SELECT_LANG" />
               </PullDown>
-              <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="SpokenLanguagePull" >
-                <Label Anchor="L,C" AnchorSide="O,I" Style="GrayGlow" Offset="10,0" String="{TXT_KEY_OPSCREEN_SELECT_SPOKEN_LANG:upper}" />
+              <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="SpokenLanguagePull" >
+                <Label Anchor="L,C" AnchorSide="O,I" Style="GrayGlow" Offset="20,0" String="{TXT_KEY_OPSCREEN_SELECT_SPOKEN_LANG:upper}" />
               </PullDown>
             </Stack>
 
-            <Stack ID="TabletInterfaceOptions" Anchor="L,T" Padding="5" Offset="0,-10" Hidden="0" >
-              <Container Size="1,20" />
-              <Label Anchor="C,C" Offset="10,0" Style="GrayGlow" ID="DragSpeedValue" ToolTip="TXT_KEY_DRAG_SPEED_TT" />
-              <Slider Anchor="C,C" Offset="5,-5" Length="300" Style="Slider" ID="DragSpeedSlider" WheelSteps="10" ToolTip="TXT_KEY_DRAG_SPEED_TT" />
+            <Stack ID="TabletInterfaceOptions" Anchor="L,T" Padding="10" Offset="0,-20" Hidden="0" >
+              <Container Size="2,40" />
+              <Label Anchor="C,C" Offset="20,0" Style="GrayGlow" ID="DragSpeedValue" ToolTip="TXT_KEY_DRAG_SPEED_TT" />
+              <Slider Anchor="C,C" Offset="10,-10" Length="600" Style="Slider" ID="DragSpeedSlider" WheelSteps="10" ToolTip="TXT_KEY_DRAG_SPEED_TT" />
 
               <!-- Not implemented (yet) -->
-              <Label Offset="0,20" Anchor="C,C" ID="PinchSpeedValue" ToolTip="TXT_KEY_PINCH_SPEED_TT" Hidden="1" />
-              <Slider Anchor="C,C" Length="300" Style="Slider" ID="PinchSpeedSlider" WheelSteps="10" ToolTip="TXT_KEY_PINCH_SPEED_TT" Hidden="1"  />
+              <Label Offset="0,40" Anchor="C,C" ID="PinchSpeedValue" ToolTip="TXT_KEY_PINCH_SPEED_TT" Hidden="1" />
+              <Slider Anchor="C,C" Length="600" Style="Slider" ID="PinchSpeedSlider" WheelSteps="10" ToolTip="TXT_KEY_PINCH_SPEED_TT" Hidden="1"  />
             </Stack>
           </Grid>
         </Stack>
@@ -120,36 +120,36 @@
 
 		
       <!-- Video Options -->
-      <Container Size="parent,600" Offset="0,44" ID="VideoPanel" Hidden="1" >
+      <Container Size="parent,1200" Offset="0,88" ID="VideoPanel" Hidden="1" >
 
         <!-- Resolution Options-->
-        <Stack Offset="30,70" Padding="10">
-          <Grid  Size="470,50" Style="ProductionListHeaderGrid" >
-            <PullDown ID="GraphicsProfilePull"	Anchor="R,C" Offset="10,-3" Style="GenericPullDown" ScrollThreshold="200"   SpaceForScroll="0" Size="230,32" >
-              <Label							Style="GrayGlow" Anchor="L,C" AnchorSide="O,I" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_GRAPHICS_PROFILE" />
+        <Stack Offset="60,140" Padding="20">
+          <Grid  Size="940,100" Style="ProductionListHeaderGrid" >
+            <PullDown ID="GraphicsProfilePull"	Anchor="R,C" Offset="20,-6" Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="460,64" >
+              <Label							Style="GrayGlow" Anchor="L,C" AnchorSide="O,I" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_GRAPHICS_PROFILE" />
             </PullDown>
           </Grid>
           
-          <Grid Size="470,180" Offset="0,-6" Style="CivilopediaListItem" >
-            <Stack Anchor ="R,T" Offset ="10,10" Padding="10">
-              <PullDown ID="FSResolutionPull"	Style="GenericPullDown" Anchor="R,T" ScrollThreshold="200" SpaceForScroll="0" Size="230,32"  >
-                <Label							Style="GrayGlow" Anchor="L,C" Offset="10,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_RESOLUTION" />
+          <Grid Size="940,360" Offset="0,-12" Style="CivilopediaListItem" >
+            <Stack Anchor ="R,T" Offset ="20,20" Padding="20">
+              <PullDown ID="FSResolutionPull"	Style="GenericPullDown" Anchor="R,T" ScrollThreshold="400" SpaceForScroll="0" Size="460,64"  >
+                <Label							Style="GrayGlow" Anchor="L,C" Offset="20,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_RESOLUTION" />
               </PullDown>
-              <PullDown ID="WResolutionPull"	Style="GenericPullDown" Anchor="R,T" ScrollThreshold="200" Size="230,32" Hidden="1" >
-                <Label							Style="GrayGlow" Anchor="L,C" Offset="10,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_RESOLUTION" />
+              <PullDown ID="WResolutionPull"	Style="GenericPullDown" Anchor="R,T" ScrollThreshold="400" Size="460,64" Hidden="1" >
+                <Label							Style="GrayGlow" Anchor="L,C" Offset="20,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_RESOLUTION" />
               </PullDown>
-              <PullDown ID="MSAAPull"			Style="GenericPullDown" Anchor="R,T" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" Hidden="0" >
-                <Label							Style="GrayGlow" Anchor="L,C" Offset="10,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_MSAA" />
+              <PullDown ID="MSAAPull"			Style="GenericPullDown" Anchor="R,T" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" Hidden="0" >
+                <Label							Style="GrayGlow" Anchor="L,C" Offset="20,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_MSAA" />
               </PullDown>
               <CheckBox ID="FullscreenCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FULLSCREEN" IsChecked="0" />
             </Stack>
-            <Grid								Anchor="C,B" Offset="0,-6" Size="parent,50" Style="ProductionListHeaderGrid">
-              <GridButton ID="ApplyResButton"	Anchor="C,C" Size="250,32" String="{TXT_KEY_OPSCREEN_APPLY_RESOLUTION:upper}" Offset="0,-3" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_APPLY_RESOLUTION_TT"/>
+            <Grid								Anchor="C,B" Offset="0,-12" Size="parent,100" Style="ProductionListHeaderGrid">
+              <GridButton ID="ApplyResButton"	Anchor="C,C" Size="500,64" String="{TXT_KEY_OPSCREEN_APPLY_RESOLUTION:upper}" Offset="0,-6" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_APPLY_RESOLUTION_TT"/>
             </Grid>
           </Grid>
         
           <!-- Other Video Options-->
-          <Grid Anchor="L,T" Size="470,70" Style="CivilopediaListItem">
+          <Grid Anchor="L,T" Size="940,140" Style="CivilopediaListItem">
             <Stack Offset="0,0" Anchor="R,C">
               <CheckBox ID="VSyncCheck"			Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_VSYNC" IsChecked="1" ToolTip="TXT_KEY_OPSCREEN_RESTART_REQ_TT" />
               <CheckBox ID="FadeShadowsCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FADE_SHADOWS" IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_FADE_SHADOWS_TT" Hidden="1"/>
@@ -159,178 +159,178 @@
         </Stack>
 
         <!-- Fake background for sub-options -->
-        <Grid Anchor="R,T" Offset="30,70" Size="470,510" Style="CivilopediaListItem">
-          <Grid Size="parent,45" Color="255,255,255,200" Style="GridColumnHeader">
-            <CheckBox Anchor="R,C" Size="230,32" Style="GrayGlow" String="TXT_KEY_OPSCREEN_SHOW_ADVANCED_GRAPHICS" IsChecked="0" ID="AdvancedOptionsCheck"/>
+        <Grid Anchor="R,T" Offset="60,140" Size="940,1020" Style="CivilopediaListItem">
+          <Grid Size="parent,90" Color="255,255,255,200" Style="GridColumnHeader">
+            <CheckBox Anchor="R,C" Size="460,64" Style="GrayGlow" String="TXT_KEY_OPSCREEN_SHOW_ADVANCED_GRAPHICS" IsChecked="0" ID="AdvancedOptionsCheck"/>
           </Grid>
-          <Stack ID="AdvancedGraphicsStack" Padding="10" Hidden="1" Anchor="R,T" Offset="0,55" >
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="LeaderPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_LEADER_QUALITY" />
+          <Stack ID="AdvancedGraphicsStack" Padding="20" Hidden="1" Anchor="R,T" Offset="0,110" >
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="LeaderPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_LEADER_QUALITY" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200"   SpaceForScroll="0" Size="230,32" ID="OverlayPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_OVERLAY_DETAIL" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="460,64" ID="OverlayPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_OVERLAY_DETAIL" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="ShadowPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_SHADOW_QUALITY" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="ShadowPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_SHADOW_QUALITY" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="FOWPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_FOW_QUALITY" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="FOWPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_FOW_QUALITY" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="TerrainDetailPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_TERRAIN_DETAIL_LEVEL" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="TerrainDetailPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_TERRAIN_DETAIL_LEVEL" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="TerrainTessPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_TERRAIN_TESS_LEVEL" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="TerrainTessPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_TERRAIN_TESS_LEVEL" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="TerrainShadowPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_TERRAIN_SHADOW_QUALITY" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="TerrainShadowPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_TERRAIN_SHADOW_QUALITY" />
             </PullDown>
 
-            <PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="WaterPull" >
-              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_WATER_QUALITY" />
+            <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="WaterPull" >
+              <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_WATER_QUALITY" />
             </PullDown>
 
-			<PullDown Style="GenericPullDown" ScrollThreshold="200" SpaceForScroll="0" Size="230,32" ID="VFXPull" >
-				<Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="10,0" WrapWidth="250" LeadingOffset="-10" String="TXT_KEY_OPSCREEN_VFX_QUALITY" />
+			<PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="VFXPull" >
+				<Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" WrapWidth="500" LeadingOffset="-20" String="TXT_KEY_OPSCREEN_VFX_QUALITY" />
 			</PullDown>
 				
-			<Container Size="200,26">
-				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="10,5" String="TXT_KEY_OPSCREEN_UI_BLUR" />
-	            <CheckBox ID="UIBlurCheck"	Style="GrayGlow" Offset="-7,0" String=""	IsChecked="1" />
+			<Container Size="400,52">
+				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="20,10" String="TXT_KEY_OPSCREEN_UI_BLUR" />
+	            <CheckBox ID="UIBlurCheck"	Style="GrayGlow" Offset="-14,0" String=""	IsChecked="1" />
 			</Container>
 
-			<Container Size="200,26" >
-				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="10,5" String="TXT_KEY_OPSCREEN_MAP_BLUR" />
-				<CheckBox ID="MapBlurCheck"	Style="GrayGlow" Offset="-7,0" String="" IsChecked="1" />  
+			<Container Size="400,52" >
+				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="20,10" String="TXT_KEY_OPSCREEN_MAP_BLUR" />
+				<CheckBox ID="MapBlurCheck"	Style="GrayGlow" Offset="-14,0" String="" IsChecked="1" />  
 			</Container>
 			  
           </Stack>
 
 			<Grid		ID="VideoPanelBlock"	Size="parent,parent" Style="Grid9DetailFive140" Hidden="1" ConsumeMouse="1" >
-				<Label	Style="GrayGlow" Offset="0,30" Anchor="C,T" String="TXT_KEY_OPSCREEN_VDOP_DISABLED" />
+				<Label	Style="GrayGlow" Offset="0,60" Anchor="C,T" String="TXT_KEY_OPSCREEN_VDOP_DISABLED" />
 			</Grid>
         </Grid>
       </Container>
 
       <!-- Audio Options -->
-      <Container Size="parent,500" Offset="0,70"  ID="AudioPanel" Hidden="1" >
+      <Container Size="parent,1000" Offset="0,140"  ID="AudioPanel" Hidden="1" >
 
-        <Stack Anchor="C,T" Padding="12" Offset="0,90" >
-          <Label Style="GrayGlow" Anchor="L,C" Offset="0,20" ID="MusicVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_MUSIC_SLIDER_TT"/>
-          <Slider Length="500" Style="Slider" ID="MusicVolumeSlider" WheelSteps="1" />
+        <Stack Anchor="C,T" Padding="24" Offset="0,180" >
+          <Label Style="GrayGlow" Anchor="L,C" Offset="0,40" ID="MusicVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_MUSIC_SLIDER_TT"/>
+          <Slider Length="1000" Style="Slider" ID="MusicVolumeSlider" WheelSteps="1" />
 
-          <Label Style="GrayGlow" Anchor="L,C" Offset="0,20" ID="EffectsVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_SF_SLIDER_TT" />
-          <Slider Length="500" Style="Slider" ID="EffectsVolumeSlider" WheelSteps="1" />
+          <Label Style="GrayGlow" Anchor="L,C" Offset="0,40" ID="EffectsVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_SF_SLIDER_TT" />
+          <Slider Length="1000" Style="Slider" ID="EffectsVolumeSlider" WheelSteps="1" />
 
-          <Label Style="GrayGlow" Anchor="L,C" Offset="0,20" ID="AmbienceVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_AMBIANCE_SLIDER_TT" />
-          <Slider Length="500" Style="Slider" ID="AmbienceVolumeSlider" WheelSteps="1" />
+          <Label Style="GrayGlow" Anchor="L,C" Offset="0,40" ID="AmbienceVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_AMBIANCE_SLIDER_TT" />
+          <Slider Length="1000" Style="Slider" ID="AmbienceVolumeSlider" WheelSteps="1" />
 
-          <Label Style="GrayGlow" Anchor="L,C" Offset="0,20" ID="SpeechVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_SPEECH_SLIDER_TT" />
-          <Slider Length="500" Style="Slider" ID="SpeechVolumeSlider" WheelSteps="1" />
+          <Label Style="GrayGlow" Anchor="L,C" Offset="0,40" ID="SpeechVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_SPEECH_SLIDER_TT" />
+          <Slider Length="1000" Style="Slider" ID="SpeechVolumeSlider" WheelSteps="1" />
 
-          <Label Style="GrayGlow" Anchor="L,C" Offset="0,20" ID="VoiceChatVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_SLIDER_TT" Hidden="1"/>
-          <Slider Length="500" Style="Slider" ID="VoiceChatVolumeSlider" WheelSteps="1" Hidden="1"/>
+          <Label Style="GrayGlow" Anchor="L,C" Offset="0,40" ID="VoiceChatVolumeSliderValue" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_SLIDER_TT" Hidden="1"/>
+          <Slider Length="1000" Style="Slider" ID="VoiceChatVolumeSlider" WheelSteps="1" Hidden="1"/>
         </Stack>
 
       </Container>
 
       <!-- Multiplayer Options -->
-      <Container Size="parent,500" Offset="0,44"  ID="MultiplayerPanel" Hidden="1" >
+      <Container Size="parent,1000" Offset="0,88"  ID="MultiplayerPanel" Hidden="1" >
         <!-- Turn Notify Options -->
-        <Stack Offset="30,70" Padding="10">
+        <Stack Offset="60,140" Padding="20">
         <!-- LAN Nick Name Option -->
-        <Grid Size="460,120" Color="White,255" Style="CivilopediaListItem" >
-          <Grid Style="ProductionListHeaderGrid" Size="parent,40">
-            <Label Anchor="C,C" Offset="0,-3" WrapWidth="350" LeadingOffset="-10" Style="GrayGlow" String="{TXT_KEY_MULTIPLAYER_LAN_SETTINGS:upper}" />
+        <Grid Size="920,240" Color="White,255" Style="CivilopediaListItem" >
+          <Grid Style="ProductionListHeaderGrid" Size="parent,80">
+            <Label Anchor="C,C" Offset="0,-6" WrapWidth="700" LeadingOffset="-20" Style="GrayGlow" String="{TXT_KEY_MULTIPLAYER_LAN_SETTINGS:upper}" />
           </Grid>
-          <Stack Anchor="C,T" Offset="0,50" Padding="0" StackGrowth="Bottom">
-            <Label Anchor="C,T" Offset="0,0" LeadingOffset="-10" WrapWidth="300"  Style="WhiteShadow" String="TXT_KEY_MP_NICK_NAME" Tooltip="TXT_KEY_LAN_PLAYERNAME"/>
-              <Grid Anchor="C,T" Offset="0,5"  Size="185,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="0" Size="180,18" Anchor="C,C" Style="FontNormal18" MaxLength="64" ID="LANNickNameEdit"  NumberInput="0"  />
+          <Stack Anchor="C,T" Offset="0,100" Padding="0" StackGrowth="Bottom">
+            <Label Anchor="C,T" Offset="0,0" LeadingOffset="-20" WrapWidth="600"  Style="WhiteShadow" String="TXT_KEY_MP_NICK_NAME" Tooltip="TXT_KEY_LAN_PLAYERNAME"/>
+              <Grid Anchor="C,T" Offset="0,10"  Size="370,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="0" Size="360,36" Anchor="C,C" Style="FontNormal18" MaxLength="64" ID="LANNickNameEdit"  NumberInput="0"  />
               </Grid>
           </Stack>
         </Grid>
-		<Grid Anchor="L,T" Size="460,200" Color="White,255" Style="CivilopediaListItem" Hidden="1" >
-          <Grid Style="ProductionListHeaderGrid" Size="parent,40">
-            <Label Anchor="C,C" Offset="0,-3" WrapWidth="250" LeadingOffset="-10" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_TURN_NOTIFY_OPTIONS:upper}" />
+		<Grid Anchor="L,T" Size="920,400" Color="White,255" Style="CivilopediaListItem" Hidden="1" >
+          <Grid Style="ProductionListHeaderGrid" Size="parent,80">
+            <Label Anchor="C,C" Offset="0,-6" WrapWidth="500" LeadingOffset="-20" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_TURN_NOTIFY_OPTIONS:upper}" />
           </Grid>
-          <Box Anchor="C,T" Offset="0,40" Size="375,160" Color="0,0,0,0">
+          <Box Anchor="C,T" Offset="0,80" Size="750,320" Color="0,0,0,0">
             <Stack Anchor="L,T" Padding="0" StackGrowth="Bottom">
-              <CheckBox Anchor="R,T" Offset="-32,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE" Style="WhiteShadow" LeadingOffset="0" WrapWidth="350" ID="TurnNotifySteamInviteCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE_TT" />
-              <CheckBox Anchor="R,T" Offset="-32,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL" Style="WhiteShadow" LeadingOffset="0" WrapWidth="350" ID="TurnNotifyEmailCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_TT" />
-              <Label Anchor="R,T" Offset="0,10" LeadingOffset="-10" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS_TT" >
-                <Grid Anchor="R,C" Offset="5,0" AnchorSide="O,I"  Size="185,30" Style="GridColumnHeader">
-                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="1" Size="180,18" Anchor="C,C" ID="TurnNotifyEmailAddressEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySteamInviteCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifyEmailCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_TT" />
+              <Label Anchor="R,T" Offset="0,20" LeadingOffset="-20" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS_TT" >
+                <Grid Anchor="R,C" Offset="10,0" AnchorSide="O,I"  Size="370,60" Style="GridColumnHeader">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="1" Size="360,36" Anchor="C,C" ID="TurnNotifyEmailAddressEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
                 </Grid>
               </Label>
             </Stack>
           </Box>
         </Grid>
         <!-- Voice Chat Options -->
-        <Grid Size="450,200" Color="White,255" Style="CivilopediaListItem" Hidden="1">
-          <Grid Style="ProductionListHeaderGrid" Size="parent,40">
-            <Label Anchor="C,C" Offset="0,-3" WrapWidth="250" LeadingOffset="-10" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_VOICECHAT_VOICECHAT_OPTIONS:upper}" />
+        <Grid Size="900,400" Color="White,255" Style="CivilopediaListItem" Hidden="1">
+          <Grid Style="ProductionListHeaderGrid" Size="parent,80">
+            <Label Anchor="C,C" Offset="0,-6" WrapWidth="500" LeadingOffset="-20" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_VOICECHAT_VOICECHAT_OPTIONS:upper}" />
           </Grid>
-          <Box Anchor="C,T" Offset="0,30" Size="375,160" Color="0,0,0,0">
+          <Box Anchor="C,T" Offset="0,60" Size="750,320" Color="0,0,0,0">
             <Stack Anchor="L,T" Padding="0" StackGrowth="Bottom">
-              <CheckBox Anchor="R,T" Offset="-32,0" String="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED" Style="WhiteShadow" LeadingOffset="0" WrapWidth="350" ID="VoiceChatEnabledCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED_TT" />
-              <CheckBox Anchor="R,T" Offset="-32,0" String="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK" Style="WhiteShadow" LeadingOffset="0" WrapWidth="350" ID="PushToTalkCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK_TT" />
-              <Slider Anchor="R,T" Offset="0,20" Length="300"  ID="VoiceChatSquelchSlider" Style="Slider" WheelSteps="10" >
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatEnabledCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="PushToTalkCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK_TT" />
+              <Slider Anchor="R,T" Offset="0,40" Length="600"  ID="VoiceChatSquelchSlider" Style="Slider" WheelSteps="10" >
                 <Label Anchor="C,T" AnchorSide="i,o" ID="VoiceChatSquelchText" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_VOICECHAT_SQUELCH_SLIDER" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_SQUELCH_SLIDER_TT" />
               </Slider>
-              <CheckBox Anchor="R,T" Offset="-32,0" String="TXT_KEY_OPSCREEN_VOICECHAT_TEST" Style="WhiteShadow" LeadingOffset="0" WrapWidth="350" ID="VoiceChatTestCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_TEST_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_TEST" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatTestCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_TEST_TT" />
             </Stack>
           </Box>
         </Grid>
         </Stack>
 		<!-- Turn Notify Host Options -->
-        <Stack Offset="20,70" Anchor="R,T" Padding="10" Hidden="1">
-        <Grid Size="460,300" Color="White,255" Style="CivilopediaListItem" >
-          <Grid Style="ProductionListHeaderGrid" Size="parent,40">
-            <Label Anchor="C,C" Offset="0,-3" WrapWidth="450" LeadingOffset="-10" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_TURN_NOTIFY_HOST_OPTIONS:upper}" />
+        <Stack Offset="40,140" Anchor="R,T" Padding="20" Hidden="1">
+        <Grid Size="920,600" Color="White,255" Style="CivilopediaListItem" >
+          <Grid Style="ProductionListHeaderGrid" Size="parent,80">
+            <Label Anchor="C,C" Offset="0,-6" WrapWidth="900" LeadingOffset="-20" Style="GrayGlow" String="{TXT_KEY_OPSCREEN_TURN_NOTIFY_HOST_OPTIONS:upper}" />
           </Grid>
-          <Stack Anchor="L,T" Offset="10,50" Padding="20" StackGrowth="Bottom">
-            <Label Anchor="R,T" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS" >
-              <Grid Anchor="R,C" Offset="5,0" AnchorSide="O,I"  Size="185,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="2" Size="180,18" Anchor="C,C" ID="TurnNotifySmtpEmailEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+          <Stack Anchor="L,T" Offset="20,100" Padding="40" StackGrowth="Bottom">
+            <Label Anchor="R,T" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS" >
+              <Grid Anchor="R,C" Offset="10,0" AnchorSide="O,I"  Size="370,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="2" Size="360,36" Anchor="C,C" ID="TurnNotifySmtpEmailEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
               </Grid>
             </Label>
-            <Label Anchor="R,T" LeadingOffset="-10" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_HOST" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_HOST_TT" >
-              <Grid Offset="5,0" Anchor="R,C" AnchorSide="O,I"  Size="185,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="3" Size="180,18" Anchor="C,C" ID="TurnNotifySmtpHostEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+            <Label Anchor="R,T" LeadingOffset="-20" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_HOST" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_HOST_TT" >
+              <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="370,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="3" Size="360,36" Anchor="C,C" ID="TurnNotifySmtpHostEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
               </Grid>
             </Label>
             <Stack Anchor="R,T" Padding="0" StackGrowth="Left">
-              <Label Anchor="R,T" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PORT" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PORT_TT" >
-                <Grid Offset="5,0" Anchor="R,C" AnchorSide="O,I"  Size="40,30" Style="GridColumnHeader">
-                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="4" Size="30,18" Anchor="C,C" ID="TurnNotifySmtpPortEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+              <Label Anchor="R,T" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PORT" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PORT_TT" >
+                <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="80,60" Style="GridColumnHeader">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="4" Size="60,36" Anchor="C,C" ID="TurnNotifySmtpPortEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
                 </Grid>
               </Label>
-            <CheckBox Anchor="R,T" Offset="0,-7" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS" LeadingOffset="0" WrapWidth="350" ID="TurnNotifySmtpTLS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS_TT" />
+            <CheckBox Anchor="R,T" Offset="0,-14" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySmtpTLS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS_TT" />
             </Stack>
-            <Label Anchor="R,T" Offset="0,-20" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME_TT" >
-              <Grid Offset="5,0" Anchor="R,C" AnchorSide="O,I"  Size="85,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="5" Size="80,18" Anchor="C,C" ID="TurnNotifySmtpUserEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+            <Label Anchor="R,T" Offset="0,-40" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME_TT" >
+              <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="170,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="5" Size="160,36" Anchor="C,C" ID="TurnNotifySmtpUserEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
               </Grid>
             </Label>
-            <Label Anchor="R,T" WrapWidth="300" Offset="0,-4" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PASSWORD" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PASSWORD_TT" >
-              <Grid Offset="5,0" Anchor="R,C" AnchorSide="O,I"  Size="85,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="6" CallOnChar="1" Obscure="1" Size="80,18" Anchor="C,C" ID="TurnNotifySmtpPassEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+            <Label Anchor="R,T" WrapWidth="600" Offset="0,-8" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PASSWORD" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_PASSWORD_TT" >
+              <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="170,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="6" CallOnChar="1" Obscure="1" Size="160,36" Anchor="C,C" ID="TurnNotifySmtpPassEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
               </Grid>
             </Label>
-            <Stack Anchor="R,T" Offset="0,7" Padding="0" StackGrowth="Right">
-              <Label Anchor="R,T" WrapWidth="300" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_RETYPE_PASSWORD" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_RETYPE_PASSWORD_TT" />
-              <Grid Offset="5,0" Anchor="R,C" AnchorSide="O,I"  Size="85,30" Style="GridColumnHeader">
-                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  EditMode="1" FocusStop="7" CallOnChar="1" Obscure="1" Size="80,18" Anchor="C,C" ID="TurnNotifySmtpPassRetypeEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
+            <Stack Anchor="R,T" Offset="0,14" Padding="0" StackGrowth="Right">
+              <Label Anchor="R,T" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_RETYPE_PASSWORD" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_RETYPE_PASSWORD_TT" />
+              <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="170,60" Style="GridColumnHeader">
+                <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255"  EditMode="1" FocusStop="7" CallOnChar="1" Obscure="1" Size="160,36" Anchor="C,C" ID="TurnNotifySmtpPassRetypeEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
               </Grid>
             </Stack>
-            <Label Anchor="R,T" Offset="-50,0" WrapWidth="300" Style="WhiteShadow" ID="StmpPasswordMatchLabel" String="test" ToolTip="test tt" />
+            <Label Anchor="R,T" Offset="-100,0" WrapWidth="600" Style="WhiteShadow" ID="StmpPasswordMatchLabel" String="test" ToolTip="test tt" />
             
           </Stack>
         </Grid>
@@ -338,18 +338,18 @@
       </Stack>
       </Container>
 
-      <GridButton ID="DefaultButton"	Anchor="L,B" Offset="30,40" Size="200,32" String="TXT_KEY_OPSCREEN_DEFAULTS_BUTTON" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_DEFAULTS_BUTTON_TT"/>
-      <GridButton ID="AcceptButton"		Anchor="R,B" Offset="30,40" Size="200,32" Style="BaseButton" String="TXT_KEY_OPSCREEN_SAVE_BUTTON" ToolTip="TXT_KEY_OPSCREEN_SAVE_BUTTON_TT" />
+      <GridButton ID="DefaultButton"	Anchor="L,B" Offset="60,80" Size="400,64" String="TXT_KEY_OPSCREEN_DEFAULTS_BUTTON" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_DEFAULTS_BUTTON_TT"/>
+      <GridButton ID="AcceptButton"		Anchor="R,B" Offset="60,80" Size="400,64" Style="BaseButton" String="TXT_KEY_OPSCREEN_SAVE_BUTTON" ToolTip="TXT_KEY_OPSCREEN_SAVE_BUTTON_TT" />
     </Grid>
   </AlphaAnim>
 
     <!-- Graphics options changed popup -->
     <Box Color="Black.128" Size="Full.Full" ID="GraphicsChangedPopup" Hidden="1" ConsumeMouseOver="1" >
-        <Grid Size="400,225" Anchor="C,C" Offset="0,0" Padding="0,20" Style="GridColumnHeader"  Hidden="0" >
-					<Label ID="GraphicsChangedMessage" Anchor="C,T"  Offset="0,60"  WrapWidth="300" String="TXT_KEY_OPSCREEN_VDOP_RESTART" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+        <Grid Size="800,450" Anchor="C,C" Offset="0,0" Padding="0,40" Style="GridColumnHeader"  Hidden="0" >
+					<Label ID="GraphicsChangedMessage" Anchor="C,T"  Offset="0,120"  WrapWidth="600" String="TXT_KEY_OPSCREEN_VDOP_RESTART" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
 
             <!-- OK Button  -->
-            <GridButton Style="BaseButton"  ID="GraphicsChangedOK" Size="300,30" Anchor="C,B" Offset="0,60"  Hidden="0">
+            <GridButton Style="BaseButton"  ID="GraphicsChangedOK" Size="600,60" Anchor="C,B" Offset="0,120"  Hidden="0">
                 <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_OK_BUTTON" ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" />
             </GridButton>
         </Grid>
@@ -357,17 +357,17 @@
 
     <!-- Non-Default Graphics popup -->
     <Box Color="Black.128" Size="Full.Full" ID="GraphicsNotDefaultPopup" Hidden="1" ConsumeMouseOver="1" >
-      <Grid Size="450,275" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140"  Hidden="0" >
-        <Container Anchor="C,T" Size="400,155" Offset="0,20" Hidden="0">
-          <Label ID="GraphicsNotDefaultMessage" Anchor="C,C" WrapWidth="400"  String="TXT_KEY_OPSCREEN_VDOP_NONDEFAULT" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+      <Grid Size="900,550" Anchor="C,C" Offset="0,0" Padding="0,40" Style="Grid9DetailFive140"  Hidden="0" >
+        <Container Anchor="C,T" Size="800,310" Offset="0,40" Hidden="0">
+          <Label ID="GraphicsNotDefaultMessage" Anchor="C,C" WrapWidth="800"  String="TXT_KEY_OPSCREEN_VDOP_NONDEFAULT" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
         </Container>
-        <Stack Anchor="C,B" Offset="0,20" Padding="20" StackGrowth="Top">
+        <Stack Anchor="C,B" Offset="0,40" Padding="40" StackGrowth="Top">
           <!-- Proceed Button  -->
-          <GridButton Style="BaseButton"  ID="GraphicsNotDefaultOK" Size="400,30" Anchor="C,C" Hidden="0">
+          <GridButton Style="BaseButton"  ID="GraphicsNotDefaultOK" Size="800,60" Anchor="C,C" Hidden="0">
             <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_OPSCREEN_PROCEED_ANYWAY_BUTTON" ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" />
           </GridButton>
           <!-- Revert Button  -->
-          <GridButton Style="BaseButton"  ID="GraphicsNotDefaultRevert" Size="400,30" Anchor="C,C" Hidden="0">
+          <GridButton Style="BaseButton"  ID="GraphicsNotDefaultRevert" Size="800,60" Anchor="C,C" Hidden="0">
             <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_OPSCREEN_SET_TO_DEFAULTS_BUTTON" ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" />
           </GridButton>
         </Stack>
@@ -376,20 +376,20 @@
   
     <!-- Resolution/Language Countdown -->
     <Box Color="Black.128" Size="Full.Full" ID="Countdown" Hidden="1" ConsumeMouseOver="1" >
-        <Grid Size="400,300" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140"  Hidden="0" >
+        <Grid Size="800,600" Anchor="C,C" Offset="0,0" Padding="0,40" Style="Grid9DetailFive140"  Hidden="0" >
 
-					<Stack Anchor="C,T" Offset="0,60" Padding="10" StackGrowth="Bottom" ID="LabelStack">
-                <Label ID="CountdownMessage" Anchor="C,T" WrapWidth="300" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
-                <Label ID="CountdownTimer" Anchor="C,T"  WrapWidth="300" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+					<Stack Anchor="C,T" Offset="0,120" Padding="20" StackGrowth="Bottom" ID="LabelStack">
+                <Label ID="CountdownMessage" Anchor="C,T" WrapWidth="600" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+                <Label ID="CountdownTimer" Anchor="C,T"  WrapWidth="600" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
             </Stack>
 
-            <Stack Anchor="C,B" Offset="0,60" Padding="10" StackGrowth="Bottom" ID="ButtonStack">
+            <Stack Anchor="C,B" Offset="0,120" Padding="20" StackGrowth="Bottom" ID="ButtonStack">
                 <!-- Yes Button  -->
-                <GridButton Style="BaseButton"  ID="CountYes" Size="300,30" Anchor="C,T" Offset="0,0"  Hidden="0">
+                <GridButton Style="BaseButton"  ID="CountYes" Size="600,60" Anchor="C,T" Offset="0,0"  Hidden="0">
                     <Label Anchor="C,C" Offset="0,0" ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" />
                 </GridButton>
                 <!-- No Button  -->
-                <GridButton  Style="BaseButton" ID="CountNo" Size="300,30" Anchor="C,T" Offset="0,0"  Hidden="0">
+                <GridButton  Style="BaseButton" ID="CountNo" Size="600,60" Anchor="C,T" Offset="0,0"  Hidden="0">
                     <Label Anchor="C,C" Offset="0,0" ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" />
                 </GridButton>
             </Stack>

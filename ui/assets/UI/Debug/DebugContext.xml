@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Context ColorSet="Beige_Black_Alpha" FontSize="14" FontStyle="Shadow" Name="DebugPanel" >
+<Context ColorSet="Beige_Black_Alpha" FontSize="28" FontStyle="Shadow" Name="DebugPanel" >
 
 		<LuaContext ID="DebugHotloadCache"		FileName="UI/DebugContext/DebugHotloadCache"/>
 	
@@ -7,29 +7,29 @@
     <Stack ID="MainStack" Hidden="1" >
         
         <!-- Log Panel -->
-        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="800,400" ID="LogGrid" Hidden="1" >
-            <ScrollPanel Size="770,390" Anchor="C,C" ID="LogScroll" Vertical="1" >
-                <Stack StackGrowth="Bottom" Anchor="L,B" Offset="5,10" ID="LogStack" StackPadding="3" />
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="1600,800" ID="LogGrid" Hidden="1" >
+            <ScrollPanel Size="1540,780" Anchor="C,C" ID="LogScroll" Vertical="1" >
+                <Stack StackGrowth="Bottom" Anchor="L,B" Offset="10,20" ID="LogStack" StackPadding="6" />
 
-                <ScrollBar  Style="VertSlider"    Anchor="R,T" AnchorSide="O,I" Offset="-9,18" Length="354"  />
-                <UpButton   Style="ScrollBarUp"   Anchor="R,T" AnchorSide="O,I" Offset="-10,0 "/>
-                <DownButton Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I" Offset="-10,0 "/>
+                <ScrollBar  Style="VertSlider"    Anchor="R,T" AnchorSide="O,I" Offset="-18,36" Length="708"  />
+                <UpButton   Style="ScrollBarUp"   Anchor="R,T" AnchorSide="O,I" Offset="-20,0 "/>
+                <DownButton Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I" Offset="-20,0 "/>
             </ScrollPanel>
         </Grid>
 
 
         <!-- Console Box and buttons -->
-        <Grid Style="SquareFrameBlue" Anchor="L,T" Offset="60,0" Size="740,30" ID="ConsoleGrid" >
-            <ColorBox Color="0,0,0,90" Anchor="C,C" AutoSize="1" SizePadding="1,1" >
-                <EditBox Anchor="C,C" Size="730,20" MaxLength="255" ID="ConsoleEdit" />
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Offset="120,0" Size="1480,60" ID="ConsoleGrid" >
+            <ColorBox Color="0,0,0,90" Anchor="C,C" AutoSize="1" SizePadding="2,2" >
+                <EditBox Anchor="C,C" Size="1460,40" MaxLength="255" ID="ConsoleEdit" />
             </ColorBox>
             <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" ToolTip="Toggle Log" ID="LogCheck" />
-            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" Offset="30,0" ToolTip="Toggle Panel" ID="SubPanelCheck" />
+            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" Offset="60,0" ToolTip="Toggle Panel" ID="SubPanelCheck" />
         </Grid>
 
         
         <!-- Sub Panels -->
-        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="200,50" ID="RadioGrid" Hidden="1" SizePadding="5,5" >
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="400,100" ID="RadioGrid" Hidden="1" SizePadding="10,10" >
 
             <!-- RadioStack: Add radios to this thing -->
             <Stack StackPadding="0" Anchor="C,C" ID="RadioStack" />
@@ -44,7 +44,7 @@
 		<!-- ========== INSTANCES ========== -->	
 	
     <Instance Name="LogText" >
-        <Label ID="Text" Anchor="l,c" WrapWidth="770" Font="Cour.ttf" FontSize="14" />
+        <Label ID="Text" Anchor="l,c" WrapWidth="1540" Font="Cour.ttf" FontSize="28" />
     </Instance>
     
     <Instance Name="RadioInstance" >

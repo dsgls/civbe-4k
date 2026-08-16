@@ -2,63 +2,63 @@
 
 <Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal" >
   <Container																																	Size="Full,Full">
-    <Container ID="WheelCenter" Anchor="R,T" Size="554,parent-80" Offset="0,76">
+    <Container ID="WheelCenter" Anchor="R,T" Size="1108,parent-160" Offset="0,152">
       <Image							ID="Wheel"						Anchor="R,C"										Texture="AffinityWheelLarge.dds">
-        <Image																	Anchor="C,C"	Offset="0,-250"											Texture="AffinityWheelGlow.dds" Color="32,195,185"/>
-        <Image																	Anchor="C,C"	Offset="218,125"										Texture="AffinityWheelGlow2.dds" Color="238,10,51"/>
-        <Image																	Anchor="C,C"	Offset="-216,125"	FlipX="1"					Texture="AffinityWheelGlow2.dds" Color="235,183,37"/>
-        <Container															Anchor="C,C"	Offset="2,1"			Size="parent,parent">
+        <Image																	Anchor="C,C"	Offset="0,-500"											Texture="AffinityWheelGlow.dds" Color="32,195,185"/>
+        <Image																	Anchor="C,C"	Offset="436,250"										Texture="AffinityWheelGlow2.dds" Color="238,10,51"/>
+        <Image																	Anchor="C,C"	Offset="-432,250"	FlipX="1"					Texture="AffinityWheelGlow2.dds" Color="235,183,37"/>
+        <Container															Anchor="C,C"	Offset="4,2"			Size="parent,parent">
           <AlphaAnim			AlphaStart="0.8" AlphaEnd="1.0"	Cycle="Bounce"				Size="parent,parent">
-            <Image					ID="Background"																				Size="103,164" Hidden="1" />
+            <Image					ID="Background"																				Size="206,328" Hidden="1" />
           </AlphaAnim>
-          <Image					ID="Hover"																						Size="103,164" Hidden="1" />
-          <Container			ID="LineCanvas"				Anchor="C,C"	Offset="0,0"			Size="2,1"/>
-          <Container			ID="NodeCanvas"				Anchor="C,C"	Offset="0,0"			Size="2,1"/>
-          <Container			ID="GlowCanvas"				Anchor="C,C"	Offset="0,0"			Size="2,1"/>
+          <Image					ID="Hover"																						Size="206,328" Hidden="1" />
+          <Container			ID="LineCanvas"				Anchor="C,C"	Offset="0,0"			Size="4,2"/>
+          <Container			ID="NodeCanvas"				Anchor="C,C"	Offset="0,0"			Size="4,2"/>
+          <Container			ID="GlowCanvas"				Anchor="C,C"	Offset="0,0"			Size="4,2"/>
         </Container>
       </Image>
     </Container>
 
-      <Container					ID="AffinityBox"			Anchor="R,B"	Offset="10,50"		Size="560,132">
+      <Container					ID="AffinityBox"			Anchor="R,B"	Offset="20,100"		Size="1120,264">
 			
-			<Grid							ID="InfoGrid"					Anchor="C,T"	Offset="22,-19"		Size="525,620"  Style="GridWindowWithHeader" AnchorSide="I,O" ConsumeMouse="1"  Hidden="0">
-				<Button					ID="CloseInfoButton"	Anchor="R,T"	Offset="6,6"											Style="CloseButton" />
-				<Label					ID="PanelTitle"											Offset="20,18"										Style="GradientHeader"			String="$AffinityTitle$" />
+			<Grid							ID="InfoGrid"					Anchor="C,T"	Offset="44,-38"		Size="1050,1240"  Style="GridWindowWithHeader" AnchorSide="I,O" ConsumeMouse="1"  Hidden="0">
+				<Button					ID="CloseInfoButton"	Anchor="R,T"	Offset="12,12"											Style="CloseButton" />
+				<Label					ID="PanelTitle"											Offset="40,36"										Style="GradientHeader"			String="$AffinityTitle$" />
 				
 				<Container			ID="AffinityDisplay"																	Size="parent,parent" >
-					<Image				ID="AffinityPortrait"								Offset="20,60"		Size="103,164" />
-					<Label				ID="AffinityIcon"										Offset="130,70"																								String="$AFFinity" />
-					<Label				ID="AffinityAmount"									Offset="155,60"										Style="AffinityWheelText"		String="$Amount" FontSize="28"	FontStyle="Glow"		 />
-					<Container																				Offset="180,50"		Size="350,45">
-						<Label			ID="AffinityDetails"	Anchor="L,C"	Offset="10,0"											Style="AffinityWheelText"		String="$Details[NEWLINE]$mawr"	FontStyle="Glow"	LeadingOffset="7" />
+					<Image				ID="AffinityPortrait"								Offset="40,120"		Size="206,328" />
+					<Label				ID="AffinityIcon"										Offset="260,140"																								String="$AFFinity" />
+					<Label				ID="AffinityAmount"									Offset="310,120"										Style="AffinityWheelText"		String="$Amount" FontSize="56"	FontStyle="Glow"		 />
+					<Container																				Offset="360,100"		Size="700,90">
+						<Label			ID="AffinityDetails"	Anchor="L,C"	Offset="20,0"											Style="AffinityWheelText"		String="$Details[NEWLINE]$mawr"	FontStyle="Glow"	LeadingOffset="14" />
 					</Container>
-					<Stack																						Offset="131,100"	StackGrowth="Down" StackPadding="10">
-						<Label			ID="AffinityDescription"						Offset="0,0"	WrapWidth="380"	Style="AffinityWheelFlavorText"		String="$description" />
-						<Label			ID="AffinityQuote"									Offset="0,0"	WrapWidth="380"	Style="AffinityWheelFlavorText"		String="$quote$" />
+					<Stack																						Offset="262,200"	StackGrowth="Down" StackPadding="20">
+						<Label			ID="AffinityDescription"						Offset="0,0"	WrapWidth="760"	Style="AffinityWheelFlavorText"		String="$description" />
+						<Label			ID="AffinityQuote"									Offset="0,0"	WrapWidth="760"	Style="AffinityWheelFlavorText"		String="$quote$" />
 					</Stack>
-					<Label																						Offset="20,240"										Style="FontNormal18"				String="{TXT_KEY_DIPLOMACYUI_AFFINITY_UNLOCKED_BY_AFFINITY:upper}" Color="70,70,80,255" />
-					<ScrollPanel	ID="PerksScroll"										Offset="20,260"		Size="496,300" Vertical="1" AutoScrollbar="1">
-						<Stack			ID="PerksStack"				StackPadding="1" />
+					<Label																						Offset="40,480"										Style="FontNormal18"				String="{TXT_KEY_DIPLOMACYUI_AFFINITY_UNLOCKED_BY_AFFINITY:upper}" Color="70,70,80,255" />
+					<ScrollPanel	ID="PerksScroll"										Offset="40,520"		Size="992,600" Vertical="1" AutoScrollbar="1">
+						<Stack			ID="PerksStack"				StackPadding="2" />
 						<ScrollBar												Anchor="R,T" Style="VertSlider" />
 					</ScrollPanel>
 				</Container>
 				
 				<Container			ID="UnlockDisplay"																	Size="parent,parent" >
-					<ScrollPanel	ID="UnlockScroll"										Offset="16,50"	Size="498,464" Vertical="1" AutoScrollbar="1" >
-						<Stack			ID="UnlockStack"			StackPadding="1" />
+					<ScrollPanel	ID="UnlockScroll"										Offset="32,100"	Size="996,928" Vertical="1" AutoScrollbar="1" >
+						<Stack			ID="UnlockStack"			StackPadding="2" />
 						<ScrollBar												Anchor="R,T" Style="VertSlider" />
 					</ScrollPanel>
 				</Container>				
 			</Grid>
 			
-			<Stack																						Offset="40,0" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="530">
-				<GridButton			ID="UnlockButton"	Anchor="L,T"									Size="524,36"		Style="AffinityInfoButton" String="{TXT_KEY_DIPLOMACYUI_AFFINITY_MY_PERKS:upper}" />
-				<GridButton			ID="PButton"			Anchor="L,T"									Size="249,36"		Style="AffinityInfoButton" />
-				<GridButton			ID="PHButton"			Anchor="L,T"									Size="275,36"		Style="AffinityInfoButton" />
-				<GridButton			ID="HButton"			Anchor="L,T"									Size="249,36"		Style="AffinityInfoButton" />
-				<GridButton			ID="HSButton"			Anchor="L,T"									Size="275,36"		Style="AffinityInfoButton" />
-				<GridButton			ID="SButton"			Anchor="L,T"									Size="249,36"		Style="AffinityInfoButton" />
-				<GridButton			ID="SPButton"			Anchor="L,T"									Size="275,36"		Style="AffinityInfoButton"/>
+			<Stack																						Offset="80,0" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="1060">
+				<GridButton			ID="UnlockButton"	Anchor="L,T"									Size="1048,72"		Style="AffinityInfoButton" String="{TXT_KEY_DIPLOMACYUI_AFFINITY_MY_PERKS:upper}" />
+				<GridButton			ID="PButton"			Anchor="L,T"									Size="498,72"		Style="AffinityInfoButton" />
+				<GridButton			ID="PHButton"			Anchor="L,T"									Size="550,72"		Style="AffinityInfoButton" />
+				<GridButton			ID="HButton"			Anchor="L,T"									Size="498,72"		Style="AffinityInfoButton" />
+				<GridButton			ID="HSButton"			Anchor="L,T"									Size="550,72"		Style="AffinityInfoButton" />
+				<GridButton			ID="SButton"			Anchor="L,T"									Size="498,72"		Style="AffinityInfoButton" />
+				<GridButton			ID="SPButton"			Anchor="L,T"									Size="550,72"		Style="AffinityInfoButton"/>
 			</Stack>		
 		</Container>
 		
@@ -71,29 +71,29 @@
 	<!-- ==================================================================	-->
 		
 	<Instance			Name="GlowLineInstance">
-    <Container	ID="Content"	Size="300,300">
-      <Line			ID="Line4" Start="0,0" End="0,0"	Width="16"	Color="200,225,255,16"/>
-			<Line			ID="Line3" Start="0,0" End="0,0"	Width="8"		Color="200,225,255,64"/>
-      <Line			ID="Line2" Start="0,0" End="0,0"	Width="4"		Color="200,225,255,128"/>
-      <Line			ID="Line1" Start="0,0" End="0,0"	Width="2"		Color="200,225,255,255"/>
+    <Container	ID="Content"	Size="600,600">
+      <Line			ID="Line4" Start="0,0" End="0,0"	Width="32"	Color="200,225,255,16"/>
+			<Line			ID="Line3" Start="0,0" End="0,0"	Width="16"		Color="200,225,255,64"/>
+      <Line			ID="Line2" Start="0,0" End="0,0"	Width="8"		Color="200,225,255,128"/>
+      <Line			ID="Line1" Start="0,0" End="0,0"	Width="4"		Color="200,225,255,255"/>
     </Container>
   </Instance>
 	
   <Instance			Name="NodeInstance">
-		<Image			ID="Node"  Anchor="C,C" Size="18,18" Texture="AffinityNode.dds" />
+		<Image			ID="Node"  Anchor="C,C" Size="36,36" Texture="AffinityNode.dds" />
   </Instance>
 	
 	<Instance			Name="NodeGlowInstance">
-		<AlphaAnim	ID="Glow"			 Anchor="C,C" Size="47,48" AlphaStart="0.4" AlphaEnd="1.0"	Cycle="Bounce">
-			<Image									 Anchor="C,C" Size="47,48" Texture="AffinityNodeGlow.dds" />
+		<AlphaAnim	ID="Glow"			 Anchor="C,C" Size="94,96" AlphaStart="0.4" AlphaEnd="1.0"	Cycle="Bounce">
+			<Image									 Anchor="C,C" Size="94,96" Texture="AffinityNodeGlow.dds" />
 		</AlphaAnim>
   </Instance>
 	
 	<Instance		Name="UnlockInstance">
-		<Grid			ID="Content"		Size="476,55" Texture="AffinityBonusSlot.dds" SliceCorner="2,2" SliceTextureSize="6,55">
-			<Label	ID ="TextIcon"	Anchor="L,C" Offset="5,0"	 Style="FontNormal20" String="[ICON_PURITY]" />
-			<Label	ID ="Amt"				Anchor="L,C" Offset="31,0" Style="FontNormal22" FontStyle="Glow" String="$" />
-			<Label	ID ="Info"			Anchor="L,C" Offset="62,0" WrapWidth="410"			Style="AffinityWheelListText" String="$info$" />
+		<Grid			ID="Content"		Size="952,110" Texture="AffinityBonusSlot.dds" SliceCorner="4,4" SliceTextureSize="12,110">
+			<Label	ID ="TextIcon"	Anchor="L,C" Offset="10,0"	 Style="FontNormal20" String="[ICON_PURITY]" />
+			<Label	ID ="Amt"				Anchor="L,C" Offset="62,0" Style="FontNormal22" FontStyle="Glow" String="$" />
+			<Label	ID ="Info"			Anchor="L,C" Offset="124,0" WrapWidth="820"			Style="AffinityWheelListText" String="$info$" />
 		</Grid>
 	</Instance>
 	

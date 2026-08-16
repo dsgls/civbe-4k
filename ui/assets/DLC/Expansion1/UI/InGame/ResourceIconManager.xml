@@ -7,26 +7,26 @@
   <Container ID="MinorMarvelContainer" Hidden="0"/>
 	<Instance Name="ResourceIcon">
 		<WorldAnchor ID="Anchor">
-			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
-			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+			<Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+			<Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
 		</WorldAnchor>
 	</Instance>
 	<Instance Name="ArtifactIcon">
 		<WorldAnchor ID="Anchor">
-			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
-			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+			<Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+			<Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
 		</WorldAnchor>
 	</Instance>
   <Instance Name="NestIcon">
     <WorldAnchor ID="Anchor">
-      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
-      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+      <Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+      <Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
     </WorldAnchor>
   </Instance>
   <Instance Name="MinorMarvelIcon">
     <WorldAnchor ID="Anchor">
-      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
-      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+      <Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+      <Image Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
     </WorldAnchor>
   </Instance>
 </Context>

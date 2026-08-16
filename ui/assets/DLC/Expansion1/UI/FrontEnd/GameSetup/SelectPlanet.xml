@@ -5,44 +5,44 @@
 	<!-- Select Planet                                                      -->
 	<!--=================================================================== -->
 
-  <GridButton ID="RescanButton" Anchor="L,T" Offset="85,110" Size="395,48" Style="GridListElementGray">
-    <Label ID="RescanLabel" Anchor="L,C"	Offset="15,0"	Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SCAN_FOR_DIFFERNT_PLANETS" />
+  <GridButton ID="RescanButton" Anchor="L,T" Offset="170,220" Size="790,96" Style="GridListElementGray">
+    <Label ID="RescanLabel" Anchor="L,C"	Offset="30,0"	Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SCAN_FOR_DIFFERNT_PLANETS" />
   </GridButton>
   
-	<ScrollPanel		ID="ScrollPanel"	Anchor="L,T"	Offset="85,168" Size="405,530"			Vertical="1" >
+	<ScrollPanel		ID="ScrollPanel"	Anchor="L,T"	Offset="170,336" Size="810,1060"			Vertical="1" >
 		<Stack				ID="Stack"				Anchor="L,T"	Offset="0,0"		Size="parent,parent" StackGrowth="Bottom" Padding="0"  />
-    <ScrollBar											Anchor="R,T"	Offset="8,0"		Length="Parent"				Style="VertSlider" AnchorSide="I,I" />
+    <ScrollBar											Anchor="R,T"	Offset="16,0"		Length="Parent"				Style="VertSlider" AnchorSide="I,I" />
 	</ScrollPanel>    
 
-	<GridButton ID="SelectButton" Anchor="L,B"  Style="SmallButton" Size="240,38"  Offset="164,32"  >
+	<GridButton ID="SelectButton" Anchor="L,B"  Style="SmallButton" Size="480,76"  Offset="328,64"  >
 		<Label	  ID="NextButton"	Anchor="C,C"  Offset="0,0"  String="{TXT_KEY_NEXT:upper}" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
 	</GridButton>
 
-  <Grid ID="CustomWorldPopup" Size="405,188" Anchor="C,C" Style="GridWindowWithSideBorders" ConsumeMouse="1" Hidden="1">
-    <Label ID="PlanetLabel" Anchor="C,T" Offset="0,8" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SELECT_PLANET" />
-    <PullDown	ID="PlanetPull" Anchor="C,T" Offset="0,28" Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="parent-16,32" />
+  <Grid ID="CustomWorldPopup" Size="810,376" Anchor="C,C" Style="GridWindowWithSideBorders" ConsumeMouse="1" Hidden="1">
+    <Label ID="PlanetLabel" Anchor="C,T" Offset="0,16" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SELECT_PLANET" />
+    <PullDown	ID="PlanetPull" Anchor="C,T" Offset="0,56" Style="GenericPullDown" ScrollThreshold="800" SpaceForScroll="0" Size="parent-32,64" />
 
-    <Label ID="BiomeLabel" Anchor="C,T" Offset="0,68" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SELECT BIOME" />
-    <PullDown	ID="BiomePull" Anchor="C,T" Offset="0,88" Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="parent-16,32" />
+    <Label ID="BiomeLabel" Anchor="C,T" Offset="0,136" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="TXT_KEY_SELECT BIOME" />
+    <PullDown	ID="BiomePull" Anchor="C,T" Offset="0,176" Style="GenericPullDown" ScrollThreshold="800" SpaceForScroll="0" Size="parent-32,64" />
 
-    <GridButton ID="CancelCustonButton" Anchor="L,B" Offset="8,8" Style="SmallButton" Size="160,38">
+    <GridButton ID="CancelCustonButton" Anchor="L,B" Offset="16,16" Style="SmallButton" Size="320,76">
       <Label	  ID="CancelCustonLabel"	Anchor="C,C"  Offset="0,0"  String="TXT_KEY_CANCEL_BUTTON" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
     </GridButton>
-    <GridButton ID="AcceptCustonButton" Anchor="R,B" Offset="8,8" Style="SmallButton" Size="160,38">
+    <GridButton ID="AcceptCustonButton" Anchor="R,B" Offset="16,16" Style="SmallButton" Size="320,76">
       <Label	  ID="AcceptCustonLabel"	Anchor="C,C"  Offset="0,0"  String="TXT_KEY_ACCEPT_BUTTON" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
     </GridButton>
   </Grid>
 
   <!--Instances ============================================== -->
   <Instance Name="ItemInstance">
-    <Container    ID="Content"    Size="100,110">
+    <Container    ID="Content"    Size="200,220">
       <GridButton ID="Button"     Size="Parent,Parent"	Style="GridSlotButtonGray"  />
       <Grid       ID="Highlight"  Size="Parent,Parent"	Style="GridSlotButtonBlue"  Hidden="1" />
-      <Image      ID="Icon"       Size="64,64"			Anchor="L,C"	Offset="5,0"  />
-      <Label      ID="Name"								Anchor="L,T"	Offset="80,15"	Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="PLANET NAME HERE" />
-      <Image      ID="CheckMark"  Size="32,32"			Anchor="R,B"	Offset="4,0"	Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" Hidden="1" />
-      <Label      ID="MapTypeLabel"						Anchor="L,T"	Offset="80,36"	WrapWidth="300" Style="FontNormal16" Color0="166,230,75,255" Color1="0,0,0,0" String="MAP TYPE HERE"  />
-      <Label      ID="DescriptionLabel"					Anchor="L,T"	Offset="80,54"	WrapWidth="300" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="PLANET DESCRIPTION HERE"  />
+      <Image      ID="Icon"       Size="128,128"			Anchor="L,C"	Offset="10,0"  />
+      <Label      ID="Name"								Anchor="L,T"	Offset="160,30"	Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="PLANET NAME HERE" />
+      <Image      ID="CheckMark"  Size="64,64"			Anchor="R,B"	Offset="8,0"	Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" Hidden="1" />
+      <Label      ID="MapTypeLabel"						Anchor="L,T"	Offset="160,72"	WrapWidth="600" Style="FontNormal16" Color0="166,230,75,255" Color1="0,0,0,0" String="MAP TYPE HERE"  />
+      <Label      ID="DescriptionLabel"					Anchor="L,T"	Offset="160,108"	WrapWidth="600" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="PLANET DESCRIPTION HERE"  />
     </Container>
   </Instance>
 

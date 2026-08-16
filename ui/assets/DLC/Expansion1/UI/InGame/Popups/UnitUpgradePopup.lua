@@ -182,7 +182,7 @@ end
 --
 -- ===========================================================================
 function SetRomanNumeralTexture( imageControl:table, n:number, isActive:boolean, isHighlight:boolean )	
-	imageControl:SetTextureOffsetVal( ((n-1)*32), (isActive and (isHighlight and 64 or 32) or 0) );
+	imageControl:SetTextureOffsetVal( ((n-1)*32) * 2, (isActive and (isHighlight and 64 or 32) or 0) * 2 );
 end
 
 
@@ -849,9 +849,9 @@ function View_UnitUpgrade( unit:table )
 		Controls.HeaderText:SetText( Locale.Lookup("{TXT_KEY_UNIT_UPGRADE_UPGRADING:upper}") .. " " .. Locale.ToUpper(Locale.Lookup(unit.Name)) );				
 		local bigRomanTexture:string = "UnitUpgradeLevel" .. tostring( unit.NextLevel ) .. ".dds";
 		Controls.BigRomanNumber:SetTexture( bigRomanTexture );
-		if unit.NextLevel == 1 then Controls.BigRomanNumber:SetSizeX(25); end	-- Each texture diffent width, fix it up
-		if unit.NextLevel == 2 then Controls.BigRomanNumber:SetSizeX(44); end
-		if unit.NextLevel == 3 then Controls.BigRomanNumber:SetSizeX(66); end
+		if unit.NextLevel == 1 then Controls.BigRomanNumber:SetSizeX(50); end	-- Each texture diffent width, fix it up
+		if unit.NextLevel == 2 then Controls.BigRomanNumber:SetSizeX(88); end
+		if unit.NextLevel == 3 then Controls.BigRomanNumber:SetSizeX(132); end
 		Controls.ChooseRing1:SetHide(	not (unit.NextLevel == 1));
 		Controls.ChooseRing2:SetHide(	not (unit.NextLevel == 2));
 
@@ -1173,7 +1173,7 @@ function View_GridOfUnits( units:table )
 					perkNum:SetColor( 0xffffffff );
 					perkIcon:SetHide( false );									
 					perkIcon:SetOffsetY(0);
-					perkIcon:SetSizeVal(56,56);
+					perkIcon:SetSizeVal(112,112);
 					local perkInfo : table = GameInfo.UnitPerks[perkType];
 					IconHookup(perkInfo.PortraitIndex, 56, perkInfo.IconAtlas, perkIcon );
 					if (perkButton ~= nil) then
@@ -1185,8 +1185,8 @@ function View_GridOfUnits( units:table )
 					if isNextUpgradeTier and unit.HasPendingUpgrade and not unit.IsIgnored and not arrowAdded then
 						perkSlot:SetColor( 0xff66ccff );
 						perkIcon:SetHide( false );
-						perkIcon:SetSizeVal(40,40);
-						perkIcon:SetOffsetY(-2);
+						perkIcon:SetSizeVal(80,80);
+						perkIcon:SetOffsetY(-4);
 						perkIcon:SetTexture("NewUpgrade40.dds");				
 						perkAnim:SetToBeginning();
 						perkAnim:Play();

@@ -5,33 +5,33 @@
 	<!-- One Notification Instances to Rule Them All					-->	
 	<!--===============================================================	-->
 	<Instance Name="Item">
-		<Button					ID="ItemContainer"		Anchor="R,C" Size="80,60" >
+		<Button					ID="ItemContainer"		Anchor="R,C" Size="160,120" >
 			<SlideAnim			ID="NotificationSlide"	Anchor="L,T" Style="NotificationSlide" >
-				<AlphaAnim		ID="TimeOutAnim"		Style="NotificationFrame" Offset="5,0"/>
-				<Button			ID="ItemButton"			Anchor="C,C" Size="64,64" ConsumeMouse="1" >
+				<AlphaAnim		ID="TimeOutAnim"		Style="NotificationFrame" Offset="10,0"/>
+				<Button			ID="ItemButton"			Anchor="C,C" Size="128,128" ConsumeMouse="1" >
 					<AlphaAnim	ID="OverAnim"			Style="NotificationFrameOver"/>
-					<Image								Anchor="R,C" Offset="-10,0" Style="NotificationBacking"/>
+					<Image								Anchor="R,C" Offset="-20,0" Style="NotificationBacking"/>
 					<AlphaAnim							Style="NotificationFrameOut"/>
-					<Image		ID="ItemIcon"			Anchor="C,C" Size="64,64">
-						<Label	ID="Multiplier"			Anchor="C,B" Offset="0,4" Style="NotificationText" String=""  />
+					<Image		ID="ItemIcon"			Anchor="C,C" Size="128,128">
+						<Label	ID="Multiplier"			Anchor="C,B" Offset="0,8" Style="NotificationText" String=""  />
 					</Image>
-					<Container	ID="CivIcon2Frame"		Anchor="C,C" Offset="-1,5" Size="57,57" Hidden="1">
-						<Container 	Size="57,57"		Anchor="C,B" Offset="0,6">
-							<Image	ID="CivIcon2BG"		Size="57,57"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-							<Image	ID="CivIcon2"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-							<Image	ID="CivIcon2Highlight"		Size="57,57"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+					<Container	ID="CivIcon2Frame"		Anchor="C,C" Offset="-2,10" Size="114,114" Hidden="1">
+						<Container 	Size="114,114"		Anchor="C,B" Offset="0,12">
+							<Image	ID="CivIcon2BG"		Size="114,114"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+							<Image	ID="CivIcon2"		Size="90,90"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+							<Image	ID="CivIcon2Highlight"		Size="114,114"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
 						</Container>
 					</Container>
-					<AlphaAnim		ID="CivIconBounce"	Anchor="C,C" Offset="-1,5" Size="57,57" AlphaStart="0" AlphaEnd="1" Speed=".6" Hidden="1" Cycle="Bounce">
-						<Container	ID="CivIconFrame"	Size="57,57"	Anchor="C,B" Offset="0,6">
-							<Image	ID="CivIconBG"		Size="57,57"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-							<Image	ID="CivIcon"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-							<Image	ID="CivIconHighlight"		Size="57,57"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+					<AlphaAnim		ID="CivIconBounce"	Anchor="C,C" Offset="-2,10" Size="114,114" AlphaStart="0" AlphaEnd="1" Speed=".6" Hidden="1" Cycle="Bounce">
+						<Container	ID="CivIconFrame"	Size="114,114"	Anchor="C,B" Offset="0,12">
+							<Image	ID="CivIconBG"		Size="114,114"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+							<Image	ID="CivIcon"		Size="90,90"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+							<Image	ID="CivIconHighlight"		Size="114,114"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
 						</Container>
 					</AlphaAnim>
-					<AlphaAnim ID="IconBounce" Anchor="C,C" Offset="0,1" Size="64,64" AlphaStart="0" AlphaEnd="1" Speed=".6" Hidden="1" Cycle="Bounce">
-					<Image		ID="ItemAnimIconBacking"			Anchor="L,T" Size="64,64">
-						<Image		ID="ItemAnimIcon"			Anchor="C,C" Offset="0,-2" Size="64,64"/>
+					<AlphaAnim ID="IconBounce" Anchor="C,C" Offset="0,2" Size="128,128" AlphaStart="0" AlphaEnd="1" Speed=".6" Hidden="1" Cycle="Bounce">
+					<Image		ID="ItemAnimIconBacking"			Anchor="L,T" Size="128,128">
+						<Image		ID="ItemAnimIcon"			Anchor="C,C" Offset="0,-4" Size="128,128"/>
 					</Image>  
 					</AlphaAnim>
 				</Button>
@@ -40,15 +40,15 @@
 	</Instance>
 
 	<Instance Name="BigItem">
-		<Button					ID="BigItemContainer"	Anchor="R,C" Size="93,85" ConsumeMouseButton="1" >
+		<Button					ID="BigItemContainer"	Anchor="R,C" Size="186,170" ConsumeMouseButton="1" >
 			<SlideAnim			ID="NotificationSlide"	Anchor="L,T" Style="NotificationSlide" >
-				<AlphaAnim		ID="TimeOutAnim" 		Style="NotificationFrame" Offset="-40,0"/>
-				<Button			ID="BigItemButton"		Anchor="R,C" Size="100,100" ConsumeMouse="1" >
+				<AlphaAnim		ID="TimeOutAnim" 		Style="NotificationFrame" Offset="-80,0"/>
+				<Button			ID="BigItemButton"		Anchor="R,C" Size="200,200" ConsumeMouse="1" >
 					<AlphaAnim	ID="OverAnim"			Style="NotificationFrameOver" />
-					<Image		ID="Background"			Anchor="R,C" Offset="-10,0" Style="NotificationBackingTB" />
+					<Image		ID="Background"			Anchor="R,C" Offset="-20,0" Style="NotificationBackingTB" />
 					<AlphaAnim	ID="OutAnim"			Style="NotificationFrameOut" />
-					<Image		ID="BigItemIcon"		Anchor="C,C" Offset="17,1" Size="128,128">
-						<Label	ID="Multiplier"			Anchor="C,B" Offset="0,28" Style="NotificationText" String=""  />
+					<Image		ID="BigItemIcon"		Anchor="C,C" Offset="34,2" Size="256,256">
+						<Label	ID="Multiplier"			Anchor="C,B" Offset="0,56" Style="NotificationText" String=""  />
 					</Image>
 				</Button>
 			</SlideAnim>
@@ -58,12 +58,12 @@
 	<!--==================================================================== -->
 	<!-- NOTIFICATION STACK-->
 	<!--==================================================================== -->
-	<Stack				ID="ContainerStack"			Anchor="R,B" StackGrowth="Top" StackPadding="-26" Offset="10,80">
-		<Stack			ID="TBNotificationStack"	Anchor="R,B" StackGrowth="Top" StackPadding="-2" />
-		<ScrollPanel	ID="NotificationScrollPanel" Anchor="L,C" Vertical="1" Size="200,80" AutoScollbar="1">
-			<Grid		ID="ScrollBarBacking"		Style="ScrollBarFadeBacking" Offset="-54,0" AnchorSide="O,I" Anchor="R,C" Hidden="1"/>
-			<Stack		ID="NotificationStack"		Offset="31,28" StackPadding="-3" Anchor="R,B" StackGrowth="Top"/>
-			<ScrollBar	ID="NotificationScrollBar"	Offset="10,0" Anchor="R,C" AnchorSide="O,I" Style="NotificationSlider"/>
+	<Stack				ID="ContainerStack"			Anchor="R,B" StackGrowth="Top" StackPadding="-52" Offset="20,160">
+		<Stack			ID="TBNotificationStack"	Anchor="R,B" StackGrowth="Top" StackPadding="-4" />
+		<ScrollPanel	ID="NotificationScrollPanel" Anchor="L,C" Vertical="1" Size="400,160" AutoScollbar="1">
+			<Grid		ID="ScrollBarBacking"		Style="ScrollBarFadeBacking" Offset="-108,0" AnchorSide="O,I" Anchor="R,C" Hidden="1"/>
+			<Stack		ID="NotificationStack"		Offset="62,56" StackPadding="-6" Anchor="R,B" StackGrowth="Top"/>
+			<ScrollBar	ID="NotificationScrollBar"	Offset="20,0" Anchor="R,C" AnchorSide="O,I" Style="NotificationSlider"/>
 		</ScrollPanel>
 	</Stack>
 

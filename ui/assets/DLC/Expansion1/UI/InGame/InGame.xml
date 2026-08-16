@@ -56,8 +56,8 @@
     <LuaContext FileName="Assets/DLC/UI/InGame/Popups/MarvelDiscoveredPopup" ID="MarvelDiscoveredPopup" Hidden="True"/>
 		<LuaContext FileName="Assets/UI/InGame/TopPanel" ID="TopPanel"/>
 		<!-- The messages that popup in game -->
-		<Container  ID="AlertContainer" Anchor="C,T" Size="Full,220">
-			<Stack	ID="AlertStack"		Anchor="C,T" Size="Full,220" StackGrowth="B" Padding="12" Offset="0,154" />
+		<Container  ID="AlertContainer" Anchor="C,T" Size="Full,440">
+			<Stack	ID="AlertStack"		Anchor="C,T" Size="Full,440" StackGrowth="B" Padding="24" Offset="0,308" />
 		</Container>
 		<LuaContext ID="PlayerChange"	FileName="Assets/UI/InGame/PlayerChange" Hidden="True"/>
 		<LuaContext ID="ContentSwitch"	FileName="Assets/UI/FrontEnd/ContentSwitch" Hidden="1"/>
@@ -76,10 +76,10 @@
     </Container>
     
       <Container ID="ScreenEdgeScrolling" Size="Full,Full">
-			<Button Anchor="C,T" Size="Full,2" ID="ScrollTop"/>
-			<Button Anchor="C,B" Size="Full,2" ID="ScrollBottom"/>
-			<Button Anchor="L,C" Size="2,Full" ID="ScrollLeft"/>
-			<Button Anchor="R,C" Size="2,Full" ID="ScrollRight"/>
+			<Button Anchor="C,T" Size="Full,4" ID="ScrollTop"/>
+			<Button Anchor="C,B" Size="Full,4" ID="ScrollBottom"/>
+			<Button Anchor="L,C" Size="4,Full" ID="ScrollLeft"/>
+			<Button Anchor="R,C" Size="4,Full" ID="ScrollRight"/>
 		</Container>
 		<LuaContext FileName="Assets/UI/InGame/Menus/GameMenu" ID="GameMenu" Hidden="True"/>
 		<LuaContext FileName="Assets/UI/FrontEnd/ExitConfirm" Hidden="1"/>
@@ -89,25 +89,25 @@
   <LuaContext FileName="Assets/UI/InGame/NetworkDebug" ID="NetworkDebug" Hidden="1"/>
   <LuaContext ID="FiraxisLiveMessaging" FileName="Assets/UI/FiraxisLive/FiraxisLiveMessaging" />
   
-	<Container	ID="DebugStats"								Anchor="C,B" Offset="0,20" Hidden="1">
-		<Label		ID="FPSText"									Anchor="C,B" Offset="0,60" String="FPS" />
-		<Label		ID="VisInfo"									Anchor="C,B" Offset="0,40" String="TextureInfo" />
-		<Label		ID="DrawCalls"								Anchor="C,B" Offset="0,20" String="Draw Calls" />
-		<Label		ID="SerialEventStream"				Anchor="C,B" Offset="0,80" String="SerialEventStream" />
-		<Label		ID="NonSerialEventStream"			Anchor="C,B" Offset="0,100" String="NonSerialEventStream"  />
-		<Label		ID="LocalMachineEventStream"	Anchor="C,B" Offset="0,120" String="LocalMachineEventStream" />
-		<Label		ID="TimerRate"								Anchor="C,B" Offset="0,140" String="Timer" />
+	<Container	ID="DebugStats"								Anchor="C,B" Offset="0,40" Hidden="1">
+		<Label		ID="FPSText"									Anchor="C,B" Offset="0,120" String="FPS" />
+		<Label		ID="VisInfo"									Anchor="C,B" Offset="0,80" String="TextureInfo" />
+		<Label		ID="DrawCalls"								Anchor="C,B" Offset="0,40" String="Draw Calls" />
+		<Label		ID="SerialEventStream"				Anchor="C,B" Offset="0,160" String="SerialEventStream" />
+		<Label		ID="NonSerialEventStream"			Anchor="C,B" Offset="0,200" String="NonSerialEventStream"  />
+		<Label		ID="LocalMachineEventStream"	Anchor="C,B" Offset="0,240" String="LocalMachineEventStream" />
+		<Label		ID="TimerRate"								Anchor="C,B" Offset="0,280" String="Timer" />
 	</Container>
 	
 	<Instance Name="AlertMessageInstance">
-		<Container ID="AlertTop" Anchor="C,T" Size="Full,20">
+		<Container ID="AlertTop" Anchor="C,T" Size="Full,40">
 			<Label ID="AlertMessageLabel" String="" Style="FontNormal20" ColorSet="Gray_Black_Alpha" Color1="0,0,0,128" FontStyle="Stroke" Anchor="C,T"/>
 		</Container>
 	</Instance>
 	
 	<Instance Name="PopupText">
 		<WorldAnchor ID="Anchor" Anchor="c,c">
-			<SlideAnim Anchor="c,c" End="0,-100" Cycle="once" Speed=".5" ID="SlideAnim">
+			<SlideAnim Anchor="c,c" End="0,-200" Cycle="once" Speed=".5" ID="SlideAnim">
 				<AlphaAnim Anchor="c,c" AlphaStart="0" Cycle="once" AlphaEnd="1" ID="AlphaAnimIn" Pause="0" Speed="100">
 					<AlphaAnim Anchor="c,c" AlphaStart="1" Cycle="once" AlphaEnd="0" ID="AlphaAnimOut" Pause="0.75" Function="Square">
 						<Label ID="Text" Anchor="c,c" ColorSet="White_Black" Style="FontNormal22" FontStyle="Stroke"/>

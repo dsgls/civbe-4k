@@ -3,30 +3,30 @@
   <Container ID="ConversationContent" Size="parent,parent">
     <!-- Their Word Bubble -->
     <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".5" Function="Root" Speed="2" Size="parent,parent" ID="BubbleAlpha">
-      <SlideAnim Start="0,-50" End="0,0" Cycle="Once" Pause=".5" Function="OutQuint" Speed="2" Size="parent,parent" ID="BubbleSlide">
-        <Grid ID="TheirSpeechBubble" Size="450,69" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
+      <SlideAnim Start="0,-100" End="0,0" Cycle="Once" Pause=".5" Function="OutQuint" Speed="2" Size="parent,parent" ID="BubbleSlide">
+        <Grid ID="TheirSpeechBubble" Size="900,138" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
           <Stack Anchor="C,T">
-            <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="5" Offset="0,15">
-              <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="440" String="Their response"/>
+            <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="10" Offset="0,30">
+              <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="880" String="Their response"/>
             </Stack>
-            <Container Size="2,5"/>
+            <Container Size="4,10"/>
           </Stack>
         </Grid>
       </SlideAnim>
     </AlphaAnim>
 
     <!-- My bubble -->
-    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="500,0" Anchor="R,B">
+    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="1000,0" Anchor="R,B">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="MyBubbleAlphaAnim">
-        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
+        <SlideAnim Start="-600,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
           <Grid ID="BubbleWindowBacking" Size="parent,parent" Style="Grid9BlackGradientSubContainer" Anchor="L,B">
             <Stack ID="BubbleContentStack" StackGrowth="Down" Anchor="L,T">
               <Stack ID="ButtonStack" StackGrowth="Down" Padding="0" Anchor="C,T">
-                <GridButton ID="OptionButton1" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
-                <GridButton ID="OptionButton2" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
-                <GridButton ID="OptionButton3" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton1" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton2" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton3" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
               </Stack>
-              <Container Size="2,12"/>
+              <Container Size="4,24"/>
             </Stack>
           </Grid>
         </SlideAnim>

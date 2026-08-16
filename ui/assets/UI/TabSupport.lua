@@ -42,7 +42,7 @@ function CreateTabs( tabContainerControl, sizeX, sizeY )
 				--		 child list, thereby drawing last (on top of other tabs if they overlap).
 				tabControl:ChangeParent( tabs.containerControl ); 
 
-				tabControl:SetTextureOffsetVal( 0, tabs.textureSizeY * 2 );
+				tabControl:SetTextureOffsetVal( 0, tabs.textureSizeY * 2 * 2 );
 				tabs.selectedControl = tabControl;
 			end
 		end

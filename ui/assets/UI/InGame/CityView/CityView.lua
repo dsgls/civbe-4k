@@ -535,8 +535,8 @@ function AddBuildingButton( city, building )
 			m_uiSpecialistStackCache[buildingID].specialistsIM:DestroyInstances();
 			
 						
-			local TEXOFFSET_BACKING_NOSHADOW_EMPTY	= 128;
-			local TEXOFFSET_BACKING_NOSHADOW_FILLED = 192;
+			local TEXOFFSET_BACKING_NOSHADOW_EMPTY	= 128 * 2;
+			local TEXOFFSET_BACKING_NOSHADOW_FILLED = 192 * 2;
 			local TEXTURE_ICON_SIZE					= 45;
 			local isViewCityOnly	= UI.IsCityScreenViewingMode();
 			local iSpecialistID		= GameInfoTypes[building.SpecialistType];
@@ -1535,9 +1535,9 @@ function OnCityViewUpdate()
 	local percentComplete = cultureStored / cultureNext;
 
 	Controls.CultureMeter:SetPercent( percentComplete );
-	Controls.CultureMeterLineTop:SetTextureOffsetVal( 0, 96+(48-(48 * percentComplete)));
-	Controls.CultureMeterLineTop:SetTextureSizeVal(48,1);
-	Controls.CultureMeterLineTop:SetSizeY( 1 );
+	Controls.CultureMeterLineTop:SetTextureOffsetVal( 0, (96+(48-(48 * percentComplete))) * 2);
+	Controls.CultureMeterLineTop:SetTextureSizeVal(96,2);
+	Controls.CultureMeterLineTop:SetSizeY( 2 );
 	Controls.CultureMeterLineTop:SetOffsetY( -(48 * percentComplete)+24 );
 
 
@@ -2050,7 +2050,7 @@ function UpdateWorkingHexes()
 		-- display worked plots
 		g_PlotButtonIM:ResetInstances();		
 
-		local CITIZEN_ICON_SIZE = 64;
+		local CITIZEN_ICON_SIZE = 64 * 2;
 
 		for i = 0, city:GetNumCityPlots() - 1, 1 do
 			local plot = city:GetCityIndexPlot( i );

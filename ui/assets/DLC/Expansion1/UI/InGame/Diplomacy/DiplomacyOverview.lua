@@ -292,7 +292,7 @@ function UpdatePlayerRibbon()
 	Controls.PlayerRibbon_PlayerButton:SetDisabled(isSelfSelected);
 	
 	if(isSelfSelected) then
-		Controls.PlayerSlide:SetBeginVal(-20,0);
+		Controls.PlayerSlide:SetBeginVal(-40,0);
 		Controls.PlayerSlide:SetEndVal(0,0);
 		Controls.PlayerSlide:SetToBeginning();
 		Controls.PlayerSlide:Play();
@@ -302,7 +302,7 @@ function UpdatePlayerRibbon()
 		Controls.PlayerRibbon_PlayerHighlight:SetToBeginning();
 		if(Controls.PlayerSlide:GetBeginValX() ~= 0) then
 			Controls.PlayerSlide:SetBeginVal(0,0);
-			Controls.PlayerSlide:SetEndVal(-20,0);
+			Controls.PlayerSlide:SetEndVal(-40,0);
 			Controls.PlayerSlide:SetToBeginning();
 			Controls.PlayerSlide:Play();
 		end
@@ -320,19 +320,19 @@ function UpdatePlayerRibbon()
 		end
 		InitPlayerRibbonEntryInstance(instance, playerType);
 		relationshipInfo = GameInfo.RelationshipLevels[Game.GetRelationship(playerType, m_player:GetID())];
-		local relationshipOffset : number = 75*relationshipInfo.ID;
+		local relationshipOffset : number = (75*relationshipInfo.ID) * 2;
 		instance.RelationshipIndicator:SetTextureOffsetVal(0,relationshipOffset);
 		local isSelected : boolean = m_selectedPlayer:GetID() == playerType;
 		instance.Button:SetDisabled(isSelected);
 		if (isSelected) then
-			instance.OtherSlide:SetBeginVal(-20,0);
-			instance.OtherSlide:SetEndVal(15,0);
+			instance.OtherSlide:SetBeginVal(-40,0);
+			instance.OtherSlide:SetEndVal(30,0);
 			instance.OtherSlide:SetToBeginning();
 			instance.OtherSlide:Play();
 		else
 			if(instance.OtherSlide:GetBeginValX() ~= 15) then
-				instance.OtherSlide:SetBeginVal(15,0);
-				instance.OtherSlide:SetEndVal(-20,0);
+				instance.OtherSlide:SetBeginVal(30,0);
+				instance.OtherSlide:SetEndVal(-40,0);
 				instance.OtherSlide:SetToBeginning();
 				instance.OtherSlide:Play();
 			end
@@ -714,7 +714,7 @@ function InitControls()
 
 	--Size the bottom bar appropriately FOR SQUARE RESOLUTIONS
 	if((screenSizeX/screenSizeY)==1.25) then
-		Controls.BottomBox:SetSizeY(155);
+		Controls.BottomBox:SetSizeY(310);
 	end
 
 	Controls.SelectedPlayerActivityPlaceholder:SetOffsetX(cardOffsetX);
@@ -844,7 +844,7 @@ function InitPlayerRibbonEntryInstance(instance : table, playerType : number)
 		end
 		local selectedPlayer = Players[m_selectedPlayer:GetID()];
 		local currPlayer = Players[playerType];
-		local relationshipToOthersOffset : number = relationshipLevelToSelected * 30;
+		local relationshipToOthersOffset : number = relationshipLevelToSelected * 30 * 2;
 		instance.RelationshipToOthers:SetTextureOffsetVal(0, relationshipToOthersOffset);
 		instance.RelationshipToOthers:SetToolTipString(Locale.Lookup("TXT_KEY_DIPLO_RELATIONSHIPWITH", selectedPlayer:GetNameKey(), relationshipToSelectedInfo.Type, relationshipStrKey, currPlayer:GetNameKey()));
 	else
@@ -1123,7 +1123,7 @@ function InitBreadcrumbEntryInstance(instance : table, state : number, breadcrum
 	instance.Label:SetText(breadcrumbString);
 	local x = instance.Label:GetSizeX() + 35;
 	instance.Button:SetSizeX(x);
-	instance.Button:SetSizeY(28);
+	instance.Button:SetSizeY(56);
 	instance.Content:SetSizeX(x);
-	instance.Content:SetSizeY(28);
+	instance.Content:SetSizeY(56);
 end

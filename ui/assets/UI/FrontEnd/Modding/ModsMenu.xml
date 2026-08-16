@@ -3,32 +3,32 @@
 
 	<Image ID="CivBELogo" Style="MainGameLogo" />
 	
-	<Grid Size="580,530" Anchor="C,C" Offset="0,40" Padding="0,0" Style="GridWindowWithHeader" >
+	<Grid Size="1160,1060" Anchor="C,C" Offset="0,80" Padding="0,0" Style="GridWindowWithHeader" >
 
 		<Label					Style="MenuTitleCaption" String="{TXT_KEY_MODS:upper}" />
-		<Button	ID="BackButton"	Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_MODDING_MENU_BACK"/>		
+		<Button	ID="BackButton"	Anchor="R,T" Offset="14,14"	Style="CloseButton" ToolTip="TXT_KEY_MODDING_MENU_BACK"/>		
 
-		<Label				ID="ModsInUseLabel"		Anchor="L,T"	Offset="30,55" Style="FontNormal20"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODS_IN_USE" />		
+		<Label				ID="ModsInUseLabel"		Anchor="L,T"	Offset="60,110" Style="FontNormal20"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODS_IN_USE" />		
 		
-		<Grid Size="520,250"						Anchor="C,T"	Offset="0,75" Style="Grid9DetailFive140">
+		<Grid Size="1040,500"						Anchor="C,T"	Offset="0,150" Style="Grid9DetailFive140">
 			<Label			ID="NoMods"				Anchor="C,C"	Offset="0,0" Style="FontNormal20"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODDING_NOMODSINUSE" />
 			
 			<!-- Listings Box -->
-			<ScrollPanel	ID="ModsScrollPanel"	Anchor="C,T"	Offset="0,6" Vertical="1" Size="530,250" AutoScrollBar="1">
+			<ScrollPanel	ID="ModsScrollPanel"	Anchor="C,T"	Offset="0,12" Vertical="1" Size="1060,500" AutoScrollBar="1">
 				<ScrollBar	ID="Scrolly"			Anchor="R,T"	AnchorSide="I,I" Offset="0,0" Style="VertSlider"/>			
-				<Stack		ID="ModsStack"	StackGrowth="Bottom"	Offset="4,0" Padding="4" />
+				<Stack		ID="ModsStack"	StackGrowth="Bottom"	Offset="8,0" Padding="8" />
 			</ScrollPanel>
 		</Grid>			
-		<Stack										Anchor="C,B"	Offset="0,30"	Padding="8" StackGrowth="Top" >			
-			<GridButton		ID="MultiPlayerButton"  Anchor="C,T"					Size="320,45"   Style="BaseButton" String="TXT_KEY_MODDING_MULTIPLAYER" Hidden="True" />
-			<GridButton		ID="SinglePlayerButton" Anchor="C,T"					Size="320,45"   Style="BaseButton" String="TXT_KEY_MODDING_SINGLE_PLAYER" />			
+		<Stack										Anchor="C,B"	Offset="0,60"	Padding="16" StackGrowth="Top" >			
+			<GridButton		ID="MultiPlayerButton"  Anchor="C,T"					Size="640,90"   Style="BaseButton" String="TXT_KEY_MODDING_MULTIPLAYER" Hidden="True" />
+			<GridButton		ID="SinglePlayerButton" Anchor="C,T"					Size="640,90"   Style="BaseButton" String="TXT_KEY_MODDING_SINGLE_PLAYER" />			
 		</Stack>		
 		
 	</Grid>
 
 	
 	<Instance Name="ModInstance">
-		<Label ID="Label" Anchor="L,T"  Style="FontNormal18"  TruncateWidth="450"  ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Detail" />
+		<Label ID="Label" Anchor="L,T"  Style="FontNormal18"  TruncateWidth="900"  ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Detail" />
 	</Instance>
 	
 	<!-- Child Screens -->

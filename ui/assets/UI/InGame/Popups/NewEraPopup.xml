@@ -2,11 +2,11 @@
 <Context Style="FontNormal14" FontStyle="Base" Color="Beige" Color1="Black" >
   <Box Style="BGBlock_ClearTopBar" />
 
-  <Box Anchor="C,C" Offset="0,-46" Size="924,470" Color="255,255,255,0" >
-    <Image Anchor="C,C" Offset="0,0" Size="924,470" Hidden="0" ID="EraImage"/>
+  <Box Anchor="C,C" Offset="0,-92" Size="1848,940" Color="255,255,255,0" >
+    <Image Anchor="C,C" Offset="0,0" Size="1848,940" Hidden="0" ID="EraImage"/>
   </Box>
 
-  <Grid Size="958,650" Anchor="C,C" Offset="0,0" Style="Grid9DetailThree140" >
+  <Grid Size="1916,1300" Anchor="C,C" Offset="0,0" Style="Grid9DetailThree140" >
 
     <Label Style="MenuTitleCaption" String="TXT_KEY_POP_NEW_ERA_TITLE" ID="TitleLabel"/>
 
@@ -15,13 +15,13 @@
     <Box Style="MenuRightSideTreatment"/>
 
     <!-- CLOSE BUTTON -->
-    <GridButton Size="200,38" Style="BaseButton" Anchor="C,B" AnchorSide="I,O" Offset="0,0" ID="CloseButton" Hidden="0">
+    <GridButton Size="400,76" Style="BaseButton" Anchor="C,B" AnchorSide="I,O" Offset="0,0" ID="CloseButton" Hidden="0">
       <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_CLOSE"  ColorSet="Beige_Black_Alpha" Style="FontNormal22" FontStyle="Shadow" />
     </GridButton>
 
-    <Box Size="928,96" Anchor="C,B" Color="Black.200" AnchorSide="O.I" Offset="0,42" >
-      <Label ID="DescriptionLabel" Anchor="C,T" Offset="0,10" WrapWidth="800" LeadingOffset="4"  Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="wisdom:" />
-      <Image Anchor="C,T" Offset="0,0" Texture="HorizontalTrim.dds" Size="928,5" />
+    <Box Size="1856,192" Anchor="C,B" Color="Black.200" AnchorSide="O.I" Offset="0,84" >
+      <Label ID="DescriptionLabel" Anchor="C,T" Offset="0,20" WrapWidth="1600" LeadingOffset="8"  Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="wisdom:" />
+      <Image Anchor="C,T" Offset="0,0" Texture="HorizontalTrim.dds" Size="1856,10" />
     </Box>
 
   </Grid>

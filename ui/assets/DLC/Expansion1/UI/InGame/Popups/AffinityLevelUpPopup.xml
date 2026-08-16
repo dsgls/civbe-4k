@@ -3,21 +3,21 @@
 <Context Layer="Modal">
   <Box Style="BGBlock" ID="BGBlock" />
   <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
-    <Grid Size="600, 530"	Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1" ID="OuterGrid" >
-      <Label Style="MenuTitleCaption" 	Offset="0,17" Anchor="C,U" String="Affinity Title Here" ID="TitleLabel" />
+    <Grid Size="1200, 1060"	Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1" ID="OuterGrid" >
+      <Label Style="MenuTitleCaption" 	Offset="0,34" Anchor="C,U" String="Affinity Title Here" ID="TitleLabel" />
 
       <!-- Image -->
-      <Image ID="Banner" Size="585,125" Anchor="C,T" Offset="0,48" Texture="Popup_Image_Affinity.dds"/>
+      <Image ID="Banner" Size="1170,250" Anchor="C,T" Offset="0,96" Texture="Popup_Image_Affinity.dds"/>
 
-      <Image ID="AffinityImage" Anchor="L,T" Offset="20,52" Size="118,118" Texture="AffinityIcon_Supremacy.dds"/>
+      <Image ID="AffinityImage" Anchor="L,T" Offset="40,104" Size="236,236" Texture="AffinityIcon_Supremacy.dds"/>
 
-      <Stack Anchor="C,T" Offset="0,190" Size="0,0" StackGrowth="Bottom" Padding="15" ID="ContentStack">
-        <Label ID="FlavorLabel" Anchor="L,T" WrapWidth="560" Style="WhiteShadow" String="Flavor"/>
-        <Image Anchor="C,C" Offset="0,0"  Color="255,255,255,150" Texture="bar500x2.dds" Size="500.1" />
-        <Label ID="DetailsLabel" Anchor="L,T" WrapWidth="560" Style="WhiteShadow" String="Details"/>
+      <Stack Anchor="C,T" Offset="0,380" Size="0,0" StackGrowth="Bottom" Padding="30" ID="ContentStack">
+        <Label ID="FlavorLabel" Anchor="L,T" WrapWidth="1120" Style="WhiteShadow" String="Flavor"/>
+        <Image Anchor="C,C" Offset="0,0"  Color="255,255,255,150" Texture="bar500x2.dds" Size="1000.2" />
+        <Label ID="DetailsLabel" Anchor="L,T" WrapWidth="1120" Style="WhiteShadow" String="Details"/>
       </Stack>
 
-      <GridButton ID="CloseButton" Anchor="C,B" Offset="0,20" Size="220,35" Style="BaseButton" String="TXT_KEY_CLOSE"/>
+      <GridButton ID="CloseButton" Anchor="C,B" Offset="0,40" Size="440,70" Style="BaseButton" String="TXT_KEY_CLOSE"/>
     </Grid>
   </AlphaAnim>
 </Context>

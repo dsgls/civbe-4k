@@ -3,23 +3,23 @@
 	<Box Style="BGBlock" />
 	
 	<AlphaAnim						ID="AlphaAnim"										Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" >
-		<Grid						ID="PopupFrame"			Anchor="C,C" Offset="0,0"	Size="700,370"  Style="GridWindowWithHeader" >
-			<Button					ID="CloseButton"		Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_CLOSE" />
+		<Grid						ID="PopupFrame"			Anchor="C,C" Offset="0,0"	Size="1400,740"  Style="GridWindowWithHeader" >
+			<Button					ID="CloseButton"		Anchor="R,T" Offset="14,14"	Style="CloseButton" ToolTip="TXT_KEY_CLOSE" />
 			<Label					ID="TitleText"	Style="MenuTitleCaption" String="TITLE LABEL" />
 			
-			<Stack					ID="StoryStack"		Anchor="L,T" Offset="14,70"	Size="520,360" StackGrowth="Bottom" >				
-				<Container			ID="BodyContainer"								Size="650,128">
-					<Image			ID="Image"						 Offset="22,0"	Size="128,128" Texture="QuestPromptDefault.dds"/>
-					<Label			ID="BodyText"		Anchor="L,T" Offset="180,0" String="Body" Style="WhiteShadow" WrapWidth="470" WrapGrowth="Bottom" />
+			<Stack					ID="StoryStack"		Anchor="L,T" Offset="28,140"	Size="1040,720" StackGrowth="Bottom" >				
+				<Container			ID="BodyContainer"								Size="1300,256">
+					<Image			ID="Image"						 Offset="44,0"	Size="256,256" Texture="QuestPromptDefault.dds"/>
+					<Label			ID="BodyText"		Anchor="L,T" Offset="360,0" String="Body" Style="WhiteShadow" WrapWidth="940" WrapGrowth="Bottom" />
 				</Container>								
-				<Stack				ID="ChoicesStack"	Anchor="L,T" Offset="10,20">
-					<RadioButton	ID="RadioOption1"	Style="QuestRewardChoiceText" String="reward1"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
-					<RadioButton	ID="RadioOption2"	Style="QuestRewardChoiceText" String="reward2"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
-					<RadioButton	ID="RadioOption3"	Style="QuestRewardChoiceText" String="reward3"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
+				<Stack				ID="ChoicesStack"	Anchor="L,T" Offset="20,40">
+					<RadioButton	ID="RadioOption1"	Style="QuestRewardChoiceText" String="reward1"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
+					<RadioButton	ID="RadioOption2"	Style="QuestRewardChoiceText" String="reward2"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
+					<RadioButton	ID="RadioOption3"	Style="QuestRewardChoiceText" String="reward3"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
 				</Stack>								
 			</Stack>			
 			
-			<GridButton		ID="AcceptButton"		Anchor="C,B" Offset="0,30"	Size="320,36"  Style="BaseButton"  String="TXT_KEY_ACCEPT_BUTTON" Disabled="1" />
+			<GridButton		ID="AcceptButton"		Anchor="C,B" Offset="0,60"	Size="640,72"  Style="BaseButton"  String="TXT_KEY_ACCEPT_BUTTON" Disabled="1" />
 		</Grid>
 
 	</AlphaAnim>

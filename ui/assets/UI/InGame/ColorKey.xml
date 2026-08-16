@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context Style="FontNormal14" ColorSet="Beige_Black">
-	<Grid Anchor="L,T" Size="400,200" Offset="200,32" Padding="0,0" Style="GridBlack16" ConsumeMouse="1">
-		<Stack Padding="6" Offset="20,0" StackGrowth="Bottom">
-			<Label Offset="0,16" Anchor="L,T" String="Color Key Panel" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+	<Grid Anchor="L,T" Size="800,400" Offset="400,64" Padding="0,0" Style="GridBlack16" ConsumeMouse="1">
+		<Stack Padding="12" Offset="40,0" StackGrowth="Bottom">
+			<Label Offset="0,32" Anchor="L,T" String="Color Key Panel" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
 			<Stack StackGrowth="Right"  Anchor="L,T">
 				<Label Anchor="L,C" String="System:"/>
 				<Button  Anchor="L,C"  Style="Button_16" ID="System_ButtonDown" Void1="-1" String="&lt;"/>

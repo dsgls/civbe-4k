@@ -4,23 +4,23 @@
 	<!--=================================================================== -->
 	<!-- Select Colonists                                                	-->
 	<!--=================================================================== -->
-	<ScrollPanel				Anchor="L,T"	Offset="85,110" Size="405,560" Vertical="1" ID="ScrollPanel" >
-		<ScrollBar				Anchor="R,T"	Style="VertSlider" Length="Parent" Offset="8,0" AnchorSide="I,I" />
-		<Stack      ID="Stack"	Anchor="L,T"	Offset="0,0" Size="405,Parent" StackGrowth="Bottom" Padding="0"  />
+	<ScrollPanel				Anchor="L,T"	Offset="170,220" Size="810,1120" Vertical="1" ID="ScrollPanel" >
+		<ScrollBar				Anchor="R,T"	Style="VertSlider" Length="Parent" Offset="16,0" AnchorSide="I,I" />
+		<Stack      ID="Stack"	Anchor="L,T"	Offset="0,0" Size="810,Parent" StackGrowth="Bottom" Padding="0"  />
 	</ScrollPanel>
 
 	<Instance Name="ItemInstance">
-		<Container Size="395,90" ID="Content">
+		<Container Size="790,180" ID="Content">
 			<GridButton Size="Parent,Parent" Style="GridSlotButtonGray" ID="Button" />
 			<Grid Size="Parent,Parent" Style="GridSlotButtonBlue" ID="Highlight" />
-			<Image Anchor="L,C" Size="64,64" Offset="5,0" ID="Portrait" />
-			<Label Anchor="L,T" Offset="80,15" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="COLONIST NAME HERE" ID="NameLabel"/>
-			<Label Anchor="L,T" Offset="80,40" WrapWidth="300" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="COLONIST DESCRIPTION HERE" ID="DescriptionLabel" />
-			<Image Anchor="R,B" Size="32,32" Offset="8,0" Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" ID="CheckMark"/>
+			<Image Anchor="L,C" Size="128,128" Offset="10,0" ID="Portrait" />
+			<Label Anchor="L,T" Offset="160,30" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="COLONIST NAME HERE" ID="NameLabel"/>
+			<Label Anchor="L,T" Offset="160,80" WrapWidth="600" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="COLONIST DESCRIPTION HERE" ID="DescriptionLabel" />
+			<Image Anchor="R,B" Size="64,64" Offset="16,0" Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" ID="CheckMark"/>
 		</Container>
 	</Instance>
 
-	<GridButton ID="SelectButton" Anchor="L,B"  Style="SmallButton" Size="240,38"  Offset="164,32"  >
+	<GridButton ID="SelectButton" Anchor="L,B"  Style="SmallButton" Size="480,76"  Offset="328,64"  >
 		<Label Anchor="C,C"  Offset="0,0"  String="{TXT_KEY_NEXT:upper}" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
 	</GridButton>
 

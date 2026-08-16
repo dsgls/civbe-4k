@@ -126,7 +126,7 @@ function OnDrawNodes( techNodes )
 		end
 
 		if ( node.isLeaf) then
-			nodeInstance.Node:SetSizeVal(11,3);
+			nodeInstance.Node:SetSizeVal(22,6);
 		end
 	end
 end

@@ -206,15 +206,15 @@ function UpdateAllPolicies()
 		end
 
 		instance.LeaderName:SetText(Locale.Lookup(otherPlayer:GetName()));
-		local relationshipOffset : number = 75*relationshipInfo.ID;
-		instance.RelationshipIndicator:SetTextureOffsetVal(50,relationshipOffset);
+		local relationshipOffset : number = (75*relationshipInfo.ID) * 2;
+		instance.RelationshipIndicator:SetTextureOffsetVal(50 * 2,relationshipOffset);
 		instance.CivName:SetText(Locale.Lookup(civInfo.Description));
 		CivIconHookup(otherPlayer:GetID(), 32, instance.CivIcon, nil, nil, true, false, nil);
 		IconHookup(leaderInfo.PortraitIndex, 64, leaderInfo.IconAtlas, instance.LeaderIcon);
 		IconHookup(civInfo.PortraitIndex, 128, civInfo.AlphaIconAtlas, instance.BigCivIcon);
-		instance.CivInfo:SetOffsetX(-30);
+		instance.CivInfo:SetOffsetX(-60);
 		instance.Content:SetColor(0x00000000);
-		instance.Content:SetSizeY(75);
+		instance.Content:SetSizeY(150);
 		instance.Button:SetDisabled(true);
 		instance.Button:SetColor(0x77ffffff);
 		instance.Relationship:SetText("[COLOR_"..relationshipInfo.Type.."]"..Locale.Lookup(relationshipInfo.Description));
@@ -229,7 +229,7 @@ function UpdateAllPolicies()
 			instance.RelationshipRequirementAnim:SetHide(false);
 			instance.Description:SetText(Locale.Lookup(policyInfo.Help));
 			local relationshipLevelToSelected : number = GameInfo.RelationshipLevels[policyInfo.MinRelationshipLevelType].ID;
-			local relationshipToOthersOffset : number = relationshipLevelToSelected * 30;
+			local relationshipToOthersOffset : number = relationshipLevelToSelected * 30 * 2;
 			instance.RelationshipRequirement:SetTextureOffsetVal(0, relationshipToOthersOffset);
 		end
 
@@ -327,7 +327,7 @@ function UpdatePolicies()
 				instance.RelationshipRequirement:SetHide(false);
 				instance.Description:SetText(Locale.Lookup(policyInfo.Help));
 				local relationshipLevelToSelected : number = GameInfo.RelationshipLevels[policyInfo.MinRelationshipLevelType].ID;
-				local relationshipToOthersOffset : number = relationshipLevelToSelected * 30;
+				local relationshipToOthersOffset : number = relationshipLevelToSelected * 30 * 2;
 				instance.RelationshipRequirement:SetTextureOffsetVal(0, relationshipToOthersOffset);
 			end
 
@@ -458,8 +458,8 @@ function UpdateMyAgreements()
 			local agreementID : number = agreement:GetID();
 
 			local instance : table = m_myAgreementEntryInstanceManager:GetInstance();
-			local relationshipOffset : number = 75*relationshipInfo.ID;
-			instance.RelationshipIndicator:SetTextureOffsetVal(50,relationshipOffset);
+			local relationshipOffset : number = (75*relationshipInfo.ID) * 2;
+			instance.RelationshipIndicator:SetTextureOffsetVal(50 * 2,relationshipOffset);
 			instance.LeaderName:SetText(Locale.Lookup(targetPlayer:GetName()));
 			instance.CivName:SetText(Locale.Lookup(civInfo.Description));
 			CivIconHookup(targetPlayer:GetID(), 32, instance.CivIcon, nil, nil, true, false, nil);
@@ -481,7 +481,7 @@ function UpdateMyAgreements()
 			instance.CostContainer:SetHide(true);
 			InitForeignPolicyEntry(instance, foreignPolicyInfo, relationshipInfo, m_player,m_selectedPlayer);
 			instance.CancelAnim:SetSizeX(instance.AgreementContainer:GetSizeX());
-			instance.NumberIcon:SetTextureOffsetVal(0, 56*(i-1));
+			instance.NumberIcon:SetTextureOffsetVal(0, 56*(i-1) * 2);
 		end
 	end
 
@@ -498,9 +498,9 @@ function UpdateMyAgreements()
 			local agreementID : number = agreement:GetID();
 
 			local instance : table = m_theirAgreementEntryInstanceManager:GetInstance();
-			local relationshipOffset : number = 75*relationshipInfo.ID;
+			local relationshipOffset : number = (75*relationshipInfo.ID) * 2;
 			instance.NumberIcon:SetHide(true);
-			instance.RelationshipIndicator:SetTextureOffsetVal(50,relationshipOffset);
+			instance.RelationshipIndicator:SetTextureOffsetVal(50 * 2,relationshipOffset);
 			instance.LeaderName:SetText(Locale.Lookup(proposingPlayer:GetName()));
 			instance.CivName:SetText(Locale.Lookup(civInfo.Description));
 			CivIconHookup(proposingPlayer:GetID(), 32, instance.CivIcon, nil, nil, true, false, nil);
@@ -517,7 +517,7 @@ function UpdateMyAgreements()
 			instance.CostContainer:SetHide(true);
 			InitForeignPolicyEntry(instance, foreignPolicyInfo, relationshipInfo, proposingPlayer,m_player);
 			instance.CancelAnim:SetSizeX(instance.AgreementContainer:GetSizeX());
-			instance.NumberIcon:SetTextureOffsetVal(0, 56*(i-1));
+			instance.NumberIcon:SetTextureOffsetVal(0, 56*(i-1) * 2);
 		end
 	end
 

@@ -510,7 +510,7 @@ local g_UnitFlagClass =
         local textureName : string;
 		local selectedTextureName : string = nil;
         local maskName : string;
-		local texOffsetX : number = 192;
+		local texOffsetX : number = 192 * 2;
 		local texOffsetY : number = 0;
         
 		local pUnit = Players[ self.m_PlayerID ]:GetUnitByID( self.m_UnitID );
@@ -529,13 +529,13 @@ local g_UnitFlagClass =
 			if (pUnit:IsInvisibleToAllEnemyTeams()) then
 				-- If invisible now, use the invisible base texture and the normal selection texture
 				texOffsetX = 0;
-				texOffsetY = 64;
+				texOffsetY = 64 * 2;
 				selectedTextureName = "UnitFlagBase.dds";
 			else
 				-- If SPOTTED now, use the Invisible.dds art for both base and selected texture
 				selectedTextureName = textureName;
 			end		
-			self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );			
+			self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );			
 		else
 			if( pUnit:IsEmbarked() ) then 
 				textureName = "UnitFlagEmbark.dds";
@@ -544,27 +544,27 @@ local g_UnitFlagClass =
 			elseif( pUnit:IsGarrisoned() ) then
 				textureName = "UnitFlagBase.dds";
 				maskName = "UnitFlagMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 1 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 2 );
 			elseif( pUnit:GetFortifyTurns() > 0 ) then
 				textureName = "UnitFlagFortify.dds";
 				maskName = "UnitFlagFortifyMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 			elseif( self.m_IsTrade ) then
 				textureName = "UnitFlagTrade.dds";
 				maskName = "UnitFlagTradeMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 			elseif( self.m_IsOrbital ) then
 				textureName = "UnitFlagOrbital.dds";
 				maskName = "UnitFlagOrbitalMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 			elseif( not self.m_IsCivilian ) then
 				textureName = "UnitFlagBase.dds";
 				maskName = "UnitFlagMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 			else
 				textureName = "UnitFlagCiv.dds";
 				maskName = "UnitFlagCivMask.dds";
-				self.m_Instance.UnitIconShadow:SetOffsetVal( -1, 0 );
+				self.m_Instance.UnitIconShadow:SetOffsetVal( -2, 0 );
 			end
 		end
         

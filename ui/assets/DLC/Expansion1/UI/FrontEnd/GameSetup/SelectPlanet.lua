@@ -720,7 +720,7 @@ function View(folder)
 		item.CheckMark:SetHide(true);
 		item.Highlight:SetHide(true);
 		item.Icon:SetHide(false);
-		item.Name:SetOffsetVal(80,15);		
+		item.Name:SetOffsetVal(160,30);		
 		item.Name:SetText("");
 		item.MapTypeLabel:SetText("");
 		item.DescriptionLabel:SetText("");
@@ -732,7 +732,7 @@ function View(folder)
 		local item = GetInstance();
 		item.Icon:SetHide(true);
 		item.Name:LocalizeAndSetText("[ICON_ARROW_LEFT] {TXT_KEY_SELECT_MAP_TYPE_BACK}");
-		item.Name:SetOffsetVal(10,10);
+		item.Name:SetOffsetVal(20,20);
 		item.DescriptionLabel:LocalizeAndSetText("TXT_KEY_SELECT_MAP_TYPE_BACK_HELP");
 		item.Button:RegisterCallback(Mouse.eLClick, function() View(folder.ParentFolder); end);
 	end
@@ -757,7 +757,7 @@ function View(folder)
 				item.Icon:SetHide(false);
 			else
 				item.Icon:SetHide(true);
-				item.Name:SetOffsetVal(10,10);
+				item.Name:SetOffsetVal(20,20);
 			end
 			
 			if v.MapType ~= nil then
@@ -803,7 +803,7 @@ function View(folder)
 	if(folder.ParentFolder ~= nil) then
 		local item = GetInstance();
 		item.Icon:SetHide(true);
-		item.Name:SetOffsetVal(10,10);
+		item.Name:SetOffsetVal(20,20);
 		item.Name:LocalizeAndSetText("[ICON_ARROW_LEFT] {TXT_KEY_SELECT_MAP_TYPE_BACK}");
 		item.DescriptionLabel:LocalizeAndSetText("TXT_KEY_SELECT_MAP_TYPE_BACK_HELP");
 		item.Button:RegisterCallback(Mouse.eLClick, function() View(folder.ParentFolder); end);

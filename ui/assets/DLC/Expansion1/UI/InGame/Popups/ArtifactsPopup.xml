@@ -4,41 +4,41 @@
 	<!-- Input blocker -->
   <Box																					Anchor="L,C"									Size="Parent,Parent"							Color="0,0,0,150" ConsumeMouse="1" />
   
-  <Grid				ID="Panel"												Anchor="C,C"									Size="1024,750"										Style="GridWindowWithHeader" >    
-    <Label																			Anchor="L,U"	Offset="15,17"																		Style="MenuTitleCaption" String="{TXT_KEY_ARTIFACTS_POPUP_TITLE:upper}"/>
-    <Button		ID="CloseButton"									Anchor="R,T"	Offset="6,6"																			Style="CloseButton" />   
-	  <Grid																											Offset="6,47"		Size="parent-17, parent-68"				Style="GridSetupGameSectionBackground">
-			<Box																										Offset="5,2"		Size="parent-10,parent-8"					Color="21,24,33,255" />
-			<Line																			Start="492,2" End="492,684"		Width="2"													Color="0,0,0,255" />
+  <Grid				ID="Panel"												Anchor="C,C"									Size="2048,1500"										Style="GridWindowWithHeader" >    
+    <Label																			Anchor="L,U"	Offset="30,34"																		Style="MenuTitleCaption" String="{TXT_KEY_ARTIFACTS_POPUP_TITLE:upper}"/>
+    <Button		ID="CloseButton"									Anchor="R,T"	Offset="12,12"																			Style="CloseButton" />   
+	  <Grid																											Offset="12,94"		Size="parent-34, parent-136"				Style="GridSetupGameSectionBackground">
+			<Box																										Offset="10,4"		Size="parent-20,parent-16"					Color="21,24,33,255" />
+			<Line																			Start="984,4" End="984,1368"		Width="4"													Color="0,0,0,255" />
 		</Grid>
 		
-		<Container																								Offset="8,49"		Size="500,680" >
-			<Grid																			Anchor="L,T"	Offset="0,0"		Size="parent,41"									Style="GridColumnHeader">
+		<Container																								Offset="16,98"		Size="1000,1360" >
+			<Grid																			Anchor="L,T"	Offset="0,0"		Size="parent,82"									Style="GridColumnHeader">
 				<Label																	Anchor="C,C"	String="{TXT_KEY_ARTIFACTS_POPUP_LIBRARY:upper}"	Style="ArtifactAreaHeader" />
 			</Grid>		
-			<Box						ID="CurrentArea"												Offset="5,40"		Size="parent-25,300"							Color="0,0,0,255">
-				<Box																									Offset="1,1"		Size="parent,parent-2"						Color="BERTMidnight">
-					<Grid																	Anchor="L,T"	Offset="2,2"		Size="270,295" Texture="ArtifactsPreviewGrid.dds" SliceCorner="6,6" SliceSize="3,154" SliceTextureSize="15,166" >
-						<Image		ID="CurrentCondition"			Anchor="C,T"	Offset="0,5"																			Texture="ArtifactsConditionWornLg.dds" />
-						<Image		ID="CurrentPortrait"			Anchor="C,C"	Offset="0,7"		Size="300,300" Texture="BE_Exp1_Artifacts_Atlas_300.dds" />
+			<Box						ID="CurrentArea"												Offset="10,80"		Size="parent-50,600"							Color="0,0,0,255">
+				<Box																									Offset="2,2"		Size="parent,parent-4"						Color="BERTMidnight">
+					<Grid																	Anchor="L,T"	Offset="4,4"		Size="540,590" Texture="ArtifactsPreviewGrid.dds" SliceCorner="12,12" SliceSize="6,308" SliceTextureSize="30,332" >
+						<Image		ID="CurrentCondition"			Anchor="C,T"	Offset="0,10"																			Texture="ArtifactsConditionWornLg.dds" />
+						<Image		ID="CurrentPortrait"			Anchor="C,C"	Offset="0,14"		Size="600,600" Texture="BE_Exp1_Artifacts_Atlas_300.dds" />
 						<AlphaAnim													Anchor="C,C"	AlphaStart="0.4" AlphaEnd="0.8" Cycle="Bounce">
-							<Label	ID="CurrentInstructions"	Anchor="C,C"									WrapWidth="240" Align="Center"		Style="FontNormal20" String="TXT_KEY_ARTIFACTS_SELECT" />
+							<Label	ID="CurrentInstructions"	Anchor="C,C"									WrapWidth="480" Align="Center"		Style="FontNormal20" String="TXT_KEY_ARTIFACTS_SELECT" />
 						</AlphaAnim>
 					</Grid>
-					<ScrollPanel	ID="CurrentInfo"				Anchor="R,T"	Offset="2,2"		Size="195,295"	Vertical="1" AutoScrolLBar="1" >
-						<Stack			ID="CurrentStack"				StackGrowth="Down"						Padding="8">
-								<Label	ID="CurrentHeader"			Style="ArtifactHeader"				WrapWidth="180"										String="$CurrentHeader$"	/>
-								<Label	ID="CurrentSubHeader"		Style="ArtifactText"					WrapWidth="180"										String="$CurrentSubHeader$" />
-								<Label	ID="CurrentDescription"	Style="ArtifactText"					WrapWidth="180"										String="$CurrentDescription$" />
+					<ScrollPanel	ID="CurrentInfo"				Anchor="R,T"	Offset="4,4"		Size="390,590"	Vertical="1" AutoScrolLBar="1" >
+						<Stack			ID="CurrentStack"				StackGrowth="Down"						Padding="16">
+								<Label	ID="CurrentHeader"			Style="ArtifactHeader"				WrapWidth="360"										String="$CurrentHeader$"	/>
+								<Label	ID="CurrentSubHeader"		Style="ArtifactText"					WrapWidth="360"										String="$CurrentSubHeader$" />
+								<Label	ID="CurrentDescription"	Style="ArtifactText"					WrapWidth="360"										String="$CurrentDescription$" />
 						</Stack>
 						<ScrollBar													Anchor="R,T" Style="VertSlider" />
 					</ScrollPanel>
 				</Box>										
 			</Box>										
 			
-			<Box																										Offset="5,344"		Size="476,330" Color="BERTMidnight">
-				<ScrollPanel		ID="ArtifactLibrary"									Offset="2,1"			Size="parent-3,330" Vertical="1" AutoScrollBar="1">
-					<Stack				ID="ArtifactStack"			StackGrowth="Right" WrapGrowth="Down" WrapWidth="460" StackPadding="2" />
+			<Box																										Offset="10,688"		Size="952,660" Color="BERTMidnight">
+				<ScrollPanel		ID="ArtifactLibrary"									Offset="4,2"			Size="parent-6,660" Vertical="1" AutoScrollBar="1">
+					<Stack				ID="ArtifactStack"			StackGrowth="Right" WrapGrowth="Down" WrapWidth="920" StackPadding="4" />
 					<ScrollBar		ID="ArtifactScrollBar"	Anchor="R,T" Style="VertSlider"/>
 				</ScrollPanel>
 			</Box>
@@ -46,70 +46,70 @@
 		</Container>
 
 		<!-- "DroppedItem" is added by code -->
-		<Box																		Anchor="R,T"	Offset="13,49"		Size="512,675" Color="BERTMidnight" >
-			<Grid																	Anchor="R,T"										Size="parent+2,41"							Style="GridColumnHeader">
+		<Box																		Anchor="R,T"	Offset="26,98"		Size="1024,1350" Color="BERTMidnight" >
+			<Grid																	Anchor="R,T"										Size="parent+4,82"							Style="GridColumnHeader">
 				<Label															Anchor="C,C"	String="{TXT_KEY_ARTIFACTS_POPUP_RESEARCH:upper}"	Style="ArtifactAreaHeader" />			
 	    </Grid>
-			<Label																Anchor="C,T"	Offset="0,60"			WrapWidth="500" Align="Center" 	Style="ArtifactText" String="TXT_KEY_ARTIFACTS_POPUP_HOWTO_USE" />
-			<Container														Anchor="C,T"	Offset="-2,100"		Size="490,316" >
+			<Label																Anchor="C,T"	Offset="0,120"			WrapWidth="1000" Align="Center" 	Style="ArtifactText" String="TXT_KEY_ARTIFACTS_POPUP_HOWTO_USE" />
+			<Container														Anchor="C,T"	Offset="-4,200"		Size="980,632" >
 				<GridButton			ID="Drop1"					Anchor="L,T"	Style="ArtifactSlotGrid">
-						<Image			ID="Condition1"			Anchor="C,T"	Offset="0,4"																		Texture="ArtifactsConditionPristine.dds" />
-						<Image			ID="Portrait1"			Anchor="C,T"	Offset="0,10"			Size="128,128"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
-						<Label			ID="Info1"					Anchor="C,B"	Offset="0,25"			WrapWidth="150"								Style="ArtifactCardText" />
-						<Image			ID="Type1"					Anchor="C,B"	Offset="1,-16"		Size="32,32"									Texture="ArtifactCategory32.dds" />
+						<Image			ID="Condition1"			Anchor="C,T"	Offset="0,8"																		Texture="ArtifactsConditionPristine.dds" />
+						<Image			ID="Portrait1"			Anchor="C,T"	Offset="0,20"			Size="256,256"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
+						<Label			ID="Info1"					Anchor="C,B"	Offset="0,50"			WrapWidth="300"								Style="ArtifactCardText" />
+						<Image			ID="Type1"					Anchor="C,B"	Offset="2,-32"		Size="64,64"									Texture="ArtifactCategory32.dds" />
 						<Container	ID="Empty1"																					Size="parent,parent">
-							<Image												Anchor="C,C"	Offset="0,-40"																	Texture="ArtifactEmpty.dds">
-								<FlipAnim										Anchor="L,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
-								<FlipAnim										Anchor="R,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+							<Image												Anchor="C,C"	Offset="0,-80"																	Texture="ArtifactEmpty.dds">
+								<FlipAnim										Anchor="L,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+								<FlipAnim										Anchor="R,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
 							</Image>							
-							<Label												Anchor="C,B"	Offset="0,50"			WrapWidth="150"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
+							<Label												Anchor="C,B"	Offset="0,100"			WrapWidth="300"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
 						</Container>
 				</GridButton>					
 				<GridButton			ID="Drop2"					Anchor="C,T"	Style="ArtifactSlotGrid">
-						<Image			ID="Condition2"			Anchor="C,T"	Offset="0,4"																		Texture="ArtifactsConditionWorn.dds" />
-						<Image			ID="Portrait2"			Anchor="C,T"	Offset="0,10"			Size="128,128"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
-						<Label			ID="Info2"					Anchor="C,B"	Offset="0,25"			WrapWidth="150"								Style="ArtifactCardText" />
-						<Image			ID="Type2"					Anchor="C,B"	Offset="0,-16"		Size="32,32"									Texture="ArtifactCategory32.dds" />
+						<Image			ID="Condition2"			Anchor="C,T"	Offset="0,8"																		Texture="ArtifactsConditionWorn.dds" />
+						<Image			ID="Portrait2"			Anchor="C,T"	Offset="0,20"			Size="256,256"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
+						<Label			ID="Info2"					Anchor="C,B"	Offset="0,50"			WrapWidth="300"								Style="ArtifactCardText" />
+						<Image			ID="Type2"					Anchor="C,B"	Offset="0,-32"		Size="64,64"									Texture="ArtifactCategory32.dds" />
 						<Container	ID="Empty2"																					Size="parent,parent">
-							<Image												Anchor="C,C"	Offset="0,-40"																	Texture="ArtifactEmpty.dds">
-								<FlipAnim										Anchor="L,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
-								<FlipAnim										Anchor="R,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+							<Image												Anchor="C,C"	Offset="0,-80"																	Texture="ArtifactEmpty.dds">
+								<FlipAnim										Anchor="L,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+								<FlipAnim										Anchor="R,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
 							</Image>							
-							<Label												Anchor="C,B"	Offset="0,50"			WrapWidth="150"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
+							<Label												Anchor="C,B"	Offset="0,100"			WrapWidth="300"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
 						</Container>
 				</GridButton>				
 				<GridButton			ID="Drop3"					Anchor="R,T"	Style="ArtifactSlotGrid">
-						<Image			ID="Condition3"			Anchor="C,T"	Offset="0,4"																		Texture="ArtifactsConditionBattered.dds" />
-						<Image			ID="Portrait3"			Anchor="C,T"	Offset="0,10"			Size="128,128"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
-						<Label			ID="Info3"					Anchor="C,B"	Offset="0,25"			WrapWidth="150"								Style="ArtifactCardText" />
-						<Image			ID="Type3"					Anchor="C,B"	Offset="-2,-16"		Size="32,32"									Texture="ArtifactCategory32.dds" />
+						<Image			ID="Condition3"			Anchor="C,T"	Offset="0,8"																		Texture="ArtifactsConditionBattered.dds" />
+						<Image			ID="Portrait3"			Anchor="C,T"	Offset="0,20"			Size="256,256"								Texture="BE_Exp1_Artifacts_Atlas_128.dds" />
+						<Label			ID="Info3"					Anchor="C,B"	Offset="0,50"			WrapWidth="300"								Style="ArtifactCardText" />
+						<Image			ID="Type3"					Anchor="C,B"	Offset="-4,-32"		Size="64,64"									Texture="ArtifactCategory32.dds" />
 						<Container	ID="Empty3"																					Size="parent,parent">
-							<Image												Anchor="C,C"	Offset="0,-40"																	Texture="ArtifactEmpty.dds">
-								<FlipAnim										Anchor="L,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
-								<FlipAnim										Anchor="R,C"	Offset="5,0"			Size="32,26"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+							<Image												Anchor="C,C"	Offset="0,-80"																	Texture="ArtifactEmpty.dds">
+								<FlipAnim										Anchor="L,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_L.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
+								<FlipAnim										Anchor="R,C"	Offset="10,0"			Size="64,52"									Texture="ArtifactDragAnim_R.dds" AnchorSide="O,I" Speed="1.5" FrameCount="4"  />
 							</Image>							
-							<Label												Anchor="C,B"	Offset="0,50"			WrapWidth="150"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
+							<Label												Anchor="C,B"	Offset="0,100"			WrapWidth="300"								Style="ArtifactCardText" String="TXT_KEY_ARTIFACTS_EMPTY_INSTRUCTIONS" />
 						</Container>
 				</GridButton>				
 			</Container>
-			<Image																Anchor="R,T"	Offset="0,232"																	Texture="ArtifactsResearchArrowFrame.dds" />			
-			<Container														Anchor="C,T"	Offset="-2,296"		Size="490,316">
-				<Image					ID="Pipe1"												Offset="75,0"																		Texture="ArtifactsResearchArrowPath1.dds" />
+			<Image																Anchor="R,T"	Offset="0,464"																	Texture="ArtifactsResearchArrowFrame.dds" />			
+			<Container														Anchor="C,T"	Offset="-4,592"		Size="980,632">
+				<Image					ID="Pipe1"												Offset="150,0"																		Texture="ArtifactsResearchArrowPath1.dds" />
 				<Image					ID="Pipe2"					Anchor="C,T"	Offset="0,0"																		Texture="ArtifactsResearchArrowPath2.dds" />
-				<Image					ID="Pipe3"					Anchor="R,T"	Offset="76,0"																		Texture="ArtifactsResearchArrowPath3.dds" />
-				<Image					ID="ArrowHead"			Anchor="C,T"	Offset="-1,73"																	Texture="ArtifactsResearchArrowResult123.dds" />
-				<Image					ID="CombinedType"		Anchor="C,B"	Offset="-1,154"	Size="32,32"										Texture="ArtifactCategory32.dds" />
+				<Image					ID="Pipe3"					Anchor="R,T"	Offset="152,0"																		Texture="ArtifactsResearchArrowPath3.dds" />
+				<Image					ID="ArrowHead"			Anchor="C,T"	Offset="-2,146"																	Texture="ArtifactsResearchArrowResult123.dds" />
+				<Image					ID="CombinedType"		Anchor="C,B"	Offset="-2,308"	Size="64,64"										Texture="ArtifactCategory32.dds" />
 			</Container>
-			<Box							ID="CombinedArea"		Anchor="C,T"	Offset="0,510"		Size="500,155"	Color="0,0,0,255">
-				<Label					ID="CombinedLabel"	Anchor="C,T"	Offset="0,-24"		Style="ArtifactHeader"				String="TXT_KEY_ARTIFACTS_POPUP_RESEARCH_WILL_PRODUCE" />
-				<ScrollPanel		ID="RewardScroll"		Anchor="R,T"	Offset="1,1"			Size="parent,parent-42"	Vertical="1" AutoScrollBar="1">
-					<Stack				ID="RewardStack"									Offset="2,0"			StackGrowth="Down" StackPadding="1" />
+			<Box							ID="CombinedArea"		Anchor="C,T"	Offset="0,1020"		Size="1000,310"	Color="0,0,0,255">
+				<Label					ID="CombinedLabel"	Anchor="C,T"	Offset="0,-48"		Style="ArtifactHeader"				String="TXT_KEY_ARTIFACTS_POPUP_RESEARCH_WILL_PRODUCE" />
+				<ScrollPanel		ID="RewardScroll"		Anchor="R,T"	Offset="2,2"			Size="parent,parent-84"	Vertical="1" AutoScrollBar="1">
+					<Stack				ID="RewardStack"									Offset="4,0"			StackGrowth="Down" StackPadding="2" />
 					<ScrollBar												Anchor="R,T"										Style="VertSlider" />
 				</ScrollPanel>
-				<Grid						ID="RewardGrid"										Offset="2,2"			Size="110,114"									Texture="ArtifactsRevealFrame.dds" SliceStart="3,3" SliceSize="4,36">
-					<Image				ID="RewardPortrait"	Anchor="C,C"	Offset="0,0"			Size="96,96" />
+				<Grid						ID="RewardGrid"										Offset="4,4"			Size="220,228"									Texture="ArtifactsRevealFrame.dds" SliceStart="6,6" SliceSize="8,72">
+					<Image				ID="RewardPortrait"	Anchor="C,C"	Offset="0,0"			Size="192,192" />
 				</Grid>
-				<GridButton			ID="CombineButton"	Anchor="C,B"										Size="parent,40"							Style="BaseButton" String="{TXT_KEY_ARTIFACTS_POPUP_COMPLETE_RESEARCH:upper}" />
+				<GridButton			ID="CombineButton"	Anchor="C,B"										Size="parent,80"							Style="BaseButton" String="{TXT_KEY_ARTIFACTS_POPUP_COMPLETE_RESEARCH:upper}" />
 			</Box>
 		</Box>			
   </Grid>
@@ -117,15 +117,15 @@
 	
 	<!-- Psuedo popup from combining a reward. -->
 	<Box					ID="RewardsSummary"							Anchor="L,C" Size="Parent,Parent" Color="0,0,0,150" ConsumeMouse="1" Hidden="1">
-		<Grid																				Anchor="C,C" Offset="0,0" Size="432,495"  Style="Grid9Frame27SquareBlack" >
-			<Image		ID="RewardsSummaryPortrait"			Size="128,128" Offset="0,25" Anchor="C,T" Style="Grid9Frame27SquareBlack"/>
-			<Stack		ID="ArtifactRewardsPanelStack"	StackGrowth="Down" Size="400,300" Anchor="C,T" Offset="0,165" Padding="10">
-				<Label	ID="RewardsDescriptionLabel"		Offset="0,0" WrapWidth="360" Anchor="C,T" FontSize="24" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
-				<Label	ID="RewardsEffectsSummaryLabel" Offset="0,0" WrapWidth="360" Anchor="C,T" FontSize="16" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
-				<Container Size="10,10" />
-				<Label	ID="RewardsExplanationLabel"		Offset="0,0" WrapWidth="360"  Anchor="C,T" FontSize="16" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
+		<Grid																				Anchor="C,C" Offset="0,0" Size="864,990"  Style="Grid9Frame27SquareBlack" >
+			<Image		ID="RewardsSummaryPortrait"			Size="256,256" Offset="0,50" Anchor="C,T" Style="Grid9Frame27SquareBlack"/>
+			<Stack		ID="ArtifactRewardsPanelStack"	StackGrowth="Down" Size="800,600" Anchor="C,T" Offset="0,330" Padding="20">
+				<Label	ID="RewardsDescriptionLabel"		Offset="0,0" WrapWidth="720" Anchor="C,T" FontSize="48" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
+				<Label	ID="RewardsEffectsSummaryLabel" Offset="0,0" WrapWidth="720" Anchor="C,T" FontSize="32" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
+				<Container Size="20,20" />
+				<Label	ID="RewardsExplanationLabel"		Offset="0,0" WrapWidth="720"  Anchor="C,T" FontSize="32" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
 			</Stack>
-			<GridButton ID="RewardsButton"						Size="380,40" Offset="0,20" Anchor="C,B" Style="BaseButton" Hidden="False" String="TXT_KEY_ARTIFACTS_POPUP_OK"/>
+			<GridButton ID="RewardsButton"						Size="760,80" Offset="0,40" Anchor="C,B" Style="BaseButton" Hidden="False" String="TXT_KEY_ARTIFACTS_POPUP_OK"/>
 		</Grid>
 	</Box>
 	
@@ -136,27 +136,27 @@
 	<!-- ==================================================================	-->
 
 	<Instance				Name="ArtifactCategory">	
-		<Box					ID="Content"																	Size="472,30" Color="20,25,35,255">
-			<Label			ID="Description"	Anchor="L,C"	Offset="10,0" Style="ArtifactHeader" String="$CategoryLabel$" />
+		<Box					ID="Content"																	Size="944,60" Color="20,25,35,255">
+			<Label			ID="Description"	Anchor="L,C"	Offset="20,0" Style="ArtifactHeader" String="$CategoryLabel$" />
 		</Box>
 	</Instance>	
 
 	<Instance					Name="ArtifactCard">	
-		<Container			ID="Content"																	Size="112,120">
+		<Container			ID="Content"																	Size="224,240">
 			<Grid					ID="StackSpacer"															Size="parent,parent"	Style="ArtifactSlotGridLibrary" Color="255,255,255,50" />
 			<Button				ID="Button"																		Size="parent,parent"	Alpha="0" />
 			<Drag					ID="Draggable"																Size="parent,parent"	Buttons="L"	SnapBackSpeed="4">
 				<GridButton	ID="Background"																Size="parent,parent"	Style="ArtifactSlotGridLibrary" />
-				<Image			ID="Condition"		Anchor="C,T"	Offset="0,4"												Texture="ArtifactsConditionPristine.dds" />
-				<Image			ID="Portrait"			Anchor="C,C"	Offset="0,0"	Size="80,80"					Texture="BE_Exp1_Artifacts_Atlas_80.dds" />
-				<Label			ID="Info"					Anchor="C,B"								WrapWidth="100"				Style="ArtifactCardText" />
+				<Image			ID="Condition"		Anchor="C,T"	Offset="0,8"												Texture="ArtifactsConditionPristine.dds" />
+				<Image			ID="Portrait"			Anchor="C,C"	Offset="0,0"	Size="160,160"					Texture="BE_Exp1_Artifacts_Atlas_80.dds" />
+				<Label			ID="Info"					Anchor="C,B"								WrapWidth="200"				Style="ArtifactCardText" />
 			</Drag>
 		</Container>
 	</Instance>
 
 	<Instance				Name="Reward">	
-		<Box					ID="Content"																	Size="parent-2,20" Color="20,25,35,255">
-			<Label			ID="Description"	Anchor="L,C"	Offset="10,0" WrapWidth="400" Style="ArtifactText" String="$reward text$" />
+		<Box					ID="Content"																	Size="parent-4,40" Color="20,25,35,255">
+			<Label			ID="Description"	Anchor="L,C"	Offset="20,0" WrapWidth="800" Style="ArtifactText" String="$reward text$" />
 		</Box>
 	</Instance>	
 		

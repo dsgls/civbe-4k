@@ -5,57 +5,57 @@
 
     <Instance Name="LegendKey">
         <Stack ID="Item" StackGrowth="Right" >
-            <Box Size="14,14" Color="255,255,200,255" >
-                <Box ID="KeyColor" Anchor="C,C" Size="12,12" Color="200,200,200,255" />
+            <Box Size="28,28" Color="255,255,200,255" >
+                <Box ID="KeyColor" Anchor="C,C" Size="24,24" Color="200,200,200,255" />
             </Box>
-	        <Label ID="KeyName" Anchor="L,T" Offset="5.0" WrapWidth="300" ColorSet="Beige_Black" LeadingOffset="-8" Style="FontNormal18" FontStyle="Shadow"  String="TXT_KEY_STRAT_ICON_MODE"/>
+	        <Label ID="KeyName" Anchor="L,T" Offset="10.0" WrapWidth="600" ColorSet="Beige_Black" LeadingOffset="-16" Style="FontNormal18" FontStyle="Shadow"  String="TXT_KEY_STRAT_ICON_MODE"/>
         </Stack> 
     </Instance>
 
-	<Container	ID="MinimapHolder"      Anchor="R,T" Offset="0,30"  Size="320,161" >
+	<Container	ID="MinimapHolder"      Anchor="R,T" Offset="0,60"  Size="640,322" >
 		
 		<Grid ID="OptionsPanel" Anchor="L,T" Color="White,255" Style="GridWindowWithSideBorders" Hidden="1" ConsumeMouse="1" >
-			<Stack Anchor="C,C" Padding="0" Offset="4,5" StackGrowth="Bottom" ID="MainStack" >
+			<Stack Anchor="C,C" Padding="0" Offset="8,10" StackGrowth="Bottom" ID="MainStack" >
 				<Stack Anchor="C,T" Offset="0,0" Padding="0" StackGrowth="Bottom" ID="StrategicStack" >
-					<Label Anchor="L,T" ColorSet="Beige_Black" Style="FontNormal18" Offset="0,5" FontStyle="Shadow" ID="OverlayName" String="TXT_KEY_STRAT_OVERLAY"/>
-					<PullDown Style="GenericPullDown" ScrollThreshold="256" Offset="0,5" Size="210,27" SpaceForScroll="0" ID="OverlayDropDown"/>
-					<Label Anchor="L,T" ColorSet="Beige_Black" Style="FontNormal18" Offset="0,5" FontStyle="Shadow" ID="IconName" String="TXT_KEY_STRAT_ICON_MODE"/>
-					<PullDown Style="GenericPullDown" ScrollThreshold="256" Offset="0,5" Size="210,27" SpaceForScroll="0" ID="IconDropDown"/>
+					<Label Anchor="L,T" ColorSet="Beige_Black" Style="FontNormal18" Offset="0,10" FontStyle="Shadow" ID="OverlayName" String="TXT_KEY_STRAT_OVERLAY"/>
+					<PullDown Style="GenericPullDown" ScrollThreshold="512" Offset="0,10" Size="420,54" SpaceForScroll="0" ID="OverlayDropDown"/>
+					<Label Anchor="L,T" ColorSet="Beige_Black" Style="FontNormal18" Offset="0,10" FontStyle="Shadow" ID="IconName" String="TXT_KEY_STRAT_ICON_MODE"/>
+					<PullDown Style="GenericPullDown" ScrollThreshold="512" Offset="0,10" Size="420,54" SpaceForScroll="0" ID="IconDropDown"/>
 
-					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="1" ID="ShowFeatures" String="TXT_KEY_STRAT_FEATURES" />
-					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" />
-					<Box Anchor="C,T" Offset="0,5" Size="175,1" Color="Beige,120" />
+					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFeatures" String="TXT_KEY_STRAT_FEATURES" />
+					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" />
+					<Box Anchor="C,T" Offset="0,10" Size="350,2" Color="Beige,120" />
 				</Stack>
 
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" />        
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowArtifacts" String="TXT_KEY_MAP_OPTIONS_ARTIFACT_ICONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowNests" String="TXT_KEY_MAP_OPTIONS_ALIEN_NESTS" />				
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" />
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="40,0" IsChecked="0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" />
-				<Box Anchor="C,T" Size="210,1" Color="0,0,0,0" />
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" />
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" />
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" />        
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowArtifacts" String="TXT_KEY_MAP_OPTIONS_ARTIFACT_ICONS" />
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowNests" String="TXT_KEY_MAP_OPTIONS_ALIEN_NESTS" />				
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" />
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" />
+				<Box Anchor="C,T" Size="420,2" Color="0,0,0,0" />
 			</Stack>
 		</Grid>
 
 		<!-- Amount of alpha applied to backing is toggled via options menu, as some players prefered an opaque minimap. -->
-		<Box	ID="MinimapBacking" Anchor="R,T" Offset="0,-1" Size="parent,parent" Color="0,0,0,155" />
+		<Box	ID="MinimapBacking" Anchor="R,T" Offset="0,-2" Size="parent,parent" Color="0,0,0,155" />
 		
-		<Button ID="MinimapButton" Anchor="R,T" Offset="0,0"   Size="320,140" NoStateChange="1" ConsumeMouse="1" >
+		<Button ID="MinimapButton" Anchor="R,T" Offset="0,0"   Size="640,280" NoStateChange="1" ConsumeMouse="1" >
 			<AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="0" AlphaEnd="1" >
-				<Grid ID="MiniMapButtonOverImage" Texture="MiniMapUnder.dds" Anchor="C,C" Offset="0,0" ConsumeMouse="0" Size="288,185" SliceCorner="1,1" SliceSize="126,126" />
+				<Grid ID="MiniMapButtonOverImage" Texture="MiniMapUnder.dds" Anchor="C,C" Offset="0,0" ConsumeMouse="0" Size="576,370" SliceCorner="2,2" SliceSize="252,252" />
 			</AlphaAnim>
 			<AlphaAnim HideOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
-				<Grid ID="MiniMapButtonOutImage" Texture="MiniMapUnder.dds" Anchor="C,C" Offset="0,0" ConsumeMouse="0" Size="288,185" SliceCorner="1,1" SliceSize="126,126" />
+				<Grid ID="MiniMapButtonOutImage" Texture="MiniMapUnder.dds" Anchor="C,C" Offset="0,0" ConsumeMouse="0" Size="576,370" SliceCorner="2,2" SliceSize="252,252" />
 			</AlphaAnim>
-			<Button ID="Minimap" Anchor="R,T" Offset="0,0"   Size="320,140" NoStateChange="1" ConsumeMouse="0" Color="255,255,255,255"/>
+			<Button ID="Minimap" Anchor="R,T" Offset="0,0"   Size="640,280" NoStateChange="1" ConsumeMouse="0" Color="255,255,255,255"/>
 		</Button>
 		
-		<Grid		ID="MinimapOverlapImage" Texture="MiniMapOverlay.dds" Anchor="C,C" ConsumeMouse="0" Size="288,185" SliceCorner="22,22" SliceSize="244,141" />
+		<Grid		ID="MinimapOverlapImage" Texture="MiniMapOverlay.dds" Anchor="C,C" ConsumeMouse="0" Size="576,370" SliceCorner="44,44" SliceSize="488,282" />
 		
-		<Button		ID="MapOptionsButton"	Texture="Assets/UI/Art/Controls/HUD_ViewOptions.dds" Size="30,22" ToolTip="TXT_KEY_STRAT_MAP_OPTIONS_TT" />
+		<Button		ID="MapOptionsButton"	Texture="Assets/UI/Art/Controls/HUD_ViewOptions.dds" Size="60,44" ToolTip="TXT_KEY_STRAT_MAP_OPTIONS_TT" />
 		
-		<GridButton ID="StagingRoomButton" Offset="30,0" Size="55,55" ToolTip="TXT_KEY_STAGINGROOM_TT">
+		<GridButton ID="StagingRoomButton" Offset="60,0" Size="110,110" ToolTip="TXT_KEY_STAGINGROOM_TT">
 			<GridData Style="Grid9HUDButtonFlipped" />
 			<AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="0" AlphaEnd="1" >
 				<Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonFlippedHighlight" />
@@ -63,7 +63,7 @@
 			<AlphaAnim HideOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
 				<Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonFlippedHighlight" />
 			</AlphaAnim>
-			<Image TextureOffset="0,55" Texture="Assets/UI/Art/Controls/HUDIcon_CultureOverview.dds" BranchAlpha=".8" Size="55,55" Anchor="C,C" Offset="0,2" Padding="0,0"/>
+			<Image TextureOffset="0,110" Texture="Assets/UI/Art/Controls/HUDIcon_CultureOverview.dds" BranchAlpha=".8" Size="110,110" Anchor="C,C" Offset="0,4" Padding="0,0"/>
 		</GridButton>
 
 	</Container>
@@ -71,5 +71,5 @@
 	
 
 	<!-- Simple diplomacy screen used for human/human diplomacy in multiplayer. -->
-	<LuaContext FileName="Assets/UI/InGame/WorldView/SimpleDiploTrade" ID="SimpleDiplo" Hidden="1" Anchor="R,T" Offset="0,-5" />
+	<LuaContext FileName="Assets/UI/InGame/WorldView/SimpleDiploTrade" ID="SimpleDiplo" Hidden="1" Anchor="R,T" Offset="0,-10" />
 </Context>

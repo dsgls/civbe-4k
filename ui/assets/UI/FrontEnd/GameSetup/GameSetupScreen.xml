@@ -3,22 +3,22 @@
 <Context>
   <Image ID="CivBELogo" Style="MainGameLogo" />
   <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
-    <Grid Size="380, 400"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
-      <Button	ID="BackButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_BACK_BUTTON"/>
+    <Grid Size="760, 800"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+      <Button	ID="BackButton"			Anchor="R,T" Offset="14,14"	Style="CloseButton" ToolTip="TXT_KEY_BACK_BUTTON"/>
       <Label Style="MenuTitleCaption" String="{TXT_KEY_SEEDEDSTART:upper}" ID="TitleLabel" />
 
-      <Stack			ID="MainStack"			Anchor="C,T"  Offset="0,80"	Padding="8">
+      <Stack			ID="MainStack"			Anchor="C,T"  Offset="0,160"	Padding="16">
         <Label		ID="DifficultyLabel"	Style="GrayGlow20"	String="TXT_KEY_HANDICAP" />
-        <PullDown	ID="DifficultyPull"		Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="310,32" />
-        <Container							Size="4,15" />
+        <PullDown	ID="DifficultyPull"		Style="GenericPullDown" ScrollThreshold="800" SpaceForScroll="0" Size="620,64" />
+        <Container							Size="8,30" />
         <Label		ID="SpeedLabel"			Style="GrayGlow20"	String="TXT_KEY_GAME_SPEED" />
-        <PullDown	ID="SpeedPull"			Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="310,32" />
-        <Container							Size="4,15" />
+        <PullDown	ID="SpeedPull"			Style="GenericPullDown" ScrollThreshold="800" SpaceForScroll="0" Size="620,64" />
+        <Container							Size="8,30" />
         <Label		ID="MapSizeLabel"			Style="GrayGlow20"	String="TXT_KEY_MAP_SIZE" />
-        <PullDown	ID="MapSizePull"			Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="310,32" />
+        <PullDown	ID="MapSizePull"			Style="GenericPullDown" ScrollThreshold="800" SpaceForScroll="0" Size="620,64" />
       </Stack>
 
-      <GridButton ID="AcceptButton"		Anchor="C,B" Size="170,32" Offset="0,30" String="TXT_KEY_ACCEPT_BUTTON" Style="BaseButton" />
+      <GridButton ID="AcceptButton"		Anchor="C,B" Size="340,64" Offset="0,60" String="TXT_KEY_ACCEPT_BUTTON" Style="BaseButton" />
     </Grid>
   </AlphaAnim>
 	

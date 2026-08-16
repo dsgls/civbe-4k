@@ -351,7 +351,7 @@ function View(folder)
 	if(folder.ParentFolder ~= nil and #folder.Items > 8) then
 		local item = g_InstanceManager:GetInstance();
 		item.Icon:SetHide(true);
-		item.Name:SetOffsetVal(10,0);
+		item.Name:SetOffsetVal(20,0);
 		item.Name:LocalizeAndSetText("[ICON_ARROW_LEFT] {TXT_KEY_SELECT_MAP_TYPE_BACK}");
 		item.Button:LocalizeAndSetToolTip("TXT_KEY_SELECT_MAP_TYPE_BACK_HELP");
 		item.Button:RegisterCallback(Mouse.eLClick, function() View(folder.ParentFolder); end);
@@ -374,10 +374,10 @@ function View(folder)
 			if(v.Icon ~= nil) then
 				IconHookup(v.Icon[1], v.Icon[2], v.Icon[3], item.Icon);
 				item.Icon:SetHide(false);
-				item.Name:SetOffsetVal(64,0);
+				item.Name:SetOffsetVal(128,0);
 			else
 				item.Icon:SetHide(true);
-				item.Name:SetOffsetVal(10,0);
+				item.Name:SetOffsetVal(20,0);
 			end
 			
 			item.Button:SetToolTipString(v.Description);
@@ -391,7 +391,7 @@ function View(folder)
 	if(folder.ParentFolder ~= nil) then
 		local item = g_InstanceManager:GetInstance();
 		item.Icon:SetHide(true);
-		item.Name:SetOffsetVal(10,0);
+		item.Name:SetOffsetVal(20,0);
 		item.Name:LocalizeAndSetText("[ICON_ARROW_LEFT] {TXT_KEY_SELECT_MAP_TYPE_BACK}");
 		item.Button:LocalizeAndSetToolTip("TXT_KEY_SELECT_MAP_TYPE_BACK_HELP");
 		item.Button:RegisterCallback(Mouse.eLClick, function() View(folder.ParentFolder); end);

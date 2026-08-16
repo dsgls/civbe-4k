@@ -18,7 +18,7 @@ function OnPopup( popupInfo )
         Controls.DescriptionLabel:SetWrapWidth( popupInfo.Data1 );
     else
         print( "two" );
-        Controls.DescriptionLabel:SetWrapWidth( 400 );
+        Controls.DescriptionLabel:SetWrapWidth( 800 );
     end
    
     -- show/hide the flare 

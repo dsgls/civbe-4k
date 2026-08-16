@@ -3,21 +3,21 @@
 
 	<Box	ID="BGBlock"	Style="BGBlock"  />
 
-	<Grid	ID="BGWin"	Size="990,630" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" >
+	<Grid	ID="BGWin"	Size="1980,1260" Anchor="C,C" Offset="0,40" Style="Grid9DetailFive140" ConsumeMouse="1" >
 
-    <Box Color="0,0,0,150"	Size="955,533"	Anchor="C,C" Offset="0,12">
-		<ScrollPanel	ID="BackgroundImageClip"	Anchor="C,C" Size="953,531" FullClip="1" Disabled="1" >
+    <Box Color="0,0,0,150"	Size="1910,1066"	Anchor="C,C" Offset="0,24">
+		<ScrollPanel	ID="BackgroundImageClip"	Anchor="C,C" Size="1906,1062" FullClip="1" Disabled="1" >
 		  <Image		ID="BackgroundImage"		Anchor="L,T" Sampler="Linear"	Size="parent,parent" />
 		</ScrollPanel>
 	  </Box>
 		<!-- Upper Treatment-->
-		<Image Size="256,64" Anchor="C,T"	Offset="0,-61"  Texture="Top512IconTrim.dds"  >
-				<Image ID="CivIconBG"		Size="80.80" Anchor="C,C"	Offset="0,-7"	Texture="CivIconBGSizes.dds" TextureOffset="141,0" />
-				<Image ID="CivIconShadow"	Size="64.64" Anchor="C,C"	Offset="1,1"	Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
-				<Image ID="CivIcon"			Size="64,64" Anchor="C,C"	Offset="0,0"	Texture="CivSymbolsColor512.dds" />
+		<Image Size="512,128" Anchor="C,T"	Offset="0,-122"  Texture="Top512IconTrim.dds"  >
+				<Image ID="CivIconBG"		Size="160.160" Anchor="C,C"	Offset="0,-14"	Texture="CivIconBGSizes.dds" TextureOffset="282,0" />
+				<Image ID="CivIconShadow"	Size="128.128" Anchor="C,C"	Offset="2,2"	Texture="CivSymbolAtlas64.dds" Color="Black.128"/>
+				<Image ID="CivIcon"			Size="128,128" Anchor="C,C"	Offset="0,0"	Texture="CivSymbolsColor512.dds" />
 		</Image>
 
-    <Label	ID="VictoryText" WrapWidth="800"  LeadingOffset="0" Anchor="C,T" Offset="0,30" Style="GrayGlow24" />
+    <Label	ID="VictoryText" WrapWidth="1600"  LeadingOffset="0" Anchor="C,T" Offset="0,60" Style="GrayGlow24" />
     
 		<!-- Tabs -->
     <!--
@@ -32,19 +32,19 @@
 		<Box Style="TabSpacerDark" 				Anchor="L,T" Offset="18,58"	Size="Parent-34,5" />
     -->
 
-    <Grid		ID="GameOverReasonContainer"  Anchor="C,T" Offset="0,20" Size="840,30" Padding="0" Style="CivilopediaListItem" Color="255,255,255,200" >
-      <Label	ID="EndGameReason" WrapWidth="800"  LeadingOffset="0" Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="You lost the game because..." />
+    <Grid		ID="GameOverReasonContainer"  Anchor="C,T" Offset="0,40" Size="1680,60" Padding="0" Style="CivilopediaListItem" Color="255,255,255,200" >
+      <Label	ID="EndGameReason" WrapWidth="1600"  LeadingOffset="0" Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="You lost the game because..." />
     </Grid>
 
     
-    <Grid		ID="GameOverContainer"  Anchor="C,B" Offset="0,100" Size="840,90" Padding="0" Style="CivilopediaListItem" Color="255,255,255,200" >
-			<Label	ID="EndGameText" WrapWidth="800"  LeadingOffset="0" Anchor="C,B" Offset="0,15" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" />
+    <Grid		ID="GameOverContainer"  Anchor="C,B" Offset="0,200" Size="1680,180" Padding="0" Style="CivilopediaListItem" Color="255,255,255,200" >
+			<Label	ID="EndGameText" WrapWidth="1600"  LeadingOffset="0" Anchor="C,B" Offset="0,30" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" />
 		</Grid>
 
 		<!-- Bottom Buttons -->
-		<Stack Anchor="C,B"  Padding="16" StackGrowth="Right" Offset="0,50">
-			<GridButton ID="MainMenuButton"	Size="275,36" Style="BaseButton" String="TXT_KEY_MENU_EXIT_TO_MAIN" />
-			<GridButton ID="BackButton"		Size="275,36"  Style="BaseButton" String="TXT_KEY_EXTENDED_GAME_YES" />
+		<Stack Anchor="C,B"  Padding="32" StackGrowth="Right" Offset="0,100">
+			<GridButton ID="MainMenuButton"	Size="550,72" Style="BaseButton" String="TXT_KEY_MENU_EXIT_TO_MAIN" />
+			<GridButton ID="BackButton"		Size="550,72"  Style="BaseButton" String="TXT_KEY_EXTENDED_GAME_YES" />
 		</Stack>
 	</Grid>
 	<!--

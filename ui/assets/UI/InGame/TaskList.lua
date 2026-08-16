@@ -28,9 +28,9 @@ function OnUpdate( TaskListInfo )
 			local iStatusType = g_aTaskStatus[i];
 			local iOffset = 0;
 			if (iStatusType == 0) then
-				iOffset = 96;
+				iOffset = 96 * 2;
 			elseif (iStatusType == 1) then
-				iOffset = 32;
+				iOffset = 32 * 2;
 			elseif (iStatusType == 2) then
 				iOffset = 0;
 			end

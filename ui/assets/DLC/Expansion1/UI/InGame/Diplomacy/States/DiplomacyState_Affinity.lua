@@ -188,12 +188,12 @@ function DrawNode( perkAtLevel:table, affinityEnum:number )
 	nodeInstance.Node:SetOffsetVal(x,y);
 
 	if perkAtLevel.highest then
-		nodeInstance.Node:SetTextureOffsetVal(0,36);		
+		nodeInstance.Node:SetTextureOffsetVal(0,72);		
 		local glowInstance :table = m_NodeGlowIM:GetInstance();
 		glowInstance.Glow:SetOffsetVal(x,y);
 		glowInstance.Glow:SetSpeed( 1 + (math.random() * 0.25) );	-- Make organic: slightly offset blinky glows!
 	elseif IsPastAffinityLevel( affinityEnum, level ) then
-		nodeInstance.Node:SetTextureOffsetVal(0,18);
+		nodeInstance.Node:SetTextureOffsetVal(0,36);
 	end
 
 	local tt:string = Locale.Lookup("TXT_KEY_AFFINITY_LEVEL", level) .. "[NEWLINE]" .. Locale.Lookup(perkAtLevel.perk.Help);
@@ -212,12 +212,12 @@ function DrawProjectNode( projectAtLevel:table, affinityEnum:number)
 	nodeInstance.Node:SetOffsetVal(x,y);
 
 	if projectAtLevel.highest then
-		nodeInstance.Node:SetTextureOffsetVal(0,36);		
+		nodeInstance.Node:SetTextureOffsetVal(0,72);		
 		local glowInstance :table = m_NodeGlowIM:GetInstance();
 		glowInstance.Glow:SetOffsetVal(x,y);
 		glowInstance.Glow:SetSpeed( 1 + (math.random() * 0.25) );	-- Make organic: slightly offset blinky glows!
 	elseif IsPastAffinityLevel( affinityEnum, level ) then
-		nodeInstance.Node:SetTextureOffsetVal(0,18);
+		nodeInstance.Node:SetTextureOffsetVal(0,36);
 	end
 
 	local tt:string = Locale.Lookup("TXT_KEY_AFFINITY_LEVEL", level) .. "[NEWLINE]" .. Locale.ConvertTextKey( "TXT_KEY_AFFINITY_UNLOCK_CAN_BUILD", projectInfo.Description, questInfo.Description );
@@ -852,12 +852,12 @@ function Initialize()
 	Controls.PHButton:GetTextControl():SetAnchor("L,C");
 	Controls.HSButton:GetTextControl():SetAnchor("L,C");
 	Controls.SPButton:GetTextControl():SetAnchor("L,C");
-	Controls.PButton :GetTextControl():SetOffsetVal(10,0);
-	Controls.HButton :GetTextControl():SetOffsetVal(10,0);
-	Controls.SButton :GetTextControl():SetOffsetVal(10,0);
-	Controls.PHButton:GetTextControl():SetOffsetVal(10,0);
-	Controls.HSButton:GetTextControl():SetOffsetVal(10,0);
-	Controls.SPButton:GetTextControl():SetOffsetVal(10,0);	
+	Controls.PButton :GetTextControl():SetOffsetVal(20,0);
+	Controls.HButton :GetTextControl():SetOffsetVal(20,0);
+	Controls.SButton :GetTextControl():SetOffsetVal(20,0);
+	Controls.PHButton:GetTextControl():SetOffsetVal(20,0);
+	Controls.HSButton:GetTextControl():SetOffsetVal(20,0);
+	Controls.SPButton:GetTextControl():SetOffsetVal(20,0);	
 
 	-- Setup button callbacks
 	Controls.PButton :SetVoid1( AFFINITY.purity );

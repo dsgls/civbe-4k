@@ -783,19 +783,19 @@ function ProcessStackSizes()
 	Controls.NotificationScrollPanel:ReprocessAnchoring();
 
     if( Controls.NotificationScrollPanel:GetRatio() ~= 1 ) then
-		Controls.ScrollBarBacking:SetSizeX(64);
+		Controls.ScrollBarBacking:SetSizeX(128);
 		Controls.ScrollBarBacking:SetSizeY(Controls.NotificationScrollPanel:GetSizeY());
 		Controls.ScrollBarBacking:SetHide( false );
-        Controls.NotificationScrollPanel:SetOffsetX( -10 );	-- scroll bar
+        Controls.NotificationScrollPanel:SetOffsetX( -20 );	-- scroll bar
     else
         Controls.NotificationScrollPanel:SetOffsetX( 0 );		-- no scroll bar
 		Controls.ScrollBarBacking:SetHide( true );
     end
 
 	if(Controls.TBNotificationStack:GetNumChildren() == 0) then
-		Controls.ContainerStack:SetOffsetY( 80 );
+		Controls.ContainerStack:SetOffsetY( 160 );
 	else
-		Controls.ContainerStack:SetOffsetY( 30 );
+		Controls.ContainerStack:SetOffsetY( 60 );
 	end
     Controls.ContainerStack:CalculateSize();
     Controls.ContainerStack:ReprocessAnchoring();

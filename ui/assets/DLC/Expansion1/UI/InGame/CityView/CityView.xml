@@ -4,87 +4,87 @@
 	<Container ID="AllCityInfoHiddenForInit" Size="Full,Full" Hidden="1">
 	
 	<!-- Header -->
-	<Box													Size="Full,80" Offset="0,31" Color="255,255,255,0" ConsumeMouse="1">
+	<Box													Size="Full,160" Offset="0,62" Color="255,255,255,0" ConsumeMouse="1">
 
-		<Box															 Offset="0,19" 		Size="Full,100" Color="255,255,255,0" ConsumeMouse="1">
-			<Image		ID="CityBannerButtonBaseLeft"		Anchor="L,T" Offset="0,0"		Size="48,64"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
-			<Grid		ID="CityBannerButtonBaseLeftIn"		Anchor="L,T" Offset="48,0"		Size="250,64"	Style="CityButtonBaseGrid" />
-			<Grid		ID="CityBannerButtonBase"			Anchor="C,T" Offset="0,0"		Size="250,64"	Style="CityButtonBaseGrid" />
-			<Grid		ID="CityBannerButtonBaseRightIn"	Anchor="R,T" Offset="48,0"		Size="250,64"	Style="CityButtonBaseGrid" />
-			<Image		ID="CityBannerButtonBaseRight"		Anchor="R,T" Offset="0,0"		Size="48,64" 	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
+		<Box															 Offset="0,38" 		Size="Full,200" Color="255,255,255,0" ConsumeMouse="1">
+			<Image		ID="CityBannerButtonBaseLeft"		Anchor="L,T" Offset="0,0"		Size="96,128"	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseLeft.dds"/>
+			<Grid		ID="CityBannerButtonBaseLeftIn"		Anchor="L,T" Offset="96,0"		Size="500,128"	Style="CityButtonBaseGrid" />
+			<Grid		ID="CityBannerButtonBase"			Anchor="C,T" Offset="0,0"		Size="500,128"	Style="CityButtonBaseGrid" />
+			<Grid		ID="CityBannerButtonBaseRightIn"	Anchor="R,T" Offset="96,0"		Size="500,128"	Style="CityButtonBaseGrid" />
+			<Image		ID="CityBannerButtonBaseRight"		Anchor="R,T" Offset="0,0"		Size="96,128" 	Texture="Assets/UI/Art/Icons/CityBannerButtonBaseRight.dds"/>
 		</Box>
 				
-		<Box Size="Full,100" Offset="0,19" Color="255,255,255,0" ConsumeMouse="1">
-			<Button		ID="ReturnToGameHugeBarButton"										Size="parent,100" />
-			<Image		ID="CityBannerLeftBackground"		Anchor="L,T" Offset="0,1"		Size="48,64"	Color="PlayerColor1,255"	Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds" >
-				<Label	ID="CityPopulation"					Anchor="C,C" Offset="-4,2"		Style="FontNormal20" ForceNonIME="1" String="0"/>
-				<Box										Anchor="L,C" Offset="40,0"		Size="8,42" Color="0,0,0,0"  >
-					<TextureBar	ID="GrowthBarShadow"		Anchor="C,B" Offset="0,0"		Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
-					<TextureBar	ID="GrowthBar"				Anchor="C,B" Offset="0,0"		Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
+		<Box Size="Full,200" Offset="0,38" Color="255,255,255,0" ConsumeMouse="1">
+			<Button		ID="ReturnToGameHugeBarButton"										Size="parent,200" />
+			<Image		ID="CityBannerLeftBackground"		Anchor="L,T" Offset="0,2"		Size="96,128"	Color="PlayerColor1,255"	Texture="Assets/UI/Art/Icons/CityBannerLeftBackground.dds" >
+				<Label	ID="CityPopulation"					Anchor="C,C" Offset="-8,4"		Style="FontNormal20" ForceNonIME="1" String="0"/>
+				<Box										Anchor="L,C" Offset="80,0"		Size="16,84" Color="0,0,0,0"  >
+					<TextureBar	ID="GrowthBarShadow"		Anchor="C,B" Offset="0,0"		Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
+					<TextureBar	ID="GrowthBar"				Anchor="C,B" Offset="0,0"		Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
 				</Box>			
 			</Image>
-			<Grid			ID="CityBannerBackgroundLeftIn"	Anchor="L,T" Offset="48,0"		Size="250,64"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
-				<Label		ID="TurnsUntilNewCitizen"		Anchor="L,C" Offset="3,-12"						Color="PlayerColor1,200"	Style="FontNormal14" String="{TXT_KEY_TURNS_UNTIL_NEW_CITIZENS:upper}" />
-				<Label		ID="CitizensLabel"				Anchor="L,C" Offset="3,6"						Color="PlayerColor1"		Style="FontNormal20" String="{TXT_KEY_CITIZENS:upper}" />
+			<Grid			ID="CityBannerBackgroundLeftIn"	Anchor="L,T" Offset="96,0"		Size="500,128"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
+				<Label		ID="TurnsUntilNewCitizen"		Anchor="L,C" Offset="6,-24"						Color="PlayerColor1,200"	Style="FontNormal14" String="{TXT_KEY_TURNS_UNTIL_NEW_CITIZENS:upper}" />
+				<Label		ID="CitizensLabel"				Anchor="L,C" Offset="6,12"						Color="PlayerColor1"		Style="FontNormal20" String="{TXT_KEY_CITIZENS:upper}" />
 			</Grid>			
-			<Grid			ID="CityBannerBackground"		Anchor="C,T" Offset="0,0"		Size="250,64"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
-				<Image	ID="PrevCityBackground" Anchor="L,C" Offset="0,0"		Size="32,64"	Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds"	AnchorSide="O,I">
-					<Button	ID="PrevCityButton"				Anchor="C,C" Offset="0,1"		Size="32,64"	Color="PlayerColor1,255"	Texture="CityNamePanelArrows.dds" />
+			<Grid			ID="CityBannerBackground"		Anchor="C,T" Offset="0,0"		Size="500,128"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
+				<Image	ID="PrevCityBackground" Anchor="L,C" Offset="0,0"		Size="64,128"	Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds"	AnchorSide="O,I">
+					<Button	ID="PrevCityButton"				Anchor="C,C" Offset="0,2"		Size="64,128"	Color="PlayerColor1,255"	Texture="CityNamePanelArrows.dds" />
 				</Image>
-				<Image	ID="NextCityBackground" Anchor="R,C" Offset="0,0"		Size="32,64"	Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds"	AnchorSide="O,I">
-					<Button	ID="NextCityButton"				Anchor="C,C" Offset="0,1"		Size="32,64"	Color="PlayerColor1,255"	Texture="CityNamePanelArrows.dds" TextureOffset="32,0" />	
+				<Image	ID="NextCityBackground" Anchor="R,C" Offset="0,0"		Size="64,128"	Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds"	AnchorSide="O,I">
+					<Button	ID="NextCityButton"				Anchor="C,C" Offset="0,2"		Size="64,128"	Color="PlayerColor1,255"	Texture="CityNamePanelArrows.dds" TextureOffset="64,0" />	
 				</Image>		
 			</Grid>
-			<Grid		ID="CityBannerBackgroundRightIn"	Anchor="R,T" Offset="48,0"		Size="250,64"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
-				<Label	ID="ProductionTurnsLabel" 			Anchor="R,C" Offset="3,-12"						Color="PlayerColor1,200"	Style="FontNormal14" String="{TXT_KEY_PRODUCTION_TURNS_UNTIL:upper}" />	
-				<Label	ID="ProductionItemName"				Anchor="R,C" Offset="3,6"						Color="PlayerColor1"		Style="FontNormal20"  />
+			<Grid		ID="CityBannerBackgroundRightIn"	Anchor="R,T" Offset="96,0"		Size="500,128"	Color="PlayerColor1,255"	Style="CityBannerBackgroundGrid">
+				<Label	ID="ProductionTurnsLabel" 			Anchor="R,C" Offset="6,-24"						Color="PlayerColor1,200"	Style="FontNormal14" String="{TXT_KEY_PRODUCTION_TURNS_UNTIL:upper}" />	
+				<Label	ID="ProductionItemName"				Anchor="R,C" Offset="6,12"						Color="PlayerColor1"		Style="FontNormal20"  />
 			</Grid>
-			<Image		ID="CityBannerRightBackground"		Anchor="R,T" Offset="0,1"		Size="48,64" 	Color="PlayerColor1,255" 	Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds">
-				<Button ID="CityBannerProductionButton"		Anchor="L,T" NoStateChange="1"	Size="48,64"	/>
-				<Image	ID="CityBannerProductionImage"		Anchor="C,T" Offset="3,7"		Size="45,45"	Color="PlayerColor1,255"	 />
-				<Box										Anchor="R,C" Offset="42,0"		Size="8,42" Color="255,0,0,0" >
-					<TextureBar	ID="ProductionBarShadow"	Anchor="C,B" Offset="0,0"		Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
-					<TextureBar	ID="ProductionBar"			Anchor="C,B" Offset="0,0"		Size="7,43" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
+			<Image		ID="CityBannerRightBackground"		Anchor="R,T" Offset="0,2"		Size="96,128" 	Color="PlayerColor1,255" 	Texture="Assets/UI/Art/Icons/CityBannerRightBackground.dds">
+				<Button ID="CityBannerProductionButton"		Anchor="L,T" NoStateChange="1"	Size="96,128"	/>
+				<Image	ID="CityBannerProductionImage"		Anchor="C,T" Offset="6,14"		Size="90,90"	Color="PlayerColor1,255"	 />
+				<Box										Anchor="R,C" Offset="84,0"		Size="16,84" Color="255,0,0,0" >
+					<TextureBar	ID="ProductionBarShadow"	Anchor="C,B" Offset="0,0"		Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
+					<TextureBar	ID="ProductionBar"			Anchor="C,B" Offset="0,0"		Size="14,86" Direction="Up" Texture="Assets/UI/Art/Icons/CityBannerMeterVertical.dds" />
 				</Box>			
 			</Image>			
 		</Box>		
 		
-		<Image ID="HeaderLeft"					Anchor="L,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeader.dds"			Size="200,32" />
-		<Image ID="HeaderCenter"				Anchor="C,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeaderCenter.dds"		Size="256,32" />
-		<Image ID="HeaderRight"					Anchor="R,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeader.dds"			Size="200,32" />
+		<Image ID="HeaderLeft"					Anchor="L,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeader.dds"			Size="400,64" />
+		<Image ID="HeaderCenter"				Anchor="C,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeaderCenter.dds"		Size="512,64" />
+		<Image ID="HeaderRight"					Anchor="R,T" Offset="0,0" Texture="assets\UI\Art\WorldView\CityScreenHeader.dds"			Size="400,64" />
 	</Box>
 
 	
 	<!-- City Name -->
-	<Container										Anchor="C,T" Offset="0,31"	Size="256,128" >
-		<Stack		StackGrowth="Right"				Anchor="C,T" Offset="-100,-1" Padding="10">
+	<Container										Anchor="C,T" Offset="0,62"	Size="512,256" >
+		<Stack		StackGrowth="Right"				Anchor="C,T" Offset="-200,-2" Padding="20">
 			<!-- Trade Routes -->
-			<Container	ID="TradeRoutesFrame"		Anchor="C,T" Size="80,32" >
-				<Label	ID="TradeRoutesIcon"		Anchor="C,T" Offset="-14,12"					Color="PlayerColor1,255"	String="[ICON_ARROW_RIGHT]" />
-				<Label	ID="TradeRoutes"			Anchor="C,T" Offset="6,12" Style="FontNormal16"	Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
+			<Container	ID="TradeRoutesFrame"		Anchor="C,T" Size="160,64" >
+				<Label	ID="TradeRoutesIcon"		Anchor="C,T" Offset="-28,24"					Color="PlayerColor1,255"	String="[ICON_ARROW_RIGHT]" />
+				<Label	ID="TradeRoutes"			Anchor="C,T" Offset="12,24" Style="FontNormal16"	Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
 			</Container>
 		</Stack>
 			
 			
 		<!-- City Strength -->
-		<Image		ID="CityBannerStrengthFrame"	Anchor="C,T" Offset="0,-3" Size="79,32"			Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
-			<Image	ID="ShieldIcon"					Anchor="C,T" Offset="-14,12"					Color="PlayerColor1,255"	Texture="Assets/UI/Art/Icons/ShieldIcon.dds" />
-			<Label	ID="Defense"					Anchor="C,T" Offset="4,15" Style="FontNormal16"	Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
+		<Image		ID="CityBannerStrengthFrame"	Anchor="C,T" Offset="0,-6" Size="158,64"			Color="PlayerColor2,255"	Texture="Assets/UI/Art/Icons/CityBannerStrengthFrame.dds">
+			<Image	ID="ShieldIcon"					Anchor="C,T" Offset="-28,24"					Color="PlayerColor1,255"	Texture="Assets/UI/Art/Icons/ShieldIcon.dds" />
+			<Label	ID="Defense"					Anchor="C,T" Offset="8,30" Style="FontNormal16"	Color="PlayerColor1,255" FontStyle="Stroke" ForceNonIME="1"/>
 		</Image>
 		
 		<!-- City HP Bar -->
-		<Image			ID="HPFrame"				Anchor="C,T" Size="256,8"	Offset="0,0"		Texture="assets\UI\Art\WorldView\CityNamePanelHealthBar.dds" >
-			<TextureBar ID="HPMeter"				Anchor="L,T" Size="256,8"	Direction="Right"	Texture="assets\UI\Art\WorldView\CityNamePanelHealthBarGreen.dds" />
+		<Image			ID="HPFrame"				Anchor="C,T" Size="512,16"	Offset="0,0"		Texture="assets\UI\Art\WorldView\CityNamePanelHealthBar.dds" >
+			<TextureBar ID="HPMeter"				Anchor="L,T" Size="512,16"	Direction="Right"	Texture="assets\UI\Art\WorldView\CityNamePanelHealthBarGreen.dds" />
 		</Image>
-		<Stack			ID="TitleStack"				Anchor="C,T" Size="0,0"		Offset="0,36"		StackGrowth="Right" Padding="0">
-			<Image		ID="CityCapitalIcon"									Offset="-6,-1"		Texture="Assets/UI/Art/Icons/StarIcon.dds" />
+		<Stack			ID="TitleStack"				Anchor="C,T" Size="0,0"		Offset="0,72"		StackGrowth="Right" Padding="0">
+			<Image		ID="CityCapitalIcon"									Offset="-12,-2"		Texture="Assets/UI/Art/Icons/StarIcon.dds" />
 			<Label		ID="CityNameTitleBarLabel"	Anchor="L,C"				Offset="0,0"		Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="SoftShadow" />
 		</Stack>
 
-		<Stack			ID="NotificationStack"		Anchor="C,T" Size="0,0"		Offset="0,88"		StackGrowth="Bottom" Padding="3" Hidden="0">
+		<Stack			ID="NotificationStack"		Anchor="C,T" Size="0,0"		Offset="0,176"		StackGrowth="Bottom" Padding="6" Hidden="0">
 			<!-- Resource Demanded -->
-			<Grid									Anchor="C,C" Size="300,26"	Offset="0,36"	Style="WindowGrid" ToolTip="TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT" ID="ResourceDemandedBox" Hidden="1">
-				<Label	ID="ResourceDemandedString" Anchor="C,C" Offset="0,-1" ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow"/>
+			<Grid									Anchor="C,C" Size="600,52"	Offset="0,72"	Style="WindowGrid" ToolTip="TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT" ID="ResourceDemandedBox" Hidden="1">
+				<Label	ID="ResourceDemandedString" Anchor="C,C" Offset="0,-2" ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow"/>
 			</Grid>
 			<Stack		ID="IconsStack"				Anchor="C,T" Size="0,0" Offset="0,0" StackGrowth="Right" Padding="0" >
 				<Label	ID="RazingIcon"				Anchor="C,C" Offset="0,0" String="[ICON_RAZING]"		Hidden="1"/>
@@ -95,79 +95,79 @@
 				<Label	ID="OccupiedIcon"			Anchor="C,C" Offset="0,0" String="[ICON_OCCUPIED]"		Hidden="1"/>
 			</Stack>
 		</Stack>
-		<TextButton		ID="EditButton" Offset="170,-43" Anchor="L,C" Align="left" Style="FontNormal14" Color0="90,100,110,255" Color1="0,0,0,255" String="TXT_KEY_EDIT_BUTTON" FontStyle="Shadow" MouseOverStyle="CityEditHighlight" ConsumeMouseButton="1"/>	
+		<TextButton		ID="EditButton" Offset="340,-86" Anchor="L,C" Align="left" Style="FontNormal14" Color0="90,100,110,255" Color1="0,0,0,255" String="TXT_KEY_EDIT_BUTTON" FontStyle="Shadow" MouseOverStyle="CityEditHighlight" ConsumeMouseButton="1"/>	
 	</Container>
 
 
 	<!-- Covert Ops / Espionage -->
-	<Container		ID="CovertOps"			Offset="12,126"					Anchor="C,T" >
-		<Image 								Offset="96,10"					Anchor="C,T"							Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
+	<Container		ID="CovertOps"			Offset="24,252"					Anchor="C,T" >
+		<Image 								Offset="192,20"					Anchor="C,T"							Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBG.dds" />
 		<Image		ID="IntrigueHighlight"	Offset="0,0" 					Anchor="C,T"							Texture="Assets/UI/Art/Controls/CovertOpsCityBannerColorHighlight.dds" />
 		<Image								Offset="0,0"					Anchor="C,T"							Texture="Assets/UI/Art/Controls/CovertOpsCityBannerBGNear.dds" ToolTip="TXT_KEY_COVERT_INTRIGUE_HEADING2_TITLE" />
-		<Container							Offset="-10,11"	Size="102,24"	Anchor="C,T">
-			<Image	ID="IntrigueBG"			Offset="0,0"	Size="102,24"	Anchor="L,T"	TextureOffset="0,0"		Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
-			<Image	ID="Intrigue"			Offset="1,1"	Size="102,24"	Anchor="L,T"	TextureOffset="0,24"	Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />			
+		<Container							Offset="-20,22"	Size="204,48"	Anchor="C,T">
+			<Image	ID="IntrigueBG"			Offset="0,0"	Size="204,48"	Anchor="L,T"	TextureOffset="0,0"		Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />
+			<Image	ID="Intrigue"			Offset="2,2"	Size="204,48"	Anchor="L,T"	TextureOffset="0,48"	Texture="Assets/UI/Art/Controls/CovertOpsIntrigueDiamonds.dds" />			
 		</Container>
 	</Container>
 
 	
 	<!-- Culture and intrigue -->
-	<Grid				ID="CityCultureArea"			Anchor="C,T" Offset="-5,103" Size="100,36" Style="CityCultureGrid" >
-		<Image											Anchor="L,T" Offset="0,36"	Size="32,32" Texture="CityCultureArtArches.dds" TextureOffset="0,0" />
-		<Image											Anchor="R,T" Offset="0,36"	Size="32,32" Texture="CityCultureArtArches.dds" TextureOffset="0,32" />
-		<Label			ID="CultureTimeTillGrowthLabel"	Anchor="C,T" Offset="0,13" Color0="Culture,255" Color1="Culture,150" FontStyle="Glow" String="TXT_KEY_CITYVIEW_TURNS_TILL_TILE_TEXT" Style="FontNormal14" />
-		<Image											Anchor="L,T" Offset="-6,0"	Size="48,48" Texture="assets\UI\Art\City\CityCultureMeter.dds" Hidden="0">
-			<TextureBar	ID="CultureMeter" 				Anchor="C,C" Offset="0,0"	Size="48,48" Texture="assets\UI\Art\City\CityCultureMeter.dds" TextureOffset="0,48" Direction="Up" />
-			<Image		ID="CultureMeterLineTop"		Anchor="C,C" Offset="0,0"	Size="48,48" Texture="assets\UI\Art\City\CityCultureMeter.dds" TextureOffset="0,96"  />
+	<Grid				ID="CityCultureArea"			Anchor="C,T" Offset="-10,206" Size="200,72" Style="CityCultureGrid" >
+		<Image											Anchor="L,T" Offset="0,72"	Size="64,64" Texture="CityCultureArtArches.dds" TextureOffset="0,0" />
+		<Image											Anchor="R,T" Offset="0,72"	Size="64,64" Texture="CityCultureArtArches.dds" TextureOffset="0,64" />
+		<Label			ID="CultureTimeTillGrowthLabel"	Anchor="C,T" Offset="0,26" Color0="Culture,255" Color1="Culture,150" FontStyle="Glow" String="TXT_KEY_CITYVIEW_TURNS_TILL_TILE_TEXT" Style="FontNormal14" />
+		<Image											Anchor="L,T" Offset="-12,0"	Size="96,96" Texture="assets\UI\Art\City\CityCultureMeter.dds" Hidden="0">
+			<TextureBar	ID="CultureMeter" 				Anchor="C,C" Offset="0,0"	Size="96,96" Texture="assets\UI\Art\City\CityCultureMeter.dds" TextureOffset="0,96" Direction="Up" />
+			<Image		ID="CultureMeterLineTop"		Anchor="C,C" Offset="0,0"	Size="96,96" Texture="assets\UI\Art\City\CityCultureMeter.dds" TextureOffset="0,192"  />
 		</Image>		
 	</Grid>
 
 		
 	<!-- City Information (left-top) -->
-	<Grid		ID="CitizenManagementArea"	Anchor="L,T" Offset="-3,103"	Size="365,95"		Style="CitySectionBackingGrid" ConsumeMouseButton="1">		
-		<Grid											 Offset="3,0"		Size="parent-4,28"	Style="CitySectionHeaderGrid" Color="255,255,255,255" >
-			<Label							Anchor="L,C" Offset="6,1"							Style="CitySectionText" String="TXT_KEY_CITYVIEW_CITYINFO_TEXT" />
+	<Grid		ID="CitizenManagementArea"	Anchor="L,T" Offset="-6,206"	Size="730,190"		Style="CitySectionBackingGrid" ConsumeMouseButton="1">		
+		<Grid											 Offset="6,0"		Size="parent-8,56"	Style="CitySectionHeaderGrid" Color="255,255,255,255" >
+			<Label							Anchor="L,C" Offset="12,2"							Style="CitySectionText" String="TXT_KEY_CITYVIEW_CITYINFO_TEXT" />
 		</Grid>	
-		<Grid								Anchor="L,T" Offset="0,30"	Size="parent-5,28" Style="CityGrid">			
-			<Stack										 Offset="9,6"	StackGrowth="Right"	Padding="8">
+		<Grid								Anchor="L,T" Offset="0,60"	Size="parent-10,56" Style="CityGrid">			
+			<Stack										 Offset="18,12"	StackGrowth="Right"	Padding="16">
 				<Label	ID="FocusWord"								String="{TXT_KEY_CITYVIEW_FOCUS:upper}"		Style="CityText" />
-				<Label	ID="FocusLabel"		Offset="0,1"	String="TXT_KEY_CITYVIEW_FOCUS_NONE_TEXT"	Style="CityText" FontSize="14" FontStyle="Glow" Color1="255,255,255,100" />
+				<Label	ID="FocusLabel"		Offset="0,2"	String="TXT_KEY_CITYVIEW_FOCUS_NONE_TEXT"	Style="CityText" FontSize="28" FontStyle="Glow" Color1="255,255,255,100" />
 			</Stack>
-			<GridButton	ID="ResetButton"	Anchor="R,C" Offset="-2,0"	Size="120,26"	Style="BaseButton" FontSize="12" Color="200,200,200,255" String="{TXT_KEY_CITYVIEW_FOCUS_RESET_TEXT:upper}" ToolTip="TXT_KEY_CITYVIEW_FOCUS_BALANCED_TT" />
+			<GridButton	ID="ResetButton"	Anchor="R,C" Offset="-4,0"	Size="240,52"	Style="BaseButton" FontSize="24" Color="200,200,200,255" String="{TXT_KEY_CITYVIEW_FOCUS_RESET_TEXT:upper}" ToolTip="TXT_KEY_CITYVIEW_FOCUS_BALANCED_TT" />
 		</Grid>
 		
-		<Stack										Anchor="L,T" Offset="4,59"	Size="0,0"	StackGrowth="Right" Padding="1">					
-			<GridButton	ID="CultureFocusButton"		Anchor="L,T" Offset="0,0"	Size="59,36" Style="CityFocusButton">
+		<Stack										Anchor="L,T" Offset="8,118"	Size="0,0"	StackGrowth="Right" Padding="2">					
+			<GridButton	ID="CultureFocusButton"		Anchor="L,T" Offset="0,0"	Size="118,72" Style="CityFocusButton">
 				<Grid	ID="CultureFocusSelected"	Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Culture,255" Hidden="1" />
-				<Label	ID="CulturePerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_CULTURE] 0" Color0="Culture,255" Color1="Culture,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow" />
+				<Label	ID="CulturePerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_CULTURE] 0" Color0="Culture,255" Color1="Culture,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow" />
 			</GridButton>
-			<GridButton	ID="ProductionFocusButton"	Anchor="L,T" Offset="0,0"	Size="58,36" Style="CityFocusButton" >
+			<GridButton	ID="ProductionFocusButton"	Anchor="L,T" Offset="0,0"	Size="116,72" Style="CityFocusButton" >
 				<Grid	ID="ProductionFocusSelected" Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Production,255" Hidden="1" />
-				<Label	ID="ProdPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_PRODUCTION] 0" Color0="Production,255" Color1="Production,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow"/>
+				<Label	ID="ProdPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_PRODUCTION] 0" Color0="Production,255" Color1="Production,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow"/>
 			</GridButton>
-			<GridButton	ID="FoodFocusButton"		Anchor="L,T" Offset="0,0"	Size="59,36" Style="CityFocusButton" >
+			<GridButton	ID="FoodFocusButton"		Anchor="L,T" Offset="0,0"	Size="118,72" Style="CityFocusButton" >
 				<Grid	ID="FoodFocusSelected"		Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Food,255" Hidden="1" />
-				<Label	ID="FoodPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_FOOD] 0" Color0="Food,255" Color1="Food,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow"/>
+				<Label	ID="FoodPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_FOOD] 0" Color0="Food,255" Color1="Food,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow"/>
 			</GridButton>
-			<GridButton	ID="EnergyFocusButton"		Anchor="L,T" Offset="0,0"	Size="58,36" Style="CityFocusButton">
+			<GridButton	ID="EnergyFocusButton"		Anchor="L,T" Offset="0,0"	Size="116,72" Style="CityFocusButton">
 				<Grid	ID="EnergyFocusSelected"	Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Energy,255" Hidden="1" />
-				<Label	ID="EnergyPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_ENERGY] 0" Color0="Energy,255" Color1="Energy,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow"/>
+				<Label	ID="EnergyPerTurnLabel"		Anchor="C,C" Align="center" String="[ICON_ENERGY] 0" Color0="Energy,255" Color1="Energy,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow"/>
 			</GridButton>			
-			<GridButton	ID="ResearchFocusButton"	Anchor="L,T" Offset="0,0"	Size="58,36" Style="CityFocusButton" >
+			<GridButton	ID="ResearchFocusButton"	Anchor="L,T" Offset="0,0"	Size="116,72" Style="CityFocusButton" >
 				<Grid	ID="ResearchFocusSelected"	Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Science,255" Hidden="1" />
-				<Label	ID="ResearchPerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_RESEARCH] 0" Color0="Science,255" Color1="Science,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow"/>
+				<Label	ID="ResearchPerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_RESEARCH] 0" Color0="Science,255" Color1="Science,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow"/>
 			</GridButton>
-      <GridButton	ID="HealthFocusButton"	Anchor="L,T" Offset="0,0"	Size="58,36" Style="CityFocusButton" >
+      <GridButton	ID="HealthFocusButton"	Anchor="L,T" Offset="0,0"	Size="116,72" Style="CityFocusButton" >
         <Grid	ID="HealthFocusSelected"	Anchor="L,T" Offset="0,0"	Size="parent,parent" Style="CityFocusHighlight" Color="Health,255" Hidden="1" />
-        <Label	ID="HealthPerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_HEALTH_1] 0" Color0="Health,255" Color1="Health,150" WrapWidth="65" LeadingOffset="-4" Style="FontNormal20" FontStyle="Glow"/>
+        <Label	ID="HealthPerTurnLabel"	Anchor="C,C" Align="center" String="[ICON_HEALTH_1] 0" Color0="Health,255" Color1="Health,150" WrapWidth="130" LeadingOffset="-8" Style="FontNormal20" FontStyle="Glow"/>
       </GridButton>
 		</Stack>		
 
 		<!-- Unemployed Citizens -->
-		<Grid		ID="UnemployedCitizens"						 Offset="0,95" Size="365,94"  NoStateChange="1" Texture="assets/UI/Art/Controls/9 grids/UnemploymentCitizensGrid.dds" SliceCorner="4,10" SliceSize="1,1" SliceTextureSize="8,94" >
-			<Image												 Offset="5,-3"	Texture="assets/UI/Art/City/UnemployedIndicator.dds" />
-			<Label	ID="NumUnemployedCitizens"		Anchor="L,T" Offset="50,4" String="0"							Color0="215,25,0,255"	Color1="215,25,0,50" Style="FontNormal24" FontStyle="Glow"/>
-			<Label	ID="UnemployedCitizensLabel"	Anchor="L,T" Offset="78,8" String=""	Color0="215,25,0,255"	Color1="215,25,0,50" Style="FontNormal18" FontStyle="Glow"/>
+		<Grid		ID="UnemployedCitizens"						 Offset="0,190" Size="730,188"  NoStateChange="1" Texture="assets/UI/Art/Controls/9 grids/UnemploymentCitizensGrid.dds" SliceCorner="8,20" SliceSize="2,2" SliceTextureSize="16,188" >
+			<Image												 Offset="10,-6"	Texture="assets/UI/Art/City/UnemployedIndicator.dds" />
+			<Label	ID="NumUnemployedCitizens"		Anchor="L,T" Offset="100,8" String="0"							Color0="215,25,0,255"	Color1="215,25,0,50" Style="FontNormal24" FontStyle="Glow"/>
+			<Label	ID="UnemployedCitizensLabel"	Anchor="L,T" Offset="156,16" String=""	Color0="215,25,0,255"	Color1="215,25,0,50" Style="FontNormal18" FontStyle="Glow"/>
 		</Grid>		
 
 	</Grid>
@@ -176,76 +176,76 @@
 	
 	
 	<!-- Production Top -->
-	<Grid			ID="ProductionArea"			Anchor="R,T" Offset="0,103"		Size="370,66"		Style="CitySectionBackingGrid" ConsumeMouseButton="1">
-		<Grid												 Offset="5,0"		Size="parent-5,28"	Style="CitySectionHeaderGrid" Color="255,255,255,255" >
-			<Label								Anchor="R,C" Offset="6,1"							Style="CitySectionText" String="TXT_KEY_CITYVIEW_PRODUCTION_MANAGEMENT" />
+	<Grid			ID="ProductionArea"			Anchor="R,T" Offset="0,206"		Size="740,132"		Style="CitySectionBackingGrid" ConsumeMouseButton="1">
+		<Grid												 Offset="10,0"		Size="parent-10,56"	Style="CitySectionHeaderGrid" Color="255,255,255,255" >
+			<Label								Anchor="R,C" Offset="12,2"							Style="CitySectionText" String="TXT_KEY_CITYVIEW_PRODUCTION_MANAGEMENT" />
 		</Grid>
 			
-		<GridButton ID="ProductionButton"		Anchor="L,T" Offset="4,28"		Size="183,38" Style="SmallButton" ToolTip="TXT_KEY_CITYVIEW_CHANGE_PROD_TT">
-			<Label	ID="ProductionButtonLabel"	Anchor="C,C" Offset="0,0"		Style="CityProductionButtonText" WrapWidth="150" String="TXT_KEY_CITYVIEW_QUEUE_PROD" />
+		<GridButton ID="ProductionButton"		Anchor="L,T" Offset="8,56"		Size="366,76" Style="SmallButton" ToolTip="TXT_KEY_CITYVIEW_CHANGE_PROD_TT">
+			<Label	ID="ProductionButtonLabel"	Anchor="C,C" Offset="0,0"		Style="CityProductionButtonText" WrapWidth="300" String="TXT_KEY_CITYVIEW_QUEUE_PROD" />
 		</GridButton>
 		
-		<GridButton ID="PurchaseButton"			Anchor="R,T" Offset="0,28"		Size="183,38"  Style="SmallButton" ToolTip="TXT_KEY_CITYVIEW_PURCHASE_TT">			
-			<Label								Anchor="C,C" Offset="0,0"		Style="CityProductionButtonText" WrapWidth="150" String="TXT_KEY_CITYVIEW_PURCHASE_BUTTON" />
+		<GridButton ID="PurchaseButton"			Anchor="R,T" Offset="0,56"		Size="366,76"  Style="SmallButton" ToolTip="TXT_KEY_CITYVIEW_PURCHASE_TT">			
+			<Label								Anchor="C,C" Offset="0,0"		Style="CityProductionButtonText" WrapWidth="300" String="TXT_KEY_CITYVIEW_PURCHASE_BUTTON" />
 		</GridButton>
 	</Grid>
 	
 	<!-- Production Select and Queue -->
-	<Stack			ID="ProductionQueue"	Anchor="R,B" Offset="0,31" StackGrowth="Bottom" Padding="0">		
-		<Grid		ID="b1box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b1image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b1name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" TruncateWidth="190" String="name"	/>
-			<Label	ID="b1turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Label					Offset="40,8"	Anchor="L,T"	Style="ProductionQueueText" String="TXT_KEY_NEXT_TO_BE_PRODUCED"	/>
-			<Button ID="b1up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b1down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+	<Stack			ID="ProductionQueue"	Anchor="R,B" Offset="0,62" StackGrowth="Bottom" Padding="0">		
+		<Grid		ID="b1box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b1image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b1name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" TruncateWidth="380" String="name"	/>
+			<Label	ID="b1turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Label					Offset="80,16"	Anchor="L,T"	Style="ProductionQueueText" String="TXT_KEY_NEXT_TO_BE_PRODUCED"	/>
+			<Button ID="b1up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b1down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b1remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
-		<Grid		ID="b2box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b2image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b2name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
-			<Label	ID="b2turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Button ID="b2up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b2down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+		<Grid		ID="b2box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b2image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b2name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
+			<Label	ID="b2turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Button ID="b2up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b2down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b2remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
-		<Grid		ID="b3box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b3image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b3name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
-			<Label	ID="b3turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Button ID="b3up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b3down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+		<Grid		ID="b3box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b3image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b3name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
+			<Label	ID="b3turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Button ID="b3up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b3down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b3remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
-		<Grid		ID="b4box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b4image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b4name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
-			<Label	ID="b4turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Button ID="b4up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b4down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+		<Grid		ID="b4box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b4image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b4name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
+			<Label	ID="b4turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Button ID="b4up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b4down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b4remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
-		<Grid		ID="b5box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b5image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b5name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
-			<Label	ID="b5turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Button ID="b5up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b5down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+		<Grid		ID="b5box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b5image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b5name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
+			<Label	ID="b5turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Button ID="b5up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b5down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b5remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
-		<Grid		ID="b6box"		Offset="0,0"	Anchor="L,T"	Size="360,42" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
-			<Image	ID="b6image"	Offset="1,1"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
-			<Label	ID="b6name"		Offset="75,7"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
-			<Label	ID="b6turns"	Offset="75,22"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
-			<Button ID="b6up"		Offset="40,-4"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
-			<Button ID="b6down"		Offset="40,-9"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
+		<Grid		ID="b6box"		Offset="0,0"	Anchor="L,T"	Size="720,84" Style="ProductionQueueItemGrid"	ToolTip="Production Information" >
+			<Image	ID="b6image"	Offset="2,2"	Anchor="R,C"	Style="ProductionQueueItemIcon" />
+			<Label	ID="b6name"		Offset="150,14"	Anchor="R,T"	Style="ProductionQueueText" String="name"	/>
+			<Label	ID="b6turns"	Offset="150,44"	Anchor="R,T"	Style="ProductionQueueText" String="turns"	/>				
+			<Button ID="b6up"		Offset="80,-8"	Anchor="R,T" 	Style="SelectedUp32"							ToolTip="TXT_KEY_CITYVIEW_Q_UP_TEXT" />
+			<Button ID="b6down"		Offset="80,-18"	Anchor="R,B" 	Style="SelectedDown32"							ToolTip="TXT_KEY_CITYVIEW_Q_DOWN_TEXT" />			
 			<Button ID="b6remove"	Offset="0,0"	Anchor="L,T"	Style="ProductionQueueRemove"					ToolTip="TXT_KEY_CITYVIEW_Q_X_TEXT"/>
 		</Grid>
 	</Stack>
 
 	<!-- RETURN TO MAP / Close BUTTON -->
-	<GridButton		ID="ReturnToMapButton"	Anchor="C,B" Size="210,30" Offset="0,70" Style="ReturnButton" ToolTip="TXT_KEY_CITYVIEW_RETURN_TT">
-		<Label		Anchor="C,C" Offset="-8,0" Style="FontNormal17" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_CITYVIEW_RETURN_TO_MAP:upper}" />
+	<GridButton		ID="ReturnToMapButton"	Anchor="C,B" Size="420,60" Offset="0,140" Style="ReturnButton" ToolTip="TXT_KEY_CITYVIEW_RETURN_TT">
+		<Label		Anchor="C,C" Offset="-16,0" Style="FontNormal17" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_CITYVIEW_RETURN_TO_MAP:upper}" />
 	</GridButton>
 	
 	<!-- Buy Plot Button  -->
@@ -256,35 +256,35 @@
 	-->
 	
 	<!-- RAZE CITY BUTTON -->
-	<GridButton Anchor="C,B" Size="210,30" Offset="0,120" ID="RazeCityButton" Style="BaseButton" ToolTip="TXT_KEY_CITYVIEW_RAZE_BUTTON_TT" Hidden="1" ConsumeMouseButton="1">
-		<Label Anchor="C,C" Offset="0,-2" String="TXT_KEY_CITYVIEW_RAZE_BUTTON_TEXT" Color0="182,203,228,255" Color1="182,203,228,128" Color2="255,255,200,255" Style="FontNormal20" FontStyle="Glow"/>
+	<GridButton Anchor="C,B" Size="420,60" Offset="0,240" ID="RazeCityButton" Style="BaseButton" ToolTip="TXT_KEY_CITYVIEW_RAZE_BUTTON_TT" Hidden="1" ConsumeMouseButton="1">
+		<Label Anchor="C,C" Offset="0,-4" String="TXT_KEY_CITYVIEW_RAZE_BUTTON_TEXT" Color0="182,203,228,255" Color1="182,203,228,128" Color2="255,255,200,255" Style="FontNormal20" FontStyle="Glow"/>
 	</GridButton>
 	
 	<!-- STOP RAZING CITY BUTTON -->
-	<GridButton Anchor="C,B" Size="210,30" Offset="0,120" ID="UnrazeCityButton" Style="BaseButton" ToolTip="TXT_KEY_CITYVIEW_UNRAZE_BUTTON_TT" Hidden="1" ConsumeMouseButton="1">
-		<Label Anchor="C,C" Offset="0,-2" String="TXT_KEY_CITYVIEW_UNRAZE_BUTTON_TEXT" Color0="182,203,228,255" Color1="182,203,228,128" Color2="255,255,200,255" Style="FontNormal20" FontStyle="Glow"/>
+	<GridButton Anchor="C,B" Size="420,60" Offset="0,240" ID="UnrazeCityButton" Style="BaseButton" ToolTip="TXT_KEY_CITYVIEW_UNRAZE_BUTTON_TT" Hidden="1" ConsumeMouseButton="1">
+		<Label Anchor="C,C" Offset="0,-4" String="TXT_KEY_CITYVIEW_UNRAZE_BUTTON_TEXT" Color0="182,203,228,255" Color1="182,203,228,128" Color2="255,255,200,255" Style="FontNormal20" FontStyle="Glow"/>
 	</GridButton>
 
 	<!-- Building List and Wonders -->
-	<Grid					ID="BuildingListBackground"			Anchor="L,B" Offset="0,30"	Size="360,321" Style="CityProductionListGrid"  >						
-		<Box													Anchor="L,T" Offset="7,5"	Size="346,parent-10" Color="0,0,0,255" />
-		<ScrollPanel		ID="ScrollPanel"					Anchor="L,T" Offset="7,5"	Size="parent-7,300" Vertical="1" >
-			<ScrollBar		ID="ScrollBar"						Anchor="R,C" Offset="0,0"	AnchorSide="O,I" Style="VertSlider" Length="200" />		
-			<Stack			ID="BuildingStack"					Anchor="L,T" StackGrowth="B" Padding="1" >				
-				<GridButton	ID="ImprovementProjectsHeader"			Anchor="L,C" Offset="0,0"	Size="346,27"	Style="CityCategoryBackground" >
-					<Label	ID="ImprovementProjectsHeaderLabel"		Anchor="L,C" Offset="12,-2"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_IMPROVEMENT_PROJECTS"/>
+	<Grid					ID="BuildingListBackground"			Anchor="L,B" Offset="0,60"	Size="720,642" Style="CityProductionListGrid"  >						
+		<Box													Anchor="L,T" Offset="14,10"	Size="692,parent-20" Color="0,0,0,255" />
+		<ScrollPanel		ID="ScrollPanel"					Anchor="L,T" Offset="14,10"	Size="parent-14,600" Vertical="1" >
+			<ScrollBar		ID="ScrollBar"						Anchor="R,C" Offset="0,0"	AnchorSide="O,I" Style="VertSlider" Length="400" />		
+			<Stack			ID="BuildingStack"					Anchor="L,T" StackGrowth="B" Padding="2" >				
+				<GridButton	ID="ImprovementProjectsHeader"			Anchor="L,C" Offset="0,0"	Size="692,54"	Style="CityCategoryBackground" >
+					<Label	ID="ImprovementProjectsHeaderLabel"		Anchor="L,C" Offset="24,-4"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_IMPROVEMENT_PROJECTS"/>
 					<Label	ID="ImprovementProjectsHeaderCollapse"	Anchor="R,C" Offset="0,0"					Style="CityListHeaderText" String="[ICON_PLUS]" />
 				</GridButton>				
-				<GridButton	ID="BuildingsHeader"				Anchor="L,C" Offset="0,0"	Size="346,27"	Style="CityCategoryBackground">
-					<Label	ID="BuildingsHeaderLabel"			Anchor="L,C" Offset="12,-2"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_REGULARBUILDING_TEXT" />
+				<GridButton	ID="BuildingsHeader"				Anchor="L,C" Offset="0,0"	Size="692,54"	Style="CityCategoryBackground">
+					<Label	ID="BuildingsHeaderLabel"			Anchor="L,C" Offset="24,-4"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_REGULARBUILDING_TEXT" />
 					<Label	ID="BuildingHeaderCollapse"			Anchor="R,C" Offset="0,0"					Style="CityListHeaderText" String="[ICON_PLUS]" />
 				</GridButton>
-				<GridButton	ID="SpecialBuildingsHeader"			Anchor="L,C" Offset="0,0"	Size="346,27"	Style="CityCategoryBackground" >
-					<Label	ID="SpecialBuildingsHeaderLabel"	Anchor="L,C" Offset="12,-2"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_SPECIALISTSBUILDING_TEXT" />
+				<GridButton	ID="SpecialBuildingsHeader"			Anchor="L,C" Offset="0,0"	Size="692,54"	Style="CityCategoryBackground" >
+					<Label	ID="SpecialBuildingsHeaderLabel"	Anchor="L,C" Offset="24,-4"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_SPECIALISTSBUILDING_TEXT" />
 					<Label	ID="SpecialBuildingsHeaderCollapse"	Anchor="R,C" Offset="0,0"					Style="CityListHeaderText" String="[ICON_PLUS]" />
 				</GridButton>		
-				<GridButton	ID="WondersHeader"					Anchor="L,C" Offset="0,0"	Size="346,27"	Style="CityCategoryBackground" >
-					<Label	ID="WondersHeaderLabel"				Anchor="L,C" Offset="12,-2"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_WONDERS_TEXT"/>
+				<GridButton	ID="WondersHeader"					Anchor="L,C" Offset="0,0"	Size="692,54"	Style="CityCategoryBackground" >
+					<Label	ID="WondersHeaderLabel"				Anchor="L,C" Offset="24,-4"					Style="CityListHeaderText" String="TXT_KEY_CITYVIEW_WONDERS_TEXT"/>
 					<Label	ID="WondersHeaderCollapse"			Anchor="R,C" Offset="0,0"					Style="CityListHeaderText" String="[ICON_PLUS]" />
 				</GridButton>
 			</Stack>
@@ -292,22 +292,22 @@
 	</Grid>
 
 	<!-- Bottom Panel Bar -->
-	<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\BottomPanelBar.dds" Size="Full,32" ConsumeMouse="1">
-		<Label Anchor="L,B" Offset="8,4" Style="CitySectionText" String="TXT_KEY_CITYVIEW_BUILDINGS_AND_WONDERS" />
-		<Label Anchor="R,B" Offset="8,4" Style="CitySectionText" String="TXT_KEY_CITYVIEW_PRODUCTION_QUEUE" />
+	<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\BottomPanelBar.dds" Size="Full,64" ConsumeMouse="1">
+		<Label Anchor="L,B" Offset="16,8" Style="CitySectionText" String="TXT_KEY_CITYVIEW_BUILDINGS_AND_WONDERS" />
+		<Label Anchor="R,B" Offset="16,8" Style="CitySectionText" String="TXT_KEY_CITYVIEW_PRODUCTION_QUEUE" />
 	</Image>
 	<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\BottomPanelCenter.dds" ConsumeMouse="1">
 		<!--<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-150,-1"	Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip=""/> -->
-		<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-150,-1" Style="CityCheckbox"	ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="32,32"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_BUILDINGLIST_O_TT"/> 
+		<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-300,-2" Style="CityCheckbox"	ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="64,64"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_BUILDINGLIST_O_TT"/> 
 		
-		<CheckBox ID="ShowQueueProductionButton"	Anchor="C,B"	Offset="160,-1"		Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_ACTIVATE:upper}"	TextAnchor="R,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_QUEUE_O_TT" BoxOnLeft="1"  />
+		<CheckBox ID="ShowQueueProductionButton"	Anchor="C,B"	Offset="320,-2"		Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_ACTIVATE:upper}"	TextAnchor="R,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_QUEUE_O_TT" BoxOnLeft="1"  />
 	</Image>
 	
 	<!-- Civ Icon  -->
-          <Box		ID="CivIconFrame"	Size="64,64"	Anchor="C,B" Offset="1,2" Color="0,0,0,100">
-            <Image	ID="CivIconBG"		Size="64,64"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
-            <Image	ID="CivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
-            <Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+          <Box		ID="CivIconFrame"	Size="128,128"	Anchor="C,B" Offset="2,4" Color="0,0,0,100">
+            <Image	ID="CivIconBG"		Size="128,128"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+            <Image	ID="CivIcon"		Size="96,96"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+            <Image	ID="CivIconHighlight"		Size="128,128"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
           </Box>
 
 	</Container>
@@ -317,16 +317,16 @@
 	
 	<!-- Sell Building Confirmation Popup -->
 	<Box Color="Black.100" Size="Full.Full" ID="SellBuildingConfirm" Hidden="1" ConsumeMouseOver="1">
-		<Grid Size="500,310" Anchor="C,C" Offset="0,0" Padding="0,0" Style="CityConfirmDialogGrid" Hidden="0">
+		<Grid Size="1000,620" Anchor="C,C" Offset="0,0" Padding="0,0" Style="CityConfirmDialogGrid" Hidden="0">
 			
-			<Label ID="SellBuildingPopupText" Anchor="C,T" Offset="0,34" WrapWidth="440" String="T" Style="CityConfirmDialogLabel"/>
-			<Stack Anchor="C,B" Offset="0,45" Padding="17" StackGrowth="Bottom" ID="ButtonStack">
+			<Label ID="SellBuildingPopupText" Anchor="C,T" Offset="0,68" WrapWidth="880" String="T" Style="CityConfirmDialogLabel"/>
+			<Stack Anchor="C,B" Offset="0,90" Padding="34" StackGrowth="Bottom" ID="ButtonStack">
 				<!-- Yes Button  -->
-				<GridButton Style="BaseButton" ID="YesButton" Size="300,42" Anchor="C,T" Offset="0,0" Hidden="0">
+				<GridButton Style="BaseButton" ID="YesButton" Size="600,84" Anchor="C,T" Offset="0,0" Hidden="0">
 					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" Color0="170,180,190,255" Color1="0,0,0,150" FontStyle="Shadow" Style="CityConfirmDialogLabel"/>
 				</GridButton>
 				<!-- No Button  -->
-				<GridButton Style="BaseButton" ID="NoButton" Size="300,42" Anchor="C,T" Offset="0,0" Hidden="0">
+				<GridButton Style="BaseButton" ID="NoButton" Size="600,84" Anchor="C,T" Offset="0,0" Hidden="0">
 					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" Color0="170,180,190,255" Color1="0,0,0,150" FontStyle="Shadow" Style="CityConfirmDialogLabel"/>
 				</GridButton>
 			</Stack>
@@ -338,15 +338,15 @@
 
 	<!-- Buildings & Wonders -->
 	<Instance Name="BuildingInstance">
-		<Button					ID="BuildingButton"	Anchor="L,T" Offset="0,0"		Size="346,110"			Color="255,255,255,0" NoStateChange="1"  ToolTip="Placeholder Tooltip">
+		<Button					ID="BuildingButton"	Anchor="L,T" Offset="0,0"		Size="692,220"			Color="255,255,255,0" NoStateChange="1"  ToolTip="Placeholder Tooltip">
 			<Box									Anchor="L,T" Offset="0,0"		Size="parent,parent"	Color="28,32,42,255" />      
-			<Image				ID="BuildingImage"	Anchor="L,C" Offset="-6,4"		Size="128,128"			Color="CityView_Icons" Texture="WonderAtlas1024.dds"/>			
-			<Container								Anchor="R,T"					Size="230,70">
-				<Stack			ID="ContentStack"	Anchor="L,T" Offset="0,0"								StackGrowth="Down" StackPadding="8">
-					<Container  ID="_GuaranteeRightAlign" Size="230,1"	/>
-					<Label		ID="BuildingName"	Anchor="L,T" Offset="0,8"								Style="CityText"	WrapWidth="230" />
-					<Label		ID="BuildingStats"	Anchor="L,T" Offset="0,0"	Style="FontNormal18"	LeadingOffset="5" WrapWidth="230" String="" />
-					<Stack		ID="SlotsStack"		Anchor="R,B" Offset="5,0"		StackGrowth="Left" WrapGrowth="Up" WrapWidth="230" Padding="-8" />
+			<Image				ID="BuildingImage"	Anchor="L,C" Offset="-12,8"		Size="256,256"			Color="CityView_Icons" Texture="WonderAtlas1024.dds"/>			
+			<Container								Anchor="R,T"					Size="460,140">
+				<Stack			ID="ContentStack"	Anchor="L,T" Offset="0,0"								StackGrowth="Down" StackPadding="16">
+					<Container  ID="_GuaranteeRightAlign" Size="460,2"	/>
+					<Label		ID="BuildingName"	Anchor="L,T" Offset="0,16"								Style="CityText"	WrapWidth="460" />
+					<Label		ID="BuildingStats"	Anchor="L,T" Offset="0,0"	Style="FontNormal18"	LeadingOffset="10" WrapWidth="460" String="" />
+					<Stack		ID="SlotsStack"		Anchor="R,B" Offset="10,0"		StackGrowth="Left" WrapGrowth="Up" WrapWidth="460" Padding="-16" />
 				</Stack>
 			</Container>
 		</Button>
@@ -354,7 +354,7 @@
 	
 	<!-- No buildings (or wonders) in the city -->
 	<Instance Name="NoBuildingInstance">
-		<Box					ID="NothingBox"		Anchor="L,T"	Size="346,40"	Color="0,0,0,240">
+		<Box					ID="NothingBox"		Anchor="L,T"	Size="692,80"	Color="0,0,0,240">
 			<Label				ID="NoneLabel"		Anchor="C,C"	Style="CityText"	Style2="FontNormal26"	String="TXT_KEY_CITYVIEW_FOCUS_NONE_TEXT" />
 		</Box>
 	</Instance>
@@ -362,31 +362,31 @@
 	<!-- World citizen tile buttons -->
 	<Instance Name="PlotButtonInstance">
 		<WorldAnchor	ID="PlotButtonAnchor">
-			<Image		ID="PlotBacking"		Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/City/CitizenIconBackings.dds" />
-			<Button		ID="PlotButtonImage"	NoStateChange="1" Size="45,45" Anchor="C,C" Offset="1,-4" Texture="Assets/UI/Art/Icons/CitizenIcons180.dds" />
+			<Image		ID="PlotBacking"		Size="128,128" Anchor="C,C" Texture="Assets/UI/Art/City/CitizenIconBackings.dds" />
+			<Button		ID="PlotButtonImage"	NoStateChange="1" Size="90,90" Anchor="C,C" Offset="2,-8" Texture="Assets/UI/Art/Icons/CitizenIcons180.dds" />
 		</WorldAnchor>
 	</Instance>
 	
 	<!-- Building Specialists -->
 	<Instance Name="BuildingSpecialistsInstance">
-		<Container		ID="Top"			Size="64,64" ConsumeMouseButton="1">
-			<Button		ID="Backing"		Size="64,64" Anchor="C,C" Offset="0,8" Texture="Assets/UI/Art/City/CitizenIconBackings.dds" NoStateChange="1"/>
-			<Image		ID="Icon"			Size="45,45" Anchor="C,C" Offset="0,2" NoStateChange="1" Texture="Assets/UI/Art/Icons/CitizenIcons180.dds" Hidden="1" />
+		<Container		ID="Top"			Size="128,128" ConsumeMouseButton="1">
+			<Button		ID="Backing"		Size="128,128" Anchor="C,C" Offset="0,16" Texture="Assets/UI/Art/City/CitizenIconBackings.dds" NoStateChange="1"/>
+			<Image		ID="Icon"			Size="90,90" Anchor="C,C" Offset="0,4" NoStateChange="1" Texture="Assets/UI/Art/Icons/CitizenIcons180.dds" Hidden="1" />
 		</Container>
 	</Instance>
 	
 	<!-- Buy Plot Button to show up on tile -->
 	<Instance					Name="BuyPlotButtonInstance">
 		<WorldAnchor			ID="BuyPlotButtonAnchor">
-			<Box											Anchor="C,C"	Size="56,56"			Color="255,255,255,0" ConsumeMouseButton="1">
-				<GridButton		ID="BuyPlotAnchoredButton"	Anchor="C,B"	Size="105,48"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds"  NoStateChange="1"	SliceStart="0,0" SliceCorner="20,2" SliceSize="8,1" SliceTextureSize="64,48">
+			<Box											Anchor="C,C"	Size="112,112"			Color="255,255,255,0" ConsumeMouseButton="1">
+				<GridButton		ID="BuyPlotAnchoredButton"	Anchor="C,B"	Size="210,96"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds"  NoStateChange="1"	SliceStart="0,0" SliceCorner="40,4" SliceSize="16,2" SliceTextureSize="128,96">
 					<AlphaAnim ShowOnMouseOver="1"			Anchor="L,T"	Size="parent,parent"	Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd="0.7">
-						<Grid	ID="GridOver"				Anchor="C,B"	Size="105,48"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds" SliceStart="0,48" SliceCorner="20,2" SliceSize="8,1" SliceTextureSize="64,48" />
+						<Grid	ID="GridOver"				Anchor="C,B"	Size="210,96"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds" SliceStart="0,96" SliceCorner="40,4" SliceSize="16,2" SliceTextureSize="128,96" />
 					</AlphaAnim>
 					<AlphaAnim ShowOnMouseOut="1"			Anchor="L,T"	Size="parent,parent"	Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
-						<Grid	ID="GridOut"				Anchor="C,B"	Size="105,48"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds" SliceStart="0,48" SliceCorner="20,2" SliceSize="8,1" SliceTextureSize="64,48" />
+						<Grid	ID="GridOut"				Anchor="C,B"	Size="210,96"			Texture="Assets/UI/Art/City/PurchasePlotBacking.dds" SliceStart="0,96" SliceCorner="40,4" SliceSize="16,2" SliceTextureSize="128,96" />
 					</AlphaAnim>   					
-					<Label ID="BuyPlotAnchoredButtonLabel"	Anchor="C,B" Offset="-13,21" String="0000" Color0="Energy,255" Color1="0,0,0,128" Style="FontNormal20" FontStyle="Shadow" />
+					<Label ID="BuyPlotAnchoredButtonLabel"	Anchor="C,B" Offset="-26,42" String="0000" Color0="Energy,255" Color1="0,0,0,128" Style="FontNormal20" FontStyle="Shadow" />
 				</GridButton>				
 			</Box>
 		</WorldAnchor>

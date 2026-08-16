@@ -4,13 +4,13 @@
   <Box Style="BGBlock" />
 
   <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
-    <Grid ID="Content" Size="600,300" Anchor="C,C" Offset="0,0"  Style="GridWindowWithHeader">
+    <Grid ID="Content" Size="1200,600" Anchor="C,C" Offset="0,0"  Style="GridWindowWithHeader">
       <!-- Image -->
-      <Image ID="Banner" Size="585,125" Anchor="C,T" Offset="0,48"/>
+      <Image ID="Banner" Size="1170,250" Anchor="C,T" Offset="0,96"/>
 
-      <Label Offset="0,17" Anchor="C,U" Style="MenuTitleCaption" ID="TitleLabel" String="Title"/>
-      <Label ID="DetailsLabel" Anchor="C,T" Offset="0,190" WrapWidth="560" Style="GrayGlow20" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
-      <GridButton ID="CloseButton" Size="220,35" Anchor="C,B" Style="BaseButton" Offset="0,20" String="TXT_KEY_OK_BUTTON"/>
+      <Label Offset="0,34" Anchor="C,U" Style="MenuTitleCaption" ID="TitleLabel" String="Title"/>
+      <Label ID="DetailsLabel" Anchor="C,T" Offset="0,380" WrapWidth="1120" Style="GrayGlow20" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+      <GridButton ID="CloseButton" Size="440,70" Anchor="C,B" Style="BaseButton" Offset="0,40" String="TXT_KEY_OK_BUTTON"/>
     </Grid>
   </AlphaAnim>
 </Context>

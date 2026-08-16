@@ -9,6 +9,6 @@
     <LuaContext FileName="Assets/UI/FrontEnd/ContentSwitch" ID="ContentSwitch" Hidden="1" />
   </Box>
 
-  <Image Linear="1" Anchor="C,B" Offset="0,0"  Size="1900,1200" StretchMode="None" ID="AtlasLogo" Hidden="1"/>
+  <Image Linear="1" Anchor="C,B" Offset="0,0"  Size="3800,2400" StretchMode="None" ID="AtlasLogo" Hidden="1"/>
 
 </Context>

@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context >
   <!-- PRODUCTION SELECTION -->
-  <Grid					ID="Backdrop"				Anchor="R,T" Offset="0,169" Size="370,400" Style="CityProductionListGrid" ConsumeMouse="1">
-    <ScrollPanel		ID="ScrollPanel"			Anchor="L,T" Offset="6,45"	Size="340,400" Vertical="1" >
-      <ScrollBar		ID="ScrollBar"				Anchor="R,T" Offset="7,-6"	Style="VertSlider" AnchorSide="O,I" Length="300" />
-      <Stack			ID="StackOStacks"			Anchor="L,T"				Size="345,32" StackGrowth="B" Padding="0" >
-        <GridButton	ID="UnitButton"				Anchor="L,T" Offset="1,0"	Size="345,27" Style="ProductionCategoryBackground">
-          <Label	ID="UnitButtonLabel"		Anchor="L,C" Offset="5,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_UNITS"/>
-          <Label	ID="UnitButtonPlus"			Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+  <Grid					ID="Backdrop"				Anchor="R,T" Offset="0,338" Size="740,800" Style="CityProductionListGrid" ConsumeMouse="1">
+    <ScrollPanel		ID="ScrollPanel"			Anchor="L,T" Offset="12,90"	Size="680,800" Vertical="1" >
+      <ScrollBar		ID="ScrollBar"				Anchor="R,T" Offset="14,-12"	Style="VertSlider" AnchorSide="O,I" Length="600" />
+      <Stack			ID="StackOStacks"			Anchor="L,T"				Size="690,64" StackGrowth="B" Padding="0" >
+        <GridButton	ID="UnitButton"				Anchor="L,T" Offset="2,0"	Size="690,54" Style="ProductionCategoryBackground">
+          <Label	ID="UnitButtonLabel"		Anchor="L,C" Offset="10,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_UNITS"/>
+          <Label	ID="UnitButtonPlus"			Anchor="R,C" Offset="4,0"	Style="ProductionListHeaderText" String="+"/>
         </GridButton>
-        <Stack		ID="UnitButtonStack"		Anchor="L,T" Size="345,32"	StackGrowth="B" Padding="0" />
-        <GridButton	ID="BuildingsButton"		Anchor="L,T" Size="345,27"	Offset="1,0" Style="ProductionCategoryBackground">
-          <Label	ID="BuildingsButtonLabel"	Anchor="L,C" Offset="5,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_BUILDINGS" />
-          <Label	ID="BuildingsButtonPlus"	Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+        <Stack		ID="UnitButtonStack"		Anchor="L,T" Size="690,64"	StackGrowth="B" Padding="0" />
+        <GridButton	ID="BuildingsButton"		Anchor="L,T" Size="690,54"	Offset="2,0" Style="ProductionCategoryBackground">
+          <Label	ID="BuildingsButtonLabel"	Anchor="L,C" Offset="10,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_BUILDINGS" />
+          <Label	ID="BuildingsButtonPlus"	Anchor="R,C" Offset="4,0"	Style="ProductionListHeaderText" String="+"/>
         </GridButton>
-        <Stack		ID="BuildingButtonStack"	Anchor="L,T" Size="345,32"	StackGrowth="B" Padding="0" />
-        <GridButton	ID="WondersButton"			Anchor="L,T" Size="345,27"	Offset="1,0" Style="ProductionCategoryBackground">
-          <Label	ID="WondersButtonLabel"		Anchor="L,C" Offset="5,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_WONDERS" />
-          <Label	ID="WondersButtonPlus"		Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+        <Stack		ID="BuildingButtonStack"	Anchor="L,T" Size="690,64"	StackGrowth="B" Padding="0" />
+        <GridButton	ID="WondersButton"			Anchor="L,T" Size="690,54"	Offset="2,0" Style="ProductionCategoryBackground">
+          <Label	ID="WondersButtonLabel"		Anchor="L,C" Offset="10,0"	Style="ProductionListHeaderText" String="TXT_KEY_POP_WONDERS" />
+          <Label	ID="WondersButtonPlus"		Anchor="R,C" Offset="4,0"	Style="ProductionListHeaderText" String="+"/>
         </GridButton>
-        <Stack		ID="WonderButtonStack"		Anchor="L,T" Size="345,32"	StackGrowth="B" Padding="0" />
-        <GridButton	ID="OtherButton"			Anchor="L,T" Size="345,27"	Offset="1,0" Style="ProductionCategoryBackground" >
-          <Label	ID="OtherButtonLabel"		Anchor="L,C" Offset="5,0"	Style="ProductionListHeaderText" String="TXT_KEY_CITYVIEW_DEVELOPMENTS" />
-          <Label	ID="OtherButtonPlus"		Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+        <Stack		ID="WonderButtonStack"		Anchor="L,T" Size="690,64"	StackGrowth="B" Padding="0" />
+        <GridButton	ID="OtherButton"			Anchor="L,T" Size="690,54"	Offset="2,0" Style="ProductionCategoryBackground" >
+          <Label	ID="OtherButtonLabel"		Anchor="L,C" Offset="10,0"	Style="ProductionListHeaderText" String="TXT_KEY_CITYVIEW_DEVELOPMENTS" />
+          <Label	ID="OtherButtonPlus"		Anchor="R,C" Offset="4,0"	Style="ProductionListHeaderText" String="+"/>
         </GridButton>
-        <Stack		ID="OtherButtonStack"		Anchor="L,T" Size="345,32" StackGrowth="B" Padding="0" />
+        <Stack		ID="OtherButtonStack"		Anchor="L,T" Size="690,64" StackGrowth="B" Padding="0" />
       </Stack>
     </ScrollPanel>
-		<Line				ID="FixScrollArea"			Anchor="R,T" Color="0,0,0,255" Width="2" Start="-15,38" End="-15,400" />
+		<Line				ID="FixScrollArea"			Anchor="R,T" Color="0,0,0,255" Width="4" Start="-30,76" End="-30,800" />
 
-    <Container ID="HeaderContainer" Anchor="R,T" Offset="0,38">
+    <Container ID="HeaderContainer" Anchor="R,T" Offset="0,76">
       <Stack ID="HeaderStack" Anchor="R,B" StackGrowth="Top">
-        <Grid ID="PurchaseSelectorTabs" Size="parent,45" Offset="0,-4" Style="ProductionCategoryBackground" ConsumeMouse="1">
-          <GridButton ID="PurchaseWithEnergyTab" Size="200,32" Style="TabInactive" ConsumeMouse="1" String="TXT_KEY_PURCHASE_WITH_ENERGY"/>
-          <GridButton ID="PurchaseWithCapitalTab" Size="200,32" Style="TabInactive" ConsumeMouse="1" String="TXT_KEY_PURCHASE_WITH_CAPITAL"/>
+        <Grid ID="PurchaseSelectorTabs" Size="parent,90" Offset="0,-8" Style="ProductionCategoryBackground" ConsumeMouse="1">
+          <GridButton ID="PurchaseWithEnergyTab" Size="400,64" Style="TabInactive" ConsumeMouse="1" String="TXT_KEY_PURCHASE_WITH_ENERGY"/>
+          <GridButton ID="PurchaseWithCapitalTab" Size="400,64" Style="TabInactive" ConsumeMouse="1" String="TXT_KEY_PURCHASE_WITH_CAPITAL"/>
         </Grid>
-        <Grid ID="MoveCityGrid" Size="parent,48" Offset="0,-4" Style="ProductionCategoryBackground" ConsumeMouse="1">
-          <GridButton ID="MoveCityButton" Size="parent,48" Style="MoveCityButton">
-            <Image		ID="MoveCityIcon"	Anchor="L,C"	Offset="5,0"	Size="36,36" Texture="assets\UI\Art\Icons\MoveCity36.dds" Color="CityView_Icons" />
-            <Label		ID="MoveCityLabel" Anchor="L,C" Offset="56,0"	AnchorSide="I,I" Style="ProductionListText" TruncateWidth="180" String="{TXT_KEY_PROJECT_MOVE_CITY:upper}"/>
-            <Label		ID="MoveCityNumTurns" Anchor="R,C"	Offset="4,0"	AnchorSide="I,I"	Style="ProductionListText" String="10 Turns"/>
+        <Grid ID="MoveCityGrid" Size="parent,96" Offset="0,-8" Style="ProductionCategoryBackground" ConsumeMouse="1">
+          <GridButton ID="MoveCityButton" Size="parent,96" Style="MoveCityButton">
+            <Image		ID="MoveCityIcon"	Anchor="L,C"	Offset="10,0"	Size="72,72" Texture="assets\UI\Art\Icons\MoveCity36.dds" Color="CityView_Icons" />
+            <Label		ID="MoveCityLabel" Anchor="L,C" Offset="112,0"	AnchorSide="I,I" Style="ProductionListText" TruncateWidth="360" String="{TXT_KEY_PROJECT_MOVE_CITY:upper}"/>
+            <Label		ID="MoveCityNumTurns" Anchor="R,C"	Offset="8,0"	AnchorSide="I,I"	Style="ProductionListText" String="10 Turns"/>
           </GridButton>
         </Grid>      
-        <Grid	Size="parent,40"	Style="ProductionCategoryBackground" ConsumeMouse="1">        
+        <Grid	Size="parent,80"	Style="ProductionCategoryBackground" ConsumeMouse="1">        
           <Button Anchor="R,T" Offset="0,0" Style="CloseButton" ID="CancelButton"/>
-          <Label ID="HeaderLabel" Anchor="L,T" Size="parent-40,parent" Offset="12,10"	AnchorSide="I,I" Style="ProductionListHeaderText" String="{TXT_KEY_CHOOSE_PRODUCTION:upper}"/>
+          <Label ID="HeaderLabel" Anchor="L,T" Size="parent-80,parent" Offset="24,20"	AnchorSide="I,I" Style="ProductionListHeaderText" String="{TXT_KEY_CHOOSE_PRODUCTION:upper}"/>
         </Grid>
       </Stack>
     </Container>
     
-		<Grid				ID="CurrentProductionPanel"	Anchor="L,B"	Offset="0,4"	Size="parent,55"	Style="ProductionListFooterGrid">				
-			<Image			ID="ProductionImage"		Anchor="L,C"	Offset="8,4"	Size="45,45"		Texture="assets\UI\Art\Icons\WonderAtlas360.dds" Color="CityView_Icons" />
-			<Label			ID="ProductionItemName"		Anchor="L,T" 	Offset="56,14"	AnchorSide="I,I"	Style="ProductionListText" TruncateWidth="195" />
-			<Label			ID="ProductionUnitStats"	Anchor="L,T"	Offset="56,36"	AnchorSide="I,I"	Style="ProductionListText" String="" />
-			<Label			ID="ProductionNumTurns"		Anchor="R,T"	Offset="8,14"	AnchorSide="I,I"	Style="ProductionListText" Align="Right" LeadingOffset="4" />
+		<Grid				ID="CurrentProductionPanel"	Anchor="L,B"	Offset="0,8"	Size="parent,110"	Style="ProductionListFooterGrid">				
+			<Image			ID="ProductionImage"		Anchor="L,C"	Offset="16,8"	Size="90,90"		Texture="assets\UI\Art\Icons\WonderAtlas360.dds" Color="CityView_Icons" />
+			<Label			ID="ProductionItemName"		Anchor="L,T" 	Offset="112,28"	AnchorSide="I,I"	Style="ProductionListText" TruncateWidth="390" />
+			<Label			ID="ProductionUnitStats"	Anchor="L,T"	Offset="112,72"	AnchorSide="I,I"	Style="ProductionListText" String="" />
+			<Label			ID="ProductionNumTurns"		Anchor="R,T"	Offset="16,28"	AnchorSide="I,I"	Style="ProductionListText" Align="Right" LeadingOffset="8" />
 		</Grid>
 		
 	</Grid>
@@ -63,49 +63,49 @@
   <!-- Plot Select Button to show up on tile -->
   <Instance				Name="PlotSelectButtonInstance">
     <WorldAnchor		ID="PlotSelectButtonAnchor" ConsumeMouseOver="1">
-      <Button			ID="PlotSelectAnchoredButton"	Anchor="C,C" Size="64,64" Offset="0,-14" Style="Button64" ConsumeMouseOver="1">
-        <AlphaAnim				ShowOnMouseOver="1" Anchor="C,T" Size="64,64" Pause="0" Cycle="Once" Speed="8" AlphaStart="0" AlphaEnd="1" >
-          <Image	ID="WonderIcon"					Anchor="C,T" Size="64,64" Offset="0,2" />
+      <Button			ID="PlotSelectAnchoredButton"	Anchor="C,C" Size="128,128" Offset="0,-28" Style="Button64" ConsumeMouseOver="1">
+        <AlphaAnim				ShowOnMouseOver="1" Anchor="C,T" Size="128,128" Pause="0" Cycle="Once" Speed="8" AlphaStart="0" AlphaEnd="1" >
+          <Image	ID="WonderIcon"					Anchor="C,T" Size="128,128" Offset="0,4" />
         </AlphaAnim>
       </Button>
     </WorldAnchor>
   </Instance>
 
   <Instance Name="ProdButton">
-    <Container			ID="Top"									Offset="0,-1"	Size="348,42" >
+    <Container			ID="Top"									Offset="0,-2"	Size="696,84" >
       <GridButton		ID="Button"													Size="parent,parent" Anchor="L,C" Style="CityProductionUnitsGrid">
-        <AlphaAnim	ShowOnMouseOver="1"			Anchor="C,C"	Offset="10,0"	Size="340,45" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
-          <Grid												Offset="0,0"	Size="340,45" Style="Grid9FrameTurnsHL"/>
+        <AlphaAnim	ShowOnMouseOver="1"			Anchor="C,C"	Offset="20,0"	Size="680,90" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+          <Grid												Offset="0,0"	Size="680,90" Style="Grid9FrameTurnsHL"/>
         </AlphaAnim>
-        <Image		ID="ProductionButtonImage"	Anchor="L,C"	Offset="0,0"	Size="45,45"		Texture="assets\UI\Art\Icons\WonderAtlas360.dds" Color="CityView_Icons" />
-        <Label		ID="UnitName"				Anchor="L,T" 	Offset="50,6"	AnchorSide="I,I"	Style="ProductionListText" TruncateWidth="180" />
-        <Label		ID="UnitStats"				Anchor="L,T"	Offset="50,26"	AnchorSide="I,I"	Style="ProductionListText" String="" />
-        <Label		ID="NumTurns"				Anchor="R,T"	Offset="4,6"	AnchorSide="I,I"	Style="ProductionListText" />
-        <Stack		ID="RecommendationStack"	Anchor="R,C"	Offset="80,0"	Size="256,32" StackGrowth="L" Padding="0" >
-          <Image	ID="ScienceRecommendation"	Anchor="L,C"					Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_SCIENCE" Hidden="1" >
-            <ScrollAnim										Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds"/>
-            <AlphaAnim						Anchor="C,C"	Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
-            <AlphaAnim						Anchor="C,C"	Offset="0,-4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+        <Image		ID="ProductionButtonImage"	Anchor="L,C"	Offset="0,0"	Size="90,90"		Texture="assets\UI\Art\Icons\WonderAtlas360.dds" Color="CityView_Icons" />
+        <Label		ID="UnitName"				Anchor="L,T" 	Offset="100,12"	AnchorSide="I,I"	Style="ProductionListText" TruncateWidth="360" />
+        <Label		ID="UnitStats"				Anchor="L,T"	Offset="100,52"	AnchorSide="I,I"	Style="ProductionListText" String="" />
+        <Label		ID="NumTurns"				Anchor="R,T"	Offset="8,12"	AnchorSide="I,I"	Style="ProductionListText" />
+        <Stack		ID="RecommendationStack"	Anchor="R,C"	Offset="160,0"	Size="512,64" StackGrowth="L" Padding="0" >
+          <Image	ID="ScienceRecommendation"	Anchor="L,C"					Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_SCIENCE" Hidden="1" >
+            <ScrollAnim										Offset="0,0"	Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds"/>
+            <AlphaAnim						Anchor="C,C"	Offset="8,8"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+            <AlphaAnim						Anchor="C,C"	Offset="0,-8"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
           </Image>
-          <Image	ID="CultureRecommendation"  ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_CULTURE" Anchor="L,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolCulture.dds" Hidden="1">
-            <ScrollAnim										Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskCulture.dds"/>
-            <AlphaAnim						Anchor="C,C"	Offset="6,5"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
-            <AlphaAnim						Anchor="C,C"	Offset="-2,-5"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+          <Image	ID="CultureRecommendation"  ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_CULTURE" Anchor="L,C" Size="64,64" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolCulture.dds" Hidden="1">
+            <ScrollAnim										Offset="0,0"	Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskCulture.dds"/>
+            <AlphaAnim						Anchor="C,C"	Offset="12,10"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+            <AlphaAnim						Anchor="C,C"	Offset="-4,-10"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
           </Image>
-          <Image	ID="GrowthRecommendation"	ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_GROWTH" Anchor="L,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolGrowth.dds" Hidden="1">
-            <ScrollAnim										Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskGrowth.dds"/>
-            <AlphaAnim						Anchor="C,C"	Offset="6,5"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
-            <AlphaAnim						Anchor="C,C"	Offset="-2,-5"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+          <Image	ID="GrowthRecommendation"	ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_GROWTH" Anchor="L,C" Size="64,64" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolGrowth.dds" Hidden="1">
+            <ScrollAnim										Offset="0,0"	Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskGrowth.dds"/>
+            <AlphaAnim						Anchor="C,C"	Offset="12,10"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+            <AlphaAnim						Anchor="C,C"	Offset="-4,-10"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
           </Image>
-          <Image	ID="EconomicRecommendation" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_ECONOMIC" Anchor="L,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds" Hidden="1">
-            <ScrollAnim										Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds"/>
-            <AlphaAnim						Anchor="C,C"	Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
-            <AlphaAnim						Anchor="C,C"	Offset="0,-4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+          <Image	ID="EconomicRecommendation" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_ECONOMIC" Anchor="L,C" Size="64,64" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds" Hidden="1">
+            <ScrollAnim										Offset="0,0"	Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds"/>
+            <AlphaAnim						Anchor="C,C"	Offset="8,8"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+            <AlphaAnim						Anchor="C,C"	Offset="0,-8"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
           </Image>
-          <Image	ID="MilitaryRecommendation" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_MILITARY" Anchor="L,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
-            <ScrollAnim										Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds"/>
-            <AlphaAnim						Anchor="C,C"	Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
-            <AlphaAnim						Anchor="C,C"	Offset="-3,-6"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+          <Image	ID="MilitaryRecommendation" ToolTip="TXT_KEY_CITY_CONSTRUCTION_ADVISOR_RECOMMENDATION_MILITARY" Anchor="L,C" Size="64,64" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
+            <ScrollAnim										Offset="0,0"	Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds"/>
+            <AlphaAnim						Anchor="C,C"	Offset="8,8"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+            <AlphaAnim						Anchor="C,C"	Offset="-6,-12"	Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
           </Image>
         </Stack>
       </GridButton>

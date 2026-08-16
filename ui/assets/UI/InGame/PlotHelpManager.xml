@@ -4,8 +4,8 @@
     <Button 		ID="TheBox" Size="Full,Full" Disabled="1" ConsumeMouse="0" />
     
     <ToolTipType 	Name="HexDetails" >
-        <Grid 		ID="Grid" Size="60,12" AutoSizePadding="4,4" Style="Callout" Color="255,0,0,200" Anchor="L,T"  >
-            <Label 	ID="Text" Anchor="C,C" String="words" WrapWidth="500" ColorSet="Beige_Black_Alpha" Style="FontNormal16" LeadingOffset="3" Offset="1,1" />
+        <Grid 		ID="Grid" Size="120,24" AutoSizePadding="8,8" Style="Callout" Color="255,0,0,200" Anchor="L,T"  >
+            <Label 	ID="Text" Anchor="C,C" String="words" WrapWidth="1000" ColorSet="Beige_Black_Alpha" Style="FontNormal16" LeadingOffset="6" Offset="2,2" />
         </Grid>
     </ToolTipType>
 

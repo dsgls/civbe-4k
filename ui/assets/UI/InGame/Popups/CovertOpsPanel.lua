@@ -15,13 +15,13 @@ include("GameplayUtilities");
 -- ===========================================================================
 --		CONSTANTS
 -- ===========================================================================
-local ART_PROGRESS_BAR_WIDTH				= 155;			-- progress bars
+local ART_PROGRESS_BAR_WIDTH				= 155 * 2;			-- progress bars
 local ART_INTRIGUE_WIDTH					= 102;
 local ART_INTRIGUE_HEIGHT					= 24;
 local ART_MAINSCROLLPANEL_WITH_CHOICE_HEIGHT= 518;
 local ART_MAINSCROLLPANEL_FULL_HEIGHT		= 575;
 local ART_LIST_ITEM_W_SCROLLBAR_WIDTH		= 426;
-local ICON_RANK_HEIGHT 						= 32;
+local ICON_RANK_HEIGHT 						= 32 * 2;
 local COLOR_DISABLED_TEXT					= 0xcca0a0a0;
 local PARENT_CONTEXT_PATH					= "/InGame/CovertOpsPopup/";
 local PARENT_CONTROL_NAME					= "InnerGridBG";
@@ -534,9 +534,9 @@ function CreateMissionAgent( agent )
 				
 				--uiOperation.AddedIntrigue:SetSizeVal(ART_INTRIGUE_WIDTH * percent , ART_INTRIGUE_HEIGHT);
 				if ( operation.RequiredIntrigueLevel == 0 ) then
-					uiOperation.ReqIntrigue:SetTextureOffsetVal(2+(operation.RequiredIntrigueLevel*20), 0);
+					uiOperation.ReqIntrigue:SetTextureOffsetVal((2+(operation.RequiredIntrigueLevel*20)) * 2, 0);
 				else
-					uiOperation.ReqIntrigue:SetTextureOffsetVal(2+(operation.RequiredIntrigueLevel*20)-20, 24);
+					uiOperation.ReqIntrigue:SetTextureOffsetVal((2+(operation.RequiredIntrigueLevel*20)-20) * 2, 24 * 2);
 				end
 				uiOperation.ReqIntrigueLabel:SetText(operation.RequiredIntrigueLevel);
 
@@ -914,7 +914,7 @@ function RealizeScrollArea( callbackAssign, callbackCancel )
 		local parentControl	= ContextPtr:LookUpControl( PARENT_CONTEXT_PATH .. PARENT_CONTROL_NAME );
 		if (parentControl == nil) then
 			print("ERROR! Missing parent control/path combo: ", PARENT_CONTENT_PATH, PARENT_CONTROL_NAME );
-			Controls.PlayerChoice:SetOffsetVal(12, 500 );
+			Controls.PlayerChoice:SetOffsetVal(24, 1000 );
 		else
 			local parentSizeY	= parentControl:GetSizeY();		
 			Controls.PlayerChoice:SetOffsetVal(12, parentSizeY - 20 );

@@ -186,10 +186,10 @@ function DoSwapTrait(categoryInfo : table)
 
 	local selectTraitOffsetX = 0;
 	if(categoryInfo.ID == 2) then
-		selectTraitOffsetX = 64;
+		selectTraitOffsetX = 64 * 2;
 	end
 	if(categoryInfo.ID == 3) then
-		selectTraitOffsetX = 32;
+		selectTraitOffsetX = 32 * 2;
 	end
 	Controls.SelectTraitIndicator:SetTextureOffsetVal(selectTraitOffsetX,0);
 	Controls.SelectTraitIndicator:SetHide(false);
@@ -497,7 +497,7 @@ function InitPersonalityTraitInstance(instance : table, playerType : number, tra
 						if (trait:CanLevelUp()) then
 							levelInstance.Button:SetDisabled(false);
 							levelInstance.Button:SetToolTipString(Locale.Lookup("TXT_KEY_LEVEL_UP_FOR_TT", owningPlayer:GetTraitModificationCost()));
-							levelYOffset = 45;
+							levelYOffset = 45 * 2;
 							levelInstance.Description:SetColor(0xff97e5e8,0);
 							levelInstance.UpgradeText:SetText(Locale.Lookup("{TXT_KEY_DIPLOMACYUI_UPGRADEFOR:upper}"));
 						else
@@ -543,7 +543,7 @@ function InitPersonalityTraitInstance(instance : table, playerType : number, tra
 					levelInstance.Button:SetDisabled(true);
 				end
 
-				local levelXOffset = (level-1)*66;
+				local levelXOffset = (level-1)*66 * 2;
 				levelInstance.Icon:SetTextureOffsetVal(levelXOffset, levelYOffset);
 			end
 		end

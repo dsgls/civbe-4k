@@ -2,35 +2,35 @@
 <Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
   <Container ID="ConversationContent" Size="parent,parent">
     <!-- Their bubble -->
-    <Grid ID="TheirSpeechBubble" Size="450,69" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
+    <Grid ID="TheirSpeechBubble" Size="900,138" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
       <Stack Anchor="C,T">
-        <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="5" Offset="0,15">
-          <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="440" String="Their response"/>
+        <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="10" Offset="0,30">
+          <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="880" String="Their response"/>
         </Stack>
-        <Container Size="2,5"/>
+        <Container Size="4,10"/>
       </Stack>
     </Grid>
 
-    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="500,10" Anchor="R,B">
+    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="1000,20" Anchor="R,B">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="MyBubbleAlphaAnim">
-        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
+        <SlideAnim Start="-600,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
           <Grid ID="BubbleWindowBacking" Size="parent,parent" Style="Grid9BlackGradientSubContainer" Anchor="L,B">
             <Stack ID="MySpeechBubbleStack" Anchor="L,T" StackGrowth="Bottom">
-              <Grid Anchor="C,T" Size="parent-2,96" Offset="0,1" Style="TradeOfferGrid" Color="255,255,255,210">
-                <Grid Size="parent,94" Style="Grid9BlackGradientHeader" Offset="0,0">
-                  <Label ID="Relationship" Style="GradientHeader" Anchor="L,T" Offset="5,5" String="TXT_KEY_DIPLO_CURRENTRELATIONSHIP" />
+              <Grid Anchor="C,T" Size="parent-4,192" Offset="0,2" Style="TradeOfferGrid" Color="255,255,255,210">
+                <Grid Size="parent,188" Style="Grid9BlackGradientHeader" Offset="0,0">
+                  <Label ID="Relationship" Style="GradientHeader" Anchor="L,T" Offset="10,10" String="TXT_KEY_DIPLO_CURRENTRELATIONSHIP" />
                 </Grid>
-                <Container ID="RelationshipMeter" Size="330,40" Anchor="C,B" Offset="0,25" Color="0,0,0,50">
-                  <Box Size="330,10" Anchor="C,C" Color="0,0,0,200" />
-                  <Stack ID="RelationshipMeterStack" StackGrowth="Right" Anchor="C,C" Padding="42" />
+                <Container ID="RelationshipMeter" Size="660,80" Anchor="C,B" Offset="0,50" Color="0,0,0,50">
+                  <Box Size="660,20" Anchor="C,C" Color="0,0,0,200" />
+                  <Stack ID="RelationshipMeterStack" StackGrowth="Right" Anchor="C,C" Padding="84" />
                 </Container>
               </Grid>
               <Stack ID="RelationshipChoicesStack" Anchor="L,T" StackGrowth="Bottom"/>
-              <Container Size="10,20"/>
+              <Container Size="20,40"/>
               <Stack ID="ChoicesStack" StackGrowth="Down">
-                <GridButton ID="AcceptButton" Style="DiploChoice" Size="parent,35" String="TXT_KEY_DIPLO_ACCEPT" TextAnchor="L,C" Hidden="1"/>
-                <GridButton ID="RejectButton" Style="DiploChoice" Size="parent,35" String="TXT_KEY_DIPLO_NOTNOW" TextAnchor="L,C" Hidden="1"/>
-                <GridButton ID="CancelButton" Style="DiploChoice" Size="parent,35" String="TXT_KEY_DIPLO_NEVERMIND" TextAnchor="L,C" Hidden="1"/>
+                <GridButton ID="AcceptButton" Style="DiploChoice" Size="parent,70" String="TXT_KEY_DIPLO_ACCEPT" TextAnchor="L,C" Hidden="1"/>
+                <GridButton ID="RejectButton" Style="DiploChoice" Size="parent,70" String="TXT_KEY_DIPLO_NOTNOW" TextAnchor="L,C" Hidden="1"/>
+                <GridButton ID="CancelButton" Style="DiploChoice" Size="parent,70" String="TXT_KEY_DIPLO_NEVERMIND" TextAnchor="L,C" Hidden="1"/>
               </Stack>
             </Stack>
           </Grid>
@@ -43,19 +43,19 @@
   <ToolTipType Name="FearReqTooltip" Style="FearReqTooltipStyle"/>
   
   <Instance Name="RelationshipChoice">
-    <GridButton ID="Button" Style="DiploChoice" Size="parent,35" TextAnchor="L,C">
-      <Grid ID="CostContainer" Style="Grid9CostContainer" Size="70,40" Anchor="R,C">
-        <Stack ID="CostStack" StackGrowth="Right" Padding="2" Anchor="R,C" Offset="9,2" >
+    <GridButton ID="Button" Style="DiploChoice" Size="parent,70" TextAnchor="L,C">
+      <Grid ID="CostContainer" Style="Grid9CostContainer" Size="140,80" Anchor="R,C">
+        <Stack ID="CostStack" StackGrowth="Right" Padding="4" Anchor="R,C" Offset="18,4" >
           <Label ID="Cost" Style="DiploCapitalText20" String="$$$"/>
-          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,3"/>
+          <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,6"/>
         </Stack>
       </Grid>
 
-      <Container ID="FearRespectRequirements" Size="100,parent" Anchor="L,C" ToolTipType="FearReqTooltip">
-        <Stack StackGrowth="Right" Anchor="L,C" Padding="5">
-          <Label ID="FearRequirement" Style="FearText" Anchor="L,C" Offset="0,0" String="0" FontSize="20" ConsumeMouse="0"/>
+      <Container ID="FearRespectRequirements" Size="200,parent" Anchor="L,C" ToolTipType="FearReqTooltip">
+        <Stack StackGrowth="Right" Anchor="L,C" Padding="10">
+          <Label ID="FearRequirement" Style="FearText" Anchor="L,C" Offset="0,0" String="0" FontSize="40" ConsumeMouse="0"/>
           <Label Style="FontNormal20" String="/"/>
-          <Label ID="RespectRequirement" Style="RespectText" Anchor="L,C" Offset="0,0" String="0" FontSize="20" ConsumeMouse="0"/>
+          <Label ID="RespectRequirement" Style="RespectText" Anchor="L,C" Offset="0,0" String="0" FontSize="40" ConsumeMouse="0"/>
         </Stack>
       </Container>
       <!--
@@ -67,16 +67,16 @@
   </Instance>
   
   <Instance Name="RelationshipLevel">
-    <Container ID="Content" Size="42,42 ">
-      <AlphaAnim AlphaBegin="0" AlphaEnd=".8" Speed="2" Function="Root" Cycle="Bounce" Offset="-45,0" Anchor="R,C" Size="45,34" ID="ArrowRight" Hidden="1">
-        <Image Texture="Relationship_Arrow.dds" Size="45,34" ID="ArrowRightImage"/>
+    <Container ID="Content" Size="84,84 ">
+      <AlphaAnim AlphaBegin="0" AlphaEnd=".8" Speed="2" Function="Root" Cycle="Bounce" Offset="-90,0" Anchor="R,C" Size="90,68" ID="ArrowRight" Hidden="1">
+        <Image Texture="Relationship_Arrow.dds" Size="90,68" ID="ArrowRightImage"/>
       </AlphaAnim>
-      <AlphaAnim AlphaBegin="0" AlphaEnd=".8" Speed="2" Function="Root" Cycle="Bounce" Offset="-45,0" Anchor="L,C" Size="45,34" ID="ArrowLeft" Hidden="1">
-        <Image Texture="Relationship_Arrow.dds" Size="45,34" FlipX="1" ID="ArrowLeftImage"/>
+      <AlphaAnim AlphaBegin="0" AlphaEnd=".8" Speed="2" Function="Root" Cycle="Bounce" Offset="-90,0" Anchor="L,C" Size="90,68" ID="ArrowLeft" Hidden="1">
+        <Image Texture="Relationship_Arrow.dds" Size="90,68" FlipX="1" ID="ArrowLeftImage"/>
       </AlphaAnim>
-      <Image Texture="Relationship_Selector.dds" ID="Highlight" Size="42,42" Anchor="C,C" Color="255,255,255,200" />
-      <Image Texture="Diplo_RelationshipIndicators.dds" ID="Pip" Size="30,30" Anchor="C,C"/>
-      <Container ID="Flyout" Size="150,37" Anchor="C,B" Offset="0,-46">
+      <Image Texture="Relationship_Selector.dds" ID="Highlight" Size="84,84" Anchor="C,C" Color="255,255,255,200" />
+      <Image Texture="Diplo_RelationshipIndicators.dds" ID="Pip" Size="60,60" Anchor="C,C"/>
+      <Container ID="Flyout" Size="300,74" Anchor="C,B" Offset="0,-92">
         <AlphaAnim AlphaBegin="0" AlphaEnd="1" Speed="2" Cycle="Once" ID="FlyoutAlpha" Anchor="C,T" >
           <SlideAnim Begin="0,-10" End="0,0" Speed="3" Cycle="Once" Function="Root" ID="FlyoutSlide" Anchor="C,T" >
             <Label ID="FlyoutText" Style="GradientHeader" String="$Proposing Relationship$" Anchor="C,C" />

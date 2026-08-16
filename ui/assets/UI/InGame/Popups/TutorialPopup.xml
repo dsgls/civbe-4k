@@ -2,20 +2,20 @@
 <Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
   <Box Style="BGBlock"/>
 
-  <Grid ID="OuterGrid" Anchor="C,C" Size="972,631"  Style="GridWindowWithHeader" ConsumeMouse="1" >
+  <Grid ID="OuterGrid" Anchor="C,C" Size="1944,1262"  Style="GridWindowWithHeader" ConsumeMouse="1" >
     <!-- Background -->
-    <Grid Anchor="L,T" Offset="6,48" Size="961,564" Color="255,255,255,255" Style="GridSetupGameSectionBackground" />
+    <Grid Anchor="L,T" Offset="12,96" Size="1922,1128" Color="255,255,255,255" Style="GridSetupGameSectionBackground" />
 
     <!-- Header -->
-    <Label ID="TitleLabel" Anchor="L,T" Offset="20,17" Style="MenuTitleCaption" String="TUTORIAL TITLE GOES HERE"/>
+    <Label ID="TitleLabel" Anchor="L,T" Offset="40,34" Style="MenuTitleCaption" String="TUTORIAL TITLE GOES HERE"/>
 
     <!-- Instructions -->
-    <Container ID="StepsContainer" Anchor="L,T" Offset="11,-10" Size="250,620" >
+    <Container ID="StepsContainer" Anchor="L,T" Offset="22,-20" Size="500,1240" >
       <!-- Background -->
-      <Grid ID="PanelBacking" Anchor="L,T" Offset="-5,58" Size="254,475" Color="255,255,255,255" Style="GridSetupGameSectionBackground" />
+      <Grid ID="PanelBacking" Anchor="L,T" Offset="-10,116" Size="508,950" Color="255,255,255,255" Style="GridSetupGameSectionBackground" />
       
       <!-- Instructions -->
-      <ScrollPanel ID="StepsScrollPanel" Vertical="1" Anchor="L,T" Offset="1,70" Style="GridSecondaryPanel" Size="250,460">
+      <ScrollPanel ID="StepsScrollPanel" Vertical="1" Anchor="L,T" Offset="2,140" Style="GridSecondaryPanel" Size="500,920">
         <Stack ID="StepsStack"/>
         
         <!-- Scroll bar stuff -->
@@ -24,19 +24,19 @@
       </ScrollPanel>
       
       <!-- PRO TIP -->
-      <Grid ID="ProTipBox" Style="ReligionSlot" Anchor="L,B" Offset="0,1" Size="268,85">
-        <Label ID="ProTip" Anchor="L,T" Offset="7,7" String="PRO TIP GOES HERE" Style="FontNormal16" LeadingOffset="3" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" WrapWidth="220" WrapGrowth="Bottom"/>
+      <Grid ID="ProTipBox" Style="ReligionSlot" Anchor="L,B" Offset="0,2" Size="536,170">
+        <Label ID="ProTip" Anchor="L,T" Offset="14,14" String="PRO TIP GOES HERE" Style="FontNormal16" LeadingOffset="6" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" WrapWidth="440" WrapGrowth="Bottom"/>
       </Grid>
     </Container>
 
     <!-- Proceed button -->
-    <GridButton Style="BaseButton" ID="ProceedButton" Size="250,45" Anchor="C,B" Offset="0,-26" Hidden="0">
+    <GridButton Style="BaseButton" ID="ProceedButton" Size="500,90" Anchor="C,B" Offset="0,-52" Hidden="0">
       <Label Anchor="C,C" Offset="0,0" String="{TXT_KEY_PROCEED_BUTTON:upper}" ColorSet="Beige_Black" Style="FontNormal22" FontStyle="Shadow" ID="ProceedButtonText"/>
     </GridButton>
 	
 	<!-- Image -->
-    <Container Anchor="R,T" Offset="12,49" Size="680,560">
-      <Image Anchor="R,T" Offset="0,0" Size="680,560" Texture="TempTutorial.dds" ID="Image"/>
+    <Container Anchor="R,T" Offset="24,98" Size="1360,1120">
+      <Image Anchor="R,T" Offset="0,0" Size="1360,1120" Texture="TempTutorial.dds" ID="Image"/>
       <Container ID="Highlights" Anchor="L,B" Size="Full,Full"/>
     </Container>
 	
@@ -44,19 +44,19 @@
 
   <!-- Instances -->
   <Instance Name="StepInstance">
-    <Grid ID="Content" Style="ReligionSlot" Size="241,100">
-      <Image Anchor="R,B" Size="47,47" Texture="TutorialStepBG.dds" Offset="-7,-7">
-        <Label ID="StepNumberLabel" Anchor="C,C" String="0" Style="FontNormal24" FontStyle="Glow" Color0="237,230,117,255" Color1="97,74,33,200" Offset="-1,0"/>
+    <Grid ID="Content" Style="ReligionSlot" Size="482,200">
+      <Image Anchor="R,B" Size="94,94" Texture="TutorialStepBG.dds" Offset="-14,-14">
+        <Label ID="StepNumberLabel" Anchor="C,C" String="0" Style="FontNormal24" FontStyle="Glow" Color0="237,230,117,255" Color1="97,74,33,200" Offset="-2,0"/>
       </Image>
-      <Label ID="StepTextLabel" Anchor="L,T" Offset="7,7" String="STEP GOES HERE" Style="FontNormal16" LeadingOffset="3" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" WrapWidth="200" WrapGrowth="Bottom"/>
+      <Label ID="StepTextLabel" Anchor="L,T" Offset="14,14" String="STEP GOES HERE" Style="FontNormal16" LeadingOffset="6" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" WrapWidth="400" WrapGrowth="Bottom"/>
       
     </Grid>
   </Instance>
 
   <Instance Name="HighlightInstance">
-    <Container ID="Content" Anchor="L,B" Size="31,31">
-      <Image Anchor="L,B" Size="47,47" ID="Image" Texture="TutorialStepBG.dds">
-        <Label ID="StepNumberLabel" Anchor="C,C" String="0" Style="FontNormal24" FontStyle="Glow" Color0="237,230,117,255" Color1="97,74,33,200" Offset="-1,0"/>
+    <Container ID="Content" Anchor="L,B" Size="62,62">
+      <Image Anchor="L,B" Size="94,94" ID="Image" Texture="TutorialStepBG.dds">
+        <Label ID="StepNumberLabel" Anchor="C,C" String="0" Style="FontNormal24" FontStyle="Glow" Color0="237,230,117,255" Color1="97,74,33,200" Offset="-2,0"/>
       </Image>
     </Container>
   </Instance>

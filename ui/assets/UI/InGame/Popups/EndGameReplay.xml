@@ -6,7 +6,7 @@
 		<Label Anchor="L,T" ColorSet="Beige_Black_Alpha" Style="FontNormal18" FontStyle="Shadow" String="asdf asdf asdf asdf " ID="MessageText" />
 	</Instance>
 
-	<Grid Anchor="C,C" Offset="0,-220"  Style="WindowGrid" Size="956,24"  >
+	<Grid Anchor="C,C" Offset="0,-440"  Style="WindowGrid" Size="1912,48"  >
 
 		<!--<Stack Anchor="L,T" Offset="0,0" StackGrowth="Right" Padding="0" >
 
@@ -32,13 +32,13 @@
 		</Stack>-->
 		
 		<!-- List of Replay Messages -->
-		<ScrollPanel Offset="0,26" Anchor="R,T" AutoScrollBar="1" Size="454,440" Vertical="1" ID="ReplayMessageScrollPanel" >
+		<ScrollPanel Offset="0,52" Anchor="R,T" AutoScrollBar="1" Size="908,880" Vertical="1" ID="ReplayMessageScrollPanel" >
 
-			<ScrollBar Style="VertSlider" Length="404" Offset="0.18" Anchor="R,T" AnchorSide="I,I" />
+			<ScrollBar Style="VertSlider" Length="808" Offset="0.36" Anchor="R,T" AnchorSide="I,I" />
 			<UpButton  Offset="0.0"  Style="ScrollBarUp"  Anchor="R,T" AnchorSide="I,I" />
-			<DownButton Offset="0.420" Style="ScrollBarDown"  Anchor="R,T" AnchorSide="I,I" />
+			<DownButton Offset="0.840" Style="ScrollBarDown"  Anchor="R,T" AnchorSide="I,I" />
 
-			<Stack Anchor="L,T"  Offset="0,0" Size="260,216" StackGrowth="Bottom" Padding="5" ID="ReplayMessageStack" />
+			<Stack Anchor="L,T"  Offset="0,0" Size="520,432" StackGrowth="Bottom" Padding="10" ID="ReplayMessageStack" />
 
 		</ScrollPanel>
 	</Grid>

@@ -2,54 +2,54 @@
 
 <Context>
 
-  <Container ID="MessageContainer" Size="500,102" Anchor="C,T" Offset="0,40" Color="1,0,0,0" Hidden="1">
-    <SlideAnim ID="MessageSlide" Size="parent,parent" Anchor="R,T" Start="0,-20" End="0,0" Cycle="OneBounce" Pause="0" EndPause="5" Function="OutQuint" Speed="1.5">
+  <Container ID="MessageContainer" Size="1000,204" Anchor="C,T" Offset="0,80" Color="1,0,0,0" Hidden="1">
+    <SlideAnim ID="MessageSlide" Size="parent,parent" Anchor="R,T" Start="0,-40" End="0,0" Cycle="OneBounce" Pause="0" EndPause="5" Function="OutQuint" Speed="1.5">
       <AlphaAnim ID="MessageFade" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Speed="2" Cycle="OneBounce" Pause="0" EndPause="5">
-        <Container ID="Root" Size="parent-20,100">
-          <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Offset="-32,26" Anchor="L,T"/>
-          <Grid Style="Grid9DropShadow" Size="550,200" Offset="-50,-50"/>
+        <Container ID="Root" Size="parent-40,200">
+          <Image Texture="PlayerRibbon_Backing.dds" Size="136,136" Offset="-64,52" Anchor="L,T"/>
+          <Grid Style="Grid9DropShadow" Size="1100,400" Offset="-100,-100"/>
           <Grid ID="Content" Style="Grid9DiplomacyContainer" Size="parent,parent">
-            <Image	ID="BigCivIcon" StretchMode="None" Size="90,80" Offset="0,1" Anchor="R,B" Color="100,118,155,90"/>
-            <Stack ID="ContentStack" StackGrowth="Down" Padding="5">
-              <Grid ID="MessageHeaderGrid" Size="parent, 30" Style="GridColumnHeader2" Color="255,255,255,150">
-                <Stack ID="HeaderStack" StackGrowth="Right" Offset="5,0" Anchor="L,C">
+            <Image	ID="BigCivIcon" StretchMode="None" Size="180,160" Offset="0,2" Anchor="R,B" Color="100,118,155,90"/>
+            <Stack ID="ContentStack" StackGrowth="Down" Padding="10">
+              <Grid ID="MessageHeaderGrid" Size="parent, 60" Style="GridColumnHeader2" Color="255,255,255,150">
+                <Stack ID="HeaderStack" StackGrowth="Right" Offset="10,0" Anchor="L,C">
                   <Label ID="HeaderLabel" Style="GrayGlow20" Anchor="L,C" String="COMMUNIQUE HEADER" />
                 </Stack>
-                <Grid ID="RespectDeltaContainer" Size="58,40" Style="Grid9CostContainer" Anchor="R,C" Offset="-5,0" Color="255,255,255,150">
-                  <Stack Anchor="R,C" Offset="10,2" StackGrowth="Right" Padding="-5">
-                    <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="21,10" Stopped="1">
+                <Grid ID="RespectDeltaContainer" Size="116,80" Style="Grid9CostContainer" Anchor="R,C" Offset="-10,0" Color="255,255,255,150">
+                  <Stack Anchor="R,C" Offset="20,4" StackGrowth="Right" Padding="-10">
+                    <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="42,20" Stopped="1">
                       <Label ID="RespectDelta"/>
                     </AlphaAnim>
                     <Label String="[ICON_RESPECT]"/>
                   </Stack>
                 </Grid>
               </Grid>
-              <Stack ID="MessageStack" StackGrowth="Down" Offset="40,0" Padding="5">
-                <Label ID="SubjectLabel" Style="GrayGlow20" Anchor="L,T" WrapWidth="470" String="COMMUNIQUE NAME HERE" />
-                <Label ID="MessageLabel" Style="GrayShadow" Anchor="L,T" WrapWidth="470" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+              <Stack ID="MessageStack" StackGrowth="Down" Offset="80,0" Padding="10">
+                <Label ID="SubjectLabel" Style="GrayGlow20" Anchor="L,T" WrapWidth="940" String="COMMUNIQUE NAME HERE" />
+                <Label ID="MessageLabel" Style="GrayShadow" Anchor="L,T" WrapWidth="940" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
               </Stack>
             </Stack>
-            <Image ID="CivIcon" Anchor="L,T" Offset="-30,28" Size="64,64"/>
-            <Grid ID="AdvisorIconGrid" Size="64,64"	Anchor="L,T" Offset="-30,32" Style="Grid9DiplomacyContainer" Hidden="0">
-              <Image ID="EconomicAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds">
-                <ScrollAnim  Offset="0,0"  Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds" />
-                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
-                <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+            <Image ID="CivIcon" Anchor="L,T" Offset="-60,56" Size="128,128"/>
+            <Grid ID="AdvisorIconGrid" Size="128,128"	Anchor="L,T" Offset="-60,64" Style="Grid9DiplomacyContainer" Hidden="0">
+              <Image ID="EconomicAdvisorIcon" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds">
+                <ScrollAnim  Offset="0,0"  Size="64,64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds" />
+                <AlphaAnim Anchor="C,C" Offset="8,8" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+                <AlphaAnim Anchor="C,C" Offset="0,-8" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
               </Image>
-              <Image ID="ForeignAdvisorIcon" Anchor="C,C" Size="40,40" Texture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds" Hidden="1">
-                <ScrollAnim  Offset="0,0"  Size="40,40" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskForeign.dds" />
-                <AlphaAnim Anchor="C,C" Offset="6,5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
-                <AlphaAnim Anchor="C,C" Offset="-2,-5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+              <Image ID="ForeignAdvisorIcon" Anchor="C,C" Size="80,80" Texture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="80,80" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskForeign.dds" />
+                <AlphaAnim Anchor="C,C" Offset="12,10" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+                <AlphaAnim Anchor="C,C" Offset="-4,-10" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
               </Image>
-              <Image ID="MilitaryAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
-                <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds" />
-                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
-                <AlphaAnim Anchor="C,C" Offset="-3,-6" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+              <Image ID="MilitaryAdvisorIcon" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="64.64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds" />
+                <AlphaAnim Anchor="C,C" Offset="8,8" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+                <AlphaAnim Anchor="C,C" Offset="-6,-12" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
               </Image>
-              <Image ID="ScienceAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" Hidden="1">
-                <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds" />
-                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
-                <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+              <Image ID="ScienceAdvisorIcon" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="64.64" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds" />
+                <AlphaAnim Anchor="C,C" Offset="8,8" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+                <AlphaAnim Anchor="C,C" Offset="0,-8" Size="64,64" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
               </Image>
             </Grid>
             <Button ID="MouseAreaButton" Size="parent,parent" Anchor="C,C"/>

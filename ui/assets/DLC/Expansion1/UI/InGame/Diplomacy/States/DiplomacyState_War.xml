@@ -3,70 +3,70 @@
   <Container ID="ConversationContent" Size="parent,parent">
     <!-- Their Word Bubble -->
     <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".5" Function="Root" Speed="2" Size="parent,parent" ID="BubbleAlpha">
-      <SlideAnim Start="0,-50" End="0,0" Cycle="Once" Pause=".5" Function="OutQuint" Speed="2" Size="parent,parent" ID="BubbleSlide">
-        <Grid ID="TheirSpeechBubble" Size="450,69" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
+      <SlideAnim Start="0,-100" End="0,0" Cycle="Once" Pause=".5" Function="OutQuint" Speed="2" Size="parent,parent" ID="BubbleSlide">
+        <Grid ID="TheirSpeechBubble" Size="900,138" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
           <Stack Anchor="C,T">
-            <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="5" Offset="0,15">
-              <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="440" String="Their response"/>
+            <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="10" Offset="0,30">
+              <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="880" String="Their response"/>
             </Stack>
-            <Container Size="2,5"/>
+            <Container Size="4,10"/>
           </Stack>
         </Grid>
       </SlideAnim>
     </AlphaAnim>
 
     <!-- My bubble -->
-    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="500,0" Anchor="R,B">
+    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="1000,0" Anchor="R,B">
       <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="MyBubbleAlphaAnim">
-        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
+        <SlideAnim Start="-600,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
           <Grid ID="BubbleWindowBacking" Size="parent,parent" Style="Grid9BlackGradientSubContainer" Anchor="L,B">
             <Stack ID="BubbleContentStack" StackGrowth="Down" Anchor="L,T">
               <Grid ID="BubbleWindow" Style="Grid9DiplomacyWindow" Size="parent,parent">
-                <Stack ID="MySpeechBubbleStack" StackGrowth="Bottom" Padding="5" Offset="0,33">     
-                  <Image ID="Banner" Size="500,125" Texture="War_Purity.dds" Hidden="true"/>
-                  <Container ID="WarScoreContainer" Anchor="C,T" Offset="0,20" Size="parent-40,130">
+                <Stack ID="MySpeechBubbleStack" StackGrowth="Bottom" Padding="10" Offset="0,66">     
+                  <Image ID="Banner" Size="1000,250" Texture="War_Purity.dds" Hidden="true"/>
+                  <Container ID="WarScoreContainer" Anchor="C,T" Offset="0,40" Size="parent-80,260">
                     <Stack ID="WarScoreHeaderStack" Anchor="C,T" StackGrowth="Bottom">
                       <Label ID="WarScoreLabel" Style="GradientHeader" String="{TXT_KEY_WAR_SCORE:upper}"/>
                     </Stack>
-                    <Container ID="MyWarScoreContainer" Anchor="C,T" Offset="-100,32" Size="100,30">
-                      <Grid Anchor="L,B" Offset="0,-5" Size="parent,parent" Style="Grid9BlackGradientSubContainer"/>
-                      <Label ID="MyWarScoreValue" Anchor="C,C" Style="WhiteShadow" FontSize="32" String="9999"/>
-                      <Label ID="MyWarScoreLabel" Anchor="C,C" Offset="0,32" Style="GrayShadow" String="My Civ Name"/>
+                    <Container ID="MyWarScoreContainer" Anchor="C,T" Offset="-200,64" Size="200,60">
+                      <Grid Anchor="L,B" Offset="0,-10" Size="parent,parent" Style="Grid9BlackGradientSubContainer"/>
+                      <Label ID="MyWarScoreValue" Anchor="C,C" Style="WhiteShadow" FontSize="64" String="9999"/>
+                      <Label ID="MyWarScoreLabel" Anchor="C,C" Offset="0,64" Style="GrayShadow" String="My Civ Name"/>
                     </Container>
-                    <Container ID="TheirWarScoreContainer" Anchor="C,T" Offset="100,32" Size="100,30">
-                      <Grid Anchor="L,B" Offset="0,-5" Size="parent,parent" Style="Grid9BlackGradientSubContainer"/>
-                      <Label ID="TheirWarScoreValue" Anchor="C,C" Style="WhiteShadow" FontSize="32" String="0000"/>
-                      <Label ID="TheirWarScoreLabel" Anchor="C,C" Offset="0,32" Style="GrayShadow" String="Their Civ Name"/>
+                    <Container ID="TheirWarScoreContainer" Anchor="C,T" Offset="200,64" Size="200,60">
+                      <Grid Anchor="L,B" Offset="0,-10" Size="parent,parent" Style="Grid9BlackGradientSubContainer"/>
+                      <Label ID="TheirWarScoreValue" Anchor="C,C" Style="WhiteShadow" FontSize="64" String="0000"/>
+                      <Label ID="TheirWarScoreLabel" Anchor="C,C" Offset="0,64" Style="GrayShadow" String="Their Civ Name"/>
                     </Container>
-                    <Stack ID="WarScoreFooterStack" Anchor="C,T" Offset="0,92" StackGrowth="Bottom">
-                      <Label ID="WarFavoringLabel" Style="GrayShadow" FontSize="20" WrapWidth="440" String="Favoring: Neither Side"/>
+                    <Stack ID="WarScoreFooterStack" Anchor="C,T" Offset="0,184" StackGrowth="Bottom">
+                      <Label ID="WarFavoringLabel" Style="GrayShadow" FontSize="40" WrapWidth="880" String="Favoring: Neither Side"/>
                     </Stack>
                   </Container>
-                  <Container ID="PeaceTermsContainer" Anchor="C,T" Size="parent-40,142">
+                  <Container ID="PeaceTermsContainer" Anchor="C,T" Size="parent-80,284">
                     <Stack ID="PeaceTermsSummaryStack" Anchor="C,T" StackGrowth="Bottom">
                       <Label ID="PeaceTermsSummary" Style="GradientHeader" String="{TXT_KEY_PEACE_TERMS_SUMMARY:upper}"/>
                     </Stack>
                     <Container ID="PeaceTermItemsContainer" Size="parent,parent">
-                      <Grid ID="PeaceTermsBacking" Size="parent, parent-26" Offset="0,26" Style="Grid9BlackGradientSubContainer"/>
-                      <ScrollPanel ID="PeaceTermsScrollPanel" Size="parent-6, parent-26" Offset="0,26" Vertical="true" AutoScrollBar="1">
-                        <ScrollBar Style="VertSlider" Anchor="R,T" Offset="-8,0"/>
-                        <Stack ID="PeaceTermsStack" Achor="C,T" StackGrowth="Bottom" Padding="4"/>
+                      <Grid ID="PeaceTermsBacking" Size="parent, parent-52" Offset="0,52" Style="Grid9BlackGradientSubContainer"/>
+                      <ScrollPanel ID="PeaceTermsScrollPanel" Size="parent-12, parent-52" Offset="0,52" Vertical="true" AutoScrollBar="1">
+                        <ScrollBar Style="VertSlider" Anchor="R,T" Offset="-16,0"/>
+                        <Stack ID="PeaceTermsStack" Achor="C,T" StackGrowth="Bottom" Padding="8"/>
                       </ScrollPanel>
                     </Container>
-                    <Stack ID="WhitePeaceSummaryStack" Anchor="C,T" Offset="0,32" StackGrowth="Bottom">
-                      <Label ID="WhitePeaceSummary" Style="GrayShadow" WrapWidth="parent-30" String="TXT_KEY_WHITE_PEACE_TERMS"/>
+                    <Stack ID="WhitePeaceSummaryStack" Anchor="C,T" Offset="0,64" StackGrowth="Bottom">
+                      <Label ID="WhitePeaceSummary" Style="GrayShadow" WrapWidth="parent-60" String="TXT_KEY_WHITE_PEACE_TERMS"/>
                     </Stack>
                   </Container>
                 </Stack>
               </Grid>
-              <Container Size="2,10"/>
-              <Container Size="2,5"/>
+              <Container Size="4,20"/>
+              <Container Size="4,10"/>
               <Stack ID="ButtonStack" StackGrowth="Down" Padding="0" Anchor="C,T">
-                <GridButton ID="OptionButton1" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
-                <GridButton ID="OptionButton2" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
-                <GridButton ID="OptionButton3" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton1" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton2" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton3" Style="DiploChoice" Size="parent,60" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
               </Stack>
-              <Container Size="2,12"/>
+              <Container Size="4,24"/>
             </Stack>
           </Grid>
         </SlideAnim>
@@ -76,8 +76,8 @@
   
   <!-- Instances -->
   <Instance Name="PeaceTermItem">
-    <Stack ID="Content" StackGrowth="Bottom" Anchor="L,T" Size="450,28" Padding="2">
-      <Label ID="Summary" Anchor="L,C" Offset="10,3" WrapWidth="430" Style="GrayShadow" FontSize="16"/>
+    <Stack ID="Content" StackGrowth="Bottom" Anchor="L,T" Size="900,56" Padding="4">
+      <Label ID="Summary" Anchor="L,C" Offset="20,6" WrapWidth="860" Style="GrayShadow" FontSize="32"/>
     </Stack>
   </Instance>
 </Context>

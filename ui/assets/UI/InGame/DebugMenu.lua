@@ -193,7 +193,7 @@ function OnEnterPEffectMode()
     Controls.ParticleEffects_Panel:SetHide(false);
     Controls.ParticleEffectsShowStats_Button:SetText("Show Statistics");
 
-	Controls.ParticleEffects_Panel:SetOffsetVal(200,32);
+	Controls.ParticleEffects_Panel:SetOffsetVal(400,64);
 end
 
 function OnExitPEffectMode()
@@ -223,7 +223,7 @@ function OnShowPEffectStats(iVoid1, iVoid2)
 	
 	-- Hide/Show the statistics panel.
 	Controls.ParticleEffectsStats_Panel:SetHide(not bWasHidden);
-	Controls.ParticleEffectsStats_Panel:SetOffsetVal( 450,32 );
+	Controls.ParticleEffectsStats_Panel:SetOffsetVal( 900,64 );
 	
 	-- Update button text.
 	if bWasHidden then

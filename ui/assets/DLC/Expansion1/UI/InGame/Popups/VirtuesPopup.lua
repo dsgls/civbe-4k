@@ -542,7 +542,7 @@ function ShowConfirmInteraction(confirmText, kickerText, confirmHandler)
 	if (bodyTextHeight > Controls.PopupWindow:GetSizeY() - 200 ) then
 		Controls.PopupWindow:SetSizeY( bodyTextHeight +  Controls.ButtonStack:GetOffsetY() + 120 );
 	else
-		Controls.PopupWindow:SetSizeY(400);
+		Controls.PopupWindow:SetSizeY(800);
 	end
 
 	Controls.YesButton:RegisterCallback(Mouse.eLClick, function()

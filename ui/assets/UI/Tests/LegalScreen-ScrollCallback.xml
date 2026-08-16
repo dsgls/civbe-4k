@@ -13,31 +13,31 @@
   </Grid>
 -->
 
-	<ScrollPanel Anchor="L,T" Offset="50,50" Size="200,400" Vertical="1" ID="test" AutoScrollBar="1">
+	<ScrollPanel Anchor="L,T" Offset="100,100" Size="400,800" Vertical="1" ID="test" AutoScrollBar="1">
 		<Stack Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" ID="testStack">
-			<Box ID="boxa" Size="200,100" Color="112,23,34,200" />
-			<Box ID="boxb" Size="200,100" Color="23,112,34,200" />
-			<Box ID="boxc" Size="200,100" Color="34,23,112,200" />
-			<Box ID="boxd" Size="200,100" Color="43,51,34,200" />
-			<Container ID="foo" Size="200,100">
-				<Box ID="boxe" Size="200,100" Color="0,112,92,200" />
+			<Box ID="boxa" Size="400,200" Color="112,23,34,200" />
+			<Box ID="boxb" Size="400,200" Color="23,112,34,200" />
+			<Box ID="boxc" Size="400,200" Color="34,23,112,200" />
+			<Box ID="boxd" Size="400,200" Color="43,51,34,200" />
+			<Container ID="foo" Size="400,200">
+				<Box ID="boxe" Size="400,200" Color="0,112,92,200" />
 			</Container>
-			<Box ID="boxf" Size="200,100" Color="86,0,211,200" />
-			<Box ID="boxg" Size="200,100" Color="200,16,161,200" />
+			<Box ID="boxf" Size="400,200" Color="86,0,211,200" />
+			<Box ID="boxg" Size="400,200" Color="200,16,161,200" />
 		</Stack>
-		<ScrollBar Offset="0.0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="360"/>
+		<ScrollBar Offset="0.0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="720"/>
 		<UpButton Offset="0.0" Style="ScrollBarUp" Anchor="R,T" AnchorSide="O,I"/>
 		<DownButton Offset="0.0" Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I"/>
 	</ScrollPanel>
 
 	<InstanceData Name="instanceOne">
-		<GridButton ID="Button" Size="200,100" Anchor="L,T" >
+		<GridButton ID="Button" Size="400,200" Anchor="L,T" >
 			<Box Color="30,200,50,150" />
 			<Box Color="200,30,50,150" />
 		</GridButton>
 	</InstanceData>
 
 
-	 <GridButton Anchor="C,C"  Offset="0,168" ID="ContinueButton"  Size="280,50"  Style="BaseButton" String="{TXT_KEY_LEGAL_CONTINUE:upper}" ColorSet="Gray_Black_Alpha"/>
+	 <GridButton Anchor="C,C"  Offset="0,336" ID="ContinueButton"  Size="560,100"  Style="BaseButton" String="{TXT_KEY_LEGAL_CONTINUE:upper}" ColorSet="Gray_Black_Alpha"/>
 
 </Context>

@@ -4,61 +4,61 @@
 
 	<Image Texture="Assets/UI/Art/Civilopedia/EarthFromSpaceTEMP.dds" Size="Full,Full" StretchMode="Fill" />
 
-	<Box Color="Black,230" Size="830,658" Anchor="C,C" >		
+	<Box Color="Black,230" Size="1660,1316" Anchor="C,C" >		
 		
 		<Grid Size="Parent,Parent" Style="Callout" >
 
 			<!-- Title -->
-			<Container Size="Parent,100" >
-				<Grid Style="AEDialogTitleHeaderBG" Size="Parent,50" >
+			<Container Size="Parent,200" >
+				<Grid Style="AEDialogTitleHeaderBG" Size="Parent,100" >
 					<Label ID="FoundReligionHeading" 	Style="MenuTitleCaption" String="{TXT_KEY_CHOOSE_LOADOUT_TITLE:upper}" />
 				</Grid>
-				<Box Color="16,18,24,255" Size="Parent,35" Offset="0,50">
-					<Label Offset="5,0" ID="LoadOutSubheader" Style="MenuSubTitleCaption" String="Select from each category below..." />
+				<Box Color="16,18,24,255" Size="Parent,70" Offset="0,100">
+					<Label Offset="10,0" ID="LoadOutSubheader" Style="MenuSubTitleCaption" String="Select from each category below..." />
 				</Box>
 
 			</Container>
 
 			<!-- Left Panel -->
-			<Box Color="0,0,0,100" Size="400,460" Offset="10,100" ID="LoadoutSlotsPanel">
+			<Box Color="0,0,0,100" Size="800,920" Offset="20,200" ID="LoadoutSlotsPanel">
 				
 				<Stack Anchor="C,T" Offset="0,0" StackGrow="Right" Padding="0" ID="LoadoutSlotStack">								
-					<GridButton ID="ColonistsButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="400,50" >
-						<Label Anchor="L,T" Offset="4,2" TruncateWidth="460" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutColonistsName" String="TXT_KEY_CHOOSE_LOADOUT_COLONISTS"/>						
-						<Label Anchor="L,T" Offset="5,20" TruncateWidth="460" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutColonistsDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_COLONISTS"/>				
+					<GridButton ID="ColonistsButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="800,100" >
+						<Label Anchor="L,T" Offset="8,4" TruncateWidth="920" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutColonistsName" String="TXT_KEY_CHOOSE_LOADOUT_COLONISTS"/>						
+						<Label Anchor="L,T" Offset="10,40" TruncateWidth="920" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutColonistsDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_COLONISTS"/>				
 					</GridButton>
 
-					<GridButton ID="SpacecraftButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="400,50" >
-						<Label Anchor="L,T" Offset="4,2" TruncateWidth="460" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutSpacecraftName" String="TXT_KEY_CHOOSE_LOADOUT_SPACECRAFT"/>						
-						<Label Anchor="L,T" Offset="5,20" TruncateWidth="460" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutSpacecraftDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_SPACECRAFT"/>				
+					<GridButton ID="SpacecraftButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="800,100" >
+						<Label Anchor="L,T" Offset="8,4" TruncateWidth="920" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutSpacecraftName" String="TXT_KEY_CHOOSE_LOADOUT_SPACECRAFT"/>						
+						<Label Anchor="L,T" Offset="10,40" TruncateWidth="920" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutSpacecraftDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_SPACECRAFT"/>				
 					</GridButton>
 
-					<GridButton ID="CargoButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="400,50" >
-						<Label Anchor="L,T" Offset="4,2" TruncateWidth="460" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutCargoName" String="TXT_KEY_CHOOSE_LOADOUT_CARGO"/>						
-						<Label Anchor="L,T" Offset="5,20" TruncateWidth="460" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutCargoDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_CARGO"/>				
+					<GridButton ID="CargoButton" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="800,100" >
+						<Label Anchor="L,T" Offset="8,4" TruncateWidth="920" Style="FontNormal20" FontStyle="Shadow" ID="LoadoutCargoName" String="TXT_KEY_CHOOSE_LOADOUT_CARGO"/>						
+						<Label Anchor="L,T" Offset="10,40" TruncateWidth="920" Style="FontNormal16" FontStyle="Shadow" ID="LoadoutCargoDescription" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_CARGO"/>				
 					</GridButton>
 				</Stack>
 			</Box>
 
 			<!-- Right Panel -->
-			<Box Color="0,0,0,100" Size="400,460" Anchor="R,T" Offset="10,100" ID="CargoPanel" >
-				<ScrollPanel Offset="0,0" Size="400,550" ID="ItemScrollPanel">
+			<Box Color="0,0,0,100" Size="800,920" Anchor="R,T" Offset="20,200" ID="CargoPanel" >
+				<ScrollPanel Offset="0,0" Size="800,1100" ID="ItemScrollPanel">
 					<UpButton 	Offset="0,0" Anchor="L,B" AnchorSide="i,o" Style="ScrollBarLeft"/>
 					<DownButton Offset="0,0" Anchor="R,B" AnchorSide="i,o" Style="ScrollBarRight"/>
-					<ScrollBar 	Offset="18,0" Anchor="R,B" AnchorSide="i,o" Length="460" />
+					<ScrollBar 	Offset="36,0" Anchor="R,B" AnchorSide="i,o" Length="920" />
 					<Stack Anchor="C,T" Offset="0,0" StackGrow="Right" Padding="0" ID="ItemStack"/>
 				</ScrollPanel>
 			</Box>
 
 			<!-- Launch Button -->
-			<GridButton Anchor="R,B" ID="LaunchButton" Offset="5,5" Size="260,45" Style="BaseButton" String="TXT_KEY_LAUNCH_BUTTON">
+			<GridButton Anchor="R,B" ID="LaunchButton" Offset="10,10" Size="520,90" Style="BaseButton" String="TXT_KEY_LAUNCH_BUTTON">
 				<AlphaAnim Anchor="L,T" Size="Parent,Parent" Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd=".5" ID="SelectionHighlight">
 					<Grid Size="parent,parent" Style="Grid9GeneralButtonHighlight"/>
 				</AlphaAnim>
 			</GridButton>
 
 			<!-- Auto-Select Button -->
-			<GridButton Anchor="L,B" ID="AutoButton" Offset="5,5" Size="260,45" Style="BaseButton" String="Auto"/>
+			<GridButton Anchor="L,B" ID="AutoButton" Offset="10,10" Size="520,90" Style="BaseButton" String="Auto"/>
 
 		</Grid>
 	</Box>
@@ -66,9 +66,9 @@
 
 	<!-- Item Instance -->
 	<Instance Name="ItemInstance">
-		<GridButton ID="Button" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="395,57" >
-			<Label Anchor="L,T" Offset="4,2" TruncateWidth="360" Style="FontNormal20" FontStyle="Shadow" ID="Name" String="TXT_KEY_CHOOSE_LOADOUT_COLONISTS"/>						
-			<Label Anchor="L,T" Offset="5,20" TruncateWidth="360" Style="FontNormal16" FontStyle="Shadow" ID="Description" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_COLONISTS"/>				
+		<GridButton ID="Button" Style="BaseButton" Anchor="L,T" Offset="0,0"  Size="790,114" >
+			<Label Anchor="L,T" Offset="8,4" TruncateWidth="720" Style="FontNormal20" FontStyle="Shadow" ID="Name" String="TXT_KEY_CHOOSE_LOADOUT_COLONISTS"/>						
+			<Label Anchor="L,T" Offset="10,40" TruncateWidth="720" Style="FontNormal16" FontStyle="Shadow" ID="Description" String="TXT_KEY_CHOOSE_LOADOUT_SELECT_COLONISTS"/>				
 		</GridButton>
 	</Instance>
 

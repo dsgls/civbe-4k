@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context Name="PremiumContent" >
 
-	<Grid				Size="490,600" Anchor="C,C" Style="Grid9DetailFive140">
+	<Grid				Size="980,1200" Anchor="C,C" Style="Grid9DetailFive140">
 		
 		<Label ID="TitleLabel"	Style="MenuTitleCaption" String="TXT_KEY_LOAD_MENU_DLC"/>
-		<Grid																												Offset="20,45"	Size="parent-40,505" SliceCorner="32,32" SliceSize="1,1" SliceTextureSize="64,64" Texture="DLCBG.dds" >		
+		<Grid																												Offset="40,90"	Size="parent-80,1010" SliceCorner="64,64" SliceSize="2,2" SliceTextureSize="128,128" Texture="DLCBG.dds" >		
 			<Image																			Anchor="C,B"	Texture="DLCBGGradient.dds" />
 			<Image																			Anchor="C,B"	Texture="DLCBGArrow.dds" />
 			
-			<Box																				Size="parent,50">
-        <Grid             ID="DLCHelpPanel"	      Size="parent,parent"                             	      Texture="GradientHeader_blue.dds" SliceCorner="20,20" SliceSize="1,1" SliceTextureSize="41,41" />
-        <Label																		Anchor="L,C"	Offset="15,0"		WrapWidth="440"  Style="FontNormal16" FontStyle="Shadow" String="TXT_KEY_DLC_SELECT_ACTIVE" />
+			<Box																				Size="parent,100">
+        <Grid             ID="DLCHelpPanel"	      Size="parent,parent"                             	      Texture="GradientHeader_blue.dds" SliceCorner="40,40" SliceSize="2,2" SliceTextureSize="82,82" />
+        <Label																		Anchor="L,C"	Offset="30,0"		WrapWidth="880"  Style="FontNormal16" FontStyle="Shadow" String="TXT_KEY_DLC_SELECT_ACTIVE" />
 			</Box>
 
-			<ScrollPanel				ID="ListingScrollPanel"	Anchor="L,T"	Offset="13,65"	Size="parent,parent"	Vertical="1" AutoScrollBar="1">
-				<Stack						ID="ListingStack"		StackGrowth="B"		Offset="0,0"		StackPadding="8">
+			<ScrollPanel				ID="ListingScrollPanel"	Anchor="L,T"	Offset="26,130"	Size="parent,parent"	Vertical="1" AutoScrollBar="1">
+				<Stack						ID="ListingStack"		StackGrowth="B"		Offset="0,0"		StackPadding="16">
 					<!-- Expansion1 Panel -->
-					<Image					ID="Expansion1Panel"		Anchor="C,T"  Offset="0,0"		Size="425,145" Texture="DLCButtonEXP1.dds" >
-						<Label				ID="Expansion1Title"		Anchor="L,B"	Offset="4,20"		Style="FontNormal20" String="Expansion Title" Color1="0,0,0,250" FontStyle="Glow" />
-						<GridButton		ID="EnableExpansion1"		Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,64" SliceCorner="10,30" SliceSize="1,1" SliceTextureSize="64,64" />
-						<GridButton		ID="DisableExpansion1"	Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,64" SliceCorner="10,30" SliceSize="1,1" SliceTextureSize="64,64" SliceStart="0,256"/>						
+					<Image					ID="Expansion1Panel"		Anchor="C,T"  Offset="0,0"		Size="850,290" Texture="DLCButtonEXP1.dds" >
+						<Label				ID="Expansion1Title"		Anchor="L,B"	Offset="8,40"		Style="FontNormal20" String="Expansion Title" Color1="0,0,0,250" FontStyle="Glow" />
+						<GridButton		ID="EnableExpansion1"		Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,128" SliceCorner="20,60" SliceSize="2,2" SliceTextureSize="128,128" />
+						<GridButton		ID="DisableExpansion1"	Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,128" SliceCorner="20,60" SliceSize="2,2" SliceTextureSize="128,128" SliceStart="0,512"/>						
 					</Image>					
 					<!-- ExoPlanets -->
-					<Image					ID="ExoPlanetsPanel"		Anchor="C,T"  Offset="0,0"		Size="425,89" Texture="DLCButtonDLC1.dds">
-						<Label				ID="ExoPlanetsTitle"		Anchor="L,B"	Offset="4,30"		Style="FontNormal20" String="Expansion Title" Color1="0,0,0,250" FontStyle="Glow" />
-						<GridButton		ID="EnableExoPlanets"		Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,64" SliceCorner="10,30" SliceSize="1,1" SliceTextureSize="64,64" />
-						<GridButton		ID="DisableExoPlanets"	Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,64" SliceCorner="10,30" SliceSize="1,1" SliceTextureSize="64,64" SliceStart="0,256"/>
+					<Image					ID="ExoPlanetsPanel"		Anchor="C,T"  Offset="0,0"		Size="850,178" Texture="DLCButtonDLC1.dds">
+						<Label				ID="ExoPlanetsTitle"		Anchor="L,B"	Offset="8,60"		Style="FontNormal20" String="Expansion Title" Color1="0,0,0,250" FontStyle="Glow" />
+						<GridButton		ID="EnableExoPlanets"		Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,128" SliceCorner="20,60" SliceSize="2,2" SliceTextureSize="128,128" />
+						<GridButton		ID="DisableExoPlanets"	Anchor="R,T"									Size="parent,parent"			Texture="DLCButton.dds" StateOffsetIncrement="0,128" SliceCorner="20,60" SliceSize="2,2" SliceTextureSize="128,128" SliceStart="0,512"/>
 					</Image>
 					
 				</Stack>					
-				<ScrollBar																Anchor="R,T"	Offset="0,18"		Length="464"		AnchorSide="O,I"  Style="VertSlider"/>
+				<ScrollBar																Anchor="R,T"	Offset="0,36"		Length="928"		AnchorSide="O,I"  Style="VertSlider"/>
 			</ScrollPanel>
 		</Grid>
 		
-		<GridButton						ID="BackButton"					Anchor="L,B"  Offset="20,10"	Size="130,32"		Style="SmallButton" StateOffsetIncrement="0,0"   >
+		<GridButton						ID="BackButton"					Anchor="L,B"  Offset="40,20"	Size="260,64"		Style="SmallButton" StateOffsetIncrement="0,0"   >
 			<Label																			Anchor="C,C"																		Style="FontNormal18"	String="TXT_KEY_MODDING_BACK" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
 		</GridButton>
-		<GridButton						ID="AcceptButton"				Anchor="R,B"  Offset="20,10"  Size="130,32"    Style="BaseButton"		String="TXT_KEY_OK_BUTTON" />
+		<GridButton						ID="AcceptButton"				Anchor="R,B"  Offset="40,20"  Size="260,64"    Style="BaseButton"		String="TXT_KEY_OK_BUTTON" />
 
 	</Grid>
 	
 	
 	<Instance							Name="ListingButtonInstance">
-		<Container					ID="Base" Size="405,52" >
-			<Label						ID="PackageName"					Anchor="L,C" Offset="10,0"		Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Genghis Khan's Mongolia" />
-			<Stack																			Anchor="R,C" Offset="5,0"			Size="32,32"	StackGrowth="Left" >
-				<Button					ID="EnableDLC"						Anchor="L,C"									Size="32,32"	StateOffsetIncrement="0,0" Texture="Checkbox_Blue.dds" ToolTip="TXT_KEY_MODDING_ENABLEMOD" ConsumeMouse="1"   />
-				<Button					ID="DisableDLC"						Anchor="L,C"									Size="32,32"	StateOffsetIncrement="0,0" Texture="Checkmark_Blue.dds" ToolTip="TXT_KEY_MODDING_DISABLEMOD" Hidden="1" ConsumeMouse="1"   />
+		<Container					ID="Base" Size="810,104" >
+			<Label						ID="PackageName"					Anchor="L,C" Offset="20,0"		Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Genghis Khan's Mongolia" />
+			<Stack																			Anchor="R,C" Offset="10,0"			Size="64,64"	StackGrowth="Left" >
+				<Button					ID="EnableDLC"						Anchor="L,C"									Size="64,64"	StateOffsetIncrement="0,0" Texture="Checkbox_Blue.dds" ToolTip="TXT_KEY_MODDING_ENABLEMOD" ConsumeMouse="1"   />
+				<Button					ID="DisableDLC"						Anchor="L,C"									Size="64,64"	StateOffsetIncrement="0,0" Texture="Checkmark_Blue.dds" ToolTip="TXT_KEY_MODDING_DISABLEMOD" Hidden="1" ConsumeMouse="1"   />
 			</Stack>
 
-			<Image Anchor="C,B" Offset="0,0" TextureOffset="0.0" Texture="bar340x2.dds" Size="340.1" />
+			<Image Anchor="C,B" Offset="0,0" TextureOffset="0.0" Texture="bar340x2.dds" Size="680.2" />
 		</Container>
 	</Instance>
 

@@ -4,67 +4,67 @@
 
 <Container Anchor="C,C" Size="Full,Full" ID="MainMenuScreenUI" >
   <Image ID="CivBELogo" Style="MainGameLogo" />
-  <Box Color="0,0,0,0" Offset="0,-100" Anchor="C,B" Size="480,480" Padding="0,0">
+  <Box Color="0,0,0,0" Offset="0,-200" Anchor="C,B" Size="960,960" Padding="0,0">
     <Stack Anchor="C,T" StackGrowth="Down">
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause=".1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="1Slide">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause=".1" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="1Slide">
           <AlphaAnim Anchor="C,T" Size="parent,parent" Pause=".1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="1Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_LATEST_NEWS"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause=".3" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="2Slide">
-          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="2Alpha">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause=".3" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="2Slide">
+          <AlphaAnim Anchor="C,T" Size="560,70" Pause=".3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="2Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_CIVILOPEDIA"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause=".5" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="3Slide">
-          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="3Alpha">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause=".5" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="3Slide">
+          <AlphaAnim Anchor="C,T" Size="560,70" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="3Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_HALL_OF_FAME"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause=".7" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="4Slide">
-          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".7" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="4Alpha">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause=".7" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="4Slide">
+          <AlphaAnim Anchor="C,T" Size="560,70" Pause=".7" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="4Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause=".9" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="5Slide" >
-          <AlphaAnim Anchor="L,T" Size="280,35" Pause=".9" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="5Alpha">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause=".9" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="5Slide" >
+          <AlphaAnim Anchor="L,T" Size="560,70" Pause=".9" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="5Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_CREDITS"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0" Hidden="1">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause="1.1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="6Slide" >
-          <AlphaAnim Anchor="L,T" Size="280,35" Pause="1.1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="6Alpha">
+      <Box Size="560,70" Color="0,0,0,0" Hidden="1">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause="1.1" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="6Slide" >
+          <AlphaAnim Anchor="L,T" Size="560,70" Pause="1.1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="6Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_LEADERBOARD"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
-      <Box Size="280,35" Color="0,0,0,0">
-        <SlideAnim Anchor="C,T" Size="280,35" Pause="1.3" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="7Slide">
-          <AlphaAnim Anchor="L,T" Size="280,35" Pause="1.3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="7Alpha">
+      <Box Size="560,70" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="560,70" Pause="1.3" Start="120,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="7Slide">
+          <AlphaAnim Anchor="L,T" Size="560,70" Pause="1.3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="7Alpha">
             <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_MODDING_MENU_BACK"/>
           </AlphaAnim>
         </SlideAnim>
       </Box>
     </Stack>
-    <AlphaAnim Anchor="C,B" Size="480,480" Pause="1.3" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
-      <Stack Anchor="C,T" Offset="0,-10" StackGrowth="Down">
-        <Button Anchor="C,T" ID="LatestNewsButton"		Size="280,35"	 Style="MainMenuButton" String="TXT_KEY_LATEST_NEWS" ToolTip="TXT_KEY_LATEST_NEWS_TT"/>
-        <Button Anchor="C,T" ID="CivilopediaButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_CIVILOPEDIA" ToolTip="TXT_KEY_CIVILOPEDIA_TOOLTIP" />
-        <Button Anchor="C,T" ID="HallOfFameButton"			Size="280,35"    Style="MainMenuButton" String="TXT_KEY_HALL_OF_FAME" ToolTip="TXT_KEY_HALL_OF_FAME_TT" />
-        <Button Anchor="C,T" ID="ViewReplaysButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS" ToolTip="TXT_KEY_OTHER_MENU_VIEW_REPLAYS_TT" />
-        <Button Anchor="C,T" ID="CreditsButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_CREDITS" ToolTip="TXT_KEY_CREDITS_TT"/>
-        <Button Anchor="C,T" ID="LeaderboardButton"	Size="280,35"    Style="MainMenuButton" String="TXT_KEY_LEADERBOARD" ToolTip="TXT_KEY_LEADERBOARD_TT" Hidden="1"/>
-        <Button Anchor="C,T" ID="BackButton" Size="280,35" Style="MainMenuButton" String="TXT_KEY_MODDING_MENU_BACK" />
+    <AlphaAnim Anchor="C,B" Size="960,960" Pause="1.3" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
+      <Stack Anchor="C,T" Offset="0,-20" StackGrowth="Down">
+        <Button Anchor="C,T" ID="LatestNewsButton"		Size="560,70"	 Style="MainMenuButton" String="TXT_KEY_LATEST_NEWS" ToolTip="TXT_KEY_LATEST_NEWS_TT"/>
+        <Button Anchor="C,T" ID="CivilopediaButton"		Size="560,70"    Style="MainMenuButton" String="TXT_KEY_CIVILOPEDIA" ToolTip="TXT_KEY_CIVILOPEDIA_TOOLTIP" />
+        <Button Anchor="C,T" ID="HallOfFameButton"			Size="560,70"    Style="MainMenuButton" String="TXT_KEY_HALL_OF_FAME" ToolTip="TXT_KEY_HALL_OF_FAME_TT" />
+        <Button Anchor="C,T" ID="ViewReplaysButton"		Size="560,70"    Style="MainMenuButton" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS" ToolTip="TXT_KEY_OTHER_MENU_VIEW_REPLAYS_TT" />
+        <Button Anchor="C,T" ID="CreditsButton"		Size="560,70"    Style="MainMenuButton" String="TXT_KEY_CREDITS" ToolTip="TXT_KEY_CREDITS_TT"/>
+        <Button Anchor="C,T" ID="LeaderboardButton"	Size="560,70"    Style="MainMenuButton" String="TXT_KEY_LEADERBOARD" ToolTip="TXT_KEY_LEADERBOARD_TT" Hidden="1"/>
+        <Button Anchor="C,T" ID="BackButton" Size="560,70" Style="MainMenuButton" String="TXT_KEY_MODDING_MENU_BACK" />
       </Stack>
     </AlphaAnim>
   </Box>
