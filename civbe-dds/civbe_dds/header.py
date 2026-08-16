@@ -1,8 +1,8 @@
 """DDS header parsing and building, including the Firaxis FTXT fields.
 
 See *The texture format* in the top-level README for the format itself; this
-module is the executable version of that description. Ported from
-`analysis/dds.py`, with the header as a dataclass instead of a dict.
+module is the executable version of that description. The parsed header is
+`DdsHeader`, a dataclass.
 """
 import struct
 from dataclasses import dataclass
@@ -24,10 +24,9 @@ DDSCAPS2_CUBEMAP = 0x200
 #         | DDSD_MIPMAPCOUNT -- no DDSD_PITCH. dwPitchOrLinearSize is left 0
 # and dwCaps carries DDSCAPS_COMPLEX | DDSCAPS_MIPMAP alongside
 # DDSCAPS_TEXTURE, even though there is exactly one level: this is the
-# combination all 756 stock plain single-level UI textures use, and the
-# engine treats a conforming DDSD_PITCH/DDSCAPS_TEXTURE-only file as a
-# distinct, non-default case. Matching stock, not the DDS documentation, is
-# the goal here -- see *Encoding* in the design spec.
+# combination all 756 stock plain single-level UI textures use. Matching
+# stock, not the DDS documentation, is the goal here -- see *Encoding* in the
+# design spec.
 _HEADER_FLAGS = 0x21007
 
 _FTXT_MAGIC = b"FTXT"

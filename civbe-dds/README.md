@@ -111,9 +111,8 @@ it writes has exactly one level. That looks wrong against the DDS
 documentation, which reserves `COMPLEX | MIPMAP` for files that actually
 carry extra surfaces. It is right for this project: every one of the 756
 stock single-level plain `A8B8G8R8` textures in the UI packs sets exactly
-this combination, and the engine treats a spec-conforming
-`DDSD_PITCH`/`DDSCAPS_TEXTURE`-only file as a distinct, non-default case.
-Matching stock output, not the format documentation, is the goal — see
+this combination. Matching stock output, not the format documentation, is
+the goal — see
 *The texture format* in the top-level README for the format itself, and
 *Encoding* in the design spec for the byte-for-byte header layout.
 

@@ -1,9 +1,8 @@
-"""PNG reader and writer, ported from `analysis/dds.py` and extended.
+"""PNG reader and writer.
 
 `write_png` always emits 8-bit RGBA (colour type 6). `read_png` accepts the
-surface a real upscaler emits and always returns RGBA -- unlike the original,
-which handed back raw scanlines and a channel count, indistinguishable from
-pixel data for a palette image.
+surface a real upscaler emits and always returns RGBA, resolving a palette
+image through PLTE/tRNS rather than handing back raw indices.
 """
 import struct
 import zlib
