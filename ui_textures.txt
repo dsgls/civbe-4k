@@ -1,11 +1,13 @@
 # UI textures requiring 2x conversion to match the vendored ui/ trees
 #
-# A texture is listed when a texture-space coordinate reads it: an atlas
-# sub-rect (TextureOffset/StateOffsetIncrement), a 9-slice rect, a flipbook
-# stride, a font-icon cell, an IconTextureAtlases row, or a Lua
-# SetTextureOffsetVal/SetTextureSizeVal call (control resolved to its XML
-# element by ID). Both UI trees are swept, base and Expansion1. Textures
-# merely stretched to fit a control are NOT listed - the engine scales those.
+# Every texture the UI trees reference is listed: the engine draws a plain
+# image 1:1 from the texture's top-left and never stretches it to the
+# control (verified in game - 1x art renders quarter-size in its corner),
+# so 2x layout needs 2x art everywhere. The reason column records what
+# reads the texture: a texture-space coordinate (atlas sub-rect, 9-slice
+# rect, flipbook stride, font-icon cell, IconTextureAtlases row, Lua
+# SetTextureOffsetVal/SetTextureSizeVal), or drawn-1to1 for a plain ref.
+# Both UI trees are swept, base and Expansion1.
 #
 # input_file is the thing to upscale, relative to the extraction root, and
 # decoded is its MEASURED size. A .png input was a dictionary-coded pair
@@ -16,23 +18,43 @@
 #
 # pack	filename	input_file	decoded	bytes	reasons
 
+Expansion1UITextures.fpk	actioncornerxp1.dds	Expansion1UITextures.fpk/actioncornerxp1.dds	516x161	442444	drawn-1to1
 Expansion1UITextures.fpk	affinitybonusslot.dds	Expansion1UITextures.fpk/affinitybonusslot.dds	6x55	1448	9-slice
-Expansion1UITextures.fpk	affinitynode.dds	Expansion1UITextures.fpk/affinitynode.dds	18x72	5312	lua-runtime-offset
+Expansion1UITextures.fpk	affinitynode.dds	Expansion1UITextures.fpk/affinitynode.dds	18x72	5312	drawn-1to1,lua-runtime-offset
+Expansion1UITextures.fpk	affinitynodeglow.dds	Expansion1UITextures.fpk/affinitynodeglow.dds	47x48	9152	drawn-1to1
+Expansion1UITextures.fpk	affinitywheelglow.dds	Expansion1UITextures.fpk/affinitywheelglow.dds	259x263	272596	drawn-1to1
+Expansion1UITextures.fpk	affinitywheelglow2.dds	Expansion1UITextures.fpk/affinitywheelglow2.dds	260x261	271568	drawn-1to1
+Expansion1UITextures.fpk	affinitywheellarge.dds	Expansion1UITextures.fpk/affinitywheellarge.dds	554x554	1227792	drawn-1to1
+Expansion1UITextures.fpk	agreements_bigdiplocapital.dds	Expansion1UITextures.fpk/agreements_bigdiplocapital.dds	45x45	10768	drawn-1to1
+Expansion1UITextures.fpk	agreements_boostedallied.dds	Expansion1UITextures.fpk/agreements_boostedallied.dds	71x74	27920	drawn-1to1
+Expansion1UITextures.fpk	agreements_boostedcooperative.dds	Expansion1UITextures.fpk/agreements_boostedcooperative.dds	71x74	27920	drawn-1to1
+Expansion1UITextures.fpk	agreements_circle.dds	Expansion1UITextures.fpk/agreements_circle.dds	92x92	45168	drawn-1to1
 Expansion1UITextures.fpk	agreements_container.dds	Expansion1UITextures.fpk/agreements_container.dds	38x38	7756	9-slice
-Expansion1UITextures.fpk	agreements_numbers.dds	Expansion1UITextures.fpk/agreements_numbers.dds	60x280	89572	atlas-subrect,lua-runtime-offset
+Expansion1UITextures.fpk	agreements_numbers.dds	Expansion1UITextures.fpk/agreements_numbers.dds	60x280	89572	atlas-subrect,drawn-1to1,lua-runtime-offset
+Expansion1UITextures.fpk	agreements_set.dds	Expansion1UITextures.fpk/agreements_set.dds	34x71	12880	drawn-1to1
 Expansion1UITextures.fpk	agreements_subincomecontainer.dds	Expansion1UITextures.fpk/agreements_subincomecontainer.dds	102x61	33060	9-slice
 Expansion1UITextures.fpk	agreementsbacking.dds	Expansion1UITextures.fpk/agreementsbacking.dds	34x71	12880	9-slice
 Expansion1UITextures.fpk	artifactbutton.dds	Expansion1UITextures.fpk/artifactbutton.dds	60x448	107648	9-slice
-Expansion1UITextures.fpk	artifactcategory32.dds	Expansion1UITextures.fpk/artifactcategory32.dds	64x64	16512	icon-atlas
+Expansion1UITextures.fpk	artifactcategory32.dds	Expansion1UITextures.fpk/artifactcategory32.dds	64x64	16512	drawn-1to1,icon-atlas
 Expansion1UITextures.fpk	artifactdraganim_l.dds	Expansion1UITextures.fpk/artifactdraganim_l.dds	32x104	13440	flipbook-sheet
 Expansion1UITextures.fpk	artifactdraganim_r.dds	Expansion1UITextures.fpk/artifactdraganim_r.dds	32x104	13440	flipbook-sheet
+Expansion1UITextures.fpk	artifactempty.dds	Expansion1UITextures.fpk/artifactempty.dds	73x80	23488	drawn-1to1
 Expansion1UITextures.fpk	artifactsconditionbar.dds	Expansion1UITextures.fpk/artifactsconditionbar.dds	100x7	2928	9-slice
+Expansion1UITextures.fpk	artifactsconditionbattered.dds	Expansion1UITextures.fpk/artifactsconditionbattered.dds	100x4	1728	drawn-1to1
+Expansion1UITextures.fpk	artifactsconditionpristine.dds	Expansion1UITextures.fpk/artifactsconditionpristine.dds	100x4	1728	drawn-1to1
+Expansion1UITextures.fpk	artifactsconditionworn.dds	Expansion1UITextures.fpk/artifactsconditionworn.dds	100x4	1728	drawn-1to1
+Expansion1UITextures.fpk	artifactsconditionwornlg.dds	Expansion1UITextures.fpk/artifactsconditionwornlg.dds	200x8	6528	drawn-1to1
 Expansion1UITextures.fpk	artifactspreviewgrid.dds	Expansion1UITextures.fpk/artifactspreviewgrid.dds	15x166	10088	9-slice
+Expansion1UITextures.fpk	artifactsresearcharrowframe.dds	Expansion1UITextures.fpk/artifactsresearcharrowframe.dds	512x299	612480	drawn-1to1
+Expansion1UITextures.fpk	artifactsresearcharrowpath1.dds	Expansion1UITextures.fpk/artifactsresearcharrowpath1.dds	155x128	79488	drawn-1to1
+Expansion1UITextures.fpk	artifactsresearcharrowpath2.dds	Expansion1UITextures.fpk/artifactsresearcharrowpath2.dds	16x134	8704	drawn-1to1
+Expansion1UITextures.fpk	artifactsresearcharrowpath3.dds	Expansion1UITextures.fpk/artifactsresearcharrowpath3.dds	155x128	79488	drawn-1to1
+Expansion1UITextures.fpk	artifactsresearcharrowresult123.dds	Expansion1UITextures.fpk/artifactsresearcharrowresult123.dds	88x105	37088	drawn-1to1
 Expansion1UITextures.fpk	artifactsrevealframe.dds	Expansion1UITextures.fpk/artifactsrevealframe.dds	10x42	1808	9-slice
-Expansion1UITextures.fpk	be_exp1_artifacts_atlas_128.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_128.png	1536x768	1266296	icon-atlas
+Expansion1UITextures.fpk	be_exp1_artifacts_atlas_128.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_128.png	1536x768	1266296	drawn-1to1,icon-atlas
 Expansion1UITextures.fpk	be_exp1_artifacts_atlas_200.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_200.png	2400x1200	2813040	icon-atlas
-Expansion1UITextures.fpk	be_exp1_artifacts_atlas_300.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_300.png	3600x1800	5457767	icon-atlas
-Expansion1UITextures.fpk	be_exp1_artifacts_atlas_80.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_80.png	960x480	546473	icon-atlas,lua-runtime-offset
+Expansion1UITextures.fpk	be_exp1_artifacts_atlas_300.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_300.png	3600x1800	5457767	drawn-1to1,icon-atlas
+Expansion1UITextures.fpk	be_exp1_artifacts_atlas_80.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_80.png	960x480	546473	drawn-1to1,icon-atlas,lua-runtime-offset
 Expansion1UITextures.fpk	be_exp1_foreign_policies_atlas_128.dds	Expansion1UITextures_converted/be_exp1_foreign_policies_atlas_128.png	640x640	2855	icon-atlas
 Expansion1UITextures.fpk	be_exp1_traits_atlas_128.dds	Expansion1UITextures_converted/be_exp1_traits_atlas_128.png	640x640	1718	icon-atlas
 Expansion1UITextures.fpk	blackgradient_small.dds	Expansion1UITextures.fpk/blackgradient_small.dds	64x64	21972	9-slice
@@ -46,8 +68,11 @@ Expansion1UITextures.fpk	buildingatlasxp1-1_768.dds	Expansion1UITextures_convert
 Expansion1UITextures.fpk	buildingatlasxp1_128.dds	Expansion1UITextures.fpk/buildingatlasxp1_128.dds	512x256	524416	icon-atlas
 Expansion1UITextures.fpk	buildingatlasxp1_96.dds	Expansion1UITextures.fpk/buildingatlasxp1_96.dds	384x192	295040	icon-atlas
 Expansion1UITextures.fpk	buttonmovecity.dds	Expansion1UITextures.fpk/buttonmovecity.dds	52x260	54208	9-slice
-Expansion1UITextures.fpk	cancelbutton.dds	Expansion1UITextures.fpk/cancelbutton.dds	43x172	39188	atlas-subrect
+Expansion1UITextures.fpk	cancelbutton.dds	Expansion1UITextures.fpk/cancelbutton.dds	43x172	39188	atlas-subrect,drawn-1to1
 Expansion1UITextures.fpk	card_backing.dds	Expansion1UITextures.fpk/card_backing.dds	20x175	18708	9-slice
+Expansion1UITextures.fpk	civilizationbe_risingtide_logo.dds	Expansion1UITextures.fpk/civilizationbe_risingtide_logo.dds	1500x312	2457128	drawn-1to1
+Expansion1UITextures.fpk	civilopediatopbuttonsartifacts.dds	Expansion1UITextures.fpk/civilopediatopbuttonsartifacts.dds	50x200	53312	drawn-1to1
+Expansion1UITextures.fpk	civilopediatopbuttonsdiplomacy.dds	Expansion1UITextures.fpk/civilopediatopbuttonsdiplomacy.dds	50x200	53312	drawn-1to1
 Expansion1UITextures.fpk	civsymbolatlasxp1_128.dds	Expansion1UITextures_converted/civsymbolatlasxp1_128.png	512x512	24942	icon-atlas
 Expansion1UITextures.fpk	civsymbolatlasxp1_16.dds	Expansion1UITextures_converted/civsymbolatlasxp1_16.png	64x64	2008	icon-atlas
 Expansion1UITextures.fpk	civsymbolatlasxp1_24.dds	Expansion1UITextures_converted/civsymbolatlasxp1_24.png	96x96	3448	icon-atlas
@@ -78,59 +103,85 @@ Expansion1UITextures.fpk	dip_grid_trait2.dds	Expansion1UITextures.fpk/dip_grid_t
 Expansion1UITextures.fpk	dip_grid_trait3.dds	Expansion1UITextures.fpk/dip_grid_trait3.dds	64x64	21972	9-slice
 Expansion1UITextures.fpk	dip_grid_trait4.dds	Expansion1UITextures.fpk/dip_grid_trait4.dds	64x64	21972	9-slice
 Expansion1UITextures.fpk	dip_header.dds	Expansion1UITextures.fpk/dip_header.dds	500x32	84128	9-slice
+Expansion1UITextures.fpk	dip_leaderbox.dds	Expansion1UITextures_converted/dip_leaderbox.png	100x300	2862	drawn-1to1
+Expansion1UITextures.fpk	dip_leaderbox_hi.dds	Expansion1UITextures_converted/dip_leaderbox_hi.png	100x300	2876	drawn-1to1
 Expansion1UITextures.fpk	dip_leaderbox_traitbutton.dds	Expansion1UITextures.fpk/dip_leaderbox_traitbutton.dds	100x400	210128	9-slice
 Expansion1UITextures.fpk	dip_traitadd.dds	Expansion1UITextures.fpk/dip_traitadd.dds	64x256	87504	9-slice
 Expansion1UITextures.fpk	diplo_choicearea.dds	Expansion1UITextures.fpk/diplo_choicearea.dds	41x41	8972	9-slice
 Expansion1UITextures.fpk	diplo_choicebutton.dds	Expansion1UITextures.fpk/diplo_choicebutton.dds	30x150	23944	9-slice
+Expansion1UITextures.fpk	diplo_choiceglow.dds	Expansion1UITextures.fpk/diplo_choiceglow.dds	416x215	476120	drawn-1to1
 Expansion1UITextures.fpk	diplo_fearmeter.dds	Expansion1UITextures.fpk/diplo_fearmeter.dds	21x33	3744	atlas-subrect
-Expansion1UITextures.fpk	diplo_relationshipindicators.dds	Expansion1UITextures.fpk/diplo_relationshipindicators.dds	30x150	23944	lua-runtime-offset
+Expansion1UITextures.fpk	diplo_relationshipindicators.dds	Expansion1UITextures.fpk/diplo_relationshipindicators.dds	30x150	23944	drawn-1to1,lua-runtime-offset
 Expansion1UITextures.fpk	diplo_respectmeter.dds	Expansion1UITextures.fpk/diplo_respectmeter.dds	21x33	3744	atlas-subrect
 Expansion1UITextures.fpk	diplo_wordbubble.dds	Expansion1UITextures.fpk/diplo_wordbubble.dds	70x69	25704	9-slice
 Expansion1UITextures.fpk	diplomacy_slot.dds	Expansion1UITextures.fpk/diplomacy_slot.dds	24x24	3192	9-slice
 Expansion1UITextures.fpk	diplomacy_window.dds	Expansion1UITextures.fpk/diplomacy_window.dds	21x192	21336	9-slice
+Expansion1UITextures.fpk	diplowarspoils_n_defeat_888x125.dds	Expansion1UITextures.fpk/diplowarspoils_n_defeat_888x125.dds	888x125	590384	drawn-1to1
+Expansion1UITextures.fpk	dom_city_1920x1080.dds	Expansion1UITextures.fpk/dom_city_1920x1080.dds	1920x1080	11016128	drawn-1to1
+Expansion1UITextures.fpk	dom_eyeoftheorbiter_1920x1080.dds	Expansion1UITextures.fpk/dom_eyeoftheorbiter_1920x1080.dds	1920x1080	11016128	drawn-1to1
+Expansion1UITextures.fpk	dom_kraken_1920x1080.dds	Expansion1UITextures.fpk/dom_kraken_1920x1080.dds	1920x1080	11016128	drawn-1to1
+Expansion1UITextures.fpk	dom_rig_floatstone.dds	Expansion1UITextures.fpk/dom_rig_floatstone.dds	1920x1080	11016128	drawn-1to1
+Expansion1UITextures.fpk	dom_siegeworm_1920x1080.dds	Expansion1UITextures.fpk/dom_siegeworm_1920x1080.dds	1920x1080	11016128	drawn-1to1
+Expansion1UITextures.fpk	dom_xenotitan_attack_1920x1080.dds	Expansion1UITextures.fpk/dom_xenotitan_attack_1920x1080.dds	1920x1080	11016128	drawn-1to1
 Expansion1UITextures.fpk	dropshadow.dds	Expansion1UITextures.fpk/dropshadow.dds	200x200	213388	9-slice
-Expansion1UITextures.fpk	fearrespectrequirements.dds	Expansion1UITextures.fpk/fearrespectrequirements.dds	68x268	97208	lua-runtime-offset
-Expansion1UITextures.fpk	header_backbutton.dds	Expansion1UITextures.fpk/header_backbutton.dds	43x172	39188	atlas-subrect
+Expansion1UITextures.fpk	fearrespectrequirements.dds	Expansion1UITextures.fpk/fearrespectrequirements.dds	68x268	97208	drawn-1to1,lua-runtime-offset
+Expansion1UITextures.fpk	fonticonsxp1.dds	Expansion1UITextures_converted/fonticonsxp1.png	256x256	35018	font-icon-cell
+Expansion1UITextures.fpk	header_backbutton.dds	Expansion1UITextures.fpk/header_backbutton.dds	43x172	39188	atlas-subrect,drawn-1to1
 Expansion1UITextures.fpk	header_breadcrumbs.dds	Expansion1UITextures.fpk/header_breadcrumbs.dds	33x112	19688	9-slice
 Expansion1UITextures.fpk	header_firstbreadcrumb.dds	Expansion1UITextures.fpk/header_firstbreadcrumb.dds	33x112	19688	9-slice
+Expansion1UITextures.fpk	hudicon_artifacts.dds	Expansion1UITextures_converted/hudicon_artifacts.png	55x55	3656	drawn-1to1
 Expansion1UITextures.fpk	leaderportraitsxp1_128.dds	Expansion1UITextures_converted/leaderportraitsxp1_128.png	512x128	90116	icon-atlas
 Expansion1UITextures.fpk	leaderportraitsxp1_256.dds	Expansion1UITextures_converted/leaderportraitsxp1_256.png	1024x256	292507	icon-atlas
 Expansion1UITextures.fpk	leaderportraitsxp1_64.dds	Expansion1UITextures_converted/leaderportraitsxp1_64.png	256x64	33671	icon-atlas
 Expansion1UITextures.fpk	leaderportraitsxp1_80.dds	Expansion1UITextures_converted/leaderportraitsxp1_80.png	320x80	47613	icon-atlas
 Expansion1UITextures.fpk	managetraits_costcontainer.dds	Expansion1UITextures.fpk/managetraits_costcontainer.dds	58x40	12456	9-slice
-Expansion1UITextures.fpk	managetraits_selectheader.dds	Expansion1UITextures.fpk/managetraits_selectheader.dds	96x32	16512	lua-runtime-offset
+Expansion1UITextures.fpk	managetraits_selectheader.dds	Expansion1UITextures.fpk/managetraits_selectheader.dds	96x32	16512	drawn-1to1,lua-runtime-offset
 Expansion1UITextures.fpk	managetraits_traitcontainer.dds	Expansion1UITextures.fpk/managetraits_traitcontainer.dds	69x144	52876	9-slice
-Expansion1UITextures.fpk	managetraits_upgrade.dds	Expansion1UITextures.fpk/managetraits_upgrade.dds	198x90	94900	lua-runtime-offset
+Expansion1UITextures.fpk	managetraits_upgrade.dds	Expansion1UITextures.fpk/managetraits_upgrade.dds	198x90	94900	drawn-1to1,lua-runtime-offset
 Expansion1UITextures.fpk	managetraits_upgradebutton.dds	Expansion1UITextures.fpk/managetraits_upgradebutton.dds	61x244	79028	9-slice
+Expansion1UITextures.fpk	marvel_arrow.dds	Expansion1UITextures_converted/marvel_arrow.png	90x38	1240	drawn-1to1
+Expansion1UITextures.fpk	movecity36.dds	Expansion1UITextures.fpk/movecity36.dds	36x36	5312	drawn-1to1
 Expansion1UITextures.fpk	notifications.dds	Expansion1UITextures_converted/notifications.png	512x512	298444	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	notifications_turnblocking.dds	Expansion1UITextures_converted/notifications_turnblocking.png	1024x256	96569	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	perkatlas128.dds	Expansion1UITextures_converted/perkatlas128.png	1024x1024	413583	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	perkatlas32.dds	Expansion1UITextures_converted/perkatlas32.png	256x256	80365	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	perkatlas45.dds	Expansion1UITextures_converted/perkatlas45.png	360x360	81868	icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	perkatlas56.dds	Expansion1UITextures_converted/perkatlas56.png	448x448	119161	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	perkatlas56.dds	Expansion1UITextures_converted/perkatlas56.png	448x448	119161	drawn-1to1,icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	perkatlas64.dds	Expansion1UITextures_converted/perkatlas64.png	512x512	277779	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	planetarywonder_portraits_exp1_128.dds	Expansion1UITextures_converted/planetarywonder_portraits_exp1_128.png	384x128	68785	icon-atlas
-Expansion1UITextures.fpk	playerribbon_relationshipindicators.dds	Expansion1UITextures.fpk/playerribbon_relationshipindicators.dds	88x375	175828	atlas-subrect,lua-runtime-offset
+Expansion1UITextures.fpk	playerribbon_backing.dds	Expansion1UITextures.fpk/playerribbon_backing.dds	68x68	24744	drawn-1to1
+Expansion1UITextures.fpk	playerribbon_playerhighlight.dds	Expansion1UITextures.fpk/playerribbon_playerhighlight.dds	105x78	43568	drawn-1to1
+Expansion1UITextures.fpk	playerribbon_relationshipindicators.dds	Expansion1UITextures.fpk/playerribbon_relationshipindicators.dds	88x375	175828	atlas-subrect,drawn-1to1,lua-runtime-offset
 Expansion1UITextures.fpk	playerribbon_showrelationshipsbracket.dds	Expansion1UITextures.fpk/playerribbon_showrelationshipsbracket.dds	46x80	19660	9-slice
+Expansion1UITextures.fpk	playerribbon_talk.dds	Expansion1UITextures.fpk/playerribbon_talk.dds	33x32	5716	drawn-1to1
 Expansion1UITextures.fpk	projectatlas1024.dds	Expansion1UITextures_converted/projectatlas1024.png	1024x128	104095	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	projectatlas360.dds	Expansion1UITextures_converted/projectatlas360.png	360x45	23827	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	projectatlas512.dds	Expansion1UITextures_converted/projectatlas512.png	512x64	40614	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	questlogmissiontypebanners.dds	Expansion1UITextures_converted/questlogmissiontypebanners.png	50x276	22157	atlas-subrect USE-EXPANSION-COPY
+Expansion1UITextures.fpk	relationship_arrow.dds	Expansion1UITextures.fpk/relationship_arrow.dds	45x34	8196	drawn-1to1
+Expansion1UITextures.fpk	relationship_selector.dds	Expansion1UITextures.fpk/relationship_selector.dds	42x42	9468	drawn-1to1
 Expansion1UITextures.fpk	resources1024.dds	Expansion1UITextures_converted/resources1024.png	1024x640	613700	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	resources2048.dds	Expansion1UITextures_converted/resources2048.png	2048x1280	1945911	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	resources360.dds	Expansion1UITextures_converted/resources360.png	360x225	103717	icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	resources512.dds	Expansion1UITextures_converted/resources512.png	512x320	189893	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	resources512.dds	Expansion1UITextures_converted/resources512.png	512x320	189893	drawn-1to1,icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	resources640.dds	Expansion1UITextures_converted/resources640.png	640x400	273563	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	rowleaf.dds	Expansion1UITextures.fpk/rowleaf.dds	8x52	2312	9-slice
 Expansion1UITextures.fpk	rowsfull.dds	Expansion1UITextures.fpk/rowsfull.dds	8x69	3076	9-slice
 Expansion1UITextures.fpk	services_32.dds	Expansion1UITextures_converted/services_32.png	256x256	79541	icon-atlas
 Expansion1UITextures.fpk	services_64.dds	Expansion1UITextures_converted/services_64.png	512x512	151299	icon-atlas
 Expansion1UITextures.fpk	services_button.dds	Expansion1UITextures.fpk/services_button.dds	67x268	95332	9-slice
-Expansion1UITextures.fpk	summarybutton.dds	Expansion1UITextures.fpk/summarybutton.dds	43x172	39188	atlas-subrect
+Expansion1UITextures.fpk	summary_wondersbacking.dds	Expansion1UITextures.fpk/summary_wondersbacking.dds	50x50	13388	drawn-1to1
+Expansion1UITextures.fpk	summarybutton.dds	Expansion1UITextures.fpk/summarybutton.dds	43x172	39188	atlas-subrect,drawn-1to1
+Expansion1UITextures.fpk	summarybuttonbacking.dds	Expansion1UITextures.fpk/summarybuttonbacking.dds	50x81	21600	drawn-1to1
+Expansion1UITextures.fpk	switchtrait_arrow.dds	Expansion1UITextures.fpk/switchtrait_arrow.dds	39x37	7676	drawn-1to1
 Expansion1UITextures.fpk	switchtrait_selectedtrait.dds	Expansion1UITextures.fpk/switchtrait_selectedtrait.dds	32x32	5588	9-slice
+Expansion1UITextures.fpk	techcalloutarrow.dds	Expansion1UITextures.fpk/techcalloutarrow.dds	30x15	1928	drawn-1to1
+Expansion1UITextures.fpk	techcalloutframe.dds	Expansion1UITextures.fpk/techcalloutframe.dds	42x81	13736	drawn-1to1
 Expansion1UITextures.fpk	techiconframe135.dds	Expansion1UITextures.fpk/techiconframe135.dds	135x135	73028	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	terrainicons.dds	Expansion1UITextures_converted/terrainicons.png	1024x1024	865526	icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	terrainicons512.dds	Expansion1UITextures_converted/terrainicons512.png	512x512	236288	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	terrainicons512.dds	Expansion1UITextures_converted/terrainicons512.png	512x512	236288	drawn-1to1,icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	tooltip_fearcheck.dds	Expansion1UITextures.fpk/tooltip_fearcheck.dds	62x32	10668	drawn-1to1
+Expansion1UITextures.fpk	tooltip_respectcheck.dds	Expansion1UITextures.fpk/tooltip_respectcheck.dds	62x32	10668	drawn-1to1
 Expansion1UITextures.fpk	tooltipheader.dds	Expansion1UITextures.fpk/tooltipheader.dds	22x22	2668	9-slice
 Expansion1UITextures.fpk	tooltipsubheader.dds	Expansion1UITextures.fpk/tooltipsubheader.dds	32x32	5588	9-slice
 Expansion1UITextures.fpk	traits_32.dds	Expansion1UITextures.fpk/traits_32.dds	256x256	262272	icon-atlas
@@ -138,11 +189,12 @@ Expansion1UITextures.fpk	traits_64.dds	Expansion1UITextures.fpk/traits_64.dds	51
 Expansion1UITextures.fpk	unitactionsxp1.dds	Expansion1UITextures.fpk/unitactionsxp1.dds	256x256	349652	icon-atlas
 Expansion1UITextures.fpk	unitactionsxp1_1024.dds	Expansion1UITextures_converted/unitactionsxp1_1024.png	512x512	133456	icon-atlas
 Expansion1UITextures.fpk	unitactionsxp1_360.dds	Expansion1UITextures_converted/unitactionsxp1_360.png	180x180	23912	icon-atlas
-Expansion1UITextures.fpk	unitflagatlaswhite.dds	Expansion1UITextures_converted/unitflagatlaswhite.png	512x256	51339	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	unitflagatlaswhite.dds	Expansion1UITextures_converted/unitflagatlaswhite.png	512x256	51339	drawn-1to1,icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	unitflaginvisible.dds	Expansion1UITextures_converted/unitflaginvisible.png	256x256	15526	drawn-1to1
 Expansion1UITextures.fpk	unitportraitsearly1024.dds	Expansion1UITextures_converted/unitportraitsearly1024.png	1024x1024	427642	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	unitportraitsearly1120.dds	Expansion1UITextures_converted/unitportraitsearly1120.png	1120x1120	469576	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	unitportraitsearly360.dds	Expansion1UITextures_converted/unitportraitsearly360.png	360x360	71497	atlas-subrect,icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	unitportraitsearly512.dds	Expansion1UITextures_converted/unitportraitsearly512.png	512x512	130222	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	unitportraitsearly512.dds	Expansion1UITextures_converted/unitportraitsearly512.png	512x512	130222	drawn-1to1,icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	unitportraitsearly640.dds	Expansion1UITextures_converted/unitportraitsearly640.png	640x640	189719	icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	unitportraitsearlyxp1_1024.dds	Expansion1UITextures_converted/unitportraitsearlyxp1_1024.png	1024x512	75545	icon-atlas
 Expansion1UITextures.fpk	unitportraitsearlyxp1_1120.dds	Expansion1UITextures_converted/unitportraitsearlyxp1_1120.png	1120x560	88084	icon-atlas
@@ -152,126 +204,251 @@ Expansion1UITextures.fpk	unitportraitsearlyxp1_640.dds	Expansion1UITextures_conv
 Expansion1UITextures.fpk	unitupgrades128.dds	Expansion1UITextures_converted/unitupgrades128.png	2048x1024	2237400	icon-atlas
 Expansion1UITextures.fpk	unitupgradesxp1_128.dds	Expansion1UITextures_converted/unitupgradesxp1_128.png	1024x1024	929474	icon-atlas
 Expansion1UITextures.fpk	wonderatlas.dds	Expansion1UITextures_converted/wonderatlas.png	2048x2048	1323851	icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	wonderatlas1024.dds	Expansion1UITextures_converted/wonderatlas1024.png	1024x1024	421375	atlas-subrect,icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	wonderatlas360.dds	Expansion1UITextures_converted/wonderatlas360.png	360x360	73428	atlas-subrect,icon-atlas USE-EXPANSION-COPY
-Expansion1UITextures.fpk	wonderatlas512.dds	Expansion1UITextures_converted/wonderatlas512.png	512x512	126800	icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	wonderatlas1024.dds	Expansion1UITextures_converted/wonderatlas1024.png	1024x1024	421375	atlas-subrect,drawn-1to1,icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	wonderatlas360.dds	Expansion1UITextures_converted/wonderatlas360.png	360x360	73428	atlas-subrect,drawn-1to1,icon-atlas USE-EXPANSION-COPY
+Expansion1UITextures.fpk	wonderatlas512.dds	Expansion1UITextures_converted/wonderatlas512.png	512x512	126800	drawn-1to1,icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	wonderatlas640.dds	Expansion1UITextures_converted/wonderatlas640.png	640x640	202420	atlas-subrect,icon-atlas USE-EXPANSION-COPY
 Expansion1UITextures.fpk	wonderatlas768.dds	Expansion1UITextures_converted/wonderatlas768.png	768x768	271327	icon-atlas
 Expansion1UITextures.fpk	yieldbacking.dds	Expansion1UITextures.fpk/yieldbacking.dds	18x14	1448	9-slice
 MiscTextures.fpk	listfooterbackinggrid.dds	MiscTextures.fpk/listfooterbackinggrid.dds	38x38	7348	9-slice
 MiscTextures.fpk	minimapoverlay.dds	MiscTextures.fpk/minimapoverlay.dds	288x185	213248	9-slice
 MiscTextures.fpk	minimapunder.dds	MiscTextures.fpk/minimapunder.dds	128x128	11064	9-slice
-UITextures.fpk	256x256frame.dds	UITextures_converted/256x256frame.png	256x256	1984	atlas-subrect,lua-runtime-offset
-UITextures.fpk	45x45framebuttons.dds	UITextures_converted/45x45framebuttons.png	45x180	5492	atlas-subrect
-UITextures.fpk	64x64framebuttons.dds	UITextures_converted/64x64framebuttons.png	64x256	17931	atlas-subrect
+UITextures.fpk	256x256frame.dds	UITextures_converted/256x256frame.png	256x256	1984	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	45x45framebuttons.dds	UITextures_converted/45x45framebuttons.png	45x180	5492	atlas-subrect,drawn-1to1
+UITextures.fpk	64x64framebuttons.dds	UITextures_converted/64x64framebuttons.png	64x256	17931	atlas-subrect,drawn-1to1
 UITextures.fpk	9gridstartgamesectionbackground.dds	UITextures.fpk/9gridstartgamesectionbackground.dds	40x40	8628	9-slice
+UITextures.fpk	actioncorner.dds	UITextures.fpk/actioncorner.dds	451x133	319020	drawn-1to1
 UITextures.fpk	actioncornerflag.dds	UITextures.fpk/actioncornerflag.dds	294x270	422868	9-slice
+UITextures.fpk	advisormaskculture.dds	UITextures_converted/advisormaskculture.png	32x32	999	drawn-1to1
+UITextures.fpk	advisormaskeconomic.dds	UITextures_converted/advisormaskeconomic.png	32x32	886	drawn-1to1
+UITextures.fpk	advisormaskforeign.dds	UITextures_converted/advisormaskforeign.png	40x40	1811	drawn-1to1
+UITextures.fpk	advisormaskgrowth.dds	UITextures_converted/advisormaskgrowth.png	32x32	744	drawn-1to1
+UITextures.fpk	advisormaskmilitary.dds	UITextures_converted/advisormaskmilitary.png	32x32	938	drawn-1to1
+UITextures.fpk	advisormaskscience.dds	UITextures_converted/advisormaskscience.png	32x32	789	drawn-1to1
+UITextures.fpk	advisorrecommendbackground.dds	UITextures_converted/advisorrecommendbackground.png	40x40	1215	drawn-1to1
+UITextures.fpk	advisorshine.dds	UITextures_converted/advisorshine.png	32x128	11446	drawn-1to1
+UITextures.fpk	advisorshine40.dds	UITextures_converted/advisorshine40.png	40x160	17833	drawn-1to1
+UITextures.fpk	advisorspecshine.dds	UITextures_converted/advisorspecshine.png	32x32	458	drawn-1to1
+UITextures.fpk	advisorsymbolculture.dds	UITextures_converted/advisorsymbolculture.png	32x32	2260	drawn-1to1
+UITextures.fpk	advisorsymboleconomic.dds	UITextures_converted/advisorsymboleconomic.png	32x32	1963	drawn-1to1
+UITextures.fpk	advisorsymbolforeign.dds	UITextures_converted/advisorsymbolforeign.png	40x40	2726	drawn-1to1
+UITextures.fpk	advisorsymbolgrowth.dds	UITextures_converted/advisorsymbolgrowth.png	32x32	1818	drawn-1to1
+UITextures.fpk	advisorsymbolmilitary.dds	UITextures_converted/advisorsymbolmilitary.png	32x32	1969	drawn-1to1
+UITextures.fpk	advisorsymbolscience.dds	UITextures_converted/advisorsymbolscience.png	32x32	1940	drawn-1to1
+UITextures.fpk	advisorsymboltutorial.dds	UITextures_converted/advisorsymboltutorial.png	32x32	2341	drawn-1to1
 UITextures.fpk	advisorwindow.dds	UITextures.fpk/advisorwindow.dds	155x155	127572	9-slice
 UITextures.fpk	affinityatlas1024.dds	UITextures_converted/affinityatlas1024.png	384x128	36700	icon-atlas
-UITextures.fpk	affinityatlas512.dds	UITextures_converted/affinityatlas512.png	192x64	12836	icon-atlas
+UITextures.fpk	affinityatlas512.dds	UITextures_converted/affinityatlas512.png	192x64	12836	drawn-1to1,icon-atlas
 UITextures.fpk	affinityatlas64_techweb.dds	UITextures_converted/affinityatlas64_techweb.png	192x64	9128	icon-atlas
+UITextures.fpk	affinitybacking.dds	UITextures_converted/affinitybacking.png	5x30	343	drawn-1to1
+UITextures.fpk	affinityicon_supremacy.dds	UITextures_converted/affinityicon_supremacy.png	118x118	14918	drawn-1to1
 UITextures.fpk	affinityiconssheet32x32.dds	UITextures_converted/affinityiconssheet32x32.png	64x64	5623	icon-atlas
-UITextures.fpk	badgescalable.dds	UITextures.fpk/badgescalable.dds	40x40	8628	9-slice
-UITextures.fpk	bar300x2.dds	UITextures.fpk/bar300x2.dds	512x2	6268	9-slice,atlas-subrect
-UITextures.fpk	bar340x2.dds	UITextures.fpk/bar340x2.dds	339x2	4176	atlas-subrect
+UITextures.fpk	attentionmessagebackground.dds	UITextures_converted/attentionmessagebackground.png	238x69	7582	drawn-1to1
+UITextures.fpk	badge.dds	UITextures_converted/badge.png	40x40	2941	drawn-1to1
+UITextures.fpk	badgescalable.dds	UITextures.fpk/badgescalable.dds	40x40	8628	9-slice,drawn-1to1
+UITextures.fpk	bar300x2.dds	UITextures.fpk/bar300x2.dds	512x2	6268	9-slice,atlas-subrect,drawn-1to1
+UITextures.fpk	bar340x2.dds	UITextures.fpk/bar340x2.dds	339x2	4176	atlas-subrect,drawn-1to1
+UITextures.fpk	bar500x2.dds	UITextures.fpk/bar500x2.dds	512x2	6268	drawn-1to1
 UITextures.fpk	battlebadheader.dds	UITextures.fpk/battlebadheader.dds	40x40	8648	9-slice
+UITextures.fpk	battlebarblack.dds	UITextures_converted/battlebarblack.png	13x112	367	drawn-1to1
+UITextures.fpk	battlebardelta.dds	UITextures_converted/battlebardelta.png	13x112	436	drawn-1to1
+UITextures.fpk	battlebargreen.dds	UITextures_converted/battlebargreen.png	13x112	1026	drawn-1to1
+UITextures.fpk	battlebarmask.dds	UITextures_converted/battlebarmask.png	13x224	373	drawn-1to1
+UITextures.fpk	battlebarred.dds	UITextures_converted/battlebarred.png	13x112	764	drawn-1to1
+UITextures.fpk	battlebaryellow.dds	UITextures_converted/battlebaryellow.png	13x112	859	drawn-1to1
 UITextures.fpk	battlegoodheader.dds	UITextures.fpk/battlegoodheader.dds	40x40	8648	9-slice
 UITextures.fpk	battlemehheader.dds	UITextures.fpk/battlemehheader.dds	40x40	8648	9-slice
-UITextures.fpk	bigarrow.dds	UITextures_converted/bigarrow.png	73x228	10078	atlas-subrect
+UITextures.fpk	bigarrow.dds	UITextures_converted/bigarrow.png	73x228	10078	atlas-subrect,drawn-1to1
 UITextures.fpk	blackbanner.dds	UITextures.fpk/blackbanner.dds	209x43	47556	9-slice
 UITextures.fpk	blackbox.dds	UITextures.fpk/blackbox.dds	48x48	12408	9-slice
 UITextures.fpk	blackgradient.dds	UITextures.fpk/blackgradient.dds	256x256	349652	9-slice
+UITextures.fpk	bluebar500x3.dds	UITextures_converted/bluebar500x3.png	500x3	157	drawn-1to1
+UITextures.fpk	bombardarrowleft.dds	UITextures_converted/bombardarrowleft.png	32x52	1455	drawn-1to1
+UITextures.fpk	bombardarrowright.dds	UITextures_converted/bombardarrowright.png	32x52	1497	drawn-1to1
+UITextures.fpk	bottomframe.dds	UITextures_converted/bottomframe.png	512x128	11126	drawn-1to1
+UITextures.fpk	bottompanelbar.dds	UITextures.fpk/bottompanelbar.dds	32x32	5588	drawn-1to1
+UITextures.fpk	bottompanelcenter.dds	UITextures_converted/bottompanelcenter.png	195x66	5433	drawn-1to1
+UITextures.fpk	branchbacking_unresearched.dds	UITextures_converted/branchbacking_unresearched.png	64x64	3316	drawn-1to1
+UITextures.fpk	buildcity64.dds	UITextures_converted/buildcity64.png	64x64	3544	drawn-1to1
 UITextures.fpk	buildingatlas.dds	UITextures_converted/buildingatlas.png	2048x2048	1459446	icon-atlas
 UITextures.fpk	buildingatlas1024.dds	UITextures_converted/buildingatlas1024.png	1024x1024	478773	atlas-subrect,icon-atlas
 UITextures.fpk	buildingatlas360.dds	UITextures_converted/buildingatlas360.png	360x360	87074	icon-atlas
 UITextures.fpk	buildingatlas512.dds	UITextures_converted/buildingatlas512.png	512x512	152468	icon-atlas
+UITextures.fpk	buttonmask.dds	UITextures_converted/buttonmask.png	256x30	3418	drawn-1to1
+UITextures.fpk	buttons_128.dds	UITextures_converted/buttons_128.png	128x64	6494	drawn-1to1
+UITextures.fpk	buttons_64.dds	UITextures_converted/buttons_64.png	64x64	5360	drawn-1to1
 UITextures.fpk	buttonsides.dds	UITextures_converted/buttonsides.png	10x10	468	atlas-subrect
 UITextures.fpk	buttonsidesglow.dds	UITextures_converted/buttonsidesglow.png	32x32	902	atlas-subrect
+UITextures.fpk	cancelbuttonicon.dds	UITextures_converted/cancelbuttonicon.png	25x25	1535	drawn-1to1
+UITextures.fpk	chaticons32.dds	UITextures_converted/chaticons32.png	64x64	2359	drawn-1to1
+UITextures.fpk	checkbox.dds	UITextures_converted/checkbox.png	32x128	3372	drawn-1to1
+UITextures.fpk	checkbox2thebox.dds	UITextures_converted/checkbox2thebox.png	32x128	2066	drawn-1to1
 UITextures.fpk	checkbox_blue.dds	UITextures_converted/checkbox_blue.png	32x32	544	atlas-subrect
+UITextures.fpk	checkbox_gray.dds	UITextures_converted/checkbox_gray.png	32x32	422	drawn-1to1
+UITextures.fpk	checkmark.dds	UITextures_converted/checkmark.png	32x32	1337	drawn-1to1
 UITextures.fpk	checkmark_blue.dds	UITextures_converted/checkmark_blue.png	32x32	1402	atlas-subrect
 UITextures.fpk	checkmark_gray.dds	UITextures_converted/checkmark_gray.png	32x32	980	atlas-subrect
-UITextures.fpk	chevrons.dds	UITextures_converted/chevrons.png	16x128	526	lua-runtime-offset
-UITextures.fpk	citizeniconbackings.dds	UITextures_converted/citizeniconbackings.png	64x256	14560	lua-runtime-offset
+UITextures.fpk	chevrons.dds	UITextures_converted/chevrons.png	16x128	526	drawn-1to1,lua-runtime-offset
+UITextures.fpk	citizeniconbackings.dds	UITextures_converted/citizeniconbackings.png	64x256	14560	drawn-1to1,lua-runtime-offset
 UITextures.fpk	citizenicons128.dds	UITextures.fpk/citizenicons128.dds	128x128	87508	icon-atlas
-UITextures.fpk	citizenicons180.dds	UITextures.fpk/citizenicons180.dds	180x180	170228	icon-atlas
+UITextures.fpk	citizenicons180.dds	UITextures.fpk/citizenicons180.dds	180x180	170228	drawn-1to1,icon-atlas
 UITextures.fpk	citizenicons256.dds	UITextures.fpk/citizenicons256.dds	256x256	349652	icon-atlas
 UITextures.fpk	citizenicons512.dds	UITextures.fpk/citizenicons512.dds	512x512	1398228	icon-atlas
-UITextures.fpk	citybannerbackground.dds	UITextures.fpk/citybannerbackground.dds	32x64	11048	9-slice
-UITextures.fpk	citybannerbuttonbase.dds	UITextures.fpk/citybannerbuttonbase.dds	32x64	11048	9-slice
+UITextures.fpk	cityattackorbital.dds	UITextures_converted/cityattackorbital.png	64x256	9803	drawn-1to1
+UITextures.fpk	citybannerbackground.dds	UITextures.fpk/citybannerbackground.dds	32x64	11048	9-slice,drawn-1to1
+UITextures.fpk	citybannerbackgroundhl.dds	UITextures.fpk/citybannerbackgroundhl.dds	32x32	5588	drawn-1to1
+UITextures.fpk	citybannerbuttonbase.dds	UITextures.fpk/citybannerbuttonbase.dds	32x64	11048	9-slice,drawn-1to1
+UITextures.fpk	citybannerbuttonbaseleft.dds	UITextures.fpk/citybannerbuttonbaseleft.dds	48x64	16496	drawn-1to1
+UITextures.fpk	citybannerbuttonbaseright.dds	UITextures.fpk/citybannerbuttonbaseright.dds	48x64	16496	drawn-1to1
+UITextures.fpk	citybannerbuttonglow.dds	UITextures.fpk/citybannerbuttonglow.dds	32x64	11048	drawn-1to1
+UITextures.fpk	citybannerbuttonglowleft.dds	UITextures.fpk/citybannerbuttonglowleft.dds	48x64	16496	drawn-1to1
+UITextures.fpk	citybannerbuttonglowright.dds	UITextures_converted/citybannerbuttonglowright.png	48x64	259	drawn-1to1
+UITextures.fpk	citybannerhealthbar.dds	UITextures_converted/citybannerhealthbar.png	215x8	192	drawn-1to1
+UITextures.fpk	citybannerhealthbarback.dds	UITextures_converted/citybannerhealthbarback.png	215x8	180	drawn-1to1
+UITextures.fpk	citybannerleftbackground.dds	UITextures_converted/citybannerleftbackground.png	48x64	331	drawn-1to1
+UITextures.fpk	citybannermetervertical.dds	UITextures_converted/citybannermetervertical.png	7x43	252	drawn-1to1
+UITextures.fpk	citybannerrightbackground.dds	UITextures_converted/citybannerrightbackground.png	48x64	864	drawn-1to1
+UITextures.fpk	citybannerrightbackgroundother.dds	UITextures_converted/citybannerrightbackgroundother.png	48x64	500	drawn-1to1
 UITextures.fpk	citybannershadow.dds	UITextures.fpk/citybannershadow.dds	64x64	21972	9-slice
 UITextures.fpk	citybannerstatusframe.dds	UITextures.fpk/citybannerstatusframe.dds	57x22	6728	9-slice
+UITextures.fpk	citybannerstrengthframe.dds	UITextures_converted/citybannerstrengthframe.png	79x32	977	drawn-1to1
+UITextures.fpk	citybannerstrikeframe.dds	UITextures.fpk/citybannerstrikeframe.dds	127x32	21720	drawn-1to1
+UITextures.fpk	citybombard.dds	UITextures_converted/citybombard.png	64x256	11625	drawn-1to1
 UITextures.fpk	citycultureartarches.dds	UITextures_converted/citycultureartarches.png	32x64	1916	atlas-subrect
 UITextures.fpk	cityculturegrid.dds	UITextures.fpk/cityculturegrid.dds	32x32	5588	9-slice
-UITextures.fpk	cityculturemeter.dds	UITextures_converted/cityculturemeter.png	48x144	13781	atlas-subrect,lua-runtime-offset
+UITextures.fpk	cityculturemeter.dds	UITextures_converted/cityculturemeter.png	48x144	13781	atlas-subrect,drawn-1to1,lua-runtime-offset
 UITextures.fpk	cityfocusbuttons.dds	UITextures.fpk/cityfocusbuttons.dds	32x128	21968	9-slice
-UITextures.fpk	citynamepanelarrows.dds	UITextures_converted/citynamepanelarrows.png	64x192	2988	atlas-subrect
-UITextures.fpk	citynamepanelhealthbargreen.dds	UITextures_converted/citynamepanelhealthbargreen.png	256x8	228	lua-runtime-offset
-UITextures.fpk	citynamepanelhealthbarred.dds	UITextures_converted/citynamepanelhealthbarred.png	256x8	408	lua-runtime-offset
-UITextures.fpk	citynamepanelhealthbaryellow.dds	UITextures_converted/citynamepanelhealthbaryellow.png	256x8	218	lua-runtime-offset
+UITextures.fpk	citynamepanelarrows.dds	UITextures_converted/citynamepanelarrows.png	64x192	2988	atlas-subrect,drawn-1to1
+UITextures.fpk	citynamepanelhealthbar.dds	UITextures_converted/citynamepanelhealthbar.png	256x8	493	drawn-1to1
+UITextures.fpk	citynamepanelhealthbargreen.dds	UITextures_converted/citynamepanelhealthbargreen.png	256x8	228	drawn-1to1,lua-runtime-offset
+UITextures.fpk	citynamepanelhealthbarred.dds	UITextures_converted/citynamepanelhealthbarred.png	256x8	408	drawn-1to1,lua-runtime-offset
+UITextures.fpk	citynamepanelhealthbaryellow.dds	UITextures_converted/citynamepanelhealthbaryellow.png	256x8	218	drawn-1to1,lua-runtime-offset
+UITextures.fpk	cityscreenheader.dds	UITextures.fpk/cityscreenheader.dds	32x32	5588	drawn-1to1
+UITextures.fpk	cityscreenheadercenter.dds	UITextures_converted/cityscreenheadercenter.png	256x32	2056	drawn-1to1
 UITextures.fpk	citysectionbackground.dds	UITextures.fpk/citysectionbackground.dds	24x24	3188	9-slice
 UITextures.fpk	citysectionheadergrid.dds	UITextures.fpk/citysectionheadergrid.dds	28x28	4244	9-slice
-UITextures.fpk	citystatemilitaristic.dds	UITextures_converted/citystatemilitaristic.png	32x32	590	lua-runtime-offset
+UITextures.fpk	citystatemeterbase.dds	UITextures_converted/citystatemeterbase.png	156x7	156	drawn-1to1
+UITextures.fpk	citystatemeterbaseblue.dds	UITextures_converted/citystatemeterbaseblue.png	156x7	187	drawn-1to1
+UITextures.fpk	citystatemeterbasered.dds	UITextures_converted/citystatemeterbasered.png	156x7	181	drawn-1to1
+UITextures.fpk	citystatemeterblack32.dds	UITextures_converted/citystatemeterblack32.png	32x32	1999	drawn-1to1
+UITextures.fpk	citystatemilitaristic.dds	UITextures_converted/citystatemilitaristic.png	32x32	590	drawn-1to1,lua-runtime-offset
 UITextures.fpk	civbe_touchiconatlas_128.dds	UITextures.fpk/civbe_touchiconatlas_128.dds	512x256	699176	atlas-subrect
-UITextures.fpk	civiconbgsizes.dds	UITextures_converted/civiconbgsizes.png	326x128	10049	atlas-subrect,lua-runtime-offset
-UITextures.fpk	civiconbgsizes_highlight.dds	UITextures_converted/civiconbgsizes_highlight.png	326x128	18707	atlas-subrect,lua-runtime-offset
+UITextures.fpk	civbeicon.dds	UITextures.fpk/civbeicon.dds	48x48	2432	drawn-1to1
+UITextures.fpk	civiconbgsizes.dds	UITextures_converted/civiconbgsizes.png	326x128	10049	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	civiconbgsizes_highlight.dds	UITextures_converted/civiconbgsizes_highlight.png	326x128	18707	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	civilizationbe_logo.dds	UITextures_converted/civilizationbe_logo.png	850x218	181514	drawn-1to1
+UITextures.fpk	civilizationbeatlas.dds	UITextures_converted/civilizationbeatlas.png	1920x1200	893090	drawn-1to1
 UITextures.fpk	civilopedia_searchicon.dds	UITextures_converted/civilopedia_searchicon.png	30x30	1360	atlas-subrect
-UITextures.fpk	civilopediaback.dds	UITextures_converted/civilopediaback.png	32x128	6210	atlas-subrect
-UITextures.fpk	civilopediaforward.dds	UITextures_converted/civilopediaforward.png	32x128	6182	atlas-subrect
+UITextures.fpk	civilopediaback.dds	UITextures_converted/civilopediaback.png	32x128	6210	atlas-subrect,drawn-1to1
+UITextures.fpk	civilopediabuttons272x27.dds	UITextures.fpk/civilopediabuttons272x27.dds	272x108	156652	drawn-1to1
+UITextures.fpk	civilopediaforward.dds	UITextures_converted/civilopediaforward.png	32x128	6182	atlas-subrect,drawn-1to1
 UITextures.fpk	civilopediaheader.dds	UITextures.fpk/civilopediaheader.dds	148x40	31208	9-slice
-UITextures.fpk	civilopedialistheaders.dds	UITextures.fpk/civilopedialistheaders.dds	27x108	15444	9-slice
+UITextures.fpk	civilopedialistheaders.dds	UITextures.fpk/civilopedialistheaders.dds	27x108	15444	9-slice,drawn-1to1
 UITextures.fpk	civilopediasidebuttons.dds	UITextures.fpk/civilopediasidebuttons.dds	22x88	9808	9-slice
-UITextures.fpk	civilopediatopbuttonsgameplay.dds	UITextures_converted/civilopediatopbuttonsgameplay.png	50x200	14281	atlas-subrect
+UITextures.fpk	civilopediatopbuttonsaffinities.dds	UITextures_converted/civilopediatopbuttonsaffinities.png	50x200	19588	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsbuildings.dds	UITextures_converted/civilopediatopbuttonsbuildings.png	50x200	19429	drawn-1to1
+UITextures.fpk	civilopediatopbuttonscivs.dds	UITextures_converted/civilopediatopbuttonscivs.png	50x200	17279	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsespionage.dds	UITextures_converted/civilopediatopbuttonsespionage.png	50x200	15934	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsgameplay.dds	UITextures_converted/civilopediatopbuttonsgameplay.png	50x200	14281	atlas-subrect,drawn-1to1
+UITextures.fpk	civilopediatopbuttonshighlight.dds	UITextures_converted/civilopediatopbuttonshighlight.png	50x49	4626	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsimprovements.dds	UITextures_converted/civilopediatopbuttonsimprovements.png	50x200	16993	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsquests.dds	UITextures_converted/civilopediatopbuttonsquests.png	50x200	16126	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsresourcesimprovements.dds	UITextures_converted/civilopediatopbuttonsresourcesimprovements.png	50x200	14234	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsseededstart.dds	UITextures_converted/civilopediatopbuttonsseededstart.png	50x200	19779	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsstations.dds	UITextures_converted/civilopediatopbuttonsstations.png	50x200	17046	drawn-1to1
+UITextures.fpk	civilopediatopbuttonstechnology.dds	UITextures_converted/civilopediatopbuttonstechnology.png	50x200	16752	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsterrain.dds	UITextures_converted/civilopediatopbuttonsterrain.png	50x200	15562	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsunit.dds	UITextures_converted/civilopediatopbuttonsunit.png	50x200	14212	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsupgrades.dds	UITextures_converted/civilopediatopbuttonsupgrades.png	50x200	13881	drawn-1to1
+UITextures.fpk	civilopediatopbuttonsvirtues.dds	UITextures_converted/civilopediatopbuttonsvirtues.png	50x200	16398	drawn-1to1
+UITextures.fpk	civilopediatopbuttonswonders.dds	UITextures_converted/civilopediatopbuttonswonders.png	50x200	17761	drawn-1to1
 UITextures.fpk	civsymbolatlas128.dds	UITextures_converted/civsymbolatlas128.png	1024x512	118216	icon-atlas
-UITextures.fpk	civsymbolatlas16.dds	UITextures_converted/civsymbolatlas16.png	128x64	3078	icon-atlas
+UITextures.fpk	civsymbolatlas16.dds	UITextures_converted/civsymbolatlas16.png	128x64	3078	drawn-1to1,icon-atlas
 UITextures.fpk	civsymbolatlas24.dds	UITextures_converted/civsymbolatlas24.png	192x96	9284	icon-atlas
-UITextures.fpk	civsymbolatlas32.dds	UITextures_converted/civsymbolatlas32.png	256x128	15726	icon-atlas
+UITextures.fpk	civsymbolatlas32.dds	UITextures_converted/civsymbolatlas32.png	256x128	15726	drawn-1to1,icon-atlas
 UITextures.fpk	civsymbolatlas45.dds	UITextures_converted/civsymbolatlas45.png	360x180	20327	icon-atlas
-UITextures.fpk	civsymbolatlas48.dds	UITextures_converted/civsymbolatlas48.png	384x192	23527	icon-atlas
+UITextures.fpk	civsymbolatlas48.dds	UITextures_converted/civsymbolatlas48.png	384x192	23527	drawn-1to1,icon-atlas
 UITextures.fpk	civsymbolatlas57.dds	UITextures_converted/civsymbolatlas57.png	456x228	33321	icon-atlas
-UITextures.fpk	civsymbolatlas64.dds	UITextures_converted/civsymbolatlas64.png	512x256	31232	icon-atlas
+UITextures.fpk	civsymbolatlas64.dds	UITextures_converted/civsymbolatlas64.png	512x256	31232	drawn-1to1,icon-atlas
 UITextures.fpk	civsymbolatlas80.dds	UITextures_converted/civsymbolatlas80.png	640x320	44013	icon-atlas
 UITextures.fpk	civsymbolscolor.dds	UITextures_converted/civsymbolscolor.png	1024x512	334784	icon-atlas
-UITextures.fpk	civsymbolscolor256.dds	UITextures_converted/civsymbolscolor256.png	256x128	57655	icon-atlas
-UITextures.fpk	civsymbolscolor360.dds	UITextures_converted/civsymbolscolor360.png	360x180	95670	atlas-subrect,icon-atlas
+UITextures.fpk	civsymbolscolor256.dds	UITextures_converted/civsymbolscolor256.png	256x128	57655	drawn-1to1,icon-atlas
+UITextures.fpk	civsymbolscolor360.dds	UITextures_converted/civsymbolscolor360.png	360x180	95670	atlas-subrect,drawn-1to1,icon-atlas
 UITextures.fpk	civsymbolscolor456.dds	UITextures_converted/civsymbolscolor456.png	456x228	128630	icon-atlas
-UITextures.fpk	civsymbolscolor512.dds	UITextures_converted/civsymbolscolor512.png	512x256	127175	icon-atlas,lua-runtime-offset
+UITextures.fpk	civsymbolscolor512.dds	UITextures_converted/civsymbolscolor512.png	512x256	127175	drawn-1to1,icon-atlas,lua-runtime-offset
 UITextures.fpk	civsymbolscolor640.dds	UITextures_converted/civsymbolscolor640.png	640x320	183355	icon-atlas
 UITextures.fpk	civsymbolsglow48.dds	UITextures_converted/civsymbolsglow48.png	384x192	25097	icon-atlas
 UITextures.fpk	civsymbolsglow64.dds	UITextures_converted/civsymbolsglow64.png	512x256	52309	icon-atlas
 UITextures.fpk	civsymbolsgradient48.dds	UITextures_converted/civsymbolsgradient48.png	384x192	17548	icon-atlas
 UITextures.fpk	civsymbolsgradient64.dds	UITextures_converted/civsymbolsgradient64.png	512x256	39152	icon-atlas
-UITextures.fpk	closebutton.dds	UITextures_converted/closebutton.png	40x160	10826	atlas-subrect
-UITextures.fpk	closebuttonsmall.dds	UITextures_converted/closebuttonsmall.png	24x96	3573	atlas-subrect
+UITextures.fpk	closebutton.dds	UITextures_converted/closebutton.png	40x160	10826	atlas-subrect,drawn-1to1
+UITextures.fpk	closebuttonbacking.dds	UITextures.fpk/closebuttonbacking.dds	108x38	21892	drawn-1to1
+UITextures.fpk	closebuttonsmall.dds	UITextures_converted/closebuttonsmall.png	24x96	3573	atlas-subrect,drawn-1to1
 UITextures.fpk	closeminbuttons.dds	UITextures_converted/closeminbuttons.png	128x128	6866	atlas-subrect
 UITextures.fpk	columnheader.dds	UITextures.fpk/columnheader.dds	32x32	5588	9-slice
 UITextures.fpk	columnheader_2.dds	UITextures.fpk/columnheader_2.dds	32x32	5588	9-slice
 UITextures.fpk	confirmdialoggrid.dds	UITextures.fpk/confirmdialoggrid.dds	8x16	808	9-slice
 UITextures.fpk	container_blue.dds	UITextures.fpk/container_blue.dds	7x90	3352	9-slice
 UITextures.fpk	container_gray.dds	UITextures.fpk/container_gray.dds	7x90	3352	9-slice
-UITextures.fpk	corner16.dds	UITextures.fpk/corner16.dds	24x34	4460	atlas-subrect
-UITextures.fpk	covertopsintriguediamonds.dds	UITextures.fpk/covertopsintriguediamonds.dds	128x64	43816	atlas-subrect,lua-runtime-offset
+UITextures.fpk	corner16.dds	UITextures.fpk/corner16.dds	24x34	4460	atlas-subrect,drawn-1to1
+UITextures.fpk	covertopscitybannerbg.dds	UITextures.fpk/covertopscitybannerbg.dds	512x64	174880	drawn-1to1
+UITextures.fpk	covertopscitybannerbgnear.dds	UITextures.fpk/covertopscitybannerbgnear.dds	256x64	87504	drawn-1to1
+UITextures.fpk	covertopscitybannercolorhighlight.dds	UITextures.fpk/covertopscitybannercolorhighlight.dds	256x64	87504	drawn-1to1
+UITextures.fpk	covertopsintriguediamonds.dds	UITextures.fpk/covertopsintriguediamonds.dds	128x64	43816	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	covertopslisticonback.dds	UITextures.fpk/covertopslisticonback.dds	64x64	21972	drawn-1to1
+UITextures.fpk	currentsectionbuttonhighlight.dds	UITextures_converted/currentsectionbuttonhighlight.png	75x77	705	drawn-1to1
 UITextures.fpk	curvedframe.dds	UITextures.fpk/curvedframe.dds	148x40	31208	9-slice
+UITextures.fpk	dec32x64left.dds	UITextures.fpk/dec32x64left.dds	32x64	11052	drawn-1to1
+UITextures.fpk	dec32x64right.dds	UITextures.fpk/dec32x64right.dds	32x64	11052	drawn-1to1
+UITextures.fpk	declarewar.dds	UITextures_converted/declarewar.png	120x59	6732	drawn-1to1
 UITextures.fpk	diplodeallistbg.dds	UITextures.fpk/diplodeallistbg.dds	32x64	11048	9-slice
 UITextures.fpk	diplodeallistcategory.dds	UITextures.fpk/diplodeallistcategory.dds	16x16	1492	9-slice
 UITextures.fpk	dlcbg.dds	UITextures.fpk/dlcbg.dds	64x64	16512	9-slice
+UITextures.fpk	dlcbgarrow.dds	UITextures.fpk/dlcbgarrow.dds	165x99	65468	drawn-1to1
+UITextures.fpk	dlcbggradient.dds	UITextures.fpk/dlcbggradient.dds	386x201	310472	drawn-1to1
 UITextures.fpk	dlcbutton.dds	UITextures.fpk/dlcbutton.dds	64x448	114816	9-slice
+UITextures.fpk	dlcbuttondlc1.dds	UITextures.fpk/dlcbuttondlc1.dds	425x89	151428	drawn-1to1
+UITextures.fpk	dlcbuttonexp1.dds	UITextures.fpk/dlcbuttonexp1.dds	425x156	265328	drawn-1to1
+UITextures.fpk	dom_blue.dds	UITextures.fpk/dom_blue.dds	1920x1080	11058748	drawn-1to1
+UITextures.fpk	downloadingmeter.dds	UITextures.fpk/downloadingmeter.dds	512x32	87488	drawn-1to1
 UITextures.fpk	emptyscrollbarback.dds	UITextures.fpk/emptyscrollbarback.dds	16x16	1492	9-slice
 UITextures.fpk	endturnbuttonround.dds	UITextures_converted/endturnbuttonround.png	76x76	9582	atlas-subrect
 UITextures.fpk	enemypanelbackground.dds	UITextures.fpk/enemypanelbackground.dds	300x126	189128	9-slice
 UITextures.fpk	filterbutton.dds	UITextures.fpk/filterbutton.dds	16x64	5584	9-slice
 UITextures.fpk	filterpulldownbutton.dds	UITextures.fpk/filterpulldownbutton.dds	32x128	21968	9-slice
 UITextures.fpk	firaxislivewindowbackground.dds	UITextures.fpk/firaxislivewindowbackground.dds	32x32	5588	9-slice
+UITextures.fpk	fonticons.dds	UITextures.fpk/fonticons.dds	256x256	262272	font-icon-cell
+UITextures.fpk	forgeui_barbutton.dds	UITextures.fpk/forgeui_barbutton.dds	272x108	117632	drawn-1to1
 UITextures.fpk	forgeui_blackcorners.dds	UITextures.fpk/forgeui_blackcorners.dds	64x64	5616	9-slice
+UITextures.fpk	forgeui_button_128.dds	UITextures.fpk/forgeui_button_128.dds	128x64	32896	drawn-1to1
+UITextures.fpk	forgeui_button_16.dds	UITextures.fpk/forgeui_button_16.dds	16x64	1152	drawn-1to1
+UITextures.fpk	forgeui_button_256.dds	UITextures.fpk/forgeui_button_256.dds	256x144	147584	drawn-1to1
+UITextures.fpk	forgeui_button_256_mask.dds	UITextures.fpk/forgeui_button_256_mask.dds	256x30	30848	drawn-1to1
+UITextures.fpk	forgeui_button_256_shine.dds	UITextures.fpk/forgeui_button_256_shine.dds	256x256	262272	drawn-1to1
+UITextures.fpk	forgeui_button_512.dds	UITextures.fpk/forgeui_button_512.dds	512x256	524416	drawn-1to1
+UITextures.fpk	forgeui_button_512_bounce.dds	UITextures.fpk/forgeui_button_512_bounce.dds	409x38	62296	drawn-1to1
+UITextures.fpk	forgeui_button_64.dds	UITextures.fpk/forgeui_button_64.dds	64x64	16512	drawn-1to1
+UITextures.fpk	forgeui_button_x_1.dds	UITextures.fpk/forgeui_button_x_1.dds	32x128	2872	drawn-1to1
+UITextures.fpk	forgeui_button_x_2.dds	UITextures.fpk/forgeui_button_x_2.dds	32x128	16512	drawn-1to1
 UITextures.fpk	forgeui_buttonsides.dds	UITextures.fpk/forgeui_buttonsides.dds	16x16	1152	atlas-subrect
 UITextures.fpk	forgeui_buttonsides_glow.dds	UITextures.fpk/forgeui_buttonsides_glow.dds	32x32	4224	atlas-subrect
+UITextures.fpk	forgeui_checkboxbutton.dds	UITextures.fpk/forgeui_checkboxbutton.dds	32x128	16512	drawn-1to1
+UITextures.fpk	forgeui_checkboxbutton_square.dds	UITextures.fpk/forgeui_checkboxbutton_square.dds	32x128	16512	drawn-1to1
 UITextures.fpk	forgeui_detailwindow.dds	UITextures.fpk/forgeui_detailwindow.dds	256x256	87536	9-slice
 UITextures.fpk	forgeui_emptyframe.dds	UITextures.fpk/forgeui_emptyframe.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_glass.dds	UITextures.fpk/forgeui_glass.dds	128x128	22000	9-slice
+UITextures.fpk	forgeui_hexbutton.dds	UITextures.fpk/forgeui_hexbutton.dds	64x256	65664	drawn-1to1
+UITextures.fpk	forgeui_hexbuttonmask.dds	UITextures.fpk/forgeui_hexbuttonmask.dds	64x64	16512	drawn-1to1
+UITextures.fpk	forgeui_hexbuttonshine.dds	UITextures.fpk/forgeui_hexbuttonshine.dds	64x512	131200	drawn-1to1
+UITextures.fpk	forgeui_largebuttonshine.dds	UITextures.fpk/forgeui_largebuttonshine.dds	448x805	1442688	drawn-1to1
 UITextures.fpk	forgeui_linebutton.dds	UITextures.fpk/forgeui_linebutton.dds	64x256	22000	9-slice
 UITextures.fpk	forgeui_linepanel.dds	UITextures.fpk/forgeui_linepanel.dds	256x256	87536	9-slice
+UITextures.fpk	forgeui_listbutton.dds	UITextures.fpk/forgeui_listbutton.dds	256x128	131200	drawn-1to1
+UITextures.fpk	forgeui_listbutton_mask.dds	UITextures.fpk/forgeui_listbutton_mask.dds	196x24	3392	drawn-1to1
 UITextures.fpk	forgeui_pulldown_corner.dds	UITextures.fpk/forgeui_pulldown_corner.dds	16x32	848	atlas-subrect
 UITextures.fpk	forgeui_roundblack.dds	UITextures.fpk/forgeui_roundblack.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_roundblacktint.dds	UITextures.fpk/forgeui_roundblacktint.dds	64x64	5616	9-slice
+UITextures.fpk	forgeui_roundbutton.dds	UITextures.fpk/forgeui_roundbutton.dds	64x256	65664	drawn-1to1
 UITextures.fpk	forgeui_roundframeblack.dds	UITextures.fpk/forgeui_roundframeblack.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_roundframeblue.dds	UITextures.fpk/forgeui_roundframeblue.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_roundframebutton.dds	UITextures.fpk/forgeui_roundframebutton.dds	32x128	5616	9-slice
@@ -281,7 +458,13 @@ UITextures.fpk	forgeui_roundgreytint.dds	UITextures.fpk/forgeui_roundgreytint.dd
 UITextures.fpk	forgeui_scrollbar.dds	UITextures.fpk/forgeui_scrollbar.dds	32x128	2872	9-slice
 UITextures.fpk	forgeui_scrollbarback.dds	UITextures.fpk/forgeui_scrollbarback.dds	32x32	824	9-slice
 UITextures.fpk	forgeui_scrollbarbackh.dds	UITextures.fpk/forgeui_scrollbarbackh.dds	32x32	824	9-slice
+UITextures.fpk	forgeui_scrollbardown.dds	UITextures.fpk/forgeui_scrollbardown.dds	18x72	5312	drawn-1to1
 UITextures.fpk	forgeui_scrollbarh.dds	UITextures.fpk/forgeui_scrollbarh.dds	32x128	2872	9-slice
+UITextures.fpk	forgeui_scrollbarleft.dds	UITextures.fpk/forgeui_scrollbarleft.dds	18x72	5312	drawn-1to1
+UITextures.fpk	forgeui_scrollbarright.dds	UITextures.fpk/forgeui_scrollbarright.dds	18x72	5312	drawn-1to1
+UITextures.fpk	forgeui_scrollbarup.dds	UITextures.fpk/forgeui_scrollbarup.dds	18x72	5312	drawn-1to1
+UITextures.fpk	forgeui_selecteddown.dds	UITextures.fpk/forgeui_selecteddown.dds	32x128	5616	drawn-1to1
+UITextures.fpk	forgeui_selectedup.dds	UITextures.fpk/forgeui_selectedup.dds	32x128	5616	drawn-1to1
 UITextures.fpk	forgeui_sideframes.dds	UITextures.fpk/forgeui_sideframes.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_slider32.dds	UITextures.fpk/forgeui_slider32.dds	32x128	5648	9-slice
 UITextures.fpk	forgeui_sliderbackh.dds	UITextures.fpk/forgeui_sliderbackh.dds	128x32	5616	9-slice
@@ -290,11 +473,12 @@ UITextures.fpk	forgeui_squarebuttonblack.dds	UITextures.fpk/forgeui_squarebutton
 UITextures.fpk	forgeui_squareframeblack.dds	UITextures.fpk/forgeui_squareframeblack.dds	32x32	1520	9-slice
 UITextures.fpk	forgeui_squareframeblue.dds	UITextures.fpk/forgeui_squareframeblue.dds	32x128	5616	9-slice
 UITextures.fpk	forgeui_squareframegrey.dds	UITextures.fpk/forgeui_squareframegrey.dds	32x128	16512	9-slice
+UITextures.fpk	forgeui_tabbutton.dds	UITextures.fpk/forgeui_tabbutton.dds	49x200	39328	drawn-1to1
 UITextures.fpk	forgeui_toolsliderbackh.dds	UITextures.fpk/forgeui_toolsliderbackh.dds	128x8	4224	9-slice
 UITextures.fpk	forgeui_toolsliderbackv.dds	UITextures.fpk/forgeui_toolsliderbackv.dds	8x128	4224	9-slice
 UITextures.fpk	forgeui_toolsliderthumbh.dds	UITextures.fpk/forgeui_toolsliderthumbh.dds	8x32	1152	9-slice
 UITextures.fpk	forgeui_toolsliderthumbv.dds	UITextures.fpk/forgeui_toolsliderthumbv.dds	32x8	1152	9-slice
-UITextures.fpk	forgeui_unitpanelarrows.dds	UITextures.fpk/forgeui_unitpanelarrows.dds	128x128	65664	atlas-subrect
+UITextures.fpk	forgeui_unitpanelarrows.dds	UITextures.fpk/forgeui_unitpanelarrows.dds	128x128	65664	atlas-subrect,drawn-1to1
 UITextures.fpk	forgeui_windowblack.dds	UITextures.fpk/forgeui_windowblack.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_windowempty.dds	UITextures.fpk/forgeui_windowempty.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_zoombutton.dds	UITextures.fpk/forgeui_zoombutton.dds	32x128	5616	9-slice
@@ -303,11 +487,21 @@ UITextures.fpk	fullscreenheader.dds	UITextures.fpk/fullscreenheader.dds	148x40	3
 UITextures.fpk	functionality256.dds	UITextures_converted/functionality256.png	256x256	19853	icon-atlas
 UITextures.fpk	functionality45.dds	UITextures_converted/functionality45.png	45x45	1879	icon-atlas
 UITextures.fpk	functionality64.dds	UITextures_converted/functionality64.png	64x64	2815	icon-atlas
+UITextures.fpk	gameoverbannercontact.dds	UITextures.fpk/gameoverbannercontact.dds	685x125	342628	drawn-1to1
+UITextures.fpk	gameoverbannerdominationharmony.dds	UITextures_converted/gameoverbannerdominationharmony.png	685x125	191867	drawn-1to1
+UITextures.fpk	gameoverbannerdominationpurity.dds	UITextures_converted/gameoverbannerdominationpurity.png	685x125	168110	drawn-1to1
+UITextures.fpk	gameoverbannerdominationsupremacy.dds	UITextures_converted/gameoverbannerdominationsupremacy.png	685x125	186145	drawn-1to1
+UITextures.fpk	gameoverbannerharmony.dds	UITextures.fpk/gameoverbannerharmony.dds	685x125	342628	drawn-1to1
+UITextures.fpk	gameoverbannerlost.dds	UITextures_converted/gameoverbannerlost.png	685x125	215517	drawn-1to1
+UITextures.fpk	gameoverbannerpurity.dds	UITextures_converted/gameoverbannerpurity.png	685x125	199716	drawn-1to1
+UITextures.fpk	gameoverbannersupremacy.dds	UITextures.fpk/gameoverbannersupremacy.dds	685x125	342628	drawn-1to1
+UITextures.fpk	gameoverbannertime.dds	UITextures_converted/gameoverbannertime.png	685x125	164499	drawn-1to1
 UITextures.fpk	gamesetupiconsheet.dds	UITextures_converted/gamesetupiconsheet.png	256x128	20554	atlas-subrect,icon-atlas
 UITextures.fpk	generalbutton.dds	UITextures.fpk/generalbutton.dds	30x150	23944	9-slice
 UITextures.fpk	generalbuttondark.dds	UITextures.fpk/generalbuttondark.dds	30x150	23944	9-slice
+UITextures.fpk	genericciv_28.dds	UITextures_converted/genericciv_28.png	28x28	1416	drawn-1to1
 UITextures.fpk	glassylitgrid.dds	UITextures.fpk/glassylitgrid.dds	32x96	16508	9-slice
-UITextures.fpk	gobutton.dds	UITextures_converted/gobutton.png	82x328	36064	atlas-subrect
+UITextures.fpk	gobutton.dds	UITextures_converted/gobutton.png	82x328	36064	atlas-subrect,drawn-1to1
 UITextures.fpk	gradientheader_blue.dds	UITextures.fpk/gradientheader_blue.dds	41x41	8972	9-slice
 UITextures.fpk	grid9battlematchupbackground.dds	UITextures.fpk/grid9battlematchupbackground.dds	128x128	87508	9-slice
 UITextures.fpk	grid9black16.dds	UITextures.fpk/grid9black16.dds	128x128	87508	9-slice
@@ -339,15 +533,29 @@ UITextures.fpk	gridhudbutton.dds	UITextures.fpk/gridhudbutton.dds	55x220	64112	9
 UITextures.fpk	gridhudbutton_flipped.dds	UITextures.fpk/gridhudbutton_flipped.dds	55x220	64112	9-slice
 UITextures.fpk	gridsquare8.dds	UITextures.fpk/gridsquare8.dds	64x64	21972	9-slice
 UITextures.fpk	gridsquarehl8.dds	UITextures.fpk/gridsquarehl8.dds	64x64	21972	9-slice
-UITextures.fpk	healthbargreen.dds	UITextures_converted/healthbargreen.png	12x115	867	atlas-subrect
-UITextures.fpk	healthbaryellow.dds	UITextures_converted/healthbaryellow.png	12x115	448	atlas-subrect
+UITextures.fpk	harmonybar.dds	UITextures_converted/harmonybar.png	5x30	398	drawn-1to1
+UITextures.fpk	healthbarblack.dds	UITextures_converted/healthbarblack.png	12x115	219	drawn-1to1
+UITextures.fpk	healthbargreen.dds	UITextures_converted/healthbargreen.png	12x115	867	atlas-subrect,drawn-1to1
+UITextures.fpk	healthbarred.dds	UITextures_converted/healthbarred.png	12x115	345	drawn-1to1
+UITextures.fpk	healthbaryellow.dds	UITextures_converted/healthbaryellow.png	12x115	448	atlas-subrect,drawn-1to1
+UITextures.fpk	helpbutton.dds	UITextures_converted/helpbutton.png	28x84	3282	drawn-1to1
+UITextures.fpk	horizontaltrim.dds	UITextures.fpk/horizontaltrim.dds	32x8	1500	drawn-1to1
+UITextures.fpk	hud_viewoptions.dds	UITextures_converted/hud_viewoptions.png	30x88	5756	drawn-1to1
+UITextures.fpk	hudbuttonselected.dds	UITextures_converted/hudbuttonselected.png	58x43	2773	drawn-1to1
 UITextures.fpk	hudicon_cultureoverview.dds	UITextures_converted/hudicon_cultureoverview.png	55x165	4914	atlas-subrect
+UITextures.fpk	hudicon_diplo.dds	UITextures_converted/hudicon_diplo.png	55x55	4669	drawn-1to1
+UITextures.fpk	hudicon_espionage.dds	UITextures_converted/hudicon_espionage.png	55x55	4687	drawn-1to1
+UITextures.fpk	hudicon_orbitalview.dds	UITextures_converted/hudicon_orbitalview.png	55x55	3819	drawn-1to1
+UITextures.fpk	hudicon_over.dds	UITextures_converted/hudicon_over.png	55x55	981	drawn-1to1
+UITextures.fpk	hudicon_questlog.dds	UITextures_converted/hudicon_questlog.png	55x55	4364	drawn-1to1
+UITextures.fpk	hudicon_socialpolicies.dds	UITextures_converted/hudicon_socialpolicies.png	55x55	4250	drawn-1to1
 UITextures.fpk	hudicon_upgrade.dds	UITextures_converted/hudicon_upgrade.png	55x55	3375	atlas-subrect
-UITextures.fpk	infoheadingbackground.dds	UITextures.fpk/infoheadingbackground.dds	410x57	124096	9-slice
+UITextures.fpk	infoheadingbackground.dds	UITextures.fpk/infoheadingbackground.dds	410x57	124096	9-slice,drawn-1to1
 UITextures.fpk	leaderportraits_128.dds	UITextures.fpk/leaderportraits_128.dds	1024x128	699196	icon-atlas
 UITextures.fpk	leaderportraits_256.dds	UITextures.fpk/leaderportraits_256.dds	2048x256	2796348	icon-atlas
 UITextures.fpk	leaderportraits_64.dds	UITextures.fpk/leaderportraits_64.dds	512x64	174908	icon-atlas
 UITextures.fpk	leaderportraits_80.dds	UITextures.fpk/leaderportraits_80.dds	640x80	273160	icon-atlas
+UITextures.fpk	leftbracket.dds	UITextures_converted/leftbracket.png	53x48	1816	drawn-1to1
 UITextures.fpk	listcategorybackground.dds	UITextures.fpk/listcategorybackground.dds	16x16	1492	9-slice
 UITextures.fpk	listelement.dds	UITextures.fpk/listelement.dds	16x64	5584	9-slice
 UITextures.fpk	listelement_blue.dds	UITextures.fpk/listelement_blue.dds	65x260	89900	9-slice
@@ -356,43 +564,86 @@ UITextures.fpk	listelement_green.dds	UITextures.fpk/listelement_green.dds	16x64	
 UITextures.fpk	listelement_header.dds	UITextures.fpk/listelement_header.dds	30x30	4628	9-slice
 UITextures.fpk	listheaderbackinggrid.dds	UITextures.fpk/listheaderbackinggrid.dds	38x38	7348	9-slice
 UITextures.fpk	loadinganim.dds	UITextures_converted/loadinganim.png	512x512	195863	flipbook-sheet
-UITextures.fpk	mainchatoff.dds	UITextures_converted/mainchatoff.png	45x180	7215	atlas-subrect
-UITextures.fpk	mainchaton.dds	UITextures_converted/mainchaton.png	45x180	8476	atlas-subrect
+UITextures.fpk	mainchatoff.dds	UITextures_converted/mainchatoff.png	45x180	7215	atlas-subrect,drawn-1to1
+UITextures.fpk	mainchaton.dds	UITextures_converted/mainchaton.png	45x180	8476	atlas-subrect,drawn-1to1
 UITextures.fpk	mainmenuitem.dds	UITextures.fpk/mainmenuitem.dds	116x37	22812	9-slice
+UITextures.fpk	maprandom512.dds	UITextures_converted/maprandom512.png	360x410	314887	drawn-1to1
 UITextures.fpk	maptypeicons.dds	UITextures_converted/maptypeicons.png	1024x512	340118	icon-atlas
 UITextures.fpk	maptypeicons128.dds	UITextures_converted/maptypeicons128.png	256x128	32779	icon-atlas
-UITextures.fpk	maptypeicons256.dds	UITextures_converted/maptypeicons256.png	512x256	110409	icon-atlas
-UITextures.fpk	marcpips.dds	UITextures_converted/marcpips.png	32x128	2993	atlas-subrect,lua-runtime-offset
-UITextures.fpk	meterfull.dds	UITextures_converted/meterfull.png	20x71	2385	lua-runtime-offset
-UITextures.fpk	meterleaf.dds	UITextures_converted/meterleaf.png	20x54	1873	lua-runtime-offset
+UITextures.fpk	maptypeicons256.dds	UITextures_converted/maptypeicons256.png	512x256	110409	drawn-1to1,icon-atlas
+UITextures.fpk	marcpips.dds	UITextures_converted/marcpips.png	32x128	2993	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	matchupleftbackground.dds	UITextures_converted/matchupleftbackground.png	64x153	8715	drawn-1to1
+UITextures.fpk	matchuprightbackground.dds	UITextures_converted/matchuprightbackground.png	64x153	8598	drawn-1to1
+UITextures.fpk	menubgcornerleft.dds	UITextures.fpk/menubgcornerleft.dds	100x100	40128	drawn-1to1
+UITextures.fpk	menubgcornerright.dds	UITextures.fpk/menubgcornerright.dds	100x100	40128	drawn-1to1
+UITextures.fpk	menubutton.dds	UITextures_converted/menubutton.png	28x84	2632	drawn-1to1
+UITextures.fpk	meterbgfull.dds	UITextures.fpk/meterbgfull.dds	20x71	7640	drawn-1to1
+UITextures.fpk	meterbgleaf.dds	UITextures_converted/meterbgleaf.png	20x54	578	drawn-1to1
+UITextures.fpk	meterfull.dds	UITextures_converted/meterfull.png	20x71	2385	drawn-1to1,lua-runtime-offset
+UITextures.fpk	meterleaf.dds	UITextures_converted/meterleaf.png	20x54	1873	drawn-1to1,lua-runtime-offset
 UITextures.fpk	minimapbacking.dds	UITextures.fpk/minimapbacking.dds	32x32	5588	9-slice
 UITextures.fpk	minimapcurrentareagrid.dds	UITextures.fpk/minimapcurrentareagrid.dds	16x16	1492	9-slice
+UITextures.fpk	motd.dds	UITextures.fpk/motd.dds	700x28	78528	drawn-1to1
 UITextures.fpk	mpplayerlistbackground.dds	UITextures.fpk/mpplayerlistbackground.dds	128x128	87508	9-slice
-UITextures.fpk	multiplayerinvite.dds	UITextures_converted/multiplayerinvite.png	45x180	7031	atlas-subrect
-UITextures.fpk	my2kbutton.dds	UITextures.fpk/my2kbutton.dds	64x256	87516	9-slice,atlas-subrect
-UITextures.fpk	my2klogobutton.dds	UITextures.fpk/my2klogobutton.dds	128x256	131200	atlas-subrect
+UITextures.fpk	mpplayerlisthighlightleft.dds	UITextures_converted/mpplayerlisthighlightleft.png	128x128	4437	drawn-1to1
+UITextures.fpk	mpplayerlisthighlightright.dds	UITextures_converted/mpplayerlisthighlightright.png	32x128	5126	drawn-1to1
+UITextures.fpk	mpplayerready.dds	UITextures_converted/mpplayerready.png	64x256	15448	drawn-1to1
+UITextures.fpk	mpplayerreadyanim.dds	UITextures_converted/mpplayerreadyanim.png	64x64	3375	drawn-1to1
+UITextures.fpk	mpplayerreadycheck.dds	UITextures_converted/mpplayerreadycheck.png	64x64	5245	drawn-1to1
+UITextures.fpk	multiplayerinvite.dds	UITextures_converted/multiplayerinvite.png	45x180	7031	atlas-subrect,drawn-1to1
+UITextures.fpk	my2kbutton.dds	UITextures.fpk/my2kbutton.dds	64x256	87516	9-slice,atlas-subrect,drawn-1to1
+UITextures.fpk	my2klogo.dds	UITextures.fpk/my2klogo.dds	256x128	174892	drawn-1to1
+UITextures.fpk	my2klogobutton.dds	UITextures.fpk/my2klogobutton.dds	128x256	131200	atlas-subrect,drawn-1to1
+UITextures.fpk	my2klogobuttonloggedin.dds	UITextures.fpk/my2klogobuttonloggedin.dds	128x256	131200	drawn-1to1
 UITextures.fpk	my2kwindow.dds	UITextures.fpk/my2kwindow.dds	64x64	21972	9-slice
-UITextures.fpk	newupgrade40.dds	UITextures.fpk/newupgrade40.dds	40x40	6528	lua-runtime-offset
+UITextures.fpk	newupgrade40.dds	UITextures.fpk/newupgrade40.dds	40x40	6528	drawn-1to1,lua-runtime-offset
 UITextures.fpk	nextbutton.dds	UITextures.fpk/nextbutton.dds	30x210	33488	9-slice
+UITextures.fpk	nodeholderclosedfull.dds	UITextures.fpk/nodeholderclosedfull.dds	183x37	35856	drawn-1to1
+UITextures.fpk	notificationbacking.dds	UITextures_converted/notificationbacking.png	79x72	1960	drawn-1to1
 UITextures.fpk	notificationbacking_fade.dds	UITextures.fpk/notificationbacking_fade.dds	164x56	48344	9-slice
+UITextures.fpk	notificationbacking_tb.dds	UITextures_converted/notificationbacking_tb.png	93x100	3039	drawn-1to1
+UITextures.fpk	notificationgenericglow.dds	UITextures_converted/notificationgenericglow.png	80x80	1717	drawn-1to1
+UITextures.fpk	oversupplylimit.dds	UITextures_converted/oversupplylimit.png	22x22	1150	drawn-1to1
 UITextures.fpk	panelbackground.dds	UITextures.fpk/panelbackground.dds	32x32	5588	9-slice
 UITextures.fpk	pleasewait.dds	UITextures_converted/pleasewait.png	76x76	4744	atlas-subrect
-UITextures.fpk	plusbutton.dds	UITextures_converted/plusbutton.png	22x22	596	atlas-subrect
+UITextures.fpk	plusbutton.dds	UITextures_converted/plusbutton.png	22x22	596	atlas-subrect,drawn-1to1
+UITextures.fpk	popup_image_affinity.dds	UITextures.fpk/popup_image_affinity.dds	585x125	388816	drawn-1to1
+UITextures.fpk	popup_image_alien_nest.dds	UITextures.fpk/popup_image_alien_nest.dds	585x155	482188	drawn-1to1
+UITextures.fpk	popup_image_expedition.dds	UITextures.fpk/popup_image_expedition.dds	585x125	388816	drawn-1to1
+UITextures.fpk	popup_image_marvel.dds	UITextures.fpk/popup_image_marvel.dds	585x125	388816	drawn-1to1
+UITextures.fpk	popup_image_quest.dds	UITextures.fpk/popup_image_quest.dds	585x125	388816	drawn-1to1
+UITextures.fpk	popup_image_resource_pod.dds	UITextures.fpk/popup_image_resource_pod.dds	585x125	388816	drawn-1to1
+UITextures.fpk	popup_image_techcomplete.dds	UITextures.fpk/popup_image_techcomplete.dds	585x125	388816	drawn-1to1
 UITextures.fpk	popupwindow.dds	UITextures.fpk/popupwindow.dds	155x155	127572	9-slice
+UITextures.fpk	positivemessagebackground.dds	UITextures_converted/positivemessagebackground.png	238x69	6482	drawn-1to1
 UITextures.fpk	productionlistbackground.dds	UITextures.fpk/productionlistbackground.dds	32x32	5588	9-slice
 UITextures.fpk	productionqueueitem.dds	UITextures.fpk/productionqueueitem.dds	32x32	5588	9-slice
+UITextures.fpk	productionqueueremovebuttons.dds	UITextures_converted/productionqueueremovebuttons.png	41x168	12134	drawn-1to1
 UITextures.fpk	progressbarbackingcovertops.dds	UITextures.fpk/progressbarbackingcovertops.dds	256x64	87504	9-slice
-UITextures.fpk	progressbarcovertopcurrent.dds	UITextures.fpk/progressbarcovertopcurrent.dds	256x16	21952	lua-runtime-offset
-UITextures.fpk	progressbarcovertopnext.dds	UITextures.fpk/progressbarcovertopnext.dds	256x16	21952	lua-runtime-offset
-UITextures.fpk	progressgray.dds	UITextures_converted/progressgray.png	21x33	398	atlas-subrect
-UITextures.fpk	progressorange.dds	UITextures_converted/progressorange.png	21x33	420	atlas-subrect
+UITextures.fpk	progressbarcovertopbg.dds	UITextures.fpk/progressbarcovertopbg.dds	256x16	21952	drawn-1to1
+UITextures.fpk	progressbarcovertopcurrent.dds	UITextures.fpk/progressbarcovertopcurrent.dds	256x16	21952	drawn-1to1,lua-runtime-offset
+UITextures.fpk	progressbarcovertopnext.dds	UITextures.fpk/progressbarcovertopnext.dds	256x16	21952	drawn-1to1,lua-runtime-offset
+UITextures.fpk	progressgray.dds	UITextures_converted/progressgray.png	21x33	398	atlas-subrect,drawn-1to1
+UITextures.fpk	progressorange.dds	UITextures_converted/progressorange.png	21x33	420	atlas-subrect,drawn-1to1
+UITextures.fpk	prologue_affinities.dds	UITextures_converted/prologue_affinities.png	1000x460	576883	drawn-1to1
+UITextures.fpk	prologue_exploration.dds	UITextures_converted/prologue_exploration.png	1000x460	1049992	drawn-1to1
 UITextures.fpk	promotionatlas.dds	UITextures_converted/promotionatlas.png	512x256	14671	icon-atlas
-UITextures.fpk	promotions256.dds	UITextures_converted/promotions256.png	256x256	70377	icon-atlas
-UITextures.fpk	promotions512.dds	UITextures_converted/promotions512.png	512x512	118542	icon-atlas
+UITextures.fpk	promotions24gold.dds	UITextures_converted/promotions24gold.png	24x96	2034	drawn-1to1
+UITextures.fpk	promotions256.dds	UITextures_converted/promotions256.png	256x256	70377	drawn-1to1,icon-atlas
+UITextures.fpk	promotions512.dds	UITextures_converted/promotions512.png	512x512	118542	drawn-1to1,icon-atlas
+UITextures.fpk	pulldowncorner.dds	UITextures_converted/pulldowncorner.png	13x13	341	drawn-1to1
 UITextures.fpk	purchaseplotbacking.dds	UITextures.fpk/purchaseplotbacking.dds	64x256	87504	9-slice
+UITextures.fpk	puritybar.dds	UITextures_converted/puritybar.png	5x30	393	drawn-1to1
+UITextures.fpk	questactive_checkbox.dds	UITextures_converted/questactive_checkbox.png	32x32	544	drawn-1to1
+UITextures.fpk	questactive_checkmark.dds	UITextures_converted/questactive_checkmark.png	32x32	1402	drawn-1to1
+UITextures.fpk	questactive_minus.dds	UITextures_converted/questactive_minus.png	32x32	736	drawn-1to1
+UITextures.fpk	questactive_plus.dds	UITextures_converted/questactive_plus.png	32x32	1644	drawn-1to1
 UITextures.fpk	questcheckbuttons.dds	UITextures_converted/questcheckbuttons.png	32x64	1691	atlas-subrect
 UITextures.fpk	questicons100.dds	UITextures_converted/questicons100.png	640x640	67170	icon-atlas
+UITextures.fpk	questinactive_minus.dds	UITextures_converted/questinactive_minus.png	34x34	430	drawn-1to1
+UITextures.fpk	questinactive_plus.dds	UITextures_converted/questinactive_plus.png	34x34	654	drawn-1to1
 UITextures.fpk	questitemhighlightbacking.dds	UITextures.fpk/questitemhighlightbacking.dds	4x32	800	9-slice
+UITextures.fpk	questpromptdefault.dds	UITextures_converted/questpromptdefault.png	200x250	126360	drawn-1to1
 UITextures.fpk	rbracket.dds	UITextures.fpk/rbracket.dds	9x27	1372	9-slice
 UITextures.fpk	religionheader.dds	UITextures.fpk/religionheader.dds	63x63	20984	9-slice
 UITextures.fpk	religionslot.dds	UITextures.fpk/religionslot.dds	64x64	21972	9-slice
@@ -402,23 +653,45 @@ UITextures.fpk	resources2_256.dds	UITextures_converted/resources2_256.png	256x25
 UITextures.fpk	resources2_45.dds	UITextures_converted/resources2_45.png	45x45	2774	icon-atlas
 UITextures.fpk	resources2_64.dds	UITextures_converted/resources2_64.png	64x64	4962	icon-atlas
 UITextures.fpk	resources2_80.dds	UITextures_converted/resources2_80.png	80x80	7160	icon-atlas
+UITextures.fpk	resourcesback64.dds	UITextures_converted/resourcesback64.png	64x64	877	drawn-1to1
 UITextures.fpk	returnbutton.dds	UITextures.fpk/returnbutton.dds	31x116	19016	9-slice
+UITextures.fpk	rightbracket.dds	UITextures_converted/rightbracket.png	53x48	1967	drawn-1to1
 UITextures.fpk	scrollbar.dds	UITextures.fpk/scrollbar.dds	16x64	5584	9-slice
 UITextures.fpk	scrollbarback.dds	UITextures.fpk/scrollbarback.dds	16x16	1492	9-slice
+UITextures.fpk	scrollbardown.dds	UITextures_converted/scrollbardown.png	21x90	1439	drawn-1to1
 UITextures.fpk	scrollbarfadebacking.dds	UITextures.fpk/scrollbarfadebacking.dds	64x64	21972	9-slice
+UITextures.fpk	scrollbarleft.dds	UITextures_converted/scrollbarleft.png	18x72	1487	drawn-1to1
+UITextures.fpk	scrollbarright.dds	UITextures_converted/scrollbarright.png	18x72	1537	drawn-1to1
+UITextures.fpk	scrollbarup.dds	UITextures_converted/scrollbarup.png	21x90	1450	drawn-1to1
 UITextures.fpk	searchbar.dds	UITextures.fpk/searchbar.dds	33x28	5004	9-slice
+UITextures.fpk	sectionselectbackground.dds	UITextures_converted/sectionselectbackground.png	648x197	77682	drawn-1to1
 UITextures.fpk	seededstartatlas.dds	UITextures_converted/seededstartatlas.png	1024x1024	463095	icon-atlas
 UITextures.fpk	seededstartatlas64.dds	UITextures_converted/seededstartatlas64.png	512x512	141192	icon-atlas
 UITextures.fpk	seededstartcargo128.dds	UITextures_converted/seededstartcargo128.png	512x512	90008	icon-atlas
 UITextures.fpk	seededstartcargo256.dds	UITextures_converted/seededstartcargo256.png	1024x1024	184137	icon-atlas
 UITextures.fpk	seededstartcargo64.dds	UITextures_converted/seededstartcargo64.png	256x256	44905	icon-atlas
+UITextures.fpk	seededstartcargoselectback.dds	UITextures_converted/seededstartcargoselectback.png	1600x900	3862304	drawn-1to1
 UITextures.fpk	seededstartcolonists128.dds	UITextures_converted/seededstartcolonists128.png	512x512	76460	icon-atlas
 UITextures.fpk	seededstartcolonists256.dds	UITextures_converted/seededstartcolonists256.png	1024x1024	170836	icon-atlas
 UITextures.fpk	seededstartcolonists64.dds	UITextures_converted/seededstartcolonists64.png	256x256	30205	icon-atlas
+UITextures.fpk	seededstartcolonistselectback.dds	UITextures_converted/seededstartcolonistselectback.png	1600x900	2249759	drawn-1to1
+UITextures.fpk	seededstartleaderselectback.dds	UITextures.fpk/seededstartleaderselectback.dds	5333x3000	63996128	drawn-1to1
+UITextures.fpk	seededstartshipselectback.dds	UITextures_converted/seededstartshipselectback.png	1600x900	2354551	drawn-1to1
 UITextures.fpk	seededstartspacecraft128.dds	UITextures_converted/seededstartspacecraft128.png	512x512	135130	icon-atlas
 UITextures.fpk	seededstartspacecraft256.dds	UITextures_converted/seededstartspacecraft256.png	1024x1024	409864	icon-atlas
 UITextures.fpk	seededstartspacecraft64.dds	UITextures_converted/seededstartspacecraft64.png	256x256	42769	icon-atlas
-UITextures.fpk	sideright.dds	UITextures.fpk/sideright.dds	16x32	2856	9-slice,atlas-subrect
+UITextures.fpk	seededstartworldselectback.dds	UITextures.fpk/seededstartworldselectback.dds	5333x3000	63996128	drawn-1to1
+UITextures.fpk	selectedborderfull.dds	UITextures_converted/selectedborderfull.png	32x69	1257	drawn-1to1
+UITextures.fpk	selectedborderleaf.dds	UITextures_converted/selectedborderleaf.png	26x56	1416	drawn-1to1
+UITextures.fpk	selecteddown.dds	UITextures.fpk/selecteddown.dds	32x128	21980	drawn-1to1
+UITextures.fpk	selecteddown32.dds	UITextures_converted/selecteddown32.png	32x128	2209	drawn-1to1
+UITextures.fpk	selectedup.dds	UITextures.fpk/selectedup.dds	32x128	21980	drawn-1to1
+UITextures.fpk	selectedup32.dds	UITextures_converted/selectedup32.png	32x128	2204	drawn-1to1
+UITextures.fpk	setupsectionsmenubackground.dds	UITextures_converted/setupsectionsmenubackground.png	553x81	1838	drawn-1to1
+UITextures.fpk	setuptab2.dds	UITextures_converted/setuptab2.png	354x34	3640	drawn-1to1
+UITextures.fpk	shieldicon.dds	UITextures_converted/shieldicon.png	20x20	613	drawn-1to1
+UITextures.fpk	shineanim.dds	UITextures_converted/shineanim.png	256x256	1701	drawn-1to1
+UITextures.fpk	sideright.dds	UITextures.fpk/sideright.dds	16x32	2856	9-slice,atlas-subrect,drawn-1to1
 UITextures.fpk	slider32.dds	UITextures.fpk/slider32.dds	32x128	21980	9-slice
 UITextures.fpk	sliderbackh.dds	UITextures.fpk/sliderbackh.dds	128x32	21980	9-slice
 UITextures.fpk	slotbutton_blue.dds	UITextures.fpk/slotbutton_blue.dds	80x320	136640	9-slice
@@ -427,72 +700,166 @@ UITextures.fpk	slotbutton_purple.dds	UITextures.fpk/slotbutton_purple.dds	80x320
 UITextures.fpk	slotbutton_yellow.dds	UITextures.fpk/slotbutton_yellow.dds	80x320	136640	9-slice
 UITextures.fpk	smalldropdownarrow.dds	UITextures_converted/smalldropdownarrow.png	16x6	360	atlas-subrect
 UITextures.fpk	socialpolicies1024.dds	UITextures_converted/socialpolicies1024.png	1024x1024	665263	icon-atlas
-UITextures.fpk	socialpolicies512.dds	UITextures_converted/socialpolicies512.png	512x512	130966	icon-atlas
+UITextures.fpk	socialpolicies512.dds	UITextures_converted/socialpolicies512.png	512x512	130966	drawn-1to1,icon-atlas
 UITextures.fpk	socialpoliciesachieved512.dds	UITextures_converted/socialpoliciesachieved512.png	512x512	130966	icon-atlas
+UITextures.fpk	staricon.dds	UITextures_converted/staricon.png	32x32	1524	drawn-1to1
 UITextures.fpk	subheader.dds	UITextures.fpk/subheader.dds	36x36	6932	9-slice
-UITextures.fpk	swapbutton.dds	UITextures_converted/swapbutton.png	64x256	13416	atlas-subrect
+UITextures.fpk	supremacybar.dds	UITextures_converted/supremacybar.png	5x30	386	drawn-1to1
+UITextures.fpk	swapbutton.dds	UITextures_converted/swapbutton.png	64x256	13416	atlas-subrect,drawn-1to1
 UITextures.fpk	tabbacking_square.dds	UITextures.fpk/tabbacking_square.dds	32x160	27440	9-slice
 UITextures.fpk	tabbackings.dds	UITextures.fpk/tabbackings.dds	64x160	54728	9-slice
 UITextures.fpk	tablebutton.dds	UITextures.fpk/tablebutton.dds	32x128	21968	9-slice
+UITextures.fpk	tablecolumnseparator.dds	UITextures_converted/tablecolumnseparator.png	2x26	278	drawn-1to1
 UITextures.fpk	tablerowgrouping.dds	UITextures.fpk/tablerowgrouping.dds	32x32	5588	9-slice
 UITextures.fpk	tabspacer.dds	UITextures.fpk/tabspacer.dds	8x5	332	9-slice
+UITextures.fpk	techatlassmall.dds	UITextures_converted/techatlassmall.png	64x64	9343	drawn-1to1
 UITextures.fpk	techcorner.dds	UITextures.fpk/techcorner.dds	209x71	78684	9-slice
-UITextures.fpk	techiconaffinity138.dds	UITextures.fpk/techiconaffinity138.dds	138x138	76304	lua-runtime-offset
+UITextures.fpk	techiconaffinity138.dds	UITextures.fpk/techiconaffinity138.dds	138x138	76304	drawn-1to1,lua-runtime-offset
+UITextures.fpk	techiconbacking.dds	UITextures_converted/techiconbacking.png	128x128	7224	drawn-1to1
 UITextures.fpk	technologyatlas.dds	UITextures_converted/technologyatlas.png	2048x2048	450920	icon-atlas
-UITextures.fpk	technologyatlas1024.dds	UITextures_converted/technologyatlas1024.png	1024x1024	154760	icon-atlas
+UITextures.fpk	technologyatlas1024.dds	UITextures_converted/technologyatlas1024.png	1024x1024	154760	drawn-1to1,icon-atlas
 UITextures.fpk	technologyatlas1712.dds	UITextures_converted/technologyatlas1712.png	1712x1712	657136	icon-atlas
 UITextures.fpk	technologyatlas360.dds	UITextures_converted/technologyatlas360.png	320x320	26826	icon-atlas
-UITextures.fpk	technologyatlas512.dds	UITextures_converted/technologyatlas512.png	512x512	54164	icon-atlas,lua-runtime-offset
+UITextures.fpk	technologyatlas512.dds	UITextures_converted/technologyatlas512.png	512x512	54164	drawn-1to1,icon-atlas,lua-runtime-offset
 UITextures.fpk	technologyatlas640.dds	UITextures_converted/technologyatlas640.png	640x640	74777	icon-atlas
-UITextures.fpk	techwebatlas.dds	UITextures.fpk/techwebatlas.dds	512x128	349648	lua-runtime-offset
+UITextures.fpk	technologywebbackground.dds	UITextures_converted/technologywebbackground.png	1024x1024	551401	drawn-1to1
+UITextures.fpk	techprogressbacking.dds	UITextures_converted/techprogressbacking.png	227x7	538	drawn-1to1
+UITextures.fpk	techprogressfill.dds	UITextures_converted/techprogressfill.png	213x7	456	drawn-1to1
+UITextures.fpk	techprogressfill_dark.dds	UITextures_converted/techprogressfill_dark.png	213x7	460	drawn-1to1
+UITextures.fpk	techwebatlas.dds	UITextures.fpk/techwebatlas.dds	512x128	349648	drawn-1to1,lua-runtime-offset
 UITextures.fpk	techwebfiltergridbacking.dds	UITextures.fpk/techwebfiltergridbacking.dds	32x32	5588	9-slice
 UITextures.fpk	techweboptionsbacking.dds	UITextures.fpk/techweboptionsbacking.dds	39x44	9160	9-slice
 UITextures.fpk	techweboptionsbackingflipped.dds	UITextures.fpk/techweboptionsbackingflipped.dds	39x44	9160	9-slice
 UITextures.fpk	techwebsearchbacking.dds	UITextures.fpk/techwebsearchbacking.dds	32x32	5588	9-slice
-UITextures.fpk	temptutorial.dds	UITextures.fpk/temptutorial.dds	650x560	1456128	lua-runtime-offset
+UITextures.fpk	techwebsearchicon.dds	UITextures_converted/techwebsearchicon.png	32x32	1374	drawn-1to1
+UITextures.fpk	temptutorial.dds	UITextures.fpk/temptutorial.dds	650x560	1456128	drawn-1to1,lua-runtime-offset
 UITextures.fpk	textfield.dds	UITextures.fpk/textfield.dds	24x24	3192	9-slice
-UITextures.fpk	timermeter.dds	UITextures_converted/timermeter.png	100x100	22240	atlas-subrect
+UITextures.fpk	tier1.dds	UITextures_converted/tier1.png	34x34	1184	drawn-1to1
+UITextures.fpk	tier2.dds	UITextures_converted/tier2.png	34x34	1345	drawn-1to1
+UITextures.fpk	tier3.dds	UITextures_converted/tier3.png	34x34	1424	drawn-1to1
+UITextures.fpk	timerframe.dds	UITextures_converted/timerframe.png	121x121	10943	drawn-1to1
+UITextures.fpk	timerframe_center.dds	UITextures_converted/timerframe_center.png	51x51	2826	drawn-1to1
+UITextures.fpk	timermeter.dds	UITextures_converted/timermeter.png	100x100	22240	atlas-subrect,drawn-1to1
+UITextures.fpk	timermeter_turnended.dds	UITextures_converted/timermeter_turnended.png	100x100	23597	drawn-1to1
+UITextures.fpk	top512icontrim.dds	UITextures_converted/top512icontrim.png	256x64	16471	drawn-1to1
+UITextures.fpk	topbar.dds	UITextures.fpk/topbar.dds	36x36	6932	drawn-1to1
 UITextures.fpk	topbar_separator.dds	UITextures.fpk/topbar_separator.dds	44x30	6728	9-slice
+UITextures.fpk	topbarbackground.dds	UITextures_converted/topbarbackground.png	40x40	286	drawn-1to1
 UITextures.fpk	tradebackinggrid.dds	UITextures.fpk/tradebackinggrid.dds	4x228	4916	9-slice
-UITextures.fpk	tutorialstepbg.dds	UITextures.fpk/tutorialstepbg.dds	47x47	11684	lua-runtime-offset
+UITextures.fpk	tutorialstepbg.dds	UITextures.fpk/tutorialstepbg.dds	47x47	11684	drawn-1to1,lua-runtime-offset
+UITextures.fpk	unemployedindicator.dds	UITextures.fpk/unemployedindicator.dds	64x64	21972	drawn-1to1
 UITextures.fpk	unemploymentcitizensgrid.dds	UITextures.fpk/unemploymentcitizensgrid.dds	8x94	3888	9-slice
-UITextures.fpk	unitactions.dds	UITextures_converted/unitactions.png	512x512	289447	atlas-subrect,icon-atlas
+UITextures.fpk	unitactions.dds	UITextures_converted/unitactions.png	512x512	289447	atlas-subrect,drawn-1to1,icon-atlas
 UITextures.fpk	unitactions1024.dds	UITextures_converted/unitactions1024.png	1024x1024	471009	icon-atlas
-UITextures.fpk	unitactions360.dds	UITextures_converted/unitactions360.png	360x360	171669	icon-atlas
-UITextures.fpk	unitflagbase.dds	UITextures_converted/unitflagbase.png	256x256	31183	atlas-subrect
-UITextures.fpk	unitflagciv.dds	UITextures_converted/unitflagciv.png	256x256	15039	atlas-subrect,lua-runtime-offset
+UITextures.fpk	unitactions360.dds	UITextures_converted/unitactions360.png	360x360	171669	drawn-1to1,icon-atlas
+UITextures.fpk	unitflagbase.dds	UITextures_converted/unitflagbase.png	256x256	31183	atlas-subrect,drawn-1to1
+UITextures.fpk	unitflagciv.dds	UITextures_converted/unitflagciv.png	256x256	15039	atlas-subrect,drawn-1to1,lua-runtime-offset
+UITextures.fpk	unitflagcivmask.dds	UITextures_converted/unitflagcivmask.png	64x64	955	drawn-1to1
+UITextures.fpk	unitflagembark.dds	UITextures_converted/unitflagembark.png	256x256	15039	drawn-1to1
+UITextures.fpk	unitflagembarkmask.dds	UITextures_converted/unitflagembarkmask.png	64x64	955	drawn-1to1
+UITextures.fpk	unitflagfortify.dds	UITextures_converted/unitflagfortify.png	256x256	14774	drawn-1to1
+UITextures.fpk	unitflagfortifymask.dds	UITextures_converted/unitflagfortifymask.png	64x64	1576	drawn-1to1
+UITextures.fpk	unitflagmask.dds	UITextures_converted/unitflagmask.png	64x64	1286	drawn-1to1
+UITextures.fpk	unitflagorbital.dds	UITextures_converted/unitflagorbital.png	256x256	15239	drawn-1to1
+UITextures.fpk	unitflagorbitalmask.dds	UITextures_converted/unitflagorbitalmask.png	64x64	1306	drawn-1to1
+UITextures.fpk	unitflagshine.dds	UITextures_converted/unitflagshine.png	64x64	375	drawn-1to1
+UITextures.fpk	unitflagstatesatlas.dds	UITextures_converted/unitflagstatesatlas.png	256x256	24122	drawn-1to1
+UITextures.fpk	unitflagtrade.dds	UITextures_converted/unitflagtrade.png	256x256	15039	drawn-1to1
+UITextures.fpk	unitflagtrademask.dds	UITextures_converted/unitflagtrademask.png	64x64	955	drawn-1to1
 UITextures.fpk	unitneedsorders.dds	UITextures_converted/unitneedsorders.png	76x76	9575	atlas-subrect
-UITextures.fpk	unitpanelarrows.dds	UITextures_converted/unitpanelarrows.png	90x135	5192	atlas-subrect
+UITextures.fpk	unitpanelarrows.dds	UITextures_converted/unitpanelarrows.png	90x135	5192	atlas-subrect,drawn-1to1
 UITextures.fpk	unitpanelbackground.dds	UITextures.fpk/unitpanelbackground.dds	492x242	595448	9-slice
 UITextures.fpk	unitportraitsearly.dds	UITextures_converted/unitportraitsearly.png	2048x2048	3000788	icon-atlas
 UITextures.fpk	unitsbackground.dds	UITextures.fpk/unitsbackground.dds	32x32	5588	9-slice
+UITextures.fpk	unitupgrade3dfill.dds	UITextures.fpk/unitupgrade3dfill.dds	590x450	1062128	drawn-1to1
 UITextures.fpk	unitupgradebanner.dds	UITextures.fpk/unitupgradebanner.dds	376x39	58784	9-slice
+UITextures.fpk	unitupgradebannercenter.dds	UITextures.fpk/unitupgradebannercenter.dds	91x86	31432	drawn-1to1
 UITextures.fpk	unitupgradebuttonglyphs280.dds	UITextures.fpk/unitupgradebuttonglyphs280.dds	280x120	134528	icon-atlas
+UITextures.fpk	unitupgradechooserframe.dds	UITextures.fpk/unitupgradechooserframe.dds	406x406	659472	drawn-1to1
+UITextures.fpk	unitupgradechooserring1.dds	UITextures.fpk/unitupgradechooserring1.dds	148x148	87744	drawn-1to1
+UITextures.fpk	unitupgradechooserring2.dds	UITextures.fpk/unitupgradechooserring2.dds	246x246	242192	drawn-1to1
+UITextures.fpk	unitupgradechosenbutton.dds	UITextures.fpk/unitupgradechosenbutton.dds	42x168	28352	drawn-1to1
 UITextures.fpk	unitupgradecostbanner.dds	UITextures.fpk/unitupgradecostbanner.dds	334x57	76280	9-slice
+UITextures.fpk	unitupgradecostbannerbottom.dds	UITextures.fpk/unitupgradecostbannerbottom.dds	74x20	6048	drawn-1to1
+UITextures.fpk	unitupgradecostbannertop.dds	UITextures.fpk/unitupgradecostbannertop.dds	74x20	6048	drawn-1to1
+UITextures.fpk	unitupgradecostbutton.dds	UITextures.fpk/unitupgradecostbutton.dds	42x168	28352	drawn-1to1
+UITextures.fpk	unitupgradeemptyfill.dds	UITextures.fpk/unitupgradeemptyfill.dds	16x16	1152	drawn-1to1
+UITextures.fpk	unitupgradelevel1.dds	UITextures.fpk/unitupgradelevel1.dds	25x45	4628	drawn-1to1
+UITextures.fpk	unitupgradelevelindicator32.dds	UITextures.fpk/unitupgradelevelindicator32.dds	96x96	36992	drawn-1to1
 UITextures.fpk	unitupgradelevelupheader.dds	UITextures.fpk/unitupgradelevelupheader.dds	37x49	7380	9-slice
+UITextures.fpk	unitupgradeperkslotcurrent.dds	UITextures.fpk/unitupgradeperkslotcurrent.dds	83x45	15068	drawn-1to1
+UITextures.fpk	unitupgradeperkslotfuture.dds	UITextures.fpk/unitupgradeperkslotfuture.dds	83x45	15068	drawn-1to1
+UITextures.fpk	unitupgradeperkslotprevious.dds	UITextures.fpk/unitupgradeperkslotprevious.dds	83x45	15068	drawn-1to1
 UITextures.fpk	unitupgradeplannerheader.dds	UITextures.fpk/unitupgradeplannerheader.dds	37x49	7380	9-slice
-UITextures.fpk	unitupgradesfpo.dds	UITextures_converted/unitupgradesfpo.png	128x128	30434	lua-runtime-offset
+UITextures.fpk	unitupgradesfpo.dds	UITextures_converted/unitupgradesfpo.png	128x128	30434	drawn-1to1,lua-runtime-offset
 UITextures.fpk	unitupgradestattitle.dds	UITextures.fpk/unitupgradestattitle.dds	170x27	18488	9-slice
-UITextures.fpk	unitupgradeunitbutton.dds	UITextures.fpk/unitupgradeunitbutton.dds	235x768	722048	lua-runtime-offset
-UITextures.fpk	unitupgradeunitlockedbutton.dds	UITextures.fpk/unitupgradeunitlockedbutton.dds	235x768	722048	lua-runtime-offset
+UITextures.fpk	unitupgradeunitbutton.dds	UITextures.fpk/unitupgradeunitbutton.dds	235x768	722048	drawn-1to1,lua-runtime-offset
+UITextures.fpk	unitupgradeunitlockedbutton.dds	UITextures.fpk/unitupgradeunitlockedbutton.dds	235x768	722048	drawn-1to1,lua-runtime-offset
+UITextures.fpk	unitupgradeunitstandoff.dds	UITextures.fpk/unitupgradeunitstandoff.dds	590x4	9568	drawn-1to1
+UITextures.fpk	unitupgradeunitstandon.dds	UITextures.fpk/unitupgradeunitstandon.dds	590x4	9568	drawn-1to1
+UITextures.fpk	unitupgradeupgradebutton.dds	UITextures.fpk/unitupgradeupgradebutton.dds	42x168	28352	drawn-1to1
 UITextures.fpk	upgrade_affinityowned.dds	UITextures.fpk/upgrade_affinityowned.dds	45x29	6960	9-slice
 UITextures.fpk	upgrade_affinityreq.dds	UITextures.fpk/upgrade_affinityreq.dds	27x30	4356	9-slice
 UITextures.fpk	upgradeiconbutton.dds	UITextures_converted/upgradeiconbutton.png	52x104	3081	atlas-subrect
 UITextures.fpk	upgradepreviewheader.dds	UITextures_converted/upgradepreviewheader.png	55x55	230	9-slice
+UITextures.fpk	verticaltrim.dds	UITextures.fpk/verticaltrim.dds	8x32	1500	drawn-1to1
+UITextures.fpk	victory_defeat.dds	UITextures.fpk/victory_defeat.dds	953x531	2024300	drawn-1to1
 UITextures.fpk	victorybutton.dds	UITextures.fpk/victorybutton.dds	96x480	245828	9-slice
+UITextures.fpk	victoryfirstplace.dds	UITextures_converted/victoryfirstplace.png	26x42	1799	drawn-1to1
+UITextures.fpk	victoryiconbackingthemlarge.dds	UITextures_converted/victoryiconbackingthemlarge.png	64x64	519	drawn-1to1
+UITextures.fpk	victoryiconbackingthemsmall.dds	UITextures_converted/victoryiconbackingthemsmall.png	64x64	550	drawn-1to1
+UITextures.fpk	victoryprogressfill.dds	UITextures_converted/victoryprogressfill.png	48x8	175	drawn-1to1
 UITextures.fpk	victoryquesticons.dds	UITextures_converted/victoryquesticons.png	512x256	130102	icon-atlas
+UITextures.fpk	virtue_column_might.dds	UITextures_converted/virtue_column_might.png	230x548	215445	drawn-1to1
+UITextures.fpk	virtue_columnheader.dds	UITextures_converted/virtue_columnheader.png	226x45	421	drawn-1to1
 UITextures.fpk	virtue_hbracket.dds	UITextures.fpk/virtue_hbracket.dds	27x9	1372	9-slice
+UITextures.fpk	virtue_industrybonus_off.dds	UITextures_converted/virtue_industrybonus_off.png	24x24	1414	drawn-1to1
+UITextures.fpk	virtue_industrybonus_on.dds	UITextures_converted/virtue_industrybonus_on.png	24x24	1591	drawn-1to1
+UITextures.fpk	virtue_knowledgebonus_off.dds	UITextures_converted/virtue_knowledgebonus_off.png	24x24	1354	drawn-1to1
+UITextures.fpk	virtue_knowledgebonus_on.dds	UITextures_converted/virtue_knowledgebonus_on.png	24x24	1634	drawn-1to1
+UITextures.fpk	virtue_level1bonus_off.dds	UITextures_converted/virtue_level1bonus_off.png	24x24	1358	drawn-1to1
+UITextures.fpk	virtue_level1bonus_on.dds	UITextures_converted/virtue_level1bonus_on.png	24x24	1707	drawn-1to1
+UITextures.fpk	virtue_level2bonus_off.dds	UITextures_converted/virtue_level2bonus_off.png	24x24	1376	drawn-1to1
+UITextures.fpk	virtue_level2bonus_on.dds	UITextures_converted/virtue_level2bonus_on.png	24x24	1683	drawn-1to1
+UITextures.fpk	virtue_level3bonus_off.dds	UITextures_converted/virtue_level3bonus_off.png	24x24	1401	drawn-1to1
+UITextures.fpk	virtue_level3bonus_on.dds	UITextures_converted/virtue_level3bonus_on.png	24x24	1713	drawn-1to1
+UITextures.fpk	virtue_levelbar_backing.dds	UITextures_converted/virtue_levelbar_backing.png	16x180	334	drawn-1to1
+UITextures.fpk	virtue_levelbar_fill.dds	UITextures_converted/virtue_levelbar_fill.png	16x180	376	drawn-1to1
+UITextures.fpk	virtue_levels.dds	UITextures_converted/virtue_levels.png	90x549	9038	drawn-1to1
+UITextures.fpk	virtue_mightbonus_off.dds	UITextures_converted/virtue_mightbonus_off.png	24x24	1522	drawn-1to1
+UITextures.fpk	virtue_mightbonus_on.dds	UITextures_converted/virtue_mightbonus_on.png	24x24	1761	drawn-1to1
+UITextures.fpk	virtue_prosperitybonus_off.dds	UITextures_converted/virtue_prosperitybonus_off.png	24x24	1488	drawn-1to1
+UITextures.fpk	virtue_prosperitybonus_on.dds	UITextures_converted/virtue_prosperitybonus_on.png	24x24	1643	drawn-1to1
 UITextures.fpk	virtue_vbracket.dds	UITextures.fpk/virtue_vbracket.dds	9x27	1372	9-slice
+UITextures.fpk	virtue_virtue_industry.dds	UITextures_converted/virtue_virtue_industry.png	53x51	1628	drawn-1to1
+UITextures.fpk	virtue_virtue_knowledge.dds	UITextures_converted/virtue_virtue_knowledge.png	53x51	1610	drawn-1to1
+UITextures.fpk	virtue_virtue_might.dds	UITextures_converted/virtue_virtue_might.png	53x51	1566	drawn-1to1
+UITextures.fpk	virtue_virtue_off.dds	UITextures_converted/virtue_virtue_off.png	53x51	1045	drawn-1to1
+UITextures.fpk	virtue_virtue_prosperity.dds	UITextures_converted/virtue_virtue_prosperity.png	53x51	1528	drawn-1to1
+UITextures.fpk	virtue_virtuebar_backing.dds	UITextures_converted/virtue_virtuebar_backing.png	225x10	306	drawn-1to1
+UITextures.fpk	virtue_virtuebar_might.dds	UITextures_converted/virtue_virtuebar_might.png	225x10	433	drawn-1to1
+UITextures.fpk	waitonplayer32.dds	UITextures_converted/waitonplayer32.png	32x32	1487	drawn-1to1
+UITextures.fpk	war_harmony.dds	UITextures_converted/war_harmony.png	500x125	140133	drawn-1to1
+UITextures.fpk	war_purity.dds	UITextures_converted/war_purity.png	500x125	150749	drawn-1to1
+UITextures.fpk	war_supremacy.dds	UITextures_converted/war_supremacy.png	500x125	146704	drawn-1to1
 UITextures.fpk	windowgrid27.dds	UITextures.fpk/windowgrid27.dds	32x32	5588	9-slice
 UITextures.fpk	windowhlgrid27.dds	UITextures.fpk/windowhlgrid27.dds	32x32	5588	9-slice
 UITextures.fpk	windownoheader.dds	UITextures.fpk/windownoheader.dds	68x68	24744	9-slice
 UITextures.fpk	windowwithheader.dds	UITextures.fpk/windowwithheader.dds	147x135	105348	9-slice
 UITextures.fpk	windowwithrightdivider.dds	UITextures.fpk/windowwithrightdivider.dds	60x60	19264	9-slice
 UITextures.fpk	windowwithsideborders.dds	UITextures.fpk/windowwithsideborders.dds	41x41	8972	9-slice
-UITextures.fpk	yieldatlas.dds	UITextures.fpk/yieldatlas.dds	512x896	2446768	lua-runtime-offset
+UITextures.fpk	wondertemp.dds	UITextures_converted/wondertemp.png	875x656	302954	drawn-1to1
+UITextures.fpk	wondertitletop.dds	UITextures_converted/wondertitletop.png	875x45	12879	drawn-1to1
+UITextures.fpk	workermeter_empty.dds	UITextures_converted/workermeter_empty.png	60x52	2680	drawn-1to1
+UITextures.fpk	workermeter_full.dds	UITextures_converted/workermeter_full.png	60x52	3412	drawn-1to1
+UITextures.fpk	worldanchorbacking.dds	UITextures_converted/worldanchorbacking.png	137x138	10426	drawn-1to1
+UITextures.fpk	xpmeter.dds	UITextures_converted/xpmeter.png	255x5	937	drawn-1to1
+UITextures.fpk	xpmeterempty.dds	UITextures_converted/xpmeterempty.png	273x7	313	drawn-1to1
+UITextures.fpk	yieldatlas.dds	UITextures.fpk/yieldatlas.dds	512x896	2446768	drawn-1to1,lua-runtime-offset
+UITextures.fpk	yieldatlas_128_culture.dds	UITextures.fpk/yieldatlas_128_culture.dds	128x640	437028	drawn-1to1
 
 
-# Referenced by shipped data but absent from the whole install (51):
+# Referenced by shipped data but absent from the whole install (132):
 # in none of the install's .fpk archives and not loose on disk. There is nothing
 # to convert - these draw no art at 1x either. Mostly style definitions no
 # control uses, and screens inherited from Civ5, plus atlas rows for size
@@ -500,18 +867,50 @@ UITextures.fpk	yieldatlas.dds	UITextures.fpk/yieldatlas.dds	512x896	2446768	lua-
 #
 # dead	filename	referenced_from	reasons
 
-# dead	bottomleft128x224.dds	base:InGame/TechPopup.xml	atlas-subrect
+# dead	45x45framebutton.dds	base:InGame/Popups/DeclareWarPopup.xml	drawn-1to1
+# dead	ancientruinspopuptop300.dds	base:InGame/Popups/GoodyHutPopup.xml	drawn-1to1
+# dead	bar400x2.dds	base:InGame/Popups/LeagueProjectPopup.xml	drawn-1to1
+# dead	bar900x2.dds	base:InGame/Popups/Ranking.xml	drawn-1to1
+# dead	bottomleft128x224.dds	base:InGame/TechPopup.xml	atlas-subrect,drawn-1to1
+# dead	bounce_512.dds	Expansion1:Styles.xml	drawn-1to1
+# dead	bubbles256.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	bubbles256orange.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	bubblesmask336x48.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	bubblesmask375x90.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	buttons_256.dds	Expansion1:Styles.xml	drawn-1to1
+# dead	buttons_512.dds	Expansion1:Styles.xml	drawn-1to1
 # dead	buttonsides_left.dds	base:InGame/Popups/CityStateGreetingPopupOpenCenter.xml	atlas-subrect
 # dead	buttonsidesglowgold.dds	base:InGame/TechPopup.xml	atlas-subrect
 # dead	citizenicons1024.dds	IconTextureAtlases database	icon-atlas
+# dead	citybannerstrengthalpha_small.dds	Expansion1:InGame/CityBannerManager.xml	drawn-1to1
+# dead	citybombard_small.dds	Expansion1:InGame/CityBannerManager.xml	drawn-1to1
+# dead	cityicon100.dds	base:InGame/Popups/CityStateGreetingPopupOpenCenter.xml	drawn-1to1
+# dead	citystate22.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	citystatebackgroundculture.dds	base:InGame/Popups/CityStateDiploPopup.lua	drawn-1to1
+# dead	citystatemeterframeicon32.dds	base:InGame/Popups/CityStateDiploPopup.xml	drawn-1to1
+# dead	citystatemeterframequartered.dds	base:InGame/Popups/CityStateDiploPopup.xml	drawn-1to1
+# dead	citystatepopuptop100.dds	base:InGame/Popups/CityStateDiploPopup.xml	drawn-1to1
+# dead	civsymbolsframe360.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
 # dead	difficultylevelicons.dds	IconTextureAtlases database	icon-atlas
 # dead	difficultylevelicons128.dds	IconTextureAtlases database	icon-atlas
-# dead	difficultylevelicons256.dds	IconTextureAtlases database	icon-atlas
+# dead	difficultylevelicons256.dds	base:FrontEnd/GameSetup/SelectDifficulty.xml	drawn-1to1,icon-atlas
 # dead	diplo_fearpip.dds	Expansion1:Styles.xml	9-slice
 # dead	diplo_respectpip.dds	Expansion1:Styles.xml	9-slice
+# dead	earthfromspacetemp.dds	base:InGame/Loadout/LoadoutRoot.xml	drawn-1to1
+# dead	era_atomic.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	era_classical.dds	base:InGame/Popups/CityStateGreetingPopupOpenCenter.xml	drawn-1to1
+# dead	era_future.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	era_industrial.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	era_medievel.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	era_modern.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	era_renissance.dds	base:InGame/Popups/NewEraPopup.lua	drawn-1to1
+# dead	forgeui_checkbox.dds	base:Debug/CoreStyles.xml	drawn-1to1
 # dead	gamespeedicons.dds	IconTextureAtlases database	icon-atlas
 # dead	gamespeedicons128.dds	IconTextureAtlases database	icon-atlas
-# dead	gamespeedicons256.dds	IconTextureAtlases database	icon-atlas
+# dead	gamespeedicons256.dds	base:FrontEnd/GameSetup/SelectGameSpeed.xml	drawn-1to1,icon-atlas
+# dead	goldenagepopuptop300.dds	base:InGame/Popups/GoldenAgePopup.xml	drawn-1to1
+# dead	goldenagepopuptop300hl.dds	base:InGame/Popups/GoldenAgePopup.xml	drawn-1to1
+# dead	goldenagepopuptop300mask.dds	base:InGame/Popups/GoldenAgePopup.xml	drawn-1to1
 # dead	grid9blackcorners8button.dds	Expansion1:Styles.xml	9-slice
 # dead	grid9blackindentfade8.dds	Expansion1:Styles.xml	9-slice
 # dead	grid9blackindentfade8right.dds	Expansion1:Styles.xml	9-slice
@@ -536,31 +935,83 @@ UITextures.fpk	yieldatlas.dds	UITextures.fpk/yieldatlas.dds	512x896	2446768	lua-
 # dead	grid9tech10.dds	Expansion1:Styles.xml	9-slice
 # dead	grid9tech3.dds	Expansion1:Styles.xml	9-slice
 # dead	grid9yellow8.dds	Expansion1:Styles.xml	9-slice
+# dead	iconframe64.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	iconframe64check.dds	base:FrontEnd/LoadTutorial.xml	drawn-1to1
+# dead	iconframe64checkoff.dds	base:FrontEnd/LoadTutorial.xml	drawn-1to1
+# dead	iconframe_32.dds	base:InGame/Popups/LeagueOverview.xml	drawn-1to1
+# dead	leaderportraits1024.dds	base:InGame/Popups/LeagueOverview.xml	drawn-1to1
+# dead	leftportraitdecor128.dds	base:InGame/Popups/ChoosePantheonPopup.xml	drawn-1to1
+# dead	logo_bink.dds	base:FrontEnd/Credits.xml	drawn-1to1
+# dead	logo_fork.dds	base:FrontEnd/Credits.xml	drawn-1to1
+# dead	logo_granny.dds	base:FrontEnd/Credits.xml	drawn-1to1
+# dead	logo_havok.dds	base:FrontEnd/Credits.xml	drawn-1to1
+# dead	logo_miles.dds	base:FrontEnd/Credits.xml	drawn-1to1
+# dead	maincitybutton.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	maincitybuttonhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainclose.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainclosehl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	maingreatpersonbutton.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	maingreatpersonbuttonhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainopen.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainopenhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainresourcebutton.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainresourcebuttonhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	maintechbutton.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	maintechbuttonhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainunitbutton.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mainunitbuttonhl.dds	base:InGame/InfoCorner.lua	drawn-1to1
+# dead	mapsizeicons256.dds	base:FrontEnd/GameSetup/SelectMapSize.xml	drawn-1to1
 # dead	maptypeicons2_128.dds	IconTextureAtlases database	icon-atlas
 # dead	maptypeicons2_32.dds	IconTextureAtlases database	icon-atlas
 # dead	maptypeicons2_64.dds	IconTextureAtlases database	icon-atlas
 # dead	naturalwonders512.dds	base:InGame/Popups/GoodyHutPopup.xml	atlas-subrect
+# dead	notificationframebase.dds	base:InGame/Popups/ChoosePantheonPopup.xml	drawn-1to1
+# dead	notificationiconsframe.dds	base:InGame/Popups/CityStateGreetingPopupOpenCenter.xml	drawn-1to1
+# dead	notificationiconsinfoframe.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	notificationpantheon128.dds	base:InGame/Popups/ChoosePantheonPopup.xml	drawn-1to1
+# dead	notificationpantheon80.dds	base:InGame/Popups/ChoosePantheonPopup.xml	drawn-1to1
+# dead	notificationshineglow.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	notificationshinemask.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
 # dead	productioncategorybackground.dds	Expansion1:Styles.xml	9-slice
 # dead	promotions2048.dds	IconTextureAtlases database	icon-atlas
 # dead	promotions360.dds	IconTextureAtlases database	icon-atlas
 # dead	scrollbarbackh.dds	Expansion1:Styles.xml	9-slice
 # dead	scrollbarh.dds	Expansion1:Styles.xml	9-slice
+# dead	swords32.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	swords64.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	techgoldshine.dds	base:InGame/Popups/GoldenAgePopup.xml	drawn-1to1
+# dead	techmeter.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	techmetermask.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
 # dead	techpanelcorner.dds	Expansion1:Styles.xml	9-slice
+# dead	techtreemeter.dds	base:InGame/TechPopup.xml	drawn-1to1
+# dead	techtreemeterback.dds	base:InGame/TechPopup.xml	drawn-1to1
 # dead	topcornerleft.dds	base:InGame/Popups/ChoosePantheonPopup.xml	atlas-subrect
 # dead	toppanel474x60.dds	base:InGame/Popups/LeagueProjectPopup.xml	atlas-subrect
+# dead	un128.dds	base:InGame/Popups/VictoryProgress.xml	drawn-1to1
+# dead	unitflagranged.dds	base:InGame/UnitFlagManager.lua	drawn-1to1
+# dead	unitflagrangedmask.dds	base:InGame/UnitFlagManager.lua	drawn-1to1
+# dead	unitinrange.dds	base:InGame/CityList.xml	drawn-1to1
 # dead	victoryconditions_128_shared.dds	base:InGame/Popups/VictoryProgress.xml	atlas-subrect
 # dead	windowinterrupt.dds	Expansion1:Styles.xml	9-slice
-# dead	worldcongress_scrolls16x64.dds	base:InGame/Popups/LeagueOverview.xml	atlas-subrect
+# dead	wonderconceptun_small.dds	base:InGame/Popups/LeagueOverview.lua	drawn-1to1
+# dead	worldcongress.dds	base:InGame/Popups/LeagueOverview.lua	drawn-1to1
+# dead	worldcongress_scrolls16x64.dds	base:InGame/Popups/LeagueOverview.xml	atlas-subrect,drawn-1to1
+# dead	worldcongresshost_frame.dds	base:InGame/Popups/LeagueOverview.xml	drawn-1to1
+# dead	worldcongressvote64.dds	base:InGame/Popups/LeagueOverview.xml	drawn-1to1
+# dead	yieldatlas_128_faith.dds	Expansion1:InGame/YieldIconManager.lua	drawn-1to1
 
 
 # Cost by reason (measured pixels at 1x; 2x output = pixels * 4):
 #
+#   drawn-1to1           462 files    78.8 Mpx   1260.8 MB RGBA@2x   315.2 MB DXT5@2x
 #   icon-atlas           160 files    73.0 Mpx   1168.3 MB RGBA@2x   292.1 MB DXT5@2x
 #   atlas-subrect         73 files     4.0 Mpx     63.2 MB RGBA@2x    15.8 MB DXT5@2x
 #   lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2x
 #   9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
 #   flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
-#   TOTAL                474 files    77.9 Mpx   1246.8 MB RGBA@2x   311.7 MB DXT5@2x
+#   font-icon-cell         2 files     0.1 Mpx      2.1 MB RGBA@2x     0.5 MB DXT5@2x
+#   TOTAL                839 files   141.3 Mpx   2261.0 MB RGBA@2x   565.3 MB DXT5@2x
 #
-# The game is a 32-bit process (~3.5GB ceiling), so the atlases must come
-# back block-compressed rather than raw RGBA.
+# The game is a 32-bit process (~3.5GB ceiling). The shipped packages are
+# raw RGBA so far and the game holds; switch the atlases to DXT if memory
+# becomes a problem.

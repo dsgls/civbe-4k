@@ -21,7 +21,7 @@ traps here are non-obvious and cost real time to rediscover.
 ui/                     the patched UI trees, at install-relative paths.
                         See "The vendored UI trees" below.
 civbe-dds/              reads/writes UI texture .dds (Python, 115 tests). See its README.
-ui_textures.txt         the phase-2 work list: 474 textures needing conversion.
+ui_textures.txt         the phase-2 work list: 839 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
   UITextures.fpk/                 1642 .dds  (base game UI)
   UITextures_converted/            595 .png  (decoded dictionary pairs)
@@ -108,6 +108,20 @@ of neighbouring icons. Precedence, as implemented in `classify.py`:
    `Size` a source rect — texture-space.
 3. Otherwise it is screen-space.
 
+### Plain images are drawn 1:1, never stretched
+
+A non-9-slice control samples a source rect equal to its screen-space `Size`
+from the texture's top-left and draws it texel-per-pixel; a control with no
+`Size` draws the texture at its natural size. Nothing stretches art to fit a
+control unless a `StretchMode` attribute says so, and the whole UI carries only
+45 of those. Verified in game at 2x: 1x `hudicon_*.dds` art rendered in the
+top-left quadrant of its doubled button, and 1x `helpbutton.dds` showed two
+state bands at once — a Button indexes its state bands by the control height.
+Consequence: **every referenced texture is on the phase-2 work list**; there is
+no "merely stretched, the engine rescales it" category. (Case 3 above is still
+the right *coordinate* classification — the `Size` describes screen pixels —
+it just additionally implies the art must exist at that size.)
+
 ### `iconSize` is a database key, not a measurement
 
 `IconHookup(offset, iconSize, atlas, control)` looks `iconSize` up in the
@@ -130,9 +144,9 @@ the table.**
 ### The game is a 32-bit process
 
 Both executables are `0x14c` / x86 with `LARGE_ADDRESS_AWARE`, so ~3.5 GB of
-address space for everything. Blanket-upscaling all 972 MB of UI textures is
-not an option; this is why the work list is selective and why the output must
-be block-compressed.
+address space for everything. The shipped packages are raw RGBA (~2.3 GB
+decoded at 2x) and the game has held so far; if it stops holding, the icon
+atlases are the first candidates for DXT.
 
 ### Loose files can override the archives
 
@@ -322,55 +336,50 @@ Tab-separated: `pack`, `filename`, `input_file`, `decoded`, `bytes`, `reasons`.
 a `.png` for a decoded dictionary pair, a `.dds` for a plain texture.
 `decoded` is measured, not inferred.
 
-A texture is listed exactly when a texture-space coordinate reads it: an atlas
-sub-rect, a 9-slice rect, a flipbook stride, a font-icon cell, an
-`IconTextureAtlases` row, or a Lua `SetTextureOffsetVal`/`SetTextureSizeVal`
-call. Both UI trees are scanned, base and Expansion1. The XML side derives
-from the same `analysis/classify.py` the 2x bake of `ui/` was verified
-against; the Lua side resolves each call's
-control to its XML element by ID (same-name XML, then directory, then tree),
-which over-approximates on ID collisions — an extra stretched texture is
-harmless, a missed sampled one is not. Textures merely stretched to fit a
-control are deliberately absent — the engine scales those and they only get
-softer.
+Every texture the two UI trees reference is listed — see *Plain images are
+drawn 1:1, never stretched* above; there is no safe-to-skip category. The
+`reasons` column records what reads each texture: a texture-space coordinate
+(atlas sub-rect, 9-slice rect, flipbook stride, font-icon cell,
+`IconTextureAtlases` row, Lua `SetTextureOffsetVal`/`SetTextureSizeVal`), or
+`drawn-1to1` for a plain reference. The XML side derives from the same
+`analysis/classify.py` the 2x bake of `ui/` was verified against; the Lua side
+takes every `.dds` string literal, plus offset-call control resolution by ID
+(same-name XML, then directory, then tree), which over-approximates — an
+extra converted texture is harmless, a missed one is not. The font-icon
+atlases are picked up from the `<Atlas File=…>` element in the `FontIcons`
+XMLs, whose cell coordinates live on sibling `<Icon>` elements.
 
-Cost, measured:
+Cost, measured (a file can carry several reasons; the rows overlap):
 
 ```
+drawn-1to1           462 files    78.8 Mpx   1260.8 MB RGBA@2x   315.2 MB DXT5@2x
 icon-atlas           160 files    73.0 Mpx   1168.3 MB RGBA@2x   292.1 MB DXT5@2x
 atlas-subrect         73 files     4.0 Mpx     63.2 MB RGBA@2x    15.8 MB DXT5@2x
 lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2x
 9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
 flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
-TOTAL                474 files    77.9 Mpx   1246.8 MB RGBA@2x   311.7 MB DXT5@2x
+font-icon-cell         2 files     0.1 Mpx      2.1 MB RGBA@2x     0.5 MB DXT5@2x
+TOTAL                839 files   141.3 Mpx   2261.0 MB RGBA@2x   565.3 MB DXT5@2x
 ```
 
-Only four source forms appear across the 474, and one carries almost all the
-pixels:
+Source forms across the 839, dictionary pairs still carrying most pixels:
 
 | source form | files | pixels |
 |-------------|-------|--------|
-| dictionary pair (dictionary is RGBA) | 200 | 72.10 Mpx |
-| plain `A8R8G8B8` (BGRA bytes) | 123 | 2.86 Mpx |
-| plain `A8B8G8R8` (RGBA bytes) | 124 | 2.69 Mpx |
-| plain DXT4 | 22 | 0.26 Mpx |
-| plain DXT1 | 5 | 0.03 Mpx |
+| dictionary pair (dictionary is RGBA) | 422 | 84.13 Mpx |
+| plain `A8B8G8R8` (RGBA bytes) | 181 | 38.60 Mpx |
+| plain `A8R8G8B8` (BGRA bytes) | 203 | 18.28 Mpx |
+| plain DXT4 | 24 | 0.26 Mpx |
+| plain DXT1 | 7 | 0.04 Mpx |
+| plain DXT3/DXT5 | 2 | 0.01 Mpx |
 
-No DXT2/3/5, no cubemaps, no `.fic` stubs, none of the `FTXT`-less files — the
-awkward corners of the packs all fall outside the list. The `forgeui_*`
-reserved-field junk does not: 26 of the 27 DXT entries are `forgeui_*` and 20
-of those carry it.
+No cubemaps and no `.fic` stubs make the list; the mislabelled-DXT and
+`forgeui_*` reserved-field corners do (decode DXT2/4 as DXT3/5, see above).
 
-The tiers split by form. `icon-atlas` is 144 of 160 dictionary pairs and holds
-93% of the pixels (72 of 77.9 Mpx) — that tier alone is the memory problem.
-`9-slice` is 225 files, all but one of them small plain textures, and holds
-every DXT entry. Mip chains follow the same split: all 200 pair sources are
-single-level, while 233 of the 274 plain ones carry chains.
-
-A trailing section lists 51 names referenced by shipped data but present in no
-archive and not loose on disk — dead references (mostly unused `grid9*` style
-definitions and screens inherited from Civ5). They draw nothing at 1x either.
-Ignore them; there is nothing to convert.
+A trailing section lists 132 names referenced by shipped data but present in
+no archive and not loose on disk — dead references (mostly unused `grid9*`
+style definitions and screens inherited from Civ5). They draw nothing at 1x
+either. Ignore them; there is nothing to convert.
 
 ---
 
@@ -380,9 +389,10 @@ Ignore them; there is nothing to convert.
    off-the-shelf model works; nothing needs to understand the block format to
    *read* it.
 2. **Re-encode** to something the engine loads. Plain RGBA (`RAW32`) is what
-   933 stock textures already use, so it is the safe target format — but see
-   the memory ceiling: at 1.2 GB uncompressed for the full list, the icon
-   atlases almost certainly need DXT.
+   933 stock textures already use and what the shipped packages contain —
+   single-level, `tag=COLOR`, usage group copied from the stock file
+   (`civbe_dds encode --like`). See the memory ceiling note under *The game is
+   a 32-bit process*.
 3. **Place** the results loose at the DLC UI tree root
    (`Assets/DLC/Expansion1/UI/`) — one flat directory of plain DDS, no pairs,
    no `Art/` hierarchy to reproduce. Base-tree art goes there too; the DLC tree
@@ -393,7 +403,7 @@ Ignore them; there is nothing to convert.
 ### Constraint: the texture scale is global
 
 `ui/` bakes 2x into every texture-space coordinate. If only some art is
-rescaled, the rest samples wrong. So it is **all 474 or none** — the "convert
+rescaled, the rest samples wrong. So it is **all 839 or none** — the "convert
 the cheap tier first" idea would need per-texture coordinate edits in `ui/`,
 which is real work, not a shortcut.
 

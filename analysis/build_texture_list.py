@@ -23,6 +23,8 @@ SOURCES = [
 ]
 
 TEXTURE_REFS = ("Texture", "MaskTexture", "ButtonTexture")
+# Any .dds literal in Lua: SetTexture() and friends draw 1:1 like the XML refs.
+LUA_DDS = re.compile(r'["\']([\w\-\. /\\]+?\.dds)["\']', re.I)
 reasons = collections.defaultdict(set)
 first_site = {}
 
@@ -45,23 +47,33 @@ for tree_name, (pristine, _rel) in sorted(STOCK_TREES.items()):
                 for element, s, e, _depth in iter_tags(text):
                     found = list(ATTR.finditer(text, s, e))
                     attrs = {m.group(1): m.group(2) for m in found}
-                    spaces = {a: classify(element, a, attrs) for a in attrs}
-                    if Space.TEXTURE not in spaces.values():
+                    # The font-icon atlas: <Atlas File=.../> carries the ref,
+                    # the sibling <Icon> elements carry the cell coordinates.
+                    if element == "Atlas" and "File" in attrs:
+                        note(attrs["File"], "font-icon-cell", site)
                         continue
+                    spaces = {a: classify(element, a, attrs) for a in attrs}
                     why = [a for a, sp in spaces.items() if sp is Space.TEXTURE]
-                    if element == "Icon":
+                    if element == "Icon" and why:
                         reason = "font-icon-cell"
-                    elif element in ("FlipAnim", "AIAnim"):
+                    elif element in ("FlipAnim", "AIAnim") and why:
                         reason = "flipbook-sheet"
                     elif any(a.endswith("TexStart") or a.startswith("Slice") for a in why):
                         reason = "9-slice"
-                    else:
+                    elif why:
                         reason = "atlas-subrect"
+                    else:
+                        # No texture-space coordinate, but the engine draws a
+                        # plain image 1:1 from the texture's top-left (it never
+                        # stretches to the control), so 1x art still breaks.
+                        reason = "drawn-1to1"
                     for key in TEXTURE_REFS:
                         if key in attrs:
                             note(attrs[key], reason, site)
             elif f.lower().endswith(".lua"):
                 text = open(path, encoding="utf-8", errors="replace").read()
+                for m in LUA_DDS.finditer(text):
+                    note(m.group(1), "drawn-1to1", site)
                 if "SetTextureOffsetVal" not in text and "SetTextureSizeVal" not in text:
                     continue
                 for ref in lua_textures.resolve(pristine, path, text):
@@ -145,12 +157,14 @@ for name in sorted(reasons):
 
 with open(OUT, "w", encoding="utf-8") as fh:
     fh.write("# UI textures requiring 2x conversion to match the vendored ui/ trees\n#\n")
-    fh.write("# A texture is listed when a texture-space coordinate reads it: an atlas\n")
-    fh.write("# sub-rect (TextureOffset/StateOffsetIncrement), a 9-slice rect, a flipbook\n")
-    fh.write("# stride, a font-icon cell, an IconTextureAtlases row, or a Lua\n")
-    fh.write("# SetTextureOffsetVal/SetTextureSizeVal call (control resolved to its XML\n")
-    fh.write("# element by ID). Both UI trees are swept, base and Expansion1. Textures\n")
-    fh.write("# merely stretched to fit a control are NOT listed - the engine scales those.\n#\n")
+    fh.write("# Every texture the UI trees reference is listed: the engine draws a plain\n")
+    fh.write("# image 1:1 from the texture's top-left and never stretches it to the\n")
+    fh.write("# control (verified in game - 1x art renders quarter-size in its corner),\n")
+    fh.write("# so 2x layout needs 2x art everywhere. The reason column records what\n")
+    fh.write("# reads the texture: a texture-space coordinate (atlas sub-rect, 9-slice\n")
+    fh.write("# rect, flipbook stride, font-icon cell, IconTextureAtlases row, Lua\n")
+    fh.write("# SetTextureOffsetVal/SetTextureSizeVal), or drawn-1to1 for a plain ref.\n")
+    fh.write("# Both UI trees are swept, base and Expansion1.\n#\n")
     fh.write("# input_file is the thing to upscale, relative to the extraction root, and\n")
     fh.write("# decoded is its MEASURED size. A .png input was a dictionary-coded pair\n")
     fh.write("# (<name>.dds blocks + <name>-index.dds); a .dds input is a plain texture.\n#\n")
@@ -184,8 +198,9 @@ with open(OUT, "w", encoding="utf-8") as fh:
     px = sum(r["pixels"] for r in rows)
     fh.write("#   %-20s %3d files  %6.1f Mpx  %7.1f MB RGBA@2x  %6.1f MB DXT5@2x\n"
              % ("TOTAL", len(rows), px / 1e6, px * 16 / 1e6, px * 4 / 1e6))
-    fh.write("#\n# The game is a 32-bit process (~3.5GB ceiling), so the atlases must come\n")
-    fh.write("# back block-compressed rather than raw RGBA.\n")
+    fh.write("#\n# The game is a 32-bit process (~3.5GB ceiling). The shipped packages are\n")
+    fh.write("# raw RGBA so far and the game holds; switch the atlases to DXT if memory\n")
+    fh.write("# becomes a problem.\n")
 
 print("entries: %d  (png inputs %d, dds inputs %d)"
       % (len(rows), sum(1 for r in rows if r["form"] == "png"),
