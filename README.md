@@ -19,7 +19,7 @@ traps here are non-obvious and cost real time to rediscover.
 
 ```
 civbe-uiscale/          the phase-1 tool (Python, 170 tests). See its README.
-ui_textures.txt         the phase-2 work list: 405 textures needing conversion.
+ui_textures.txt         the phase-2 work list: 474 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
   UITextures.fpk/                 1642 .dds  (base game UI)
   UITextures_converted/            595 .png  (decoded dictionary pairs)
@@ -281,31 +281,35 @@ a `.png` for a decoded dictionary pair, a `.dds` for a plain texture.
 `decoded` is measured, not inferred.
 
 A texture is listed exactly when a texture-space coordinate reads it: an atlas
-sub-rect, a 9-slice rect, a flipbook stride, a font-icon cell, or an
-`IconTextureAtlases` row. This is derived from the same `classify.py` the tool
-uses, so the list and `--texture-scale` cannot drift apart. Textures merely
-stretched to fit a control are deliberately absent — the engine scales those
-and they only get softer.
+sub-rect, a 9-slice rect, a flipbook stride, a font-icon cell, an
+`IconTextureAtlases` row, or a Lua `SetTextureOffsetVal`/`SetTextureSizeVal`
+call. Both UI trees are swept, base and Expansion1. The XML side derives from
+the same `classify.py` the tool uses; the Lua side resolves each call's
+control to its XML element by ID (same-name XML, then directory, then tree),
+which over-approximates on ID collisions — an extra stretched texture is
+harmless, a missed sampled one is not. Textures merely stretched to fit a
+control are deliberately absent — the engine scales those and they only get
+softer.
 
 Cost, measured:
 
 ```
 icon-atlas           160 files    73.0 Mpx   1168.3 MB RGBA@2x   292.1 MB DXT5@2x
-atlas-subrect         65 files     3.9 Mpx     62.0 MB RGBA@2x    15.5 MB DXT5@2x
-9-slice              184 files     2.2 Mpx     34.6 MB RGBA@2x     8.7 MB DXT5@2x
-lua-runtime-offset     8 files     0.5 Mpx      7.2 MB RGBA@2x     1.8 MB DXT5@2x
-flipbook-sheet         1 files     0.3 Mpx      4.2 MB RGBA@2x     1.0 MB DXT5@2x
-TOTAL                405 files    76.5 Mpx   1224.7 MB RGBA@2x   306.2 MB DXT5@2x
+atlas-subrect         73 files     4.0 Mpx     63.2 MB RGBA@2x    15.8 MB DXT5@2x
+lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2x
+9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
+flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
+TOTAL                474 files    77.9 Mpx   1246.8 MB RGBA@2x   311.7 MB DXT5@2x
 ```
 
-Only four source forms appear across the 405, and one carries almost all the
+Only four source forms appear across the 474, and one carries almost all the
 pixels:
 
 | source form | files | pixels |
 |-------------|-------|--------|
-| dictionary pair (dictionary is RGBA) | 194 | 72.06 Mpx |
-| plain `A8R8G8B8` (BGRA bytes) | 98 | 2.15 Mpx |
-| plain `A8B8G8R8` (RGBA bytes) | 86 | 2.05 Mpx |
+| dictionary pair (dictionary is RGBA) | 200 | 72.10 Mpx |
+| plain `A8R8G8B8` (BGRA bytes) | 123 | 2.86 Mpx |
+| plain `A8B8G8R8` (RGBA bytes) | 124 | 2.69 Mpx |
 | plain DXT4 | 22 | 0.26 Mpx |
 | plain DXT1 | 5 | 0.03 Mpx |
 
@@ -315,12 +319,12 @@ reserved-field junk does not: 26 of the 27 DXT entries are `forgeui_*` and 20
 of those carry it.
 
 The tiers split by form. `icon-atlas` is 144 of 160 dictionary pairs and holds
-94% of the pixels (72 of 76.5 Mpx) — that tier alone is the memory problem.
-`9-slice` is 184 small plain textures and holds every DXT entry. Mip chains
-follow the same split: all 194 pair sources are single-level, while 181 of the
-211 plain ones carry chains.
+93% of the pixels (72 of 77.9 Mpx) — that tier alone is the memory problem.
+`9-slice` is 225 files, all but one of them small plain textures, and holds
+every DXT entry. Mip chains follow the same split: all 200 pair sources are
+single-level, while 233 of the 274 plain ones carry chains.
 
-A trailing section lists 48 names referenced by shipped data but present in no
+A trailing section lists 51 names referenced by shipped data but present in no
 archive and not loose on disk — dead references (mostly unused `grid9*` style
 definitions and screens inherited from Civ5). They draw nothing at 1x either.
 Ignore them; there is nothing to convert.
@@ -345,11 +349,31 @@ Ignore them; there is nothing to convert.
 ### Constraint: `--texture-scale` is global
 
 The tool applies one texture scale to every texture-space coordinate. If only
-some art is rescaled, the rest samples wrong. So it is currently **all 405 or
-none** — the "convert the cheap 27 MB tier first" idea needs per-texture scale
+some art is rescaled, the rest samples wrong. So it is currently **all 474 or
+none** — the "convert the cheap tier first" idea needs per-texture scale
 support in `classify.py`/`xmlpatch.py`, which does not exist. Adding it means
 resolving each element's texture reference to a per-file factor; feasible, but
 it is new work, not a configuration change.
+
+### Lua sites `--texture-scale` cannot reach
+
+`luapatch.py` rewrites only all-literal `SetTextureOffsetVal` /
+`SetTextureSizeVal` calls. About 40 call sites across ~15 screens compute an
+argument instead — constants (`TEXTURE_OFFSET_CHECK_ON`, `CITIZEN_ICON_SIZE`,
+`ICON_RANK_HEIGHT`, `BANNER_IMAGE_HEIGHT`), expressions (`56*(i-1)`), table
+lookups (TechTree's `m_textureBgLeaf[...]`) — and a mixed call like
+`SetTextureOffsetVal(50, relationshipOffset)` is skipped whole, literal
+included. Each needs a per-file Lua patch before its texture goes 2x, or it
+samples the wrong cell.
+
+Separately, the tech-web layout is Lua-computed *screen* space: `GetTechXY` in
+`TechTree.lua` spreads nodes by `GridRadius * g_radiusScalar` (a local, 400)
+and hangs leaf techs at literal parent offsets. The sweep doubles the node
+controls but cannot see this arithmetic, so at `--scale 2` the nodes overlap.
+Doubling `g_radiusScalar` and the leaf/bounds literals is a TechTree-specific
+patch, needed regardless of texture scale. Mouse-wheel zoom on that screen is
+also broken at scale 2; the zoom code is not in the UI Lua/XML and the cause
+is unestablished.
 
 ---
 

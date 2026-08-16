@@ -121,6 +121,12 @@ animation back, like any other change.
 
 - Rescale the `.dds` art. Until that exists, run with the default
   `--texture-scale 1.0`.
+- Rewrite computed Lua calls. Only all-literal setter calls are patched, so a
+  texture offset built from a constant or expression
+  (`SetTextureOffsetVal(0, CITIZEN_ICON_SIZE)`) keeps its stock value — about
+  40 such sites exist; see *Lua sites `--texture-scale` cannot reach* in the
+  top-level README. The same blindness leaves the Lua-computed tech-web layout
+  at 1x spread, so TechTree nodes overlap at `--scale 2`.
 - Touch anything outside the UI trees, such as the `IconTextureAtlases` rows in
   `Assets/Gameplay/XML`.
 - Edit commented-out markup, or reformat files. Only the bytes inside a matched
@@ -129,10 +135,15 @@ animation back, like any other change.
 ## Known limitations at `--texture-scale 1.0`
 
 Atlas icons and 9-slice frame borders keep their authored pixel size, so icons
-read small next to scaled text and panel frames look thin. Both are correct
-rather than corrupt, and both resolve when the textures are rescaled and
-`--texture-scale` is raised to match. Panel background textures are stretched
-by the engine and will be correspondingly soft.
+read small next to scaled text and panel frames look thin, and icons drift out
+of their frozen frames because the layout offsets around them did double.
+Some state-strip buttons draw two states stacked (observed on the top-right
+Civilopedia/menu buttons): the drawn size doubled while the strip and its
+`StateOffsetIncrement` stayed 1x, so the sampled rect spans two bands. All of
+this is the two coordinate spaces disagreeing by 2x and resolves when the
+textures are rescaled and `--texture-scale` is raised to match. Panel
+background textures are stretched by the engine and will be correspondingly
+soft.
 
 If another tool has added files to a swept tree, the sweep reports them with
 the tree they are in: it never rewrites them, and a `LanguageSpecific`

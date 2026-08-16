@@ -3,14 +3,13 @@
 input file to feed the upscaler and its measured decoded size."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GAME, STOCK_UI, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
+from paths import GAME, STOCK_TREES, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
 import os, re, struct, sys, hashlib, collections
 
 sys.path.insert(0, TOOL)
 from civbe_uiscale.classify import Space, classify
-from civbe_uiscale.xmlpatch import _ATTR, _iter_tags
+from civbe_uiscale.xmlpatch import _ATTR, iter_tags
 
-PRISTINE = STOCK_UI
 ROOT = EXTRACTED
 OUT = TEXTURE_LIST
 DBS = ATLAS_DBS
@@ -36,35 +35,85 @@ def note(ref, reason, site=None):
             first_site[name] = site
 
 
-for dp, dn, fn in os.walk(PRISTINE):
-    for f in fn:
-        path = os.path.join(dp, f)
-        site = os.path.relpath(path, PRISTINE).replace("\\", "/")
-        if f.lower().endswith(".xml"):
-            text = open(path, encoding="utf-8", errors="replace").read()
-            for element, s, e in _iter_tags(text):
-                found = list(_ATTR.finditer(text, s, e))
-                attrs = {m.group(1): m.group(2) for m in found}
-                spaces = {a: classify(element, a, attrs) for a in attrs}
-                if Space.TEXTURE not in spaces.values():
-                    continue
-                why = [a for a, sp in spaces.items() if sp is Space.TEXTURE]
-                if element == "Icon":
-                    reason = "font-icon-cell"
-                elif element in ("FlipAnim", "AIAnim"):
-                    reason = "flipbook-sheet"
-                elif any(a.endswith("TexStart") or a.startswith("Slice") for a in why):
-                    reason = "9-slice"
-                else:
-                    reason = "atlas-subrect"
+# Controls whose texture offset or size is set from Lua carry no atlas marker
+# in the XML, so the classifier alone misses their textures. Resolve each
+# `control:SetTextureOffsetVal/SetTextureSizeVal` call to the control's XML
+# element by ID -- the screen's same-name XML first, then its directory, then
+# the whole tree (instanced controls can be defined in Styles.xml). ID
+# collisions over-approximate; a stretched texture upscaled by mistake is
+# harmless, a sampled texture missed is not.
+_LUA_CALL = re.compile(r'([A-Za-z_][\w\.\[\]"]*?)\s*:\s*SetTexture(?:Offset|Size)Val\s*\(')
+
+
+def _tree_xmls(root, cache={}):
+    if root not in cache:
+        cache[root] = [os.path.join(dp, x)
+                       for dp, dn, fn in os.walk(root)
+                       for x in fn if x.lower().endswith(".xml")]
+    return cache[root]
+
+
+def _id_textures(xml_path, cache={}):
+    """ID -> set of texture names, for every element carrying a Texture ref."""
+    if xml_path not in cache:
+        table = collections.defaultdict(set)
+        text = open(xml_path, encoding="utf-8", errors="replace").read()
+        for element, s, e, _depth in iter_tags(text):
+            attrs = {m.group(1): m.group(2) for m in _ATTR.finditer(text, s, e)}
+            cid = attrs.get("ID")
+            if cid:
                 for key in TEXTURE_REFS:
                     if key in attrs:
-                        note(attrs[key], reason, site)
-        elif f.lower().endswith(".lua"):
-            text = open(path, encoding="utf-8", errors="replace").read()
-            if "SetTextureOffsetVal" in text:
+                        table[cid].add(attrs[key])
+        cache[xml_path] = table
+    return cache[xml_path]
+
+
+for tree_name, (pristine, _rel) in sorted(STOCK_TREES.items()):
+    for dp, dn, fn in os.walk(pristine):
+        for f in fn:
+            path = os.path.join(dp, f)
+            site = tree_name + ":" + os.path.relpath(path, pristine).replace("\\", "/")
+            if f.lower().endswith(".xml"):
+                text = open(path, encoding="utf-8", errors="replace").read()
+                for element, s, e, _depth in iter_tags(text):
+                    found = list(_ATTR.finditer(text, s, e))
+                    attrs = {m.group(1): m.group(2) for m in found}
+                    spaces = {a: classify(element, a, attrs) for a in attrs}
+                    if Space.TEXTURE not in spaces.values():
+                        continue
+                    why = [a for a, sp in spaces.items() if sp is Space.TEXTURE]
+                    if element == "Icon":
+                        reason = "font-icon-cell"
+                    elif element in ("FlipAnim", "AIAnim"):
+                        reason = "flipbook-sheet"
+                    elif any(a.endswith("TexStart") or a.startswith("Slice") for a in why):
+                        reason = "9-slice"
+                    else:
+                        reason = "atlas-subrect"
+                    for key in TEXTURE_REFS:
+                        if key in attrs:
+                            note(attrs[key], reason, site)
+            elif f.lower().endswith(".lua"):
+                text = open(path, encoding="utf-8", errors="replace").read()
+                if "SetTextureOffsetVal" not in text and "SetTextureSizeVal" not in text:
+                    continue
                 for m in re.finditer(r'SetTexture\(\s*"([^"]+)"\s*\)', text):
                     note(m.group(1), "lua-runtime-offset", site)
+                base_xml = os.path.join(dp, f[:-4] + ".xml")
+                fallback = [os.path.join(dp, x) for x in sorted(os.listdir(dp))
+                            if x.lower().endswith(".xml")]
+                for m in _LUA_CALL.finditer(text):
+                    cid = re.split(r"[.\[]", m.group(1))[-1].strip('"]')
+                    hits = _id_textures(base_xml).get(cid, set()) if os.path.exists(base_xml) else set()
+                    if not hits:
+                        for xp in fallback:
+                            hits |= _id_textures(xp).get(cid, set())
+                    if not hits:
+                        for xp in _tree_xmls(pristine):
+                            hits |= _id_textures(xp).get(cid, set())
+                    for ref in hits:
+                        note(ref, "lua-runtime-offset", site)
 
 ROW = re.compile(r"<Row>(.*?)</Row>", re.S)
 FIELD = re.compile(r"<(Filename)>(.*?)</\1>", re.S)
@@ -146,8 +195,10 @@ with open(OUT, "w", encoding="utf-8") as fh:
     fh.write("# UI textures requiring 2x conversion for civbe-uiscale --texture-scale 2\n#\n")
     fh.write("# A texture is listed when a texture-space coordinate reads it: an atlas\n")
     fh.write("# sub-rect (TextureOffset/StateOffsetIncrement), a 9-slice rect, a flipbook\n")
-    fh.write("# stride, a font-icon cell, or an IconTextureAtlases row. Textures merely\n")
-    fh.write("# stretched to fit a control are NOT listed - the engine scales those.\n#\n")
+    fh.write("# stride, a font-icon cell, an IconTextureAtlases row, or a Lua\n")
+    fh.write("# SetTextureOffsetVal/SetTextureSizeVal call (control resolved to its XML\n")
+    fh.write("# element by ID). Both UI trees are swept, base and Expansion1. Textures\n")
+    fh.write("# merely stretched to fit a control are NOT listed - the engine scales those.\n#\n")
     fh.write("# input_file is the thing to upscale, relative to the extraction root, and\n")
     fh.write("# decoded is its MEASURED size. A .png input was a dictionary-coded pair\n")
     fh.write("# (<name>.dds blocks + <name>-index.dds); a .dds input is a plain texture.\n#\n")
@@ -160,7 +211,7 @@ with open(OUT, "w", encoding="utf-8") as fh:
 
     if missing:
         fh.write("\n\n# Referenced by shipped data but absent from the whole install (%d):\n" % len(missing))
-        fh.write("# in none of the 49 .fpk archives and not loose on disk. There is nothing\n")
+        fh.write("# in none of the install's .fpk archives and not loose on disk. There is nothing\n")
         fh.write("# to convert - these draw no art at 1x either. Mostly style definitions no\n")
         fh.write("# control uses, and screens inherited from Civ5, plus atlas rows for size\n")
         fh.write("# variants that were cut.\n#\n")

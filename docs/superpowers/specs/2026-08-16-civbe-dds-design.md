@@ -10,13 +10,13 @@ list.
 
 ## Why
 
-Phase 2 rescales 405 UI textures. Their source forms:
+Phase 2 rescales 474 UI textures. Their source forms:
 
 | source form | files | pixels |
 |-------------|-------|--------|
-| dictionary pair (dictionary is RGBA) | 194 | 72.06 Mpx |
-| plain `A8R8G8B8` (BGRA bytes) | 98 | 2.15 Mpx |
-| plain `A8B8G8R8` (RGBA bytes) | 86 | 2.05 Mpx |
+| dictionary pair (dictionary is RGBA) | 200 | 72.10 Mpx |
+| plain `A8R8G8B8` (BGRA bytes) | 123 | 2.86 Mpx |
+| plain `A8B8G8R8` (RGBA bytes) | 124 | 2.69 Mpx |
 | plain DXT4 | 22 | 0.26 Mpx |
 | plain DXT1 | 5 | 0.03 Mpx |
 
