@@ -3,7 +3,9 @@
 FTXT fields are best-effort (see the design spec's *Encoding* section) and
 deliberately not pinned here.
 """
-from civbe_dds.encode import write
+import pytest
+
+from civbe_dds.encode import MismatchedPixelDataError, write
 from civbe_dds.header import HEADER_LEN, header, pixel_format
 
 
@@ -46,6 +48,26 @@ class TestGroupFallback:
         p = tmp_path / "out.dds"
         write(str(p), _image(group=""))
         assert header(str(p)).group == "Interface"
+
+
+class TestMismatchedPixelData:
+    """write() must reject an Image whose rgba doesn't match width * height *
+    4, rather than writing a file whose declared dimensions lie about its
+    pixel data."""
+
+    def test_short_rgba_raises(self, tmp_path):
+        p = tmp_path / "out.dds"
+        img = _image(width=4, height=4, rgba=bytes(4))   # 4 of 64 bytes needed
+        with pytest.raises(MismatchedPixelDataError):
+            write(str(p), img)
+        assert not p.exists()
+
+    def test_long_rgba_raises(self, tmp_path):
+        p = tmp_path / "out.dds"
+        img = _image(width=2, height=2, rgba=bytes(64))   # 64 of 16 bytes needed
+        with pytest.raises(MismatchedPixelDataError):
+            write(str(p), img)
+        assert not p.exists()
 
 
 class TestPixelBytes:

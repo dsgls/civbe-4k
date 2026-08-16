@@ -21,6 +21,20 @@ class UnsupportedFormatError(ValueError):
     """A recognised but unhandled pixel format, e.g. the .fic fourCC."""
 
 
+class TruncatedFileError(ValueError):
+    """The file has fewer bytes than its declared level-0 pixel data needs."""
+
+
+def _require(data, nbytes, path):
+    """Raise TruncatedFileError, named and precise, instead of letting a
+    short read surface later as a bare IndexError or struct.error -- or, for
+    the 32-bit path, as a silently short Image."""
+    if len(data) < nbytes:
+        raise TruncatedFileError(
+            "%s: shorter than its level-0 data (%d bytes present, %d needed)"
+            % (path, len(data), nbytes))
+
+
 def read(path):
     """Decode any supported .dds to an Image holding its level-0 pixels.
 
@@ -64,9 +78,11 @@ def _read_32bit(path, hdr):
     neither shipped order; that propagates out of `read` unchanged.
     """
     order = channel_order(hdr)
+    nbytes = hdr.width * hdr.height * 4
     with open(path, "rb") as fh:
         fh.seek(HEADER_LEN)
-        data = fh.read(hdr.width * hdr.height * 4)
+        data = fh.read(nbytes)
+    _require(data, nbytes, path)
     if order == (0, 1, 2, 3):
         rgba = data
     else:
@@ -88,9 +104,11 @@ def _read_luminance(path, hdr):
         raise UnsupportedFormatError(
             "unsupported luminance depth %d: %s" % (hdr.bits, path))
     n = hdr.width * hdr.height
+    nbytes = n * (hdr.bits // 8)
     with open(path, "rb") as fh:
         fh.seek(HEADER_LEN)
-        data = fh.read(n * (hdr.bits // 8))
+        data = fh.read(nbytes)
+    _require(data, nbytes, path)
     grey = data if hdr.bits == 8 else data[1::2]
     out = bytearray(n * 4)
     for i in range(n):
@@ -111,5 +129,6 @@ def _read_dxt(path, hdr):
     with open(path, "rb") as fh:
         fh.seek(HEADER_LEN)
         data = fh.read(nbytes)
+    _require(data, nbytes, path)
     rgba = dxt.decode(hdr.fourcc, data, hdr.width, hdr.height)
     return Image(width=hdr.width, height=hdr.height, rgba=rgba, group=hdr.group)

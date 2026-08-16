@@ -3,7 +3,7 @@ import struct
 
 import pytest
 
-from civbe_dds.decode import UnsupportedFormatError, read
+from civbe_dds.decode import TruncatedFileError, UnsupportedFormatError, read
 from civbe_dds.dxt import BLOCK_BYTES
 from civbe_dds.encode import write
 from civbe_dds.header import (
@@ -178,6 +178,33 @@ class TestUnsupportedFormats:
         p.write_bytes(b"not a dds" + b"\0" * 128)
         with pytest.raises(ValueError):
             read(str(p))
+
+
+class TestTruncatedInput:
+    """A file shorter than its declared level-0 data raises a named error on
+    every dispatch path, instead of a silently-short Image (32-bit), a bare
+    IndexError (luminance), or a bare struct.error (DXT)."""
+
+    def test_32bit_truncated_raises_named_error_not_silent(self, tmp_path):
+        raw = _raw_header(2, 2, pfflags=DDPF_RGB | DDPF_ALPHAPIXELS,
+                           bits=32, rmask=0xff) + bytes(4)   # 4 of 16 bytes needed
+        p = _write_dds(tmp_path, "t", raw)
+        with pytest.raises(TruncatedFileError):
+            read(p)
+
+    def test_luminance_truncated_raises_named_error_not_indexerror(self, tmp_path):
+        raw = _raw_header(4, 1, pfflags=DDPF_LUMINANCE, bits=8, rmask=0xff) \
+            + bytes(2)   # 2 of 4 bytes needed
+        p = _write_dds(tmp_path, "t", raw)
+        with pytest.raises(TruncatedFileError):
+            read(p)
+
+    def test_dxt_truncated_raises_named_error_not_struct_error(self, tmp_path):
+        raw = _raw_header(4, 4, pfflags=DDPF_FOURCC, fourcc=b"DXT1") \
+            + bytes(4)   # 4 of 8 bytes needed for one block
+        p = _write_dds(tmp_path, "t", raw)
+        with pytest.raises(TruncatedFileError):
+            read(p)
 
 
 class TestCubemap:

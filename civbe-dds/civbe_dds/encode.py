@@ -7,12 +7,21 @@ so pixel data is written verbatim with no channel reordering.
 from .header import build_header
 
 
+class MismatchedPixelDataError(ValueError):
+    """image.rgba is not exactly width * height * 4 bytes."""
+
+
 def write(path, image, group=None):
     """Write `image` to `path` as a plain, single-level A8B8G8R8 DDS.
 
     `group` falls back to `image.group`, then to "Interface"
     (`build_header`'s default).
     """
+    expected = image.width * image.height * 4
+    if len(image.rgba) != expected:
+        raise MismatchedPixelDataError(
+            "%s: rgba is %d bytes, expected %d for %dx%d"
+            % (path, len(image.rgba), expected, image.width, image.height))
     hdr = build_header(image.width, image.height, group=group or image.group)
     with open(path, "wb") as fh:
         fh.write(hdr)
