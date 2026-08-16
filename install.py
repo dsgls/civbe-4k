@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env nix-shell
+#! nix-shell -i python3 -p python3
 """Install the vendored ui/ trees into the game install.
 
 The repo standardizes on LF; the stock files are CRLF. Whether the engine
