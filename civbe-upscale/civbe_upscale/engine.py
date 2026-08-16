@@ -130,22 +130,45 @@ def run_padded(
     scale: int,
     *,
     tile: int | None = None,
+    out_scale: int | None = None,
+    resample: int = Image.LANCZOS,
 ) -> np.ndarray:
-    """Pad, run at ``scale``, crop the scaled original rect back out."""
+    """Pad, run at ``scale``, normalize to ``out_scale``, crop the original rect.
+
+    ``out_scale`` defaults to ``scale`` (no normalization). The normalization
+    happens on the still-padded plane, before the crop: downscaling a plane that
+    has already been cropped resamples its outermost pixels against Pillow's
+    clamped edge instead of against the replicate padding, putting a subtly
+    wrong border row on every output — exactly what the padding exists to
+    prevent, and it lands on the 9-slice border art that reads it.
+    """
     _check_plane(arr)
     h, w = arr.shape[:2]
     padded, pad_x, pad_y = pad_replicate(arr)
+    ph, pw = padded.shape[:2]
     if tile is None:
         result = run(padded)
     else:
         result = tiled_run(run, padded, scale, tile)
-    expected = (padded.shape[0] * scale, padded.shape[1] * scale)
+    expected = (ph * scale, pw * scale)
     if result.shape[:2] != expected:
         raise RuntimeError(
             f"upscaler returned {result.shape[:2]}, expected {expected} at {scale}x"
         )
-    x0, y0 = pad_x * scale, pad_y * scale
-    return result[y0 : y0 + h * scale, x0 : x0 + w * scale]
+    result = np.clip(result, 0.0, 1.0)
+
+    if out_scale is None:
+        out_scale = scale
+    if out_scale != scale:
+        result = resize_planes(result, (pw * out_scale, ph * out_scale), resample)
+
+    x0, y0 = pad_x * out_scale, pad_y * out_scale
+    # Copy rather than return the view: a view would keep the whole padded
+    # buffer alive behind a much smaller result, and an atlas plane's padded
+    # buffer runs to hundreds of MB.
+    return np.ascontiguousarray(
+        result[y0 : y0 + h * out_scale, x0 : x0 + w * out_scale]
+    )
 
 
 # --------------------------------------------------------------------------
@@ -274,10 +297,15 @@ class SpandrelModel:
 # --------------------------------------------------------------------------
 
 
-def _run_with_oom_fallback(model: SpandrelModel, arr: np.ndarray, scale: int) -> np.ndarray:
+def _run_with_oom_fallback(
+    model: SpandrelModel,
+    arr: np.ndarray,
+    scale: int,
+    resample: int,
+) -> np.ndarray:
     """Whole-image inference, falling back to halving tiles on CUDA OOM."""
     try:
-        return run_padded(model, arr, scale)
+        return run_padded(model, arr, scale, out_scale=2, resample=resample)
     except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
         if not (model.device.type == "cuda" and model.is_oom(exc)):
             raise
@@ -287,7 +315,9 @@ def _run_with_oom_fallback(model: SpandrelModel, arr: np.ndarray, scale: int) ->
     while tile > 2 * TILE_OVERLAP:
         log.warning("CUDA OOM on whole-image inference, retrying with %d px tiles", tile)
         try:
-            return run_padded(model, arr, scale, tile=tile)
+            return run_padded(
+                model, arr, scale, tile=tile, out_scale=2, resample=resample
+            )
         except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
             if not model.is_oom(exc):
                 raise
@@ -316,16 +346,9 @@ def build_upscaler(
     resample = Image.BOX if alpha_plane else Image.LANCZOS
 
     def upscale(arr: np.ndarray) -> np.ndarray:
-        _check_plane(arr)
-        h, w = arr.shape[:2]
         if isinstance(run, SpandrelModel):
-            out = _run_with_oom_fallback(run, arr, scale)
-        else:
-            out = run_padded(run, arr, scale)
-        out = np.clip(out, 0.0, 1.0)
-        if scale != 2:
-            out = resize_planes(out, (w * 2, h * 2), resample)
-        return out
+            return _run_with_oom_fallback(run, arr, scale, resample)
+        return run_padded(run, arr, scale, out_scale=2, resample=resample)
 
     return upscale
 
