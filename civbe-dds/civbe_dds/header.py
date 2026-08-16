@@ -92,6 +92,7 @@ def build_header(width, height, group=None):
     struct.pack_into("<I", d, 4, 124)                      # dwSize
     struct.pack_into("<I", d, 8, _HEADER_FLAGS)             # dwFlags
     struct.pack_into("<II", d, 12, height, width)
+    struct.pack_into("<I", d, 24, 1)                        # dwDepth
     struct.pack_into("<I", d, 28, 1)                        # dwMipMapCount
     d[32:36] = _FTXT_MAGIC
     d[36:76] = group.encode("latin1")[:_USAGE_NAME_LEN].ljust(_USAGE_NAME_LEN, b"\0")
