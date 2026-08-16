@@ -146,6 +146,27 @@ SITES = {
            "g_textureTearLeafAvailable\t\t= { u=160 * {s},\tv=70 * {s} };"),
         _t("local AFFINITY_RING_SIZE\t:number\t\t\t\t= 46;",
            "local AFFINITY_RING_SIZE\t:number\t\t\t\t= 46 * {s};"),
+        # The web layout is screen-space arithmetic the XML sweep cannot see:
+        # node positions come from GridRadius * g_radiusScalar and leaf techs
+        # hang at literal parent offsets, so at scale 2 the doubled node art
+        # overlaps unless the spread doubles too.
+        _u("local g_radiusScalar\t\t:number = 400;",
+           "local g_radiusScalar\t\t:number = 400 * {s};"),
+        _u("return parentx + 38, parenty + (36 + (i*69));",
+           "return parentx + (38 * {s}), parenty + ((36 + (i*69)) * {s});"),
+        _u("local TECH_NODE_WIDTH = 250;",
+           "local TECH_NODE_WIDTH = 250 * {s};"),
+        _u("local MAX_BOUNDS\t= 1900;", "local MAX_BOUNDS\t= 1900 * {s};"),
+        _u("for distance=100,MAX_BOUNDS,370 do",
+           "for distance=100 * {s},MAX_BOUNDS,370 * {s} do"),
+        _u("accoutrementx \t= x - 34;", "accoutrementx \t= x - 34 * {s};"),
+        _u("accoutrementy \t= y - 30;", "accoutrementy \t= y - 30 * {s};"),
+        _u("accoutrementx \t= x - 46;", "accoutrementx \t= x - 46 * {s};"),
+        _u("accoutrementy \t= y - 36;", "accoutrementy \t= y - 36 * {s};"),
+        _u("meterx \t\t\t= width + thisTechButton.bg:GetSizeX() - 11;",
+           "meterx \t\t\t= width + thisTechButton.bg:GetSizeX() - 11 * {s};"),
+        _u("meterx \t\t\t= width + thisTechButton.bg:GetSizeX() - 10;",
+           "meterx \t\t\t= width + thisTechButton.bg:GetSizeX() - 10 * {s};"),
     ),
 
     # g_curIconSize.mainSize.x doubles as the IconTextureAtlases key in

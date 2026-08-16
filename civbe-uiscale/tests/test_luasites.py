@@ -51,6 +51,28 @@ class TestMechanism:
         assert out == "local OFF = 64 * 1.5;\n"
 
 
+class TestTechTreeLayout:
+    """The tech-web spread is Lua arithmetic, invisible to the XML sweep, and
+    follows the UI scale rather than the texture scale."""
+
+    REL = "InGame/TechTree/TechTree.lua"
+
+    def test_radius_scalar_follows_ui_scale(self):
+        src = "local g_radiusScalar\t\t:number = 400;\t\t-- comment\n"
+        out, _ = patch_sites(self.REL, src, 2.0, 1.0)
+        assert "= 400 * 2;" in out
+
+    def test_radius_scalar_ignores_texture_scale(self):
+        src = "local g_radiusScalar\t\t:number = 400;\t\t-- comment\n"
+        out, _ = patch_sites(self.REL, src, 1.0, 2.0)
+        assert "= 400;" in out
+
+    def test_leaf_offsets_follow_ui_scale(self):
+        src = "\t\t\t\t\treturn parentx + 38, parenty + (36 + (i*69));\n"
+        out, _ = patch_sites(self.REL, src, 2.0, 1.0)
+        assert "38 * 2" in out and "(36 + (i*69)) * 2" in out
+
+
 class TestShippedTable:
     def test_every_rule_changes_its_text(self):
         for rules in SITES.values():
