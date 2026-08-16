@@ -158,7 +158,7 @@ as a grid of references:
   number, not a brightness.
 - decoded image = `index_dims x N`
 
-`analysis/dds.py` implements this; the whole of it is:
+`civbe-dds/civbe_dds/pair.py` implements this; the whole of it is:
 
 ```
 N     = int(tag[2:])            # "BC004" -> 4
@@ -170,7 +170,7 @@ for each index texel (bx, by):
 
 Every output pixel is a verbatim copy, so decoding is lossless — and encoding
 is equally mechanical, which matters for question 2 below. Confirmed by
-`analysis/verify_pair_decode.py`: all 724 pairs decode **byte-identical** to
+`analysis/verify_decode.py`: all 724 pairs decode **byte-identical** to
 the converted PNGs.
 
 At N=1 a tile is one pixel, the dictionary is a colour table and the index is a
@@ -388,7 +388,7 @@ Each of these is cheap to test and expensive to get wrong.
    clause.
 2. ~~Will a plain DDS override replace a dictionary+index pair?~~ **Answered:
    yes.** A plain single-file override displaced a packed pair, so phase 2
-   emits plain DDS and needs no pair encoder. `analysis/dds.py` still decodes
+   emits plain DDS and needs no pair encoder. `civbe-dds` still decodes
    every pair byte-exactly, which is what phase 2 *reads*; the encoder half is
    simply not needed. (`seededstartcargoselectback` remains the reminder that
    the pair format can inflate art that does not dedupe — an argument against
@@ -436,16 +436,16 @@ cd analysis
 python3 verify_conversion_inputs.py    # every listed input exists, dims match
 python3 build_texture_list.py          # regenerate ui_textures.txt
 python3 derive_block_sizes.py          # block size of every dictionary pair
-python3 verify_pair_decode.py          # decode all 724 pairs, diff against the PNGs
-python3 verify_pair_decode.py 256x256frame         # decode one, write a PNG beside it
+python3 verify_decode.py               # decode all 724 pairs, diff against the PNGs;
+                                        # round-trip every plain texture through civbe_dds
+python3 verify_decode.py 256x256frame  # decode one, write a PNG beside it
 python3 verify_ui_sweep.py <patched install> 2     # acceptance check, every tree
 python3 verify_ui_sweep.py --tree base <install> 2 # one tree only
 ```
 
-`analysis/dds.py` backs `verify_pair_decode.py` and is the piece phase 2 needs:
-DDS header parsing (including the `FTXT` fields), pixel-format naming, pair
-decoding, and enough PNG to read the converted art and write new art. Stdlib
-only.
+`civbe-dds` backs `verify_decode.py` and is the piece phase 2 needs: DDS
+header parsing (including the `FTXT` fields), pixel-format naming, every
+codec the packs contain, and PNG read/write. See `civbe-dds/README.md`.
 
 `analysis/paths.py` holds every location; edit `GAME` if the install moves.
 
