@@ -64,15 +64,18 @@ commit) and certified attribute-by-attribute against an independent oracle:
 else byte-identical. **From here on, `ui/` is edited directly** — the vendor
 commit gives every change full diff context.
 
-Install: copy the two trees over the install (they only replace `.xml`/`.lua`;
-everything else in the install is untouched), plus the 2x textures when they
-exist:
+Install with `install.py` (plus the 2x textures when they exist). It copies
+the two trees over the install — only `.xml`/`.lua` are replaced, nothing is
+deleted — and converts the repo's LF files to CRLF on the way, matching stock;
+whether the engine tolerates LF everywhere is unproven, and `--keep-lf`
+installs the bytes as-is for A/B-testing exactly that:
 
 ```bash
-cp -r ui/assets "<install>"/
+python3 install.py                  # default path from analysis/paths.py
+python3 install.py "<game dir>"
+python3 install.py --keep-lf
 ```
 
-Files are LF; if the engine turns out to require CRLF, convert during install.
 Restore: copy the same paths from `reference/` (or delete the loose files and
 verify integrity through Steam).
 
@@ -401,8 +404,8 @@ from constants or expressions, and the tech-web layout is Lua arithmetic
 2x in `ui/`; when editing near a texture offset in the Lua, keep them
 consistent — the wrong cell is drawn silently, not flagged.
 
-Mouse-wheel zoom on the tech web is broken at 2x; the zoom code is not in the
-UI Lua/XML and the cause is unestablished. This is the one known open UI bug.
+At 2x the tech web no longer fits on one screen, so it pans where the stock
+layout sat still — expected, not a regression.
 
 ---
 
@@ -442,7 +445,7 @@ Each of these is cheap to test and expensive to get wrong.
 
 ```bash
 # install the patched UI (requires the 2x textures; see The vendored UI trees)
-cp -r ui/assets "<install>"/
+python3 install.py
 
 # civbe-dds: decode/encode UI textures for the upscale pipeline. See its README.
 cd civbe-dds
