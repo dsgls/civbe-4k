@@ -266,10 +266,16 @@ format the packs contain, encodes plain RGBA DDS, and has its CLI, README and
 round-trip their level-0 image byte-identically** through `.dds` → RGBA `.png` →
 `.dds`, and all 11 `.fic` stubs raise the named error. DXT output was
 cross-checked against an independent decoder — every difference is exactly +1,
-on interpolated colour texels only, none on endpoints and none on alpha. DXT2
-and DXT4 (249 files) have no independent reference, because Pillow refuses both
-fourCCs; their evidence is the round-trip and the README's premultiplication
-argument.
+on interpolated colour texels only, none on endpoints and none on alpha.
+
+That cross-check reaches DXT2 and DXT4 too, even though Pillow refuses both
+fourCCs: relabel the tag to DXT3 or DXT5 in a copy and Pillow reads the same
+bytes, which is precisely the equivalence this decoder asserts. Over all 249
+non-cubemap DXT2 and DXT4 textures the **maximum alpha difference is 0** and the
+maximum colour difference is 1. Alpha is the channel the two contested decisions
+govern — not dividing out the premultiplied-alpha fourCCs, and the DXT5
+six-value table — so exact agreement there is the strongest evidence available
+short of the game itself.
 
 `analysis/dds.py` is deleted; `analysis/verify_decode.py` (renamed from
 `verify_pair_decode.py`) is its only former consumer, and now imports
