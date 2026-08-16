@@ -177,13 +177,30 @@ already are and what the verified loose override was:
   the game draws them, so a plain conforming DDS is sufficient and no test
   pins these fields.
 
-The rest of the header is an ordinary conforming DDS: `dwFlags` = caps | height
-| width | pitch | pixelformat | mipmapcount (`0x2100F`), `dwPitchOrLinearSize` =
-width x 4, `dwMipMapCount` 1, `dwCaps` = `DDSCAPS_TEXTURE` (`0x1000`). Every
-one of these has stock precedent. Set `DDSD_MIPMAPCOUNT` because
-`dwMipMapCount` is written; stock files that carry a count always set the flag.
-Compare against a stock plain texture while implementing and adopt its values
-where they differ, but do not build machinery around matching it.
+The rest of the header copies what Firaxis' own exporter emits for exactly this
+kind of file — a single-level plain `A8B8G8R8` UI texture:
+
+| field | value | |
+|---|---|---|
+| `dwFlags` | `0x21007` | caps \| height \| width \| pixelformat \| mipmapcount |
+| `dwPitchOrLinearSize` | `0` | not `width * 4`; `DDSD_PITCH` is **not** set |
+| `dwMipMapCount` | `1` | |
+| `dwCaps` | `0x401008` | `TEXTURE \| COMPLEX \| MIPMAP` |
+
+All 756 stock single-level non-cubemap `A8B8G8R8` textures carry that exact
+combination — every dictionary the engine loads is one of them. Nothing else
+appears; the split is 756 to 0.
+
+Two of these look wrong and are not. `dwCaps` announces `COMPLEX | MIPMAP` on a
+one-level texture, and `DDSD_PITCH` is omitted even though the DDS
+documentation asks for it on uncompressed data. A conformance-minded reading
+would set `DDSD_PITCH` with `pitch = width * 4` and reduce `dwCaps` to
+`DDSCAPS_TEXTURE`; a handful of stock files do exactly that, so the engine
+loads both. Match the 756 anyway. The goal is a file the engine treats like its
+own art, and there is no prize for being better-formed than the textures it
+ships.
+
+No test pins these values — they are a compatibility choice, not a contract.
 
 ## CLI
 
