@@ -95,6 +95,61 @@ class TestPalette:
             read_png(str(p))
 
 
+class TestFilterTypes:
+    """PNG filter types 1-4 (Sub, Up, Average, Paeth). `_build_png` above only
+    ever emits filter 0, same as `write_png` -- these fixtures are forward-
+    filtered here instead, with a predictor implementation independent of
+    `png._unfilter`, so a bug in one isn't masked by reuse of the other."""
+
+    @staticmethod
+    def _forward_filter(kind, rows, nch):
+        prev = bytearray(len(rows[0]))
+        filtered = []
+        for row in rows:
+            raw = bytearray(row)
+            filt = bytearray(len(raw))
+            for x in range(len(raw)):
+                left = raw[x - nch] if x >= nch else 0
+                up = prev[x]
+                upleft = prev[x - nch] if x >= nch else 0
+                if kind == 1:
+                    pred = left
+                elif kind == 2:
+                    pred = up
+                elif kind == 3:
+                    pred = (left + up) // 2
+                else:
+                    p = left + up - upleft
+                    pa, pb, pc = abs(p - left), abs(p - up), abs(p - upleft)
+                    pred = left if (pa <= pb and pa <= pc) else (up if pb <= pc else upleft)
+                filt[x] = (raw[x] - pred) & 0xFF
+            filtered.append(bytes(filt))
+            prev = raw
+        return filtered
+
+    def _build_filtered_png(self, width, height, colour, nch, rows, kind):
+        scanlines = b"".join(bytes([kind]) + r
+                              for r in self._forward_filter(kind, rows, nch))
+        chunks = [_chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, colour, 0, 0, 0)),
+                  _chunk(b"IDAT", zlib.compress(scanlines, 6)),
+                  _chunk(b"IEND", b"")]
+        return PNG_MAGIC + b"".join(chunks)
+
+    @pytest.mark.parametrize("kind", [1, 2, 3, 4])
+    def test_filter_recovers_original_pixels(self, tmp_path, kind):
+        # 2x2 RGBA (colour type 6, nch=4): two rows and two pixels per row
+        # exercises left, up, and upleft predictor terms all at once, with
+        # every byte distinct so a wrong predictor lands on a wrong byte at
+        # a specific offset rather than coincidentally the right one.
+        w, h = 2, 2
+        rgba = bytes(range(4 * w * h))
+        rows = [rgba[0:w * 4], rgba[w * 4:2 * w * 4]]
+        p = tmp_path / "t.png"
+        p.write_bytes(self._build_filtered_png(w, h, 6, 4, rows, kind))
+        img = read_png(str(p))
+        assert img.rgba == rgba
+
+
 class TestRejectedSurface:
     def test_16bit_depth_raises_and_says_to_resave_as_8bit(self, tmp_path):
         p = tmp_path / "t.png"
