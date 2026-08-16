@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+    <Box			Style="BGBlock_ClearTopBar" />
+	
+    <Grid			ID="Grid"				Anchor="C,C" Offset="0,0"		Size="430,210"								Style="Grid9DetailFive140"  >
+        <Image		ID="BottomImage"		Anchor="C,B" Offset="0,0"		Size="512,128"				Texture="Assets/UI/Art/Controls/bottomframe.dds" />
+		
+        <Label		ID="DescriptionLabel"	Anchor="C,T" Offset="0,30"		WrapWidth="370" LeadingOffset="3"			Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="Pushing ahead to make this new world work." />      
+        <GridButton ID="CloseButton"		Anchor="C,B" Offset="0,20"		Size="200,36"	String="TXT_KEY_OK_BUTTON"	Style="BaseButton" AnchorSide="I,I" />
+    </Grid>
+</Context>

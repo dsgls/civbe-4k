@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal" >
+
+  <!--=======================================================================================================================-->
+  <!--   Finished Researching a Tech...Popup  -->
+  <!--=======================================================================================================================-->
+
+  <Box Style="BGBlock" ID="BGBlock" />
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+
+    <Grid Size="600, 530"	Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1" ID="OuterGrid" >
+      <Label Style="MenuTitleCaption" 	Offset="0,17" Anchor="C,U" String="{TXT_KEY_TECH_AWARD_TITLE:upper}" ID="TitleLabel" />
+
+      <!-- Image -->
+      <Image ID="Banner" Size="585,125" Anchor="C,T" Offset="0,48" Texture="Popup_Image_TechComplete.dds"/>
+
+      <!--=======================================================================================================================-->
+      <!-- Quote, Label, opened with the Tech -->
+      <Stack ID="ContentStack" Anchor="C,T" Offset="0,190"   Size="0,0" StackGrowth="Bottom" Padding="0" >
+        <Label Anchor="C,C"  Offset="0,0" Style="GrayGlow22" String="Technology Name" ID="TechName"/>
+        <Box Anchor="C,C"  Offset="0,0"   Size="500,18" Color="White.0" />
+        <Image Anchor="C,C" Offset="0,0"  Color="255,255,255,150" Texture="bar500x2.dds" Size="500.1" />
+        <Box Anchor="C,C"  Offset="0,0"   Size="500,14" Color="White.0" />
+        <Label Anchor="C,C"  Offset="0,0"  WrapWidth="560" Style="GrayGlow20" ID="TechQuote" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+        <Container Size="5,10" />
+        <Stack Anchor="C,C" Offset="0,0"   Size="0,0" StackGrowth="Right" Padding="-12" ID="BonusStack" >
+          <Image Anchor="C,C" Texture="64x64FrameButtons.dds" Size="64,64" ID="B1_back">
+            <Button NoStateChange="1" Anchor="C,C" Size="64,64"  ID="B1"/>
+          </Image>
+          <Image Anchor="C,C" Texture="64x64FrameButtons.dds" Size="64,64" ID="B2_back">
+            <Button NoStateChange="1" Anchor="C,C" Size="64,64"  ID="B2"/>
+          </Image>
+            <Image Anchor="C,C" Texture="64x64FrameButtons.dds" Size="64,64" ID="B3_back">
+            <Button NoStateChange="1" Anchor="C,C" Size="64,64"  ID="B3"/>
+          </Image>
+          <Image Anchor="C,C" Texture="64x64FrameButtons.dds" Size="64,64" ID="B4_back">
+            <Button NoStateChange="1" Anchor="C,C" Size="64,64"  ID="B4"/>
+          </Image>
+          <Image Anchor="C,C" Texture="64x64FrameButtons.dds" Size="64,64" ID="B5_back">
+            <Button NoStateChange="1" Anchor="C,C" Size="64,64"  ID="B5"/>
+          </Image>
+        </Stack>
+        <Box Anchor="C,C"  Offset="0,0"   Size="500,30" Color="White.0" />
+        <Label Anchor="C,C"  Offset="0,0"  WrapWidth="560"  Style="GrayGlow20" ID="TechHelp" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+        <Box Anchor="C,C"  Offset="0,0"   Size="500,30" Color="White.0" />
+      </Stack>
+
+      <!--<Image Anchor="L,T" Offset="-5,45"  Texture="TechIconBacking.dds" Size="128,128">-->
+      <Image Anchor="L,T" Offset="34,45"  Texture="TechIconBacking.dds" Size="128,128">
+        <Image Texture="TechnologyAtlas1024.dds" Size="128,128" ID="TechIcon"/>
+      </Image>
+
+      <GridButton Anchor="C,B" Offset="0,20" Style="BaseButton" Size="220,35" StateOffsetIncrement="0,0" ID="ContinueButton" String="TXT_KEY_OK_BUTTON"/>
+    </Grid>
+  </AlphaAnim>
+</Context>

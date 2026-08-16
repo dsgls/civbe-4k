@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context Style="FontNormal14" FontStyle="Base" Color="Beige" Color1="Black">
+	<Instance Offset="0,0" Name="RewardTierInstance" Size="420,60">
+		<Box Size="420,60" Anchor="L,T" Color="Black.0" ID="RewardTierBox">
+			<Label ID="RewardTierLabel" Anchor="L,C" Offset="0,0" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Reward Tier"/>
+			<Image Anchor="C,B" Offset="0,0" Texture="bar400x2.dds" Size="432.6"/>
+		</Box>
+	</Instance>
+	<Instance Offset="0,0" Name="PlayerEntryInstance" Size="420,60">
+		<Box Size="442,60" Anchor="L,T" Color="Black.0" ID="PlayerEntryBox">
+			<Image ID="IconFrame" Anchor="L,C" Size="64,64" Offset="0,0" Texture="IconFrame64.dds">
+				<Image ID="Portrait" Size="64,64" Offset="0,0" Anchor="C,C"/>
+				<Image ID="CivIconFrame" Anchor="R,B" Offset="-5,6" Size="32,32" Texture="IconFrame_32.dds">
+					<Image ID="CivIconBG" Size="32.32" Anchor="C,C" Offset="0,0" TextureOffset="32,0" Texture="CivIconBGSizes.dds"/>
+					<Image ID="CivIconShadow" Size="24.24" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas16.dds" Color="Black.128"/>
+					<Image ID="CivIcon" Size="24.24" Offset="0,0" Anchor="C,C" Texture="CivSymbolsColor256.dds"/>
+					<Image ID="CivIconHighlight" Size="32.32" Anchor="C,C" Offset="0,0" TextureOffset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+				</Image>
+			</Image>
+			<Label Anchor="L,C" Offset="70,0" TruncateWidth="200" Style="FontNormal16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Player Name" ID="PlayerNameText"/>
+			<Label Anchor="R,C" Offset="90,0" Style="FontNormal16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="000" ID="ScoreText"/>
+			<Box Size="70,20" Color="0,0,0,0" Offset="0,0" Anchor="R,C">
+				<Label Anchor="L,C" Offset="0,0" Style="FontNormal16" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="reward" ID="RewardIconsText"/>
+			</Box>
+			<Image Anchor="C,B" Offset="32,0" Texture="bar400x2.dds" Size="400.1"/>
+		</Box>
+	</Instance>
+	<Box Style="BGBlock_ClearTopBar"/>
+	<Grid Size="956,700" Anchor="C,C" Offset="0.0" Padding="0,0" Style="Grid9DetailFive140">
+		<Image Anchor="C,C" Size="939,614" Sampler="Linear" Color="White.40" ID="BackgroundImage"/>
+		<Label Style="MenuTitleCaption" ID="PresentsLabel" String="Window Title"/>
+		<Image Anchor="L,T" Offset="14,44" TextureOffset="0,0" Texture="Assets/UI/Art/WorldView/TopPanel474x60.dds" Size="466,60">
+			<!-- List Name Label -->
+			<Label ID="ListNameLabel" Anchor="C,C" Offset="0,-3" Style="FontNormal22" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="Sir Tall Stick Man With Shiny Object"/>
+		</Image>
+		<Box Color="0,255,0,0" Size="460,562" Offset="18,96"/>
+		<ScrollPanel Vertical="1" Size="442,562" Offset="18,96" AutoScrollBar="1" ID="PlayerListScrollPanel">
+			<!-- Scroll Controls -->
+			<ScrollBar Style="VertSlider" Length="526" Anchor="R,C" AnchorSide="O,I"/>
+			<UpButton Style="ScrollBarUp" Anchor="R,T" AnchorSide="O,I"/>
+			<DownButton Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I"/>
+			<Stack Anchor="L,T" Size="442,562" StackGrowth="B" Padding="0" ID="PlayerListStack"/>
+		</ScrollPanel>
+		<Box Color="255,255,0,0" Size="439,562" Offset="501,96"/>
+		<Label ID="ProjectInfoLabel" Anchor="L,T" Offset="528,66" Size="385" WrapWidth="385" Style="FontNormal16" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="International Project"/>
+		<Image Anchor="L,B" Offset="478,42" Texture="VerticalTrim.dds" Size="5,615"/>
+		<TextButton ID="CloseButton" Offset="0,24" Anchor="C,B" Style="FontNormal14" ColorSet="Beige_Black_Alpha" String="TXT_KEY_CLOSE" FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" Hidden="0"/>
+	</Grid>
+</Context>

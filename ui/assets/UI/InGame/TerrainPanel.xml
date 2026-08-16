@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal14" ColorSet="Beige_Black">
+	<Grid Anchor="L,T" Size="300,800" Offset="200,32" Padding="0,0" Style="GridBlack16" ConsumeMouse="1">
+		<Stack Anchor="L,T" Offset="20,20" Padding = "0" StackGrowth="Bottom" ID="TerrainPanel">
+			<Button Style="Button_128" Anchor="C,Top" Void2="0" ID="Exit_Button" String="Exit"/>
+			<Stack Padding="6" Offset="20,0" StackGrowth="Bottom">
+				<Button Anchor="L,T" Style="Button_128" Void2="4" ID="ForceRefresh">
+					<Label  Anchor="C,Top" String="Force Refresh" />
+				</Button>
+        <Button Anchor="L,T" Style="Button_128" Void2="5" ID="RebuildIce">
+          <Label  Anchor="C,Top" String="Reload Ice" />
+        </Button>
+        <Button Anchor="L,T" Style="Button_128" Void2="5" ID="RebuildWaves">
+          <Label  Anchor="C,Top" String="Reload Waves" />
+        </Button>
+
+        <CheckBox String="Wireframe"		 Anchor="R,C"  TextAnchor="R,C" ID="TerrainWireframe" Void2="1" IsChecked="0"/>
+        <Label Offset="0,16" Anchor="L,T" String="Cached Tiles" ID="TerrainCacheTiles_Label" />
+				<Label Offset="0,0" Anchor="L,T" String="Cached Memory Usage" ID="TerrainCachedMemoryUsage_Label" />
+				<Label Offset="0,0" Anchor="L,T" String="Rendered Tiles" ID="TerrainRenderedTiles_Label" />
+				<Label Offset="0,0" Anchor="L,T" String="CPU Creation Time" ID="GPUTerrainCreationTime_Label" />
+				<Label Offset="0,0" Anchor="L,T" String="GPU Creation Time" ID="CPUTerrainCreationTime_Label" />
+			</Stack>
+		</Stack>
+	</Grid>
+</Context>

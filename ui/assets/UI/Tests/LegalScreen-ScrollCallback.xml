@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="White_Black" Style="FontNormal22" FontStyle="Shadow" >
+
+<!--
+  <Image Anchor="C,T" Offset="0,100"  Size="1106,264" Texture="CivilizationBE_Logo.dds" ID="CivBELogo" Hidden="0" />
+
+  <Grid Size="740,480" Anchor="C,C" Offset="0,32" Padding="0,0" Style="Grid9InterruptWindow">
+    <Label Anchor="C,T" ID="EULAText" Offset="0,75"  Style="FontNormal16" WrapWidth="600" ColorSet="White_Black" String="TXT_KEY_LEGAL_BODY" />
+    <Label Anchor="C,C"  Offset="0,95"  String="TXT_KEY_ESRB_BODY" Style="FontNormal20" WrapWidth="400" FontStyle="Shadow"/>
+
+    <GridButton Anchor="C,C"  Offset="0,168" ID="ContinueButton"  Size="280,50"  Style="BaseButton" String="{TXT_KEY_LEGAL_CONTINUE:upper}" ColorSet="Gray_Black_Alpha"/>
+
+  </Grid>
+-->
+
+	<ScrollPanel Anchor="L,T" Offset="50,50" Size="200,400" Vertical="1" ID="test" AutoScrollBar="1">
+		<Stack Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" ID="testStack">
+			<Box ID="boxa" Size="200,100" Color="112,23,34,200" />
+			<Box ID="boxb" Size="200,100" Color="23,112,34,200" />
+			<Box ID="boxc" Size="200,100" Color="34,23,112,200" />
+			<Box ID="boxd" Size="200,100" Color="43,51,34,200" />
+			<Container ID="foo" Size="200,100">
+				<Box ID="boxe" Size="200,100" Color="0,112,92,200" />
+			</Container>
+			<Box ID="boxf" Size="200,100" Color="86,0,211,200" />
+			<Box ID="boxg" Size="200,100" Color="200,16,161,200" />
+		</Stack>
+		<ScrollBar Offset="0.0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="360"/>
+		<UpButton Offset="0.0" Style="ScrollBarUp" Anchor="R,T" AnchorSide="O,I"/>
+		<DownButton Offset="0.0" Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I"/>
+	</ScrollPanel>
+
+	<InstanceData Name="instanceOne">
+		<GridButton ID="Button" Size="200,100" Anchor="L,T" >
+			<Box Color="30,200,50,150" />
+			<Box Color="200,30,50,150" />
+		</GridButton>
+	</InstanceData>
+
+
+	 <GridButton Anchor="C,C"  Offset="0,168" ID="ContinueButton"  Size="280,50"  Style="BaseButton" String="{TXT_KEY_LEGAL_CONTINUE:upper}" ColorSet="Gray_Black_Alpha"/>
+
+</Context>

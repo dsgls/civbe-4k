@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="White_Black" Style="FontNormal22" FontStyle="Shadow" >
+
+  <Box Size="full,full" Anchor="C,T" Color="0,0,0,255">
+  <Box Size="740,480" Anchor="C,C" Offset="0,32" Padding="0,0" Color="0,0,0,255">
+  <Stack Anchor="C,T" Offset="0,58" Padding="30" StackGrowth="Bottom">
+    <Label Anchor="C,T" ID="EULAText" LeadingOffset="4"  Style="FontNormal16" WrapWidth="600" ColorSet="White_Black" String="TXT_KEY_LEGAL_BODY" />
+    <Label Anchor="C,C"  String="TXT_KEY_ESRB_BODY" Style="FontNormal18" WrapWidth="400" FontStyle="Shadow"/>
+    <Button Anchor="C,C"  ID="ContinueButton"  Size="280,50"  Style="MainMenuButton" String="{TXT_KEY_LEGAL_CONTINUE:upper}" ColorSet="Gray_Black_Alpha"/>
+  </Stack>
+  </Box>
+  </Box>
+</Context>

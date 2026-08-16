@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal">
+	<Box Style="BGBlock" />
+	
+	<AlphaAnim						ID="AlphaAnim"										Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" >
+		<Grid						ID="PopupFrame"			Anchor="C,C" Offset="0,0"	Size="700,370"  Style="GridWindowWithHeader" >
+			<Button					ID="CloseButton"		Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_CLOSE" />
+			<Label					ID="TitleText"	Style="MenuTitleCaption" String="TITLE LABEL" />
+			
+			<Stack					ID="StoryStack"		Anchor="L,T" Offset="14,70"	Size="520,360" StackGrowth="Bottom" >				
+				<Container			ID="BodyContainer"								Size="650,128">
+					<Image			ID="Image"						 Offset="22,0"	Size="128,128" Texture="QuestPromptDefault.dds"/>
+					<Label			ID="BodyText"		Anchor="L,T" Offset="180,0" String="Body" Style="WhiteShadow" WrapWidth="470" WrapGrowth="Bottom" />
+				</Container>								
+				<Stack				ID="ChoicesStack"	Anchor="L,T" Offset="10,20">
+					<RadioButton	ID="RadioOption1"	Style="QuestRewardChoiceText" String="reward1"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
+					<RadioButton	ID="RadioOption2"	Style="QuestRewardChoiceText" String="reward2"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
+					<RadioButton	ID="RadioOption3"	Style="QuestRewardChoiceText" String="reward3"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="600" />
+				</Stack>								
+			</Stack>			
+			
+			<GridButton		ID="AcceptButton"		Anchor="C,B" Offset="0,30"	Size="320,36"  Style="BaseButton"  String="TXT_KEY_ACCEPT_BUTTON" Disabled="1" />
+		</Grid>
+
+	</AlphaAnim>
+</Context>

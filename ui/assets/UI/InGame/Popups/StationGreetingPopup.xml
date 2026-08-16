@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal14" FontStyle="Base" Color="Beige" Color1="Black" >
+  <Box Style="BGBlock" ID="BGBlock" />
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid Size="465, 310"					Anchor="C,C" Offset="0,0"	Style="Grid9DetailFive140" ConsumeMouse="1" ID="Window" >
+      <Grid Anchor="C,T" Size="parent,45" Offset="0,3" Style="ProductionListHeaderGrid" ID="WindowHeader">
+        <Label Style="GrayGlow24" Anchor="C,C" Offset="0,-3" String="{TXT_KEY_POP_ALIEN_CLEARED:upper}" ID="TitleLabel" />
+        <Grid Style="TabSpacer" Size="parent,5" Offset="0,3" Anchor="L,B" ID="HeaderSeparator"/>
+      </Grid>
+      <Stack Anchor="C,T" Offset="0,64" Size="0,0" StackGrowth="Bottom" Padding="15" ID="ContentStack">
+        <Label ID="DescriptionLabel"   Anchor="L,T" WrapWidth="350" LeadingOffset="4"  Style="WhiteShadow" String="Congratulations!" />
+        <GridButton Size="200,36" Anchor="C,B" String="TXT_KEY_CLOSE" Style="BaseButton" Offset="0,0" ID="CloseButton" Hidden="0"/>
+      </Stack>
+    </Grid>
+  </AlphaAnim>
+</Context>

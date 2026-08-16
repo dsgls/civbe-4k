@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal" >
+
+  <Box Style="BGBlock_ClearTopBar_AlphaZero"/>
+
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid ID="Popup" Anchor="C,B" Offset="0,10"	Size="600,310" Style="GridWindowWithHeader" >
+      <!-- Arrow -->
+      <Image ID="Arrow" Size="90,38" Anchor="C,T" Offset="0,-30" Texture="Marvel_Arrow.dds"/>
+      
+      <!-- Header -->
+      <Label ID="TitleText"	Offset="0,17" Anchor="C,U" String="TXT_KEY_QUEST_MARVEL_DISCOVERED_POPUP_TITLE" Style="MenuTitleCaption"  />
+
+      <!-- Image -->
+      <Image ID="Banner" Size="585,125" Anchor="C,T" Offset="0,48" Texture="Popup_Image_Marvel.dds"/>
+
+      <!-- Content stack -->
+      <Stack ID="TextStack"		Anchor="C,T" Offset="0,190" Padding="20">
+
+        <ScrollPanel ID="PrologueScrollPanel" Anchor="R,T"	Offset="0,0" Size="586,130" Vertical="1" AutoScrollBar="1">
+          <Stack ID="PrologueStack" StackGrowth="Down" Anchor="C,T" Padding="0" Offset="0,0">
+            <Label ID="PrologueText" Anchor="C,T" String="Prologue" Style="GrayGlow20" WrapWidth="540" WrapGrowth="Bottom" />
+          </Stack>
+          <ScrollBar Anchor="R,T" Style="VertSlider" />
+        </ScrollPanel>
+        
+        <Image Anchor="C,C" Offset="0,0"  Color="255,255,255,150" Texture="bar500x2.dds" Size="500.1" />
+        <Stack ID="ObjectiveStack" Anchor="C,T" Padding="10" />
+      </Stack>
+
+      <Button ID="CloseButton" Anchor="R,T" Offset="0,6" Style="CloseButton" ConsumeMouse="1" Hidden="1" />
+      <GridButton ID="ConfirmButton" Anchor="C,B" Offset="0,20"	Size="220,35"	Style="BaseButton" String="TXT_KEY_OK_BUTTON" />
+    </Grid>
+  </AlphaAnim>
+
+  <!-- Objective Entry -->
+  <Instance	 Name="ObjectiveInstance">
+    <Container ID="Content" Offset="0,0" Size="565,16">
+      <Stack Anchor="C,C" Padding="10" StackGrowth="Right">
+        <Image ID="ActiveCheckBox" Anchor="C,C"	Offset="0,0"	Size="32,32" Style="QuestCheckButtons"  />
+        <Label ID="Objective" Anchor="C,C" Offset="0,0"	Style="QuestPopupRewardText" WrapWidth="460" />
+      </Stack>
+    </Container>
+  </Instance>
+
+</Context>

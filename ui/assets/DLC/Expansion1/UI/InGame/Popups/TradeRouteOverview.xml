@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Scott Lewis (Firaxis Games) -->
+<Context ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow">
+	<Instance Name="TRInstance">
+		<Box ID="Root" Offset="0,0" Anchor="L,T" Size="1000,42" Color="255,255,255,0">
+			<Stack Anchor="L,C" StackGrowth="Right" Offset="0,0" Padding="1">
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="35,42">
+					<Image Anchor="C,C" Style="LandTrade" ID="Domain_Land" Hidden="1"/>
+					<Image Anchor="C,C" Style="SeaTrade" ID="Domain_Sea" Hidden="1"/>
+				</Box>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="10,0" Size="32,32">
+          <Image	ID="FromCivIconBG"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="FromCivIcon"		Size="24,24"	Anchor="C,C" Offset="1,1" Texture="CivSymbolsColor256.dds"/>
+          <Image	ID="FromCivIconHighlight"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+				</Box>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="202,42">
+					<Label Anchor="L,C" Offset="5,0" String="FromCity" TruncateWidth="200" Style="FontNormal18" FontStyle="Stroke" ID="FromCity"/>
+				</Box>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="10,0" Size="32,32">
+          <Image	ID="ToCivIconBG"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="ToCivIcon"		Size="24,24"	Anchor="C,C" Offset="1,1" Texture="CivSymbolsColor256.dds"/>
+          <Image	ID="ToCivIconHighlight"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+				</Box>
+				<Box Anchor="L,C" Color="255.255.255.0" Offset="0,0" Size="202,42">
+					<Label Anchor="L,C" Offset="5,0" String="ToSite" TruncateWidth="200" Style="FontNormal18" FontStyle="Stroke" ID="ToSite"/>
+				</Box>
+				<Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="100,42">
+					<Label ID="TurnsLeft" Anchor="C,C" Offset="0,0" Style="FontNormal18" FontStyle="Stroke" />
+				</Box>
+        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="70,42">
+          <CheckBox ID="AutoRenew" Anchor="C,C" String=""/>
+        </Box>
+        <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Padding="2,0" Size="130,42">
+          <Label ID="TradeRouteInfo" Anchor="L,C" Offset="3,0" Style="FontNormal18" FontStyle="Stroke" WrapWidth="220"/>
+        </Box>
+			</Stack>
+      <Box Color="151,184,229,100" Padding="0,0" Anchor="L,B" Size="940,1" Offset="0,0"/>
+	</Box>
+	</Instance>
+	<Box Style="BGBlock_ClearTopBar"/>
+	<Grid Size="990,600" Anchor="C,C" Offset="0,6" Padding="0,0" Style="GridWindowWithHeader">
+    <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+		<Image ID="CivIcon" Size="48,48" Offset="-1,-1" Anchor="C,C" Texture="CivSymbolsColor512.dds"/>
+    
+		<Label Offset="15,14" Style="MenuTitleCaption" String="{TXT_KEY_TRADE_ROUTE_OVERVIEW:upper}" />
+		<!-- Top Panel  -->
+    <Grid Style="ProductionListHeaderGrid" Anchor="C,T" Offset="0,50" Size="957,45" Padding="0,0">
+		<Box ID="TabContainer" Anchor="C,T" Size="850,32" Offset="0,0" Padding="0" Color="0,0,0,0">			
+          <GridButton	ID="TabButtonYourTR" Anchor="L,T" Offset="0,5"	Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_EXISTING_TR_TT">
+            <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_EXISTING_TR:upper}" />
+          </GridButton>
+          <GridButton ID="TabButtonAvailableTR" Anchor="L,T" Offset="0,5" Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_AVAILABLE_TR_TT">
+            <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_AVAILABLE_TR:upper}" />
+          </GridButton>
+          <GridButton ID="TabButtonTRWithYou" Anchor="L,T" Offset="0,5" Size="300,32"  Style="TabInactive" ToolTip="TXT_KEY_TO_OTHERS_TR_TT">
+            <Label Style="TabTextStyle" String="{TXT_KEY_TRO_TAB_TR_WITH_YOU:upper}" />
+          </GridButton>
+		</Box>
+      <Grid Style="TabSpacerDark" Anchor="C,B" Offset="0,7" Size="957,5"/>
+		</Grid>
+    
+		<!-- Content Panel -->
+		<Box Size="940,459" Color="36,42,54,255" Offset="17,88">
+			<!-- Column Backgrounds-->
+			<Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0">
+				<Grid Anchor="L,T" Size="39,459" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+        <Grid Anchor="L,T" Size="246,459" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+				<Grid Anchor="L,T" Size="246,459" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+        <Grid Anchor="L,T" Size="100,459" Style="CivilopediaListItem"/>
+        <Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+				<Grid Anchor="L,T" Size="70,459" Style="CivilopediaListItem"/>
+				<Box Anchor="L,T" Size="1,459" Color="151,184,229,100"/>
+			</Stack>
+			<!-- Column Headers -->
+			<Stack Anchor="L,T" StackGrowth="Right" Offset="0,0" Padding="0">
+				<Box ID="Domain" Anchor="L,C" Size="39,45" Offset="0,0" Color="0,0,0,0">
+					<Label Anchor="C,C" Offset="0,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_DOMAIN"/>
+				</Box>
+        <GridButton ID="FromOwnerHeader" Anchor="L,C" Size="46,45" Style="ColumnHeader" Offset="1,0">
+					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="28,28" ToolTip="TXT_KEY_TRO_COL_FROM_CIV_TT"/>
+				</GridButton>
+        <GridButton ID="FromCityHeader" Anchor="L,C" Size="200,45" Style="ColumnHeader">
+					<Label Anchor="L,C" Offset="5,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_FROM_CITY" ToolTip="TXT_KEY_TRO_COL_FROM_CITY_TT"/>
+				</GridButton>
+        <GridButton ID="ToOwnerHeader" Anchor="L,C" Size="46,45" Style="ColumnHeader" Offset="1,0">
+					<Image Anchor="C,C" Offset="0,0" Texture="GenericCiv_28.dds" Size="28,28" ToolTip="TXT_KEY_TRO_COL_TO_CIV_TT"/>
+				</GridButton>
+        <GridButton ID="ToCityHeader" Anchor="L,C" Size="200,45" Style="ColumnHeader">
+					<Label Anchor="L,C" Offset="5,0" Style="FontNormal18" String="TXT_KEY_TRO_COL_TO_CITY" ToolTip="TXT_KEY_TRO_COL_TO_CITY_TT"/>
+				</GridButton>
+        <GridButton ID="TurnsLeft" Anchor="L,C" Size="100,45" Style="ColumnHeader" Offset="1,0">
+					<Label Anchor="C,C" Offset="0,-1" WrapWidth="90" Style="FontNormal18" String="TXT_KEY_TURNS_REMAINING" ToolTip="TXT_KEY_TRO_COL_TURNS_REMAINING_TT"/>
+				</GridButton>
+        <GridButton ID="AutoRenew" Anchor="L,C" Size="70,45" Style="ColumnHeader" Offset="1,0">
+          <Label Anchor="C,C" Offset="0,-1" WrapWidth="70" Style="FontNormal18" String="TXT_KEY_AUTO_RENEW" ToolTip="TXT_KEY_TRO_COL_AUTO_RENEW_TT"/>
+        </GridButton>
+        <Box ID="TradeRouteInfos" Anchor="L,C" Size="230,45" Offset="0,0" Color="0,0,0,0">
+          <PullDown ID="SortByPullDown" Anchor="L,C" Offset="0,0" Style="GenericPullDown" ScrollThreshold="110" Size="parent,parent" AutoSizePopUp="1" SpaceForScroll="0" />
+        </Box>
+			</Stack>
+			<!-- City List -->
+      <Box Color="21,24,32,255" Size="15,457" Anchor="R,T" Offset="-16,1"/>
+			<ScrollPanel Anchor="L,T" Offset="0,45" Size="940,400" Vertical="1" AutoScrollBar="1" ID="MainScroll">
+				<ScrollBar AnchorSide="O,I" Offset="0,-45" Style="VertSlider" Anchor="R,T" Length="457" ID="MainScrollBar"/>
+				<Stack Anchor="L,T" Size="784,440" StackGrowth="Bottom" Padding="0" ID="MainStack">
+          </Stack>
+			</ScrollPanel>
+
+		</Box>
+		<!-- Bottom Panel -->
+		<Grid Anchor="C,B" Offset="0,50" Style="TabSpacerDark" Size="957,5"/>
+	</Grid>
+</Context>

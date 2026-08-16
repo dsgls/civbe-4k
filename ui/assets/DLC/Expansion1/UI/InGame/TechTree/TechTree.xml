@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tech Web - Tabs set to 2 spaces, retaining tab character. -->
+
+<Context>
+
+	<Container	ID="BackgroundContainer"	Size="Full,Full"						Anchor="C,C"> 
+		<Box								Size="Parent,Parent-30"	Offset="0,30"	Anchor="L,T" Color="0,0,0,0" /> 
+		<Image		ID="BackgroundImage"		Size="parent,parent-30"	Offset="0,30"	Anchor="L,T" Texture="TechnologyWebBackground.dds" StretchMode="Fill" ConsumeMouse="1" />
+	</Container>  
+
+	<!-- Used for timings when pan to tech calls are made in LUA. -->
+	<SlideAnim	ID="PanControl" Start="0,0" End="123,0" Cycle="Once" Speed="1.0" Pause="0" Function="OutQuad" />
+	
+	<!-- Dummy anim control used to gate click immediate after a drag to prevent accident node selection. -->
+	<AlphaAnim	ID="ClickAfterDragBlocker" AlphaStart="0" AlphaEnd="1" Speed="10" Cycle="Once" />
+
+	
+	<!-- No input handlers on furthest back drag panel, nodes will be put on here (behind wall) when they are filtered out. -->
+	<DragPanel  ID="FilteredDragPanel"	Anchor="L,C" Offset="0,30"	Size="Full,Full"		ConsumeMouse="0"		Disabled="1" />
+	<Box				ID="FilteredTechWall"		Anchor="L,C" Offset="0,30"	Size="parent,parent"	Color="20,20,20,220"	/>
+	<DragPanel  ID="TechTreeDragPanel"	Anchor="L,C" Offset="0,30"	Size="Full,Full"		ConsumeMouse="0"		/>
+
+	<Grid Anchor="R,T" Offset="0,30" Size="350,44" Texture="Assets/UI/Art/TechWeb/TechWebOptionsBackingFlipped.dds" SliceCorner="38,1" SliceSize="1,1" SliceTextureSize="39,44" ConsumeMouse="1">
+		<GridButton ID="CloseButton" Anchor="R,T" AnchorSide="I,I" Size="220,31" Offset="5,0" String="TXT_KEY_TECHWEB_RETURN_TO_MAP" Style="ReturnButton" ConsumeMouse="1" />
+	</Grid>
+	
+	
+	<Grid Offset="0,30" Size="450,44" Texture="Assets/UI/Art/TechWeb/TechWebOptionsBacking.dds" SliceCorner="1,1" SliceSize="1,1" SliceTextureSize="39,44" ConsumeMouse="1">
+	
+		<Box					ID="FilterArea"			Anchor="L,T"	Offset="2,1" 	Size="200,30" Color="0,0,0,0" >
+			<PullDown		ID="FilterPulldown"	Anchor="L,T"	Offset="0,0"	ScrollThreshold="450" SpaceForScroll="0" Size="parent,30" >
+		
+				<ButtonData>
+					<GridButton Anchor="L,C" Style="FontNormal16">
+						<GridData	Texture="Assets/UI/Art/Controls/9 Grids/FilterPulldownButton.dds"
+									StateOffsetIncrement="0,32" SliceCorner="16,16" SliceSize="1,1" SliceTextureSize="32,32" />	
+						<Image Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,0" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+						<Image ShowOnMouseOver="1" Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,17" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+					</GridButton>
+				</ButtonData>
+				
+				<GridData Anchor="C,B" Offset="0,-8" AnchorSide="I,O" Texture="Assets/UI/Art/TechWeb/TechWebFilterGridBacking.dds" Padding="2,14" 
+						  SliceCorner="16,16" SliceSize="1,1" SliceTextureSize="32,32" />
+				
+				<ScrollPanelData Anchor="C,C"  Vertical="1" Size="16,16"  AutoScrollBar="1" >			
+					<ScrollBar  Style="VertSlider" Anchor="R,T" AnchorSide="I,I" Offset="-1,0"   />
+				</ScrollPanelData>		
+				<StackData StackGrowth="Bottom" Padding="-1" Anchor="C,T" />			
+				<InstanceData		Name="FilterItemInstance" >
+					<GridButton		ID="Button"			Anchor="L,T"					Size="198,30"	Color="255,255,255,255" String="Some item" Style="FilterButton">
+						<Label		ID="IconText"		Anchor="L,T"	Offset="4,8"	String=""		Color="255,255,255,255" />						
+					</GridButton>
+				</InstanceData>						
+			</PullDown>		
+		</Box>
+	
+		<Grid           ID="SearchArea"     Anchor="L,T" Offset="214,1" Size="200,30" Texture="Assets/UI/Art/TechWeb/TechWebSearchBacking.dds" SliceCorner="15,15" SliceSize="1,1" SliceTextureSize="32,32" >
+			<Label      ID="SearchLabel"    Anchor="L,T" Offset="5,5"   Size="parent-24,12" String="" Color="70,70,70,255" />
+			<EditBox    ID="SearchEditBox"  Anchor="L,T" Offset="11,5"  Size="parent-24,22" CallOnChar="1" EditMode="1" Style="FontNormal18" MaxLength="24" String="TXT_KEY_TECHWEB_SEARCH" Color="128,128,128,128" />
+			<Image							Anchor="R,C" Offset="3,0"	Texture="Assets/UI/Art/TechWeb/TechWebSearchIcon.dds" />
+			
+			
+			<TextButton ID="SearchResult1"  Anchor="L,T" Offset="6,34"  String="1" Style="SearchWordNormal" MouseOverStyle="SearchWordHighlight" />
+			<TextButton ID="SearchResult2"  Anchor="L,T" Offset="6,54"  String="2" Style="SearchWordNormal" MouseOverStyle="SearchWordHighlight" />
+			<TextButton ID="SearchResult3"  Anchor="L,T" Offset="6,74"  String="3" Style="SearchWordNormal" MouseOverStyle="SearchWordHighlight" />
+			<TextButton ID="SearchResult4"  Anchor="L,T" Offset="6,94"  String="4" Style="SearchWordNormal" MouseOverStyle="SearchWordHighlight" />
+			<TextButton ID="SearchResult5"  Anchor="L,T" Offset="6,114" String="5" Style="SearchWordNormal" MouseOverStyle="SearchWordHighlight" />
+		</Grid>
+	</Grid>
+	
+
+	<Box 		ID="LoadingBarBacking" 	Anchor="L,B" Size="Full,4"		Offset="0,0"	Color="30,30,30,64">
+		<Box 	ID="LoadingBar" 		Anchor="L,T" Size="1,Parent"					Color="100,255,180,128" Hidden="0" />
+	</Box>
+
+	<!-- ================================================================= -->
+	<Instance Name="TechWebNodeInstance" >
+	
+		<Button 		ID="TechButton"																						Size="64,64" Color="0,0,0,0" StateOffsetIncrement="0,0" >
+			<Grid 		ID="bg"											Anchor="L,C"	Offset="40,1"		Size="260,64" 	Texture="assets/UI/Art/TechWeb/rowsFull.dds"	SliceCorner="2,2" SliceTextureSize="8,69">
+				<Stack	ID="AdvisorStack"						Anchor="R,T"	Offset="2,-6"		StackGrowth="Left" Padding="-8" />
+			</Grid>
+			<Image 		ID="Tear" 									Anchor="C,C" 									Size="68,68"	Texture="assets/UI/Art/TechWeb/TechWebAtlas.dds" />
+			<Image		ID="NodeHolder"							Anchor="L,C"	Offset="57,51"	Size="253,45"	Texture="assets/UI/Art/TechWeb/NodeHolderClosedFull.dds" />
+			<Image 		ID="TechPortrait"			 			Anchor="C,C"	Offset="2,-1" 	Size="64,64" 	Texture="TechnologyAtlas512.dds" />
+			<Image		ID="AffinityRing"						Anchor="C,C"	Offset="2,-1"		Size="46,46"	Texture="TechIconAffinity138.dds" />
+			<TextButton ID="NodeName"														Offset="70,6"		Style="FontNormal18"	ColorSet="TechWeb_NotResearched" FontStyle="Glow" />
+			<Label		ID="TechQueueLabel"					Anchor="R,C"	Offset="68,0"		Style="FontNormal16" 	Color0="255,255,255,255" Color1="255,255,255,200" FontStyle="Glow"  String="TXT_KEY_LOCKED" />
+			<Image		ID="IconUnderlay1"					Anchor="C,C"	Offset="55,21"	Size="45,45"	Alpha="0.7" Hidden="1" />
+			<Image		ID="IconUnderlay2"					Anchor="C,C"	Offset="100,21"	Size="45,45"  Alpha="0.7" Hidden="1" />
+			<Image		ID="IconUnderlay3"					Anchor="C,C"	Offset="145,21"	Size="45,45"  Alpha="0.7" Hidden="1" />
+			<Image		ID="IconUnderlay4"					Anchor="C,C"	Offset="190,21"	Size="45,45"  Alpha="0.7" Hidden="1" />
+			<Image		ID="IconUnderlay5"					Anchor="C,C"	Offset="235,21"	Size="45,45"  Alpha="0.7" Hidden="1" />
+			<Image		ID="IconUnderlay6"					Anchor="C,C"	Offset="280,21"	Size="45,45"  Alpha="0.7" Hidden="1" />
+			<Button		ID="B1" NoStateChange="1"   Anchor="C,C"	Offset="55,21"	Size="45,45"	Alpha="0.8" />			
+			<Button		ID="B2" NoStateChange="1"   Anchor="C,C"	Offset="100,21"	Size="45,45"  Alpha="0.8" />
+			<Button		ID="B3" NoStateChange="1"   Anchor="C,C"	Offset="145,21"	Size="45,45"  Alpha="0.8" />
+			<Button		ID="B4" NoStateChange="1"   Anchor="C,C"	Offset="190,21"	Size="45,45"  Alpha="0.8" />
+			<Button		ID="B5" NoStateChange="1"   Anchor="C,C"	Offset="235,21"	Size="45,45"  Alpha="0.8" />
+			<Button		ID="B6" NoStateChange="1"   Anchor="C,C"	Offset="280,21"	Size="45,45"  Alpha="0.8" />
+		</Button>
+	</Instance>
+
+
+	<!-- Smaller similer techs, may have affinities associated with them, etc... -->	
+	<Instance Name="TechWebLeafInstance" >
+	
+		<Button			ID="TechButton"		Anchor="L,T" Size="50,50" StateOffsetIncrement="0,0">			
+			<!-- <Grid 		ID="spacer"			Anchor="L,C" Offset="30,-27"	Size="178,5" 			Texture="assets/UI/Art/TechWeb/spacer.dds"		SliceCorner="2,2" SliceTextureSize="8,5" />
+			-->
+			<Grid 		ID="bg"											Anchor="L,C" Offset="30,-1" 	Size="250,54" 			Texture="assets/UI/Art/TechWeb/rowLeaf.dds"		SliceCorner="2,2" SliceTextureSize="8,52">
+				<Stack	ID="AdvisorStack"						Anchor="R,T" Offset="2,-2"		StackGrowth="Left" Padding="-8" />
+			</Grid>
+      <Box      ID="Spacer"									Anchor="L,B"									Size="0,20" />
+			<Image 		ID="Tear" 									Anchor="L,C" 									Size="54,54"			Texture="assets/UI/Art/TechWeb/TechWebAtlas.dds" />
+			<Image 		ID="TechPortrait"  					Anchor="L,C"	Offset="-5,-1"	Size="64,64" 			Texture="TechnologyAtlas512.dds" />
+			<Image		ID="AffinityRing"						Anchor="C,C"	Offset="2,-1"		Size="46,46"	Texture="TechIconAffinity138.dds" />
+      <TextButton ID="NodeName"							Anchor="L,T"	Offset="58,3"		Style="FontNormal18"	ColorSet="TechWeb_NotResearched" FontStyle="Glow" />
+			<Label		ID="TechQueueLabel"					Anchor="R,C"	Offset="-1,-1"	Style="FontNormal14"	Color0="255,255,255,255" Color1="255,255,255,200" FontStyle="Glow" String="TXT_KEY_LOCKED" />
+      <Image		ID="IconUnderlay1"					Anchor="C,C"	Offset="55,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Image		ID="IconUnderlay2"					Anchor="C,C"	Offset="100,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Image		ID="IconUnderlay3"					Anchor="C,C"	Offset="145,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Image		ID="IconUnderlay4"					Anchor="C,C"	Offset="190,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Image		ID="IconUnderlay5"					Anchor="C,C"	Offset="235,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Image		ID="IconUnderlay6"					Anchor="C,C"	Offset="280,20"	Size="45,45"	Alpha="0.7" Hidden="1" />
+      <Button		ID="B1" NoStateChange="1"   Anchor="C,C"  Offset="55,20"	Size="45,45"	Alpha="0.8" />
+      <Button		ID="B2" NoStateChange="1"   Anchor="C,C"  Offset="100,20" Size="45,45"	Alpha="0.8" />
+      <Button		ID="B3" NoStateChange="1"   Anchor="C,C"  Offset="145,20" Size="45,45"	Alpha="0.8" />
+      <Button		ID="B4" NoStateChange="1"   Anchor="C,C"  Offset="190,20" Size="45,45"	Alpha="0.8" />
+      <Button		ID="B5" NoStateChange="1"   Anchor="C,C"  Offset="235,20" Size="45,45"	Alpha="0.8" />
+      <Button		ID="B6" NoStateChange="1"   Anchor="C,C"  Offset="280,20" Size="45,45"	Alpha="0.8" />      
+		</Button>
+	</Instance>
+
+	
+	<Instance Name="SelectedWebInstance">    
+		<Container				ID="Accoutrements"																Size="40,40" 	Hidden="1">
+
+			<Container			ID="LeafPieces">
+				<Image  			ID="BorderLeaf"   									Offset="0,1" 	Texture="assets\UI\Art\selectedBorderLeaf.dds" />			
+				<Box 					ID="MeterLeaf"																		Size="40,40"	Color="100,0,100,0">
+					<Image 			ID ="BgLeaf"												Offset="0,0" 	Texture="assets\UI\Art\meterBgLeaf.dds" />
+					<AlphaAnim	ID="NewAmountAnimLeaf"							Offset="0,0"	AlphaStart="1" AlphaEnd="0.1" Cycle="Bounce" Speed="1" Pause="0">
+						<Image 		ID ="NewAmountLeaf"									Offset="0,0" 	Texture="assets\UI\Art\meterLeaf.dds" 	/>
+					</AlphaAnim>
+					<Image 			ID ="AmountLeaf"										Offset="0,1" 	Texture="assets\UI\Art\meterLeaf.dds" 	/>
+				</Box>
+			</Container>
+
+			<Container			ID="FullPieces"                                    Hidden="1">
+				<Image  			ID="BorderFull" 										Offset="0,0" 	Texture="assets\UI\Art\selectedBorderFull.dds" />			
+				<Box 					ID="MeterFull"																		Size="40,40"	Color="100,0,100,0">
+					<Image 			ID ="BgFull"												Offset="0,0" 	Texture="assets\UI\Art\meterBgFull.dds" />
+					<AlphaAnim 	ID="NewAmountAnimFull"							Offset="0,0"	AlphaStart="1" AlphaEnd="0.1" Cycle="Bounce" Speed="1" Pause="0">
+						<Image 		ID ="NewAmountFull"									Offset="0,-1" Texture="assets\UI\Art\meterFull.dds" 	/>
+					</AlphaAnim>
+					<Image 			ID ="AmountFull"										Offset="0,0" 	Texture="assets\UI\Art\meterFull.dds" 	/>
+				</Box>
+			</Container>
+
+		</Container>
+	</Instance>
+
+	<Instance		Name="AdvisorRecommendInstance">
+		<Container		ID="AdvisorMarking"		Anchor="R,T"	Size="40,40"	>			
+			<Image		ID="AdvisorBackground"	Anchor="R,T"	Size="40,40"	Offset="0,0"	Texture="assets\UI\Art\TechTree\AdvisorRecommendBackground.dds" Hidden="1" />
+			<Image ID="ScienceRecommendation" ToolTip="TXT_KEY_TECH_CHOOSER_ADVISOR_RECOMMENDATION_SCIENCE" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" Hidden="1">
+				<ScrollAnim				Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds"/>
+				<AlphaAnim Anchor="C,C" Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+				<AlphaAnim Anchor="C,C" Offset="0,-4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+			</Image>
+			<Image ID="EconomicRecommendation" ToolTip="TXT_KEY_TECH_CHOOSER_ADVISOR_RECOMMENDATION_ECONOMIC" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds" Hidden="1">
+				<ScrollAnim				Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds"/>
+				<AlphaAnim Anchor="C,C" Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+				<AlphaAnim Anchor="C,C" Offset="0,-4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"/>
+			</Image>
+			<Image ID="MilitaryRecommendation" ToolTip="TXT_KEY_TECH_CHOOSER_ADVISOR_RECOMMENDATION_MILITARY" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
+				<ScrollAnim				Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds"/>
+				<AlphaAnim Anchor="C,C" Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+				<AlphaAnim Anchor="C,C" Offset="-3,-6"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+			</Image>
+			<Image ID="GrowthRecommendation" ToolTip="TXT_KEY_TECH_CHOOSER_ADVISOR_RECOMMENDATION_GROWTH" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolGrowth.dds" Hidden="1">
+				<ScrollAnim				Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskGrowth.dds"/>
+				<AlphaAnim Anchor="C,C" Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+				<AlphaAnim Anchor="C,C" Offset="-3,-6"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+			</Image>
+			<Image ID="CultureRecommendation" ToolTip="TXT_KEY_TECH_CHOOSER_ADVISOR_RECOMMENDATION_CULTURE" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolCulture.dds" Hidden="1">
+				<ScrollAnim				Offset="0,0"	Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskCulture.dds"/>
+				<AlphaAnim Anchor="C,C" Offset="4,4"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>
+				<AlphaAnim Anchor="C,C" Offset="-3,-6"	Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds" Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"/>			
+			</Image>
+		</Container>
+	</Instance>
+	
+	<Instance Name="TechLineInstance">    
+		<Line ID="TechLine" Anchor="L,T" Color="255,255,200,255" Start="1,1" End="100,100" Width="2" />
+	</Instance>
+
+	<Instance Name="BackgroundLineInstance">    
+		<Line ID="Line" Anchor="L,T" Color="255,255,200,255" Start="1,1" End="100,100" Width="2" />
+	</Instance>	
+
+	<Instance Name="SparkleInstance">    
+		<SlideAnim ID="Sparkle" Start="0,0" End="2000,0" Cycle="Repeat" Speed="0.5" Hidden="1" >
+			<Box Anchor="C,C" Color="200,120,210,40" Size="3,3" Offset="1,1" />
+		</SlideAnim>
+	</Instance>
+	
+	<Instance	Name="HighlightNodeInstance">
+		<AlphaAnim ID="Content" Anchor="C,C"									Size="50,50"	AlphaStart="1" AlphaEnd="0" Speed="0.10" Cycle="Once">
+			<Image								Anchor="C,C"	Offset="2,-19"	Size="42,81"	Texture="TechCalloutFrame.dds" />
+			<SlideAnim						Anchor="C,C"									Start="2,-30" EndOffset="0,-10" Cycle="Bounce" Function="OutSine" Speed="2" >
+				<Image							Anchor="C,C"	Offset="0,0"		Size="30,15"	Texture="TechCalloutArrow.dds" />
+			</SlideAnim>
+		</AlphaAnim>
+	</Instance>
+	
+</Context>

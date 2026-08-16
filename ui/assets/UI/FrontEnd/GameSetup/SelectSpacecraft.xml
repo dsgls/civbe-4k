@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context  ColorSet="Beige_Black" Style="FontNormal22" FontStyle="Shadow" >
+
+<!--=================================================================== -->
+<!-- Select Spacecraft                                                  -->
+<!--=================================================================== -->
+
+
+	<ScrollPanel				Anchor="L,T"	Offset="85,110" Size="405,560" Vertical="1" ID="ScrollPanel" >
+		<ScrollBar				Anchor="R,T"	Style="VertSlider" Length="Parent" Offset="8,0" AnchorSide="I,I" />
+		<Stack      ID="Stack"	Anchor="L,T"	Offset="0,0" Size="405,Parent" StackGrowth="Bottom" Padding="0"  />
+	</ScrollPanel>
+
+
+	<Instance Name="ItemInstance">
+    <Container    ID="Content"    Size="395,90">
+      <GridButton ID="Button"     Size="Parent,Parent" Style="GridSlotButtonGray" />
+      <Grid       ID="Highlight"  Size="Parent,Parent" Style="GridSlotButtonBlue" />
+      <Image      ID="Portrait"   Size="64,64"         Anchor="L,C"  Offset="5,0" />
+      <Label      ID="NameLabel"  Anchor="L,T" Offset="80,15" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="COLONIST NAME HERE" />
+      <Label      ID="DescriptionLabel" Anchor="L,T" Offset="80,40" WrapWidth="300" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="SPACECRAFT DESCRIPTION HERE"  />
+      <Image      ID="CheckMark"  Anchor="R,B" Size="32,32" Offset="8,0" Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" />
+    </Container>
+  </Instance>
+
+  <GridButton ID="SelectButton" Anchor="L,B"  Style="SmallButton" Size="240,38"  Offset="164,32"  >
+      <Label Anchor="C,C"  Offset="0,0"  String="{TXT_KEY_NEXT:upper}" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
+  </GridButton>
+
+</Context>

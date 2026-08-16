@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Name="LeaderHeadRoot" Layer="Modal" >
+	
+	<SlideAnim			ID="GamestateTransitionAnimIn"	Speed="5" Start="0,0" End="0,0" Cycle="Once" Stopped="1" />
+	<SlideAnim			ID="GamestateTransitionAnimOut" Speed="5" Start="0,0" End="0,0" Cycle="Once" Stopped="1" />
+	
+  <LuaContext ID="Diplomacy" FileName="Assets/DLC/UI/InGame/Diplomacy/DiplomacyOverview" Hidden="True"/>
+</Context>

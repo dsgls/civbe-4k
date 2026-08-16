@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Color0="Beige" Color1="Black,256" Style="FontNormal16" FontStyle="Shadow" >
+
+	<!--=======================================================================================================================-->
+	<!--=======================================================================================================================-->
+	<Box Color="Black,255" Size="Full,Full" ID="Background" ConsumeMouse="1">
+		<Container Size="1024,700" Anchor="c,c" ID="MainContainer">
+
+			<Box Style="BGBlock_ClearTopBar" />
+
+			<Stack Anchor="C,C" Offset="0,40" StackGrowth="Bottom" Padding="20" ID="SaveStack" >
+			  <Grid Size="400,300" Anchor="C,C" Offset="0,0"  Style="Grid9DetailFive140" ID="MainBox">
+          <!--<Image ID="Icon" Anchor="C,T" Offset="0,-50" TextureOffset="128,0" Texture="CivSymbolsColor.dds" Size="80,80" />-->
+          <Stack StackGrowth="Right" Offset="0,20" Anchor="C,T" Padding="10">
+            <Box		ID="CivIconFrame"	Size="60,60"	Anchor="C,T" Offset="0,0" Color="0,0,0,100">
+              <Image	ID="CivIconBG"		Size="64,64"	Anchor="C,T" Offset="0,-2" Texture="CivIconBGSizes.dds"/>
+              <Image	ID="CivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+              <Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+            </Box>
+
+            <Stack>
+				      <Label Anchor="L,T" Offset="0,0" Style="WhiteShadow" String="TXT_KEY_HOTSEAT_NEXT_PLAYER" ID="NextPlayer"/>
+				      <Label Anchor="L,T" Offset="0,0" Style="GrayGlow24" String="TXT_KEY_MP_NEXT_PLAYER" ID="Title"/>
+            </Stack>
+          </Stack>
+
+
+          <Stack Anchor="C,T" Offset="0,100" StackGrowth="Bottom" Padding="12" ID="OverallBox">
+
+            <Stack Anchor="C,T" Offset="0,0" StackGrowth="Bottom" Padding="20" ID="Stack" >
+              <!-- Password -->
+              <Label Anchor="C,T" Style="WhiteShadow" String="TXT_KEY_MP_ENTER_PASSWORD" ID="EnterPassword"/>
+							<Grid  Anchor="C,T" Offset="0,-10" Size="242,24" Style="GridColumnHeader" ID="EnterPasswordOutline">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" CallOnChar="1" EditMode="0" Size="240,22" Anchor="C,C" ID="EnterPasswordEditBox" Style="WhiteShadow" MaxLength="32" Obscure="1"/>
+              </Grid>
+            </Stack>
+
+            <!-- Continue Button  -->
+            <Stack Anchor="C,B" Offset="0,0" StackGrowth="Left" Padding="20" ID="MiddleBox">
+              <GridButton Anchor="R,B"  Style="BaseButton" Size="150,32"  Offset="0,0" StateOffsetIncrement="0,0" ID="ContinueButton" >
+                <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_MP_PLAYER_CHANGE_CONTINUE" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+              </GridButton>
+              <!-- Change/Add Password Button  -->
+              <GridButton Anchor="L,B"  Style="BaseButton" Size="150,32"  Offset="0,0" StateOffsetIncrement="0,0" ID="ChangePasswordButton" >
+                <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_MP_CHANGE_PASSWORD" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  ID="ChangePasswordLabel"/>
+              </GridButton>
+            </Stack>
+
+            <Stack Anchor="C,B" Offset="0,0" StackGrowth="Left" Padding="24" ID="BottomBox">
+              <!-- Save Button  -->
+              <GridButton Anchor="C,T"  Style="BaseButton" Size="150,32"  Offset="0,0" StateOffsetIncrement="0,0" ID="SaveButton" >
+                <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_ACTION_SAVE" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+              </GridButton>
+              <!-- Main Menu Button  -->
+              <GridButton Anchor="C,T"  Style="BaseButton" Size="150,32"  Offset="0,0" StateOffsetIncrement="0,0" ID="MainMenuButton" >
+                <Label Anchor="C,C"  Offset="0,0"  String="TXT_KEY_MP_MAIN_MENU" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+              </GridButton>
+            </Stack>
+          </Stack>
+        </Grid>
+      </Stack>
+
+		</Container>
+
+    <Box		ID="ExitConfirm"	Style="BGBlock" Hidden="1" ConsumeMouseOver="1">
+      <Grid						Size="500,360" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140" >
+
+        <Label			ID="Message"	Anchor="C,T"  Offset="0,74"  WrapWidth="440" String="TXT_KEY_MENU_EXIT_DEFAULT" Style="WhiteShadow20" />
+        <Stack							Anchor="C,B" Offset="0,80" Padding="24" StackGrowth="Bottom" >
+          <!-- Yes Button  -->
+          <GridButton		ID="Yes"	Style="BaseButton"  Size="400,42" Anchor="C,T">
+            <Label					Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+          </GridButton>
+          <!-- No Button  -->
+          <GridButton		ID="No"		Style="BaseButton" Size="400,42" Anchor="C,T" >
+            <Label					Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+          </GridButton>
+        </Stack>
+      </Grid>
+    </Box>
+
+  </Box>
+	
+
+	<LuaContext FileName="Assets/UI/InGame/ChangePassword" ID="ChangePassword" Hidden="1" />
+	<LuaContext FileName="Assets/UI/InGame/Menus/SaveMenu" ID="SaveMenu" Hidden="True" />
+
+</Context>

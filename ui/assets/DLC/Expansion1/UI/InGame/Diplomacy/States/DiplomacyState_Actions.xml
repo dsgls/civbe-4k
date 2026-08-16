@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
+  
+  <AlphaAnim							ID="ChoiceAreaAlpha" AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent" >
+    <SlideAnim						ID="ChoiceAreaSlide" Start="280,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="2" Size="parent,parent" >
+      <Grid								ID="ChoiceArea"			Anchor="R,T"	Offset="0,76" Size="500, parent-192" Style="Grid9ChoiceArea">
+				<AlphaAnim				ID="StackAreaAlpha"	AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="1" Size="parent,parent" >        
+					<Grid						ID="StackArea"			Anchor="C,C"	Size="100,100"				Offset="0,5"	Style="Grid9BlackGradientSubContainer" >					
+            <AlphaAnim		ID="StackGlowAlpha"	Anchor="C,B"	Size="parent,parent"	Cycle="Once" AlphaBegin="0" AlphaEnd=".5" Pause=".1" Function="Root" Speed="2"  >
+                <Image		ID="StackGlowImage" Anchor="C,B"	Size="parent,215"			Offset="0,1" Texture="Diplo_ChoiceGlow.dds" StretchMode="Fill"/>
+            </AlphaAnim>							
+            <Stack				ID="ActionsStack" Anchor="L,C" StackGrowth="Bottom" Padding="0" /> 
+          </Grid>					
+        </AlphaAnim>				
+        <AlphaAnim				ID="GlowAlpha"				Anchor="C,B" Cycle="Once" AlphaBegin="0" AlphaEnd=".7" Pause=".5" Function="Root" Speed=".2" Size="parent,parent">
+          <Image					ID="ChoiceGlowImage"	Anchor="C,B" Texture="Diplo_ChoiceGlow.dds" Size="parent,215" Offset="0,1" StretchMode="Fill"/>
+        </AlphaAnim>				
+      </Grid>
+    </SlideAnim>
+  </AlphaAnim>
+
+	<!-- Their Word Bubble -->
+  <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".5" Function="Root" Speed="2" Size="parent,parent" ID="BubbleAlpha">
+    <SlideAnim Start="0,-50" End="0,0" Cycle="Once" Pause=".5" Function="OutQuint" Speed="2" Size="parent,parent" ID="BubbleSlide">
+      <Grid ID="TheirSpeechBubble" Size="450,69" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
+        <Stack Anchor="C,T">
+          <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="5" Offset="0,15">
+            <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="440" String="Their response"/>
+          </Stack>
+          <Container Size="2,5"/>
+        </Stack>
+      </Grid>
+    </SlideAnim>
+  </AlphaAnim>
+
+  <Label ID="PlayerDead" ColorSet="HeaderGradient" FontStyle="Glow" Style="FontTitle" Anchor="C,C" String="{TXT_KEY_DIPLOMACYUI_LOST_SIGNAL:upper}" />
+  
+  <!-- Instances -->
+  <Instance Name="ActionEntry">
+  	<GridButton ID="Button"	Size="parent,50" Style="DiploChoice" String="ACTION HERE" WrapWidth="450" Align="center"/>
+  </Instance>
+</Context>

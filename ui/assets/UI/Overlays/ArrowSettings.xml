@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO: describe these xml vars
+-->
+
+<Arrow min_width = "3" 
+       max_width = "5"
+       width2 = "1.5"
+       arc_height = "75" 
+       outline_width = ".65"
+       outline_width2 = ".65"
+       body_color = "255,0,0"
+       outline_color = "255,255,255"
+       alpha = ".5"
+       target_height = "20"
+       anim_speed = ".5"
+       ambient_light_level = ".7"
+       />

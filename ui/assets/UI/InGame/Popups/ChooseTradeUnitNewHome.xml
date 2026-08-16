@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Scott Lewis (Firaxis Games) -->
+<Context ID="ChooseTradeUnitNewHomePopup" ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow">
+  <Instance Name="ItemInstance">
+    <GridButton ID="Button" Anchor="L,C" Size="370,100" Color="255,255,255,255" Offset="0,0" StateOffsetIncrement="0,0" Style="CivilopediaListItem">
+      <Image ID="CivIcon" Size="65,65" Offset="2,0" Anchor="L,T" Texture="CivSymbolsColor512.dds"/>
+      <Button Anchor="R,T"  ID="GoToCity" Offset="2,2" Size="30,30" StateOffsetIncrement="0,0" Texture="Civilopedia_SearchIcon.dds"/>
+      <Label ID="CityName" Anchor="L,T" Offset="70,5" LeadingOffset="2" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal20" FontStyle="glow" WrapWidth="300" />
+      <Label ID="CityDescription" Anchor="L,T" Offset="70,24" LeadingOffset="1" Style="GrayShadow" WrapWidth="270"  String="Previous Route" />
+    </GridButton>
+  </Instance>
+  
+  <!-- BOTTOM PANEL-->
+  <Grid Size="400, parent-106" Anchor="L,B" Offset="-7,-19"	Style="GridWindowWithHeader" ConsumeMouse="1" ID="BottomPanel">
+    <Button	ID="CloseButton" Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+    <Box Color="0,0,0,0" Size="parent, 40">
+      <Label Offset="16,10" Anchor="L,C" WrapWidth="350" Style="MenuTitleCaptionSmall" String="{TXT_KEY_CHANGE_TRADE_UNIT_HOME_CITY_TITLE:upper}"/>
+    </Box>
+    <Grid Style="ProductionListHeaderGrid" Size="parent-7,70" Offset="0,48">
+      <Image ID="TradeUnitIcon" Size="64,64" Offset="5,7" Anchor="L,B" Texture="CivSymbolsColor512.dds"/>
+      <Box Color="0,0,0,0" Size="436,100">
+        <Label Anchor="L,T" Offset="65,10" Style="GrayGlow" ID="StartingCity" />
+        <Label Anchor="L,T" Offset="67,30" Style="GrayShadow" ID="UnitInfo" />
+        <Label Anchor="L,T" Offset="67,48" Style="GrayShadow" ID="UnitRange" />
+      </Box>
+    </Grid>
+
+    <Grid Style="SideRight" Color="255,255,255,150" Size="18,parent-77" Anchor="R,T" Offset="5,111"/>
+    <ScrollPanel Anchor="L,T" Size="parent-17,parent-178" Offset="-10,110" Vertical="1" ID="ItemScrollPanel" AutoScrollBar="1">
+      <!-- Scroll Controls -->
+      <ScrollBar Style="VertSlider" Length="parent" Offset="4,0" Anchor="R,T" AnchorSide="O,I"/>
+      <Stack Anchor="L,T" Offset="18,0" StackGrowth="Bottom" Padding="0" ID="ItemStack"/>
+    </ScrollPanel>
+
+    <Grid Style="ProductionListHeaderGrid" Size="parent-14,55" Anchor="C,B" Offset="0,13">
+      <GridButton Anchor="C,C" Style="BaseButton" Size="175,35" Offset="0,-4" ID="TradeOverviewButton">
+        <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_CHOOSE_TRADE_ROUTE_TRADE_OVERVIEW" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+      </GridButton>
+    </Grid>
+  </Grid>
+
+  <!-- Confirmation Popup -->
+  <Box Color="Black.200" Size="Full.Full" ID="ChooseConfirm" Hidden="1"  ConsumeMouse="1">
+    <Grid Size="350,200" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140" Hidden="0">
+      <Label Anchor="C,T" ID="ConfirmText" Offset="0,30" WrapWidth="320" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_CONFIRM_CHOOSE_TRADE_ROUTE"/>
+      <Stack Anchor="C,B" Offset="0,30" Padding="15" StackGrowth="Bottom" ID="ButtonStack">
+        <!-- Yes Button  -->
+        <GridButton Style="BaseButton" ID="ConfirmYes" Size="200,42" Anchor="C,B" Offset="0,0" Hidden="0">
+          <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+        </GridButton>
+        <!-- No Button  -->
+        <GridButton Style="BaseButton" ID="ConfirmNo" Size="200,42" Anchor="C,B" Offset="0,0" Hidden="0">
+          <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+        </GridButton>
+      </Stack>
+    </Grid>
+  </Box>
+</Context>

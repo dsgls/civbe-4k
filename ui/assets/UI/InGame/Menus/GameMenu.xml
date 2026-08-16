@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal" >
+
+  <!-- Active Game Option Instance -->
+  <Instance Name="TipGameOption" Size="320.24">
+    <Label ID="Text" Anchor="C,T"  Offset="0,0"  String="" Style="GrayGlow"/>
+  </Instance>
+
+  <!-- Game Option Instance -->
+  <Instance Name="GameOption" Size="320.24">
+    <Label ID="Text" Anchor="C,T"  Offset="0,0"  String="" Style="WhiteShadow" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+  </Instance>
+  
+  <!-- Game Setup Instance -->
+  <Instance Name="GameSetup" Size="320.24">
+    <Stack StackGrowth="Right" ID="Root" Anchor="C,T">
+      <Label ID="TextLabel" Anchor="C,T"  Offset="0,0"  String="" Style="WhiteShadow"  />
+      <Label Anchor="C,T"  Offset="0,0"  String=": " Style="WhiteShadow"  />
+      <Label ID="Text" Anchor="C,T"  Offset="0,0"  String="" Style="GrayGlow"  />
+    </Stack>
+  </Instance>
+  
+  <!-- Mod Entry Instance -->
+  <Instance Name="ModEntryInstance" Size="320.24">
+    <Label ID="Text" Anchor="C,T"  Offset="0,0"  String="" Style="WhiteShadow" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+  </Instance>
+
+  <Box Style="BGBlock" ID="BGBlock" />
+
+  <Grid Size="400,751" Anchor="C,C" Offset="0,0" Padding="0,0" Style="GridWindowNoHeader" ConsumeMouse="1">
+    <Label Anchor="C,T" Offset="0,18" Style="FontNormal26" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_MENU_TITLE"/>
+
+    <Container Anchor="C,T" ID="MainContainer" Offset="0,60" Size="320,295" >
+
+      <Stack Anchor="C,T" Padding="0" StackGrowth="Bottom" ID="MainStack" >
+
+        <Container Anchor="C,T" Size="320,45">
+          <GridButton Anchor="C,T" ID="RestartGameButton"   Size="320,45"    Style="BaseButton">
+            <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_RESTART_GAME_BUTTON"/>
+          </GridButton>
+          <GridButton Anchor="C,T" ID="RetireButton"   Size="320,45"    Style="BaseButton" ToolTip="TXT_KEY_ACTION_RETIRE">
+            <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="{TXT_KEY_RETIRE: upper}"/>
+          </GridButton>
+        </Container>
+        <GridButton Anchor="C,T" ID="QuickSaveButton"  Size="320,45" Style="BaseButton">
+          <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_QUICK_SAVE_BUTTON"/>
+        </GridButton>
+        <GridButton Anchor="C,T" ID="SaveGameButton"   Size="320,45"    Style="BaseButton">
+          <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_SAVE_BUTTON"/>
+        </GridButton>
+        <GridButton Anchor="C,T" ID="LoadGameButton"   Size="320,45"    Style="BaseButton">
+          <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_LOAD_GAME_BUTTON"/>
+        </GridButton>
+        <GridButton Anchor="C,T" ID="OptionsButton"   Size="320,45"    Style="BaseButton">
+          <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_OPTIONS_BUTTON"/>
+        </GridButton>
+        <GridButton Anchor="C,T" ID="StarshipsButton"   Size="320,45"    Style="BaseButton">
+          <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_STARSHIPS_BUTTON"/>
+        </GridButton>
+      </Stack>
+
+      <GridButton Anchor="C,B" ID="MainMenuButton"   Size="320,45"  Offset="0,-50"  Style="BaseButton">
+        <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_EXIT_TO_MAIN"/>
+      </GridButton>
+      <GridButton Anchor="C,B" ID="ExitGameButton"   Size="320,45" Offset="0,-105"   Style="BaseButton">
+        <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_EXIT_TO_WINDOWS"/>
+      </GridButton>
+      
+    </Container>
+
+    <GridButton Anchor="C,B" ID="ReturnButton" Offset="0,44" Size="320,45" Style="BaseButton">
+      <Label Anchor="C,C" Style="FontNormal20" FontStyle="shadow" Color0="164,173,183,255" Color1="0,0,0,100" String="TXT_KEY_MENU_RETURN_TO_GAME"/>
+    </GridButton>
+
+      <Image Anchor="C,B" AnchorSide="I,I" Offset="0,100" Texture="bar300x2.dds" Size="300,1" />
+
+      <!-- file details treatment -->
+      <Container Anchor="C,B" AnchorSide="I,I" Offset="0,110" Size="300,190" Color="Black.0" Hidden="0">
+
+        <TextButton ID="DetailsButton" Offset="6,20" Anchor="C,B" String="TXT_KEY_TOGGLE_GAME_DETAILS" Style="TextOff" MouseOverStyle="TextOver" ConsumeMouse="1" />
+        <TextButton ID="ModsButton" Offset="6,0" Anchor="C,B" String="{TXT_KEY_ACTIVE_MODS:upper}" Style="TextOff" MouseOverStyle="TextOver" ConsumeMouse="1" />
+
+        <Stack Anchor="C,B" Offset="15,-5"  Padding="0,0" StackGrowth="Right" >
+          <Box		ID="CivIconFrame"	Size="64,64"	Anchor="L,T" Offset="1,2" Color="0,0,0,100">
+            <Image	ID="CivIconBG"		Size="64,64"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+            <Image	ID="CivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+            <Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+          </Box>
+          
+          <Stack Offset="10,-22" Anchor="L,T" StackGrowth="Down" Padding="0,0">     
+            <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0">
+              <Label Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+              <Label ID="TypeLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" WrapWidth="125" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+            </Stack>
+            <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+              <Label Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+              <Label ID="SizeLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+            </Stack>
+            <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+              <Label ID="DifficultyName" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+              <Label ID="DifficultyLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+            </Stack>
+            <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+              <Label ID="SpeedName" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_GAME_SPEED"/>
+              <Label ID="SpeedLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_GAME_SPEED"/>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Container>
+
+    <Grid ID="DetailsPanel" Style="GridWindowNoHeader" Anchor="C,T" Offset="0,44" Size="320,449" Hidden="1" ConsumeMouse="1">
+      <ScrollPanel Offset="0,10" Anchor="L,T" Size="316,429" ID="ScrollPanel" Vertical="1" AutoScrollBar="1" >
+
+        <!-- Scroll Controls -->
+        <ScrollBar  Offset="0,0"   Style="VertSlider"    Anchor="R,T" AnchorSide="I,I" Length="438" />
+
+        <Stack ID="OptionsStack" Anchor="C,T" Offset="0,10"  Padding="8" StackGrowth="Bottom" >
+          <Label  ID="DetailsLeader" Anchor="C,T"  Offset="0,0"  String="" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+          <Image  Anchor="C,T"  Offset="0,0" Texture="bar300x2.dds" Size="300,1" />
+          <Label  ID="DetailsCiv" Anchor="C,T"  Offset="0,0"  String="" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+          <Stack ID="SetupOptions" Anchor="C,T" Offset="0,0"  Padding="8" StackGrowth="Bottom" />
+          <Stack ID="GameOptions" Anchor="C,T" Offset="0,0"  Padding="8" StackGrowth="Bottom" />
+
+          <Image  Anchor="C,T"  Offset="0,0" Texture="bar300x2.dds" Size="300,1" />
+          <Stack ID="VictoryConditions" Anchor="C,T" Offset="0,0"  Padding="8" StackGrowth="Bottom" />
+
+          <Stack ID="AdvancedOptions" Anchor="C,T" Offset="0,-2"  Padding="8" StackGrowth="Bottom" >
+            <Image  Anchor="C,T"  Offset="0,0" Texture="bar300x2.dds" Size="300,1" />
+          </Stack>
+
+          <Image  Anchor="C,B" AnchorSide="I,O" Offset="0,5" Texture="bar300x2.dds" Size="300,1" />
+        </Stack>
+      </ScrollPanel>
+    </Grid>
+
+    <Box ID="ModsPanel" Color="Black.0" Anchor="C,T" Offset="0.44" Size="320.330" Hidden="1" ConsumeMouse="1">
+
+      <ScrollPanel Offset="0,0" Anchor="L,T" Size="316,330" ID="ModsScrollPanel" Vertical="1" AutoScrollBar="1" >
+
+        <!-- Scroll Controls -->
+        <ScrollBar Style="VertSlider" Length="294" Offset="0.18" Anchor="R,T" AnchorSide="I,I" />
+        <UpButton  Offset="0.0"  Style="ScrollBarUp"  Anchor="R,T" AnchorSide="I,I" />
+        <DownButton Offset="0.312" Style="ScrollBarDown"  Anchor="R,T" AnchorSide="I,I" />
+
+        <Stack ID="ModsStack" Anchor="C,T" Offset="0,10"  Padding="8" StackGrowth="Bottom" >
+          <Label  Anchor="C,T"  Offset="0,0"  String="TXT_KEY_ACTIVE_MODS" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+          <Image  Anchor="C,T"  Offset="0,0" Texture="bar300x2.dds" Size="300,1" />
+        </Stack>
+      </ScrollPanel>
+    </Box>
+  </Grid>
+
+	<Box		ID="ExitConfirm"	Style="BGBlock" Hidden="1" ConsumeMouseOver="1">
+		<Grid						Size="500,360" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140" >
+
+			<Label			ID="Message"	Anchor="C,T"  Offset="0,74"  WrapWidth="440" String="TXT_KEY_MENU_EXIT_DEFAULT" Style="WhiteShadow20" />
+			<Stack							Anchor="C,B" Offset="0,80" Padding="24" StackGrowth="Bottom" >
+				<!-- Yes Button  -->
+				<GridButton		ID="Yes"	Style="BaseButton"  Size="400,42" Anchor="C,T">
+					<Label					Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+				</GridButton>
+				<!-- No Button  -->
+				<GridButton		ID="No"		Style="BaseButton" Size="400,42" Anchor="C,T" >
+					<Label					Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+				</GridButton>
+			</Stack>
+		</Grid>
+	</Box>
+
+	<Button Anchor="R,B" Size="128,128" TextureOffset="384,128" ToolTip="TXT_KEY_TOUCH_HELP" Texture="CivBE_TouchIconAtlas_128.dds" NoStateChange="1" ID="TouchHelpButton" />
+
+	<LuaContext ID="LoadMenu"				FileName="Assets/UI/FrontEnd/LoadMenu"							Hidden="1" />
+	<LuaContext ID="SaveMenu"				FileName="Assets/UI/InGame/Menus/SaveMenu"						Hidden="1" />
+	<LuaContext ID="SaveMapMenu"			FileName="Assets/UI/InGame/Menus/SaveMapMenu"					Hidden="1" />
+	<LuaContext ID="OptionsMenu_InGame"	FileName="Assets/UI/Options/OptionsMenu"						Hidden="1" />
+	<LuaContext ID="TouchControlsMenu"	FileName="Assets/UI/FrontEnd/TouchControlsMenu" DeferLoad="1"	Hidden="1" />
+
+</Context>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Grid		Anchor="C,C"	Size="960,650"						Style="GridWindowWithHeader" >
+		
+		<Button	ID="BackButton"		Anchor="R,T" Offset="7,7"	Style="CloseButton" />
+		
+
+		<Label			ID="TitleLabel" Style="MenuTitleCaption" String="{TXT_KEY_MODDING_BROWSER_TITLE:upper}"/>
+		
+		<!-- Menu Panel -->
+		<Container								Anchor="C,B" Offset="0,45"   Size="910,56" >
+
+			<GridButton	ID="OptionsButton"		Anchor="L,B"  Offset="0,0"	Style="BaseButton" Size="170,32" >
+				<Label							Anchor="C,C"  Offset="0,0" Style="FontNormal20"  String="{TXT_KEY_MODDING_OPTIONS:upper}"  />
+			</GridButton>						
+			
+			<!-- Delete Button  -->
+			<GridButton ID="SmallButton1"		Anchor="C,B"  Style="BaseButton" Size="170,32"  Offset="-120,0" ToolTip="TXT_KEY_MODDING_DELETEMOD" Hidden="1"  >
+				<Label	ID="SmallButton1Label"	Anchor="C,C"  Style="FontNormal20" Offset="0,0"  String="{TXT_KEY_MODDING_DELETEMOD:upper}" />
+			</GridButton>
+
+			<!-- Workshop Button  -->
+			<GridButton	ID="SmallButton2"		Anchor="C,B"  Style="BaseButton" Size="170,32"  Offset="120,0" ToolTip="TXT_KEY_MODDING_WORKSHOP_TT" >
+				<Label	ID="SmallButton2Label"	Anchor="C,C" Style="FontNormal20"  Offset="0,0"  String="TXT_KEY_MODDING_WORKSHOP" />
+			</GridButton>
+			
+			<GridButton	ID="NextButton"			Anchor="R,B" Style="BaseButton"  Size="170,32"  String="TXT_KEY_MODDING_NEXT" />
+			
+		</Container>		
+
+		<LuaContext		ID="InstalledPanel"	FileName="Assets/UI/FrontEnd/Modding/InstalledPanel" />
+	</Grid>
+	
+
+	<Box ID="OptionsPopup"  Color="Black,200" Size="Full,Full" Hidden="1" >
+		<Grid		Size="450,260"	Offset="0,0"		Anchor="C,C" Padding="0,20" Style="Grid9DetailFive140"  >
+			<Label	Anchor="C,T"	Offset="0,20"	Style="ShellDialogHeaderText" String="{TXT_KEY_MODDING_OPTIONS:upper}"  />
+			<Stack	Size="340,110"	Offset="30,50"	StackGrowth="Bottom">
+				<CheckBox	ID="ShowDLCMods" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Right" Style="FontNormal20" TextOffset="40,0" IsChecked="0" String="TXT_KEY_MODDING_SHOWDLCMODS" ConsumeMouse="1"  />
+			</Stack>
+			<GridButton	ID="OptionsOK"	Anchor="C,B" Offset="0,30" Style="BaseButton" String="TXT_KEY_OK_BUTTON" />
+		</Grid>
+	</Box>
+	
+
+	<LuaContext			ID="ModsMenu"		FileName="Assets/UI/FrontEnd/Modding/ModsMenu" Hidden="1" DeferLoad="0" />
+	
+</Context>

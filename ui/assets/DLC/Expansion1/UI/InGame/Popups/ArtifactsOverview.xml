@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha">
+  <Box Style="BGBlock_ClearTopBar"/>
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Box Size="Full,Full" Color="0,0,0,0" ConsumeMouse="1" HideBox="0" ID="BGBlock" Hidden="1"/>
+    <Grid Size="1000, 640"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+
+      <!-- Close Button -->
+      <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+      <!-- Title -->
+      <Label  Style="MenuTitleCaption" String="{TXT_KEY_ARTIFACTS_OVERVIEW:upper}" ID="Title" />
+
+      <!-- Main content -->
+      <Container ID="EarnedYields" Anchor="L,T" Offset="12,56" Size="200,Parent-82">
+        <Image Anchor="L,T" Offset="200,0" Color="255,255,255,100" Texture="SideRight.dds" Size="13,560"/>
+        <Label ID="EarnedYieldsTitle" Anchor="C,T" Style="GrayGlow22" Offset="0,4" String="{TXT_KEY_ARTIFACTS_OVERVIEW_EARNED_YIELDS:upper}"/>
+        <Stack ID="EarnedYieldsStack" Anchor="L,T" Size="Parent,Parent-24" Offset="12,48" StackGrowth="B" Padding="8">
+          <Label ID="EarnedEnergy" Style="WhiteShadow22" String="TXT_KEY_YIELD_ENERGY" />
+          <Label ID="EarnedFood" Style="WhiteShadow22" String="TXT_KEY_YIELD_FOOD" />
+          <Label ID="EarnedProduction" Style="WhiteShadow22" String="TXT_KEY_YIELD_PRODUCTION" />
+          <Label ID="EarnedScience" Style="WhiteShadow22" String="TXT_KEY_YIELD_SCIENCE" />
+          <Label ID="EarnedCulture" Style="WhiteShadow22" String="TXT_KEY_YIELD_CULTURE" />          
+        </Stack>
+        <Image Anchor="C,T" Offset="-2,30" TextureOffset="55.0" Texture="bar300x2.dds" Size="190.1" Color="255,255,255,150"/>
+      </Container>
+
+      <Container ID="EarnedItems" Anchor="R,T" Offset="12,56"	Size="760,Parent-82">
+        <Label ID="EarnedItemsTitle" Style="GrayGlow22" Anchor="C,T" Offset="0,4" String="{TXT_KEY_ARTIFACTS_OVERVIEW_EARNED_ITEMS:upper}"/>
+        
+        <ScrollPanel ID="EarnedItemsScrollPanel" Anchor="L,T" Offset="0,28" Size="Parent,Parent-28"	Vertical="1" ConsumeMouse="1" >
+          <ScrollBar ID="EarnedItemsScrollBar"		Anchor="R,T" Offset="0,0"		Length="Parent"			Style="VertSlider" AnchorSide="I,I" />
+          <Stack ID="EarnedItemsStack" Anchor="L,T" Offset="0,0"		Size="Parent,Parent"		StackGrowth="B" Padding="2">
+            <GridButton	ID="PerksButton" Anchor="L,T" Offset="1,0"	Size="Parent-20,27" Style="ProductionCategoryBackground">
+              <Label ID="PerksHeader" Anchor="L,T" Offset="5,4" Style="ProductionListHeaderText" String="{TXT_KEY_ARTIFACTS_OVERVIEW_ABILITIES:upper}"/>
+              <Label	ID="PerksPlus" Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+            </GridButton>
+            <Stack ID="PerksStack" Anchor="L,T" StackGrowth="B" Padding="2"/>
+            <GridButton	ID="BuildingsButton" Anchor="L,T" Offset="1,0"	Size="Parent-20,27" Style="ProductionCategoryBackground">
+              <Label ID="BuildingsHeader" Anchor="L,T" Offset="5,4" Style="ProductionListHeaderText" String="{TXT_KEY_POP_BUILDINGS:upper}"/>
+              <Label	ID="BuildingsPlus" Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+            </GridButton>
+            <Stack ID="BuildingsStack" Anchor="L,T" StackGrowth="B" Padding="2"/>          
+            <GridButton	ID="WondersButton" Anchor="L,T" Offset="1,0"	Size="Parent-20,27" Style="ProductionCategoryBackground">
+              <Label ID="WondersHeader" Anchor="L,T" Offset="5,4" Style="ProductionListHeaderText" String="{TXT_KEY_POP_WONDERS:upper}"/>
+              <Label	ID="WondersPlus" Anchor="R,C" Offset="2,0"	Style="ProductionListHeaderText" String="+"/>
+            </GridButton>
+            <Stack ID="WondersStack" Anchor="L,T" StackGrowth="B" Padding="2"/>
+          </Stack>
+        </ScrollPanel>
+      </Container>      
+    </Grid>
+  </AlphaAnim>
+
+  <!-- INSTANCES -->
+
+  <Instance Name="PerkInstance">
+    <Grid ID="Header"	Size="740,60"	Style="GridSecondaryPanelHeader">
+      <Label ID="Title" Anchor="L,T" Offset="12,4" Style="FontNormal16" Color="0,255,255,255" String="Earned Perk!" />
+      <Label ID="Effects" Anchor="L,T" Offset="12,24" Style="ProductionListText" WrapWidth="740"/>
+    </Grid>
+  </Instance>
+
+  <Instance Name="BuildingInstance">
+    <Grid ID="Header"	Size="740,68"	Style="GridSecondaryPanelHeader">
+      <Image ID="BuildingImage"	Anchor="L,C" Offset="0,4" Size="64,64"	Color="CityView_Icons" Texture="WonderAtlas512.dds"/>
+      <Label ID="Title" Anchor="L,T" Offset="70,4" Style="WhiteShadow" String="Earned Building!" />
+      <Label ID="Effects" Anchor="L,T" Offset="70,24" Style="ProductionListText" WrapWidth="740"/>
+    </Grid>
+  </Instance>
+
+  <Instance Name="NoneInstance">
+    <Grid			ID="None"		Offset="0,0"	Size="740,30" Style="GridSecondaryPanelHeader">
+      <Label Style="GrayShadow" Anchor="C,C"	String="{TXT_KEY_COVERT_NONE:upper}" />
+    </Grid>
+  </Instance>
+</Context>

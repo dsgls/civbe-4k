@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FontIcons>
+	<Atlas File="Assets/UI/FontIcons.dds" />
+
+	<!--  Icon Name                      Starting pixel    Size in pixels   Glyph advance    Offset from baseline [optional] -->
+    <Icon Name="CULTURE"                 Start="0,0"       Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="RESEARCH"                Start="22,0"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ENERGY"                  Start="44,0"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PRODUCTION"              Start="66,0"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FOOD"                    Start="88,0"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PURITY"                  Start="110,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="SUPREMACY"               Start="132,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="HARMONY"                 Start="154,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="HEALTH_1"                Start="176,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="HEALTH_2"                Start="176,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+	<Icon Name="HEALTH_3"                Start="198,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+	<Icon Name="HEALTH_4"                Start="198,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="HEALTH"                  Start="176,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="UNHEALTH"                Start="198,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CITIZEN"                 Start="220,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    
+    <Icon Name="BULLET"                  Start="0,22"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CHECKMARK"               Start="22,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLUS"                    Start="44,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="MINUS"                   Start="66,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="MOVES"                   Start="88,22"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="RANGE_STRENGTH"          Start="110,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="STRENGTH"                Start="132,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ATTACK_RANGE"            Start="154,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ORBITAL_RANGE"           Start="176,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ORBITAL_DURATION"        Start="198,22"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ARROW_LEFT"              Start="220,22"    Size="22,22"     Advance="22"     Baseline="0,4" />   
+    
+    <Icon Name="RAZING"                  Start="0,44"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="MARTIAL_LAW"             Start="22,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PUPPET"                  Start="44,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="RESISTANCE"              Start="66,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CAPITAL"                 Start="88,44"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CAPITOL"                 Start="88,44"     Size="22,22"     Advance="22"     Baseline="0,4" /> <!-- Throwing this in here in case someone spells Capitol correctly ;) -->
+    <Icon Name="INTERNATIONAL_TRADE"     Start="110,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="SPY"                     Start="132,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="VIEW_CITY"               Start="154,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="SEARCH"                  Start="154,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FIBER"                   Start="176,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CORAL"                   Start="198,44"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="RESILIN"                 Start="220,44"    Size="22,22"     Advance="22"     Baseline="0,4" />    
+    
+    <Icon Name="CHITIN"                  Start="0,66"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="SILICA"                  Start="22,66"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FUNGUS"                  Start="44,66"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="BASALT"                  Start="66,66"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="GOLD"                    Start="88,66"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="COPPER"                  Start="110,66"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FRUIT"                   Start="132,66"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ALGAE"                   Start="154,66"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PETROLEUM"               Start="176,66"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="TITANIUM"                Start="198,66"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="GEOTHERMAL"              Start="220,66"    Size="22,22"     Advance="22"     Baseline="0,4" />      
+         
+    <Icon Name="XENOMASS"                Start="0,88"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FLOAT_STONE"              Start="22,88"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="FIRAXITE"                Start="44,88"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="DERELICT_SETTLEMENT"     Start="66,88"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CRASHED_SATELLITE"       Start="88,88"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="ALIEN_SKELETON"          Start="110,88"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PROGENITOR_RUINS"        Start="132,88"    Size="22,22"     Advance="22"     Baseline="0,4" />
+	<Icon Name="ARTIFACTS"        Start="132,88"    Size="22,22"     Advance="22"     Baseline="0,4" /> <!-- TEMP - Need an ARTIFACTS icon for expedition tool-tips -->
+	<Icon Name="TUBER"              Start="154,88"    Size="22,22"     Advance="22"     Baseline="0,4" /> 
+    <Icon Name="CONNECTED"                     Start="176,88"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="BLOCKADED"                     Start="198,88"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="OCCUPIED"                     Start="220,88"    Size="22,22"     Advance="22"     Baseline="0,4" />      
+            
+    <Icon Name="ARROW_RIGHT"                     Start="0,110"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CHAT_ALL"                     Start="22,110"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CHAT_TEAM"                     Start="44,110"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="CHAT_PLAYER"                     Start="66,110"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER8"                     Start="88,110"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="STAT_INCREASE"                     Start="110,110"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="STAT_DECREASE"                     Start="132,110"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER11"                     Start="154,110"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER12"                     Start="176,110"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER13"                     Start="198,110"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER14"                     Start="220,110"    Size="22,22"     Advance="22"     Baseline="0,4" />      
+             
+    <Icon Name="PLACEHOLDER15"                     Start="0,132"      Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER16"                     Start="22,132"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER17"                     Start="44,132"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER18"                     Start="66,132"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER19"                     Start="88,132"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER20"                     Start="110,132"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER21"                     Start="132,132"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER22"                     Start="154,132"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER23"                     Start="176,132"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER24"                     Start="198,132"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER25"                     Start="220,132"    Size="22,22"     Advance="22"     Baseline="0,4" />      
+                                                            
+    <Icon Name="PLACEHOLDER26"                     Start="0,154"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER27"                     Start="22,154"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER28"                     Start="44,154"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER29"                     Start="66,154"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER30"                     Start="88,154"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER31"                     Start="110,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER32"                     Start="132,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER33"                     Start="154,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER34"                     Start="176,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER35"                     Start="198,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER36"                     Start="220,154"   Size="22,22"     Advance="22"     Baseline="0,4" />
+
+    <Icon Name="PLACEHOLDER37"                     Start="0,176"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER38"                     Start="22,176"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER39"                     Start="44,176"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER40"                     Start="66,176"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER41"                     Start="88,176"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER42"                     Start="110,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER43"                     Start="132,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER44"                     Start="154,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER45"                     Start="176,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER46"                     Start="198,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER47"                     Start="220,176"   Size="22,22"     Advance="22"     Baseline="0,4" />
+
+    <Icon Name="PLACEHOLDER48"                     Start="0,198"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER49"                     Start="22,198"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER50"                     Start="44,198"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER51"                     Start="66,198"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER52"                     Start="88,198"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER53"                     Start="110,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER54"                     Start="132,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER55"                     Start="154,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER56"                     Start="176,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER57"                     Start="198,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER58"                     Start="220,198"   Size="22,22"     Advance="22"     Baseline="0,4" />
+
+    <Icon Name="PLACEHOLDER59"                     Start="0,220"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER60"                     Start="22,220"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER61"                     Start="44,220"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER62"                     Start="66,220"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER63"                     Start="88,220"    Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER64"                     Start="110,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER65"                     Start="132,0"     Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER66"                     Start="132,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER67"                     Start="154,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER68"                     Start="176,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER69"                     Start="198,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER70"                     Start="220,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+    <Icon Name="PLACEHOLDER71"                     Start="220,220"   Size="22,22"     Advance="22"     Baseline="0,4" />
+	
+</FontIcons>

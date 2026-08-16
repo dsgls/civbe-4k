@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black_Alpha" FontStyle="Shadow" Style="FontNormal16" >
+
+
+    <ScrollPanel	ID="MPListScroll"	Anchor="R,T" Size="250,200" Offset="0,170" Vertical="1" >
+        <Stack		ID="MPListStack"	StackGrowth="Bottom" Anchor="R,T" />
+        <ScrollBar  ID="ScrollBar"		Offset="0,0" Style="VertSlider"      Anchor="R,C"   AnchorSide="O,I" />
+    </ScrollPanel>
+
+    
+    <Instance Name="TeamEntry" >
+        <Stack ID="Root" ConsumeMouse="1" >
+			<Grid			ID="TeamBox"		Size="200,36" Style="CivilopediaSubHeader" Color="255,255,255,200">
+                <Label		ID="TeamName"		Anchor="L,C" Offset="6,0" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Team Name" ConsumeMouse="0"/>
+                <Label		ID="Score"			Anchor="R,C" Offset="10,0" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" String="123" ConsumeMouse="0"/>
+				<BoxButton	ID="TeamClickEntry"	Anchor="R,T" Size="200,30" Color="0,0,0,0" />
+			</Grid>
+			<Stack			ID="TeamStack" StackGrowth="Bottom" />
+            <Box			ID="TeamSeparator" Anchor="C,B" AnchorSide="i,o" Size="200,4" Style="TabSpacerDark" Offset="0,-3" Color="0,0,0,128" />
+        </Stack>
+    </Instance>
+
+
+	<Instance Name="PlayerEntry" >
+		<Grid			ID="Root" Style="CivilopediaListItem" Anchor="R,T" Size="232,35" Color="255,255,255,128" ConsumeMouse="1" >
+			<BoxButton	ID="ClickEntry"	Anchor="R,T" Size="232,28" Color="0,0,0,0" />
+			<Stack		ID="PlayerDataStack" StackGrowth="Right">
+				<Box	ID="LeftMarginBox" Color="0,0,255,0" Anchor="L,C" Offset="0,0" Size="5,32" />
+				<Box	ID="KickBox" Color="255,0,255,0" Anchor="L,C" Offset="0,0" Size="24,32">
+					<Button ID="KickButton" Anchor="R,C" Size="24,24" Offset="0,0" Style="CloseButtonSmall" ToolTip="TXT_KEY_MP_KICK_PLAYER" />
+				</Box>
+				<Box ID="HostBox" Color="255,0,0,0" Anchor="L,C" Offset="0,0" Size="24,32">
+					<Label Anchor="R,C"  Offset="0,0" String="[ICON_CAPITAL]" ID="HostIcon" ToolTip="TXT_KEY_HOST" Hidden="1" />
+				</Box>
+				<Box ID="ConnectedBox" Color="0,255,0,0" Anchor="L,C" Offset="0,0" Size="24,24">
+					<Image Anchor="C,C"  Offset="0,0" ID="ConnectionStatus" Size="32,32" Texture="assets/UI/Art/Icons/MarcPips.DDS" ToolTip="TXT_KEY_MP_PLAYER_CONNECTED" Hidden="1" />
+				</Box>
+				<Box ID="VoiceChatBox" Color="0,0,255,0" Anchor="L,C" Offset="0,0" Size="24,24">
+					<Image Anchor="C,C"  Offset="0,0" ID="VoiceChatIcon" Size="32,32" Texture="assets/UI/Art/Icons/ChatIcons32.dds" Hidden="1" />
+				</Box>
+				<Box ID="DiploBox" Color="250,0,0,0" Anchor="L,C" Offset="0,0" Size="24,32">
+					<Button Anchor="L,C"  Offset="-5,0" Texture="GenericCiv_28.dds" Size="28.28" ID="DiploWaiting" NoStateChange="1" ToolTip="TXT_KEY_DIPLO_REQUEST_INCOMING" Hidden="0"/>
+				</Box>
+				<Box ID="IconBox" Color="255,255,255,0" Anchor="L,C" Offset="0,0" Size="32,32">
+					<!--<Image ID="Icon" Size="32,32" Offset="0,0"  Anchor="C,C" Texture="CivSymbolsColor256.dds" />-->
+					<Container		ID="CivIconFrame"	Size="32,32"	Anchor="C,C" Offset="-1,0" >
+						<Image	ID="CivIconBG"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+						<Image	ID="CivIcon"		Size="24,24"	Anchor="C,C" Offset="1,1" Texture="CivSymbolsColor256.dds"/>
+						<Image	ID="CivIconHighlight"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+					</Container>
+				</Box>
+				<Box ID="NameBox" Color="128,0,0,0" Anchor="L,C" Offset="0,0" Size="100,32">
+					<Label Anchor="L,C" Offset="0,0" TruncateWidth="100" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Player Name" ID="Name" ConsumeMouse="0"/>
+				</Box>
+				<Box ID="ScoreBox" Color="0,128,0,0" Anchor="L,C" Offset="0,0" Size="40,32">
+					<Label Anchor="R,C" Offset="10,0" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" String="123" ID="Score" ConsumeMouse="0"/>
+				</Box>
+				<Box ID="PingBox" Color="128,0,128,0" Anchor="L,C" Offset="0,0" Size="48,32">
+					<Label Anchor="R,C" Offset="0,0" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" String="999ms" ID="Ping" Hidden="1" ConsumeMouse="0"/>
+				</Box>
+				<Box ID="RightMarginBox" Color="0,0,255,0" Anchor="L,C" Offset="0,0" Size="10,32"/>
+			</Stack>
+		</Grid>
+	</Instance>
+
+	<LuaContext FileName="Assets/DLC/Shared/UI/InGame/Popups/ConfirmKick" ID="ConfirmKick" Hidden="1" />
+</Context>

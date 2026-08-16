@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Instance Name="SettlerRecommendation" >
+		<WorldAnchor ID="Anchor" >
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
+        <Image Size="64,64" TextureOffset="64,384" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
+      </Image>
+		</WorldAnchor>
+	</Instance>
+
+	<Container ID="SettlerRecommendationStore" />
+
+	<Instance Name="WorkerReccomendation" >
+		<WorldAnchor ID="Anchor" >
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
+        <Image Size="45,45" Anchor="C,C" ID="Icon" />
+      </Image>
+		</WorldAnchor>
+	</Instance>
+ 
+	<Container ID="WorkerRecommendationStore" />
+
+  <Instance Name="ExplorerRecommendation" >
+    <WorldAnchor ID="Anchor" >
+      <Image Anchor="C,C" Texture="WorldAnchorBacking.dds" Size="137,137">
+        <Image Size="64,64" TextureOffset="128,128" Anchor="C,C" Texture="UnitActions.dds" ID="Icon" />
+      </Image>
+    </WorldAnchor>
+  </Instance>
+
+  <Container	ID="ExplorerRecommendationStore" />
+  <Container	ID="PlotButtonContainer" />
+	
+</Context>

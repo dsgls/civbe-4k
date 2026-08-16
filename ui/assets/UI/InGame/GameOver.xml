@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" Layer="Modal">
+  <Box 	Color="0,0,0,0" Size="full,full" ConsumeMouse="1"/>
+  <Box ID="BGBlock" Style="BGBlock"/>
+
+  <!-- Fader -->
+  <AlphaAnim ID="FadeAlphaAnim" Size="full,full" Cycle="once" Pause="1" Speed="1" Function="linear" AlphaStart="0" AlphaEnd="1">
+    <Box ID="Fader" Size="parent,parent" Color="0,0,0,255"/>
+  </AlphaAnim>
+
+  <!-- Movie -->
+  <Image ID="Movie" Size="parent,parent" Anchor="C,C" Hidden="true" Sampler="Linear" />
+
+  <!-- Subtitles -->
+  <Label ID="Subtitles" Anchor="C,B" Offset="0,25" Align="center" Style="FontNormal24" />
+
+  <!-- Game Over -->
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid ID="GameOverContent" Style="GridWindowWithHeader" Size="700,500" Anchor="C,C">
+      <!-- Header -->
+      <Label ID="Header" Offset="0,17" Anchor="C,U" Style="MenuTitleCaption" String="$GAME OVER$"/>
+
+      <!-- Image -->
+      <Image ID="Banner" Size="685,125" Anchor="C,T" Offset="0,48"/>
+
+      <Container Size="200,65" Anchor="L,T" Offset="20,110">
+        <Box Style="CivIcon64" 	Anchor="L,T" Offset="-2,-2" />
+        <Box Color="255,255,255,12" Offset="58,0" Size="2,55"/>
+        <Stack StackGrowth="Down" Offset="65,5" >
+          <Label ID="Name" Style="WhiteShadow22" Anchor="L,T" Align="Right" String="LEADER NAME HERE" />
+          <Label ID="CivName" Style="WhiteShadow16" Anchor="L,T" Align="Right" String="Faction Name Here" />
+        </Stack>
+      </Container>
+
+      <Label ID="Text" Style="GrayGlow20" Anchor="C,T" Offset="0,190" WrapWidth="680" String="Victory text here..." />
+
+      <Stack ID="ButtonStack" Anchor="C,B" Offset="0,30" StackGrowth="Right" Padding="10">
+        <GridButton ID="MainMenuButton" Style="BaseButton" Size="275,35" String="TXT_KEY_MENU_EXIT_TO_MAIN"/>
+        <GridButton ID="KeepPlayingButton" Style="BaseButton" Size="275,35" String="TXT_KEY_EXTENDED_GAME_YES"/>
+      </Stack>
+    </Grid>
+  </AlphaAnim>
+</Context>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow">
+	<Box Anchor="C,C" Size="Full,Full" Color="0,0,0,0" ConsumeMouse="0" ID="BackDrop">
+		<Box Anchor="L,C" Size="Parent-276,Parent" Color="0,0,0,150" ConsumeMouse="1"/>
+		<Box Anchor="R,B" Offset="0,103" Size="276,Parent" Color="0,0,0,150" ConsumeMouse="1"/>
+		<!-- Main panel -->
+		<Grid Size="778,669" Anchor="R,B" Offset="0,80" Style="GridWindowWithHeader" ID="Panel">
+			<Label Offset="15,17" Anchor="U,L" Style="MenuTitleCaption" String="RELIGION"/>
+			<!-- Close button -->
+			<Button Anchor="R,T" Offset="0,6" Style="CloseButton" ID="CloseButton"/>
+			<!-- Main content -->
+			<Container Size="Parent-8,Parent-68" Offset="8,48">
+				<Stack Padding="1" StackGrowth="Right">
+					<Box ID="PlayerReligion" Size="337,Parent" Color="20,20,20,200">
+						<Grid Size="Parent,62" Style="ReligionHeader">
+							<Label ID="PlayerBeliefsLabel" Offset="5,5" String="Religion Name" Style="FontNormal20"/>
+						</Grid>
+						<ScrollPanel ID="PlayerBeliefsScrollPanel" Size="322,Parent-69" Offset="2,66" Vertical="1">
+							<Stack ID="PlayerBeliefsStack" Padding="0" StackGrowth="Bottom"/>
+							<ScrollBar Anchor="R,T" Offset="-3,0" Style="VertSlider" AnchorSide="O.I" Length="530"/>
+						</ScrollPanel>
+					</Box>
+					<!-- separation -->
+					<Box Size="Parent-337,Parent" Color="20,20,20,200">
+						<ScrollPanel ID="BeliefCategoriesScrollPanel" Size="Parent,Parent" Vertical="1">
+							<Stack ID="BeliefCategoriesStack" Offset="3,5" Padding="5" StackGrowth="Bottom">
+								<Label ID="AvailableBeliefsLabel" String="Available Beliefs" Style="FontNormal20"/>
+								<Stack ID="AvailableBeliefsStack" Padding="1" StackGrowth="Bottom"/>
+							</Stack>
+							<ScrollBar Anchor="R,T" Offset="-20,0" Style="VertSlider" AnchorSide="O.I" Length="602"/>
+						</ScrollPanel>
+					</Box>
+				</Stack>
+			</Container>
+			<!-- Confirm Dialog-->
+			<Box ID="ConfirmPopup" Size="Parent,Parent-40" Offset="0,47" Color="0,0,0,200" ConsumeMouse="1" Hidden="1">
+				<Grid Anchor="C,C" Size="500,300" Style="Grid9InterruptWindow">
+					<Label ID="ConfirmLabel" Anchor="C,B" Offset="0,150" Size="400,200" WrapWidth="350" String="" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" Style="FontNormal20"/>
+					<Stack Anchor="C,B" Offset="0,30" StackGrowth="Right">
+						<Stack Anchor="C,B" StackGrowth="Right" Padding="5">
+							<GridButton Style="GridListElementGray" Size="125,50" Anchor="L,T" Offset="0,0" String="TXT_KEY_NO_BUTTON" ID="NoButton" Hidden="0"/>
+							<GridButton Style="GridListElementGray" Size="125,50" Anchor="L,T" Offset="0,0" String="TXT_KEY_YES_BUTTON" ID="YesButton" Hidden="0"/>
+						</Stack>
+					</Stack>
+				</Grid>
+			</Box>
+		</Grid>
+	</Box>
+	<Instance Name="AcquiredBeliefSlotInstance">
+		<Grid Size="322,76" Style="ReligionSlot">
+			<Label Offset="5,5" WrapWidth="300" ID="Name" String="Belief" Style="FontNormal20"/>
+			<Label Offset="10,30" WrapWidth="300" ID="Description" String="Description" Style="FontNormal16"/>
+		</Grid>
+	</Instance>
+	<Instance Name="NewBeliefSlotInstance">
+		<Grid Size="322,76" Style="ReligionSlotHighlight">
+			<Label Anchor="C,C" ID="Name" String="New Belief" Style="FontNormal20"/>
+		</Grid>
+	</Instance>
+	<Instance Name="AvailableBeliefInstance">
+		<GridButton ID="Button" Size="410,60" Style="Grid9TableCell">
+			<Label Offset="5,5" WrapWidth="300" Anchor="L,T" ID="Name" String="Available Belief" Style="FontNormal16"/>
+			<Label Offset="15,25" WrapWidth="300" Anchor="L,T" ID="Description" String="Description" Style="FontNormal16"/>
+			<Label Offset="5,8" Anchor="R,B" ID="Cost" String="0 [ICON_PEACE]" Style="FontNormal16"/>
+		</GridButton>
+	</Instance>
+</Context>

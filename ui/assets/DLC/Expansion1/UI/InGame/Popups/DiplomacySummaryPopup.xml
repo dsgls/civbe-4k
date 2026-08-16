@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha">
+  <Box ID="BlockerInGame" Style="BGBlock_ClearTopBar"/>
+  <Box ID="BlockerDiplo" Style="BGBlock"/>
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Box Size="Full,Full" Color="0,0,0,0" ConsumeMouse="1" HideBox="0" ID="BGBlock" Hidden="1"/>
+    <Grid ID="Grid" Size="1008,665" Anchor="C,C" Offset="0,0" Style="GridWindowWithHeader" ConsumeMouse="1">
+      <Button	ID="CloseButton" Anchor="R,T" Offset="7,7" Style="CloseButton"/>
+
+      <!-- Panel Header -->
+      <Label Style="MenuTitleCaption" String="{TXT_KEY_DIPLOMACYUI_SUMMARY:upper}" ID="Title" />
+
+      <!-- Main Content -->
+      <Container Offset="0,48" Anchor="C,T" Size="parent,parent-48">
+        <!-- Column Headers -->
+        <Stack Anchor="L,T" StackGrowth="Right" Offset="8,0" Padding="0">
+          <GridButton ID="SortByLeaderButton" Anchor="C,C" Size="422,35" String="{TXT_KEY_DIPLO_SUMMARYUI_LEADER:upper}" ToolTip="TXT_KEY_DIPLO_SUMMARYUI_LEADER_TT" Style="BaseButtonDark" FontSize="12" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100"/>
+          <GridButton Anchor="C,C" Size="232,35" String="{TXT_KEY_DIPLO_SUMMARYUI_STATS:upper}" Style="GridColumnHeader" Disabled="true" FontSize="12" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100"/>
+          <GridButton ID="SortByScoreButton" Anchor="C,C" Size="72,35" String="{TXT_KEY_DIPLO_SUMMARYUI_SCORE:upper}" ToolTip="TXT_KEY_DIPLO_SUMMARYUI_SCORE_TT" Style="BaseButtonDark" FontSize="12" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100"/>
+          <GridButton ID="SortByWondersButton" Anchor="C,C" Size="92,35" String="{TXT_KEY_DIPLO_SUMMARYUI_WONDERS:upper}" ToolTip="TXT_KEY_DIPLO_SUMMARYUI_WONDERS_TT" Style="BaseButtonDark" FontSize="12" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100"/>
+          <GridButton Anchor="C,C" Size="173,35" String="{TXT_KEY_DIPLO_SUMMARYUI_AGREEMENTS:upper}" Style="GridColumnHeader" Disabled="true" FontSize="12" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100"/>
+        </Stack>
+        <!-- Entries -->
+        <Container Size="parent,parent-60" Anchor="L,T" Offset="8,35">
+          <ScrollPanel ID="ScrollPanel" Vertical="true" Size="parent,parent">
+            <Stack ID="EntriesStack" Anchor="L,T" StackGrowth="Bottom" Offset="0,0" Padding="0" />
+            <ScrollBar Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="-35,0"/>
+          </ScrollPanel>
+        </Container>
+      </Container>
+    </Grid>
+  </AlphaAnim>
+
+  <!-- Instances -->
+  <Instance Name="Entry">
+    <Container ID="Content" Size="988,70">
+      <GridButton ID="Button" Size="parent,parent" Style="BaseButtonDark"/>
+      
+      <Stack ID="ContentStack" Anchor="C,T" StackGrowth="Right" Offset="0,0" Padding="2" >
+        <!-- Leader Info -->
+        <Container Anchor="C,C" Size="420,parent">
+          <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Offset="2,0" Anchor="L,C" >
+            <Image ID="Icon" Size="64,64" Anchor="C,C"/>
+          </Image>
+          <Image Texture="PlayerRibbon_RelationshipIndicators.dds" Size="88,75" Hidden="0" Anchor="L,T" Offset="3,-3" ID="RelationshipIndicator" TextureOffset="50,0"/>
+          <Image Texture="PlayerRibbon_Talk.dds" Size="33,32" Anchor="L,B" Offset="0,0" Hidden="0" ID="TalkIndicator"/>
+          <Stack Anchor="L,T" StackGrowth="Down" Offset="75,5">
+            <Label ID="Name" Style="WhiteShadow" String="$LEADER NAME HERE" WrapWidth="210"/>
+            <Label ID="CivName"  Style="GrayShadow16" String="$CIV NAME HERE" WrapWidth="210"/>
+          </Stack>
+          <Label ID="Relationship" Offset="75,5" Anchor="L,B" Style="GrayShadow16" String="$RELATIONSHIP" />
+          <Box Color="0,0,0,100" Anchor="R,C" Offset="73,0" Size="64,parent"/>
+          <Box Style="CivIcon64" Anchor="R,C" Offset="75,0" />
+          <Stack ID="TraitsStack" StackGrowth="Right" WrapGrowth="Bottom" WrapWidth="78" Anchor="R,C" Offset="0,0" Padding="3" />
+          <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+        </Container>
+        <!-- Yields -->
+        <Container Anchor="C,C" Size="230,parent">
+          <!-- Fear/Respect -->
+          <Stack Anchor="C,T" StackGrowth="Right" Offset="0,0" Padding="2">
+            <Container Size="70,parent">
+              <Stack StackGrowth="Down" Anchor="C,C" Offset="0,0" Padding="2">
+                <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="60,18" ID="RespectContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_RESPECTDESC}">
+                  <Label String="[ICON_RESPECT]" Anchor="L,B" Offset="2,-1" ID="RespectLabel"/>
+                  <Stack StackGrowth="Right" Offset="25,-2" Anchor="L,B">
+                    <Label Style="RespectText" FontSize="22" String="99" ID="RespectLVLValue"/>
+                    <Label Style="RespectText" FontSize="16" Anchor="L,B" String="99" ID="RespectPossValue"/>
+                  </Stack>
+                  <Image Texture="Diplo_RespectMeter.dds" Size="7,19" Anchor="R,B" TextureOffset="7,0" Color="200,200,200,255"/>
+                  <TextureBar ID="RespectMeter" Texture="Diplo_RespectMeter.dds" TextureOffset="14,0" Size="7,19" Anchor="R,B" Direction="Up"/>
+                </Grid>
+                <Grid Anchor="R,T" Style="Grid9YieldBacking" Size="60,18" ID="FearContainer" Color="255,255,255,200" ToolTip="{TXT_KEY_DIPLO_FEARDESC}">
+                  <Label String="[ICON_FEAR]" Anchor="L,B" Offset="2,-1" ID="FearLabel"/>
+                  <Stack StackGrowth="Right" Offset="25,-2" Anchor="L,B">
+                    <Label Style="FearText" FontSize="22" String="99" ID="FearLVLValue"/>
+                    <Label Style="FearText" FontSize="16" Anchor="L,B" String="99" ID="FearPossValue"/>
+                  </Stack>
+                  <Image Texture="Diplo_FearMeter.dds" Size="7,19" Anchor="R,B" TextureOffset="7,0" Color="200,200,200,255"/>
+                  <TextureBar ID="FearMeter" Texture="Diplo_FearMeter.dds" TextureOffset="14,0" Size="7,19" Anchor="R,B" Direction="Up"/>
+                </Grid>
+              </Stack>
+              <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+            </Container>
+            <!-- Affinity -->
+            <Container Size="50,parent">
+              <Stack Anchor="C,C" StackGrowth="Bottom" Padding="0">
+                <Label ID="HarmonyAffinity" String="[ICON_HARMONY]99" Style="HarmonyText" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_HARMONY"/>
+                <Label ID="PurityAffinity" String="[ICON_PURITY]99" Style="PurityText" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_PURITY"/>
+                <Label ID="SupremacyAffinity" String="[ICON_SUPREMACY]99" Style="SupremacyText" ToolTip="TXT_KEY_AFFINITY_DESCRIPTION_SUPREMACY"/>
+              </Stack>
+              <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+            </Container>
+            <!-- Capital -->
+            <Container Size="105,parent">
+              <Label ID="Capital" Anchor="C,C" String="[ICON_DIPLO_CAPITAL]9999(+99)" Style="DiploCapitalText20" ToolTip="TXT_KEY_TP_DIPLO_CAPITAL_EXPLANATION"/>
+              <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+            </Container>
+          </Stack>
+        </Container>
+        <!-- Score -->
+        <Container Anchor="C,C" Size="70,parent">
+          <Image ID="Rank" Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" Offset="3,1" Color="255,255,255,200"/>
+          <Label ID="Score" Anchor="C,C" String="999" Style="GradientHeader"/>
+          <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+        </Container>
+        <!-- Wonders -->
+        <Container ID="WondersContainer" Anchor="C,C" Size="92,parent">
+          <Image Texture="Summary_WondersBacking.dds" Size="50,50" Anchor="C,C"/>
+          <Label ID="Wonders" Anchor="C,C" String="99" Style="GradientHeader"/>
+          <Box AnchorSide="O,I" Anchor="R,T" Offset="3,0" Size="2,parent" Color="0,0,0,255"/>
+        </Container>
+        <!-- Agreements -->
+        <Container Anchor="C,C" Size="173,parent">
+          <Label ID="NoAgreements" Anchor="C,C" Style="GrayShadow16" String="{TXT_KEY_DIPLO_SUMMARYUI_NO_AGREEMENTS:upper}" />
+          <Stack ID="AgreementsStack" Anchor="R,C" Offset="3,7" StackGrowth="Right" Padding="0" />
+        </Container>
+      </Stack>
+    </Container>
+  </Instance>
+
+  <!-- Small Trait Entry -->
+  <Instance Name="SmallTraitEntry">
+    <Container ID="Content" Size="32,32">
+      <GridButton ID="Button" Style="BaseButtonDark" Size="parent,parent"/>
+      <Image ID="Icon" Size="parent,parent"/>
+    </Container>
+  </Instance>
+
+  <!-- Small Agreement Entry -->
+  <Instance Name="SmallAgreementEntry">
+    <Grid Style="Grid9AgreementsBacking" ID="Content" Size="34,50" ConsumeMouse="1">
+      <Image ID="PolicyIcon" Size="32,32" Anchor="C,T" Offset="0,-15"/>
+      <Box Style="CivIcon32"	Anchor="C,T" Offset="0,18" />
+    </Grid>
+  </Instance>
+</Context>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context>
+  <!-- Log Reveal Button -->
+  <Container ID="RevealButtonContainer" Size="40,36" Anchor="R,T" Offset="0,170">
+    <Button ID="RevealButton" Style="CommuniqueButton" Anchor="R,C" ToolTip="TXT_KEY_COMMUNIQUE_LOG"/>
+  </Container>
+  
+  <!-- Log Container -->
+  <Container ID="LogContainer" Size="510,500" Anchor="R,T" Offset="-510,170" Hidden="0">
+    <SlideAnim ID="ContainerSlide" Size="parent,parent" Anchor="R,B" Start="0,0" End="510,0" Cycle="Once" Pause="0" Stopped="1" Function="OutQuint" Speed="2">
+      <Grid ID="ContainerStack" Anchor="C,C" Padding="0,0" Size="parent, parent" Style="GridWindowWithHeader" ConsumeMouse="1">
+        <Label ID="PanelHeaderLabel" Size="parent,parent" Anchor="L,T" Offset="12,17" Style="MenuTitleCaption" String="{TXT_KEY_COMMUNIQUE_LOG:upper}"/>
+        <Button	ID="CloseButton" Anchor="R,T" Offset="7,7" Style="CloseButton"/>
+        <Container Anchor="R,T" Size="parent-50, parent-70" Offset="10,48" Color="255,0,0,255">
+          <ScrollPanel ID="MessageStackPanel" Size="parent, parent" Anchor="C,C" Vertical="1" AutoScrollBar="1">
+            <Stack ID="MessageStack" Size="parent-20,parent" Anchor="L,T"/>
+            <ScrollBar Offset="0,0" Style="VertSlider" Anchor="R,C" AnchorSide="I,O" Length="500" />
+          </ScrollPanel>
+        </Container>
+        <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="496,64" Anchor="C,B" Offset="0,25" ConsumeMouse="0"/>
+      </Grid>
+    </SlideAnim>
+  </Container>
+  <!--<Button ID="DiploMessageLogButton" Anchor="R,B" Size="40,40" Offset="0,-40" ConsumeMouse="1">
+  </Button>-->
+
+  <!--==================================================================== -->
+  <!-- INSTANCES -->
+  <!--==================================================================== -->
+  <Instance Name="MessageItem">
+    <Container ID="Root" Size="parent-20,100">
+      <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Offset="-32,26" Anchor="L,T"/>
+      <Grid ID="Content" Style="Grid9DiplomacyContainer" Size="parent,parent">
+        <Image	ID="BigCivIcon" StretchMode="None" Size="90,80" Offset="0,1" Anchor="R,B" Color="100,118,155,90"/>
+        <Stack ID="ContentStack" StackGrowth="Down" Padding="5">
+          <Grid ID="MessageHeaderGrid" Size="parent, 30" Style="GridColumnHeader2" Color="255,255,255,150">
+            <Stack ID="HeaderStack" StackGrowth="Right" Offset="5,0" Anchor="L,C">
+              <Grid ID="NewIndicator" Style="BadgeGrid" Size="40,39">
+                <Label ID="NewLabel" Style="UpgradeText" String="{TXT_KEY_UI_NEW:upper}" Anchor="C,C"/>
+              </Grid>
+              <Label ID="HeaderLabel" Style="GrayGlow20" Anchor="L,C" String="COMMUNIQUE NAME HERE" />
+            </Stack>
+            <Grid ID="RespectDeltaContainer" Size="58,40" Style="Grid9CostContainer" Anchor="R,C" Offset="-5,0" Color="255,255,255,150">
+              <Stack Anchor="R,C" Offset="10,2" StackGrowth="Right" Padding="-5">
+                <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="21,10" Stopped="1">
+                  <Label ID="RespectDelta"/>
+                </AlphaAnim>
+                <Label String="[ICON_RESPECT]"/>
+              </Stack>
+            </Grid>
+          </Grid>
+          <Stack ID="MessageStack" StackGrowth="Down" Offset="40,0" Padding="5">
+            <Label ID="SubjectLabel" Style="GrayGlow20" Anchor="L,T" WrapWidth="470" String="COMMUNIQUE NAME HERE" />
+            <Label ID="MessageLabel" Style="GrayShadow" Anchor="L,T" WrapWidth="470" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+          </Stack>
+        </Stack>
+        <Image ID="CivIcon" Anchor="L,T" Offset="-30,28" Size="64,64"/>
+        <Button ID="MouseAreaButton" Size="parent,parent" Anchor="C,C"/>
+      </Grid>
+    </Container>
+  </Instance>
+</Context>

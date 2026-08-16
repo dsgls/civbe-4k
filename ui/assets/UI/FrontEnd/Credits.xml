@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black" Style="FontNormal22" FontStyle="Shadow" Name="MainMenu" >
+
+	<Instance Name="SpacerInstance">
+		<Box ID="Spacer" Size="50,36" Anchor="C,T" Color="0,0,0,0" />
+	</Instance>
+	
+    <Instance Name="MajorTitleInstance">
+        <Label ID="Text" Size="1024,36" Style="FontNormal24" Anchor="C,T" />
+    </Instance>
+
+    <Instance Name="MinorTitleInstance">
+        <Label ID="Text" Style="FontNormal22" Anchor="C,T" />
+    </Instance>
+
+    <Instance Name="HeadingInstance">
+        <Label ID="Text" Style="FontNormal20" Anchor="C,T" FontStyle="Shadow" />
+    </Instance>
+
+    <Instance Name="EntryInstance">
+        <Label ID="Text" Anchor="C,T" Style="FontNormal14" />
+    </Instance>
+    
+    <Box Style="BGBlock" ID="BGBlock" />
+
+    <!-- <SlideAnim Anchor="c,c" End="0,-100" Cycle="Once" Speed=".5" ID="SlideAnim" >
+    <Box ID="CreditsBox" Size="500,650" Color="255,255,255,255"/>
+  </SlideAnim>-->
+
+    <GridButton Size="260,36" Anchor="L,B" Offset="10,10" ID="BackButton" Style="BaseButton" String="TXT_KEY_BACK_BUTTON" />
+	
+	
+	<Stack Anchor="R,B" Offset="5,10" Padding="5">
+		<Image Anchor="L,B"		Offset="0,0"  Texture="Assets/UI/Art/Logos/logo_bink.dds"		Size="120,121" />
+		<Container				Size="10,10"  />
+		<Image Anchor="L,B"		Offset="0,0"  Texture="Assets/UI/Art/Logos/logo_fork.dds"		Size="120,37" />
+		<Container				Size="10,10"  />
+		<Image Anchor="L,B"		Offset="0,0"  Texture="Assets/UI/Art/Logos/logo_granny.dds"	Size="120,78" />
+		<Label Anchor="L,B"		Offset="0,0"  Style="FontNormal14" WrapWidth="120" ColorSet="Beige_Black" String="TXT_KEY_CREDIT_GRANNY" />
+		<Container				Size="10,10"  />
+		<Image Anchor="L,B"		Offset="0,0"  Texture="Assets/UI/Art/Logos/logo_havok.dds"		Size="120,37" />			
+		<Container				Size="10,10"  />
+		<Image Anchor="L,B"		Offset="0,0"  Texture="Assets/UI/Art/Logos/logo_miles.dds"		Size="120,95" />
+	</Stack>
+	
+
+    <ScrollPanel Anchor="c,c" Size="1024,Full" ID="MajorScroll" Vertical="1" AutoScrollBar="0" >
+        <Box Anchor="C,B" Offset="0,0" Size="1024,Full" Color="0,0,0,0" >
+            <SlideAnim Anchor="C,T" Start="0,0" End="0,0" Cycle="Once" Speed="0.003" ID="SlideAnim" >
+                <Stack  Anchor="C,T" ID="CreditsList" Offset="0,10" Padding="20" StackGrowth="Bottom">
+                    <Box Size="1024,Full" Color="0,0,0,0" />
+                </Stack>
+            </SlideAnim>
+        </Box>
+    </ScrollPanel>
+
+</Context>

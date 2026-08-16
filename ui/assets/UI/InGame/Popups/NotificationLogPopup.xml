@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal14" FontStyle="Base" Colorset="Gray_Black_Alpha">
+
+  <Instance		Name="NotificationButton"	Size="890,60"  >
+    <GridButton ID="Button"					Size="890,60" Style="CivilopediaListItem" >
+      <Label	ID="NotificationTurnText"	Anchor="R,T" Offset="5,7" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="Turn" />
+      <Stack	ID="TextStack"				Anchor="L,T" Padding="10">
+        <Label	ID="NotificationText"		Anchor="L,T" Offset="16,5" LeadingOffset="0" WrapWidth="760" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="Text" />
+      </Stack>
+    </GridButton>
+  </Instance>
+
+  <Box Style="BGBlock_ClearTopBar" />
+  <Grid Size="990,600" Anchor="C,C" Offset="0,6" Padding="0,0" Style="GridWindowWithHeader">
+    <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+
+    <!-- Panel Header Text -->
+    <Label Style="MenuTitleCaption" String="{TXT_KEY_POP_NOTIFICATION_LOG:upper}" />
+
+    <ScrollPanel Anchor="C,T" Offset="0,48" Size="900,500" ID="NotificationScrollPanel" Vertical="1" AutoScrollBar="1" >
+
+      <Stack Anchor="L,T" Size="600,32" Offset="10,0" StackGrowth="B" Padding="0" ID="NotificationButtonStack" />
+      <ScrollBar Offset="0,0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="500" />
+
+    </ScrollPanel>
+  </Grid>
+
+
+</Context>

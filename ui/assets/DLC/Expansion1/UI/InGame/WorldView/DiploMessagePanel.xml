@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context>
+
+  <Container ID="MessageContainer" Size="500,102" Anchor="C,T" Offset="0,40" Color="1,0,0,0" Hidden="1">
+    <SlideAnim ID="MessageSlide" Size="parent,parent" Anchor="R,T" Start="0,-20" End="0,0" Cycle="OneBounce" Pause="0" EndPause="5" Function="OutQuint" Speed="1.5">
+      <AlphaAnim ID="MessageFade" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Speed="2" Cycle="OneBounce" Pause="0" EndPause="5">
+        <Container ID="Root" Size="parent-20,100">
+          <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Offset="-32,26" Anchor="L,T"/>
+          <Grid Style="Grid9DropShadow" Size="550,200" Offset="-50,-50"/>
+          <Grid ID="Content" Style="Grid9DiplomacyContainer" Size="parent,parent">
+            <Image	ID="BigCivIcon" StretchMode="None" Size="90,80" Offset="0,1" Anchor="R,B" Color="100,118,155,90"/>
+            <Stack ID="ContentStack" StackGrowth="Down" Padding="5">
+              <Grid ID="MessageHeaderGrid" Size="parent, 30" Style="GridColumnHeader2" Color="255,255,255,150">
+                <Stack ID="HeaderStack" StackGrowth="Right" Offset="5,0" Anchor="L,C">
+                  <Label ID="HeaderLabel" Style="GrayGlow20" Anchor="L,C" String="COMMUNIQUE HEADER" />
+                </Stack>
+                <Grid ID="RespectDeltaContainer" Size="58,40" Style="Grid9CostContainer" Anchor="R,C" Offset="-5,0" Color="255,255,255,150">
+                  <Stack Anchor="R,C" Offset="10,2" StackGrowth="Right" Padding="-5">
+                    <AlphaAnim ID="DeltaAnim" AlphaBegin="1" AlphaEnd=".2" Cycle="Bounce" Speed="2" Size="21,10" Stopped="1">
+                      <Label ID="RespectDelta"/>
+                    </AlphaAnim>
+                    <Label String="[ICON_RESPECT]"/>
+                  </Stack>
+                </Grid>
+              </Grid>
+              <Stack ID="MessageStack" StackGrowth="Down" Offset="40,0" Padding="5">
+                <Label ID="SubjectLabel" Style="GrayGlow20" Anchor="L,T" WrapWidth="470" String="COMMUNIQUE NAME HERE" />
+                <Label ID="MessageLabel" Style="GrayShadow" Anchor="L,T" WrapWidth="470" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"/>
+              </Stack>
+            </Stack>
+            <Image ID="CivIcon" Anchor="L,T" Offset="-30,28" Size="64,64"/>
+            <Grid ID="AdvisorIconGrid" Size="64,64"	Anchor="L,T" Offset="-30,32" Style="Grid9DiplomacyContainer" Hidden="0">
+              <Image ID="EconomicAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds">
+                <ScrollAnim  Offset="0,0"  Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds" />
+                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+                <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+              </Image>
+              <Image ID="ForeignAdvisorIcon" Anchor="C,C" Size="40,40" Texture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="40,40" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskForeign.dds" />
+                <AlphaAnim Anchor="C,C" Offset="6,5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+                <AlphaAnim Anchor="C,C" Offset="-2,-5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+              </Image>
+              <Image ID="MilitaryAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds" />
+                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+                <AlphaAnim Anchor="C,C" Offset="-3,-6" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+              </Image>
+              <Image ID="ScienceAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" Hidden="1">
+                <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds" />
+                <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+                <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+              </Image>
+            </Grid>
+            <Button ID="MouseAreaButton" Size="parent,parent" Anchor="C,C"/>
+          </Grid>
+        </Container>
+      </AlphaAnim>
+    </SlideAnim>
+  </Container>
+  
+  <!--
+  <Container ID="MessageContainer" Size="500,102" Anchor="C,T" Offset="0,40" Color="1,0,0,0" Hidden="1">
+    <SlideAnim ID="MessageSlide" Size="parent,parent" Anchor="R,T" Start="0,-20" End="0,0" Cycle="OneBounce" Pause="0" EndPause="5" Function="OutQuint" Speed="1.5">
+      <AlphaAnim ID="MessageFade" Size="parent,parent" AlphaStart="0" AlphaEnd="1" Speed="2" Cycle="OneBounce" Pause="0" EndPause="5">
+        <Container Size="parent-72,parent" Anchor="L,C">
+          <Grid ID="MessageHeaderGrid" Size="parent,22" Style="GridSecondaryPanelHeader">
+            <Label ID="HeaderLabel" Size="parent,parent" Anchor="C,C" Style="ListHeader" String="COMMUNIQUE FROM LEADER"/>
+          </Grid>
+          <Grid ID="MessageSubjectGrid" Size="parent,22" Offset="0,22" Style="GridSecondaryPanelHeader">
+            <Label ID="SubjectLabel" Size="parent-14,parent-14" Anchor="C,C" Offset="10,-4" WrapWidth="410" Style="ListHeader"  String="RE: YOUR ACTIVITY"/>
+          </Grid>
+          <Grid ID="MessageBodyGrid" Size="parent,parent-44" Offset="0,44" Style="CivilopediaListItem">
+            <Label ID="MessageLabel" Size="parent-14,parent-14" Anchor="C,C" Offset="0,-4" WrapWidth="410" Style="WhiteShadow"  String=""/>
+          </Grid>
+        </Container>
+        <Grid ID="CivIconGrid" Size="68,68"	Anchor="R,T" Style="Grid9BoxButtons">
+          <Image ID="CivIcon" Anchor="C,C" Size="64,64" Texture="assets\UI\Art\Icons\CivSymbolsColor512.dds"/>
+        </Grid>
+        <Grid ID="AdvisorIconGrid" Size="68,68"	Anchor="R,T" Style="CivilopediaListItem" Hidden="1">
+          <Image ID="EconomicAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds">
+            <ScrollAnim  Offset="0,0"  Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskEconomic.dds" />
+            <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+            <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+          </Image>
+          <Image ID="ForeignAdvisorIcon" Anchor="C,C" Size="40,40" Texture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds" Hidden="1">
+            <ScrollAnim  Offset="0,0"  Size="40,40" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskForeign.dds" />
+            <AlphaAnim Anchor="C,C" Offset="6,5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+            <AlphaAnim Anchor="C,C" Offset="-2,-5" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+          </Image>
+          <Image ID="MilitaryAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds" Hidden="1">
+            <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskMilitary.dds" />
+            <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+            <AlphaAnim Anchor="C,C" Offset="-3,-6" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd=".7"  />
+          </Image>
+          <Image ID="ScienceAdvisorIcon" Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" Hidden="1">
+            <ScrollAnim  Offset="0,0"  Size="32.32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorMaskScience.dds" />
+            <AlphaAnim Anchor="C,C" Offset="4,4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="5" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+            <AlphaAnim Anchor="C,C" Offset="0,-4" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSpecShine.dds"  Pause="3" Cycle="Bounce" Speed="4" AlphaStart="0" AlphaEnd="1"  />
+          </Image>
+        </Grid>
+        <Button ID="MouseAreaButton" Size="parent,parent" Anchor="C,C"/>
+      </AlphaAnim>
+    </SlideAnim>
+  </Container>-->
+  
+</Context>

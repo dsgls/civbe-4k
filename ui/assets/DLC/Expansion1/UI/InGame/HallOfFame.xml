@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black" Style="FontNormal20" FontStyle="Shadow" >
+  
+  <!-- GameInstance -->
+  <Instance Name="GameInstance" >
+    <Grid Size="995,80" Anchor="L,T" ID="GameItem" Style="CivilopediaListItem">
+      <Stack Anchor="L,T" Offset="0,0" StackGrowth="Right" Padding="0" >
+        <!-- Your Info -->
+        <Box Size="120,parent" Color="White,0">
+          <Label Anchor="C,C" Offset="0,0" Style="GrayGlow24" ID="Score"/>
+        </Box>
+        <Box Size="280,parent" Anchor="L,T" Color="White.0" > 
+          <Image ID="CivSymbol" Size="45,45" Offset="0,0" Anchor="L,C" Texture="CivSymbolsColor360.dds" />
+          <Stack ID="LeaderStack" Anchor="L,C" Padding="0" Offset="48,0">
+              <Label ID="LeaderName" Anchor="L,C" WrapWidth="250" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="LEADER NAME"/>
+              <Label ID="SponsorName" Anchor="L,C" WrapWidth="250" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="SPONSOR NAME"/>
+          </Stack>
+        </Box>
+        <Box Size="200,64" Anchor="L,T" Color="White.0">
+          <Box Anchor="L,C" Color="White.0" Size="64,64" >
+            <Stack Anchor="L,C" Offset="50,0">
+              <Label WrapWidth="150" Style="WhiteShadow" String="TXT_KEY_DIPLO_LEADER_NAME" ID="WinningSponsorName" WrapWidth="150"/>
+              <Label Style="GrayGlow" WrapWidth="150" String="TXT_KEY_DIPLO_CIVILIZATION_NAME" ID="WinType" />
+            </Stack>
+          </Box>
+        </Box>
+        <!--Game Info-->
+        <Stack Offset="60,5" Anchor="L,T" StackGrowth="Down" Padding="15" ID="SettingStack">
+          <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0">
+            <Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+            <Label ID="MapType" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+          </Stack>
+          <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+            <Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+            <Label ID="MapSize" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+          </Stack>
+          <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+            <Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+            <Label ID="Difficulty" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+          </Stack>
+          <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+            <Label Anchor="C,T" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_GAME_SPEED"/>
+            <Label ID="Speed" Anchor="C,T" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_GAME_SPEED"/>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Stack ID="TimeStampStack" Anchor="R,C" StackGrowth="Down">
+        <Box Size="120,25" Color="White,0">
+          <Label Style="FontNormal14" Color0="128,144,162,255" Color1="0,0,0,100" FontStyle="Shadow" String="000" ID="StartEraTurns" />
+          <Label Style="FontNormal14" Color0="128,144,162,255" Color1="0,0,0,100" FontStyle="Shadow" String="000" Offset="0,15" ID="TimeFinished" />
+        </Box>
+      </Stack>
+    </Grid>
+  </Instance>
+  
+  <!-- Hall of Fame panel -->
+  <Box ID="Background" Size="Full.Full" Color="Black.200" Hidden="1"/>
+  <Grid Size="1024, 640"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+    <Button	ID="BackButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+    <Label Style="MenuTitleCaption" String="TXT_KEY_HALL_OF_FAME" ID="Title" />
+    <Grid Style="SideRight" Size="18,parent-90" Anchor="R,T" Offset="5,70"/>
+    <ScrollPanel Offset="7,80" Anchor="L,T" AutoScrollBar="1" Size="995,540" Vertical="1" ID="ScrollPanel" >
+       <ScrollBar Style="VertSlider" Length="540" Anchor="R,T" AnchorSide="O,I" />
+       <Stack Anchor="L,T"  Offset="0,0" Size="260,216" StackGrowth="Bottom" Padding="0" ID="GameStack" />
+    </ScrollPanel>
+    <Grid Anchor="C,T" Offset="0,48"  Style="ProductionListHeaderGrid" Size="parent-14,40"  >
+      <Stack Anchor="L,T" Offset="10,0" StackGrowth="Right" Padding="0" >
+        <Box Anchor="L,T" Color="White.0" Size="100,24" Offset="0,0">
+          <Label Offset="0,4" Anchor="C,C" Style="GrayGlow" String="{TXT_KEY_POP_SCORE:upper}" />
+        </Box>
+        <Box Anchor="L,T"  Color="White.0" Size="250,24" Offset="0,0">
+          <Label Offset="0,4" Anchor="C,C" Style="GrayGlow" String="{TXT_KEY_YOU:upper}" />
+        </Box>
+        <Box Anchor="L,T" Color="White.0" Size="360,24" Offset="0,0">
+          <Label Offset="0,4" Anchor="C,C" Style="GrayGlow" String="{TXT_KEY_HOF_RESULTS:upper}" />
+        </Box>
+        <Box Anchor="L,T" Color="White.0" Size="200,24" Offset="0,0">
+          <Label Offset="0,4" Anchor="C,C" Style="GrayGlow" String="{TXT_KEY_HOF_SETTINGS:upper}" />
+        </Box>
+      </Stack>
+    </Grid>
+    <Label Anchor="C,C" String="TXT_KEY_HALL_OF_FAME_EMPTY" ID="HallOfFameEmpty" />
+    <Grid Style="TabSpacerDark" Size="parent-12,5" Offset="0,15" Anchor="C,B"/>
+  </Grid>
+
+</Context>

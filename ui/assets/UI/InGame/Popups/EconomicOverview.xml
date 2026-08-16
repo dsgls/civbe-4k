@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha">
+
+	<Box Style="BGBlock_ClearTopBar" />
+  <Grid Size="990, 640" Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+    <Button	ID="CloseButton" Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+
+		<!-- Panel Header Text -->
+		<Label Style="MenuTitleCaption" String="{TXT_KEY_ECONOMIC_OVERVIEW:upper}" ID="Title" />
+
+		<!-- Top Panel  -->
+		<Grid Anchor="C,T" Size="parent-13,45" Offset="0,48" Style="ProductionListHeaderGrid" ID="TabContainer">
+      <GridButton	ID="GeneralInfoButton" Anchor="L,B" Offset="0,4"	Size="300,32"  Style="TabInactive">
+        <Label Style="TabTextStyle" String="{TXT_KEY_GENERAL_INFORMATION:upper}" />
+      </GridButton>
+      <GridButton ID="HealthButton" Anchor="L,B" Offset="0,4" Size="300,32"  Style="TabInactive">
+        <Label Style="TabTextStyle" String="{TXT_KEY_HEALTH_AND_RESOURCES:upper}" />
+      </GridButton>
+      <Grid Style="TabSpacerDark" Size="parent,5" Offset="0,3" Anchor="L,B"/>
+		</Grid>
+	</Grid>
+
+	<LuaContext FileName="Assets/UI/InGame/Popups/EconomicGeneralInfo" ID="EconomicGeneralInfo" Hidden="0" />
+	<LuaContext FileName="Assets/UI/InGame/Popups/HealthInfo" ID="HealthInfo" Hidden="1" />
+
+</Context>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal" >
+
+<!-- Leader Dialogue -->
+	<Box			ID="RootOptions" 		Anchor="C,C"	Offset="0,0"		Size="Full,Full" Color="0,0,0,0">	
+		<Grid		ID="LeaderSpeechFrame" 	Anchor="R,C"	Offset="20,-150"	Size="610,160"				Style="GridWindowWithHeader" >
+			
+			<Grid							Anchor="L,T"	Offset="7,48"		Size="parent-12,parent-20"	Style="GridSetupGameSectionBackground" />		
+			<Container Size="Parent-12,45" Offset="4,4">
+        <Box		ID="CivIconFrame"	Size="45,45"	Anchor="L,T" Offset="0,0" Color="0,0,0,0">
+          <Image	ID="CivIconBG"		Size="45,45"	Anchor="L,T" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="CivIcon"		Size="32,32"	Anchor="C,C" Offset="1,0" Texture="CivSymbolsColor512.dds"/>
+          <Image	ID="CivIconHighlight"		Size="45,45"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+        </Box>
+				<Label	ID="TitleText"			Anchor="L,C"	Offset="55,0"	Style="FontNormal22"	LeadingOffset="-4" WrapWidth="450" FontStyle="SoftShadow"  Color0="150,190,220,255" Color1="0,0,0,255" />
+				<Label	ID="MoodText"			Anchor="R,C"	Offset="15,0"							Style="FontNormal18" 	String="NEUTRAL"			FontStyle="SoftShadow"   />
+			</Container>
+      
+			<Box											Offset="0,40"		Size="parent,150" Color="0,0,0,0" >
+				<Label	ID="LeaderSpeech"	Anchor="C,C"	Offset="0,0"		WrapWidth="450"	Style="FontNormal20"	Color0="150,190,220,255" String="Message Area For AI." />
+			</Box>
+			
+			<Box				ID="TalkOptionsFrame"	Anchor="C,T" Offset="0,188"  Size="596,230" Color="10,10,10,150">
+				<Stack			ID="TalkOptionStack" Anchor="C,T" Offset="0,8" Padding="0" StackGrowth="Bottom">
+					<!-- Response Buttons -->
+					<GridButton ID="Button1"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button1Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_ANOTHER_LEADER" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>			
+					</GridButton>
+					<GridButton ID="Button2"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button2Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_STRONG_FRIENDSHIP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>			
+					</GridButton>
+					<GridButton ID="Button3"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button3Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_STAY_AWAY" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>			
+					</GridButton>
+					<GridButton ID="Button4"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button4Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_OFFER_TO_STOP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>
+					</GridButton>
+					<GridButton ID="Button5"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button5Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_OFFER_TO_STOP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>
+					</GridButton>
+					<GridButton ID="Button6"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button6Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_OFFER_TO_STOP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>
+					</GridButton>
+					<GridButton ID="Button7"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button7Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_OFFER_TO_STOP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>
+					</GridButton>
+					<GridButton ID="Button8"		Size="580,35" Anchor="C,T" Offset="0,0" Style="BaseButton" >
+						<Label	ID="Button8Label"	Anchor="C,C" String="TXT_KEY_DIPLO_DISCUSS_OFFER_TO_STOP" Offset="0,1" Colorset="Gray_Black" Style="FontNormal16" FontStyle="Shadow"/>
+					</GridButton>
+				</Stack>
+
+				<GridButton ID="BackButton"		Size="580,35" Anchor="C,B" Offset="0,8" Style="BaseButton" >
+					<Label						Anchor="C,C" String="TXT_KEY_BACK_BUTTON" Offset="0,0" Colorset="Gray_Black" Style="FontNormal18" FontStyle="Shadow"/>
+				</GridButton>			
+				
+				
+				<!-- borders -->
+				<Box Anchor="C,T" Size="parent,1" Color="Black,255" />
+				<Box Anchor="C,B" Size="parent,1" Color="Black,255" />
+				<Box Anchor="L,C" Size="1,parent" Color="Black,255" />
+				<Box Anchor="R,C" Size="1,parent" Color="Black,255" />				
+			</Box>
+			
+		</Grid>
+	</Box>
+
+	
+	<!-- New Scroll Panel / Declare War -->
+	<Grid				ID="LeaderPanel"			Anchor="R,C" Size="306,280" Offset="170,-74" Style="GridBlackIndent8" Color="255,255,255,255" Hidden="1">
+		<Box										Anchor="C,C" Offset="0,0" Size="310,284" Color="0,0,0,255" />
+		<Grid										Anchor="C,C" Offset="0,0" Size="310,284" Padding="0,0" Style="Grid9Frame" />
+		<Grid										Anchor="C,C" Offset="0,19" Size="252,228" Padding="0,0" Style="Grid9Frame" />
+		<Button			ID="CloseLeaderPanelButton"	Anchor="R,T" Offset="0,0"	Style="CloseButton" />
+		<ScrollPanel	ID="LeaderScrollPanel"		Anchor="C,T" Offset="0,48"	Size="256,222" Vertical="1" AutoScrollBar="1" >
+			<ScrollBar	ID="ScrollBar"				Anchor="R,T" Offset="-15,0" Style="VertSlider" Length="182" />
+			<Stack		ID="LeaderStack"			Anchor="C,T" Offset="0,0" StackGrowth="Bottom" Padding="4" />
+		</ScrollPanel>
+	</Grid>
+	
+	<!-- Denounce Confirmation Popup -->
+	<Box Color="Black.100" Size="Full.Full" ID="DenounceConfirm" Hidden="1" ConsumeMouseOver="1">
+		<Grid Size="500,280" Anchor="C,C" Offset="0,0" Padding="0,0" Style="Grid9DetailFive140" Hidden="0">
+			<!-- Side treatments -->
+			<Box Style="MenuLeftSideTreatment"/>
+			<Box Style="MenuRightSideTreatment"/>
+			<Label Anchor="C,T" Offset="0,34" WrapWidth="440" String="TXT_KEY_CONFIRM_DENOUNCE" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+			<Stack Anchor="C,B" Offset="0,45" Padding="17" StackGrowth="Bottom" ID="DenounceButtonStack">
+				<!-- Yes Button  -->
+				<GridButton Style="BaseButton" ID="DenounceConfirmYes" Size="300,42" Anchor="C,T" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+				<!-- No Button  -->
+				<GridButton Style="BaseButton" ID="DenounceConfirmNo" Size="300,42" Anchor="C,T" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+			</Stack>
+		</Grid>
+	</Box>
+	
+	<!-- War Confirmation Popup -->
+	<Box Color="Black.100" Size="Full.Full" ID="WarConfirm" Hidden="1" ConsumeMouseOver="1">		
+		<Grid Size="500,310" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140" Hidden="0">
+			<!-- Side treatments -->
+			<Box Style="MenuLeftSideTreatment"/>
+			<Box Style="MenuRightSideTreatment"/>
+			<Label Anchor="C,T" Offset="0,74" WrapWidth="440" String="TXT_KEY_CONFIRM_WAR" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+			<Stack Anchor="C,B" Offset="0,80" Padding="24" StackGrowth="Bottom" ID="WarButtonStack">
+				<!-- Yes Button  -->
+				<GridButton Style="BaseButton" ID="WarConfirmYes" Size="400,42" Anchor="C,T" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+				<!-- No Button  -->
+				<GridButton Style="BaseButton" ID="WarConfirmNo" Size="400,42" Anchor="C,T" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+			</Stack>
+		</Grid>
+	</Box>
+	
+	<!-- Leader Buttton Instance -->
+	<Instance Name="Leader Button">
+		<GridButton ID="Button"				Anchor="C,T" Offset="0,0" Style="BaseButton" Size="252,35" >			
+			<Label	ID="LeaderButtonLabel"	Anchor="C,C" String="t" Offset="0,0" Color0="255,255,255,255" Style="FontNormal18" FontStyle="Shadow" />			
+		</GridButton>
+	</Instance>
+</Context>

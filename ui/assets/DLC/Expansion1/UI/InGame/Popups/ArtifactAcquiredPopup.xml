@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" Layer="Modal">
+  <Box Style="BGBlock" ID="BGBlock" />
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid Size="500, 585"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1" ID="Window" >
+    
+     <!-- Header -->
+    <Label Offset="0,17" Anchor="C,U" Style="MenuTitleCaption" String="TXT_KEY_ARTIFACT_ACQUIRED_POPUP_ARTIFACT_DISCOVERED"/>
+     
+    <Stack ID="AcquiredArtifactInfoStack" Size="300,345" Anchor="C,T" Offset="0,55">
+      <Image ID="PortraitImage" Anchor="C,T" Offset="0,15" Size="200,200"/>
+      <Label ID="ArtifactDescriptionLabel" Offset="0,10" WrapWidth="400" WrapGrowth="Bottom" Anchor="C,T" FontSize="20" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100"/>
+      <Label ID="ArtifactExplanationLabel" Offset="0,20" WrapWidth="400" WrapGrowth="Bottom" Anchor="C,T" FontSize="14" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100"/>
+    </Stack>
+
+    <Stack Size="450,40" Anchor="C,B" Offset="0,30" StackGrowth="Right" Padding ="7,0">
+      <GridButton ID="ViewArtifactsButton" Size="220,35" Anchor="C,B" Style="BaseButton" Hidden="False" String="TXT_KEY_ARTIFACT_ACQUIRED_POPUP_ARTIFACT_VIEW_LIBRARY"/>
+      <GridButton ID="AcceptButton" Size="220,35" Anchor="C,B" Style="BaseButton" Hidden="False" String="TXT_KEY_OK_BUTTON"/>
+    </Stack>
+  
+    </Grid>
+  </AlphaAnim>
+</Context>

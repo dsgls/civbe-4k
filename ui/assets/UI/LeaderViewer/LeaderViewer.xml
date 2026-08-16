@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+  <!-- Commented out the quit button since now the Window's close button works to close the window -->
+  <!-- <CheckBox Anchor="R,Top" ID="QuitButton" String="QUIT" ButtonTexture="Assets/UI/Art/Controls/CheckBox.dds" CheckTexture="Assets/UI/Art/Controls/CheckX.dds"  Texture="Assets/UI/Art/Controls/buttons_256.dds" TextAnchor="L,C" IsChecked="1" ToolTip="QUIT"/> -->
+    
+
+  <Stack Anchor="L,Top" Offset="0,10" Padding="15" StackGrowth="Bottom" >
+
+    <Label Anchor ="L,Top" Offset="15,0" Size="256,38" ID="FPSText"  String="Hello World" />
+    
+    <GridButton Anchor="L,Top" Size="256,36" ID="LoadLeaderButton" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Load Scene" Style="FontNormal24"/>
+    </GridButton>
+
+    
+
+    <Stack Anchor="L,Top" StackGrowth="Right" Offset="0,0">      
+      <GridButton Anchor="L,T" Size="128,36"  ID="ReloadButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Reload Scene" />
+      </GridButton>
+      <GridButton Anchor="L,T" Size="128,36"  ID="ReloadParticlesButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Reload Particles" />
+      </GridButton>
+    </Stack>
+
+
+    <GridButton Anchor="L,T" Size="256,36"  ID="ResetCameraButton" Style="BaseButton" >
+      <Label Anchor="C,C" String="Reset Camera" />
+    </GridButton>
+    <GridButton Anchor="L,T" Size="256,36"  ID="ToggleSkinButton" Style="BaseButton" >
+      <Label Anchor="C,C" String="Toggle Skin Mode" />
+    </GridButton>
+    <Stack Padding="0" StackGrowth="Right" >
+      <GridButton Anchor="L,T" Size="128,36"  ID="SkinDebugButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Skin Seam Debug" />
+      </GridButton>
+      <GridButton Anchor="L,T" Size="128,36"  ID="UnwrapSkinButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Unwrap Skin" />
+      </GridButton>
+    </Stack>
+
+    <Stack Padding="0" StackGrowth="Right" >
+      <GridButton Anchor="L,T" Size="128,36"  ID="ShowDOFButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Show DOF" />
+      </GridButton>
+      <GridButton Anchor="L,T" Size="128,36"  ID="ShowGlowButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Show Glow" />
+      </GridButton>
+    </Stack>
+    
+    <Stack Padding="0" StackGrowth="Right" >
+      <GridButton Anchor="L,T" Size="85,36"  ID="ShowPRButton" Style="BaseButton" ToolTip="This will show only meshes that have the Planar Reflection shader on them">
+        <Label Anchor="C,C" String="Reflections" />
+      </GridButton>
+      <GridButton Anchor="L,T" Size="86,36"  ID="TransparencyDebugButton" Style="BaseButton" ToolTip="This will show only Polygons that have a shader that allows for transparency" >
+        <Label Anchor="C,C" String="Transparency" />
+      </GridButton>
+      <GridButton Anchor="L,T" Size="85,36"  ID="ShowDistortButton" Style="BaseButton" >
+        <Label Anchor="C,C" String="Show Distort" />
+      </GridButton>
+    </Stack>   
+    
+    <Stack Padding="0" StackGrowth="Right" >
+      <Label Offset="3,0" Anchor="L,C" Size="64,10" String="Shadows: " Style="FontNormal16" />
+      <GridButton Anchor="L,T" Size="62,30" ID="ForceAllShadows" Style="BaseButton" >
+        <Label Anchor="C,C" String="All"/>
+      </GridButton>
+      <GridButton Anchor="L,T" Size="62,30" ID="ForceNoShadows" Style="BaseButton" >
+        <Label Anchor="C,C" String="None"/>
+      </GridButton>
+      <GridButton Anchor="L,T" Size="62,30" ID="ForceNormalShadows" Style="BaseButton" >
+        <Label Anchor="C,C" String="Default"/>
+      </GridButton>
+    </Stack>
+
+    <Stack Offset="0,-8" Padding="0" StackGrowth="Right" >
+      <GridButton Anchor="L,T" Size="64,30" ID="ShadowRes256" Style="BaseButton" >
+        <Label Anchor="C,C" String="256"/>
+      </GridButton>
+      <GridButton Anchor="L,T" Size="64,30" ID="ShadowRes512" Style="BaseButton" >
+        <Label Anchor="C,C" String="512"/>
+      </GridButton>
+      <GridButton Anchor="L,T" Size="64,30" ID="ShadowRes1024" Style="BaseButton" >
+        <Label Anchor="C,C" String="1024"/>
+      </GridButton>
+      <GridButton Anchor="L,T" Size="64,30" ID="ShadowRes2048" Style="BaseButton" >
+        <Label Anchor="C,C" String="2048"/>
+      </GridButton>
+    </Stack>
+
+	
+    <Stack Padding="0" StackGrowth="Right" >     
+	  <Label Anchor="L,C" String="Show:"></Label>	
+      <GridButton Anchor ="L,T" Size="74,36" ID="ToggleLeader" Style="BaseButton" >
+        <Label Anchor="C,C" String="Leader"></Label>
+      </GridButton>
+      <GridButton Anchor ="L,T" Size="75,36" ID="ToggleBG" Style="BaseButton" >
+        <Label Anchor="C,C" String="Back"></Label>
+      </GridButton>
+      <GridButton Anchor ="L,T" Size="74,36" ID="ShowResolution" Style="BaseButton" >
+        <Label Anchor="C,C" String="Resolution"></Label>
+      </GridButton>
+    </Stack>
+
+	<Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="R,C" String="Red      " Offset="1,0" Size="100,16"  ></Label>
+        <Slider Anchor="C,B" Size="190,8" ID="BackgroundRSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="Background_RLabel" String="Value"></Label>
+      </Stack>
+      
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="R,C" String="Green  " Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="190,8" ID="BackgroundGSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="Background_GLabel" String="Value"></Label>
+      </Stack>
+      
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="R,C" String="Blue     " Offset="3,0" Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="190,8" ID="BackgroundBSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="Background_BLabel" String="Value"></Label>
+      </Stack>
+	  
+	 <Stack Offset="20,-5" Padding="5" StackGrowth="Right" >   	 	
+      <Button Anchor ="L,T" Size="64,16" ID="LightBackground" Texture="assets\UI\Art\Controls\buttons_64.dds" >
+        <Label Anchor="C,C" String="Light Bkg"></Label>
+      </Button>
+      <Button Anchor ="L,T" Size="64,16" ID="MediumBackground" Texture="assets\UI\Art\Controls\buttons_64.dds" >
+        <Label Anchor="C,C" String="Med Bkg"></Label>
+      </Button>
+      <Button Anchor ="L,T" Size="64,16" ID="DarkBackground" Texture="assets\UI\Art\Controls\buttons_64.dds" >
+        <Label Anchor="C,C" String="Dark Bkg"></Label>
+      </Button>
+    </Stack>
+	
+    <Stack Padding="0" StackGrowth="Right" >   
+	  <Label Anchor="L,C" String="ColorKey: " ></Label>	
+      <GridButton Anchor ="L,T" Size="60,36" ID="CreateColorKey" Style="BaseButton" >
+        <Label Anchor="C,C" String="Create"></Label>
+      </GridButton>
+      <GridButton Anchor ="L,T" Size="60,36" ID="LoadColorKey" Style="BaseButton" >
+        <Label Anchor="C,C" String="Reload"></Label>
+      </GridButton>	  
+      <CheckBox Anchor ="L,T" TextAnchor="R,C" Size="66,36" ID="ToggleColorKey" String="Toggle Color Key" IsChecked="1" >
+       
+      </CheckBox>
+    </Stack>
+
+    <Label Anchor="C,C" ID="COLORKEY1" Color="0x00000000" String="WHITE: 2048  RED:   1024 GREEN:  512" ></Label>
+    <Label Anchor="C,C" ID="COLORKEY2" Color="0x00000000" String="BLUE:   256  YELLOW: 128 PURPLE:  64" ></Label>	
+
+    <Label Anchor ="L,T"  Size="256,256" ID="ErrorLog" String="" />
+  </Stack>
+  
+  <Stack   Anchor="L,B" Padding="5" StackGrowth="Right" >
+      
+      
+      
+	<GridButton Anchor="L,B" Size="100,36" ID="DemoMode" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Demo Mode" />
+    </GridButton>
+	<GridButton Anchor="L,B" Size="100,36" ID="StopDemoMode" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Stop Demo Mode" />
+    </GridButton>
+	<GridButton Anchor="L,B" Size="100,36" ID="ChangeLeaderDemo" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Change Leader"/>
+    </GridButton>
+
+
+      <Stack Anchor="L,B" StackGrowth="Bottom" >
+          <Label Anchor="L,B" Size="110,30" ID="CompressionRateLabel" />
+          <CheckBox Anchor="L,B" Size="110,30" ID="CompressionBenchButton" String ="Compression Bench" IsChecked="0" />
+      </Stack>
+	</Stack>
+
+  <Stack Anchor="R,Top" Offset="0,10" Padding="10" StackGrowth="Bottom" >
+  
+    <GridButton Style="BaseButton"  ID="PauseButton" Size="220,30" Anchor="R,Top" Offset="0,0"  >
+      <Label Anchor="C,C" Offset="0,0" String="Pause Time"  FontStyle="Shadow" />
+    </GridButton>
+
+    <Label Anchor="R,Top" Offset="20,0" Size ="230,64" ID="RenderState" String="" />
+
+    <GridButton Anchor="R,Top" Size="220,30" ID="ToggleSM41" Style="BaseButton" >
+      <Label Anchor="C,C" String="ToggleSM41" />
+    </GridButton>
+
+    <Stack Anchor="R,Top" Offset="0,5" Padding="1" StackGrowth="Bottom" >
+
+      <Label String="Openings" ></Label>
+
+      <Stack Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="NEUTRAL_HELLO" Style="BaseButton"  >
+          <Label Anchor="C,C" String="NEUTRAL_HELLO"/>
+        </GridButton>
+
+        <GridButton Anchor="R,Top" Size="110,30" ID="GLOAT"  Style="BaseButton" >
+          <Label Anchor="C,C" String="GLOAT"/>
+        </GridButton>
+      </Stack>
+
+      <Stack   Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="INTRO" Style="BaseButton" >
+          <Label Anchor="C,C" String="INTRO"/>
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_HELLO" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_HELLO"/>
+        </GridButton>
+      </Stack>
+
+      <Stack   Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="NEUTRAL_IDLE" Style="BaseButton" >
+          <Label Anchor="C,C" String="NEUTRAL_IDLE"/>
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_IDLE" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_IDLE"/>
+        </GridButton>
+      </Stack>
+      <Stack   Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="DECL_WAR" Style="BaseButton" >
+          <Label Anchor="C,C" String="DECL_WAR" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="DEFEATED" Style="BaseButton" >
+          <Label Anchor="C,C" String="DEFEATED" />
+        </GridButton>
+      </Stack>
+      <Stack   Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="PEACEFUL_OPEN" Style="BaseButton" >
+          <Label Anchor="C,C" String="PEACEFUL"/>
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="ATTACKED_OPEN" Style="BaseButton" >
+          <Label Anchor="C,C" String="ATTACKED"/>
+        </GridButton>
+      </Stack>
+      <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_NEGATIVE_OPEN" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_NEGATIVE" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_POSITIVE_OPEN" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_POSITIVE" />
+        </GridButton>
+      </Stack>
+	  <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="NEUTRAL_YES" Style="BaseButton" >
+          <Label Anchor="C,C" String="NEUTRAL YES" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="NEUTRAL_NO" Style="BaseButton" >
+          <Label Anchor="C,C" String="NEUTRAL NO" />
+        </GridButton>
+      </Stack>
+	  <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_YES" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE YES" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_NO" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE NO" />
+        </GridButton>
+      </Stack>
+	  
+
+      <Label String="Replies" Offset="0,20"></Label>
+
+      <Stack   StackGrowth="Left"   Padding="0">
+        <GridButton Anchor="R,Top" Size="110,30" ID="REQUEST" Style="BaseButton" >
+          <Label Anchor="C,C" String="REQUEST" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="DEMAND" Style="BaseButton" >
+          <Label Anchor="C,C" String="DEMAND" />
+        </GridButton>
+      </Stack>
+      <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="YES" Style="BaseButton" >
+          <Label Anchor="C,C" String="YES" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="NO" Style="BaseButton" >
+          <Label Anchor="C,C" String="NO" />
+        </GridButton>
+      </Stack>
+      <Stack   Padding="0" StackGrowth="Left" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="PEACEFUL" Style="BaseButton" >
+          <Label Anchor="C,C" String="PEACEFUL"/>
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="ATTACKED" Style="BaseButton" >
+          <Label Anchor="C,C" String="ATTACKED"/>
+        </GridButton>
+      </Stack>
+      <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="NEGATIVE" Style="BaseButton" >
+          <Label Anchor="C,C" String="NEGATIVE" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="POSITIVE" Style="BaseButton" >
+          <Label Anchor="C,C" String="POSITIVE" />
+        </GridButton>
+      </Stack>
+      <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_NEGATIVE" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_NEGATIVE" />
+        </GridButton>
+        <GridButton Anchor="R,Top" Size="110,30" ID="HATE_POSITIVE" Style="BaseButton" >
+          <Label Anchor="C,C" String="HATE_POSITIVE" />
+        </GridButton>
+      </Stack>
+
+      <Stack   StackGrowth="Left" Padding="0" >
+        <GridButton Anchor="R,Top" Size="110,30" ID="LETS_HEAR_IT" Style="BaseButton" >
+          <Label Anchor="C,C" String="LETS_HEAR_IT" />
+        </GridButton>
+      </Stack>
+	  
+      <CheckBox ID="HIDE_UI_ON_ANIMATION" String="Hide UI for animations" ButtonTexture="Assets/UI/Art/Controls/CheckBox.dds"  Texture="Assets/UI/Art/Controls/buttons_256.dds" TextAnchor="R,C" IsChecked="1" ToolTip="When active, the UI will dissapear whenever an animation gets activated"/>
+
+        <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="128,36" ID="ToggleFallback"  String="Toggle Fallback" IsChecked="0" >
+        </CheckBox>
+
+        <Stack Anchor="R,Top" StackGrowth="Left" >
+
+            <PullDown ID="FallbackImageList" Anchor="L,B" Padding="10" Size="200,36" AutoSize="true" Style="GenericPullDown"  >
+
+                <!-- We need this label or it doesn't work.  Why??-->
+                <Label Anchor="L,T" Size="200,36" ID="CurrentFallbackImage" />
+
+                <StackData StackGrowth="Top" Padding="0" Size="200,500" Anchor="L,T" />
+                <GridData Anchor="L,T" Offset="0,0" />
+                <ButtonData >
+                    <GridButton Style="BaseButton" />
+                </ButtonData>
+
+            </PullDown>
+
+        </Stack>
+
+
+    </Stack>
+
+  </Stack>
+
+  <Stack Anchor="C,B" Padding="0" StackGrowth="Left">
+    <Stack StackGrowth="Top" Padding="0" >
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="DOF Blur Width" Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="8,0" ID="DOFWidthSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="DOFBlurWidthLabel" String="Value"></Label>
+      </Stack>
+      
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="DOF Blur Dist." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="21,0" ID="DOFBlurDistSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="DOFBlurDistLabel" String="Value"></Label>
+      </Stack>
+      
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="DOF Ramp Dist." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="11,0" ID="DOFBlurRampSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="DOFRampDistLabel" String="Value"></Label>
+      </Stack>
+
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Bloom Width." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="23,3" ID="BloomWidthSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="BloomWidthLabel" String="Value"></Label>
+      </Stack>
+
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Bloom Scale." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="27,0" ID="BloomScaleSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="BloomScaleLabel" String="Value"></Label>
+      </Stack>
+
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Bloom Min." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="37,0" ID="BloomMinSlider" Style="Slider"></Slider>
+        <Label Anchor="L,C" ID="BloomMinLabel" String="Value"></Label>
+      </Stack>
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Shadow Tint" Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="30,3" ID="ShadowTintSlider" Style="Slider">
+        </Slider>
+        <Label Anchor="L,C" ID="ShadowTintLabel" String="Value"></Label>
+      </Stack>
+
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Diffuse Env" Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="36,0" ID="DiffuseEnvSlider" Style="Slider">
+        </Slider>
+        <Label Anchor="L,C" ID="DiffuseEnvLabel" String="Value"></Label>
+      </Stack>
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="Specular Env" Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="24,0" ID="SpecularEnvSlider" Style="Slider">
+        </Slider>
+        <Label Anchor="L,C" ID="SpecularEnvLabel" String="Value"></Label>
+      </Stack>
+
+      <Stack StackGrowth="Right" Padding="0">
+        <Label Anchor="L,C" String="3D Conv." Size="100,16"></Label>
+        <Slider Anchor="C,B" Size="412,16" Offset="48,0" ID="3DConvergenceSlider" Style="Slider">
+        </Slider>
+        <Label Anchor="L,C" ID="3DConvergenceLabel" String="Value"></Label>
+      </Stack>
+
+
+    </Stack>
+      
+    <Stack StackGrowth="Top" Padding="0">
+
+
+        
+      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="128,36" ID="ToggleBloom" String="Toggle Bloom" IsChecked="1" >        
+      </CheckBox>
+      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="128,36" ID="ToggleDistort"  String="Toggle Distort" IsChecked="1" >
+      </CheckBox>
+     
+        
+    </Stack>
+    
+  </Stack>
+
+
+
+
+    <Stack Anchor="C,Top" StackGrowth="Right" Padding="15" >
+        
+ 
+        <Stack Anchor="R,T" StackGrowth="Bottom">
+
+            <!-- Morph target knobs.   The right thing to do is read the actual morph target IDs from the leader scene,
+                but for now I'm just going to set up some hardcoded names.  I don't want to go messing with anything complicated 
+                until we've finished ripping out the UI and replacing it with Forge
+            -->
+            <Stack StackGrowth="Right" Padding="0">
+                <Label Anchor="L,C" String="Supremacy" Size="100,16"></Label>
+                <Slider Anchor="C,T" Size="412,16" Offset="48,0" ID="SupremacySlider" Style="Slider">
+                </Slider>
+                <Label Anchor="L,C" ID="SupremacyLabel" String="Value"></Label>
+            </Stack>
+
+            <Stack StackGrowth="Right" Padding="0">
+                <Label Anchor="L,C" String="Harmony" Size="100,16"></Label>
+                <Slider Anchor="C,T" Size="412,16" Offset="48,0" ID="HarmonySlider" Style="Slider">
+                </Slider>
+                <Label Anchor="L,C" ID="HarmonyLabel" String="Value"></Label>
+            </Stack>
+
+        </Stack>
+
+        <Stack Anchor="R,Top" StackGrowth="Bottom" >
+            
+            <Stack Anchor="R,Top" StackGrowth="Right" >
+                
+                <Label Offset="3,0" Anchor="R,C" Size="64,10" String="Environment:" Style="FontNormal16" />
+                <PullDown ID="EnvironmentsList" Anchor="L,T" Padding="10" Size="200,36" AutoSize="true" Style="GenericPullDown"  >
+
+                    <!-- We need this label or it doesn't work.  Why??-->
+                    <Label Anchor="L,T" Size="200,36" ID="CurrentEnvironment" />
+
+                    <StackData StackGrowth="Bottom" Padding="0" Size="200,500" Anchor="L,B" />
+                    <GridData Anchor="L,B" Offset="0,0" />
+                    <ButtonData >
+                        <GridButton Style="BaseButton" />
+                    </ButtonData>
+
+                </PullDown>
+
+            </Stack>
+            <Stack Anchor="R,Top" StackGrowth="Right" >
+                <Label Offset="3,0" Anchor="R,C" Size="64,10" String="Objects:" Style="FontNormal16" />
+                <PullDown ID="ObjectList" Anchor="L,T" Padding="10" Size="300,36" AutoSize="true" Style="GenericPullDown"  >
+
+                    <!-- We need this label or it doesn't work.  Why??-->
+                    <Label Anchor="L,T" Size="300,36" />
+
+                    <StackData StackGrowth="Bottom" Padding="0" Size="300,500" Anchor="L,B" />
+                    <GridData Anchor="L,B" Offset="0,0" />
+                    <ButtonData >
+                        <GridButton  Style="BaseButton" />
+                    </ButtonData>
+
+                    <InstanceData Name="PullDownEntry">
+                        <CheckBox ID="Button" Size="300,100" Anchor="L,T" IsChecked="0"/>
+                    </InstanceData>
+
+                </PullDown>
+            </Stack>
+
+
+        </Stack>
+
+    </Stack>
+
+  
+    
+</Context>

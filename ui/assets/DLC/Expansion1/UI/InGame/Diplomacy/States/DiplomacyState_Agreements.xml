@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
+
+  
+  <Container ID="ConversationContent" Size="parent,parent">
+    <!-- Their bubble Grid9WordBubble-->
+    <Grid ID="TheirSpeechBubble" Size="450,69" Anchor="R,T" Offset="0,0" Style="Grid9WordBubble">
+      <Stack Anchor="C,T">
+        <Stack ID="TheirSpeechBubbleStack" Anchor="C,T" StackGrowth="Bottom" Padding="5" Offset="0,15">
+          <Label ID="TheirResponse" Style="DiploChoiceText" WrapWidth="440" String="Their response"/>
+          <Container ID="TheirPolicyContent" Size="450,100">
+            <Label Style="DiplomacyColumnHeader" Anchor="L,T" Offset="35,0" String="TXT_KEY_DIPLOMACYUI_YOU_GET" ID="TheirPolicyLabel"/>
+            <Label Style="DiplomacyColumnHeader" Anchor="R,T" Offset="0,0" String="TXT_KEY_DIPLOMACYUI_COST"     ID="TheirPolicyCostLabel"/>
+            <Container ID="TheirPolicyPlaceholder" Anchor="L,T" Offset="0,20"/>
+          </Container>
+        </Stack>
+        <Container Size="2,5"/>
+      </Stack>
+    </Grid>
+
+    <!-- My bubble -->
+    <Box Color="0,0,0,0" ID="MySpeechBubble" Size="500,0" Anchor="R,B">
+      <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Speed="2" Size="parent,parent" ID="MyBubbleAlphaAnim">
+        <SlideAnim Start="-300,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed=".8" Size="parent,parent" ID="MyBubbleSlideAnim">
+          <Grid ID="BubbleWindowBacking" Size="parent,parent" Style="Grid9BlackGradientSubContainer" Anchor="L,B">
+            <Stack ID="BubbleContentStack" StackGrowth="Down" Anchor="L,T">
+              <Grid ID="BubbleWindow" Style="Grid9DiplomacyWindow" Size="parent,parent">
+                <Stack ID="MySpeechBubbleStack" Anchor="L,T" StackGrowth="Bottom" Padding="5" Offset="0,33">
+                  <Container ID="MyProposePolicyContent" Size="parent,parent-33" >
+                    <ScrollPanel Offset="5,0" ID="MyProposePolicyScrollPanel" Size="parent-25,parent-1" Vertical="true">
+                      <ScrollBar Style="VertSlider" Anchor="R,T" AnchorSide="O,I" />
+                      <Stack StackGrowth="Bottom" Anchor="C,T" Offset="0,0">
+                        <Stack ID="MyProposePolicyStack" StackGrowth="Bottom" Padding="2" />
+                        <Container Size="2,20"/>
+                      </Stack>
+                    </ScrollPanel>
+                    <Grid ID="ScrollPanelGradient" Style="Grid9BlackGradientSmall" Size="parent-10,64" Offset="5,5" Anchor="L,B" ConsumeMouse="0"/>
+                  </Container>
+                </Stack>
+              </Grid>
+              <Container Size="2,10"/>
+              <Container ID="MyProposedPolicyContent" Size="450,90" Anchor="C,T">
+                <Label Style="DiplomacyColumnHeader" Anchor="L,T" Offset="35,0" String="TXT_KEY_DIPLOMACYUI_YOU_GET" />
+                <Label Style="DiplomacyColumnHeader" Anchor="R,T" Offset="0,0" String="TXT_KEY_DIPLOMACYUI_COST" />
+                <Container ID="MyProposedPolicyPlaceholder" Size="450,67" Anchor="C,B" />
+              </Container>
+              <Container Size="2,5"/>
+              <Stack ID="ButtonStack" StackGrowth="Down" Padding="0" Anchor="C,T">
+                <GridButton ID="OptionButton1" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton2" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+                <GridButton ID="OptionButton3" Style="DiploChoice" Size="parent,30" String="TXT_KEY_DIPLOMACYUI_NEVERMIND" Hidden="1"/>
+              </Stack>
+              <Container Size="2,12"/>
+            </Stack>
+          </Grid>
+        </SlideAnim>
+      </AlphaAnim>
+    </Box>
+  </Container>
+
+  <Container ID="AgreementsOverviewContent" Size="parent,parent" >
+    <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent" ID="WindowAlpha">
+      <SlideAnim Start="280,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="2" Size="parent,parent" ID="WindowSlide">
+        <Grid ID="MainWindowDropShadow" Style="Grid9DropShadow" Size="990, parent-77" Offset="0,77" Anchor="C,T"/>
+        <Grid ID="MainWindow" Style="Grid9DiplomacyWindow" Size="900,parent-77" Offset="0,77" Anchor="C,T">
+          <Container Offset="7,1" Size="888,32">
+            <Container Size="888,32" Anchor="C,C">
+              <Stack ID="HeaderStack" StackGrowth="Right" Anchor="L,C" Padding="5">
+                <Container Size="33,28" Offset="0,2"/>
+                <Label ID="WindowHeader" Anchor="L,C" Style="GradientHeader" String="{TXT_KEY_DIPLOMACYUI_MANAGE_AGREEMENTS:upper}" />
+              </Stack>
+            </Container>
+          </Container>
+          <AlphaAnim Size="parent,parent" Anchor="C,C" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Function="Root" ID="ManageTraitsAlpha" >
+            <SlideAnim Size="parent,parent" Begin="-10,0" End="0,0" Cycle="Once" Speed="3" Function="Root" ID="ManageTraitsSlide">
+              <Container Size="parent-10,parent-37" Anchor="C,B" Offset="0,5">
+
+                <!-- Tabs -->
+                <Grid ID="TabRow" Size="parent,36" Anchor="C,T" Offset="0,135" Style="CivilopediaSubHeader" Color="255,255,255,150">
+                  <GridButton ID="MyAgreementsTab" Size="250,32" Offset="0,-3" Anchor="L,B" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_MY_AGREEMENTS:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_MY_AGREEMENTS_TT}"/>
+                  <GridButton ID="AgreementsWithMeTab" Size="250,32" Offset="0,-3" Anchor="L,B" Style="TabInactive" String="{TXT_KEY_DIPLOMACYUI_AGREEMENTS_WITH_ME:upper}" ToolTip="{TXT_KEY_DIPLOMACYUI_AGREEMENTS_WITH_ME_TT}"/>
+                </Grid>
+                
+                <!-- Capital Breakdown -->
+                <Container Size="parent,180" Anchor="L,T" Offset="0,0">
+                  <Container ID="HeaderContainer" Size="parent-130,135" Anchor="R,T" Offset="55,0">
+                   
+                      <!--Banked -->
+                      <Grid Size="175,135" Anchor="L,T" Style="Grid9AgreementsContainer" Offset="0,0">
+                        <Label Style="GradientSubHeader" Anchor="C,T" Offset="0,5" String="TXT_KEY_DIPLO_BANKEDNET" />
+                        <Container Size="parent,parent-24" Anchor="C,T" Offset="0,24">
+                          <Image Texture="Agreements_Circle.dds" Anchor="C,C" Size="92,92"/>
+                          <Stack ID="CapitalStack" StackGrowth="Right" Anchor="C,C" Padding="10">
+                            <Label ID="CapitalBanked" Style="DiploCapitalText36" String="99" />
+                            <Label ID="CapitalNet" Style="DiploCapitalText36" String="-99" />
+                          </Stack>
+                          <Image Texture="Agreements_BigDiploCapital.dds" Anchor="L,C" AnchorSide="O,I" Offset="-10,0" Size="45,45"/>
+                        </Container>
+                      </Grid>
+                    
+                    <Stack ID="BreakdownStack" Anchor="R,T" StackGrowth="Right" Padding="12" Offset="0,0">
+                      <!-- Income -->
+                      <Grid Size="450,135" Anchor="C,T"  Style="Grid9AgreementsContainer" Offset="0,0">
+                        <Label Style="GradientSubHeader" Anchor="C,T" Offset="0,5" String="TXT_KEY_DIPLOMACYUI_CAPITAL_INCOME" />
+                        <Container Size="parent,parent-30" Anchor="C,B">
+                          <Image Texture="Agreements_Circle.dds" Anchor="L,C" Size="92,92" Offset="10,0">
+                            <Label ID="CapitalIncome" Style="DiploCapitalText36" Anchor="C,C" String="+99" Offset="-4,0"/>
+                          </Image>
+                          <Grid ID="SubIncomeContainer" Style="SubIncomeContainer" Size="parent-125,parent" Anchor="R,B">
+                            <Stack StackGrowth="Left" Anchor="R,T">
+                              <Container Size="110,55" Anchor="R,T">
+                                <Label ID="CapitalFromServicesNumber" Style="DiploCapitalText36" Anchor="C,C" String="+0"/>
+                              </Container>
+                              <Label Offset="4,0" ID="CapitalFromServices" Style="DiploCapitalText20" Anchor="R,C" WrapWidth="235" String="INCOME FROM AGREEMENTS:" />
+                            </Stack>
+                            <Container Size="parent,parent" Anchor="L,C">
+                              <Stack ID="IncomeAgreementsStack" StackGrowth="Right" Anchor="L,B" Offset="2,-7" />
+                            </Container>
+                          </Grid>
+                        </Container>
+                      </Grid>
+
+                      <!-- Outgoing -->
+                      <Grid ID="BreakdownOutgoing" Size="100,135" Anchor="R,T" Style="Grid9AgreementsContainer" Offset="0,0">
+                        <Label Style="GradientSubHeader" Anchor="C,T" Offset="0,5" String="TXT_KEY_DIPLOMACYUI_CAPITAL_OUTGOING" />
+                        <Container Size="parent,parent-24" Anchor="C,T" Offset="0,24">
+                          <Image Texture="Agreements_Circle.dds" Anchor="C,C" Size="92,92">
+                            <Label ID="CapitalOutgoing" Style="DiploCapitalText36" Anchor="C,C" String="-99" Offset="-4,0" />
+                          </Image>
+                        </Container>
+                      </Grid>
+                    </Stack>
+                  </Container>
+                  
+                </Container>
+                <!-- Cost Background Bar -->
+                 <Box Anchor="R,B" Offset="55,0" Size="100,parent" Color="0,0,0,40"/>
+                
+                <!-- My Agreements -->
+                <Container ID="MyAgreementsContent" Size="parent,parent-170" Offset="0,170">
+                    <Stack Anchor="L,C" Offset="0,0" StackGrowth="Bottom" Padding="5" >
+                      <Box Size="parent-40,90" Color="0,0,0,80" Anchor="C,T">
+                        <Image Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" />
+                      </Box>
+                      <Box Size="parent-40,90" Color="0,0,0,80" Anchor="C,T">
+                        <Image Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" TextureOffset="0,56"/>
+                      </Box>
+                      <Box Size="parent-40,90" Color="0,0,0,80" Anchor="C,T">
+                        <Image Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" TextureOffset="0,112"/>
+                      </Box>
+                      <Box Size="parent-40,90" Color="0,0,0,80" Anchor="C,T">
+                        <Image Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" TextureOffset="0,168"/>
+                      </Box>
+                      <Box Size="parent-40,90" Color="0,0,0,80" Anchor="C,T">
+                        <Image Texture="Agreements_Numbers.dds" Size="60,56" Anchor="L,B" TextureOffset="0,224"/>
+                      </Box>
+                    </Stack>
+                    <Container Anchor="C,C" Size="parent-40, 470">
+                      <Stack ID="AgreementsStack"  Anchor="L,T" StackGrowth="Bottom" Padding="5" />
+                    </Container>
+                </Container>
+
+                <!-- Agreements Made with Me -->
+                <Container ID="AgreementsMadeWithMeContent" Size="parent,parent-170" Offset="0,170" Hide="true">
+                  <Container Anchor="C,C" Size="parent-40, 470">
+                    <ScrollPanel ID="AgreementsMadeWithMeScrollPanel" Size="parent,parent" Vertical="true">
+                      <ScrollBar Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="5,0"/>
+                      <Stack ID="AgreementsMadeWithMeStack"  Anchor="L,T" StackGrowth="Bottom" Padding="5" />
+                    </ScrollPanel>
+                  </Container>
+                </Container> 
+              </Container>
+            </SlideAnim>
+          </AlphaAnim>
+          
+          <!-- Confirm Cancel Agreement -->
+          <AlphaAnim ID="ConfirmAgreementCancelAlphaAnim" AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent">
+            <Box ID="ConfirmAgreementCancel" Size="parent,parent" Color="0,0,0,150" ConsumeMouse="1" Hidden="1">
+              <Grid Size="400,250" Anchor="C,C" Style="Grid9DropShadow">
+                <Grid Size="375,225" Anchor="C,C" Style="Grid9DiplomacyWindow">
+                  <Label Anchor="C,T" Offset="0,5" Style="GradientHeader" String="{TXT_KEY_DIPLOMACYUI_CONFIRM_HEADER:upper}" />
+                  <Label Anchor="C,T" Offset="0,65" Style="FontNormal18" WrapWidth="350" Align="Center" String="TXT_KEY_DIPLOMACYUI_ARE_YOU_SURE_CANCEL_AGREEMENT" />
+                  <Stack Anchor="C,B" StackGrowth="Right" Padding="15" Offset="0,15">
+                    <GridButton ID="CancelAgreementNoButton" Style="BaseButton" Size="150,32" String="TXT_KEY_DIPLOMACYUI_NO" />
+                    <GridButton ID="CancelAgreementYesButton" Style="BaseButton" Size="150,32" String="TXT_KEY_DIPLOMACYUI_YES" />
+                  </Stack>
+                </Grid>
+              </Grid>
+            </Box>
+          </AlphaAnim>
+        </Grid>
+      </SlideAnim>
+    </AlphaAnim>
+  </Container>
+
+  <!-- All Services Content -->
+  <Container ID="AllServicesContent" Size="parent,parent" Hidden="true">
+    <AlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause=".1" Function="Root" Speed="2" Size="parent,parent" ID="AllServicesWindowAlpha">
+      <SlideAnim Start="280,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="2" Size="parent,parent" ID="AllServicesWindowSlide">
+        <Grid ID="AllServicesWindowDropShadow" Style="Grid9DropShadow" Size="990, parent-77" Offset="0,77" Anchor="C,T"/>
+        <Grid ID="AllServicesWindow" Style="Grid9DiplomacyWindow" Size="900,parent-77" Offset="0,77" Anchor="C,T">
+          <Container Offset="7,1" Size="888,32">
+            <Container Size="888,32" Anchor="C,C">
+              <Stack ID="AllServicesWindowHeaderStack" StackGrowth="Right" Anchor="L,C" Padding="5">
+                <Container Size="33,28" Offset="0,2"/>
+                <Label ID="AllServicesWindowHeader" Anchor="L,C" Style="GradientHeader" String="{TXT_KEY_DIPLOMACYUI_ALL_SERVICES:upper}" />
+              </Stack>
+            </Container>
+          </Container>
+          <AlphaAnim Size="parent,parent" Anchor="C,C" AlphaStart="0" AlphaEnd="1" Cycle="Once" Speed="3" Function="Root" ID="AllServicesAlpha" >
+            <SlideAnim Size="parent,parent" Begin="-10,0" End="0,0" Cycle="Once" Speed="3" Function="Root" ID="AllServicesSlide">
+              <Container Size="parent-10,parent-37" Anchor="C,B" Offset="0,5">
+                <Grid Size="parent, 35" Style="GridColumnHeader"/>
+                <Stack Anchor="C,T" StackGrowth="right" Padding="0">
+                  <GridButton ID="SortServicesBySponsor" Style="ColumnHeader" Anchor="C,C" Size="330,35" String="TXT_KEY_DIPLOMACYUI_SORT_SERVICES_BY_SPONSOR" ToolTip="TXT_KEY_DIPLOMACYUI_SORT_SERVICES_BY_SPONSOR_TT"/>
+                  <GridButton ID="SortServicesByName" Style="ColumnHeader" Anchor="C,C" Size="300,35" String="TXT_KEY_DIPLO_NAME" ToolTip="TXT_KEY_DIPLOMACYUI_SORT_SERVICES_BY_NAME_TT"/>
+                  <GridButton ID="SortServicesByCost" Style="ColumnHeader" Anchor="C,C" Size="100,35" String="TXT_KEY_DIPLOMACYUI_SORT_SERVICES_BY_COST" ToolTip="TXT_KEY_DIPLOMACYUI_SORT_SERVICES_BY_COST_TT"/>
+                </Stack>
+                <Container Size="parent,parent-35" Anchor="C,T" Offset="0,35"></Container>
+                <ScrollPanel ID="AllServicesScrollPanel" Size="parent-120,parent-35" Offset="0,35" Vertical="true" Anchor="R,T">
+                  <ScrollBar Style="VertSlider" Anchor="R,T" AnchorSide="O,I" Offset="-16,0"/>
+                  <Stack ID="AllServicesStack" StackGrowth="Bottom" Anchor="C,T" Offset="-45,0">
+                  </Stack>
+                </ScrollPanel>
+              </Container>
+            </SlideAnim>
+          </AlphaAnim>
+        </Grid>
+      </SlideAnim>
+    </AlphaAnim>
+  </Container>
+
+  <!-- Instances -->
+  
+  <!-- Policy Instance -->
+  <Instance Name="ForeignPolicyEntry">
+    <Box ID="Content" Style="ForeignPolicyEntry"/>
+  </Instance>
+
+  <ToolTipType Name="FearReqTooltip">
+    <Box ID="Content" Style="FearReqTooltipStyle"/>
+  </ToolTipType>
+  
+  <!-- Agreement Entry -->
+  <Instance Name="AgreementEntry">
+    <Box ID="Content" Size="parent,90" Color="0,0,0,100" Anchor="C,T">
+      <Image Texture="Agreements_Numbers.dds" ID="NumberIcon" Size="60,56" Anchor="L,B" />
+      <Grid ID="AgreementContainer" Style="Grid9DiplomacyContainer" Size="parent-65,75" Anchor="C,C">
+        <Container ID="CivInfo" Size="270,75" Anchor="L,C" Offset="0,0">
+          <Image Texture="PlayerRibbon_Backing.dds" Size="68,68" Offset="0,0" Anchor="L,C" >
+            <Image ID="LeaderIcon" Anchor="C,C" Size="64,64" />
+          </Image>
+          <Image ID="RelationshipIndicator" Texture="PlayerRibbon_RelationshipIndicators.dds" Size="88,75" Hidden="0" Anchor="L,T" Offset="1,1" TextureOffset="50,0"/>
+          <Stack Anchor="L,T" StackGrowth="Down" Offset="70,5">
+            <Label WrapWidth="200" ID="LeaderName" Style="WhiteShadow" String="$LEADER NAME HERE" />
+            <Label WrapWidth="205" ID="CivName"  Style="GrayShadow16" String="$CIV NAME HERE"/>
+          </Stack>
+          <Label ID="Relationship" Offset="70,5" Anchor="L,B" Style="GrayGlow20" String="$RELATIONSHIP" />
+          <Image	ID="BigCivIcon" StretchMode="None" Size="128,85" Anchor="R,B" Offset="-80,1" Color="100,118,155,90"/>
+        </Container>
+        <Box Style="ForeignPolicyEntry" Anchor="R,C"/>
+      </Grid>
+      <Button ID="CancelButton" Style="CancelButtonCircle" Size="43,43" Anchor="R,C" Offset="-5,0">
+        <AlphaAnim ID="CancelAnim" Anchor="L,C" AnchorSide="O,I" Offset="-5,0" ShowOnMouseOver="1" Cycle="Bounce" Speed="2" Size="769,75" AlphaStart="0" Function="Root" AlphaEnd=".4">
+          <Box Color="240,0,0,255" Size="parent,parent"/>
+        </AlphaAnim>
+      </Button>
+    </Box>
+  </Instance>
+  
+  <!-- Income Agreement Entry -->
+  <Instance Name="IncomeAgreementEntry">
+    <Container ID="Content" Size="34,71" ToolTipType="IncomeAgreementToolTip">
+      <Image Texture="Agreements_Set.dds" Size="34,71" Anchor="C,T" />
+      <Label ID="NumAgreements" Style="GrayGlow22" Anchor="C,T" Offset="0,13" String="9" />
+      <!--<Image ID="CivIcon" Size="32,32" Anchor="C,B" Offset="0,3" />-->
+      <Box Style="CivIcon32"	Anchor="C,T" Offset="0,39"/>
+    </Container>
+  </Instance>
+
+  <Instance Name="IncomeAgreementTTEntry">
+    <Grid ID="Content" Size="parent,40" Style="GridColumnHeader">
+      <Image ID="PolicyIcon" Size="32,32" Anchor="L,C" Offset="5,0" />
+      <Label ID="PolicyName" Style="GrayGlow" Anchor="L,T" Offset="40,3" String="Policy Name Here"/>
+      <Label ID="Cost" Style="DiploCapitalText14" Anchor="L,T" Offset="40,25" String="+99[ICON_DIPLO_CAPITAL]" />
+    </Grid>
+  </Instance>
+  
+  <!-- Tool Tip Types -->
+
+  <ToolTipType Name="IncomeAgreementToolTip">
+    <Grid Style="Callout" ID="ToolTipFrame" Size="300,50">
+      <Stack>
+        <Grid Style="GridColumnHeader" Size="parent,30">
+          <Label Offset="3,0" ID="LeaderName" Style="GradientHeader" Anchor="L,C" WrapWidth="275" String="$Leader Name Here$" />
+        </Grid>
+        <Label ID="HasMadeAgreements" Style="GradientSubHeader" Offset="3,0" Anchor="L,T" FontSize="14" WrapWidth="275" String="TXT_KEY_DIPLOMACYUI_FROM_AGREEMENTS_TT" />
+        <Container Size="5,5"/>
+        <Stack ID="PoliciesStack" Anchor="L,T" StackGrowth="Bottom" />
+      </Stack>
+    </Grid>
+  </ToolTipType>
+  
+</Context>

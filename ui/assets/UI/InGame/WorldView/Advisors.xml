@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal16" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" Layer="Modal" ModalBlocksInput="0">
+
+  <Grid	ID="AdvisorGrid" Size="540,300" Anchor="R,T" Offset="0,31"  Style="Grid9DetailSix140" ConsumeMouse="1" >
+
+    <FlipAnim ID="ForeignRecommendation" Anchor="L,T" Offset="0,45" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="81,52,240,255">
+      <Image ToolTip="TXT_KEY_ADVISOR_FOREIGN_TITLE" Anchor="C,C" Size="40,40" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds">
+        <ScrollAnim  Offset="0,0"  Size="40,40" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine40.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolForeign.dds"/>
+      </Image>
+    </FlipAnim>
+
+    <FlipAnim ID="EconomicRecommendation" Anchor="L,T" Offset="0,45" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="235,239,75,255">
+      <Image ToolTip="TXT_KEY_ADVISOR_ECON_TITLE" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds">
+        <ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolEconomic.dds"/>
+      </Image>
+    </FlipAnim>
+
+    <FlipAnim ID="MilitaryRecommendation" Anchor="L,T" Offset="0,45" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="248,11,71,255">
+      <Image ToolTip="TXT_KEY_ADVISOR_MILITARY_TITLE" Anchor="C,C" Size="32,32" Offset="0,0" Texture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds">
+        <ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolMilitary.dds"/>
+      </Image>
+    </FlipAnim>
+
+    <FlipAnim ID="ScienceRecommendation" Anchor="L,T" Offset="0,45" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="74,173,226,255">
+      <Image Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds" ToolTip="TXT_KEY_ADVISOR_SCIENCE_TITLE">
+        <ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolScience.dds"/>
+      </Image>
+    </FlipAnim>
+
+    <FlipAnim ID="TutorialRecommendation" Anchor="L,T" Offset="0,45" Size="64,64" Columns="7" Speed="30" Pause="0" StepSize="64,0" FrameCount="35" Texture="LoadingAnim.dds" Color="115,138,176,255">
+      <Image Anchor="C,C" Size="32,32" Texture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds">
+        <ScrollAnim Offset="0,0" Size="32,32" Speed=".2" Pause=".5" Texture="assets\UI\Art\Advisors\AdvisorShine.dds" MaskTexture="assets\UI\Art\Advisors\AdvisorSymbolTutorial.dds"/>
+      </Image>
+    </FlipAnim>
+
+
+    <Stack Anchor="R,T" StackGrowth="B" Padding="0" Offset="0,0" ID="AdvisorStack">
+      <Label ID="AdvisorHeaderText" Anchor="C,C"   Offset="0,10" Style="FontNormal26" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" />
+      <Label ID="AdvisorBodyText" Anchor="R,C"  Offset="20,20" Style="FontNormal16" LeadingOffset="3" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow"  WrapWidth="450"/>
+
+      <GridButton ID="ShowMeButton" Style="BaseButton"  Size="180,32" Anchor="C,T" Hidden="0" Offset="0,10">
+        <Label Anchor="C,C" String="TXT_KEY_ADVISOR_SHOW_ME" Offset="0,0" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" Style="FontNormal16"/>
+      </GridButton>
+
+      <!--Spacer-->
+      <Box Color="0,0,0,0" Size="540,20"/>
+
+      <Button ID="Question1String" Size="450,24" Anchor="C,C" Style="FontNormal16">
+        <ShowOnMouseOver>
+          <AlphaAnim  Anchor="C,C" Offset="10,0" Size="500,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1" Style="FontNormal16">
+            <Grid  Size="500,27" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" Style2="FontNormal16" />
+          </AlphaAnim>
+        </ShowOnMouseOver>
+        <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="340.1" />
+      </Button>
+
+      <Button ID="Question2String" Size="450,24" Anchor="C,C">
+        <ShowOnMouseOver>
+          <AlphaAnim  Anchor="C,C" Offset="10,0" Size="500,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+            <Grid  Size="500,27" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" />
+          </AlphaAnim>
+        </ShowOnMouseOver>
+        <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="340.1" />
+      </Button>
+
+      <Button ID="Question3String" Size="450,24" Anchor="C,C">
+        <ShowOnMouseOver>
+          <AlphaAnim  Anchor="C,C" Offset="10,0" Size="500,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+            <Grid  Size="500,27" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" />
+          </AlphaAnim>
+        </ShowOnMouseOver>
+        <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="340.1" />
+      </Button>
+
+      <Button ID="Question4String" Size="450,24" Anchor="C,C">
+        <ShowOnMouseOver>
+          <AlphaAnim  Anchor="C,C" Offset="10,0" Size="500,27" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="2" AlphaEnd="1">
+            <Grid  Size="500,27" Offset="0,0" Padding="0,0" Style="Grid9FrameTurnsHL" />
+          </AlphaAnim>
+        </ShowOnMouseOver>
+        <Image Anchor="C,B" Offset="0,0" Texture="bar340x2.dds" Size="340,1" />
+      </Button>
+
+      <Stack Size="340,243" Anchor="R,T" StackGrowth="Right" Offset="20,0" Padding="2">
+        <GridButton ID="AdvisorDismissButton" Style="BaseButton"  Size="250,32" Hidden="0" >
+          <Label ID="AdvisorDismissLabel" Anchor="C,C" String="TXT_KEY_ADVISOR_THANK_YOU" Offset="0,0" Color0="179,201,227,255" Color1="0,0,0,100" FontStyle="Shadow" Style="FontNormal16"/>
+        </GridButton>
+        <GridButton ID="ActivateButton" Style="BaseButton"  Size="250,32" Hidden="0">
+          <Label ID="ActivateButtonText" Anchor="C,C" String="Activate Button"  Offset="0,0" Color0="179,201,227,255" Color1="0,0,0,100" Style="FontNormal16" FontStyle="Shadow"  />
+        </GridButton>
+      </Stack>
+
+    </Stack>
+  </Grid>
+
+</Context>

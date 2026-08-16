@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal" >
+
+  <Box Style="BGBlock_ClearTopBar"/>
+
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid ID="Popup" Anchor="C,C" Offset="0,-30"	Size="600,300" Style="GridWindowWithHeader" >
+      <!-- Header -->
+      <Label ID="TitleText"	Offset="0,17" Anchor="C,U" String="TXT_KEY_QUEST_COMPLETE_POPUP_TITLE" Style="MenuTitleCaption"  />
+      
+      <!-- Image -->
+      <Image ID="Banner" Size="585,125" Anchor="C,T" Offset="0,48" Texture="Popup_Image_Quest.dds"/>
+
+      <!-- Quest header -->
+      <Label ID="QuestName" Style="GrayGlow24" Anchor="L,T" Offset="20,140" Align="Right" String="QUEST NAME HERE" />
+
+      <!-- Content stack -->
+      <Stack ID="TextStack"		Anchor="C,T" Offset="0,190" Padding="20">
+        <Label ID="EpilogueText" Anchor="C,T" String="Epilogue" Style="GrayGlow20" WrapWidth="560" WrapGrowth="Bottom" />
+        <Image Anchor="C,C" Offset="0,0"  Color="255,255,255,150" Texture="bar500x2.dds" Size="500.1" />
+        <Label ID="RewardHeader" Anchor="C,T" String="Reward" Style="GrayGlow20" WrapWidth="560" WrapGrowth="Bottom" />
+        <Stack ID="RewardsStack" Anchor="C,T" Padding="10" />
+      </Stack>
+
+      <Button ID="CloseButton" Anchor="R,T" Offset="0,6" Style="CloseButton" ConsumeMouse="1" Hidden="1" />
+      <GridButton ID="ConfirmButton" Anchor="C,B" Offset="0,20"	Size="220,35"	Style="BaseButton" String="TXT_KEY_OK_BUTTON" />
+    </Grid>
+  </AlphaAnim>
+
+  <!-- Reward Entry -->
+  <Instance	 Name="RewardInstance">
+    <Container ID="Content" Offset="0,0" Size="565,24">
+      <Label ID="Reward" Anchor="C,C" Offset="0,0"	Style="QuestPopupRewardText" WrapWidth="460" />
+    </Container>
+  </Instance>
+
+</Context>

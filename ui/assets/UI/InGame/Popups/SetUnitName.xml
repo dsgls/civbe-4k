@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Box								ID="Background"		Color="0,0,0,200" Size="Full,Full"  >
+		<Container											Anchor="C,C"	Size="1024,700" >
+			<Box											Anchor="C,C"	Size="354,184" Color="255,255,255,0" >
+				<Grid										Anchor="C,C"	Offset="0,0" Size="350,180" Style="Grid9DetailFive140" >
+					<Stack				ID="Stack"			Anchor="C,T"	Offset="10,60" StackGrowth="Bottom" Padding="15" >
+						<Label			ID="UnitLabel"		Anchor="C,T"	Offset="-10,0" Style="WhiteShadow" String="TXT_KEY_UNIT_NAME"  />
+						<Grid			ID="UnitEditbox"	Anchor="L,T"	Offset="-2,0" Size="320,24" Style="GridColumnHeader" >
+							<EditBox	ID="EditUnitName"	Anchor="C,C"	CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,-1" EditMode="1" Size="320,22" Style="WhiteShadow20" MaxLength="15"  />
+						</Grid>
+					</Stack>
+					<Label				ID="Title"			Anchor="C,T" Offset="0,10" Style="GrayGlow24" WrapWidth="340" String="TXT_KEY_NAME_UNIT_TITLE" />
+					<GridButton			ID="CancelButton"	Anchor="C,B"  Style="BaseButton" Size="150,32"  Offset="-85,20" String="TXT_KEY_CANCEL_BUTTON" />
+					<GridButton			ID="AcceptButton"	Anchor="C,B"  Style="BaseButton" Size="150,32"  Offset="85,20" String="TXT_KEY_ACCEPT_BUTTON" />
+				</Grid>
+			</Box>
+		</Container>
+	</Box>
+</Context>
