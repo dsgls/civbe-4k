@@ -2,7 +2,11 @@
 
 Promote `analysis/dds.py` to a real tool that reads every texture format the
 phase-2 work list uses and writes plain RGBA DDS, so stock art can round-trip
-`.dds` → RGBA `.png` → upscaler → RGBA `.dds`.
+its **level-0 image** `.dds` → RGBA `.png` → upscaler → RGBA `.dds`.
+
+Level 0 is the whole claim. Mip chains, cubemap faces past the first, and the
+low byte of an `L16` texture are dropped by design — none appear on the work
+list.
 
 ## Why
 
@@ -38,13 +42,14 @@ A sibling of `civbe-uiscale/`, same shape.
 ```
 civbe-dds/
   civbe_dds/
-    __init__.py   public API re-exports
+    __init__.py   public API re-exports, written once at the end (task 6)
+    image.py      the Image dataclass
     header.py     DDS header parse + build, FTXT group/tag, format naming, channel order
     dxt.py        BC1/BC2/BC3 block decode
     pair.py       dictionary + index decode
     decode.py     dispatch: any supported .dds -> Image
     encode.py     Image -> plain single-level A8B8G8R8 .dds
-    png.py        PNG reader/writer, moved from analysis/dds.py
+    png.py        PNG reader/writer, ported from analysis/dds.py and extended
     cli.py
     __main__.py
   tests/
@@ -73,6 +78,23 @@ read_png(path) -> Image
 write_png(path, image) -> None
 ```
 
+`read_png` is the one place a file the project did not produce enters the
+pipeline — `encode`'s input comes from a third-party upscaler — so its accepted
+surface is part of the contract, not an implementation detail. It returns RGBA,
+which today's function in `analysis/dds.py` does not: that one returns raw
+scanlines and a channel count, and for a palette image it hands back index bytes
+that are indistinguishable from pixels. Extending it is a real change, not a
+move.
+
+- 8-bit, non-interlaced, colour types 0, 2, 4 and 6: grey replicated to R=G=B,
+  missing alpha filled with 255.
+- Colour type 3 (palette) is expanded through `PLTE`, with `tRNS` supplying
+  alpha where present and 255 elsewhere. Silently emitting palette indices as
+  pixels is the one failure mode here that produces plausible-looking garbage.
+- 16-bit depth raises a named error. ESRGAN-family upscalers emit it routinely,
+  so the message must say what to do (re-save as 8-bit) rather than just
+  "unsupported".
+
 `DdsHeader` carries at least: `width`, `height`, `mips`, `pfflags`, `fourcc`,
 `bits`, `rmask`, `caps2`, `group`, `tag` — the fields today's dict has, so the
 migration is mechanical.
@@ -82,31 +104,64 @@ migration is mechanical.
 `decode.py` dispatches on the header and the sibling file:
 
 - **Dictionary pair** — a `-index.dds` sibling exists. Port `decode_pair` from
-  `analysis/dds.py` unchanged in behaviour; it already decodes all 724 pairs
-  byte-exactly. N comes from the `BC0nn` tag and is decimal.
+  `analysis/dds.py`; it already decodes all 724 pairs byte-exactly, so any
+  rewrite of the arithmetic must reproduce it. N comes from the `BC0nn` tag and
+  is decimal. `cols = dictionary_width // N` is **floor** division and the
+  dictionary may be padded on the right and the bottom: 7 of the 9 N=10
+  dictionaries have a width that is not a multiple of N (`buttonsides` is 16
+  wide at N=10), and `be_exp1_traits_atlas_128` is 16x16 holding one tile row.
+  Asserting divisibility, or rounding up, breaks those files.
 - **32-bit** — `A8B8G8R8` (R mask `0xff`, bytes R,G,B,A) and `A8R8G8B8` (R mask
-  `0xff0000`, bytes B,G,R,A). Read the mask per file; never assume an order.
-- **DXT1** — 8-byte blocks, `c0`/`c1` RGB565 plus 4 bytes of 2-bit indices.
-  `c0 > c1` is the 4-colour opaque mode; otherwise 3 colours with index 3 as
-  transparent black. Both modes ship.
-- **DXT3 / DXT5** — 16-byte blocks: an alpha block then a colour block that is
-  always in 4-colour mode. DXT3 alpha is 4 bits per texel; DXT5 alpha is two
-  endpoints plus 3-bit indices, with the 6-value and 8-value interpolation
-  modes selected by `a0 > a1`.
+  `0xff0000`, bytes B,G,R,A). Read the mask per file; never assume an order. A
+  32-bit file whose masks match neither raises a named error — do not fall
+  through to one order and guess.
+- **DXT1** — 8-byte blocks: `c0`, `c1` as little-endian RGB565, then a 32-bit
+  little-endian field of 2-bit indices with texel 0 in the low 2 bits.
+  Endpoints expand to 8 bits by **high-bit replication** — `(v << 3) | (v >> 2)`
+  for a 5-bit channel, `(v << 2) | (v >> 4)` for 6-bit — and the 1/3 and 2/3
+  interpolants are computed on the **expanded 8-bit** values. A naive `v << 3`
+  turns white into (248, 252, 248) and darkens every DXT texel in the project by
+  ~3%. `c0 > c1` is the 4-colour opaque mode; otherwise 3 colours with index 3
+  as transparent black. The punch-through mode is the *majority* path in the
+  work-list art (`forgeui_scrollbar` is 220 of 256 blocks), not a corner case.
+- **DXT3 / DXT5** — 16-byte blocks: an alpha block then a colour block laid out
+  exactly as DXT1's but **always** in 4-colour mode, whatever `c0` and `c1`
+  compare as.
+  - DXT3 alpha: 4 bits per texel, texel `i` in nibble `i` of the 8-byte block,
+    low nibble of byte 0 first — `(alpha[i >> 1] >> (4 * (i & 1))) & 0xf` —
+    expanded to 8 bits by replication, `a * 17`. `a << 4` leaves an opaque texel
+    at 240 and washes every sprite.
+  - DXT5 alpha: `a[0] = a0`, `a[1] = a1` from the first two bytes, then 3-bit
+    indices as a 48-bit little-endian field in bytes 2..7 with texel 0 in the
+    low 3 bits. If `a0 > a1`: `a[2+i] = ((6-i)*a0 + (1+i)*a1) // 7` for i in
+    0..5. Otherwise: `a[2+i] = ((4-i)*a0 + (1+i)*a1) // 5` for i in 0..3, and
+    `a[6] = 0`, `a[7] = 255`. The second mode differs twice over — denominator
+    5, and two literal entries — and it is not the rare one: 29.8% of stock DXT4
+    blocks are in it, `forgeui_glass` entirely so, and applying the 8-value
+    formula to it puts wrong alpha on 42% of `forgeui_pulldown_corner`.
 - **DXT2 / DXT4** — decode as DXT3 / DXT5 and **do not divide out alpha**. The
   fourCC claims premultiplied alpha and the data is not premultiplied; honouring
   it washes these textures out.
-- **L8 / L16 standalone** — greyscale, replicated to R=G=B with opaque alpha
-  (L16 shifted down to 8 bits). This is what reading an `-index.dds` directly
-  gives you.
-- **Cubemap** (`dwCaps2` `0xFE00`) — decode face 0 and warn on stderr.
+- **L8 / L16 standalone** — greyscale, replicated to R=G=B with opaque alpha.
+  L16 reduces by `v >> 8`, which is lossy and deliberate. This is what reading
+  an `-index.dds` directly gives you.
+- **Cubemap** — `dwCaps2 & 0x200` (`DDSCAPS2_CUBEMAP`), not an equality test
+  against `0xFE00`. Decode face 0, which starts at 0x80 like any other texture,
+  and warn on stderr.
 - **fourCC 114** (`.fic` stub) — raise a named unsupported-format error, not a
   struct failure.
 
-Block-compressed images are decoded on a 4x4 grid and cropped to the declared
-dimensions. Pixel data is tightly packed at offset 0x80 in every shipped file;
-`info` reports a mismatch between declared dimensions and file size rather than
-silently reading short.
+Blocks are laid out row-major, left to right then top to bottom, as are the
+texels within a block; DDS rows run top to bottom, matching PNG, so nothing is
+flipped. Block-compressed images are decoded on a 4x4 grid and cropped to the
+declared dimensions — no stock file needs the crop, so only a synthetic fixture
+can test it.
+
+Pixel data is tightly packed from offset 0x80: summing every declared mip level
+across every face accounts for the file size exactly, on all 2382 non-stub
+files. `info` therefore compares against **that** sum, or else reports only "the
+file is shorter than level 0" — comparing the file size against level 0 alone
+false-positives on the 702 files that carry chains or faces.
 
 ## Encoding
 
@@ -122,11 +177,13 @@ already are and what the verified loose override was:
   the game draws them, so a plain conforming DDS is sufficient and no test
   pins these fields.
 
-The rest of the header is an ordinary conforming DDS: `dwFlags` with caps,
-height, width, pitch and pixel-format set, `dwPitchOrLinearSize` = width x 4,
-`dwMipMapCount` 1, `dwCaps` = `DDSCAPS_TEXTURE`. Compare against a stock plain
-texture while implementing and adopt its values where they differ, but do not
-build machinery around matching it.
+The rest of the header is an ordinary conforming DDS: `dwFlags` = caps | height
+| width | pitch | pixelformat | mipmapcount (`0x2100F`), `dwPitchOrLinearSize` =
+width x 4, `dwMipMapCount` 1, `dwCaps` = `DDSCAPS_TEXTURE` (`0x1000`). Every
+one of these has stock precedent. Set `DDSD_MIPMAPCOUNT` because
+`dwMipMapCount` is written; stock files that carry a count always set the flag.
+Compare against a stock plain texture while implementing and adopt its values
+where they differ, but do not build machinery around matching it.
 
 ## CLI
 
@@ -160,13 +217,25 @@ not tracked, so nothing in the suite may depend on it.
   the usage name (read to the first NUL) and the eight-file case with no `FTXT`
 - one hand-built block per codec with hand-computed expected RGBA: DXT1 in both
   the opaque and the punch-through mode, DXT3, DXT5 in both alpha
-  interpolation modes
+  interpolation modes. The hand-computed values must come from the formulas in
+  *Decoding* above — a test written from a plausible-sounding paraphrase
+  enshrines the wrong numbers, which is exactly how the 6-value alpha mode and
+  the 565 expansion get lost.
+- an endpoint of `0xFFFF` expands to (255, 255, 255), not (248, 252, 248)
+- a DXT3 nibble of 15 expands to alpha 255, not 240
 - DXT2 and DXT4 decode identically to DXT3 and DXT5 — alpha is not divided out
-- a texture whose dimensions are not multiples of 4, cropped correctly
-- both 32-bit mask orders decode to the same RGBA
+- a texture whose dimensions are not multiples of 4, cropped correctly (no
+  stock file exercises this, so the fixture is the only coverage)
+- both 32-bit mask orders decode to the same RGBA; an unrecognised 32-bit mask
+  raises rather than guessing an order
 - L8 and L16 greyscale decode
-- pair decode with a non-power-of-two N (10 and 20 both ship) and a non-square
-  image (407 of 724 are non-square)
+- pair decode with a non-power-of-two N (10 and 20 both ship), a non-square
+  image (407 of 724 are non-square), and a dictionary whose width is not a
+  multiple of N
+- a synthetic `A8R8G8B8` dictionary, since all 724 stock dictionaries are
+  `A8B8G8R8` and the pair decoder's channel swap is otherwise dead code
+- each accepted PNG colour type expands to RGBA; a palette PNG resolves through
+  `PLTE`/`tRNS` rather than returning indices; a 16-bit PNG raises
 - cubemap decodes face 0; a fourCC-114 file raises the named error
 - `decode(encode(img)) == img`
 - `encode(read(dds))` re-read equals the original RGBA, for a 32-bit source and
@@ -197,13 +266,22 @@ not tracked, so nothing in the suite may depend on it.
 
 ## Task split
 
-1. **Package skeleton + `header.py` + `png.py`.** `DdsHeader` dataclass, parse,
-   build, format naming, channel order; PNG moved verbatim.
+1. **Package skeleton + `image.py` + `header.py` + `png.py`.** The `Image`
+   dataclass (`width`, `height`, `rgba`, `group`) that every other module
+   imports; `DdsHeader` parse, build, format naming, channel order; the PNG
+   reader extended to the surface above. `__init__.py` stays empty.
 2. **`dxt.py`.** All five fourCCs, with the 2→3 and 4→5 remap.
-3. **`pair.py`.** Ported from `analysis/dds.py`.
-4. **`encode.py`.**
-5. **`decode.py`.** The dispatcher, plus L8/L16, cubemap and `.fic` handling.
-6. **`cli.py` + `__main__.py`.**
+3. **`pair.py`.** Ported from `analysis/dds.py`. Owns `index_path` and
+   `is_pair`, which `decode.py` imports.
+4. **`encode.py`.** Its tests assert that the output parses back through
+   `header()` with the expected fields and that the pixel bytes are R,G,B,A.
+   The round-trip tests belong to task 5, the first point where both halves
+   exist.
+5. **`decode.py`.** The dispatcher, plus L8/L16, cubemap and `.fic` handling,
+   and the two round-trip tests.
+6. **`cli.py` + `__main__.py` + the `__init__.py` re-export block.** Tasks 2-5
+   and their tests import submodules directly, so only this task writes the
+   public API and no two tasks contend for one file.
 7. **Migration**: `paths.py`, the six consumers, delete `dds.py`, rewrite
    `verify_pair_decode.py` as `verify_decode.py`.
 8. **Docs**: both READMEs.
