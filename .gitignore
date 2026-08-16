@@ -4,6 +4,12 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Scratch documents that should never be committed.
+/docs/tmp/
+
+# Editor swap files.
+*.swp
+
 # reference/assets-ui-stock is a copy of the stock Assets/UI, kept so the
 # analysis is reproducible without a game install. Only the XML and Lua are
 # tracked (4.7MB); the fonts, models and animations nothing reads are not.
