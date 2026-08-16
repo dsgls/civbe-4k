@@ -387,7 +387,7 @@ either. Ignore them; there is nothing to convert.
 
 1. **Upscale** each `input_file` 2x. The inputs are already decoded, so an
    off-the-shelf model works; nothing needs to understand the block format to
-   *read* it.
+   *read* it. The shipped packages use `civbe-upscale`'s `animesharp-v4`.
 2. **Re-encode** to something the engine loads. Plain RGBA (`RAW32`) is what
    933 stock textures already use and what the shipped packages contain —
    single-level, `tag=COLOR`, usage group copied from the stock file

@@ -65,6 +65,6 @@ echo >&2
 if [ "$UPLOAD" -eq 1 ]; then
     curl --fail-with-body --user "davidlowsec:$(cat ~/.forgejo-package-key)" \
          --upload-file "$OUT/$NAME" \
-         "https://git.dg.is/api/packages/dsg/generic/civbe-4k-textures/$VERSION/$NAME"
+         "https://git.dsg.is/api/packages/dsg/generic/civbe-4k-textures/$VERSION/$NAME"
     echo "uploaded $NAME" >&2
 fi

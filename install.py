@@ -8,7 +8,7 @@ CRLF on the way. `--keep-lf` installs the bytes as they are in the repo, which
 is the switch for A/B-testing line-ending sensitivity in game.
 
 The 2x textures are far too large to vendor, so they ship as a generic package
-on git.dg.is. `TEXTURE_VERSION` below pins which one this checkout expects: the
+on git.dsg.is. `TEXTURE_VERSION` below pins which one this checkout expects: the
 package is downloaded once into ~/.cache/civbe-4k, SHA-256 verified, and
 extracted into the game directory. Bumping the pin is what makes an install
 fetch a new package; `package-textures.sh` builds and uploads one and prints
@@ -40,10 +40,10 @@ SOURCE = os.path.join(PROJECT, "ui")
 # the conversion over a .dds would rewrite every 0x0A that falls in pixel data.
 TEXT_SUFFIXES = (".xml", ".lua")
 
-TEXTURE_VERSION = "0.0.1"
-TEXTURE_SHA256 = "6817b0435bf6bc4bf7caddd9cccd517f1bd30c26ba99917a5d2b7712a77d66dd"
+TEXTURE_VERSION = "0.0.2"
+TEXTURE_SHA256 = "2e9a316054e3cfdfed94e8d9fa22dba10688ecb047485efdef3b78e8d740016f"
 TEXTURE_URL = (
-    "https://git.dg.is/api/packages/dsg/generic/civbe-4k-textures/"
+    "https://git.dsg.is/api/packages/dsg/generic/civbe-4k-textures/"
     "{v}/civbe-4k-textures-v{v}.tar.xz"
 )
 CACHE_DIR = os.path.join(
