@@ -96,6 +96,19 @@ class TestTextureScale:
         report = run(game, game / "backup", ui_scale=2.0, texture_scale=2.0)
         assert report.texture_changes > 0
 
+    def test_applies_the_site_rules_for_computed_offsets(self, game):
+        task_list = ui_of(game) / "InGame" / "TaskList.lua"
+        task_list.write_bytes(b"local iOffset = 0;\n\t\t\t\tiOffset = 96;\n")
+        run(game, game / "backup", ui_scale=2.0, texture_scale=2.0)
+        assert b"iOffset = 96 * 2;" in task_list.read_bytes()
+
+    def test_site_rules_are_inert_at_texture_scale_one(self, game):
+        task_list = ui_of(game) / "InGame" / "TaskList.lua"
+        source = b"local iOffset = 0;\n\t\t\t\tiOffset = 96;\n"
+        task_list.write_bytes(source)
+        run(game, game / "backup", ui_scale=2.0, texture_scale=1.0)
+        assert task_list.read_bytes() == source
+
 
 class TestDryRun:
     def test_dry_run_leaves_the_tree_untouched(self, game):

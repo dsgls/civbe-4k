@@ -14,6 +14,7 @@ from pathlib import Path
 from . import backup, fastmenu, styles, trees
 from .classify import Space
 from .luapatch import patch_icon_support, patch_lua
+from .luasites import patch_sites
 from .trees import find_ui_dir  # noqa: F401  (re-exported)
 from .xmlpatch import patch_xml
 
@@ -161,6 +162,9 @@ def _run_tree(tree, backup_root, ui_scale, texture_scale, base_styles,
             patched, changes = patch_xml(text, ui_scale, texture_scale, style_table)
         else:
             patched, changes = patch_lua(text, ui_scale, texture_scale)
+            patched, site_changes = patch_sites(
+                rel.as_posix(), patched, ui_scale, texture_scale)
+            changes = list(changes) + site_changes
             if source.name == ICON_SUPPORT and (texture_scale != 1.0 or pin_icon_size):
                 patched, edits = patch_icon_support(patched, texture_scale, pin_icon_size)
                 report.icon_support_edits += edits
