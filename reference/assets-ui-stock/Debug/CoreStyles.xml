@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StyleSheet>
+
+
+    <!-- Static-sized buttons -->
+    <!-- Button -->
+    <ScrollBarUp    Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ScrollBarUp.dds"    Size="18,18" />
+    <ScrollBarDown  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ScrollBarDown.dds"  Size="18,18" />
+    <ScrollBarRight Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ScrollBarRight.dds" Size="18,18" />
+    <ScrollBarLeft  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ScrollBarLeft.dds"  Size="18,18" />
+
+    <SelectedUp     Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_SelectedUp.dds"     Size="18,18" />
+    <SelectedDown   Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_SelectedDown.dds"   Size="18,18" />
+
+    <ForwardButton  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_UnitPanelArrows.dds"  Size="32,32"                         />
+    <BackButton     Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_UnitPanelArrows.dds"  Size="32,32"  TextureOffset="32,0"   />
+
+    <CheckBoxButton  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Checkbox.dds" Size="32,32" />
+
+    <Button_16  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_16.dds"    Size="16,16" />
+    <Button_64  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_64.dds"    Size="64,16" />
+    <Button_128 Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_128.dds"   Size="128,16" />
+
+    <Button_256_Shine Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_256.dds" Size="256,36" >
+        <ScrollAnim Size="256 30" Anchor="C,C" Speed="1" Pause="2.0" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_256_Shine.dds" MaskTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_256_Mask.dds" />
+    </Button_256_Shine>
+
+    <Button_512 Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_512.dds"   Size="409,38" >
+        <AlphaAnim ShowOnMouseOver="1" Size="409,38" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_512_Bounce.dds" Cycle="Bounce" Speed="1" AlphaStart="0.15" />
+    </Button_512>
+
+    <Button_X  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_x_1.dds" Size="18,18" />
+    <Button_X2 Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_Button_x_2.dds" Size="32,32" />
+
+    <RoundButton Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_RoundButton.dds" Size="64,64" />
+    <HexButton Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_HexButton.dds" Size="64,64" />
+
+    <HexButtonA Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_HexButton.dds" Size="64,64" >
+        <ScrollAnim ShowOnMouseOver="1" Size="64,64" Anchor="C,C" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_HexButtonShine.dds" MaskTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_HexButtonMask.dds" Speed="1" />
+    </HexButtonA>
+    
+    <TabButton  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_TabButton.dds" Size="49,50" />
+    <BarButton  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_BarButton.dds" Size="272,27" />
+
+
+
+
+    <!-- Check Boxes -->
+    <DefaultCheck ButtonTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckBoxButton.dds" CheckTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckMark.dds" />
+    <DefaultXCheck ButtonTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckBoxButton.dds" CheckTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckMark_X.dds" />
+    <SquareCheck ButtonTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckBoxButton_Square.dds" CheckTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckMark.dds" />
+    <SquareXCheck ButtonTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckBoxButton_Square.dds" CheckTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_CheckMark_X.dds" />
+
+
+
+    <!-- Slider and Scroll Bar Components -->
+    <!-- Slider -->
+    <Grid3Thumb Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ScrollBarH.DDS" Size="18,18"
+                StateOffsetIncrement="0,18"
+                LSize="3,18"  LTexStart="0,0"
+                CSize="12,18"  CTexStart="3,0"
+                RSize="3,18"  RTexStart="15,0"  />
+
+    <ScrollBar Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ScrollBarBackH.dds" Size="17,18" Vertical="0"
+               StateOffsetIncrement="0,0"
+               LSize="0,0"  LTexStart="0,0"
+               CSize="17,18"  CTexStart="0,0"
+               RSize="0,0"  RTexStart="0,0" >
+        <Thumb Style="Grid3Thumb" Size="18,18" />
+    </ScrollBar>
+
+    <VertThumb Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ScrollBar.DDS" Size="18,18" Vertical="1"
+               StateOffsetIncrement="0,18"
+               UCSize="18,3"  UCTexStart="0,0"
+               CSize="18,1"   CTexStart="0,3"
+               LCSize="18,3"  LCTexStart="0,15" />
+
+    <VertSlider Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ScrollBarBack.dds" Size="18,18" Vertical="1"
+                StateOffsetIncrement="0,0"
+                UCSize="18,0"  ULCexStart="0,0"
+                CSize="18,6"  CTexStart="0,6"
+                LCSize="18,0"  LCTexStart="0,12"  >
+        <Thumb Style="VertThumb" Size="18,18" />
+    </VertSlider>
+
+  <ToolVertSliderThumb Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderThumbV.dds" Size="16,4"
+            LSize="0,0"  LTexStart="0,0"
+            CSize="16,4"  CTexStart="0,0"
+            RSize="0,0"  RTexStart="0,0"
+            StateOffsetIncrement="0,32" />
+
+  <ToolVertSlider32 Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderBackV.dds" Size="4,32" Vertical="1"
+          StateOffsetIncrement="0,0"
+          LSize="0,0"  LTexStart="0,0"
+          CSize="4,32"  CTexStart="0,0"
+          RSize="0,0"  RTexStart="0,0"  >
+    <Thumb Style="ToolVertSliderThumb" />
+  </ToolVertSlider32>
+  <ToolVertSlider64 Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderBackV.dds" Size="4,64" Vertical="1"
+          StateOffsetIncrement="0,0"
+          LSize="0,0"  LTexStart="0,0"
+          CSize="4,64"  CTexStart="0,0"
+          RSize="0,0"  RTexStart="0,0"  >
+    <Thumb Style="ToolVertSliderThumb" />
+  </ToolVertSlider64>
+  
+  <ToolSliderThumb Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderThumbH.dds" Size="4,16"
+            LSize="0,0"  LTexStart="0,0"
+            CSize="4,16"  CTexStart="0,0"
+            RSize="0,0"  RTexStart="0,0"
+            StateOffsetIncrement="0,32" />
+
+  <ToolSlider64 Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderBackH.dds" Size="64,4"
+          StateOffsetIncrement="0,0"
+          LSize="16,4"  LTexStart="0,2"
+          CSize="32,4"  CTexStart="16,2"
+          RSize="16,4"  RTexStart="112,2"  >
+    <Thumb Style="ToolSliderThumb" />
+  </ToolSlider64>
+  <ToolSlider128 Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_ToolSliderBackH.dds" Size="128,4"
+          StateOffsetIncrement="0,0"
+          LSize="16,4"  LTexStart="0,2"
+          CSize="32,4"  CTexStart="16,2"
+          RSize="16,4"  RTexStart="112,2"  >
+    <Thumb Style="ToolSliderThumb" />
+  </ToolSlider128>
+
+
+    <SliderThumb Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_Slider32.dds" Size="32,32"
+              LSize="0,0"  LTexStart="0,0"
+              CSize="32,32"  CTexStart="0,0"
+              RSize="0,0"  RTexStart="0,0"
+              StateOffsetIncrement="0,32" />
+
+    <Slider Texture="ForgeUI_Assets/ControlArt/Sliders/ForgeUI_SliderBackH.dds" Size="66,32" Gutter="-5"
+            StateOffsetIncrement="0,0"
+            LSize="22,32"  LTexStart="0,0"
+            CSize="22,32"  CTexStart="22,0"
+            RSize="22,32"  RTexStart="44,0"  >
+        <Thumb Style="SliderThumb" Size="32,32" />
+    </Slider>
+
+
+
+
+    <!-- Pulldown definitions -->
+    <!-- PullDown -->
+    <GenericPullDown AutoSizePopup="1" >
+        <ButtonData>
+            <GridButton Style="SquareFrameButton" Anchor="L,C" >
+                <Image Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_PullDown_Corner.dds" TextureOffset="0,0" Offset="3,3"  Size="16,16" Anchor="R,B"  />
+                <Image ShowOnMouseOver="1" Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_PullDown_Corner.dds" TextureOffset="0,16" Offset="3,3"  Size="16,16" Anchor="R,B"  />
+            </GridButton>
+        </ButtonData>
+
+        <GridData Anchor="C,B" Offset="0.-2" AnchorSide="I,O" Style="SquareFrameBlack" Padding="5,5" />
+
+        <ScrollPanelData Anchor="C,C"  Vertical="1" Size="18,18"  AutoScrollBar="1" >
+            <ScrollBar  Style="VertSlider"      Anchor="R,C" AnchorSide="O,I"   />
+            <UpButton   Style="ScrollBarUp"     Anchor="R,T" AnchorSide="O,I"   />
+            <DownButton Style="ScrollBarDown"   Anchor="R,B" AnchorSide="O,I"   />
+        </ScrollPanelData>
+
+        <StackData StackGrowth="Bottom" Padding="0" Anchor="C,T" />
+
+        <InstanceData Name="InstanceOne" >
+            <GridButton  Size="200,24" Style="ZoomButton"  Anchor="C,C" ID="Button" />
+        </InstanceData>
+    </GenericPullDown>
+
+
+
+
+
+
+
+    <!-- 9-Grid Buttons (dynamically sizable)-->
+    <!-- GridButton -->
+
+    <LineButton Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_LineButton.dds"
+        StateOffsetIncrement="0,45"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+    <RoundFrameButton2 >
+        <GridData Style="RoundFrameButton" />
+        <AlphaAnim  ShowOnMouseOver="1" Anchor="R,C"  AnchorSide="O.O"  Offset="-2,0" Size="16,32" TextureOffset="16,0" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ButtonSides_Glow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+        <AlphaAnim  ShowOnMouseOver="1" Anchor="L,C"  AnchorSide="O.O"  Offset="-2,0" Size="16,32" TextureOffset="0,0" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ButtonSides_Glow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+        <Image ShowOnMouseOver="1" Anchor="R,C" Offset="-2,0" TextureOffset="8,0" AnchorSide="O.O"  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ButtonSides.dds" Size="8,16" />
+        <Image ShowOnMouseOver="1" Anchor="L,C" Offset="-2,0" TextureOffset="0,0" AnchorSide="O.O"  Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ButtonSides.dds" Size="8,16" />
+    </RoundFrameButton2>
+
+
+    <!--  Trade item button  -->
+    <EmptyButton Size="195,24" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ListButton.dds" TextAnchor="L,C" TextOffset="5,0" String="" Style="FontNormal14" >
+        <ScrollAnim ShowOnMouseOver="1" Size="195,24" Speed="0.25" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_LargeButtonShine.dds" MaskTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ListButton_Mask.dds" />
+    </EmptyButton>
+
+    <!--  Trade item Small  -->
+    <EmptyButtonSmall Size="160,24" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ListButton.dds" TextAnchor="L,C" TextOffset="5,0" String="" Style="FontNormal14" >
+        <ScrollAnim ShowOnMouseOver="1" Size="160,24" Speed="0.25" Texture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_LargeButtonShine.dds" MaskTexture="ForgeUI_Assets/ControlArt/Buttons/ForgeUI_ListButton_Mask.dds" />
+    </EmptyButtonSmall>
+
+
+    <!--  SquareFrameButton -->
+    <SquareFrameButton >
+        <GridData Style="SquareFrameBlue" />
+    </SquareFrameButton>
+    
+    <!--  SquareFrameButtonGrey -->
+    <SquareFrameButtonGrey >
+        <GridData Style="SquareFrameGrey" />
+    </SquareFrameButtonGrey>
+    
+    <!--  ZoomButton -->
+    <ZoomButton Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_ZoomButton.dds"
+      StateOffsetIncrement="0,27"
+      ULSize="4,4"  ULTexStart="0,0"
+      UCSize="19,4" UCTexStart="4,0"
+      URSize="4,4"  URTexStart="23,0"
+      LSize="4,19"  LTexStart="0,4"
+      CSize="19,19" CTexStart="4,4"
+      RSize="4,19"  RTexStart="23,4"
+      LLSize="4,4"  LLTexStart="0,23"
+      LCSize="19,4" LCTexStart="4,23"
+      LRSize="4,4"  LRTexStart="23,23"
+               />
+    
+    <!--  RoundFrameButton -->
+    <RoundFrameButton Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundFrameButton.dds"
+    StateOffsetIncrement="0,27"
+    ULSize="10,10"  ULTexStart="0,0"
+    UCSize="7,10" UCTexStart="10,0"
+    URSize="10,10"  URTexStart="17,0"
+    LSize="10,7"  LTexStart="0,10"
+    CSize="7,7" CTexStart="10,10"
+    RSize="10,7"  RTexStart="17,10"
+    LLSize="10,10"  LLTexStart="0,17"
+    LCSize="7,10" LCTexStart="10,17"
+    LRSize="10,10"  LRTexStart="17,17"
+               />
+
+    <!--  SquareButton -->
+    <SquareButton Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareButton.dds"
+    StateOffsetIncrement="0,45"
+    ULSize="2,2"  ULTexStart="0,0"
+    UCSize="42,2" UCTexStart="2,0"
+    URSize="2,2"  URTexStart="42,0"
+    LSize="2,42"  LTexStart="0,2"
+    CSize="42,42" CTexStart="2,2"
+    RSize="2,42"  RTexStart="42,2"
+    LLSize="2,2"  LLTexStart="0,42"
+    LCSize="42,2" LCTexStart="2,42"
+    LRSize="2,2"  LRTexStart="42,42"
+               />
+
+    <!--  SquareButtonBlack -->
+    <SquareButtonBlack Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareButtonBlack.dds"
+    StateOffsetIncrement="0,45"
+    ULSize="2,2"  ULTexStart="0,0"
+    UCSize="42,2" UCTexStart="2,0"
+    URSize="2,2"  URTexStart="42,0"
+    LSize="2,42"  LTexStart="0,2"
+    CSize="42,42" CTexStart="2,2"
+    RSize="2,42"  RTexStart="42,2"
+    LLSize="2,2"  LLTexStart="0,42"
+    LCSize="42,2" LCTexStart="2,42"
+    LRSize="2,2"  LRTexStart="42,42"
+               />
+
+
+
+
+
+
+
+
+
+    <!-- 9-Grid definitions -->
+    <!-- Grid -->
+    
+    <!--  SquareFrameGrey -->
+    <SquareFrameGrey Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareFrameGrey.dds"
+      StateOffsetIncrement="0,27"
+      ULSize="10,10"  ULTexStart="0,0"
+      UCSize="7,10" UCTexStart="10,0"
+      URSize="10,10"  URTexStart="17,0"
+      LSize="10,7"  LTexStart="0,10"
+      CSize="7,7" CTexStart="10,10"
+      RSize="10,7"  RTexStart="17,10"
+      LLSize="10,10"  LLTexStart="0,17"
+      LCSize="7,10" LCTexStart="10,17"
+      LRSize="10,10"  LRTexStart="17,17"
+               />
+
+    <!--  SquareFrameBlue -->
+    <SquareFrameBlue Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareFrameBlue.dds"
+      StateOffsetIncrement="0,27"
+      ULSize="10,10"  ULTexStart="0,0"
+      UCSize="7,10" UCTexStart="10,0"
+      URSize="10,10"  URTexStart="17,0"
+      LSize="10,7"  LTexStart="0,10"
+      CSize="7,7" CTexStart="10,10"
+      RSize="10,7"  RTexStart="17,10"
+      LLSize="10,10"  LLTexStart="0,17"
+      LCSize="7,10" LCTexStart="10,17"
+      LRSize="10,10"  LRTexStart="17,17"
+               />
+
+    <!--  SquareFrameBlue -->
+    <SquareFrameBlue Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareFrameBlue.dds"
+      StateOffsetIncrement="0,27"
+      ULSize="10,10"  ULTexStart="0,0"
+      UCSize="7,10" UCTexStart="10,0"
+      URSize="10,10"  URTexStart="17,0"
+      LSize="10,7"  LTexStart="0,10"
+      CSize="7,7" CTexStart="10,10"
+      RSize="10,7"  RTexStart="17,10"
+      LLSize="10,10"  LLTexStart="0,17"
+      LCSize="7,10" LCTexStart="10,17"
+      LRSize="10,10"  LRTexStart="17,17"
+               />
+
+    <!--  SquareFrameBlack -->
+    <SquareFrameBlack Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SquareFrameBlack.dds"
+      ULSize="3,3"  ULTexStart="0,0"
+      UCSize="20,3" UCTexStart="3,0"
+      URSize="3,3"  URTexStart="24,0"
+      LSize="3,20"  LTexStart="0,3"
+      CSize="20,20" CTexStart="3,3"
+      RSize="3,20"  RTexStart="24,3"
+      LLSize="3,3"  LLTexStart="0,24"
+      LCSize="20,3" LCTexStart="3,24"
+      LRSize="3,3"  LRTexStart="24,24"
+               />
+
+
+   <!-- RoundFrameBlack  -->
+    <RoundFrameBlack Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundFrameBlack.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+   <!-- RoundFrameGrey  -->
+    <RoundFrameGrey Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundFrameGrey.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+    <!-- RoundFrameBlue  -->
+    <RoundFrameBlue Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundFrameBlue.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+    <LinePanel Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_LinePanel.dds"
+               VKerning="7,7"
+               ULSize="31,26"  ULTexStart="1,1"
+               UCSize="1,26"   UCTexStart="40,1"
+               URSize="31,26"  URTexStart="49,1"
+               LSize="31,221"  LTexStart="1,34"
+               CSize="192,221" CTexStart="32,34"
+               RSize="31,221"  RTexStart="224,34"
+               LLSize="31,26"  LLTexStart="81,1"
+               LCSize="1,26"   LCTexStart="120,1"
+               LRSize="31,26"  LRTexStart="129,1"
+               />
+
+    <!-- WindowEmpty  -->
+    <WindowEmpty Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_WindowEmpty.dds"
+        ULSize  ="15,15"      ULTexStart  ="0,0"
+        UCSize  ="1,15"        UCTexStart  ="24,0"
+        URSize  ="15,15"      URTexStart  ="33,0"
+        LSize   ="15,1"         LTexStart  ="0,15"
+        CSize   ="1,1"         CTexStart  ="24,24"
+        RSize   ="15,1"         RTexStart  ="33,15"
+        LLSize  ="15,15"      LLTexStart  ="0,33"
+        LCSize  ="1,15"        LCTexStart  ="24,33"
+        LRSize  ="15,15"      LRTexStart  ="33,33"
+               />
+
+    <!-- WindowBlack  -->
+    <WindowBlack Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_WindowBlack.dds"
+        ULSize  ="15,15"      ULTexStart  ="0,0"
+        UCSize  ="1,15"        UCTexStart  ="24,0"
+        URSize  ="15,15"      URTexStart  ="33,0"
+        LSize   ="15,1"         LTexStart  ="0,15"
+        CSize   ="1,1"         CTexStart  ="24,24"
+        RSize   ="15,1"         RTexStart  ="33,15"
+        LLSize  ="15,15"      LLTexStart  ="0,33"
+        LCSize  ="1,15"        LCTexStart  ="24,33"
+        LRSize  ="15,15"      LRTexStart  ="33,33"
+               />
+
+    <!-- RoundGreyTint -->
+    <RoundGreyTint Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundGreyTint.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+
+    <!-- RoundGrey -->
+    <RoundGrey Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundGrey.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+    <!-- RoundBlackTint -->
+    <RoundBlackTint Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundBlackTint.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+
+    <!-- RoundBlack -->
+    <RoundBlack Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_RoundBlack.dds"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+
+    <!-- Grid9BlackCorners8 -->
+    <BlackCorners Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_BlackCorners.dds"
+          ULSize="8,8"  ULTexStart="0,0"
+          UCSize="28,8" UCTexStart="8,0"
+          URSize="8,8"  URTexStart="36,0"
+          LSize="8,28"  LTexStart="0,8"
+          CSize="28,28" CTexStart="8,8"
+          RSize="8,28"  RTexStart="36,8"
+          LLSize="8,8"  LLTexStart="0,36"
+          LCSize="28,8" LCTexStart="8,36"
+          LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+
+    <!-- Glass -->
+    <Glass Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_Glass.dds"
+       ULSize="16,16"  ULTexStart="0,0"
+       UCSize="57,16"   UCTexStart="16,0"
+       URSize="16,16"  URTexStart="73,0"
+       LSize="16,57"  LTexStart="0,16"
+       CSize="57,57" CTexStart="16,16"
+       RSize="16,57"  RTexStart="73,16"
+       LLSize="16,16"  LLTexStart="0,73"
+       LCSize="57,16"   LCTexStart="16,73"
+       LRSize="16,16"  LRTexStart="73,73"
+               />
+
+    <!-- SideFrames  -->
+    <SideFrames Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_SideFrames.dds"
+        ULSize="10,10"  ULTexStart="0,0"
+        UCSize="28,10" UCTexStart="10,0"
+        URSize="10,10"  URTexStart="38,0"
+        LSize="10,2"  LTexStart="0,10"
+        CSize="28,2" CTexStart="10,10"
+        RSize="10,2"  RTexStart="38,10"
+        LLSize="10,10"  LLTexStart="0,38"
+        LCSize="28,10" LCTexStart="10,38"
+        LRSize="10,10"  LRTexStart="38,38"
+               />
+
+
+    <!-- DetailWindow -->
+    <DetailWindow Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_DetailWindow.dds"
+        ULSize="70,20"  ULTexStart="0,30"
+        UCSize="1,20" UCTexStart="70,30"
+        URSize="70,20"  URTexStart="70,30"
+        LSize="70,1"  LTexStart="0,70"
+        CSize="1,1" CTexStart="70,70"
+        RSize="70,1"  RTexStart="70,70"
+        LLSize="70,20"  LLTexStart="0,95"
+        LCSize="1,20" LCTexStart="70,95"
+        LRSize="70,20"  LRTexStart="70,95"
+               />
+
+
+    <!-- EmptyFrame -->
+    <EmptyFrame Texture="ForgeUI_Assets/ControlArt/Grids/ForgeUI_EmptyFrame.dds"
+        ULSize="16,16"  ULTexStart="0,0"
+        UCSize="13,16" UCTexStart="16,0"
+        URSize="16,16"  URTexStart="29,0"
+        LSize="16,1"  LTexStart="0,16"
+        CSize="13,1" CTexStart="16,16"
+        RSize="16,1"  RTexStart="29,16"
+        LLSize="16,16"  LLTexStart="0,29"
+        LCSize="13,16" LCTexStart="16,29"
+        LRSize="16,16"  LRTexStart="29,29"
+               />
+    
+</StyleSheet>
+

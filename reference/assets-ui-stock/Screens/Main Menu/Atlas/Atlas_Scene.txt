@@ -1,0 +1,7 @@
+<LeaderScene FarClip="180000"  lights="Atlas_Lights.gr2" camera="Atlas_Camera.gr2" cubemap_prefix ="atlas">
+
+<DOFSettings max_width="0" blur_distance="0" ramp_distance="0" ></DOFSettings>
+
+<BackgroundObject model="Atlas_Scene.gr2" ></BackgroundObject>
+
+</LeaderScene>

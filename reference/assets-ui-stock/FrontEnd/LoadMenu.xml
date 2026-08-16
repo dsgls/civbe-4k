@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Instance			Name="LoadButton" >
+		<Container		ID="InstanceRoot" 										Size="460,32" >
+			<GridButton	ID="Button"				Anchor="C,B"	Offset="0,0"	Size="460,32"					Style="ShellListItem" >
+				<!-- Selected State -->
+				<Grid	ID="SelectHighlight"	Anchor="C,C"	Offset="0,0"	Size="460,32"					Style="CivilopediaListHeader" Hidden="1" />
+				<Label	ID="ButtonText"			Anchor="C,C"	Offset="0,0"	String="TXT_KEY_DELETE_BUTTON"	Style="FontNormal20" Color0="255,255,255,255" Color1="0,0,0,100" FontStyle="Shadow"  />
+			</GridButton>
+		</Container>
+	</Instance>
+
+
+	<Instance Name="ReferencedPackageInstance" >
+      <Label ID="Label" Anchor="L,C"  Offset="0,0" Style="FontNormal18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+    </Instance>
+
+  <Box Style="BGBlock" ID="BGBlock" />
+  <AlphaAnim Size="Full,Full" Cycle="Once" Pause="0" Speed="2" AlphaStart="0" Function="OutQuint" AlphaEnd="1" ID="AlphaAnim">
+    <Grid Size="1024, 640"					Anchor="C,C" Offset="0,0"	Style="GridWindowWithHeader" ConsumeMouse="1">
+      <Button	ID="CloseButton"			Anchor="R,T" Offset="7,7"	Style="CloseButton"/>
+      <Box Anchor="L,B" AnchorSide="I.I" Offset="48,54"   Size="910,56" Color="255,255,255,0" >
+        <!-- Delete Button  -->
+        <GridButton Anchor="R,B"  Style="SmallButton" Size="200,32"  Offset="272,0" StateOffsetIncrement="0,0"  ID="Delete">
+          <Label Anchor="C,C" ID="DeleteLabel" Offset="0,0"  String="TXT_KEY_DELETE_BUTTON" Style="FontNormal18" FontStyle="shadow" Color0="65,68,71,255" Color1="0,0,0,100" />
+        </GridButton>
+      </Box>
+      <!-- Start Game  -->
+      <GridButton Anchor="R,B" ID="StartButton" Offset="47,54" Size="200,32" Style="BaseButton">
+        <Label ID="StartButtonLabel" String="TXT_KEY_LOAD_GAME" Anchor="C,C"  Offset="0,0" Style="FontNormal18" FontStyle="shadow" Color0="255,255,255,255" Color1="0,0,0,100"/>
+      </GridButton>
+
+      <!-- Filters -->
+      <Stack StackGrowth="Right" Anchor="R,T" Offset="40,70" Padding="5">
+        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_AUTOSAVES" TextAnchor="L,C"  IsChecked="0" ID="AutoCheck" />
+        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_STEAMCLOUD" TextAnchor="L,C"  IsChecked="0" ID="CloudCheck" />
+      </Stack>
+
+      <!-- Screen Title  -->
+      <Label Style="MenuTitleCaption" String="{TXT_KEY_LOAD_GAME:upper}" />
+
+      <!-- File List -->
+      <Box Anchor="R,T" Offset="48,140" Size="490,404" Color="255,255,255,0" >
+        <Grid Style="ProductionListHeaderGrid" Anchor="L,T" Offset="0,-39" Size="490,45" Padding="0,0">
+          <PullDown  Anchor="C,T" Style="GenericPullDown" ScrollThreshold="110" Size="290,30" AutoSizePopUp="1" SpaceForScroll="0" Offset="0,5" ID="SortByPullDown" />
+        </Grid>
+        <Grid Anchor="L,T" Offset="0,-2" Size="490,404" Padding="0,0" Style="Grid9Frame"  />
+        <Label			ID="NoGames"				Anchor="C,C" Offset="0,0" Style="FontNormal24" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="{TXT_KEY_NO_SAVED_GAMES:upper}"  />
+        <ScrollPanel	ID="ScrollPanel"			Offset="-4,0" Anchor="L,T" Size="495,400" Vertical="1" AutoScrollBar="1" >
+          <Stack		ID="LoadFileButtonStack" 	Anchor="C,T" Offset="0,0"  StackGrowth="Bottom" />
+          <ScrollBar Style="VertSlider" Length="364" Offset="-18,0" Anchor="R,T" AnchorSide="O,I" />
+        </ScrollPanel>
+      </Box>
+
+      <Label Anchor="L,T" Offset="48,85" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_GAME_DETAILS"/>
+      <Label Anchor="R,T" Offset="48,55" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_SAVED_GAMES_LIST"/>
+
+      <!-- file details treatment -->
+      <Box ID="DetailsBox" Anchor="L,T" Offset="48,138" Size="390,404" Color="255,255,255,0" >
+        <Grid Style="ProductionListHeaderGrid" Anchor="L,T" Offset="0,-37" Size="parent,45" Padding="0,0">
+          <Label Anchor="L,C" Offset="5,0" Style="FontNormal22" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="Saved Game Name Alpha 001" ID="SaveFileName" />
+        </Grid>
+        <Grid Anchor="L,T" Offset="0,0" Size="parent,parent" Padding="0,0" Style="Grid9Frame" Hidden="0" />
+        <Label Anchor="C,C" Offset="0,0" Style="FontNormal18" FontStyle="shadow" Color0="182,203,228,255" Color1="0,0,0,150" String="Message" ID="Message" TruncateWidth="305" Hidden="1"/>
+        <Stack Anchor="L,T" Offset="12,10"  Padding="6" StackGrowth="Bottom" ID="GameDetailsStack" >
+          <Label ID="LeaderName" WrapWidth="350" Anchor="L,T" Offset="0,0" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="LEADER NAME"/>
+          <Label ID="SponsorName" WrapWidth="350" Anchor="L,T" Offset="0,-5" Style="FontNormal24" FontStyle="glow" Color0="128,144,162,255" Color1="0,0,0,100" String="SPONSOR NAME"/>
+          <Label Anchor="L,T" Offset="0,0" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="October 24, 1972 10:32 A.M." ID="TimeSaved" TruncateWidth="305"/>
+          <Label Anchor="L,T" Offset="0,0" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="64 Turns" ID="CurrentTurn" TruncateWidth="305"/>
+          <Label Anchor="L,T" Offset="0,0" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" ID="GameType" TruncateWidth="305"/>
+        
+          <Stack Anchor="L,T" Offset="0,10" Padding="0" StackGrowth="Bottom" ID="GameInfo">
+            <Stack Anchor="C,B" Padding="0,0" StackGrowth="Right" >
+              <Image ID="CivIcon" Size="64,64" Offset="0,0"  Anchor="L,T" Texture="CivSymbolsColor512.dds" />
+              <Stack Offset="10,-22" Anchor="L,T" StackGrowth="Down" Padding="0,0">
+                <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0">
+                  <Label Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+                  <Label ID="TypeLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_TYPE"/>
+                </Stack>
+                <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+                  <Label Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+                  <Label ID="SizeLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_MAP_SIZE"/>
+                </Stack>
+                <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+                  <Label ID="DifficultyName" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+                  <Label ID="DifficultyLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_AD_SETUP_HANDICAP"/>
+                </Stack>
+                <Stack Anchor="L,T" StackGrowth="Right" Padding="10,0" Offset="0,-15">
+                  <Label ID="SpeedName" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" String="TXT_KEY_GAME_SPEED"/>
+                  <Label ID="SpeedLabel" Anchor="C,T" Offset="0,18" Style="FontNormal18" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_GAME_SPEED"/>
+                </Stack>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Stack>
+        
+        <GridButton ID="ShowDLCButton" Anchor="R,B" Offset="0,0" Size="50,28" Style="BaseButton"  FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" >
+          <Label ID="DLCtext" Anchor="R,C" Offset="10,0" String="TXT_KEY_LOAD_MENU_DLC" Style="FontNormal18" FontStyle="shadow" Color0="255,255,255,255" Color1="0,0,0,100"/>
+        </GridButton>
+        <TextButton Anchor="R,B" Offset="10,90" Style="FontNormal16" ColorSet="Beige_Black_Alpha" String="TXT_KEY_LOAD_MENU_MODS" FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" ID="ShowModsButton" />
+      </Box>
+    </Grid>
+
+
+    <Box Color="Black.200" Size="Full.Full" ID="DeleteConfirm" ConsumeMouseOver="1" Hidden="1" >
+      <Grid Size="500,360" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140"  Hidden="0" >
+
+        <Label Anchor="C,T"  Offset="0,74"  WrapWidth="440" String="TXT_KEY_CONFIRM_TXT" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+        <Stack Anchor="C,B" Offset="0,80" Padding="24" StackGrowth="Bottom" ID="ButtonStack">
+          <!-- Yes Button  -->
+          <GridButton Style="BaseButton"  ID="Yes" Size="400,42" Anchor="C,T" Offset="0,0"  Hidden="0">
+            <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+          </GridButton>
+          <!-- No Button  -->
+          <GridButton  Style="BaseButton" ID="No" Size="400,42" Anchor="C,T" Offset="0,0"  Hidden="0">
+            <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+          </GridButton>
+        </Stack>
+      </Grid>
+    </Box>
+
+    <Box Color="Black.200" Size="Full.Full" ID="ReferencedPackagesWindow" ConsumeMouseOver="1" Hidden="1" >
+      <Grid Size="500,460" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140"  Hidden="0" >
+
+        <Label Anchor="C,T"  Offset="0,50"  WrapWidth="440" ID="ReferencedPackagesPrompt" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"  />
+
+        <ScrollPanel Offset="20,110" Anchor="L,T" Size="435,245" ID="ReferencedPackagesScrollPanel" Vertical="1" AutoScrollBar="1" >
+
+          <!-- Scroll Controls -->
+          <ScrollBar Style="VertSlider" Length="214" Offset="0.18" Anchor="R,T" AnchorSide="O,I" />
+          <UpButton  Offset="0.0"  Style="ScrollBarUp"  Anchor="R,T" AnchorSide="O,I" />
+          <DownButton Offset="0.0" Style="ScrollBarDown"  Anchor="R,B" AnchorSide="O,I" />
+
+          <Stack Anchor="L,T" Offset="0,0"  StackGrowth="Bottom" Padding="4" ID="ReferencedPackagesStack" />
+        </ScrollPanel>
+
+
+        <!-- Close Button  -->
+        <GridButton  Style="BaseButton" ID="CloseReferencedPackagesButton" Size="400,42" Anchor="C,B" Offset="0,50"  Hidden="0">
+          <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_CLOSE" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow" />
+        </GridButton>
+      </Grid>
+    </Box>
+
+
+  </AlphaAnim>
+</Context>

@@ -1,0 +1,10 @@
+<Asset>
+  <Mesh file="ConnectorOneTurn.gr2" source="Max" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CenterOneTurnSpec.dds" source="Max" />
+  <Texture file="ColorThreeTurns.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+  <Texture file="Green2_CenterOneTurn_TallGlow.dds" source="Max" />
+  <Texture file="Green_CenterOneTurn_TallGlow.dds" source="Max" />
+</Asset>

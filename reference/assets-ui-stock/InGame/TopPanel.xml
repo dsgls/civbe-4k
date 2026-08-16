@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Style="FontNormal16" FontStyle="Base" Color="Beige" ColorSet="Beige_Black" >
+
+	<Image Anchor="C,T" Texture="assets\UI\Art\WorldView\TopBar.dds" Size="Full,36" ConsumeMouse="true" />
+
+  <Stack ID="AffinityStack" Anchor="L,T" Offset="0,0" Padding="0" StackGrowth="Right">
+    <Box Size="5,30" Color="0,0,0,0"/>
+    <GridButton Style="TopBarSeparator" ID="Harmony" Color0="Harmony" Color1="46,236,210,100" FontStyle="Glow" Anchor="C,T" String="0 Affinity" Size="45,30">
+      <Image ID="HarmonyFullBar" Offset="1,0" Texture="Assets/UI/Art/WorldView/AffinityBacking.dds" Size="5,30" >
+        <Image 	ID="HarmonyProgressBar" Texture="Assets/UI/Art/WorldView/HarmonyBar.dds" Size="5,30" StretchMode="None" Anchor="C,B"/>
+      </Image>
+    </GridButton>
+    <GridButton Style="TopBarSeparator" ID="Purity" Color0="Purity" Color1="242,24,85,100" FontStyle="Glow" Anchor="C,T" String="0 Affinity" Size="45,30">
+      <Image 		ID="PurityFullBar" Offset="1,0" Texture="Assets/UI/Art/WorldView/AffinityBacking.dds" Size="5,30">
+        <Image 	ID="PurityProgressBar" Texture="Assets/UI/Art/WorldView/PurityBar.dds" Size="5,30" StretchMode="None" Anchor="C,B"/>
+      </Image>
+    </GridButton>
+    <GridButton Style="TopBarSeparator" ID="Supremacy" Color0="Supremacy" Color1="240,166,79,100" FontStyle="Glow" Anchor="C,T" String="0 Affinity" Size="45,30">
+      <Image 		ID="SupremacyFullBar" Offset="1,0" Texture="Assets/UI/Art/WorldView/AffinityBacking.dds" Size="5,30" >
+        <Image 	ID="SupremacyProgressBar" Texture="Assets/UI/Art/WorldView/SupremacyBar.dds" Size="5,30" StretchMode="None" Anchor="C,B"/>
+      </Image>
+    </GridButton>
+    <Box Size="1,30" Color="0,0,0,80"/>
+  </Stack>
+  
+	<Stack			ID="TopPanelInfoStack"	Anchor="R,T" Offset="0,0" Padding="0" StackGrowth="Left" >
+		<Box								Size="5,30" Color="0,0,0,0"/>
+		<Button		ID="MenuButton"			Texture="Assets/UI/Art/WorldView/MenuButton.dds" Size="28,28" ToolTip="TXT_KEY_MENU_TOOLTIP"/>
+		<Box								Size="5,30" Color="0,0,0,0"/>
+		<Button		ID="CivilopediaButton"	Texture="Assets/UI/Art/WorldView/HelpButton.dds" Size="28,28" ToolTip="TXT_KEY_CIVILOPEDIA_TOOLTIP"/>
+		<Box								Size="5,30" Color="0,0,0,0"/>
+		<Label		ID="CurrentTurn"		Offset="0,2" Anchor="C,C" String="Turn: 1" Color="95,124,158,255" />
+		<Box								Size="5,30" Color="0,0,0,0"/>
+		<Box								Size="1,30" Color="0,0,0,80"/>
+		<GridButton ID="SciencePerTurn"				Style="TopBarSeparator" TextOffset="0,2" Size="75,30" 	TextAnchor="C,C" Color0="Science"			Color1="16,121,188,100" FontStyle="Glow"/>
+		<GridButton ID="EnergyPerTurn"				Style="TopBarSeparator" TextOffset="0,2" Size="115,30"	TextAnchor="C,C" Color0="255,235,0,255"		Color1="255,235,0,100" FontStyle="Glow"/>
+		<GridButton ID="InternationalTradeRoutes"	Style="TopBarSeparator" TextOffset="0,2" Size="75,30" 	TextAnchor="C,C" Color0="255,235,0,255"		Color1="255,235,0,100" FontStyle="Glow"/>
+		<GridButton ID="HealthString"				Style="TopBarSeparator" TextOffset="0,2" Size="75,30" 	TextAnchor="C,C" Color0="182,203,228,255"/>
+		<GridButton ID="CultureString"				Style="TopBarSeparator" TextOffset="0,2" Size="115,30"	TextAnchor="C,C" Color0="207,94,235,255"	Color1="118,66,167,100" FontStyle="Glow"/>
+		<GridButton ID="ResourceString"				Style="TopBarSeparator" TextOffset="0,2" Size="115,30"	TextAnchor="C,C" Color0="175,194,219,255"	Color1="175,194,219,100" FontStyle="Glow"/>
+		<GridButton ID="FaithString"				Style="TopBarSeparator" TextOffset="0,2" Size="45,30" 	TextAnchor="R,C" Color0="175,194,219,255"	Color1="175,194,219,100" FontStyle="Glow"/>
+		<Image		ID="UnitSupplyString"	Anchor="C,T" Offset="0,3" Texture="assets\UI\Art\WorldView\OverSupplyLimit.dds" Size="20,20"  />
+	</Stack>
+
+	<ToolTipType Name="TooltipTypeTopPanel" >		
+		<Container>
+			<Grid		ID="TopPanelMouseover" Offset="8,0" Padding="8,8" Size="530,150" Style="GridBlack8" NoClip="1" >
+				<Label	ID="TooltipLabel"	   Offset="12,12" Style="FontNormal16" String="Brief description" LeadingOffset="3" WrapWidth="512" />
+				<Box Color="255,0,0,128" 	Anchor="L,T" 	Size="50,50" />
+				<Box Color="255,255,0,128" 	Anchor="C,C"  Size="50,50" />
+				<Box Color="0,128,255,128"		Anchor="R,B"  Size="50,50" />
+			</Grid>
+		</Container>
+	</ToolTipType>
+
+</Context>

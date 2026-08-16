@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context Style="FontNormal14" FontStyle="Base" Color="Beige" Color1="Black">
+	<Box Style="BGBlock_ClearTopBar"/>
+	<Grid Size="958,650" Anchor="C,C" Offset="0,0" Style="Grid9DetailThree140">
+		<Label Style="MenuTitleCaption" String="TXT_KEY_LEAGUE_SPLASH_TITLE" ID="TitleLabel"/>
+		<!-- Side treatments -->
+		<Box Style="MenuLeftSideTreatment"/>
+		<Box Style="MenuRightSideTreatment"/>
+		<!-- <Image Anchor="L,T" Offset="17,46" Size="924,560" Hidden="0" ID="LeagueImage" Texture="WonderConceptUN.dds"/> -->
+		<!-- CLOSE BUTTON -->
+		<GridButton Size="200,38" Style="BaseButton" Anchor="C,B" AnchorSide="I.O" Offset="0,0" ID="CloseButton" Hidden="0">
+			<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_CLOSE" ColorSet="Beige_Black_Alpha" Style="FontNormal22" FontStyle="Shadow"/>
+		</GridButton>
+    <Box ID="DescriptionBox" Size="924,286" Anchor="L,B" Offset="17,42" Color="Black.200" />
+    <ScrollPanel Vertical="1" Size="908,286" Anchor="L,B" Offset="17,42" AutoScrollBar="1" ID="DescriptionScrollPanel">
+      <!-- Scroll Controls -->
+      <ScrollBar Style="VertSlider" Length="250" Anchor="R,C" AnchorSide="O,I"/>
+      <UpButton Style="ScrollBarUp" Anchor="R,T" AnchorSide="O,I"/>
+      <DownButton Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I"/>
+      <Label ID="DescriptionLabel" Anchor="C,T" Offset="0,10" WrapWidth="800" LeadingOffset="-4" Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="line1[NEWLINE]line2[NEWLINE]line3[NEWLINE]line4"/>
+      <Label ID="ThisEraLabel" Anchor="L,T" Offset="160,160" WrapWidth="300" LeadingOffset="-4" Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="this era:[NEWLINE][ICON_BULLET]8 for host Civilization[NEWLINE][ICON_BULLET]4 for other Civilizations[NEWLINE][ICON_BULLET]2 per City-State ally[NEWLINE][ICON_BULLET]DV[NEWLINE]stuff[NEWLINE]MORES STUFASDFASDf[NEWLINE][NEWLINE][NEWLINE]EVEN MORE STUFF"/>
+      <Label ID="NextEraLabel" Anchor="C,T" Offset="190,160" WrapWidth="300" LeadingOffset="-4" Style="FontNormal18" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="next era:[NEWLINE][ICON_BULLET][NEWLINE][ICON_BULLET][NEWLINE][ICON_BULLET]"/>
+    </ScrollPanel>
+
+    <Image Anchor="C,B" Offset="0,328" Texture="HorizontalTrim.dds" Size="924.5"/>
+	</Grid>
+</Context>

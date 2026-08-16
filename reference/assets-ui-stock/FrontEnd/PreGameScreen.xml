@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context  ColorSet="Beige_Black" Style="FontNormal22" FontStyle="Shadow"  >
+
+	<Image			ID="Background"		Anchor="C,C" Size="Full,Full" StretchMode="UniformToFill" />	
+	<AlphaAnim		ID="OutAnim"		Anchor="L,T" Size="Full,Full" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0" >
+		<Image		ID="OutImage"		Anchor="C,C" Size="Full,Full" StretchMode="UniformToFill" Hidden="1" />	
+	</AlphaAnim>
+
+		
+		
+	<Image	Anchor="T,L" Size="Full,40" Texture="TopBarBackground.dds" />    
+	
+    <!-- The area for selecting what is shown above -->
+    <Image					Anchor="L,B" Offset="0,30" Texture="SectionSelectBackground.dds" />
+
+    <Box            Anchor="L,T" Offset="0,40"  Size="488,646"      Color="25,2,255,0" ID="SubSection" >
+        <Box        Anchor="R,T" Offset="0,0"   Size="410,parent"   Color="25,255,2,0" >
+            <Image  Anchor="T,L" Texture="InfoHeadingBackground.dds" />
+            <Box    Anchor="L,T" Offset="0,0"   Size="parent,56"    Color="255,2,25,0">
+                <Label ID="SectionTitle" Anchor="L,C" Offset="10,2" Style="MenuTitleCaption" String="TXT_KEY_GAME_SELECTION_SCREEN" />
+            </Box>
+
+            <Grid   ID="SubPanel"  Anchor="L,T" Offset="0,56" Size="parent,600" Color="255,255,255,255" Style="GridSetupGameSectionBackground" />   
+        </Box>        
+    </Box>
+	
+	<Box Size="Full,31" Anchor="L,B" Color="0,0,0,255" />	
+
+	
+	<Stack								Anchor="R,T"	Offset="0,50" StackGrowth="Left" Padding="8">
+		<GridButton ID="BackButton"		Anchor="R,T" AnchorSide="I,I" Size="170,32" Offset="5,0" String="TXT_KEY_BACK_BUTTON" Style="ReturnButton" ConsumeMouse="1" />	
+		<GridButton ID="AdvancedButton" Anchor="R,T"  Size="170,32" String="TXT_KEY_GAME_ADVANCED_SETUP" Style="SmallAdvButton" ConsumeMouse="1"/>		
+	</Stack>
+	
+
+
+    <!-- Different sections menu -->
+    <Image Anchor="R,B" Offset="0,30" Texture="SetupSectionsMenuBackground.dds" >
+		
+		<!-- The lines between the button options -->
+        <Box		Anchor="R,T" Size="50,8" Offset="370,35"	Color="0,0,0,255">
+			<Box	Anchor="C,C" Size="50,6"					Color="30,40,55,255" />
+        </Box>		
+        <Box		Anchor="R,T" Size="50,8" Offset="275,35"	Color="0,0,0,255">
+			<Box	Anchor="C,C" Size="50,6"					Color="30,40,55,255" />
+        </Box>		        
+		<Box		Anchor="R,T" Size="50,8" Offset="180,35"	Color="0,0,0,255">
+			<Box	Anchor="C,C" Size="50,6"					Color="30,40,55,255" />
+        </Box>		
+		<Box		Anchor="R,T" Size="50,8" Offset="85,35"		Color="0,0,0,255">
+			<Box	Anchor="C,C" Size="50,6"					Color="30,40,55,255" />
+        </Box>		
+		
+		<Button     ID="SponsorButton"      Anchor="R,T"  Size="75,77"   Offset="405,1" Color="255,255,255,0">
+            <Image  ID="SponsorHighlight"   Anchor="C,C"  Size="75,77"   Texture="Assets/UI/Art/GameSetup/CurrentSectionButtonHighlight.dds" />
+            <Image  ID="SponsorTypeIcon"    Anchor="C,C"  Size="64,64"   Texture="GameSetupIconSheet.dds"  TextureOffset="128,0" />
+            <Image  ID="SponsorIcon"        Anchor="C,C"  Size="64,64"   Hidden="1"/>
+        </Button>
+		
+        <Button     ID="ColonistsButton"    Anchor="R,T"  Size="75,77"   Offset="310,1" Color="255,255,255,0">
+            <Image  ID="ColonistsHighlight" Anchor="C,C"  Size="75,77"   Texture="Assets/UI/Art/GameSetup/CurrentSectionButtonHighlight.dds" />
+            <Image  ID="ColonistsTypeIcon"  Anchor="C,C"  Size="64,64"   Texture="GameSetupIconSheet.dds"  TextureOffset="0,64" />
+            <Image  ID="ColonistsIcon"      Anchor="C,C"  Size="64,64"   Hidden="1" />
+        </Button>
+
+        <Button     ID="SpacecraftButton"   Anchor="R,T"  Size="75,77"   Offset="215,1" Color="255,255,255,0">
+            <Image  ID="SpacecraftHighlight"   Anchor="C,C"  Size="75,77" Texture="Assets/UI/Art/GameSetup/CurrentSectionButtonHighlight.dds" />                
+            <Image  ID="SpacecraftTypeIcon" Anchor="C,C"  Size="64,64"   Texture="GameSetupIconSheet.dds"  TextureOffset="64,0" />
+            <Image  ID="SpacecraftIcon"     Anchor="C,C"  Size="64,64"   Hidden="1" />
+        </Button>
+
+        <Button     ID="CargoButton"        Anchor="R,T"  Size="75,77"   Offset="120,1" Color="255,255,255,0">
+            <Image  ID="CargoHighlight"     Anchor="C,C"  Size="75,77"   Texture="Assets/UI/Art/GameSetup/CurrentSectionButtonHighlight.dds" />                
+            <Image  ID="CargoTypeIcon"      Anchor="C,C"  Size="64,64"   Texture="GameSetupIconSheet.dds"  TextureOffset="0,0" />
+            <Image  ID="CargoIcon"          Anchor="C,C"  Size="64,64"   Hidden="1" />
+        </Button>
+
+        <Button     ID="PlanetButton"       Anchor="R,T"  Size="75,77"   Offset="25,1" Color="255,255,255,0">
+            <Image  ID="PlanetHighlight"    Anchor="C,C"  Size="75,77"   Texture="Assets/UI/Art/GameSetup/CurrentSectionButtonHighlight.dds" />
+            <Image  ID="PlanetTypeIcon"     Anchor="C,C"  Size="64,64"   Texture="GameSetupIconSheet.dds"  TextureOffset="192,0" />
+            <Image  ID="PlanetIcon"         Anchor="C,C"  Size="64,64"   Hidden="1"  />
+        </Button>
+
+    </Image>
+
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectSponsor"       ID="SelectSponsor"      Hidden="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectColonists"     ID="SelectColonists"    Hidden="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectSpacecraft"    ID="SelectSpacecraft"   Hidden="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectCargo"         ID="SelectCargo"        Hidden="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SelectPlanet"        ID="SelectPlanet"       Hidden="1" />
+
+    <!-- ??TRON: May remove or rework comp for these: -->
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/AdvancedSetup"       ID="AdvancedSetup"      Hidden="1" DeferLoad="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/GameSetup/SetCivNames"         ID="SetCivNames"        Hidden="1" />
+
+	
+	<GridButton ID="StartButton" Anchor="L,B"  Style="SmallButton" Size="240,38"  Offset="164,32" Hidden="1" ConsumeMouse="1" >
+		<Label	 Anchor="C,C"  Offset="0,0"  String="{TXT_KEY_START:upper}" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" />
+	</GridButton>
+	
+</Context>
+

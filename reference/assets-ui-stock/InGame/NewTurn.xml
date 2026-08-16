@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context Style="FontNormal14" FontStyle="Base" Color="Beige" Color1="Black" >
+
+  <AlphaAnim      ID="Anim"   Size="Full,Full" AlphaStart="0" AlphaEnd="1" Pause="1" Cycle="once" Hidden="1" >
+    <AlphaAnim                Size="Full,Full" AlphaStart="1" AlphaEnd="0" Pause="4" Cycle="once" >
+
+      <Grid       ID="NewTurnGrid"  Anchor="C,T" Offset="0,220" Style="Grid9FrameTurns" Size="Full,64" Padding="8,8"  >
+        <Label    ID="NewTurn"      Anchor="C,C" Offset="0,8"   Style="FontNormal24" FontStyle="Shadow" ColorSet="Beige_Black_Alpha"  />
+        <Label    ID="NewTurnInfo"  Anchor="C,C" Offset="0,-14" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha"  />
+        
+          <!-- Civilization Icon: put back if/when it's utilized with CivAE look
+          <Image  ID="CivIconBG"      Size="64,64"  Anchor="C,C" Offset="-1,-1" Texture="CivIconBGSizes.dds" TextureOffset="77,0" />
+          <Image  ID="CivIconShadow"  Size="48,48"  Anchor="C,C" Offset="0,0"   Texture="CivSymbolAtlas48.dds" Color="Black,128"  />
+          <Image  ID="CivIcon"        Size="56,56"  Anchor="C,C" Offset="-4,-4" Texture="CivSymbolsColor512.dds"  />
+          -->
+      </Grid>
+    </AlphaAnim>
+  </AlphaAnim>
+
+</Context>

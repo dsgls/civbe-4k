@@ -1,0 +1,12 @@
+<Asset>
+  <Mesh file="SelectedAniInaccessible.gr2" source="Max" />
+  <Animation file="SelectedAniInaccessible_SelectedAniInaccessible.gr2" name="SelectedAniInaccessible" ec="1000" source="Max" layer="None" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="ColorRedRing.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+  <Texture file="specgray.dds" source="Max" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="Red_CenterAttackTurnFrame.dds" source="Max" />
+</Asset>

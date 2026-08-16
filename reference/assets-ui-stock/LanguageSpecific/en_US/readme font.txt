@@ -1,0 +1,2 @@
+This is the fallback font; English and any EFIGS should go here.
+If the font also has characters for Russian, etc... it will be read from this folder if there isn't a specific folder for that language code (e.g., ru_RU, et.c..)

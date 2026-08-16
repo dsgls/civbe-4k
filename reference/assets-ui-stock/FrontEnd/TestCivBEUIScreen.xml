@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Example that the top level tag really can be anything, it is mapped to the ContextDefault -->
+<Shiboleet FontSize="24">
+
+	<Box ID="MainMenuScreenUI"	Anchor="C,C" Size="Full,Full" Color="0,0,0,0" >
+
+		<Container ID="UIImageTest" Size="Parent,Parent">
+			<Image ID="CivBELogo"	Anchor="L,T" Offset="0,0"	Texture="CivilizationBE_Logo.dds"	 Hidden="0"/>
+			<Image ID="CivBELogo2"	Anchor="L,T" Offset="0,200" Texture="CivilizationBE_Logo.dds"  Hidden="0" Rotate="45" />
+			<Image ID="CivBELogo3"	Anchor="L,T" Offset="0,400"	Texture="CivilizationBE_Logo.dds"  Hidden="0" Scale="1.23" />
+		</Container>
+		
+		<Container ID="UILineTest" Size="Parent,Parent">
+			<Container ID="UIStaticLines" Size="200,200" Offset="50,600" Anchor="L,T">
+				<Line Start="0,0"		End="10,200"	Color="255,0,0,100"		Width="1" />
+				<Line Start="0,10"		End="20,200"	Color="250,5,0,100"		Width="2" />
+				<Line Start="0,20"		End="30,200"	Color="245,10,0,100"	Width="3" />
+				<Line Start="0,30"		End="40,200"	Color="240,15,0,100"	Width="4" />
+				<Line Start="0,40"		End="50,200"	Color="235,20,0,100"	Width="1" />
+				<Line Start="0,50"		End="60,200"	Color="230,25,0,100"	Width="2" />
+				<Line Start="0,60"		End="70,200"	Color="225,30,0,100"	Width="3" />
+				<Line Start="0,70"		End="80,200"	Color="220,35,0,100"	Width="4" />
+				<Line Start="0,80"		End="90,200"	Color="215,40,0,100"	Width="1" />
+				<Line Start="0,90"		End="100,200"	Color="210,45,0,100"	Width="2" />
+				<Line Start="0,100"		End="110,200"	Color="205,50,0,100"	Width="3" />
+				<Line Start="0,110"		End="120,200"	Color="200,55,0,100"	Width="4" />
+				<Line Start="0,120"		End="130,200"	Color="195,60,0,100"	Width="1" />
+				<Line Start="0,130"		End="140,200"	Color="190,65,0,100"	Width="2" />
+				<Line Start="0,140"		End="150,200"	Color="185,70,0,100"	Width="3" />
+				<Line Start="0,150"		End="160,200"	Color="180,75,0,100"	Width="4" />
+				<Line Start="0,160"		End="170,200"	Color="175,80,0,100"	Width="1" />
+				<Line Start="0,170"		End="180,200"	Color="170,85,0,100"	Width="2" />
+				<Line Start="0,180"		End="190,200"	Color="165,90,0,100"	Width="3" />
+				<Line Start="0,190"		End="200,200"	Color="160,95,0,100"	Width="4" />
+			</Container>
+			
+			<Box ID="UIDynamicLines" Offset="300,600" Size="200,200" Anchor="L,T" Color="122,122,122,222"  />
+		</Container>
+
+	</Box>
+
+<!--	
+		<TextButton ID="test"  Anchor="C,B" Offset="0,0" String="This is a test!" 
+		Style="TestNormal"
+		MouseOverStyle="TestOver"
+		ButtonDownStyle="TestDown"
+		DisabledStyle="TestDisabled" />
+-->		
+
+<!-- ??TRON
+	<Box Color="70,70,70,70" Size="200,50" Offset="0,-35" Anchor="C,C">
+		<GridButton		ID="agrid"		Anchor="L,C" String="agrid"
+			Texture="Assets/UI/Art/Controls/9 Grids/ListElement.dds" Padding="0,0"
+			StateOffsetIncrement="0,16" SliceCorner="8,8" SliceTextureSize="16,16"
+			Size="190,24" TextAnchor="L,C" TextOffset="10,0" Color="0,255,0,200">
+		</GridButton>		
+	</Box>
+	<Box Color="70,70,70,70" Size="200,50" Offset="0,35" Anchor="C,C">
+		<GridButton		ID="bgrid"	String="bgrid" Style="ListElement"  />
+	</Box>	
+-->	
+	<Box Color="70,70,70,70" Size="300,100" Offset="-300,-150" Anchor="C,C">
+		<!--
+		<GridButton		ID="cgrid"	String="SINGLE PLAYER" Style="BaseButton"  />
+		-->
+		<GridButton Anchor="C,T" ID="SinglePlayerButton"  Size="280,45"    Style="BaseButton" String="TXT_KEY_MODDING_SINGLE_PLAYER" />
+	</Box>	
+
+	
+    <Box					Anchor="C,T" Offset="0,10" Size="315,26" Color="100,110,120,255" >
+        <Box				Anchor="C,C"  Size="313,24" Color="0,0,0,255" >
+            <EditBox ID="EditCityName" CallOnChar="1" EditMode="1" Size="313,22" Anchor="C,C" Offset="0,2" Style="FontNormal20" MaxLength="15" />
+			<Label			Anchor="R,C" Style="FontNormal20" String="TXT_KEY_TEST_CIVAE_UI" />
+        </Box>
+		
+    </Box>
+
+	
+	
+	<!--
+	<GridButton ID="BackButton"  Anchor="R,T" Offset="5,5" Size="120,35" String=">> Main menu" />
+	<Button ID="BackButton"  Anchor="R,T" Offset="5,5" Size="120,35"  />
+	-->
+
+	<Instance Name="LineInstance">
+		<Line ID="TheLine" Anchor="L,T" Color="50,100,255,255" Start="1,1" End="100,100" Width="10" />
+	</Instance>			
+
+
+</Shiboleet>

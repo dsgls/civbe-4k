@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+	
+	<Image ID="CivBELogo" Style="MainGameLogo" />
+
+    <!-- Menu Panel -->
+    <Grid Size="380,480" Anchor="C,C" Offset="0,32" Padding="0,0" Style="GridWindowWithHeader" >
+
+		<Button	ID="BackButton"		Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_MODDING_MENU_BACK"/>
+
+		<!-- Panel Header Text -->
+		<Label Style="MenuTitleCaption" String="{TXT_KEY_MODS_SELECT_MULTIPLAYER_TYPE:upper}" />
+		
+		<Stack			ID="MainStack"			Anchor="C,T"	Offset="0,70" Padding="0" StackGrowth="Bottom"  >		
+			<GridButton ID="InternetButton"		Anchor="C,T"	Size="320,45"	Style="BaseButton" String="{TXT_KEY_MULTIPLAYER_INTERNET_GAME:upper}" />
+			<GridButton ID="LANButton"			Anchor="C,T"	Size="320,45"	Style="BaseButton" String="{TXT_KEY_MULTIPLAYER_LAN_GAME:upper}" />
+			<GridButton ID="HotSeatButton"		Anchor="C,T"	Size="320,45"	Style="BaseButton" String="{TXT_KEY_MULTIPLAYER_HOTSEAT_GAME:upper}" />
+			<GridButton ID="ReconnectButton"	Anchor="C,T"	Size="320,45"	Style="BaseButton" String="{TXT_KEY_MULTIPLAYER_RECONNECT:upper}" />
+
+			<!-- Listings Box -->
+			<ScrollPanel Anchor="C,T" Offset="0,20" ID="ModsScrollPanel" Vertical="1" Size="320,230" AutoScrollBar="1">
+
+				<!-- Scroll Controls -->
+				<ScrollBar  Anchor="R,T" AnchorSide="O,I" Offset="0,18" Length="404" Style="VertSlider"/>
+
+				<!-- Listing Stack (Dynamic) -->
+				<Stack		ID="ModsStack" StackGrowth="B" Offset="4,0" Padding="2">
+					<Label	ID="ModsInUseLabel" Anchor="L,T"  Style="FontNormal16"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODS_IN_USE" />
+				</Stack>
+			</ScrollPanel>
+        </Stack>
+		
+    </Grid>
+
+
+
+	<Instance Name="ModInstance">
+		<Label ID="Label" Anchor="L,T"  Style="FontNormal16"  TruncateWidth="320"  ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Detail" />
+	</Instance>
+
+
+    <!-- Child Screens -->
+    <LuaContext FileName="Assets/UI/FrontEnd/Multiplayer/Lobby" ID="LobbyScreen" Hidden="1" DeferLoad="1" />
+    <LuaContext FileName="Assets/UI/FrontEnd/Multiplayer/GameSetup/MPGameSetupScreen" ID="MPGameSetupScreen" Hidden="1" DeferLoad="1"/>
+
+</Context>

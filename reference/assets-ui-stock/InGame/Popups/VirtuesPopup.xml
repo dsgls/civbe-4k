@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
+	<Box Anchor="C,C" Size="Full,Full" Color="0,0,0,0" ConsumeMouse="0" ID="BackDrop">
+		<Box Anchor="L,C" Size="Parent,Parent" Color="0,0,0,150" ConsumeMouse="1"/>
+		<!-- Main panel -->
+		<Grid Size="1018,650" Anchor="C,C" Offset="0,0" Style="GridWindowWithHeader" ID="Panel">
+			<!-- Header -->
+			<Grid Size="Parent-88,Parent" Anchor="R,B" Offset="0,0" Style="GridWindowWithHeader">
+				<Label Offset="15,17" Anchor="U,L" Style="MenuTitleCaption" String="TXT_KEY_VIRTUES_POPUP_TITLE"/>
+			</Grid>
+			<!-- Close button -->
+			<Button Anchor="R,T" Offset="6,6" Style="CloseButton" ID="CloseButton"/>
+			<!-- Main content -->
+			<Image Anchor="L,T" Offset="7,110" Size="94,549" Texture="Virtue_Levels.dds"/>
+			<Stack Anchor="L,T" Offset="93,50" Size="0,0" StackGrowth="Right" ID="VirtueCategoryStack"/>
+			<Stack Anchor="L,T" Offset="73,111" Padding="4" Size="0,0" StackGrowth="Bottom" ID="VirtueDepthStack"/>
+			<!-- Confirm Dialog-->
+			<Box ID="ConfirmPopup" Size="Parent-12,Parent-38" Offset="7,47" Color="0,0,0,200" ConsumeMouse="1" Hidden="1">
+				<Grid ID="PopupWindow" Anchor="C,C" Offset="0,-40" Size="600,400" Style="Grid9DetailFive140">
+					<Stack ID="MainBodyText" Anchor="L,T" Offset="50,50" Size="Parent-50,Parent-50" StackGrowth="Bottom" Padding="50">
+						<Label ID="ConfirmLabel" Anchor="L,T" WrapWidth="500" String="Gameplay effect" Style="GrayGlow24"/>
+						<Label ID="KickerLabel" Anchor="L,T" WrapWidth="500" String="Kicker help" Style="WhiteShadow20"/>
+					</Stack>
+					<Stack ID="ButtonStack" Anchor="C,B" Offset="0,20" StackGrowth="Right">
+						<Stack Anchor="C,B" StackGrowth="Right" Padding="0">
+							<GridButton ID="NoButton" Style="BaseButton" Size="200,32" Anchor="L,T" Offset="0,0" String="TXT_KEY_NO_BUTTON"/>
+              <Container Size="20,5"/>
+							<GridButton ID="YesButton" Style="BaseButton" Size="200,32" Anchor="L,T" Offset="0,0" String="TXT_KEY_YES_BUTTON"/>
+						</Stack>
+					</Stack>
+				</Grid>
+			</Box>
+		</Grid>
+	</Box>
+	<!-- VirtueDepth -->
+	<Instance Name="VirtueDepthInstance">
+		<Image ID="BaseBar" Anchor="R,T" Texture="Virtue_LevelBar_Backing.dds" Size="16,180">
+			<Image ID="ProgressBar" StretchMode="None" Texture="Virtue_LevelBar_Fill.dds" Size="16,0"/>
+		</Image>
+	</Instance>
+	<!-- VirtueDepthKicker-->
+	<Instance Name="VirtueDepthKickerInstance">
+		<Grid ID="Bracket" Anchor="R,T" Size="9,27" Offset="16,0" Style="Grid9VBracket">
+			<Image ID="KickerIcon" Anchor="R,C" Size="24,24" Offset="2,0" Texture="Virtue_MightBonus_Off.dds"/>
+		</Grid>
+	</Instance>
+	<!-- VirtueCategory -->
+	<Instance Name="VirtueCategoryInstance">
+		<Box ID="VirtueCategory" Size="230,600" Anchor="C,T" Color="7,7,11,255">
+			<Image ID="Header" Anchor="L,T" Size="227,60" Offset="2,0" Texture="Virtue_ColumnHeader.dds">
+				<Label ID="Name" Anchor="L,T" Offset="10,5" Size="Parent,30" String="MIGHT" Style="FontNormal20"/>
+			</Image>
+			<Image ID="Background" Anchor="C,T" Size="Parent,548" Texture="Assets/UI/Art/Icons/Virtue_Column_Might.dds" Offset="0,60" Hidden="0,60"/>
+			<Image ID="BaseBar" Anchor="C,T" Size="225,10" Texture="Virtue_VirtueBar_Backing.dds" Offset="0,50" Hidden="0">
+				<Image ID="ProgressBar" StretchMode="None" Texture="Virtue_VirtueBar_Might.dds" Size="0,10"/>
+			</Image>
+		</Box>
+	</Instance>
+	<!-- VirtueCategoryKicker-->
+	<Instance Name="VirtueCategoryKickerInstance">
+		<Grid ID="Bracket" Anchor="L,B" Size="27,9" Offset="0,10" Style="Grid9HBracket">
+			<Image ID="KickerIcon" Anchor="C,B" Size="24,24" Offset="0,2" Texture="Virtue_MightBonus_Off.dds"/>
+		</Grid>
+	</Instance>
+	<!-- VirtueButton -->
+	<Instance Name="VirtueButtonInstance">
+		<Button ID="VirtueButton" Size="56,56" Anchor="L,T" Offset="0,0" Texture="Virtue_Virtue_Off.dds" NoStateChange="1">
+			<Image ID="VirtueIcon" Anchor="C,C" Offset="-1,-3" Size="64,64" Texture="SocialPolicies512.dds"/>
+		</Button>
+	</Instance>
+	<!-- VirtueLine -->
+	<Instance Name="VirtueLineInstance">
+		<Container>
+			<Line ID="MainLine" Offset="27,28" Anchor="L,T" Color="255,255,255,64" Start="1,1" End="100,100" Width="6"/>
+			<Line ID="LeftLine" Offset="27,28" Anchor="L,T" Color="0,0,0,190" Start="1,1" End="100,100" Width="2"/>
+			<Line ID="RightLine" Offset="27,28" Anchor="L,T" Color="0,0,0,190" Start="1,1" End="100,100" Width="2"/>
+		</Container>
+	</Instance>
+</Context>

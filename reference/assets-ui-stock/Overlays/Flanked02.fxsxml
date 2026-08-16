@@ -1,0 +1,5 @@
+<Asset>
+  <Mesh file="Flanked02.gr2" source="Max" />
+  <Animation file="Flanked02_Flanked02.gr2" name="Flanked02" ec="1000" source="Max" />
+  <Texture file="ColorAttack.dds" source="Max" />
+</Asset>

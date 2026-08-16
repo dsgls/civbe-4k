@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ID="ChooseInternationalTradeRoutePopup" ColorSet="Beige_Black_Alpha" Style="FontNormal16" FontStyle="Shadow">
+
+	<Instance Name="ItemInstance">
+		<GridButton Anchor="L,C" Size="370,73" Color="255,255,255,255" Offset="0,0" StateOffsetIncrement="0,0" ID="Button" Style="CivilopediaListItem">
+			<Image ID="CivIcon" Size="65,65" Offset="2,0" Anchor="L,T" Texture="CivSymbolsColor512.dds"/>
+			<Button Anchor="R,T"  ID="GoToCity" Offset="2,2" Size="30,30" StateOffsetIncrement="0,0" Texture="Civilopedia_SearchIcon.dds"/>
+      <Stack StackGrowth="Bottom" Offset="70,5" Padding="4" ID="DetailsStack">
+        <Label Anchor="L,T" Offset="0,0" Style="GrayGlow" WrapWidth="290" ID="RouteName" />
+        <Label Anchor="L,T" Offset="0,0" LeadingOffset="2" Style="GrayShadow" WrapWidth="290" ID="Bonuses" />
+      </Stack>
+    </GridButton>
+	</Instance>
+		
+	<!-- Main Panel-->
+	<Grid				ID="BottomPanel"	Anchor="L,B" Offset="-7,-19" Size="400, 500" 	Style="GridWindowWithHeader" ConsumeMouse="1" >
+		<Button			ID="CloseButton"	Anchor="R,T" Offset="7,7"						Style="CloseButton"/>
+    <Box Color="0,0,0,0" Size="parent, 40">
+      <Label	 Anchor="L,C"	Offset="16,10" Style="MenuTitleCaptionSmall" WrapWidth="350" String="{TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_TITLE:upper}"/>
+    </Box>
+		<Grid								Style="ProductionListHeaderGrid" Size="parent-7,60" Offset="0,48">
+			<Image	ID="TradeUnitIcon"		Size="64,64" Offset="0,-8" Anchor="L,T" Texture="CivSymbolsColor512.dds"/>
+      <Label	ID="StartingCity"	Anchor="L,T" Offset="66,10" Style="GrayGlow" />
+      <Label	ID="UnitInfo"		Anchor="L,T" Offset="66,30" Style="GrayShadow"  />
+    </Grid>
+    <Grid Style="GridColumnHeader" Size="parent-7,65" Offset="0,100">
+      <CheckBox ID="AutoRenewCheckBox" TextAnchor="R,C" Anchor="C,T" Style="GrayShadow" String="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW" ToolTip="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW_TT" />
+			<Box Anchor="C,B" Size="436,40" Color="0,0,0,0">
+				<PullDown  Anchor="C,C" Offset="0,2" Style="GenericPullDown" ScrollThreshold="110" Size="260,27" AutoSizePopUp="1" SpaceForScroll="0" ID="SortByPullDown" />
+			</Box>
+		</Grid>
+    
+		<Grid Style="SideRight" Color="255,255,255,150" Size="18,parent-90" Anchor="R,T" Offset="5,165"/>
+		<ScrollPanel Anchor="L,T" Size="parent-17,parent-218" Offset="-10,165" Vertical="1" ID="ItemScrollPanel" AutoScrollBar="1">
+			<!-- Scroll Controls -->
+			<ScrollBar Style="VertSlider" Length="parent" Offset="4,0" Anchor="R,T" AnchorSide="O,I"/>
+			<Stack Anchor="L,T" Offset="18,0" StackGrowth="Bottom" Padding="0" ID="ItemStack">
+
+        <Box ID="PreviousRouteLabel" Color="0,0,0,0" Size="parent, 28">
+          <Label Anchor="C,T" Offset="0,3" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_RESUME_PREV_ROUTE"/>
+        </Box>
+        <Stack ID="PreviousRouteStack" Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" Color="0.0.0.0"/>
+        
+				<GridButton Anchor="L,T" Size="370,27" Offset="0,0" Style="CivilopediaListHeader" ID="YourCitiesHeader">
+					<Label Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_LEAGUE_OVERVIEW_ACTIVE_RESOLUTIONS" ID="YourCitiesHeaderLabel"/>
+				</GridButton>
+				<Stack ID="YourCitiesStack" Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" Color="0.0.0.0"/>
+
+				<GridButton Anchor="L,T" Size="370,27" Offset="0,0" Style="CivilopediaListHeader" ID="YourOutpostsHeader">
+					<Label Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_LEAGUE_OVERVIEW_ACTIVE_RESOLUTIONS" ID="YourOutpostsHeaderLabel"/>
+				</GridButton>
+				<Stack ID="YourOutpostsStack" Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" Color="0.0.0.0"/>
+
+				<GridButton Anchor="L,T" Size="370,27" Offset="0,0" Style="CivilopediaListHeader" ID="OtherCivsHeader">
+					<Label Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_LEAGUE_OVERVIEW_ACTIVE_RESOLUTIONS" ID="OtherCivsHeaderLabel"/>
+				</GridButton>
+				<Stack ID="OtherCivsStack" Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" Color="0.0.0.0"/>
+
+				<GridButton Anchor="L,T" Size="370,27" Offset="0,0" Style="CivilopediaListHeader" ID="StationsHeader">
+					<Label Anchor="C,C" Offset="0,0" Style="FontNormal20" FontStyle="Shadow" ColorSet="Beige_Black_Alpha" String="TXT_KEY_LEAGUE_OVERVIEW_ACTIVE_RESOLUTIONS" ID="StationsHeaderLabel"/>
+				</GridButton>
+
+				<Stack ID="StationsStack" Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" Color="0.0.0.0"/>
+			</Stack>
+		</ScrollPanel>
+		<Grid Style="ProductionListHeaderGrid" Size="parent-14,55" Anchor="C,B" Offset="0,13">
+			<GridButton Anchor="C,C" Style="BaseButton" Size="Parent-90,35" Offset="0,-4" ID="TradeOverviewButton">
+				<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_CHOOSE_TRADE_ROUTE_TRADE_OVERVIEW" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
+			</GridButton>
+		</Grid>
+	</Grid>
+
+	<!-- Confirmation Popup -->
+	<Box Color="Black.200" Size="Full.Full" ID="ChooseConfirm" Hidden="1"  ConsumeMouse="1">
+		<Grid Size="350,200" Anchor="C,C" Offset="0,0" Padding="0,20" Style="Grid9DetailFive140" Hidden="0">
+			<Label Anchor="C,T" ID="ConfirmText" Offset="0,30" WrapWidth="320" Style="FontNormal22" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_CONFIRM_CHOOSE_TRADE_ROUTE"/>
+			<Stack Anchor="C,B" Offset="0,30" Padding="15" StackGrowth="Bottom" ID="ButtonStack">
+				<!-- Yes Button  -->
+				<GridButton Style="BaseButton" ID="ConfirmYes" Size="200,42" Anchor="C,B" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+				<!-- No Button  -->
+				<GridButton Style="BaseButton" ID="ConfirmNo" Size="200,42" Anchor="C,B" Offset="0,0" Hidden="0">
+					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Beige_Black" Style="FontNormal24" FontStyle="Shadow"/>
+				</GridButton>
+			</Stack>
+		</Grid>
+	</Box>
+</Context>

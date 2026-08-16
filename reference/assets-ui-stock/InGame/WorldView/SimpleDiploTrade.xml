@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context ColorSet="Beige_Black_Alpha" FontStyle="Shadow" Style="FontNormal14">
+	<!-- Trade =================================================================================================== -->
+	<Instance Name="OtherPlayerEntry">
+    <GridButton Style="CivilopediaListItem" TextOffset="5,0" TextAnchor="L,C" Size="230,32" ID="Button">
+			<Label Offset="32,0" Anchor="L,C" ID="Name" Style="WhiteShadow14"/>
+			<Box ID="ButtonSize" Color="255,255,255,0" Size="230,1" Anchor="C,B" Offset="0,-1"/>
+      <Container		ID="CivIconFrame"	Size="32,32"	Anchor="L,C">
+        <Image	ID="CivIconBG"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+        <Image	ID="CivIcon"		Size="24,24"	Anchor="C,C" Offset="1,1" Texture="CivSymbolsColor256.dds"/>
+        <Image	ID="CivIconHighlight"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+      </Container>
+		</GridButton>
+	</Instance>
+	<Instance Name="CityInstance">
+    <GridButton Style="CivilopediaListItem" TextOffset="5,0" TextAnchor="L,C" Size="230,24" ID="Button">
+			<Label Offset="5,0" Anchor="L,C" ID="CityName"/>
+			<Label Offset="5,0" Anchor="R,C" ID="CityPop"/>
+		</GridButton>
+	</Instance>
+  <Instance			Name="CityOfferInstance">
+    <GridButton			ID="Button"		Style="CivilopediaListItem" TextOffset="5,0" TextAnchor="L,C" Size="230,24" >
+      <Label		ID="CityName"	Offset="5,0" Anchor="L,C" Style="WhiteShadow14"/>
+      <Label		ID="CityPop"	Offset="5,0" Anchor="R,C" Style="WhiteShadow14"/>
+    </GridButton>
+  </Instance>
+	<Instance Name="PocketResource">
+    <GridButton Style="CivilopediaListItem" TextOffset="5,0" TextAnchor="L,C" Size="230,24" Anchor="L,C" String="[ICON_TITANIUM] IRON" ID="Button"/>
+	</Instance>
+	<Instance Name="PocketVote">
+    <GridButton Style="CivilopediaListItem" TextOffset="5,0" TextAnchor="L,C" Size="230,24" Anchor="L,C" ID="Button">
+			<Label Offset="5,0" Anchor="L,C" ID="ProposalLabel"/>
+			<Label Offset="5,0" Anchor="R,C" ID="VoteLabel"/>
+		</GridButton>
+	</Instance>
+	<Instance Name="TableStrategic">
+    <Container			ID="Container"			Anchor="L,C" Size="230,40">
+		  <GridButton			ID="Button"	Anchor="L,T" Style="CivilopediaListItem" Size="230,40" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100" String="[ICON_TITANIUM] IRON" />
+		  <Grid	Anchor="R,T" Offset="0,0" Style="GridTextField" Size="40,24" >
+		    <EditBox	ID="AmountEdit" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" />
+		  </Grid>
+      <Label	ID="DurationEdit" Style="WhiteShadow14" Anchor="R,B" Offset="2,3" />
+		</Container>
+	</Instance>
+	<Instance Name="TableVote">
+		<Container Size="230,24" ID="Container">
+			<GridButton Style="TradeItemButton" Anchor="L,T" ID="Button">
+				<Label Offset="5,0" Anchor="L,C" ID="ProposalLabel"/>
+				<Label Offset="5,0" Anchor="R,C" ID="VoteLabel"/>
+			</GridButton>
+			<Label String="" Offset="10,0" Anchor="R,C" ID="DurationEdit"/>
+		</Container>
+	</Instance>
+
+	<Grid Size="570,600" Anchor="R,B" Offset="-10,85" AutoSize="1" Padding="10,0" Style="GridWindowWithHeader" Hidden="0" ConsumeMouse="1" ID="MainGrid">
+    <Button ID="CloseButton" Anchor="R,T" Offset="9,7" Style="CloseButton"/>
+    <Label Style="MenuTitleCaption" String="{TXT_KEY_TRADE:upper}" ID="TitleLabel" />
+		<Stack Anchor="C,T" Offset="0,120" ID="MainStack" Padding="0">
+			<!--   UsPocket    -->
+			<Container ID="Pockets" Size="500,229" Anchor="C,C" Offset="0,5">
+				<Grid Size="250,220" Anchor="R,T" Offset="0,0" Style="GridWindowWithSideBorders" ID="UsPocketWhole">
+					<ScrollPanel Anchor="R,T" Offset="13,1" Size="200,218" Vertical="1" ID="UsPocketPanel" AutoScrollBar="1">
+						<Stack Anchor="R,T" Offset="0,0" StackGrowth="B" Padding="2" ID="UsPocketLeaderStack">
+              <GridButton Style="ReturnButton" Size="230,30" String="{TXT_KEY_CLOSE:upper}" ID="UsPocketLeaderClose"/>
+						</Stack>
+						<Stack Anchor="R,T" Offset="0,0" StackGrowth="B" Padding="2" ID="UsPocketCitiesStack">
+              <GridButton Style="ReturnButton" Size="230,30" String="{TXT_KEY_CLOSE:upper}" ID="UsPocketCitiesClose"/>
+						</Stack>
+						<Stack Anchor="R,T" Offset="0,0" StackGrowth="Bottom" Padding="0" ID="UsPocketStack" Hidden="1">
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_SPEND_FAVORS" ID="UsPocketFavors"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ENERGY" ID="UsPocketEnergy"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ENERGY_PER_TURN" ID="UsPocketEnergyPerTurn"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_RESEARCH_PER_TURN" ID="UsPocketResearchPerTurn"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_STRATEGIC_RESOURCES" ID="UsPocketStrategic"/>              
+              <Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsPocketStrategicStack"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OPEN_BORDERS" ID="UsPocketOpenBorders"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ALLIANCE" ID="UsPocketAlliance"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="UsPocketTradeAgreement" Hidden="1"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_COOPERATION_AGREEMENT" ID="UsPocketCoopAgreement"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_CITIES" ID="UsPocketCities"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="[ICON_MINUS] TXT_KEY_DIPLO_OTHER_PLAYERS" ID="UsPocketOtherPlayer"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsPocketOtherPlayerStack">
+                <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_MAKE_PEACE_WITH" TextOffset="30,0" ID="UsPocketOtherPlayerPeace"/>
+                <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_DECLARE_WAR_ON" TextOffset="30,0" ID="UsPocketOtherPlayerWar"/>
+							</Stack>
+						</Stack>
+						<ScrollBar Offset="0,0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="220"/>
+					</ScrollPanel>
+				</Grid>
+				<!--   ThemPocket   -->
+				<Grid Size="250,220" Anchor="L,T" Offset="0,0" Style="GridWindowWithSideBorders" ID="ThemPocketWhole">
+					<ScrollPanel Anchor="L,T" Offset="13,1" Size="200,220" Vertical="1" ID="ThemPocketPanel" AutoScrollBar="1">
+						<Stack Anchor="L,T" Offset="0,0" StackGrowth="B" Padding="2" ID="ThemPocketLeaderStack">
+              <GridButton Style="ReturnButton" Size="230,30" String="{TXT_KEY_CLOSE:upper}" ID="ThemPocketLeaderClose"/>
+						</Stack>
+						<Stack Anchor="L,T" Offset="0,0" StackGrowth="B" Padding="2" ID="ThemPocketCitiesStack">
+              <GridButton Style="ReturnButton" Size="230,30" String="{TXT_KEY_CLOSE:upper}" ID="ThemPocketCitiesClose"/>
+						</Stack>
+						<Stack Anchor="L,T" Offset="0,0" StackGrowth="Bottom" Padding="0" ID="ThemPocketStack">
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_GAIN_FAVORS" ID="ThemPocketFavors"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ENERGY" ID="ThemPocketEnergy"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ENERGY_PER_TURN" ID="ThemPocketEnergyPerTurn"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_RESEARCH_PER_TURN" ID="ThemPocketResearchPerTurn"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_STRATEGIC_RESOURCES" ID="ThemPocketStrategic"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemPocketStrategicStack"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OPEN_BORDERS" ID="ThemPocketOpenBorders"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ALLIANCE" ID="ThemPocketAlliance"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="ThemPocketTradeAgreement" Hidden="1"/>
+							<GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_COOPERATION_AGREEMENT" ID="ThemPocketCoopAgreement"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_CITIES" ID="ThemPocketCities"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OTHER_PLAYERS" ID="ThemPocketOtherPlayer"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemPocketOtherPlayerStack">
+                <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_MAKE_PEACE_WITH" TextOffset="30,0" ID="ThemPocketOtherPlayerPeace"/>
+                <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_DECLARE_WAR_ON" TextOffset="30,0" ID="ThemPocketOtherPlayerWar"/>
+							</Stack>
+						</Stack>
+						<ScrollBar Offset="0,0" Style="VertSlider" Anchor="L,C" AnchorSide="O,I" Length="220"/>
+					</ScrollPanel>
+				</Grid>
+			</Container>
+			<Container ID="Tables" Size="500,120" Offset="0,5" Anchor="C,C">
+				<!--   UsTable       -->
+				<Grid Size="250,120" Anchor="R,T" Offset="0,0" Style="TradeOfferGrid">
+					<ScrollPanel Anchor="L,T" Offset="13,2" Size="200,115" Vertical="1" ID="UsTablePanel" AutoScrollBar="1">
+						<Stack Anchor="L,T" Offset="0,0" Size="128,128" StackGrowth="Bottom" Padding="0" ID="UsTableStack">
+               <GridButton Style="TradeItemButton" Anchor="L,C" ID="UsTablePeaceTreaty"/>
+               <GridButton ID="UsTableFavors" Anchor="L,C" String="TXT_KEY_DIPLO_SPEND_FAVORS" Style="CivilopediaListItem" Size="230,32" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100">
+                <Grid			ID="UsFavorsFrame"		Anchor="R,T" Offset="0,0"	Size="45,24"	Style="GridTextField">
+                  <EditBox	ID="UsFavorsAmount" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="1,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" />
+                </Grid>
+              </GridButton>
+              <GridButton ID="UsTableGold" String="TXT_KEY_DIPLO_ENERGY" 	Anchor="L,C" Style="CivilopediaListItem" Size="230,32" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100">
+						    <Grid			ID="UsGoldFrame"		Anchor="R,T" Offset="0,0"	Size="40,24"	Style="GridTextField">
+							    <EditBox	ID="UsGoldAmount" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" />
+						    </Grid>
+					    </GridButton>
+					    <Container			ID="UsTableGoldPerTurn"			Anchor="L,C" Size="230,40">
+						    <GridButton			ID="UsTableGoldPerTurnButton"	Anchor="L,T" Style="CivilopediaListItem" Size="230,40" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100" String="TXT_KEY_DIPLO_ENERGY_PER_TURN" />
+						    <Grid			ID="UsGoldPerTurnFrame"			Anchor="R,T" Offset="0,0" Style="GridTextField" Size="40,24" >
+							    <EditBox	ID="UsGoldPerTurnAmount" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" />
+						    </Grid>
+                <Label	ID="UsGoldPerTurnTurns" Style="WhiteShadow14" Anchor="R,B" Offset="2,3" />
+					    </Container>
+					    <Container			ID="UsTableResearchPerTurn"			Anchor="L,C" Size="230,40">
+						    <GridButton	ID="UsTableResearchPerTurnButton" String="TXT_KEY_DIPLO_RESEARCH_PER_TURN" 	Anchor="L,T" Style="CivilopediaListItem" Size="230,40" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100"/>
+						    <Grid			ID="UsResearchPerTurnFrame"			Anchor="R,T" Offset="0,0" Size="40,24" Style="GridTextField">
+							    <EditBox	ID="UsResearchPerTurnAmount" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4"/>
+						    </Grid>
+						    <Label			ID="UsResearchPerTurnTurns" Style="WhiteShadow14" Anchor="R,B" Offset="2,3"/>
+					    </Container>
+              <Stack Anchor="L,T" Offset="0,0" Size="230,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsTableStrategicStack">
+                <Grid Style="CivilopediaListHeader" Size="230,29">
+								  <Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_STRATEGIC_RESOURCES" Style="GrayGlow14"/>
+                </Grid>
+							</Stack>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OPEN_BORDERS" ID="UsTableOpenBorders" Size="230,40">
+                <Label	ID="UsTableOpenBordersDuration" Style="WhiteShadow14" Anchor="R,B" Offset="2,3" />
+              </GridButton>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ALLIANCE" ID="UsTableAlliance"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="UsTableTradeAgreement"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_COOPERATION_AGREEMENT" ID="UsTableCoopAgreement"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsTableCitiesStack"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsTableDeclareWarStack">
+                <Grid Style="CivilopediaListHeader" Size="230,29">
+								  <Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_DECLARE_WAR_ON" Style="GrayGlow14" WrapWidth="150"/>
+                  <Label Anchor="R,C" Offset="5,0" Style="WhiteShadow14" ID="UsDeclareWarDuration"/>
+                </Grid>
+							</Stack>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="UsTableMakePeaceStack">
+								<Grid Style="CivilopediaListHeader" Size="230,29">
+									<Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_MAKE_PEACE_WITH" Style="GrayGlow14" WrapWidth="150"/>
+									<Label Anchor="R,C" Offset="5,0" Style="WhiteShadow14" ID="UsMakePeaceDuration"/>
+								</Grid>
+							</Stack>
+						</Stack>
+						<ScrollBar Offset="24,0" Style="VertSlider" Anchor="R,C" AnchorSide="O,I" Length="122"/>
+					</ScrollPanel>
+				</Grid>
+				<!--   ThemTable   -->
+				<Grid Size="250,120" Anchor="L,T" Offset="0,0" Style="TradeOfferGrid">
+					<ScrollPanel Anchor="R,T" Offset="13,3" Size="200,116" Vertical="1" ID="ThemTablePanel" AutoScrollBar="1">
+						<Stack Anchor="R,T" Offset="0,0" Size="200,128" StackGrowth="Bottom" Padding="0" ID="ThemTableStack">
+              <GridButton Style="TradeItemButton" Anchor="L,C" ID="ThemTablePeaceTreaty"/>
+              <GridButton ID="ThemTableFavors" Anchor="L,C" String="TXT_KEY_DIPLO_GAIN_FAVORS" Style="CivilopediaListItem" Size="230,32" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100">
+                <Grid ID="ThemFavorsFrame"		Anchor="R,C" Offset="0,0" Size="45,24" Style="GridTextField">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="1,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" ID="ThemFavorsAmount"/>
+                </Grid>
+              </GridButton>
+              <GridButton	ID="ThemTableGold" Anchor="L,C" String="TXT_KEY_DIPLO_ENERGY" Style="CivilopediaListItem" Size="230,32" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100">
+						    <Grid ID="ThemGoldFrame" Anchor="R,T" Offset="0,0" Size="40,24" Style="GridTextField">
+							    <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" ID="ThemGoldAmount"/>
+						    </Grid>
+					    </GridButton>
+					    <Container			ID="ThemTableGoldPerTurn"			Anchor="L,C" Size="230,40">
+						    <GridButton			ID="ThemTableGoldPerTurnButton"	Anchor="L,T" Style="CivilopediaListItem" Size="230,40" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100" String="TXT_KEY_DIPLO_ENERGY_PER_TURN" />
+						    <Grid			ID="ThemGoldPerTurnFrame"			Anchor="R,T" Offset="0,0" Style="GridTextField" Size="40,24" >
+							    <EditBox	ID="ThemGoldPerTurnAmount" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4" />
+						    </Grid>
+                <Label	ID="ThemGoldPerTurnTurns" Style="WhiteShadow14" Anchor="R,B" Offset="2,3" />
+					    </Container>
+              <Container			ID="ThemTableResearchPerTurn"		Anchor="L,C" Size="230,40" >
+                <GridButton			ID="ThemTableResearchPerTurnButton" String="TXT_KEY_DIPLO_RESEARCH_PER_TURN"	Anchor="L,T" Style="CivilopediaListItem" Size="230,40" WrapWidth="150" TextOffset="2,8" TextAnchor="L,T" Color0="182,203,228,255" Color1="0,0,0,100"/>
+                <Grid			ID="ThemTableResearchPerTurnFrame"	Anchor="R,T" Offset="0,0" Size="40,24" Style="GridTextField">
+                  <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="3,1" EditMode="1" Size="36,16"	Anchor="C,C" Style="GrayGlow" NumberInput="1" MaxLength="4"	ID="ThemResearchPerTurnAmount"/>
+                </Grid>
+                <Label	ID="ThemResearchPerTurnTurns" Style="WhiteShadow14" Anchor="R,B" Offset="2,3"/>
+              </Container>
+              <Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemTableStrategicStack">
+                <Grid Style="CivilopediaListHeader" Size="230,29">
+                  <Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_STRATEGIC_RESOURCES" Style="GrayGlow14"/>
+                </Grid>
+							</Stack>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_OPEN_BORDERS" ID="ThemTableOpenBorders" Size="230,40">
+                <Label	ID="ThemTableOpenBordersDuration" Style="WhiteShadow14" Anchor="R,B" Offset="2,3" />
+              </GridButton>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_ALLIANCE" ID="ThemTableAlliance"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_TRADE_AGREEMENT" ID="ThemTableTradeAgreement"/>
+              <GridButton Style="TradeItemButton" Anchor="L,C" String="TXT_KEY_DIPLO_COOPERATION_AGREEMENT" ID="ThemTableCoopAgreement"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemTableCitiesStack"/>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemTableDeclareWarStack">
+                <Grid Style="CivilopediaListHeader" Size="230,29">
+								  <Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_DECLARE_WAR_ON" Style="GrayGlow14" WrapWidth="150"/>
+                  <Label Anchor="R,C" Offset="5,0" Style="WhiteShadow14" ID="ThemDeclareWarDuration"/>
+                </Grid>
+							</Stack>
+							<Stack Anchor="L,T" Offset="0,0" Size="128,0" StackGrowth="Bottom" Padding="0" Hidden="0" ID="ThemTableMakePeaceStack">
+								<Grid Style="CivilopediaListHeader" Size="230,29">
+									<Label Anchor="L,C" Offset="5,0" String="TXT_KEY_DIPLO_MAKE_PEACE_WITH" Style="GrayGlow14" WrapWidth="150"/>
+									<Label Anchor="R,C" Offset="5,0" Style="WhiteShadow14" ID="ThemMakePeaceDuration"/>
+								</Grid>
+							</Stack>
+						</Stack>
+						<ScrollBar Offset="22,0" Style="VertSlider" Anchor="L,C" AnchorSide="O,I" Length="122"/>
+					</ScrollPanel>
+				</Grid>
+				<Box Size="436,120" Anchor="C,T" Color="255,255,255,0" ConsumeMouseOver="1" ConsumeMouseButton="1" ID="ModificationBlock" Hidden="1"/>
+			</Container>
+			<Container Size="1,4"/>
+      <GridButton ID="ModifyButton" Anchor="C,T" Size="478,33" String="TXT_KEY_DIPLO_MODIFY" Style="BaseButton"/>
+      <GridButton ID="ProposeButton" Anchor="C,T" Size="478,33" String="TXT_KEY_DIPLO_PROPOSE" Style="BaseButton" />
+      <GridButton ID="CancelButton" Anchor="C,T" Size="478,33" String="TXT_KEY_DIPLO_REFUSE" Style="BaseButton" />
+      <Container Size="1,25"/>
+		</Stack>
+    <Grid Style="ProductionListHeaderGrid" Size="500,70" Anchor="C,T" Offset="0,48">
+		  <Container Size="64,64" Offset="0,0" Anchor="R,T">
+        <Box		ID="UsCivIconFrame"	Size="60,60"	Anchor="C,C" Offset="0,0" Color="0,0,0,100">
+          <Image	ID="UsCivIconBG"		Size="64,64"	Anchor="C,T" Offset="0,-2" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="UsCivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+          <Image	ID="UsCivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+        </Box>
+			  <Label Anchor="L,T" Offset="2,5" AnchorSide="O,I" String="TXT_KEY_DIPLO_YOUR_ITEMS_LABEL" Style="GrayGlow20" ID="UsText"/>
+		  </Container>
+		  <Container Size="64,64" Offset="0,0" Anchor="L,T">
+        <Box		ID="ThemCivIconFrame"	Size="60,60"	Anchor="C,C" Offset="-1,-1" Color="0,0,0,100">
+          <Image	ID="ThemCivIconBG"		Size="64,64"	Anchor="C,T" Offset="0,-2" Texture="CivIconBGSizes.dds"/>
+          <Image	ID="ThemCivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+          <Image	ID="ThemCivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+        </Box>
+			  <Label Anchor="R,T" Offset="2,5" AnchorSide="O.I" String="(Team Name)'s Items" Style="GrayGlow" ID="ThemName"/>
+			  <Label Anchor="R,T" Offset="0,22" AnchorSide="O.I" String="CivName" Style="WhiteShadow14" ID="ThemCiv"/>
+		  </Container>
+    </Grid>
+	</Grid>
+</Context>

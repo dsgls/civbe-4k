@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ColorAtlas>
+	
+	<Color Name="Beige"				Color="255,255,200,255" />
+	<Color Name="Black"				Color="0,0,0,255" />
+	<Color Name="White"				Color="255,255,255,255" />
+	<Color Name="Gray"				Color="164,164,164,255" />
+	<Color Name="Dark_Gray"		Color="29,31,35,255" />
+	<Color Name="Near_Black"	Color="13,15,20,255" />
+
+	<Color Name="Red"				Color="255,0,0,255" />
+	<Color Name="Green"			Color="0,200,0,255" />
+	<Color Name="Blue"			Color="0,0,255,255" />
+	<Color Name="Purple"		Color="255,0,255,255" />
+	<Color Name="Yellow"		Color="255,255,0,255" />
+	<Color Name="Cyan"			Color="0,255,255,255" />
+
+	<Color Name="Science"       Color="33,190,247,255" />
+	<Color Name="Energy"        Color="231,213,0,255" />
+	<Color Name="Production"    Color="198,136,50,255" />
+	<Color Name="Food"          Color="166,230,75,255" />
+	<Color Name="Culture"       Color="231,0,231,255" />
+  <Color Name="Health"        Color="0,255,33,255" />
+		
+	<Color Name="Purity"		Color="242,24,85,255"/>
+	<Color Name="Harmony"		Color="46,236,210,255"/>
+	<Color Name="Supremacy"	Color="240,166,79,255"/>
+	<Color Name="CoolGray"	Color="162,179,204,255"/>
+
+	<Color Name="DiploCapital"		Color="80,139,250,255"/>
+
+	<Color Name="CityView_Icons"	Color="182,203,228,255" />
+
+	
+
+	<!-- Debug colors -->
+	<Color Name="d1"  Color="255,0,0,90" />
+	<Color Name="d2"  Color="0,255,0,90" />
+	<Color Name="d3"  Color="0,0,255,90" />
+	<Color Name="d4"  Color="255,0,255,90" />
+	<Color Name="d5"  Color="255,255,0,90" />
+		
+	<Color Name="Separator"											Color="20,30,40,255"	/>		<!-- UI: Used for boxes that act as border/separators between elements -->
+	<Color Name="BERTGray"											Color="29,34,44,255"	/>
+	<Color Name="BERTMidnight"									Color="15,20,32,255"	/>	
+	<Color Name="BrightHeaderBlue"							Color="224,255,255,255"/>
+	<Color Name="Artifact_Condition_Battered"		Color="255,86,59,255"	/>
+	<Color Name="Artifact_Condition_Worn"				Color="255,162,62,255"/>
+	<Color Name="Artifact_Condition_Pristine"		Color="54,170,103,255"/>
+	
+	
+	<ColorSet Name="Promotion"									Color0="255,255,255,255" Color1="Black,200" />	
+	<ColorSet Name="Beige_Black"								Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Beige_Black_Alpha"					Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Science_Black_Alpha"				Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Gray_Black_Alpha"						Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Button_Hover"								Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="White_Black"								Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Gray_Black"									Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Dark_Gray_Black"						Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="Gray_Blue_Glow"							Color0="255,255,255,255" Color1="Black,200" />
+	<ColorSet Name="WhiteBlue"									Color0="255,255,255,255" Color1="Black,200" />
+	
+	<ColorSet Name="Green_Black"								Color0="Green"						Color1="Black" />
+	<ColorSet Name="Red_Black"									Color0="Red"							Color1="Black" />
+		
+	<ColorSet Name="Gray_Chat"									Color0="200,200,150,255"	Color1="Black" />
+	<ColorSet Name="Magenta_Chat"								Color0="200,80,200,255"		Color1="Black,200" />
+	<ColorSet Name="Green_Chat"									Color0="80,200,80,255"		Color1="Black,200" />
+
+	<ColorSet Name="SubheaderColors"						Color0="95,125,158,255"		Color1="Black,200" Color2="Black,200"	/>
+
+	<ColorSet Name="TechWeb_Text"								Color0="74,86,116,255"		Color1="0,0,0,255"  	/>
+	<ColorSet Name="TechWeb_NotResearched"			Color0="250,250,250,255"	Color1="0,0,0,200"		/>
+	<ColorSet Name="TechWeb_Available"					Color0="139,77,208,255"		Color1="0,0,0,255"		/>
+	<ColorSet Name="TechWeb_Current"						Color0="74,179,251,255"		Color1="0,0,0,255"		/>
+	<ColorSet Name="TechWeb_AlreadyResearched"	Color0="151,176,197,255"	Color1="0,0,0,255"		/>
+			
+	<ColorSet Name="SoftShadowSet"							Color0="255,0,0,255"			Color1="0,0,0,128" />		
+
+  <ColorSet Name="AffinityPuritySet"					Color0="214,11,26,255"		Color1="214,11,26,100"		Color2="Purity" />
+  <ColorSet Name="AffinitySupremacySet"				Color0="215,107,29,255"		Color1="215,107,29,100"		Color2="Supremacy"/>
+  <ColorSet Name="AffinityHarmonySet"					Color0="10,129,145,255"		Color1="10,129,145,100"		Color2="Harmony"/>
+  <ColorSet Name="AffinitySupremacyPuritySet"	Color0="Supremacy"				Color1="215,107,29,100"		Color2="Purity"/>
+  <ColorSet Name="AffinityHarmonySupremacySet" Color0="Harmony"					Color1="214,11,26,100"		Color2="Supremacy" />
+  <ColorSet Name="AffinityPurityHarmonySet"		Color0="Purity"						Color1="10,129,145,100"		Color2="Harmony"/>
+	
+	<ColorSet Name="UpgradeGoldenSet"						Color0="255,235,150,255"	Color1="255,235,150,100"	Color2="128,117,75,255"/>
+	<ColorSet Name="UpgradeNormalSet"						Color0="245,245,245,255"	Color1="255,255,255,75"		Color2="100,100,100,255"/>
+	
+	<ColorSet Name="Diplo_Text"									Color0="180,200,225,255"	Color1="90,100,112,100"	/>
+  <ColorSet Name="DiploGradient"							Color0="46,54,209,255"		Color1="46,54,209,100"		Color2="80,139,250,255"/>
+  <ColorSet Name="HeaderGradient"							Color0="145,182,245,255"	Color1="145,182,245,100"	Color2="224,255,255,255"/>
+  <ColorSet Name="HeaderGradientDisabled"			Color0="145,182,245,100"	Color1="145,182,245,100"	Color2="224,255,255,100"/>
+  <ColorSet Name="SubheaderGradient"					Color0="64,83,128,255"		Color1="0,0,0,100"				Color2="121,154,193,255"/>
+  <ColorSet Name="HostileGradient"						Color0="98,12,22,255"			Color1="98,12,22,100"			Color2="143,45,42,255"/>
+  <ColorSet Name="WarGradient"								Color0="154,8,22,255"			Color1="154,8,22,100"			Color2="211,120,33,255"/>
+  <ColorSet Name="NeutralGradient"						Color0="59,77,118,255"		Color1="59,77,118,100"		Color2="93,122,156"/>
+  <ColorSet Name="CooperativeGradient"				Color0="60,93,37,255"			Color1="60,93,37,100"			Color2="83,119,58,255"/>
+  <ColorSet Name="AlliedGradient"							Color0="45,135,14,255"		Color1="45,135,14,100"		Color2="182,213,61,255"/>
+  <ColorSet Name="RELATIONSHIP_LEVEL_HOSTILE"     Color0="108,22,32,255" Color1="108,22,32,100" Color2="143,45,42,255"/>
+  <ColorSet Name="RELATIONSHIP_LEVEL_WAR"         Color0="154,8,22,255" Color1="154,8,22,100" Color2="211,120,33,255"/>
+  <ColorSet Name="RELATIONSHIP_LEVEL_NEUTRAL"     Color0="59,77,118,255" Color1="59,77,118,100" Color2="93,122,156"/>
+  <ColorSet Name="RELATIONSHIP_LEVEL_COOPERATIVE" Color0="60,93,37,255" Color1="60,93,37,100" Color2="83,119,58,255"/>
+  <ColorSet Name="RELATIONSHIP_LEVEL_ALLIED"      Color0="45,135,14,255" Color1="45,135,14,100" Color2="182,213,61,255"/>
+  
+  <ColorSet Name="FearGradient"     Color0="125,20,18,255"     Color1="125,20,18,100"     Color2="245,42,45,255"/>
+  <ColorSet Name="RespectGradient"  Color0="43,102,174,255"     Color1="43,102,174,100"     Color2="42,140,245,255"/>
+
+  <ColorSet Name="TutorialCallout"  Color0="177,151,45"         Color1="0,0,0,100"        Color2="236,226,81,255"/>
+  
+</ColorAtlas>

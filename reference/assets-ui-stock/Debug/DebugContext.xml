@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Beige_Black_Alpha" FontSize="14" FontStyle="Shadow" Name="DebugPanel" >
+
+		<LuaContext ID="DebugHotloadCache"		FileName="UI/DebugContext/DebugHotloadCache"/>
+	
+	
+    <Stack ID="MainStack" Hidden="1" >
+        
+        <!-- Log Panel -->
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="800,400" ID="LogGrid" Hidden="1" >
+            <ScrollPanel Size="770,390" Anchor="C,C" ID="LogScroll" Vertical="1" >
+                <Stack StackGrowth="Bottom" Anchor="L,B" Offset="5,10" ID="LogStack" StackPadding="3" />
+
+                <ScrollBar  Style="VertSlider"    Anchor="R,T" AnchorSide="O,I" Offset="-9,18" Length="354"  />
+                <UpButton   Style="ScrollBarUp"   Anchor="R,T" AnchorSide="O,I" Offset="-10,0 "/>
+                <DownButton Style="ScrollBarDown" Anchor="R,B" AnchorSide="O,I" Offset="-10,0 "/>
+            </ScrollPanel>
+        </Grid>
+
+
+        <!-- Console Box and buttons -->
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Offset="60,0" Size="740,30" ID="ConsoleGrid" >
+            <ColorBox Color="0,0,0,90" Anchor="C,C" AutoSize="1" SizePadding="1,1" >
+                <EditBox Anchor="C,C" Size="730,20" MaxLength="255" ID="ConsoleEdit" />
+            </ColorBox>
+            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" ToolTip="Toggle Log" ID="LogCheck" />
+            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" Offset="30,0" ToolTip="Toggle Panel" ID="SubPanelCheck" />
+        </Grid>
+
+        
+        <!-- Sub Panels -->
+        <Grid Style="SquareFrameBlue" Anchor="L,T" Size="200,50" ID="RadioGrid" Hidden="1" SizePadding="5,5" >
+
+            <!-- RadioStack: Add radios to this thing -->
+            <Stack StackPadding="0" Anchor="C,C" ID="RadioStack" />
+
+            <!-- MuxContainer: Add panels to this thing -->
+            <Container Anchor="R,T" AnchorSide="o,i" ID="PanelMux" />
+        </Grid>
+    </Stack>
+
+	
+	
+		<!-- ========== INSTANCES ========== -->	
+	
+    <Instance Name="LogText" >
+        <Label ID="Text" Anchor="l,c" WrapWidth="770" Font="Cour.ttf" FontSize="14" />
+    </Instance>
+    
+    <Instance Name="RadioInstance" >
+        <RadioButton ID="Button" Anchor="R,C" RadioGroup="DebugPanelGroup" Style="SquareCheck" TextAnchor="L,C" TextAnchorSide="o,i" IsChecked="0" />
+    </Instance>
+	
+	
+</Context>

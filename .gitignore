@@ -1,5 +1,14 @@
-/Expansion1UITextures_converted
-/Expansion1UITextures.fpk
-/MiscTextures.fpk
-/UITextures_converted
-/UITextures.fpk
+/extracted
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# reference/assets-ui-stock is a copy of the stock Assets/UI, kept so the
+# analysis is reproducible without a game install. Only the XML and Lua are
+# tracked (4.7MB); the fonts, models and animations nothing reads are not.
+/reference/assets-ui-stock/**/*.ttf
+/reference/assets-ui-stock/**/*.gr2
+/reference/assets-ui-stock/**/*.ani
+/reference/assets-ui-stock/**/*.dds
+/reference/assets-ui-stock/**/*.png

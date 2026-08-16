@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context >
+
+	<Box ID="OuterGrid"							Anchor="R,B" Offset="-10,85" Size="770,659"  Color="0,0,0,0" ConsumeMouse="1" Alpha="0.9">
+
+		<Grid										Anchor="L,T" Offset="0,0" Size="parent,parent"  Style="GridWindowWithHeader" ConsumeMouse="1" Alpha="0.5" />
+		
+		<Grid										Anchor="L,T" Offset="0,0" Size="770,135"		Style="GridWindowWithHeader" />
+		
+		<Label Style="MenuTitleCaption"				Anchor="L,T" Offset="10,17"							String="{TXT_KEY_TOPIC_DIPLOMACY:upper}" />
+		<Button ID="CloseButton"					Anchor="R,T" Offset="8,6"							Style="CloseButton"/>
+		
+		<Box ID="TabRow" Color="255,200,0,0"		Anchor="L,T" Offset="10,50" Size="Parent-30,32">			
+			<GridButton ID="RelationshipsTab"		Anchor="L,T" Offset="0,0"	Size="170,32"  Style="TabInactive" >
+				<Label								Style="TabTextStyle" String="{TXT_KEY_DIP_RELATIONSHIPS:upper}" />
+			</GridButton>			
+			<GridButton ID="DealHistoryTab"			Anchor="L,T" Offset="150,0" Size="170,32"  Style="TabInactive" >
+				<Label								Style="TabTextStyle" String="{TXT_KEY_DIP_DEAL_HISTORY:upper}" />
+			</GridButton>	
+		</Box>
+	
+		<Grid 										Anchor="L,T" Offset="7,78"	Size="parent-18,5"	Style="TabSpacer" />
+		
+		<!-- Table with Info -->
+		<Grid	ID="InnerGridBG"					Anchor="R,B" Offset="10,20"	Size="Parent-17,Parent-102"	Style="GridSetupGameSectionBackground">
+			<LuaContext ID="RelationshipsPanel"		FileName="Assets/UI/InGame/Popups/DiploRelationships"	Hidden="0" />
+			<LuaContext ID="DealHistoryPanel"		FileName="Assets/UI/InGame/Popups/DiploCurrentDeals"	Hidden="1" />
+		</Grid>
+		
+	</Box>
+
+	
+</Context>

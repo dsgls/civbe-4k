@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- EULA primary screen -->
+<Context >
+
+    <!-- Menu Panel -->
+  <Box Size="full,full" Anchor="C,T" Color="0,0,0,255">
+    <Grid Size="580,480" Anchor="C,C" Offset="0.32" Padding="0,0" Style="Grid9DetailFive140" >
+        
+		<Grid Size="550,370" Anchor="C,T" Offset="0,44" Style="WindowGrid" />
+
+		<Label	Style="MenuTitleCaption" String="TXT_KEY_MODDING_EULA_TITLE" />
+        <Label		ID="EULAText"		Anchor="C,T" Offset="0,60"  Style="FontNormal16" WrapWidth="525" ColorSet="Beige_Black" String="TXT_KEY_MODDING_EULA_BODY" />
+
+
+        <GridButton	ID="AcceptButton"	Anchor="R,B" Size="150,32" Style="BaseButton" Offset="90,20"  String="TXT_KEY_MODDING_EULA_ACCEPT" />
+        <GridButton ID="DeclineButton"	Anchor="L,B" Size="150,32" Style="BaseButton" Offset="90,20"  String="TXT_KEY_MODDING_EULA_DECLINE" />
+		
+    </Grid>
+  </Box>
+    <LuaContext FileName="Assets/UI/FrontEnd/Modding/ModsBrowser" ID="ModsBrowser" Hidden="1" DeferLoad="0" />
+
+</Context>

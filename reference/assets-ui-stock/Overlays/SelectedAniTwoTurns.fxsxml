@@ -1,0 +1,12 @@
+<Asset>
+  <Mesh file="SelectedAniTwoTurns.gr2" source="Max" />
+  <Animation file="SelectedAniTwoTurns_SelectedAniTwoTurns.gr2" name="SelectedAniTwoTurns" ec="1000" source="Max" layer="None" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CenterTwoTurnCenter.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+  <Texture file="specgray.dds" source="Max" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="Yellow_CenterAttackTurnFrame.dds" source="Max" />
+</Asset>

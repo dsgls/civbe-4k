@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context>
+	
+	<!-- Table Header (sortable via clicking) -->
+	<Stack Anchor="L,T" StackGrowth="Right"		Offset="6,1" Padding="1">
+		<GridButton		Style="BaseButton"		Anchor="L,C" Size="240,30">
+			<Label		Style="TableHeaderText" String="{TXT_KEY_POPUP_CIVILIZATION:upper}" />
+		</GridButton>
+		<GridButton		Style="BaseButton"		Anchor="L,C" Size="80,30">
+			<Label		Style="TableHeaderText" String="{TXT_KEY_POP_SCORE:upper}" />
+		</GridButton>
+		<GridButton		Style="BaseButton"		Anchor="C,C" Size="418,30" ID="GlobalPoliticsHeader">
+			<Label		Style="TableHeaderText" String="{TXT_KEY_POPUP_GLOBAL_POLITICS:upper}" />
+		</GridButton>	
+	</Stack>
+	
+	<ScrollPanel	ID="MainScrollPanel" 	 Offset="6,26"	Size="740,520" AutoScrollBar="1" Vertical="1" >	
+		<Stack		ID="MajorStack"			StackGrowth="Bottom" Padding="1" />			
+		<ScrollBar							Anchor="R,T" Style="VertSlider" AnchorSide="I,I" Length="520" />
+	</ScrollPanel>
+	
+	<Instance Name="LeaderButtonInstance">
+		<Button					ID="LeaderButton"	Anchor="L,T"		Size="parent,70" Offset="0,-2">
+			<Stack				ID="LeaderStack"	Anchor="L,C"		StackGrowth="Right" Offset="-1,0" Padding="0"  ConsumeMouse="0">
+				<GridButton		ID="NameBox"		Style="TableCell"	Size="242,95" >
+					  <Box		ID="CivIconFrame"	Size="60,60"	Anchor="L,T" Offset="0,0" Color="0,0,0,100">
+						<Image	ID="CivIconBG"		Size="64,64"	Anchor="L,T" Offset="-2,-2" Texture="CivIconBGSizes.dds"/>
+						<Image	ID="CivIcon"		Size="48,48"	Anchor="C,C" Offset="0,0" Texture="CivSymbolsColor512.dds"/>
+						<Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+					  </Box>
+					<Label		ID="LeaderName"		Anchor="L,T"		Offset="65,5"	Style="RelationshipCorp"						String="TXT_KEY_DIPLO_LEADER_NAME" />
+					<Label		ID="CivName"		Anchor="L,T"		Offset="65,30"	Style="RelationshipCiv"		WrapWidth="180"		String="TXT_KEY_DIPLO_CIVILIZATION_NAME" />					
+					<Label		ID="DiploState"		Anchor="L,T"		Offset="6,70"	Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Glow" String="" />
+					<Label		ID="FavorsState"	Anchor="L,T"		Offset="6,70"	Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="" />
+					<Label		ID="TeamID"			Anchor="L,T"		Offset="6,90"	Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="" />
+				</GridButton>
+				<GridButton		ID="ScoreBox"		Style="TableCell"	Size="82,50"	Offset="-1,0">
+					<Label		ID="Score"			Anchor="C,T"		Style="FontNormal26" Offset="0,8" String="00" />
+				</GridButton>
+				<GridButton		ID="AffinitiesBox"		Style="TableCell"	Size="70,50"	Offset="-1,0">
+					<Stack		ID="AffinitiesStack"	Anchor="L,T"		Padding="10"	Offset="0,10"/>
+				</GridButton>				
+				<GridButton		ID="PoliticsBox"	Style="TableCell"	Size="155,50"	Offset="-1,0">					
+					<Stack		ID="PoliticsStack"	Anchor="L,T"		Padding="5"		Offset="0,5">
+						<Label	ID="Favors"			Anchor="L,T"						Offset="4,0" Style="FontNormal16"  String="0 {TXT_KEY_DIPLO_FAVORS:upper}" />
+						<Label	ID="WondersTitle"	Anchor="L,T"						Offset="4,0" Style="FontNormal16"  String="{TXT_KEY_DIPLO_WONDERS:upper}" />
+					</Stack>										
+				</GridButton>								
+				<GridButton		ID="StatusBox"		Style="TableCell"	Size="197,50"	Offset="-1,0">
+					<Stack		ID="StatusStack"	Anchor="R,T"		Padding="5"		Offset="0,5" />
+				</GridButton>
+			</Stack>
+		</Button>
+	</Instance>
+	
+	<Instance Name="AffinitiesLineInstance">
+      <Box		ID="Box"			Align="C,T" Size="70,14" Color="255,255,255,0">
+        <Label	ID="Label"			Offset="5,0" Color="200,200,230,255" Color1="0,0,0,0" Anchor="L,T" Style="FontNormal18" FontStyle="Shadow" String="0" />
+      </Box>
+    </Instance>
+	
+	<Instance Name="WondersLineInstance">
+      <Box		ID="Box"			Align="L,T" Size="100,14" Color="255,255,255,0">
+        <Label	ID="Label"			Offset="5,0" Color="150,150,150,255" Color1="0,0,0,0" Anchor="L,T" Style="FontNormal16" String="wonder line" />
+      </Box>
+    </Instance>
+		
+    <Instance Name="StatusLineInstance">
+		<Container	ID="Box"						Align="L,T" Size="170,28" >
+			<Label	ID="Label"		Offset="4,0"	Align="Left" WrapWidth="170" LeadingOffset="3" Color="105,150,72,255" Color1="0,0,0,0" Anchor="L,T" Style="FontNormal14" String="status line" />
+		</Container>
+    </Instance>
+
+	
+    <!-- War confrim pop-up -->
+    <Grid Size="500,360" Anchor="C,C" Offset="0,-80" ID="WarConfirm" Padding="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" Hidden="1">
+
+      <Label ID="Message" String="TXT_KEY_CONFIRM_WAR" Anchor="C,T" Offset="0,74" WrapWidth="440" Style="FontNormal22" ColorSet="Gray_Black_Alpha" FontStyle="Shadow"/>
+      <Stack Anchor="C,B" Offset="0,80" Padding="24" StackGrowth="Bottom" ID="ButtonStack">
+
+        <GridButton Style="BaseButton" ID="Yes" Size="370,42" Anchor="C,T" Offset="0,0" Hidden="0">
+          <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Gray_Black" Style="FontNormal24" FontStyle="Shadow"/>
+        </GridButton>
+
+        <GridButton Style="BaseButton" ID="No" Size="370,42" Anchor="C,T" Offset="0,0" Hidden="0">
+          <Label Anchor="C,C" Offset="0,0" String="TXT_KEY_NO_BUTTON" ColorSet="Gray_Black" Style="FontNormal24" FontStyle="Shadow"/>
+        </GridButton>
+      </Stack>
+    </Grid>
+	
+</Context>

@@ -1,0 +1,9 @@
+<Asset>
+  <Mesh file="CenterEmbark.gr2" source="Max" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CenterOneTurnSpec.dds" source="Max" />
+  <Texture file="ColorWhite.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+  <Texture file="Blue_CenterOneTurn_TallGlow.dds" source="Max" />
+</Asset>

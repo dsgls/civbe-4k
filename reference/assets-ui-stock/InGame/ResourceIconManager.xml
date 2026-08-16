@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Anton Strenger (Firaxis Games) -->
+<Context>
+	<Container ID="ResourceIconContainer" Hidden="1"/>
+	<Container ID="ArtifactIconContainer" Hidden="1"/>
+  <Container ID="NestIconContainer" Hidden="1"/>
+	<Instance Name="ResourceIcon">
+		<WorldAnchor ID="Anchor">
+			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+		</WorldAnchor>
+	</Instance>
+	<Instance Name="ArtifactIcon">
+		<WorldAnchor ID="Anchor">
+			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+			<Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+		</WorldAnchor>
+	</Instance>
+  <Instance Name="NestIcon">
+    <WorldAnchor ID="Anchor">
+      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/ResourcesBack64.dds"/>
+      <Image Size="64,64" Anchor="C,C" Texture="Assets/UI/Art/Icons/Resources512.dds" ID="Icon"/>
+    </WorldAnchor>
+  </Instance>
+</Context>

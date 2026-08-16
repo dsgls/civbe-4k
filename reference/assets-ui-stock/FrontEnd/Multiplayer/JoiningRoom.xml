@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Grid			ID="MainGrid"		Size="440,120"	Anchor="C,B" Offset="0,100"	Padding="0,0" Style="Grid9DetailFive140" >
+		<Label		ID="JoiningLabel"					Anchor="C,T" Offset="0,20"	Style="MenuTitleCaption"  />
+		<GridButton ID="CancelButton"					Anchor="C,B" Offset="0,20"	Style="BaseButton"	String="TXT_KEY_CANCEL_BUTTON"	Hidden="0" />
+	</Grid>
+
+</Context>

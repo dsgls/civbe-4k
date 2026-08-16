@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+
+	<Image ID="CivBELogo" Style="MainGameLogo" />
+	
+	<Grid Size="580,530" Anchor="C,C" Offset="0,40" Padding="0,0" Style="GridWindowWithHeader" >
+
+		<Label					Style="MenuTitleCaption" String="{TXT_KEY_MODDING_SINGLE_PLAYER:upper}" />
+		<Button	ID="BackButton"	Anchor="R,T" Offset="7,7"	Style="CloseButton" ToolTip="TXT_KEY_MODDING_MENU_BACK" />		
+		
+		<Label				ID="ModsInUseLabel"		Anchor="L,T"	Offset="30,55" Style="FontNormal20"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODS_IN_USE" />
+		
+		<Grid Size="520,250"						Anchor="C,T"	Offset="0,75" Style="Grid9DetailFive140">
+			<Label			ID="NoMods"				Anchor="C,C"	Offset="0,0" Style="FontNormal20"   ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="TXT_KEY_MODDING_NOMODSINUSE" />
+			
+			<!-- Listings Box -->
+			<ScrollPanel	ID="ModsScrollPanel"	Anchor="C,T" Offset="0,6" Vertical="1" Size="530,250" AutoScrollBar="1">
+				<ScrollBar							Anchor="R,T" AnchorSide="O,I" Offset="0,18" Length="404" Style="VertSlider"/>			
+				<Stack		ID="ModsStack"	StackGrowth="Bottom"	Offset="4,0" Padding="4" />
+			</ScrollPanel>
+		</Grid>
+		<Stack				ID="MainStack"			Anchor="C,B"	Offset="0,30"	Padding="8" StackGrowth="Top" >
+			<GridButton		ID="PlayMapButton"		Anchor="C,T"					Size="320,45"	Style="BaseButton" String="{TXT_KEY_SEEDEDSTART:upper}" />
+			<GridButton		ID="CustomGameButton"	Anchor="C,T"					Size="320,45"   Style="BaseButton" String="TXT_KEY_MODDING_CUSTOMGAME" />
+			<GridButton		ID="LoadGameButton"		Anchor="C,T"					Size="320,45"   Style="BaseButton" String="TXT_KEY_MODDING_LOADGAME" />
+		</Stack>
+	</Grid>
+
+
+	<Instance Name="ModInstance">
+		<Label ID="Label" Anchor="L,T"  Style="FontNormal18"  TruncateWidth="450"  ColorSet="Beige_Black_Alpha" FontStyle="Shadow" String="Detail" />
+	</Instance>
+
+
+	<!-- Child Screens -->
+	<LuaContext FileName="Assets/UI/FrontEnd/PreGameScreen"			ID="ModdingGameSetupScreen" Hidden="1" />
+	<LuaContext FileName="Assets/UI/FrontEnd/Modding/CustomMod"		ID="ModsCustom"				Hidden="1" />
+	<LuaContext FileName="Assets/UI/FrontEnd/LoadMenu"				ID="LoadGameScreen"			Hidden="1" />
+
+</Context>

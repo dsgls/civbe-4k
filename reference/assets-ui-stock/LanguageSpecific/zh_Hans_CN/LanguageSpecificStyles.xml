@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StyleSheet>
+
+  <!--
+ ________ ________  ________   _________  ________      
+|\  _____\\   __  \|\   ___  \|\___   ___\\   ____\     
+\ \  \__/\ \  \|\  \ \  \\ \  \|___ \  \_\ \  \___|_    
+ \ \   __\\ \  \\\  \ \  \\ \  \   \ \  \ \ \_____  \   
+  \ \  \_| \ \  \\\  \ \  \\ \  \   \ \  \ \|____|\  \  
+   \ \__\   \ \_______\ \__\\ \__\   \ \__\  ____\_\  \ 
+    \|__|    \|_______|\|__| \|__|    \|__| |\_________\
+                                            \|_________|  -->	
+  <!-- Custom: NimbusSansCHS Medium -->
+  <FontNormal14 Font="n023014t.ttf" FontSize="12"/>
+  <FontNormal15 Font="n023014t.ttf" FontSize="13"/>
+  <FontNormal16 Font="n023014t.ttf" FontSize="14"/>
+  <FontNormal17 Font="n023014t.ttf" FontSize="15"/>
+  <FontNormal18 Font="n023014t.ttf" FontSize="16"/>
+  <FontNormal20 Font="n023014t.ttf" FontSize="18"/>
+  <FontNormal22 Font="n023014t.ttf" FontSize="20"/>
+  <FontNormal23 Font="n023014t.ttf" FontSize="21"/>
+  <FontNormal24 Font="n023014t.ttf" FontSize="22"/>
+  <FontNormal25 Font="n023014t.ttf" FontSize="23"/>
+  <FontNormal26 Font="n023014t.ttf" FontSize="24"/>
+  <FontNormal28 Font="n023014t.ttf" FontSize="26"/>
+  <FontNormal36 Font="n023014t.ttf" FontSize="36"/>
+
+  <!-- Custom: NimbusSansCHS Medium -->
+  <FontTitle Font="n023014t.ttf" FontSize="18"/>
+
+
+	
+  <!-- ======================================================
+					Beyond Earth styles  
+  ====================================================== -->
+  <TestNormal   Font="n023014t.ttf" FontSize="22" Color0="255,0,0,255"   Color1="0,99,99,200"  FontStyle="Stroke" />
+  <TestOver     Font="n023014t.ttf" FontSize="26" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Glow"  />
+  <TestDown     Font="n023014t.ttf" FontSize="18" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Stroke"  />
+  <TestDisabled Font="n023014t.ttf" FontSize="26" Color0="90,90,90,190"  Color1="0,0,0,255"    FontStyle="Normal"  />
+
+</StyleSheet>

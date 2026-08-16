@@ -1,0 +1,18 @@
+<Asset>
+  <Mesh file="Atlas_Camera.gr2" source="Max" />
+  <Animation file="Atlas_Scene_Export_RIG.gr2" name="RIG" ec="1001" source="Max" />
+  <Animation file="Atlas_Scene_Export_Intro.gr2" name="Intro" ec="1000" source="Max" />
+  <Texture file="Atlas_Body_DIFF.dds" source="Max" />
+  <Texture file="Atlas_Body_NORM.dds" source="Max" />
+  <Texture file="Atlas_Body_SREF.dds" source="Max" />
+  <Texture file="Globe_DIFF.dds" source="Max" />
+  <Texture file="Globe_NORM.dds" source="Max" />
+  <Texture file="Globe_SREF.dds" source="Max" />
+  <Texture file="Atlas_environment_diffuse.dds" source="Max" />
+  <Texture file="Atlas_environment_reflection.dds" source="Max" />
+  <Texture file="Atlas_Buildings_1_DIFF.dds" source="Max" />
+  <Texture file="Atlas_Buildings_1_MASK.dds" source="Max" />
+  <Texture file="Atlas_Buildings_2_DIFF.dds" source="Max" />
+  <Texture file="Atlas_Buildings_2_MASK.dds" source="Max" />
+  <Texture file="Atlas_Sky_DIFF.dds" source="Max" />
+</Asset>

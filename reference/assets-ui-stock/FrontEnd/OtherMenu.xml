@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context ColorSet="Gray_Black_Alpha" Style="FontNormal24" Name="MainMenu">
+
+<Container Anchor="C,C" Size="Full,Full" ID="MainMenuScreenUI" >
+  <Image ID="CivBELogo" Style="MainGameLogo" />
+  <Box Color="0,0,0,0" Offset="0,-100" Anchor="C,B" Size="480,480" Padding="0,0">
+    <Stack Anchor="C,T" StackGrowth="Down">
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause="1.1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="1Slide">
+          <AlphaAnim Anchor="C,T" Size="parent,parent" Pause="1.1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="1Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_LATEST_NEWS"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".9" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="2Slide">
+          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".9" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="2Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_CIVILOPEDIA"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".7" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="3Slide">
+          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".7" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="3Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_HALL_OF_FAME"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".5" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="4Slide">
+          <AlphaAnim Anchor="C,T" Size="280,35" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="4Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".3" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="5Slide" >
+          <AlphaAnim Anchor="L,T" Size="280,35" Pause=".3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="5Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_CREDITS"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0" Hidden="1">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="6Slide" >
+          <AlphaAnim Anchor="L,T" Size="280,35" Pause=".1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="6Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_LEADERBOARD"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+      <Box Size="280,35" Color="0,0,0,0">
+        <SlideAnim Anchor="C,T" Size="280,35" Pause=".1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="7Slide">
+          <AlphaAnim Anchor="L,T" Size="280,35" Pause=".1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="7Alpha">
+            <Label Anchor="C,T" Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="TXT_KEY_MODDING_MENU_BACK"/>
+          </AlphaAnim>
+        </SlideAnim>
+      </Box>
+    </Stack>
+    <AlphaAnim Anchor="C,B" Size="480,480" Pause="1.3" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
+      <Stack Anchor="C,T" Offset="0,-10" StackGrowth="Down">
+        <Button Anchor="C,T" ID="LatestNewsButton"		Size="280,35"	 Style="MainMenuButton" String="TXT_KEY_LATEST_NEWS" ToolTip="TXT_KEY_LATEST_NEWS_TT"/>
+        <Button Anchor="C,T" ID="CivilopediaButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_CIVILOPEDIA" ToolTip="TXT_KEY_CIVILOPEDIA_TOOLTIP" />
+        <Button Anchor="C,T" ID="HallOfFameButton"			Size="280,35"    Style="MainMenuButton" String="TXT_KEY_HALL_OF_FAME" ToolTip="TXT_KEY_HALL_OF_FAME_TT" />
+        <Button Anchor="C,T" ID="ViewReplaysButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS" ToolTip="TXT_KEY_OTHER_MENU_VIEW_REPLAYS_TT" />
+        <Button Anchor="C,T" ID="CreditsButton"		Size="280,35"    Style="MainMenuButton" String="TXT_KEY_CREDITS" ToolTip="TXT_KEY_CREDITS_TT"/>
+        <Button Anchor="C,T" ID="LeaderboardButton"	Size="280,35"    Style="MainMenuButton" String="TXT_KEY_LEADERBOARD" ToolTip="TXT_KEY_LEADERBOARD_TT" Hidden="1"/>
+        <Button Anchor="C,T" ID="BackButton" Size="280,35" Style="MainMenuButton" String="TXT_KEY_MODDING_MENU_BACK" />
+      </Stack>
+    </AlphaAnim>
+  </Box>
+  
+  <!--
+  <Box Color="0,0,0,0" Size="480,480" Anchor="C,C" Offset="0,96" Padding="0,0">
+    
+    <Box Color="Black.230" Anchor="C,T" Offset="0.44" Size="300,393" Hidden="0" >
+    </Box>
+
+    <Stack Anchor="C,T" Offset="0,54" Padding="0" StackGrowth="Bottom" ID="MainStack" >      
+      <GridButton Anchor="C,T" ID="LatestNewsButton"  Size="280,45"    Style="BaseButton" String="TXT_KEY_LATEST_NEWS" ToolTip="TXT_KEY_LATEST_NEWS_TT" />    
+      <GridButton Anchor="C,T" ID="CivilopediaButton"   Size="280,45"    Style="BaseButton" String="TXT_KEY_CIVILOPEDIA" ToolTip="TXT_KEY_CIVILOPEDIA_TOOLTIP" />
+      <GridButton Anchor="C,T" ID="HallOfFameButton"          Size="280,45"    Style="BaseButton" String="TXT_KEY_HALL_OF_FAME" ToolTip="TXT_KEY_HALL_OF_FAME_TT" />
+      <GridButton Anchor="C,T" ID="ViewReplaysButton"       Size="280,45"    Style="BaseButton" String="TXT_KEY_OTHER_MENU_VIEW_REPLAYS" ToolTip="TXT_KEY_OTHER_MENU_VIEW_REPLAYS_TT" />
+      <GridButton Anchor="C,T" ID="CreditsButton"         Size="280,45"    Style="BaseButton" String="TXT_KEY_CREDITS" ToolTip="TXT_KEY_CREDITS_TT" />
+      <GridButton Anchor="C,T" ID="LeaderboardButton"         Size="280,45"    Style="BaseButton" String="TXT_KEY_LEADERBOARD" ToolTip="TXT_KEY_LEADERBOARD_TT" />
+      </Stack>
+    <GridButton Anchor="C,B" ID="BackButton" Offset="0,54" Size="280,45" Style="BaseButton" String="TXT_KEY_MODDING_MENU_BACK" />
+  </Box>
+  -->
+	</Container>
+
+	<!-- Child Screens -->
+	<LuaContext FileName="Assets/UI/FrontEnd/LatestNews" ID="LatestNews" Hidden="1" DeferLoad="1"/>
+	<LuaContext FileName="Assets/UI/Civilopedia/CivilopediaScreen" ID="Civilopedia" Hidden="1" DeferLoad="1"/>
+	<LuaContext FileName="Assets/UI/InGame/Popups/HallOfFame" ID="HallOfFame" Hidden="1" DeferLoad="1" />
+	<LuaContext FileName="Assets/UI/InGame/Popups/Leaderboard" ID="Leaderboard" Hidden="1" DeferLoad="1" />
+	<LuaContext FileName="Assets/UI/FrontEnd/LoadReplayMenu" ID="LoadReplayMenu" Hidden="1" DeferLoad="1" />
+	<LuaContext FileName="Assets/UI/FrontEnd/Credits" ID="Credits" Hidden="1" DeferLoad="1" />
+
+</Context>

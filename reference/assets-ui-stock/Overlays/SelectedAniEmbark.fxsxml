@@ -1,0 +1,12 @@
+<Asset>
+  <Mesh file="SelectedAniEmbark.gr2" source="Max" />
+  <Animation file="SelectedAniEmbark_SelectedAniEmbark.gr2" name="SelectedAniEmbark" ec="1000" source="Max" layer="None" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="ColorWhiteRing.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+  <Texture file="specgray.dds" source="Max" />
+  <Texture file="Blue_CenterEmbarkedTurnFrame.dds" source="Max" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+</Asset>

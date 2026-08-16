@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Context ColorSet="Beige_Black" Style="FontNormal18" FontStyle="Shadow" >
+	<LuaContext FileName="Assets/UI/FrontEnd/Multiplayer/GameSetup/MPGameSetupScreen" ID="MPGameSetupScreen" Hidden="1" DeferLoad="1"/>
+</Context>

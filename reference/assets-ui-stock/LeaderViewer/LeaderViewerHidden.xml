@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context>
+    <GridButton Anchor="R,T" Size="200,28"  ID="UnhideUI" Style="ZoomButton" >
+      <Label Anchor="C,C" String="Unhide UI" Style="FontNormal16"  />
+    </GridButton> 
+	<Stack   Anchor="L,B" Padding="5" StackGrowth="Right" >	
+	<GridButton Anchor="L,B" Size="100,36" ID="StopDemoMode" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Stop Demo Mode" />
+    </GridButton>
+	<GridButton Anchor="L,B" Size="100,36" ID="ChangeLeaderDemo" Style="BaseButton" >
+      <Label Anchor="Center Center" String="Change Leader"/>
+    </GridButton>
+	</Stack>
+</Context>

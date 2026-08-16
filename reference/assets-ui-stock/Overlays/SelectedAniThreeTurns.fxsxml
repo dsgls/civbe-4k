@@ -1,0 +1,9 @@
+<Asset>
+  <Mesh file="SelectedAniThreeTurns.gr2" source="Max" />
+  <Animation file="SelectedAniThreeTurns_SelectedAniOneTurn.gr2" name="SelectedAniOneTurn" ec="1000" source="Max" layer="None" />
+  <Texture file="CenterOneTurnFrameSpec.dds" source="Max" />
+  <Texture file="CenterThreeTurnCenter.dds" source="Max" />
+  <Texture file="CubeLight_Generic_32.dds" source="Max" />
+  <Texture file="SpecGray.dds" source="Max" />
+  <Texture file="centeroneturnframe.dds" source="Max" />
+</Asset>
