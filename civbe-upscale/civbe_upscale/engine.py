@@ -359,6 +359,21 @@ def unload_models() -> None:
 # --------------------------------------------------------------------------
 
 
+def _free_quietly(free_memory: Callable[[], None]) -> None:
+    """Release device memory, tolerating a failure to release it.
+
+    This runs inside the OOM handler, where the device is by definition out
+    of memory. At driver level that can make `empty_cache()` itself raise,
+    and letting that escape kills the run at the one moment the tile ladder
+    exists to recover from. The allocation the ladder retries with is
+    smaller, so it is usually still satisfiable even when the release failed.
+    """
+    try:
+        free_memory()
+    except Exception as exc:  # noqa: BLE001 - best effort by construction
+        log.warning("could not release device memory (%s), continuing", exc)
+
+
 def _run_with_oom_fallback(
     run: PlaneRunner,
     arr: np.ndarray,
@@ -382,7 +397,7 @@ def _run_with_oom_fallback(
     except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
         if not is_oom(exc):
             raise
-        free_memory()
+        _free_quietly(free_memory)
 
     tile, failed_at = max_tile, "whole-image inference"
     while tile > 2 * overlap:
@@ -400,7 +415,7 @@ def _run_with_oom_fallback(
         except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
             if not is_oom(exc):
                 raise
-            free_memory()
+            _free_quietly(free_memory)
             tile, failed_at = tile // 2, f"{tile} px tiles"
     raise RuntimeError(
         f"CUDA OOM at every tile size down to {tile * 2} px, the smallest "

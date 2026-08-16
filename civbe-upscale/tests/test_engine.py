@@ -188,6 +188,33 @@ def test_a_non_oom_failure_is_not_retried():
         )
 
 
+def test_a_failing_free_memory_does_not_abort_the_retry(caplog):
+    """Regression: a driver-level OOM can make `empty_cache()` itself raise.
+
+    Letting that escape killed a real 595-file run at the one image that
+    needed the tile ladder, so the release is best-effort by design.
+    """
+    calls = []
+
+    def oom_first_call(arr):
+        calls.append(arr.shape[:2])
+        if len(calls) == 1:
+            raise RuntimeError("CUDA out of memory")
+        return nearest_2x(arr)
+
+    def free_memory():
+        raise RuntimeError("CUDA error: out of memory")
+
+    src = random_plane(100, 100, seed=7)
+    result = engine._run_with_oom_fallback(
+        oom_first_call, src, 2, Image.LANCZOS, looks_like_oom, free_memory
+    )
+
+    np.testing.assert_array_equal(result, nearest_2x(src))
+    assert len(calls) == 2
+    assert "could not release device memory" in caplog.text
+
+
 def test_build_upscaler_retries_only_when_given_an_oom_predicate():
     src = random_plane(100, 100, seed=7)
     # Padded to 168x168, which fits in one MAX_TILE tile, so the retry succeeds.
