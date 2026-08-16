@@ -123,18 +123,37 @@ textures have no `FTXT` at all (`civbeicon`, `missingtexture`, `toppanelbar`,
 
 ### Dictionary pairs
 
-Most UI textures ship as a **block dictionary plus an index**, not as plain
-images:
+Most UI textures ship as **tile deduplication**, not as plain images. Chop the
+image into NxN tiles, keep one copy of each distinct tile, and store the image
+as a grid of references:
 
-- `foo.dds` — a dictionary holding NxN pixel blocks
-- `foo-index.dds` — one dictionary entry per block, `L8` or `L16`
-  (`DDPF_LUMINANCE`, mask `0xff` or `0xffff`)
+- `foo.dds` — the dictionary. An ordinary RGBA texture whose pixels are the
+  distinct tiles, packed row-major into a rectangle.
+- `foo-index.dds` — one texel per tile of the output, `L8` or `L16`
+  (`DDPF_LUMINANCE`, mask `0xff` or `0xffff`). The texel *value* is a tile
+  number, not a brightness.
 - decoded image = `index_dims x N`
 
-**The block size is in the header.** `BC0nn` at offset 0x74 is N in decimal —
-`BC010` is 10, not 16. Verified on all 724 pairs against the converted PNGs:
-tag and ground-truth dimensions agree every time, so nothing has to solve for N
-or measure a PNG to decode a pair.
+`analysis/dds.py` implements this; the whole of it is:
+
+```
+N     = int(tag[2:])            # "BC004" -> 4
+cols  = dictionary_width // N   # tile slots per dictionary row
+for each index texel (bx, by):
+    k = index[by][bx]
+    copy dictionary[(k // cols)*N …][(k % cols)*N …]  ->  out[by*N …][bx*N …]
+```
+
+Every output pixel is a verbatim copy, so decoding is lossless — and encoding
+is equally mechanical, which matters for question 2 below. Confirmed by
+`analysis/verify_pair_decode.py`: all 724 pairs decode **byte-identical** to
+the converted PNGs.
+
+At N=1 a tile is one pixel, the dictionary is a colour table and the index is a
+classic paletted image. That is the largest group, 313 of the 724.
+
+**The tile size is in the header.** `BC0nn` at offset 0x74 is N in decimal —
+`BC010` is 10, not 16. Nothing has to solve for N or measure a PNG.
 
 | block | textures |     | block | textures |
 |-------|----------|-----|-------|----------|
@@ -150,7 +169,27 @@ of two, so a decoder that guesses from 1/2/4/8/16 gets 11 textures wrong.
 Read the tag.
 
 Pairing is exact — 595 pairs in `UITextures.fpk`, 129 in
-`Expansion1UITextures.fpk`, no orphan on either side.
+`Expansion1UITextures.fpk`, no orphan on either side. Every dictionary is
+`A8B8G8R8` (RGBA byte order); the BGRA/RGBA split below affects plain textures
+only. Index depth follows the distinct-tile count: `L8` where that is 256 or
+fewer (292 files), `L16` above (429), with 3 files using `L16` unnecessarily.
+533 of the 724 dictionaries are exactly full — capacity equals distinct tiles.
+
+Across all 724, the scheme stores 630 MB of raw RGBA in 255 MB, but the wins
+are wildly uneven and two edges are worth knowing:
+
+| texture | N | dictionary | index | image | tiles | distinct |
+|---------|---|------------|-------|-------|-------|----------|
+| `256x256frame` | 4 | 68x32 | 64x64 L8 | 256x256 | 4096 | 136 |
+| `buildingatlas` | 8 | 1472x1368 | 256x256 L16 | 2048x2048 | 65536 | 31462 |
+| `be_exp1_traits_atlas_128` | 10 | 16x16 | 64x64 L8 | 640x640 | 4096 | **1** |
+| `seededstartcargoselectback` | 20 | 1920x1920 | 80x45 L16 | 1600x900 | 3600 | **3600** |
+
+`be_exp1_traits_atlas_128` and `be_exp1_foreign_policies_atlas_128` use a
+single tile for the whole image — they are blank placeholders, and anything
+that assumes an atlas has content will trip over them. At the other end,
+photographic art dedupes to nothing: `seededstartcargoselectback` has no
+repeated tile at all, so its pair costs 2.6x *more* than the raw image.
 
 Decoding is already done: `extracted/*_converted/` holds a PNG per pair. Only
 the 211 plain-DDS entries have no PNG, because they need no decode.
@@ -236,6 +275,28 @@ flipbook-sheet         1 files     0.3 Mpx      4.2 MB RGBA@2x     1.0 MB DXT5@2
 TOTAL                405 files    76.5 Mpx   1224.7 MB RGBA@2x   306.2 MB DXT5@2x
 ```
 
+Only four source forms appear across the 405, and one carries almost all the
+pixels:
+
+| source form | files | pixels |
+|-------------|-------|--------|
+| dictionary pair (dictionary is RGBA) | 194 | 72.06 Mpx |
+| plain `A8R8G8B8` (BGRA bytes) | 98 | 2.15 Mpx |
+| plain `A8B8G8R8` (RGBA bytes) | 86 | 2.05 Mpx |
+| plain DXT4 | 22 | 0.26 Mpx |
+| plain DXT1 | 5 | 0.03 Mpx |
+
+No DXT2/3/5, no cubemaps, no `.fic` stubs, none of the `FTXT`-less files — the
+awkward corners of the packs all fall outside the list. The `forgeui_*`
+reserved-field junk does not: 26 of the 27 DXT entries are `forgeui_*` and 20
+of those carry it.
+
+The tiers split by form. `icon-atlas` is 144 of 160 dictionary pairs and holds
+94% of the pixels (72 of 76.5 Mpx) — that tier alone is the memory problem.
+`9-slice` is 184 small plain textures and holds every DXT entry. Mip chains
+follow the same split: all 194 pair sources are single-level, while 181 of the
+211 plain ones carry chains.
+
 A trailing section lists 48 names referenced by shipped data but present in no
 archive and not loose on disk — dead references (mostly unused `grid9*` style
 definitions and screens inherited from Civ5). They draw nothing at 1x either.
@@ -279,8 +340,12 @@ Each of these is cheap to test and expensive to get wrong.
    file is newer" clause.
 2. **Will a plain DDS override replace a dictionary+index pair?** Unknown. The
    packed pair may still win, or the engine may look for `foo-index.dds` and
-   find the packed one. If a plain override does not work, the pipeline has to
-   re-encode into the dictionary format, which is a much larger job.
+   find the packed one. The fallback is no longer frightening, though: the
+   format is fully specified and `analysis/dds.py` decodes every pair
+   byte-exactly, so writing the encoder is mechanical — dedupe NxN tiles, pack
+   them into a rectangle, emit the two files. Note the encoder must also ship
+   an override for `foo-index.dds`, and that `seededstartcargoselectback` shows
+   the format can inflate art that does not dedupe.
 3. **Does the engine accept DXT for UI textures?** Largely answered: of the 115
    stock DXT textures, 96 sit in the `Interface Scalable` and `Strategic View`
    usage groups and 26 are on the phase-2 work list (`forgeui_*` 9-slice frames
@@ -314,8 +379,15 @@ cd analysis
 python3 verify_conversion_inputs.py    # every listed input exists, dims match
 python3 build_texture_list.py          # regenerate ui_textures.txt
 python3 derive_block_sizes.py          # block size of every dictionary pair
+python3 verify_pair_decode.py          # decode all 724 pairs, diff against the PNGs
+python3 verify_pair_decode.py 256x256frame         # decode one, write a PNG beside it
 python3 verify_ui_sweep.py <patched Assets/UI> 2   # acceptance check on a sweep
 ```
+
+`analysis/dds.py` backs `verify_pair_decode.py` and is the piece phase 2 needs:
+DDS header parsing (including the `FTXT` fields), pixel-format naming, pair
+decoding, and enough PNG to read the converted art and write new art. Stdlib
+only.
 
 `analysis/paths.py` holds every location; edit `GAME` if the install moves.
 
