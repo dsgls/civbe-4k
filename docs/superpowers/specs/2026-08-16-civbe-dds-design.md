@@ -258,6 +258,29 @@ not tracked, so nothing in the suite may depend on it.
 - `encode(read(dds))` re-read equals the original RGBA, for a 32-bit source and
   for a pair source
 
+## Status
+
+Tasks 1-6 and 8 are implemented, reviewed and merged. The tool decodes every
+format the packs contain, encodes plain RGBA DDS, and has its CLI, README and
+115 tests. Verified across the whole corpus: **2382 of 2382 non-stub stock files
+round-trip their level-0 image byte-identically** through `.dds` → RGBA `.png` →
+`.dds`, and all 11 `.fic` stubs raise the named error. DXT output was
+cross-checked against an independent decoder — every difference is exactly +1,
+on interpolated colour texels only, none on endpoints and none on alpha. DXT2
+and DXT4 (249 files) have no independent reference, because Pillow refuses both
+fourCCs; their evidence is the round-trip and the README's premultiplication
+argument.
+
+**Task 7 (migration) is deliberately not done.** It waits on a decision that is
+not the implementer's to make: `analysis/dds.py` is also referenced by the
+concurrent texture-upscaling work stream, whose spec names its `read_png` /
+`write_png` as the seam between the two. Deleting it as described below breaks
+that stream mid-flight. The three options are to delete it and re-point that
+stream at `civbe_dds`, to defer until it lands, or to leave a thin shim — the
+last reintroduces the duplicate source of truth this spec exists to remove.
+Until then `analysis/dds.py` stays, and the top-level README's references to it
+are correct as written.
+
 ## Migration
 
 - `analysis/paths.py` gains `DDS_TOOL = os.path.join(PROJECT, "civbe-dds")`.
