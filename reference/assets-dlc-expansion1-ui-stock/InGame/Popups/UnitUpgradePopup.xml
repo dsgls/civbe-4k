@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="Modal">
+
+	<Box Anchor="C,C" Size="Full,Full" Color="0,0,10,150" ConsumeMouse="1" />
+	
+	<!-- Corner Art -->
+	<Image	Anchor="L,T"	Size="100,100"		Texture="MenuBGCornerLeft.dds"  />
+	<Image	Anchor="R,T"	Size="100,100"		Texture="MenuBGCornerRight.dds" />
+	<Image	Anchor="L,B"	Size="100,100"		Texture="MenuBGCornerLeft.dds"  FlipY="1" />
+	<Image	Anchor="R,B"	Size="100,100"		Texture="MenuBGCornerRight.dds" FlipY="1" />
+
+	
+	<!-- Unit Select Grid View -->
+	<Grid								ID="UnitSelectBG"					Anchor="C,B"	Offset="0,-18"	Size="992, 700"		Style="GridWindowWithHeader" >
+			<Container			ID="TabRow"															Offset="10,50"	Size="Parent-30,38">				
+				<GridButton		ID="FilterAvail"					Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3" String="{TXT_KEY_UNIT_UPGRADE_FILTER_AVAIL:upper}" />
+          <Grid				ID="FilterAvailBadge"			Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterAvailLabel"			Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>							
+				<GridButton		ID="FilterAll"						Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3"	String="{TXT_KEY_UNIT_UPGRADE_FILTER_ALL:upper}" />
+          <Grid				ID="FilterAllBadge"				Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterAllLabel"				Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>			
+				<GridButton		ID="FilterMelee"					Size="137,38"   Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"		Offset="0,-3" String="{TXT_KEY_UNIT_UPGRADE_FILTER_MELEE:upper}" />
+          <Grid				ID="FilterMeleeBadge"																				Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterMeleeLabel"			Anchor="C,C"					String="9"	Style="BadgeText"/>
+          </Grid>
+        </GridButton>			
+				<GridButton		ID="FilterRanged"					Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3"	String="{TXT_KEY_UNIT_UPGRADE_FILTER_RANGED:upper}" />
+          <Grid				ID="FilterRangedBadge"		Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterRangedLabel"		Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>			
+				<GridButton		ID="FilterNaval"					Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3"	String="{TXT_KEY_UNIT_UPGRADE_FILTER_NAVAL:upper}" />
+          <Grid				ID="FilterNavalBadge"			Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterNavalLabel"			Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>			
+				<GridButton		ID="FilterHover"					Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3"	String="{TXT_KEY_UNIT_UPGRADE_FILTER_HOVER:upper}" />
+          <Grid				ID="FilterHoverBadge"			Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterHoverLabel"			Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>			
+				<GridButton		ID="FilterAir"						Size="137,38"  Style="TabSquareInactive">
+					<Label																Style="TabTextStyle"	Offset="0,-3"	String="{TXT_KEY_UNIT_UPGRADE_FILTER_AIR:upper}" />
+          <Grid				ID="FilterAirBadge"				Style="UnitUpgradeBadgeGrid">
+            <Label		ID="FilterAirLabel"				Anchor="C,C"					String="9" Style="BadgeText"/>
+          </Grid>
+        </GridButton>						
+			</Container>				
+			<Box																			Anchor="L,T"	Offset="7,78"		Size="Parent-16,5"				Style="TabSpacerDark"/>			
+			<Box							ID="BackBlackOutter"		Anchor="C,T"	Offset="0,82"		Size="parent-14,500"			Color="0,0,0,255" Alpha="1">
+				<Box						ID="BackGrayInner"										Offset="1,1"		Size="parent-2,parent-2"	Color="BERTGray">
+					<ScrollPanel	ID="CardScroll"												Offset="5,4"		Size="parent+5,200"		AutoScrollBar="1" Vertical="1" >
+            <ScrollBar													Anchor="R,T"	Offset="-26,0" AnchorSide="O,I" Style="VertSlider" Length="Parent" />
+            <Stack			ID="CardStack"												StackGrowth="Right" WrapWidth="1000" WrapGrowth="Down" StackPadding="5" />						
+					</ScrollPanel>
+				</Box>
+			</Box>						
+			<Line Width="2" Start="8,47" End="984,47" Color="0,0,0,255" />
+	</Grid>
+	
+	
+	<!-- Unit Upgrade View -->
+	<Box									ID="UnitUpgradeBG"				Anchor="C,B"	Offset="0,0"				Size="1000,768"	Color="10,20,30,140">
+		<Container					ID="UnitImageContainer"		Anchor="C,C"	Offset="-210,-150"	Size="590,768" >
+			<Image						ID="PadImage"																								Size="590,768"							Texture="UnitUpgradeUnitStandOff.dds" >
+				<AlphaAnim			ID="ParticleAreaBack"			Anchor="C,B"	Offset="0,20"				Size="parent,parent"				AlphaBegin="1" AlphaEnd="0"	Speed="0.2" Cycle="Once" Function="Square" Hidden="1" />
+				<Image					ID="UnitPreviewBackground"							Offset="14,0"				Size="590,450"							Texture="UnitUpgrade3DFill.dds" Hidden="1" StretchMode="Fill"/>
+				<Button					ID="UnitPreview"					Anchor="C,C"	Offset="-5,121"			Size="590,450"							NoStateChange="1" />
+				<AlphaAnim			ID="ParticleAreaFront"		Anchor="C,B"	Offset="0,20"				Size="parent,parent"				AlphaBegin="1" AlphaEnd="0"	Speed="0.2" Cycle="Once" Function="Square" Hidden="1" />
+				<Grid						ID="PurchaseCostArea"			Anchor="C,C"	Offset="0,90"				Size="680,57"								Texture="UnitUpgradeCostBanner.dds"  SliceCorner="150,20" SliceSize="1,1">
+					<Image																	Anchor="C,T"	Offset="0,-11"																	Texture="UnitUpgradeCostBannerTop.dds"	/>
+					<Image																	Anchor="C,B"	Offset="0,-11"																	Texture="UnitUpgradeCostBannerBottom.dds" />
+					<Label				ID="PurchaseCostLabel"		Anchor="C,C"	Offset="0,-10"			Style="UnitUpgradePerkTitle" Align="Center" String="{TXT_KEY_UNIT_UPGRADE_AFFINITY_LEVEL_REQUIRED:upper}" />
+					<Label				ID="PurchaseCostText"			Anchor="C,C"	Offset="0,12"				Style="FontNormal22"				Align="Center" String="[ICON_PURITY][Color:Purity]N[ENDCOLOR]" /> />
+				</Grid>				
+			</Image>
+			
+			<Grid																				Anchor="C,B"											Size="720,39"								Texture="UnitUpgradeBanner.dds"	SliceCorner="22,20" SliceSize="332,1" SliceTextureSize="376,39" >
+				<ScrollPanel		ID="AbilitiesScroll"										Offset="75,40"			Size="570,100"			Vertical="1"	AutoScrollBar="1" >
+          <Stack				ID="StatStack"					Anchor="C,T"		Offset="0,10" StackGrowth="Left" StackPadding="10">
+            <Label			ID="Range"			        Anchor="L,C"												String="88[ICON_ATTACK_RANGE]"							  Style="UnitUpgradeStatLabel" />
+						<Label			ID="RangedStrength"			Anchor="L,C"												String="88[ICON_RANGE_STRENGTH]"							Style="UnitUpgradeStatLabel" />
+						<Label			ID="Strength"						Anchor="L,C"												String="88[ICON_STRENGTH]"										Style="UnitUpgradeStatLabel" />						
+						<Label			ID="Movement"						Anchor="L,C"												String="88[ICON_MOVES]"												Style="UnitUpgradeStatLabel" />
+					</Stack>		
+					<Grid					ID="AbilitiesBG"					Anchor="C,T"	Offset="0,32"				Size="500,27"								Texture="UnitUpgradeStatTitle.dds" SliceCorner="2,2" SliceSize="166,23" SliceTextureSize="170,27" >
+						<Label			ID="AbilitiesLabel"				Anchor="C,T"	Offset="0,5"				String="{TXT_KEY_UNIT_UPGRADE_BUFFS:upper}" Style="UnitUpgradePerkTitle" />
+					</Grid>
+					<Stack				ID="AbilitiesStack"											Offset="0,60"				StackPadding="5" />					
+				</ScrollPanel>
+				<Image																		Anchor="C,C"	Offset="0,-12"			Size="91,86"								Texture="UnitUpgradeBannerCenter.dds" />				
+				<Image					ID="AffinityIcon"					Anchor="C,C"	Offset="0,-28"			Size="40,40"								/>
+				<Label					ID="AffinityName"					Anchor="C,C"	Offset="0,6"				String="{TXT_KEY_UNIT_UPGRADE_ENABLES:upper}" Style="UnitUpgradeHeader" />
+				
+			</Grid>			
+		</Container>
+		
+		<Grid								ID="UnitPerkGrid"					Anchor="R,T"	Offset="-8,27"			Size="434,720"							Style="GridWindowWithHeader" >			
+			<Box							ID="UpgradeSideBG" 											Offset="8,8"				Size="parent-18,parent-28"	Color="BERTGray">
+				<Box						ID="UpgradeSideInnerBG"									Offset="3,20"				Size="parent-6,parent-22"		Color="BERTMidnight" />
+				<Grid																			Anchor="R,T"	Offset="-3,0"				Size="parent,49"						Texture="UnitUpgradePlannerHeader.dds"  SliceCorner="26,26" SliceSize="1,1" SliceTextureSize="37,49" />
+				<Grid						ID="LevelUpHeaderGrid"		Anchor="R,T"	Offset="-3,0"				Size="parent,49"						Texture="UnitUpgradeLevelUpHeader.dds"  SliceCorner="26,26" SliceSize="1,1" SliceTextureSize="37,49" />
+				<Image					ID="UpgradeCircleBG"			Anchor="C,T"	Offset="0,49"				Size="406,406"							Texture="UnitUpgradeChooserFrame.dds">
+					<Image				ID="ChooseRing1"					Anchor="C,C"																									Texture="UnitUpgradeChooserRing1.dds" />
+					<Image				ID="ChooseRing2"					Anchor="C,C"																									Texture="UnitUpgradeChooserRing2.dds" />					
+					<Box					ID="UpgradeCircleCenter"	Anchor="C,C"											Size="1,1"									Color="255,255,255,0" />					
+				</Image>
+				<Image					ID="NewUpgradeArrow"										Offset="8,5"																		Texture="NewUpgrade40.dds" />
+				<Container																																	Size="parent,49">
+					<Label				ID="UpgradeInfoHeader"		Anchor="C,C"	Offset="-6,0"				Align="Center" WrapWidth="220" String="$INPROGRESS AREA$" ColorSet="UpgradeGoldenSet" Style="FontNormal20" />
+				</Container>
+				<Image					ID="BigRomanNumber"				Anchor="R,T"	Offset="8,2"																		Texture="UnitUpgradeLevel1.dds" Hidden="1"/>
+			</Box>						
+			
+			
+			<Grid							ID="PerkSelectArea"											Offset="11,445"			Size="parent-26,295"				Texture="UnitUpgradeEmptyFill.dds">
+				<Box																										Offset="1,0"				Size="parent,30"						Color="BERTGray">						
+					<Label				ID="UpgradeAndPerkHeader"	Anchor="C,C"											String="TXT_KEY_UNIT_UPGRADE_ENABLES" Style="UnitUpgradeHeader" />
+				</Box>					
+         <Stack					ID="PerkStack"													Offset="1,32"				StackPadding="1" StackGrowth="Right" />							
+				<Line						ID="PerkLine"							Start="204,34" End="204,900" Color="0,0,0,255" Width="2" />
+				<GridButton			ID="AcceptUpgradeButton"	Anchor="L,B"	Offset="0,40"				Size="parent,40" Style="BaseButton" String="{TXT_KEY_UNIT_UPGRADE_ACCEPT_UPGRADE:upper}" />
+				<GridButton			ID="IgnoreUpgradeButton"	Anchor="L,B"											Size="parent,40" Style="BaseButton" String="{TXT_KEY_UNIT_UPGRADE_IGNORE:upper}" ToolTip="TXT_KEY_UNIT_UPGRADE_IGNORE_TT"/>				
+			</Grid>			
+		</Grid>
+		
+	</Box>		
+	
+	
+	<!-- Common -->
+	<Grid																				Anchor="C,T"								Size="908,40" Style="FullscreenHeader">		
+			<Stack			ID="HeaderYieldStack"			StackGrowth="Right" StackPadding="5" Anchor="L,C" Offset="45,0" >
+				<Grid			ID="MyHarmonyContainer"		Style="Grid9YieldBacking" Size="50,18" Color="255,255,255,200">
+					<Label	ID="MyHarmonyLabel"				String="[ICON_HARMONY]" Anchor="L,B" Offset="2,-1" Style="HarmonyText" />
+				</Grid>
+				<Grid			ID="MyPurityContainer"		Style="Grid9YieldBacking" Size="50,18" Color="255,255,255,200">
+					<Label	ID="MyPurityLabel"				String="[ICON_PURITY]" Anchor="L,B" Offset="2,-1" Style="PurityText" />
+				</Grid>
+				<Grid			ID="MySupremacyContainer"	Style="Grid9YieldBacking" Size="50,18"  Color="255,255,255,200">
+					<Label	ID="MySupremacyLabel"			String="[ICON_SUPREMACY]" Anchor="L,B" Offset="2,-1" Style="SupremacyText" />
+				</Grid>
+			</Stack>
+			<Label			ID="HeaderText"						Anchor="C,T"	Offset="0,10"								Style="UnitUpgradeHeader" />
+			<Button			ID="CloseButton"					Anchor="R,T"	Offset="-36,0"							Style="CloseButton" />
+			<Button			ID="UpgradeCloseButton"		Anchor="R,T"	Offset="-47,0"							Style="CloseButton"	ToolTip="TXT_KEY_UNIT_UPGRADE_BACK_TO_CATALOG" />
+	</Grid>	
+
+			
+	
+	<!-- ==================================================================	-->
+	<!--	Instances																													-->
+	<!-- ==================================================================	-->
+	<Instance						Name="UnitCard">
+			<Button					ID="Content"																	Size="235,192"	Texture="UnitUpgradeUnitButton.dds">
+				<Label				ID="Movement"									Offset="6,6"										Style="UnitUpgradeStatLabel" String="88[ICON_MOVES]" />
+				<Label				ID="Strength"									Offset="6,30"										Style="UnitUpgradeStatLabel" String="88[ICON_STRENGTH]" />        
+				<Label				ID="RangedStrength"						Offset="6,54"										Style="UnitUpgradeStatLabel" String="88[ICON_RANGE_STRENGTH]" />
+        <Label				ID="Range"									  Offset="6,78"										Style="UnitUpgradeStatLabel" String="88[ICON_ATTACK_RANGE]" />
+				<Image				ID="Portrait"		Anchor="C,C"	Offset="2,-16"	Size="127,127"	Texture="UnitUpgradesFPO.dds"  />
+
+				<Image				ID="Slot1"			Anchor="R,T"	Offset="1,2"										Texture="UnitUpgradePerkSlotPrevious.dds" >
+					<Image			ID="Num1"				Anchor="R,T"	Offset="6,6"		Size="32,32"		Texture="UnitUpgradeLevelIndicator32.dds" />
+					<AlphaAnim	ID="Alpha1"										Offset="-4,-4"	Size="56,56"		AlphaStart="1.0" AlphaEnd="0.4" Cycle="Bounce">
+            <Button ID="PerkButton1" Anchor="C,C" Size="44,44">
+              <Image		ID="PerkIcon1"	Anchor="C,C" Size="56,56" />
+            </Button>
+					</AlphaAnim>
+				</Image>
+				
+				<Image				ID="Slot2"			Anchor="R,T"	Offset="1,50"										Texture="UnitUpgradePerkSlotPrevious.dds">
+					<Image			ID="Num2"				Anchor="R,T"	Offset="6,6"		Size="32,32"		Texture="UnitUpgradeLevelIndicator32.dds" />
+					<AlphaAnim	ID="Alpha2"										Offset="-4,-4"	Size="56,56"		AlphaStart="1.0" AlphaEnd="0.4" Cycle="Bounce">
+            <Button ID="PerkButton2" Anchor="C,C" Size="44,44">
+              <Image		ID="PerkIcon2"	Anchor="C,C" Size="56,56" />
+            </Button>
+					</AlphaAnim>
+				</Image>
+				
+				<Image				ID="Slot3"			Anchor="R,T"	Offset="1,98"										Texture="UnitUpgradePerkSlotCurrent.dds" >
+					<Image			ID="Num3"				Anchor="R,T"	Offset="6,6"		Size="32,32"		Texture="UnitUpgradeLevelIndicator32.dds" />
+					<AlphaAnim	ID="Alpha3"										Offset="-4,-4"	Size="56,56"		AlphaStart="1.0" AlphaEnd="0.4" Cycle="Bounce">
+            <Button ID="PerkButton3" Anchor="C,C" Size="44,44">
+              <Image		ID="PerkIcon3"	Anchor="C,C" Size="56,56" />
+            </Button>
+					</AlphaAnim>
+				</Image>
+				
+				<Box					ID="ReqTech"		Anchor="C,C"										Size="parent,parent"	Color="20,20,30,100">
+					<Box												Anchor="C,C"	Offset="-70,-17"	Size="80,9"						Color="70,70,80,255" />
+					<Box												Anchor="C,C"	Offset="70,-17"		Size="80,9"						Color="70,70,80,255" />
+					<Image			ID="TechIcon"		Anchor="C,C"	Offset="0,-17"		Size="64,64"					Color="70,70,80,255" />
+					<Container									Anchor="C,C"										Size="parent,parent" ShowOnMouseOver="1" >
+						<Box											Anchor="C,C"	Offset="-70,-17"	Size="80,9"							Color="255,255,255,255" />
+						<Box											Anchor="C,C"	Offset="70,-17"		Size="80,9"							Color="255,255,255,255" />
+						<Image		ID="TechIconHighlight"	Anchor="C,C"		Offset="0,-17"	Size="64,64"		Color="255,255,255,255" />
+					</Container>
+				</Box>
+				
+				<Container										Anchor="C,B"	Size="parent,45">
+					<Label			ID="UnitName"		Anchor="C,C"	Offset="0,0"	Align="Center"		Style="UnitUpgradeCardNameLabel" String="UNIT NAME THAT NEEDS TWO LINES" />
+				</Container>				
+			</Button>
+	</Instance>
+	
+
+	<Instance						Name="UpgradeButton">
+		<Button						ID="Button"					Anchor="C,C"								Size="42,42" Texture="UnitUpgradeUpgradeButton.dds">
+				<Image				ID="Icon"						Anchor="C,C"								Size="40,40" />
+				<Image				ID="HighlightIcon"	Anchor="C,C"								Size="40,40" ShowOnMouseOver="1" />
+				<Label				ID="Info"						Anchor="R,C" Offset="8,-1"	Size="20,40"	Style="FontNormal16" />
+		</Button>
+	</Instance>
+	
+	<Instance							Name="PerkContent">
+		<BoxButton					ID="Content"									Offset="-1,0"	Size="204,60"						Color="0,200,10,100">
+			<Stack						ID="Stack"																	Size="204,60"						StackGrowth="Bottom">
+				<Grid																												Size="204,46"						Style="Grid9GeneralButton">
+					<Box					ID="ClickBlocker"							Offset="1,0"	Size="parent,parent"		Color="BERTGray" />
+					<Image				ID="Icon"				Anchor="C,C"	Offset="0,1"	Size="56,56"						Texture="PerkAtlas56.dds"/>
+				</Grid>				
+				<Box						ID="DescriptionBox"													Size="204,50"						Color="BERTMidnight">
+					<AlphaAnim		ID="Selected"																Size="parent,parent"		AlphaStart="0.9" AlphaEnd="0.5" Cycle="Bounce">
+						<Grid																										Size="parent,parent"		Style="Grid9GeneralButtonHighlight" />		
+					</AlphaAnim>
+					<ScrollPanel	ID="DescriptionScroll"				Offset="4,0"	Size="204,parent"				Vertical="1" AutoScrollBar="1">
+						<Label			ID="Description"							Offset="0,2"													WrapWidth="190" String="$Description$" Style="UnitUpgradePerkText" LeadingOffset="3"/>
+						<ScrollBar									Anchor="R,T"	Offset="-22,0" AnchorSide="O,I" Style="VertSlider" Length="Parent" />
+					</ScrollPanel>
+				</Box>			
+			</Stack>
+		</BoxButton>
+	</Instance>		
+		
+
+	<Instance						Name="AbilityBuff">
+		<Label						ID="Text"				Anchor="L,T"	String="$historical info$" WrapWidth="555" Style="UnitUpgradeAbilityText" />
+	</Instance>		
+
+	<Instance						Name="PixieDust">		
+		<SlideAnim				ID="Content"		Begin="0,0"			End="0,400"		Size="1,1" Stopped="0"	Speed="1" Anchor="C,B">
+			<AlphaAnim			ID="Alpha"			AlphaBegin="1"	AlphaEnd="0"													Speed="1" >
+				<Box					ID="Sparkle"		Anchor="C,B"	Size="4,4" Color="255,245,190,160" />
+			</AlphaAnim>
+		</SlideAnim>
+	</Instance>		
+
+</Context>

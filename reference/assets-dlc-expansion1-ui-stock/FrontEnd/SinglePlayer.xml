@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ColorSet="Gray_Black_Alpha" Style="FontNormal24" Name="MainMenu" >
+
+	<Image ID="CivBELogo" Style="MainGameLogo" />
+	
+	<Container ID="MainMenuScreenUI" Anchor="C,C" Size="Full,Full"  >
+		<Container Offset="0,-100" Anchor="C,B" Size="480,480" Padding="0,0">
+			<Stack Anchor="C,T" StackGrowth="Down">
+				<Container								Size="280,35">
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".1" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="PlayNowSlide">
+						<AlphaAnim		Anchor="C,T"	Size="parent,parent" Pause=".1" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="PlayNowAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_PLAY_NOW:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+				<Container								Size="280,35" >
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".3" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="SeededSlide">
+						<AlphaAnim		Anchor="C,T"	Size="280,35" Pause=".3" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="SeededAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_SEEDEDSTART:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+				<Container								Size="280,35">
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".5" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="LoadSlide">
+						<AlphaAnim		Anchor="C,T"	Size="280,35" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="LoadAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_LOAD_GAME:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+				<Container								Size="280,35" Hidden="1">
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".5" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="ScenariosSlide" >
+						<AlphaAnim		Anchor="L,T"	Size="280,35" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="ScenariosAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_SCENARIOS:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+				<Container								Size="280,35" Hidden="1">
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".5" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="TutorialSlide" >
+						<AlphaAnim		Anchor="L,T"	Size="280,35" Pause=".5" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="TutorialAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_TUTORIAL:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+				<Container								Size="280,35">
+					<SlideAnim			Anchor="C,T"	Size="280,35" Pause=".7" Start="60,0" End="0,0" Cycle="once" Speed="2" Function="OutQuint" ID="BackSlide">
+						<AlphaAnim		Anchor="L,T"	Size="280,35" Pause=".7" Cycle="OneBounce" Speed="1" AlphaStart="0" AlphaEnd="1" ID="BackAlpha">
+							<Label		Anchor="C,T"	Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" String="{TXT_KEY_MODDING_MENU_BACK:upper}"/>
+						</AlphaAnim>
+					</SlideAnim>
+				</Container>
+			</Stack>
+			<AlphaAnim		Anchor="C,B" Size="480,480" Pause="1.1" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd="1" ID="ButtonsFadeIn">
+				<Stack		Anchor="C,T" Offset="0,-10" StackGrowth="Down">
+					<Button Anchor="C,T" ID="StartGameButton"		Size="280,35"	 Style="MainMenuButton" String="{TXT_KEY_PLAY_NOW:upper}"/>
+					<Button Anchor="C,T" ID="SeededStartButton"		Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_SEEDEDSTART:upper}" />
+					<Button Anchor="C,T" ID="LoadGameButton"		Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_LOAD_GAME:upper}" />
+					<Button Anchor="C,T" ID="ScenariosButton"		Size="280,35"    Style="MainMenuButton" String="{TXT_KEY_SCENARIOS:upper}" Hidden="1"/>
+					<Button Anchor="C,T" ID="BackButton"			Size="280,35"	 Style="MainMenuButton"  String="{TXT_KEY_MODDING_MENU_BACK:upper}" />
+				</Stack>
+			</AlphaAnim>
+		</Container>
+	</Container>
+	
+	<!-- Child Screens -->
+	<LuaContext FileName="Assets/UI/FrontEnd/LoadMenu"                  ID="LoadGameScreen"		Hidden="1" />
+	<LuaContext FileName="Assets/UI/FrontEnd/GameSetup/GameSetupScreen" ID="GameSetupScreen"	Hidden="1" />	
+	<LuaContext FileName="Assets/UI/FrontEnd/ScenariosMenu"             ID="ScenariosScreen"	Hidden="1" />	
+	
+</Context>

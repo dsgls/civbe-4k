@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
+  <Container ID="Content" Size="parent,parent" Anchor="C,T" Hidden="false">
+    <Box Size="parent,parent" ConsumeMouse="true" Color="0,0,0,100" />
+    <SlideAnim ID="SlideAnim" Anchor="C,C" Style="DiploTraitPopupSlideAnim">
+      <AlphaAnim ID="AlphaAnim" Style="DiploAlphaAnim">
+        <Grid Style="Grid9DetailFive140" Size="750,700" Anchor="C,C" Offset="0,0">
+          <Label Style="FontNormal20" Anchor="C,T" Offset="0,10" String="$Agreement Builder$" />
+
+          <Stack StackGrowth="Right" Anchor="C,T" Offset="0,40" Padding="10">
+            <!-- Their policies content -->
+            <Container Size="350,650">
+              <Stack StackGrowth="Bottom">
+                <Label Style="FontNormal20" Anchor="C,C" String="$Their Foreign Policies$" />
+                <Container Size="1,5" />
+
+                <!-- Policies list -->
+                <Box Size="350,510" Color="0,0,0,50">
+                  <ScrollPanel ID="ScrollPanel" Size="parent,parent" Vertical="1">
+                    <ScrollBar Offset="-14,0" Style="VertSlider" Anchor="R,T" AnchorSide="O,I" />
+                    <Stack ID="PoliciesStack" Size="parent,parent" StackGrowth="Bottom" />
+                  </ScrollPanel>
+                </Box>
+              </Stack>
+            </Container>
+            
+            <!-- Selected policy info -->
+            <Container Size="350,650">
+              <Container ID="SelectedPolicyContent" Size="parent,parent">
+                <Image ID="SelectedPolicy_Icon" Size="64,64" Anchor="C,T" Offset="0,0"/>
+                <Label ID="SelectedPolicy_Name" Style="FontNormal24" Anchor="C,T" Offset="0,80" String="$Policy name here$" />
+                <Label Style="FontNormal18" Anchor="C,T" Offset="0,115" String="$Perk$" />
+                <Stack ID="SelectedPolicy_Stack" StackGrowth="Bottom" Anchor="C,T" Offset="0,135" Padding="10" />
+              </Container>
+            </Container>
+          </Stack>
+          <!-- Buttons -->
+          <GridButton ID="CancelButton" Style="BaseButton" Anchor="C,B" Size="150,30" Offset="-100,10" String="$Cancel$" />
+          <GridButton ID="ProposeButton" Style="BaseButton" Anchor="C,B" Size="150,30" Offset="100,10" String="$Propose$" />
+        </Grid>
+      </AlphaAnim>
+    </SlideAnim>
+  </Container>
+
+  <!-- Instances -->
+  <Instance Name="PolicyItem">
+    <Container ID="Content" Size="335,85">
+      <GridButton ID="Button" Style="GridListElementGray" Size="335,85" Offset="1,0">
+        <Grid ID="SelectedHighlight" Style="GridListElementBlue" Size="parent,parent" Hidden="true" />
+        <Image ID="Icon" Size="64,64" Anchor="L,T" Offset="10,10" />
+        <Label ID="Name" Style="FontNormal20" Anchor="L,T" Offset="85,10" String="POLICY NAME HERE" />
+        <Label ID="Description" Style="FontNormal16" Anchor="L,T" Offset="85,30" WrapWidth="250" String="DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" />
+        <Label ID="NoPolicy" Style="FontNormal20" Anchor="C,C" String="$No Policy$" Hidden="true"/>
+      </GridButton>
+    </Container>
+  </Instance>
+  
+  <!-- Instances -->
+  <Instance Name="PerkItem">
+    <Container ID="Content" Size="parent,85">
+      <Image ID="RelationshipIcon" Size="64,64" Anchor="L,C" Offset="0,-5"/>
+      <Grid Style="Grid9DiploShadowedPanel" Size="parent-70,parent" Anchor="R,C">
+        <Label ID="Description" Style="FontNormal16" Anchor="L,C" Offset="5,-5" WrapWidth="270" String="dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" />
+        <Grid ID="Highlight" Style="Grid9DiploPanelHighlight" Anchor="C,C" Size="parent+5,parent" Offset="0,-4" />
+      </Grid>
+    </Container>
+  </Instance>
+</Context>

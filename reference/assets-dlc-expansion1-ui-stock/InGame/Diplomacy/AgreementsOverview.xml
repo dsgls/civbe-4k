@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Colorset="Gray_Black_Alpha" Style="FontNormal16" FontStyle="Shadow" Layer="Modal">
+  <Container ID="Content" Size="parent,parent" Anchor="C,T" Hidden="false">
+    <Box Size="parent,parent" ConsumeMouse="true" Color="0,0,0,100" />
+    <SlideAnim ID="SlideAnim" Anchor="C,C" Style="DiploTraitPopupSlideAnim">
+      <AlphaAnim ID="AlphaAnim" Style="DiploAlphaAnim">
+        <Grid Style="Grid9DetailFive140" Size="700,650" Anchor="C,C" Offset="0,0">
+          <Stack ID="AgreementsStack" StackGrowth="Bottom" Padding="10"/>
+          
+          <!-- Buttons -->
+          <GridButton ID="CancelButton" Style="BaseButton" Anchor="C,B" Size="150,30" Offset="0,-35" String="$Cancel$" />
+        </Grid>
+      </AlphaAnim>
+    </SlideAnim>
+  </Container>
+
+  <!-- Instances -->
+  <Instance Name="AgreementInstance">
+    <Container ID="Content" Size="parent,200">
+      <Box Size="parent-50,200" Anchor="L,B" Color="0,0,0,50" >
+        <Box Size="100,parent" Color="0,0,0,100">
+          <Image ID="MyPolicyIcon" Size="64,64" Anchor="C,T" Offset="0,10" />
+          <Image ID="TheirPolicyIcon" Size="64,64" Anchor="C,B" Offset="0,10" />
+        </Box>
+        <Stack Offset="100,0" StackGrowth="Bottom">
+          <Container Size="parent-100,100">
+            <Label ID="MyPolicyName" Style="FontNormal20" Anchor="L,T" Offset="5,5" String="POLICY NAME HERE" />
+            <Label ID="MyPolicyDescription" Style="FontNormal16" Anchor="L,T" Offset="5,30" String="Policy description here" />
+          </Container>
+          <Container Size="parent-100,100">
+            <Label ID="TheirPolicyName" Style="FontNormal20" Anchor="L,T" Offset="5,5" String="POLICY NAME HERE" />
+            <Label ID="TheirPolicyDescription" Style="FontNormal16" Anchor="L,T" Offset="5,30" String="Policy description here" />
+          </Container>
+        </Stack>
+      </Box>
+      <GridButton ID="CancelAgreementButton" Style="BaseButton" Size="50,50" Anchor="R,C" String="X" />
+    </Container>
+  </Instance>
+</Context>

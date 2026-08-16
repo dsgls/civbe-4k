@@ -1,0 +1,2932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StyleSheet>
+
+  <ScrollBarUp    Texture="Assets/UI/Art/Controls/ScrollBarUp.dds"    Size="21,19" />
+  <ScrollBarDown  Texture="Assets/UI/Art/Controls/ScrollBarDown.dds"  Size="21,19" />
+  <ScrollBarRight Texture="Assets/UI/Art/Controls/ScrollBarRight.dds" Size="16,16" />
+  <ScrollBarLeft  Texture="Assets/UI/Art/Controls/ScrollBarLeft.dds"  Size="16,16" />
+
+  <SelectedUp    Texture="Assets/UI/Art/Controls/9 Grids/SelectedUp.dds"    Size="16,16" />
+  <SelectedDown  Texture="Assets/UI/Art/Controls/9 Grids/SelectedDown.dds"  Size="16,16" />
+
+  <SelectedUp32    Texture="Assets/UI/Art/Controls/9 Grids/SelectedUp32.dds"    Size="32,32" />
+  <SelectedDown32  Texture="Assets/UI/Art/Controls/9 Grids/SelectedDown32.dds"  Size="32,32" />
+
+  <CivilopediaForward Texture="Assets/UI/Art/Civilopedia/CivilopediaForward.dds" Size="32,32">
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="32,32" Offset="0,0" Padding="0,0" TextureOffset="0,32" Texture="Assets/UI/Art/Civilopedia/CivilopediaForward.dds" />
+    </AlphaAnim>
+  </CivilopediaForward>
+
+  <CivilopediaBack Texture="Assets/UI/Art/Civilopedia/CivilopediaBack.dds" Size="32,32">
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="32,32" Offset="0,0" Padding="0,0" TextureOffset="0,32" Texture="Assets/UI/Art/Civilopedia/CivilopediaBack.dds" />
+    </AlphaAnim>
+  </CivilopediaBack>
+
+  <CivilopediaSubHeader Texture="Assets/UI/Art/Civilopedia/SubHeader.dds"
+    SliceCorner="2,2"
+    SliceTextureSize="36,36"
+    />
+
+  <CivilopediaListItem Texture="CivilopediaSideButtons.dds"
+    SliceCorner="2,2"
+    SliceTextureSize="22,22"
+    StateOffsetIncrement="0,22"
+    />
+
+  <CivilopediaListHeader Texture="CivilopediaListHeaders.dds"
+    SliceCorner="2,2"
+    SliceTextureSize="27,27"
+    StateOffsetIncrement="0,27"
+  />
+
+  <PulldownButtonInstance Texture="CivilopediaListHeaders.dds"
+  SliceCorner="2,2"
+  SliceTextureSize="27,27"
+  StateOffsetIncrement="0,27"
+  />
+  
+  <SideRight Texture="SideRight.dds"
+             SliceCorner="2,2"
+             SliceTextureSize="16,32"
+             />
+
+  <BlackGradient Texture="BlackGradient.dds"
+           SliceCorner="128,246"
+           SliceTextureSize="256,256"
+             />
+  
+  <CurvedFrame Texture="CurvedFrame.dds"
+               SliceCorner="74,39"
+               SliceTextureSize="148,40"
+               />
+  
+  <AIAnim Size="200,200" Offset="0,0" Columns="7" Anchor="C,C" Speed="20" Pause="2" StepSize="200,0" FrameCount="35" Texture="LoadingAnim.dds"/>
+
+  <WhiteShadowDark FontStyle="glow" Color0="182,203,228,255" Color1="0,0,0,250" Style="FontNormal18"/>
+  <WhiteShadow14 FontStyle="shadow" Color0="182,203,228,255" Color1="0,0,0,100" Style="FontNormal14"/>
+  <WhiteShadow16 FontStyle="shadow" Color0="182,203,228,255" Color1="0,0,0,100" Style="FontNormal16"/>
+  <WhiteShadow FontStyle="shadow" Color0="182,203,228,255" Color1="0,0,0,100" Style="FontNormal18"/>
+  <WhiteShadow20 FontStyle="shadow" Color0="208,212,217,255" Color1="0,0,0,100" Style="FontNormal20"/>
+  <WhiteShadow22 FontStyle="shadow" Color0="208,212,217,255" Color1="0,0,0,100" Style="FontNormal22"/>
+  <GrayShadow16 FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" Style="FontNormal16"/>
+  <GrayShadow FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" Style="FontNormal18"/>
+  <GrayShadow20 FontStyle="shadow" Color0="128,144,162,255" Color1="0,0,0,100" Style="FontNormal20"/>
+  <GrayGlow FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal18"/>
+  <GrayGlow14 FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal14"/>
+  <GrayGlow20 FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal20"/>
+  <GrayGlow22 FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal22"/>
+  <GrayGlow24 FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100" Style="FontNormal24"/>
+  <RedGlow FontStyle="glow" Color0="255,0,0,255" Color1="203,0,0,255" Style="FontNormal18"/>
+  <RedGlow20 FontStyle="glow" Color0="255,0,0,255" Color1="203,0,0,255" Style="FontNormal20"/>
+  <RedGlow24 FontStyle="glow" Color0="255,0,0,255" Color1="203,0,0,255" Style="FontNormal24"/>
+
+  <DarkGrayShadow FontStyle="shadow" Color0="73,77,91,255" Color1="0,0,0,100" Style="FontNormal16"/>
+  
+<DarkGrayShadow22 FontStyle="shadow" Color0="73,77,91,255" Color1="0,0,0,100" Style="FontNormal22"/>
+  
+  <GradientSubHeader	FontStyle="shadow" ColorSet="SubheaderGradient" Style="FontNormal22"/>
+  <GradientHeader			FontStyle="glow" ColorSet="HeaderGradient" Style="FontNormal22"/>
+  <GradientHeader18		FontStyle="glow" ColorSet="HeaderGradient" Style="FontNormal18"/>
+
+  <HostileText22 FontStyle="glow" ColorSet="HostileGradient" Style="FontNormal22"/>
+  <HostileText FontStyle="glow" ColorSet="HostileGradient" Style="FontNormal18"/>
+  <WarText FontStyle="glow" ColorSet="WarGradient" Style="FontNormal18"/>
+  <NeutralText FontStyle="glow" ColorSet="SubheaderGradient" Style="FontNormal18"/>
+  <CooperativeText FontStyle="glow" ColorSet="CoopGradient" Style="FontNormal18"/>
+  <AlliedText FontStyle="glow" ColorSet="AlliedGradient" Style="FontNormal18"/>
+  
+<FearText FontStyle="glow" ColorSet="FearGradient" Style="FontNormal18"/>
+  <RespectText FontStyle="glow" ColorSet="RespectGradient" Style="FontNormal18"/>
+  
+  <ColumnHeader Texture="CivilopediaListHeaders.dds">
+    <GridData Style="CivilopediaListHeader" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Texture="CivilopediaListHeaders.dds" 
+            SliceStart="0,0"
+            SliceCorner="2,2"
+            SliceTextureSize="27,27"
+            StateOffsetIncrement="0,0"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Texture="CivilopediaListHeaders.dds"
+            SliceStart="0,27"
+            SliceCorner="2,2"
+            SliceTextureSize="27,27"
+            StateOffsetIncrement="0,0"/>
+    </AlphaAnim>
+  </ColumnHeader>
+
+  <TopBarSeparator Texture="Assets/UI/Art/WorldView/TopBar_Separator.dds"
+    SliceCorner="42,24"
+    SliceTextureSize="44,30"
+  />
+
+  <CloseButton Size="40,40" Texture="closebutton.dds" ToolTip="TXT_KEY_ESC_TO_CLOSE">
+      <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+        <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="closebutton.dds" TextureOffset="0,0" />
+      </AlphaAnim>
+      <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+        <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="closebutton.dds" TextureOffset="0,40" />
+      </AlphaAnim>   
+  </CloseButton>
+
+  <CloseButtonSmall Size="24,24" Texture="closeButtonSmall.dds">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="closeButtonSmall.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="closeButtonSmall.dds" TextureOffset="0,24" />
+    </AlphaAnim>
+  </CloseButtonSmall>
+
+  <Button64 Texture="64x64FrameButtons.dds" Size="64,64">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="64x64FrameButtons.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="64x64FrameButtons.dds" TextureOffset="0,64" />
+    </AlphaAnim>
+  </Button64>
+
+  <Button45 Texture="45x45FrameButtons.dds" Size="64,64">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="45x45FrameButtons.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="45x45FrameButtons.dds" TextureOffset="0,45" />
+    </AlphaAnim>
+  </Button45>
+  
+  <GoButton Texture="GoButton.dds" Size="82,82">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="GoButton.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="GoButton.dds" TextureOffset="0,82" />
+    </AlphaAnim>
+  </GoButton>
+
+  <ArrowButton Texture="BigArrow.dds" Size="73,57">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="BigArrow.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="BigArrow.dds" TextureOffset="0,57" />
+    </AlphaAnim>
+  </ArrowButton>
+
+  <ForwardButton Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds"  Size="45,45" TextureOffset="45,0" StateOffsetIncrement="45,0">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd=".8">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds" TextureOffset="45,45" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds" TextureOffset="45,45" />
+    </AlphaAnim>
+  </ForwardButton>
+
+  <BackButton Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds"  Size="45,45" StateOffsetIncrement="0,0">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="2" AlphaStart="1" AlphaEnd=".8">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds" TextureOffset="0,45" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/UnitPanel/UnitPanelArrows.dds" TextureOffset="0,45" />
+    </AlphaAnim>
+  </BackButton>
+
+  <UnitPanelBackground Texture="Assets/UI/Art/UnitPanel/UnitPanelBackground.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="420,200"
+    SliceTextureSize="492,242"/>
+
+  <EnemyPanelBackground Texture="Assets/UI/Art/UnitPanel/EnemyPanelBackground.dds"
+  StateOffsetIncrement="0,0"
+  SliceCorner="129,95"
+  SliceTextureSize="300,126"/>
+
+  <SmallAdvButton Style="WhiteShadow16">
+    <GridData Style="Grid9GeneralButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd="0.5">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+  </SmallAdvButton>
+  
+  <ReturnButton Style="WhiteShadow16">
+    <GridData Style="GridReturnButton" />
+  </ReturnButton>
+
+  <GridReturnButton Texture="Assets/UI/Art/Controls/9 Grids/ReturnButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,29"
+    SliceCorner="2,2"
+    SliceTextureSize="31,29"
+    />
+
+  <ZoomButton>
+    <GridData Style="Grid9FrameTurnsButton" />
+  </ZoomButton>
+
+  <MenuTitleCaption Anchor="L,T" Offset="16,17" Style="FontNormal26" FontStyle="Glow" Color0="182,203,228,255" Color1="182,203,228,90" />
+  
+<MenuTitleCaptionSmall Anchor="L,T" Style="FontNormal22" FontStyle="Glow" Color0="182,203,228,255" Color1="182,203,228,90" />
+  
+  <MenuSubTitleCaption  Anchor="L,C" Style="FontNormal20" ColorSet="SubheaderColors" />
+  <BlueShadowText	Style="FontNormal20" Color0="184,215,255,255" Color1="0,0,0,255" FontStyle="Shadow" />
+  <BlueGlowText	Style="FontNormal20" Color0="184,215,255,255" Color1="63,111,170,255" FontStyle="Glow" />
+  <BlueGlowText16	Style="FontNormal16" Color0="184,215,255,255" Color1="63,111,170,255" FontStyle="Glow" />
+
+  <WorkerMeterEmpty Texture="Assets/UI/Art/UnitPanel/WorkerMeter_Empty.dds" Size="60,52"/>
+  <WorkerMeterFull Texture="Assets/UI/Art/UnitPanel/WorkerMeter_Full.dds" Size="60,52"/>
+
+	
+  <NotificationText			Style="FontNormal22" Color0="255,255,255,255" Color1="0,0,0,200" FontStyle="Glow" />
+  <NotificationBacking		Texture="Assets/UI/Art/Notification/NotificationBacking.dds" Size="79,72"/>
+  <NotificationBackingTB	Texture="Assets/UI/Art/Notification/NotificationBacking_TB.dds" Size="93,100"/>
+  <NotificationBackingFade	Texture="Assets/UI/Art/Notification/NotificationBacking_Fade.dds"
+    SliceCorner="160,30"
+    SliceTextureSize="164,56"
+    />
+
+
+  <!-- Grid9DialogBackground -->
+  <Grid9DialogBackground Texture="Grid9DialogBG.dds" Padding="0,0"
+      ULSize="48,48"  ULTexStart="0,0"
+      UCSize="32,48"  UCTexStart="48,0"
+      URSize="48,48"  URTexStart="80,0"
+      LSize="48,32"   LTexStart="0,48"
+      CSize="32,32"   CTexStart="48,48"
+      RSize="48,32"   RTexStart="80,48"
+      LLSize="48,48"  LLTexStart="0,80"
+      LCSize="32,48"  LCTexStart="48,80"
+      LRSize="48,48"  LRTexStart="80,80"
+               />
+
+  <BaseButton Style="WhiteShadow20">
+    <GridData Style="Grid9GeneralButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1" AlphaStart="1" AlphaEnd="0.5">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+  </BaseButton>
+
+  <BaseButtonDark Style="DarkGrayShadow22">
+    <GridData Style="Grid9GeneralButtonDark" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="0" AlphaEnd="1">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonDarkHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonDarkHighlight" />
+    </AlphaAnim>
+  </BaseButtonDark>
+
+  <BackButtonCircle Size="43,43" Texture="Header_BackButton.dds">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0">
+      <Image Texture="Header_BackButton.dds" Size="43,43"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="1" AlphaEnd="0" >
+      <Image Texture="Header_BackButton.dds" TextureOffset="0,43" Size="43,43"/>
+    </AlphaAnim>
+  </BackButtonCircle>
+  
+  <CancelButtonCircle Size="43,43" Texture="CancelButton.dds">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0">
+      <Image Texture="CancelButton.dds" Size="43,43"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="1" AlphaEnd="0" >
+      <Image Texture="CancelButton.dds" TextureOffset="0,43" Size="43,43"/>
+    </AlphaAnim>
+  </CancelButtonCircle>
+
+  <VictoryButton Style="WhiteShadow20">
+    <Grid Anchor="C,B" Size="parent,96" Offset="0,0" Padding="0,0" Texture="VictoryButton.dds" SliceStart="0,0" SliceCorner="48,2" SliceTextureSize="96,96"/>
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="1.5" AlphaStart="0" AlphaEnd="0.7">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" TextureOffset="0,384" Texture="VictoryButton.dds" SliceStart="0,0" SliceCorner="48,2" SliceTextureSize="96,96"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart=".7" AlphaEnd="0" >
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" TextureOffset="0,384" Texture="VictoryButton.dds" SliceStart="0,0" SliceCorner="48,2" SliceTextureSize="96,96"/>
+    </AlphaAnim>
+  </VictoryButton>
+
+  <MainMenuButton Style="FontTitle" FontStyle="glow" Color0="182,203,228,255" Color1="182,203,228,100">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Cycle="once" Speed="2" AlphaStart="0" AlphaEnd=".5">
+      <Grid Anchor="C,B" Size="parent,37" Offset="0,0" Padding="0,0" Texture="MainMenuItem.dds" 
+            SliceStart="0,0"
+            SliceCorner="58,2"
+            SliceTextureSize="116,37"
+              />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOver="1" pause=".2" Anchor="L,T" Size="parent,parent" Cycle="bounce" Speed="1" AlphaStart="0" AlphaEnd=".3">
+      <Grid Anchor="C,B" Size="parent,37" Offset="0,0" Padding="0,0" Texture="MainMenuItem.dds"
+            SliceStart="0,0"
+            SliceCorner="58,2"
+            SliceTextureSize="116,37"
+              />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Cycle="once" Speed="1" AlphaStart=".5" AlphaEnd="0">
+      <Grid Anchor="C,B" Size="parent,37" Offset="0,0" Padding="0,0" Texture="MainMenuItem.dds" 
+            SliceStart="0,0"
+            SliceCorner="58,2"
+            SliceTextureSize="116,37"
+              />
+    </AlphaAnim>
+  </MainMenuButton>
+
+
+<MainMenuGrid Texture="MainMenuItem.dds"
+      SliceStart="0,0"
+      SliceCorner="58,2"
+      SliceTextureSize="116,37"
+              />
+
+  <UpgradeButton Size="52,52" StateOffsetIncrement="0,52" Texture="Assets/UI/Art/Controls/UpgradeIconButton.dds"/>
+
+  <ActionCornerButton>
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="55,55" Pause="0" Cycle="Once" Speed="3" AlphaStart="0" AlphaEnd="1">
+      <Image Size="55,55" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/Controls/HUDIcon_Over.dds" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="55,55" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
+      <Image Size="55,55" Offset="0,0" Padding="0,0" Texture="Assets/UI/Art/Controls/HUDIcon_Over.dds" />
+    </AlphaAnim>
+  </ActionCornerButton>
+
+  <HUDButton>
+    <GridData Style="Grid9HUDButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="0" AlphaEnd="1">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonHighlight" />
+    </AlphaAnim>
+  </HUDButton>
+
+  <HUDButtonPulsing>
+    <GridData Style="Grid9HUDButton" />
+    <AlphaAnim Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".5" AlphaEnd="1">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonHighlight" />
+    </AlphaAnim>
+    <Grid ShowOnMouseOver="1" Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonHighlight" />
+  </HUDButtonPulsing>
+
+  <HUDButtonFlipped>
+    <GridData Style="Grid9HUDButtonFlipped" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="0" AlphaEnd="1" Hidden="0">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonFlippedHighlight" />
+    </AlphaAnim>
+    <AlphaAnim HideOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9HUDButtonFlippedHighlight" />
+    </AlphaAnim>
+  </HUDButtonFlipped>
+
+  <CommuniqueButton
+    		Texture="CommuniqueButton.dds"
+        StateOffsetIncrement="0,36"
+        Size="40,36"
+    />
+  
+  <NextButton>
+    <GridData Style="Grid9NextButton" />
+  </NextButton>
+
+  <SquareButton >
+    <GridData Style="Grid9GeneralButton" />
+  </SquareButton>
+
+
+  <TechPanelButton >
+    <GridData Style="Grid9TechPanelCorner" />
+  </TechPanelButton>
+
+  <SmallButton >
+    <GridData Style="Grid9GeneralButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd="0.5">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GeneralButtonHighlight" />
+    </AlphaAnim>
+  </SmallButton>
+
+
+  <SmallButton2 >
+    <GridData Style="Grid9Frame27" />
+  </SmallButton2>
+
+
+  <BoxButton >
+    <GridData Style="Grid9BoxButtons" />
+  </BoxButton>
+
+  <ListItem >
+    <GridData	Texture="Assets/UI/Art/Controls/9 Grids/Grid9ListItem.dds" Padding="0,0" StateOffsetIncrement="0,32"
+				SliceCorner="15,15"
+				SliceSize="2,2"
+				SliceTextureSize="32,32"
+				/>
+  </ListItem>
+
+  <TableHeaderColumnSeparator Texture="Assets/UI/Art/Controls/TableColumnSeparator.dds" Size="2,parent" />
+
+  <TableHeaderText Anchor="L,C" Offset="5,1" Color0="200,220,230,250" Color1="0,0,0,200" Style="FontNormal18" FontStyle="Shadow" />
+
+  <TableRowGrouping>
+    <GridData Style="Grid9TableRowGrouping" />
+  </TableRowGrouping>
+
+  <Grid9TableRowGrouping Texture="Assets/UI/Art/Controls/9 Grids/TableRowGrouping.dds"
+    StateOffsetIncrement="0,0"
+    Padding="0,0"
+    ULSize="2,2"  ULTexStart="0,0"
+    UCSize="28,2" UCTexStart="2,0"
+    URSize="2,2"  URTexStart="30,0"
+    LSize="2,28"  LTexStart="0,2"
+    CSize="28,28" CTexStart="2,2"
+    RSize="2,28"  RTexStart="30,2"
+    LLSize="2,2"  LLTexStart="0,30"
+    LCSize="2,2"  LCTexStart="2,30"
+    LRSize="2,2"  LRTexStart="30,30"
+    />
+
+  <TableCell>
+    <GridData Style="Grid9TableCell" />
+  </TableCell>
+
+  <Grid9TableCell Texture="Assets/UI/Art/Controls/9 Grids/TableButton.dds"
+    StateOffsetIncrement="0,32"
+    SliceCorner="2,2"
+	SliceSize="28,25"
+    SliceTextureSize="32,32"
+    />
+
+  <TechCorner Texture="assets/UI/Art/WorldView/TechCorner.dds"
+              SliceCorner="80,2"
+              SliceTextureSize="209,71"
+              StateOffsetIncrement="0,0"
+              />
+
+  <!--  TechPanelCorner -->
+  <Grid9TechPanelCorner Texture="Assets/UI/Art/Controls/9 Grids/TechPanelCorner.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="86,32"  ULTexStart="0,0"
+    UCSize="1,32" UCTexStart="86,0"
+    URSize="23,32"  URTexStart="87,0"
+    LSize="86,1"  LTexStart="0,32"
+    CSize="1,1" CTexStart="86,32"
+    RSize="23,1"  RTexStart="87,32"
+    LLSize="86,44"  LLTexStart="0,33"
+    LCSize="1,44" LCTexStart="86,33"
+    LRSize="23,44"  LRTexStart="87,33"
+               />
+
+  <!--  Grid9Frame27SquareBlack -->
+  <Grid9Frame27SquareBlack Texture="Assets/UI/Art/Controls/9 Grids/Grid9Frame27SquareBlack.dds" Padding="0,0"
+    StateOffsetIncrement="0,27"
+    ULSize="10,10"  ULTexStart="0,0"
+    UCSize="7,10" UCTexStart="10,0"
+    URSize="10,10"  URTexStart="17,0"
+    LSize="10,7"  LTexStart="0,10"
+    CSize="7,7" CTexStart="10,10"
+    RSize="10,7"  RTexStart="17,10"
+    LLSize="10,10"  LLTexStart="0,17"
+    LCSize="7,10" LCTexStart="10,17"
+    LRSize="10,10"  LRTexStart="17,17"
+               />
+
+  <!--  Grid9Frame27Square -->
+  <Grid9Frame27Square Texture="Assets/UI/Art/Controls/9 Grids/Grid9Frame27Square.dds" Padding="0,0"
+    StateOffsetIncrement="0,27"
+    ULSize="10,10"  ULTexStart="0,0"
+    UCSize="7,10" UCTexStart="10,0"
+    URSize="10,10"  URTexStart="17,0"
+    LSize="10,7"  LTexStart="0,10"
+    CSize="7,7" CTexStart="10,10"
+    RSize="10,7"  RTexStart="17,10"
+    LLSize="10,10"  LLTexStart="0,17"
+    LCSize="7,10" LCTexStart="10,17"
+    LRSize="10,10"  LRTexStart="17,17"
+               />
+
+  <!--  WindowGrid -->
+  <WindowGrid Texture="Assets/UI/Art/Controls/9 Grids/WindowGrid27.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="13,13"  ULTexStart="0,0"
+    UCSize="1,13" UCTexStart="13,0"
+    URSize="13,13"  URTexStart="14,0"
+    LSize="13,1"  LTexStart="0,13"
+    CSize="1,1" CTexStart="13,13"
+    RSize="13,1"  RTexStart="14,13"
+    LLSize="13,13"  LLTexStart="0,14"
+    LCSize="1,13" LCTexStart="13,14"
+    LRSize="13,13"  LRTexStart="14,14"
+               />
+
+  <!--  WindowHLGrid -->
+  <WindowHLGrid Texture="Assets/UI/Art/Controls/9 Grids/WindowHLGrid27.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="3,3"  ULTexStart="0,0"
+    UCSize="20,3" UCTexStart="3,0"
+    URSize="3,3"  URTexStart="24,0"
+    LSize="3,20"  LTexStart="0,3"
+    CSize="20,20" CTexStart="3,3"
+    RSize="3,20"  RTexStart="24,3"
+    LLSize="3,3"  LLTexStart="0,24"
+    LCSize="20,3" LCTexStart="3,24"
+    LRSize="3,3"  LRTexStart="24,24"
+               />
+
+
+
+  <!--  Grid9FrameTurnsHL -->
+  <Grid9FrameTurnsHL Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameTurnsHL.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+  <!--  Grid9FrameTurnsButton -->
+  <Grid9FrameTurnsButton Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameTurnsButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,27"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+  <!-- NextButtonFlag-->
+  <NextButtonFlag Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+  <!-- NextButtonFlagScience-->
+  <NextButtonFlagScience Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceStart="0,45"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+  <!-- NextButtonFlagProduction-->
+  <NextButtonFlagProduction Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceStart="0,90"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+  <!-- NextButtonFlagVirtue-->
+  <NextButtonFlagVirtue Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceStart="0,135"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+  <!-- NextButtonFlagPleaseWait-->
+  <NextButtonFlagPleaseWait Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceStart="0,180"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+  <!-- NextButtonFlagNext-->
+  <NextButtonFlagNext Texture="Assets/UI/Art/Controls/9 Grids/ActionCornerFlag.dds"
+                        SliceStart="0,225"
+                        SliceCorner="135,15"
+                        SliceTextureSize="294,45"/>
+
+  <!--  Grid9NextButtonScience -->
+  <Grid9NextButtonScience Texture="Assets/UI/Art/Controls/9 Grids/NextButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="1,1"  ULTexStart="0,120"
+    UCSize="28,1" UCTexStart="1,120"
+    URSize="1,1"  URTexStart="29,120"
+    LSize="1,1"  LTexStart="0,121"
+    CSize="28,1" CTexStart="1,121"
+    RSize="1,1"  RTexStart="29,121"
+    LLSize="1,28"  LLTexStart="0,122"
+    LCSize="28,28" LCTexStart="1,122"
+    LRSize="1,28"  LRTexStart="29,122"
+               />
+
+  <!--  Grid9NextButtonInactive -->
+  <Grid9NextButtonInactive Texture="Assets/UI/Art/Controls/9 Grids/NextButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="1,1"  ULTexStart="0,90"
+    UCSize="28,1" UCTexStart="1,90"
+    URSize="1,1"  URTexStart="29,90"
+    LSize="1,1"  LTexStart="0,91"
+    CSize="28,1" CTexStart="1,91"
+    RSize="1,1"  RTexStart="29,91"
+    LLSize="1,28"  LLTexStart="0,92"
+    LCSize="28,28" LCTexStart="1,92"
+    LRSize="1,28"  LRTexStart="29,92"
+               />
+
+  <!--  Grid9HUDButton -->
+  <Grid9HUDButton Texture="Assets/UI/Art/Controls/9 Grids/GridHUDButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,55"
+    SliceCorner="26,26"
+    SliceTextureSize="55,55"
+    />
+
+  <!--  Grid9HUDButtonHighlight -->
+  <Grid9HUDButtonHighlight Texture="Assets/UI/Art/Controls/9 Grids/GridHUDButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    SliceStart="0,110"
+    SliceCorner="26,26"
+    SliceTextureSize="55,55"
+    />
+
+  <!--  Grid9HUDButtonFlipped -->
+  <Grid9HUDButtonFlipped Texture="Assets/UI/Art/Controls/9 Grids/GridHUDButton_Flipped.dds" Padding="0,0"
+    StateOffsetIncrement="0,55"
+    ULSize="26,26"   ULTexStart="0,0"
+    UCSize="1,26"    UCTexStart="26,0"
+    URSize="28,26"    URTexStart="27,0"
+     LSize="26,1"   LTexStart="0,26"
+     CSize="1,1"    CTexStart="26,26"
+     RSize="28,1"    RTexStart="27,26"
+    LLSize="26,28"   LLTexStart="0,27"
+    LCSize="1,28"    LCTexStart="26,27"
+    LRSize="28,28"    LRTexStart="27,27"
+               />
+
+  <!--  Grid9HUDButtonFlippedHighlight -->
+  <Grid9HUDButtonFlippedHighlight Texture="Assets/UI/Art/Controls/9 Grids/GridHUDButton_Flipped.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="26,26"   ULTexStart="0,110"
+    UCSize="1,26"    UCTexStart="26,110"
+    URSize="28,26"    URTexStart="27,110"
+     LSize="26,1"   LTexStart="0,136"
+     CSize="1,1"    CTexStart="26,136"
+     RSize="28,1"    RTexStart="27,136"
+    LLSize="26,28"   LLTexStart="0,137"
+    LCSize="1,28"    LCTexStart="26,137"
+    LRSize="28,28"    LRTexStart="27,137"
+               />
+
+  <DialogSubTitleHeaderBG Texture="Assets/UI/Art/Controls/9 Grids/Grid9SubTitleHeader.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    NoStateChange="1"
+    ULSize="1,1"    ULTexStart="0,0"
+    UCSize="1022,1" UCTexStart="1,0"
+    URSize="1,1"    URTexStart="1023,0"
+    LSize="1,62"    LTexStart="0,1"
+    CSize="1022,62" CTexStart="1,1"
+    RSize="1,62"    RTexStart="1023,1"
+    LLSize="1,1"    LLTexStart="0,63"
+    LCSize="1022,1" LCTexStart="1,63"
+    LRSize="1,1"    LRTexStart="1023,63"
+    />
+
+
+<!--  Grid9GeneralButton -->
+  <Grid9GeneralButtonDark Texture="Assets/UI/Art/Controls/9 Grids/GeneralButtonDark.dds" Padding="0,0"
+    StateOffsetIncrement="0,30"
+    SliceCorner="2,2"
+    SliceTextureSize="30,30"
+    />
+
+  <!--  Grid9GeneralButton -->
+  <Grid9GeneralButton Texture="Assets/UI/Art/Controls/9 Grids/GeneralButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,30"
+    SliceCorner="2,2"
+    SliceTextureSize="30,30"
+    />
+	
+  <!--  Grid9GeneralButtonNoClick -->
+  <Grid9GeneralButtonNoClick Texture="Assets/UI/Art/Controls/9 Grids/GeneralButton.dds" Padding="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="30,30"
+    />
+
+  <!-- Grid9HBracket -->
+  <Grid9HBracket Texture="Assets/UI/Art/Controls/Virtue_HBracket.dds" Padding="0,0"
+    SliceCorner="5,2"
+    SliceTextureSize="27,9"
+    />
+
+  <!-- Grid9VBracket -->
+  <Grid9VBracket Texture="Assets/UI/Art/Controls/Virtue_VBracket.dds" Padding="0,0"
+    SliceCorner="2,5"
+    SliceTextureSize="9,27"
+    />
+
+  <!-- Grid9VBracket -->
+  <Grid9VBracketR Texture="Assets/UI/Art/Controls/9 Grids/RBracket.dds" Padding="0,0"
+    SliceCorner="2,5
+    "
+    SliceTextureSize="9,27"
+    />
+
+  <!-- ReligionHeader -->
+  <ReligionHeader Texture="Assets/UI/Art/Controls/9 Grids/ReligionHeader.dds" Padding="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="63,63"
+    />
+
+  <!-- ReligionSlot -->
+  <ReligionSlot Texture="Assets/UI/Art/Controls/9 Grids/ReligionSlot.dds" Padding="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="64,64"
+    />
+
+  <!-- ReligionSlotHighlight -->
+  <ReligionSlotHighlight Texture="Assets/UI/Art/Controls/9 Grids/ReligionSlot_Highlighted.dds" Padding="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="76,76"
+    />
+
+  <!--  Grid9GeneralButtonHighlight -->
+  <Grid9GeneralButtonHighlight Texture="Assets/UI/Art/Controls/9 Grids/GeneralButton.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    SliceStart="0,120"
+    SliceCorner="2,2"
+    SliceTextureSize="30,30"
+               />
+
+  <!--  Grid9GeneralButtonHighlight -->
+  <Grid9GeneralButtonDarkHighlight Texture="Assets/UI/Art/Controls/9 Grids/GeneralButtonDark.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    SliceStart="0,120"
+    SliceCorner="2,2"
+    SliceTextureSize="30,30"
+               />
+
+  <!--  BlackBanner  -->
+  <BlackBanner Texture ="Assets/UI/Art/Controls/9 Grids/BlackBanner.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="190,2"  ULTexStart="0,0"
+    UCSize="5,2" UCTexStart="190,0"
+    URSize="14,2"  URTexStart="195,0"
+    LSize="190,2"  LTexStart="0,2"
+    CSize="5,2" CTexStart="190,2"
+    RSize="14,2"  RTexStart="195,2"
+    LLSize="190,39"  LLTexStart="0,4"
+    LCSize="5,39" LCTexStart="190,4"
+    LRSize="14,39"  LRTexStart="195,4"
+               />
+
+  <!--  Grid9FrameTurns  -->
+  <Grid9FrameTurns Texture ="Assets/UI/Art/Controls/9 Grids/Grid9FrameTurns.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+  <!--  Grid9FrameRed  -->
+  <Grid9FrameRed Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameRed.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+  <!--  Grid9FrameRedHL  -->
+  <Grid9FrameRedHL Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameRedHL.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+  <!--  Grid9FrameRedFade -->
+  <Grid9FrameRedFade Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameRedFade.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+
+  <!--  Grid9FrameGreenFade -->
+  <Grid9FrameGreenFade Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameGreenFade.dds" Padding="0,0"
+    StateOffsetIncrement="0,0"
+    ULSize="4,4"  ULTexStart="0,0"
+    UCSize="19,4" UCTexStart="4,0"
+    URSize="4,4"  URTexStart="23,0"
+    LSize="4,19"  LTexStart="0,4"
+    CSize="19,19" CTexStart="4,4"
+    RSize="4,19"  RTexStart="23,4"
+    LLSize="4,4"  LLTexStart="0,23"
+    LCSize="19,4" LCTexStart="4,23"
+    LRSize="4,4"  LRTexStart="23,23"
+               />
+
+
+  <!--  Grid9Frame27 -->
+  <Grid9Frame27 Texture="Grid9Frame27.dds" Padding="0,0"
+  StateOffsetIncrement="0,27"
+  ULSize="10,10"  ULTexStart="0,0"
+  UCSize="7,10" UCTexStart="10,0"
+  URSize="10,10"  URTexStart="17,0"
+  LSize="10,7"  LTexStart="0,10"
+  CSize="7,7" CTexStart="10,10"
+  RSize="10,7"  RTexStart="17,10"
+  LLSize="10,10"  LLTexStart="0,17"
+  LCSize="7,10" LCTexStart="10,17"
+  LRSize="10,10"  LRTexStart="17,17"
+               />
+
+  <Grid9Frame27 Texture="Grid9Frame27.dds" Padding="0,0"
+ StateOffsetIncrement="0,27"
+ ULSize="10,10"  ULTexStart="0,0"
+ UCSize="7,10" UCTexStart="10,0"
+ URSize="10,10"  URTexStart="17,0"
+ LSize="10,7"  LTexStart="0,10"
+ CSize="7,7" CTexStart="10,10"
+ RSize="10,7"  RTexStart="17,10"
+ LLSize="10,10"  LLTexStart="0,17"
+ LCSize="7,10" LCTexStart="10,17"
+ LRSize="10,10"  LRTexStart="17,17"
+               />
+
+  <Grid9Frame27_EmptyFrame Texture="Grid9Frame27.dds" Padding="0,0"
+   TextureOffset="0,0"
+   NoStateChange="1"
+   ULSize="10,10"  ULTexStart="0,81"
+   UCSize="7,10" UCTexStart="10,81"
+   URSize="10,10"  URTexStart="17,81"
+   LSize="10,7"  LTexStart="0,91"
+   CSize="7,7" CTexStart="10,91"
+   RSize="10,7"  RTexStart="17,91"
+   LLSize="10,10"  LLTexStart="0,98"
+   LCSize="7,10" LCTexStart="10,98"
+   LRSize="10,10"  LRTexStart="17,98"
+              />
+
+  <!--  Grid9FrameButtons -->
+  <Grid9FrameButtons Texture="Grid9FrameButtons.dds" Padding="0,0"
+  StateOffsetIncrement="0,45"
+  ULSize="8,8"  ULTexStart="0,0"
+  UCSize="28,8" UCTexStart="8,0"
+  URSize="8,8"  URTexStart="36,0"
+  LSize="8,28"  LTexStart="0,8"
+  CSize="28,28" CTexStart="8,8"
+  RSize="8,28"  RTexStart="36,8"
+  LLSize="8,8"  LLTexStart="0,36"
+  LCSize="28,8" LCTexStart="8,36"
+  LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!--  Grid9FrameButtons2 -->
+  <Grid9FrameButtons2 Texture="Grid9FrameButtons2.dds" Padding="0,0"
+  StateOffsetIncrement="0,45"
+  ULSize="8,8"  ULTexStart="0,0"
+  UCSize="28,8" UCTexStart="8,0"
+  URSize="8,8"  URTexStart="36,0"
+  LSize="8,28"  LTexStart="0,8"
+  CSize="28,28" CTexStart="8,8"
+  RSize="8,28"  RTexStart="36,8"
+  LLSize="8,8"  LLTexStart="0,36"
+  LCSize="28,8" LCTexStart="8,36"
+  LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <Grid9Bar Texture="bar300x2.dds" Padding="0,0"
+    ULSize="0,0"  ULTexStart="0,0"
+    UCSize="0,0" UCTexStart="0,0"
+    URSize="0,0"  URTexStart="0,0"
+    LSize="50,2"  LTexStart="0,0"
+    CSize="200,2" CTexStart="50,0"
+    RSize="50,2"  RTexStart="250,0"
+    LLSize="0,0"  LLTexStart="0,0"
+    LCSize="0,0" LCTexStart="0,0"
+    LRSize="0,0"  LRTexStart="0,0"
+            />
+
+  <!-- Grid9FrameBlack  -->
+  <Grid9FrameBlack Texture="Grid9FrameBlack.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <Button_256L Texture="Assets/UI/Art/Controls/Buttons_256.dds" Size="256,36" />
+
+  <Button_128 Texture="Assets/UI/Art/Controls/Buttons_128.dds" Size="128,16" />
+  <Button_64 Texture="Assets/UI/Art/Controls/Buttons_64.dds" Size="64,16" />
+  <Button_16 Texture="Assets/UI/Art/Controls/Checkbox.dds" Size="32,32" />
+
+  <Button_512L Texture="Assets/UI/Art/Controls/Buttons_512.dds" Size="409,38" >
+    <AlphaAnim ShowOnMouseOver="1" Size="409.38" Texture="Assets/UI/Art/Controls/Bounce_512.dds" Cycle="Bounce" Speed="1" AlphaStart="0.15" />
+  </Button_512L>
+
+  <Button_UnitFlagStatesAtlas Texture="Assets/UI/Art/Icons/Units/UnitFlagStatesAtlas.dds" Size="64,64" />
+
+
+  <!-- You can embedd other controls in a style tag, but if you give them
+         ID tags, you cannot use the style more than once per layout.
+         If you don't need an ID then dive in
+	-->
+
+
+
+
+  <Button_256_Shine Texture="Assets/UI/Art/Controls/Buttons_256.dds" Size="256,36" >
+    <ScrollAnim Size="256 30" Anchor="C,C" Speed="1" Pause="2.0" Texture="Assets/UI/Art/Controls/ShineAnim.dds" MaskTexture="Assets/UI/Art/Controls/ButtonMask.dds" />
+  </Button_256_Shine>
+
+
+  <Grid3Shuttle  Texture="Assets/UI/Art/Controls/9 Grids/ScrollBarH.DDS" Size="16,16"
+               StateOffsetIncrement="0,18"
+             LSize="3,18"  LTexStart="0,0"
+             CSize="12,18"  CTexStart="3,0"
+             RSize="3,18"  RTexStart="15,0"  />
+
+
+  <ScrollBar Texture="Assets/UI/Art/Controls/9 Grids/ScrollBarBackH.dds" Size="17,18" Vertical="0"
+          StateOffsetIncrement="0,0"
+             LSize="0,0"  LTexStart="0,0"
+             CSize="17,18"  CTexStart="0,0"
+             RSize="0,0"  RTexStart="0,0" >
+    <Thumb Style="Grid3Shuttle" Size="16,16" />
+  </ScrollBar>
+
+
+
+  <Slider32 Texture="Assets/UI/Art/Controls/9 Grids/Slider32.dds" Size="32,32"
+             LSize="0,0"  LTexStart="0,0"
+             CSize="32,32"  CTexStart="0,0"
+             RSize="0,0"  RTexStart="0,0"
+            StateOffsetIncrement="0,32" />
+
+
+  <Slider  Texture="Assets/UI/Art/Controls/9 Grids/SliderBackH.dds" Size="66,32" Gutter="-5"
+             StateOffsetIncrement="0,0"
+             LSize="22,32"  LTexStart="0,0"
+             CSize="22,32"  CTexStart="22,0"
+             RSize="22,32"  RTexStart="44,0"  >
+    <Thumb Style="Slider32" Size="32,32" />
+  </Slider>
+
+
+  <VertShuttle Texture="Assets/UI/Art/Controls/9 Grids/ScrollBar.DDS" Size="16,16" Vertical="1"
+     StateOffsetIncrement="0,16"
+   SliceCorner="6,6"
+   SliceTextureSize="16,16" />
+
+
+  <TransparentVertSlider Texture="Assets/UI/Art/Controls/9 Grids/EmptyScrollBarBack.dds" Size="16,16" Vertical="1"
+      StateOffsetIncrement="0,0"
+      SliceCorner="7,7"
+      SliceTextureSize="16,16">
+    <Thumb Style="VertShuttle" Size="16,16" />
+  </TransparentVertSlider>
+
+  <ScrollBarFadeBacking Texture="Assets/UI/Art/Controls/9 Grids/ScrollBarFadeBacking.dds"
+      SliceCorner="1,3"
+      SliceTextureSize="64,64"/>
+
+  <NotificationSlider Color="0,0,0,255" Size="16,16" Vertical="1">
+    <Thumb Style="VertShuttle" Size="16,16" />
+  </NotificationSlider>
+
+  <VertSlider Texture="Assets/UI/Art/Controls/9 Grids/ScrollBarBack.dds" Size="16,16" Vertical="1"
+		StateOffsetIncrement="0,0"
+		SliceCorner="7,7"
+		SliceTextureSize="16,16">
+    <Thumb Style="VertShuttle" Size="16,16" />
+  </VertSlider>
+
+  <!-- Grid9Detail48  -->
+  <Grid9Detail48 Texture="Grid9Detail48.dds" Padding="0,0"
+      ULSize  ="15,15"      ULTexStart  ="0,0"
+      UCSize  ="1,15"        UCTexStart  ="24,0"
+      URSize  ="15,15"      URTexStart  ="33,0"
+      LSize   ="15,1"         LTexStart  ="0,15"
+      CSize   ="1,1"         CTexStart  ="24,24"
+      RSize   ="15,1"         RTexStart  ="33,15"
+      LLSize  ="15,15"      LLTexStart  ="0,33"
+      LCSize  ="1,15"        LCTexStart  ="24,33"
+      LRSize  ="15,15"      LRTexStart  ="33,33"
+               />
+
+  <!-- Grid9Detail48Black  -->
+  <Grid9Detail48Black Texture="Grid9Detail48Black.dds" Padding="0,0"
+      ULSize  ="15,15"      ULTexStart  ="0,0"
+      UCSize  ="1,15"        UCTexStart  ="24,0"
+      URSize  ="15,15"      URTexStart  ="33,0"
+      LSize   ="15,1"         LTexStart  ="0,15"
+      CSize   ="1,1"         CTexStart  ="24,24"
+      RSize   ="15,1"         RTexStart  ="33,15"
+      LLSize  ="15,15"      LLTexStart  ="0,33"
+      LCSize  ="1,15"        LCTexStart  ="24,33"
+      LRSize  ="15,15"      LRTexStart  ="33,33"
+               />
+
+
+
+
+  <!-- GridBlackIndentFade8  -->
+  <GridBlackIndentFade8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackIndentFade8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- GridBlackIndentFade8Right  -->
+  <GridBlackIndentFade8Right Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackIndentFade8Right.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- GridBlackIndent8 -->
+  <GridBlackIndent8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackIndent8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- GridBlackIndent16 -->
+  <GridBlackIndent16 Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackIndent16.dds" Padding="0,0"
+      ULSize="16,16"  ULTexStart="0,0"
+      UCSize="57,16"   UCTexStart="16,0"
+      URSize="16,16"  URTexStart="73,0"
+      LSize="16,57"  LTexStart="0,16"
+      CSize="57,57" CTexStart="16,16"
+      RSize="16,57"  RTexStart="73,16"
+      LLSize="16,16"  LLTexStart="0,73"
+      LCSize="57,16"   LCTexStart="16,73"
+      LRSize="16,16"  LRTexStart="73,73"
+               />
+
+  <!-- Background for potential outcome of a battle -->
+  <Grid9BattleMatchupBackground Texture="Assets/UI/Art/Controls/9 Grids/Grid9BattleMatchupBackground.dds" Padding="0,0"
+      ULSize="64,64"  ULTexStart="0,0"
+      UCSize="1,64"   UCTexStart="64,0"
+      URSize="63,64"  URTexStart="65,0"
+      LSize="64,1"    LTexStart="0,64"
+      CSize="1,1"     CTexStart="64,64"
+      RSize="63,1"    RTexStart="65,64"
+      LLSize="64,63"  LLTexStart="0,65"
+      LCSize="1,63"   LCTexStart="64,65"
+      LRSize="63,63"  LRTexStart="65,65"
+               />
+
+  <BattleGoodHeader Texture="Assets/UI/Art/UnitPanel/BattleGoodHeader.dds"
+      SliceCorner="2,2"
+      SliceTextureSize="40,40"
+               />
+
+  <BattleBadHeader Texture="Assets/UI/Art/UnitPanel/BattleBadHeader.dds" Padding="0,0"
+      SliceCorner="2,2"
+      SliceTextureSize="40,40"
+               />
+
+  <BattleMehHeader Texture="Assets/UI/Art/UnitPanel/BattleMehHeader.dds" Padding="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="40,40"
+               />
+
+  <!-- Grid9BlackTint8 -->
+  <Grid9BlackTint8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackTint8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!--Callout Texture / ToolTip -->
+  <Callout Texture="Assets/UI/Art/Controls/9 Grids/Grid9Callout.dds"
+	SliceCorner="2,2"
+    SliceTextureSize="16,16"
+				/>
+
+  <!--BlackBox Texture-->
+  <BlackBox Texture="Assets/UI/Art/Controls/9 Grids/BlackBox.dds" Padding="0,0"
+      ULSize="24,24"  ULTexStart="0,0"
+      UCSize="2,24" UCTexStart="22,0"
+      URSize="22,24"  URTexStart="24,0"
+      LSize="24,2"  LTexStart="0,24"
+      CSize="2,2" CTexStart="24,24"
+      RSize="22,2"  RTexStart="26,24"
+      LLSize="24,22"  LLTexStart="0,26"
+      LCSize="2,22" LCTexStart="24,26"
+      LRSize="22,22"  LRTexStart="26,26"
+           />
+
+  <!-- GridBlack8 -->
+  <GridBlack8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Black8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+  <!-- GridSquare8  -->
+  <GridSquare8 Texture="GridSquare8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+  <!-- GridSquareHL8  -->
+  <GridSquareHL8 Texture="GridSquareHL8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+  <!--  Grid9DarkBlue8Button -->
+  <Grid9DarkBlue8Button Texture="ListElement_Blue.dds" Padding="0,0"
+  StateOffsetIncrement="0,65"
+  SliceStart="0,0"
+  SliceCorner="2,2"
+  SliceSize	="1,1"
+  SliceTextureSize="65,65"
+               />
+
+  <!-- Grid9Black16 -->
+  <GridBlack16 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Black16.dds" Padding="0,0"
+      ULSize="16,16"  ULTexStart="0,0"
+      UCSize="57,16"   UCTexStart="16,0"
+      URSize="16,16"  URTexStart="73,0"
+      LSize="16,57"  LTexStart="0,16"
+      CSize="57,57" CTexStart="16,16"
+      RSize="16,57"  RTexStart="73,16"
+      LLSize="16,16"  LLTexStart="0,73"
+      LCSize="57,16"   LCTexStart="16,73"
+      LRSize="16,16"  LRTexStart="73,73"
+               />
+
+  <!-- Grid9BlackCorners8 -->
+  <GridBlackCorners8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9BlackCorners8Button.dds" Padding="0,0"
+        ULSize="8,8"  ULTexStart="0,0"
+        UCSize="28,8" UCTexStart="8,0"
+        URSize="8,8"  URTexStart="36,0"
+        LSize="8,28"  LTexStart="0,8"
+        CSize="28,28" CTexStart="8,8"
+        RSize="8,28"  RTexStart="36,8"
+        LLSize="8,8"  LLTexStart="0,36"
+        LCSize="28,8" LCTexStart="8,36"
+        LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- GridGlass16 -->
+  <GridGlass16 Texture="Assets/UI/Art/Controls/9 Grids/GridGlass16.dds" Padding="0,0"
+     ULSize="16,16"  ULTexStart="0,0"
+     UCSize="57,16"   UCTexStart="16,0"
+     URSize="16,16"  URTexStart="73,0"
+     LSize="16,57"  LTexStart="0,16"
+     CSize="57,57" CTexStart="16,16"
+     RSize="16,57"  RTexStart="73,16"
+     LLSize="16,16"  LLTexStart="0,73"
+     LCSize="57,16"   LCTexStart="16,73"
+     LRSize="16,16"  LRTexStart="73,73"
+               />
+
+  <!-- Grid9Tech10  -->
+  <GridTech10 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Tech10.dds" Padding="0,0"
+      ULSize="10,10"  ULTexStart="0,0"
+      UCSize="28,10" UCTexStart="10,0"
+      URSize="10,10"  URTexStart="38,0"
+      LSize="10,28"  LTexStart="0,10"
+      CSize="28,28" CTexStart="10,10"
+      RSize="10,28"  RTexStart="38,10"
+      LLSize="10,10"  LLTexStart="0,38"
+      LCSize="28,10" LCTexStart="10,38"
+      LRSize="10,10"  LRTexStart="38,38"
+               />
+
+  <!-- GridTechConnect  -->
+  <GridTechConnect Texture="Assets/UI/Art/Controls/9 Grids/Grid9Tech3.dds" Padding="0,0"
+      ULSize="3,3"  ULTexStart="0,0"
+      UCSize="9,3" UCTexStart="3,0"
+      URSize="3,3"  URTexStart="12,0"
+      LSize="3,9"  LTexStart="0,3"
+      CSize="9,9" CTexStart="3,3"
+      RSize="3,9"  RTexStart="12,3"
+      LLSize="3,3"  LLTexStart="0,12"
+      LCSize="9,3" LCTexStart="3,12"
+      LRSize="3,3"  LRTexStart="12,12"
+               />
+
+  <!-- Grid9InterruptWindow -->
+  <Grid9InterruptWindow Texture="Assets/UI/Art/Controls/9 Grids/Grid9InterruptWindow.dds" Padding="0,0"
+      StateOffsetIncrement="0,0"
+      SliceCorner="200,90"
+      SliceTextureSize="412,246"
+               />
+
+  <!-- Grid9Detail140 -->
+  <Grid9Detail140 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Detail140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+  <!-- Grid9Detail140L -->
+  <Grid9Detail140L Texture="Assets/UI/Art/Controls/9 Grids/Grid9Detail140.dds" Padding="0,0"
+      ULSize="1,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="1,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="1,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+  <!-- Grid9Detail140R -->
+  <Grid9Detail140R Texture="Assets/UI/Art/Controls/9 Grids/Grid9Detail140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="1,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="1,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="1,70"  LRTexStart="70,70"
+               />
+
+  <!-- Grid9DetailTwo140 -->
+  <Grid9DetailTwo140 Texture="Assets/UI/Art/Controls/9 Grids/Grid9DetailTwo140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+  <!-- Grid9DetailThree140 -->
+  <Grid9DetailThree140 Texture="Assets/UI/Art/Controls/9 Grids/Grid9DetailThree140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+  <!-- Grid9DetailFour140 -->
+  <Grid9DetailFour140 Texture="Assets/UI/Art/Controls/9 Grids/Grid9DetailFour140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="1,1" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+	<Grid9DetailFive140 Texture="PopupWindow.dds"
+		SliceCorner	="77,77"
+		SliceTextureSize="155,155" />
+	
+	<Grid9DetailSix140 Texture="AdvisorWindow.dds" Padding="0,0"
+		SliceCorner="77,94"
+		SliceTextureSize="155,155" />
+
+  <!-- Grid9DetailSeven140 WONDERS -->
+  <Grid9DetailSeven140 Texture="Assets/UI/Art/Controls/9 Grids/Grid9DetailSeven140.dds" Padding="0,0"
+      ULSize="70,70"  ULTexStart="0,0"
+      UCSize="1,70" UCTexStart="70,0"
+      URSize="70,70"  URTexStart="70,0"
+      LSize="70,1"  LTexStart="0,70"
+      CSize="10,10" CTexStart="70,70"
+      RSize="70,1"  RTexStart="70,70"
+      LLSize="70,70"  LLTexStart="0,70"
+      LCSize="1,70" LCTexStart="70,70"
+      LRSize="70,70"  LRTexStart="70,70"
+               />
+
+
+	
+	<!-- ======================================================
+				Common (Shell & Ingame)
+	====================================================== -->
+	<TabSpacer   Texture="Assets/UI/Art/Controls/9 Grids/TabSpacer.dds"
+			SliceCorner	="3,2"
+				SliceSize ="2,1"
+		SliceTextureSize	="8,5"
+		/>
+
+	<TabSpacerDark  Color="0,0,0,255">
+	<Box		Color="67,76,95" Size="Parent-2,Parent-2" Offset="1,1" />
+	</TabSpacerDark>
+
+  <TabSquareSelected	Texture="Assets/UI/Art/Controls/9 Grids/TabBacking_Square.dds"
+				SliceStart	="0,64"
+				SliceCorner	="5,5"
+					SliceSize	="1,1"
+			SliceTextureSize	="32,32"
+		/>
+
+  <TabSquareInactive	Texture="Assets/UI/Art/Controls/9 Grids/TabBacking_Square.dds"
+					ConsumeMouseOver="1"
+		StateOffsetIncrement="0,32"
+				SliceStart	="0,0"
+				SliceCorner	="5,5"
+					SliceSize	="1,1"
+			SliceTextureSize	="32,32"
+		/>
+
+	<TabSelected	Texture="Assets/UI/Art/Controls/9 Grids/TabBackings.dds"
+				SliceStart	="0,64"
+				SliceCorner	="31,24"
+					SliceSize	="1,1"
+			SliceTextureSize	="64,32"
+		/>
+
+	<TabInactive	Style="WhiteShadow">
+    <GridData Style="TabInactiveGrid"/>
+
+  </TabInactive>
+  
+	<TabInactiveGrid	Texture="Assets/UI/Art/Controls/9 Grids/TabBackings.dds"
+					ConsumeMouseOver="1"
+		StateOffsetIncrement="0,32"
+				SliceStart	="0,0"
+				SliceCorner	="31,24"
+					SliceSize	="1,1"
+			SliceTextureSize	="64,32"
+		/>
+
+	<TabInactiveGridHighlight	Texture="Assets/UI/Art/Controls/9 Grids/TabBackings.dds"
+    StateOffsetIncrement="0,0"
+    SliceStart	="0,32"
+    SliceCorner	="31,24"
+    SliceSize	="1,1"
+    SliceTextureSize	="64,32"
+		/>
+  
+  <TabInactiveGridNormal	Texture="Assets/UI/Art/Controls/9 Grids/TabBackings.dds"
+  StateOffsetIncrement="0,0"
+  SliceStart	="0,0"
+  SliceCorner	="31,24"
+  SliceSize	="1,1"
+  SliceTextureSize	="64,32"
+		/>
+
+	<TabTextStyle Anchor="C,C" Style="FontNormal16" Color0="200,220,230,250" Color1="0,0,0,255" FontStyle="Shadow" />
+
+	<ShellPulldown SpaceForScroll="0" AutoSizePopUp="1" AutoFlip="1">
+		<ButtonData>
+			<GridButton		Anchor="L,C" Style="WhiteShadow20">
+				<GridData	Style="Grid9GeneralButton" />
+				<Image		Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,0" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+				<Image		ShowOnMouseOver="1" Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,17" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+			</GridButton>
+		</ButtonData>
+		<GridData			Anchor="C,B" Size="200,200" Offset="0,0" AnchorSide="O,O" Style="CivilopediaListItem" Padding="5,5" />
+		<ScrollPanelData	Anchor="C,C"  Vertical="1" Size="16,16"  AutoScrollBar="1" >
+			<ScrollBar		Anchor="R,T" AnchorSide="O,I" Offset="0,0" Style="VertSlider" />
+		</ScrollPanelData>
+		<StackData			Anchor="C,T"	StackGrowth="Bottom" Padding="0" />
+		<InstanceData		Name="InstanceOne" >
+			<GridButton		ID="Button" Size="150,24"   Anchor="C,C" Style="WhiteShadow">
+				<GridData	Style="PulldownButtonInstance"/>
+			</GridButton>
+		</InstanceData>							
+	</ShellPulldown>
+	
+	
+	
+  <!-- ======================================================
+                        Tech Web Styles 
+  ====================================================== -->
+
+  <FilterButton Style="FontNormal18">
+    <GridData Texture="Assets/UI/Art/Controls/TechWeb/FilterButton.dds"		StateOffsetIncrement="0,16"  SliceCorner="7,7"	SliceSize="1,1"		SliceTextureSize="16,16" />
+  </FilterButton>
+
+  <!-- Search panel -->
+  <SearchWordNormal		Style="FontNormal18" 	FontStyle="Stroke"	Color0="230,230,230,200"	Color1="0,0,0,200"	/>
+  <SearchWordHighlight	Style="FontNormal18"	FontStyle="Glow"	Color0="255,255,0,255"		Color1="255,255,200,140"	/>
+
+  <TechWebMiniMapGrid		Texture="Assets/UI/Art/TechWeb/MiniMapBacking.dds"				SliceCorner="8,8"					SliceTextureSize="32,32"	/>
+  <TechWebMiniMapCurrent	Texture="Assets/UI/Art/TechWeb/MiniMapCurrentAreaGrid.dds"		SliceCorner="3,3" SliceSize="10,10" SliceTextureSize="16,16"	/>
+
+
+
+  <!-- ======================================================
+                     Covert Ops
+  ====================================================== -->
+  <OpsText		Style="FontNormal16" />
+	<ListHeader Style="FontNormal18" Anchor="L,C" Offset="6,2" Color0="70,85,130"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <OpTurns	Style="FontNormal18" Anchor="R,B"			   Color0="255,255,255,255" Color1="100,100,255,200" FontStyle="Glow" />
+  <GridProgressBacking Texture="Assets/UI/Art/Controls/ProgressBarBackingCovertOps.dds"
+		SliceCorner="92,14"
+		SliceSize="4,4"
+		SliceTextureSize="163,39"
+		/>
+
+  <SwapButton Size="64,64" Texture="SwapButton.dds">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="SwapButton.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Image Size="parent,parent" Offset="0,0" Padding="0,0" Texture="SwapButton.dds" TextureOffset="0,64" />
+    </AlphaAnim>
+  </SwapButton>
+
+  <LandTrade Texture="UnitPortraitsEarly360.dds" TextureOffset="135,45" Size="45,45"/>
+  <SeaTrade Texture="UnitPortraitsEarly360.dds" TextureOffset="315,90" Size="45,45"/>
+
+  
+
+
+  <!-- ======================================================
+			Diplomacy / Deals
+  ====================================================== -->
+
+  <RelationshipCorp	Style="FontNormal20" Color0="157,173,190,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <RelationshipCiv	Style="FontNormal18" Color0="73,82,101,255"		Color1="0,0,0,255" FontStyle="Shadow" />
+
+  <DealListCorp		Style="FontNormal18" Color0="157,173,190,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <DealListCiv		Style="FontNormal18" Color0="73,82,101,255"		Color1="0,0,0,255" FontStyle="Shadow" />
+
+  <DealCategory	Style="FontNormal18" Color0="70,90,130,255"		Color1="0,0,0,255" FontStyle="Shadow" />
+  <DealItem		Style="FontNormal16" Color0="157,173,190,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+
+  <DiploDealListCategory  Style="FontNormal18" Color0="70,90,130,255"		Color1="0,0,0,255" FontStyle="Shadow">
+    <GridData Texture="Assets/UI/Art/Controls/9 Grids/DiploDealListCategory.dds" SliceCorner	="1,1" SliceSize	="14,14" SliceTextureSize	="16,16"/>
+	</DiploDealListCategory>
+
+  <DiploHistoryNormalBG Texture="Assets/UI/Art/Controls/9 Grids/DiploDealListBG.dds"
+				SliceStart	="0,0"
+			   SliceCorner	="1,1"
+				 SliceSize	="30,30"
+		  SliceTextureSize	="32,32"
+		/>
+
+  <DiploHistoryHighlightBG Texture="Assets/UI/Art/Controls/9 Grids/DiploDealListBG.dds"
+	   StateOffsetIncrement ="0,32"
+				SliceStart	="0,32"
+			   SliceCorner	="1,1"
+				 SliceSize	="8,8"
+		  SliceTextureSize	="32,32"
+		/>
+
+
+
+  <!-- ======================================================
+				Notifications
+  ====================================================== -->
+
+  <!-- Notification frame TIMEOUT behavior -->
+  <NotificationFrame						Anchor="L,C" AlphaStart="0" AlphaEnd="1" Cycle="OneBounce" EndPause="5"  >
+    <Grid				ID="FingerFrame"	Anchor="L,C" Offset="0,0"  Size="350,56" AnchorSide="O,I" Style="NotificationBackingFade" >
+      <AlphaAnim							Anchor="C,C" Size="420,56" TextureOffset="0,0"  Pause="0" Cycle="Bounce" Speed="1" AlphaStart="1" AlphaEnd="0" >
+        <Grid								Anchor="C,C" Size="420,56" Style="NotificationBackingFade" />
+      </AlphaAnim>
+      <Label			ID="FingerTitle"	Anchor="C,C" Offset="-20,0" String="Notification Title" Style="FontNormal20" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" WrapWidth="300" />
+    </Grid>
+  </NotificationFrame>
+
+  <!-- Notification frame MOUSEOVER behavior -->
+  <NotificationFrameOver ShowOnMouseOver="1"	Anchor="L,C" AlphaStart="0" AlphaEnd="1" Speed="4" Cycle="Once">
+    <Grid		ID="BackingOver"                Anchor="L,C" AnchorSide="O,I" Offset="-75,0" Size="420,60" Style="NotificationBackingFade" >
+      <Stack Anchor="C,T" StackGrowth="Bottom" StackPadding="6">
+        <Label	ID="FingerTitleOver"			Anchor="C,T" Offset="-30,5" String="Notification Title" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" WrapWidth="325" />
+        <Label	ID="DescriptionOver"			Anchor="C,T" Offset="-30,0" String="Notification Description" Style="FontNormal15" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" WrapWidth="325" LeadingOffset="3" />
+      </Stack>
+    </Grid>
+  </NotificationFrameOver>
+
+  <!-- Notification frame MOUSEOUT behavior -->
+  <NotificationFrameOut ShowOnMouseOut="1"	Anchor="L,C" AlphaStart="1" AlphaEnd="0" Speed="1.5" Cycle="Once">
+    <Grid     ID="BackingOut"				Anchor="L,C" AnchorSide="O,I" Offset="-75,0" Size="420,60" Style="NotificationBackingFade" >
+      <Stack Anchor="C,T" StackGrowth="Bottom" StackPadding="6">
+        <Label  ID="FingerTitleOut"			Anchor="C,T" Offset="-30,5" String="Notification Title" Style="FontNormal18" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" WrapWidth="325" />
+        <Label  ID="DescriptionOut"			Anchor="C,T" Offset="-30,0" String="Notification Description" Style="FontNormal15" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" WrapWidth="325" LeadingOffset="3" />
+      </Stack>
+    </Grid>
+  </NotificationFrameOut>
+  
+  <NotificationSlide Anchor="R,B" Start="0,400" End="0,20" Cycle="Once" Pause="0" Function="OutQuint" Speed="0.7" />
+
+  <!-- Grid9DarkBlueFade8Right -->
+  <Grid9DarkBlueFade8Right Texture="Assets/UI/Art/Controls/9 Grids/Grid9DarkBlueFade8Right.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- Grid9Production8 -->
+  <Grid9Production8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Production8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- Grid9Red8 -->
+  <Grid9Red8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Red8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- Grid9Yellow8 -->
+  <Grid9Yellow8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Yellow8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- Grid9Gold8 -->
+  <Grid9Gold8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Gold8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+
+  <!-- Grid9Green8 -->
+  <Grid9Green8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Green8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <Grid9Highlight8 Texture="Assets/UI/Art/Controls/9 Grids/Grid9Highlight8.dds" Padding="0,0"
+      ULSize="8,8"  ULTexStart="0,0"
+      UCSize="28,8" UCTexStart="8,0"
+      URSize="8,8"  URTexStart="36,0"
+      LSize="8,28"  LTexStart="0,8"
+      CSize="28,28" CTexStart="8,8"
+      RSize="8,28"  RTexStart="36,8"
+      LLSize="8,8"  LLTexStart="0,36"
+      LCSize="28,8" LCTexStart="8,36"
+      LRSize="8,8"  LRTexStart="36,36"
+               />
+
+  <!-- Grid9Frame -->
+  <Grid9Frame Texture="Assets/UI/Art/Controls/9 Grids/Grid9Frame8.dds" Padding="0,0"
+      ULSize="16,16"  ULTexStart="0,0"
+      UCSize="13,16" UCTexStart="16,0"
+      URSize="16,16"  URTexStart="29,0"
+      LSize="16,1"  LTexStart="0,16"
+      CSize="13,1" CTexStart="16,16"
+      RSize="16,1"  RTexStart="29,16"
+      LLSize="16,16"  LLTexStart="0,29"
+      LCSize="13,16" LCTexStart="16,29"
+      LRSize="16,16"  LRTexStart="29,29"
+               />
+
+
+  <!-- Grid9FrameGold -->
+  <Grid9FrameGold Texture="Assets/UI/Art/Controls/9 Grids/Grid9FrameGold8.dds" Padding="0,0"
+      ULSize="16,16"  ULTexStart="0,0"
+      UCSize="13,16" UCTexStart="16,0"
+      URSize="16,16"  URTexStart="29,0"
+      LSize="16,1"  LTexStart="0,16"
+      CSize="13,1" CTexStart="16,16"
+      RSize="16,1"  RTexStart="29,16"
+      LLSize="16,16"  LLTexStart="0,29"
+      LCSize="13,16" LCTexStart="16,29"
+      LRSize="16,16"  LRTexStart="29,29"
+               />
+
+  <!-- Grid9FrameFade -->
+  <Grid9FrameFade Texture="Assets/UI/Art/Controls/9 Grids/Grid9Frame8Fade.dds" Padding="0,0"
+      ULSize="16,16"  ULTexStart="0,0"
+      UCSize="13,16" UCTexStart="16,0"
+      URSize="16,16"  URTexStart="29,0"
+      LSize="16,13"  LTexStart="0,16"
+      CSize="13,13" CTexStart="16,16"
+      RSize="16,13"  RTexStart="29,16"
+      LLSize="16,16"  LLTexStart="0,29"
+      LCSize="13,16" LCTexStart="16,29"
+      LRSize="16,16"  LRTexStart="29,29"
+               />
+
+
+  <FrameButton460 Size="460,32" TextOffset="0,-2" >
+    <GridData Style="Grid9DarkBlue8Button" />
+    <Grid Anchor="C,C" Offset="0,0" Size="464,36" Padding="0,0" Style="Grid9Frame" Hidden="0" />
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="R,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="16.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="L,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="0.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <Image ShowOnMouseOver="1" Anchor="R,C" Offset="0,0" TextureOffset="8.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <Image ShowOnMouseOver="1" Anchor="L,C" Offset="0,0" TextureOffset="0.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Offset="0,0" Size="320,36" TextureOffset="0.0"  Pause="0" Cycle="Bounce" Speed="1" AlphaStart="0" AlphaEnd=".3" >
+      <Grid  Size="460,32" Anchor="C,C" Offset="0,0" Style="Grid9Highlight8" />
+    </AlphaAnim>
+  </FrameButton460>
+
+
+  <FrameButton320 Size="320,36" TextOffset="0,-2" >
+    <GridData Style="Grid9DarkBlue8Button" />
+    <Grid Anchor="C,C" Offset="0,0" Size="324,40" Padding="0,0" Style="Grid9Frame" Hidden="0" />
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="R,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="16.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="L,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="0.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <Image ShowOnMouseOver="1" Anchor="R,C" Offset="0,0" TextureOffset="8.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <Image ShowOnMouseOver="1" Anchor="L,C" Offset="0,0" TextureOffset="0.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Offset="0,0" Size="320,36" TextureOffset="0.0"  Pause="0" Cycle="Bounce" Speed="1" AlphaStart="0" AlphaEnd=".3" >
+      <Grid  Size="320,36" Anchor="C,C" Offset="0,0" Style="Grid9Highlight8" />
+    </AlphaAnim>
+  </FrameButton320>
+
+
+  <FrameButton200 Size="200,32" TextOffset="0,-2" >
+    <GridData Style="Grid9DarkBlue8Button" />
+    <Grid Anchor="C,C" Offset="0,0" Size="204,36" Padding="0,0" Style="Grid9Frame" Hidden="0" />
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="R,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="16.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <AlphaAnim  ShowOnMouseOver="1" Anchor="L,C"  AnchorSide="O,O"  Offset="0,0" Size="16,32" TextureOffset="0.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0"/>
+    <Image ShowOnMouseOver="1" Anchor="R,C" Offset="0,0" TextureOffset="8.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <Image ShowOnMouseOver="1" Anchor="L,C" Offset="0,0" TextureOffset="0.0" AnchorSide="O,O"  Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="C,C" Offset="0,0" Size="320,36" TextureOffset="0.0"  Pause="0" Cycle="Bounce" Speed="1" AlphaStart="0" AlphaEnd=".3" >
+      <Grid  Size="200,32" Anchor="C,C" Offset="0,0" Style="Grid9Highlight8" />
+    </AlphaAnim>
+  </FrameButton200>
+
+
+  <!--  Grid9BoxButtons -->
+  <Grid9BoxButtons Texture="Assets/UI/Art/Controls/9 Grids/Grid9BoxButtons.dds" Padding="0,0"
+  StateOffsetIncrement="0,45"
+  ULSize="2,2"  ULTexStart="0,0"
+  UCSize="42,2" UCTexStart="2,0"
+  URSize="2,2"  URTexStart="42,0"
+  LSize="2,42"  LTexStart="0,2"
+  CSize="42,42" CTexStart="2,2"
+  RSize="2,42"  RTexStart="42,2"
+  LLSize="2,2"  LLTexStart="0,42"
+  LCSize="42,2" LCTexStart="2,42"
+  LRSize="2,2"  LRTexStart="42,42"
+               />
+
+  <!--  GenericPullDown -->
+  <GenericPullDownSmallArrow AutoSizePopup="1">
+    <ButtonData>
+      <GridButton Anchor="L,C" Style="WhiteShadow20">
+        <GridData Style="Grid9GeneralButton" />
+        <Image Texture="Assets/UI/Art/Controls/smallDropdownArrow.dds" TextureOffset="0,0" Offset="1,1"  Size="16,6" Anchor="R,B"  />
+        <Image ShowOnMouseOver="1" Texture="Assets/UI/Art/Controls/smallDropdownArrow.dds" TextureOffset="0,0" Offset="1,1"  Size="16,6" Anchor="R,B"  />
+      </GridButton>
+    </ButtonData>
+    <GridData Anchor="C,B" Offset="0,-2" AnchorSide="I,O" Style="CivilopediaListItem" Padding="5,5" />
+    <ScrollPanelData Anchor="C,C"  Vertical="1" Size="16,16"  AutoScrollBar="1" >
+      <ScrollBar  Style="VertSlider" Anchor="R,T" AnchorSide="I,I" Offset="-1,0"   />
+    </ScrollPanelData>
+    <StackData StackGrowth="Bottom" Padding="0" Anchor="C,T" />
+    <InstanceData Name="InstanceOne" >
+      <GridButton   ID="Button" Size="200,27"   Anchor="C,C" Style="WhiteShadow">
+        <GridData Style="PulldownButtonInstance"/>
+      </GridButton>
+    </InstanceData>
+  </GenericPullDownSmallArrow>
+
+  <!--  GenericPullDown -->
+	<GenericPullDown AutoSizePopup="1">
+		<ButtonData>
+			<GridButton Anchor="L,C" Style="WhiteShadow20">
+				<GridData Style="Grid9GeneralButton" />
+				<Image Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,0" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+				<Image ShowOnMouseOver="1" Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,17" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+			</GridButton>
+		</ButtonData>
+		<GridData			Anchor="C,B" Offset="0,-2" AnchorSide="I,O" Style="CivilopediaListItem" Padding="4,4" />
+		<ScrollPanelData	Anchor="C,C"  Vertical="1" Size="16,16"  AutoScrollBar="1" >
+			<ScrollBar		Anchor="R,T" AnchorSide="I,I" Offset="-18,0" Style="VertSlider"   />
+		</ScrollPanelData>				  
+		<StackData			Anchor="C,T"	StackGrowth="Bottom" Padding="0" />
+		<InstanceData		Name="InstanceOne" >
+			<GridButton		ID="Button" Size="200,24"   Anchor="C,C" Style="WhiteShadow">
+				<GridData							Style="PulldownButtonInstance"/>
+			</GridButton>
+		</InstanceData>
+	</GenericPullDown>
+
+	<GenericPullUp AutoSizePopup="1" >
+    <ButtonData>
+
+      <GridButton Style="BaseButton" Anchor="L,C" >
+        <Image Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,0" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+        <Image ShowOnMouseOver="1" Texture="Assets/UI/Art/Controls/9 Grids/Corner16.dds" TextureOffset="0,17" Offset="3,5"  Size="24,17" Anchor="R,B"  />
+      </GridButton>
+
+    </ButtonData>
+
+    <GridData Anchor="C,T" Offset="0.-2" AnchorSide="I,O" Style="Grid9Frame27SquareBlack" Padding="5,5" />
+
+    <ScrollPanelData Anchor="C,C"  Vertical="1" Size="16,16"  AutoScrollBar="1" >
+      <!-- Scroll Controls -->
+      <ScrollBar  Style="VertSlider"      Anchor="R,C" AnchorSide="O,I"   />
+      <UpButton   Style="ScrollBarUp"     Anchor="R,T" AnchorSide="O,I"   />
+      <DownButton Style="ScrollBarDown"   Anchor="R,B" AnchorSide="O,I"   />
+    </ScrollPanelData>
+
+    <StackData StackGrowth="Bottom" Padding="0" Anchor="C,T" />
+
+    <InstanceData Name="InstanceOne" >
+      <GridButton  ID="Button" Size="200.24" Style="ZoomButton"  Anchor="C,C" />
+    </InstanceData>
+  </GenericPullUp>
+
+  <TradeItemButton Size="230,24" Style="WhiteShadow14" TextAnchor="L,C" TextOffset="5,0" String="">
+    <GridData Style="CivilopediaListItem" />
+  </TradeItemButton>
+  
+  <TradeGrid			Texture="Assets/UI/Art/Controls/9 Grid/CitySectionBackground.dds"				SliceCorner="1,1"	SliceSize="22,22"	SliceTextureSize="24,24" />
+  <TradeOfferGrid		Texture="Assets/UI/Art/Controls/9 Grid/GlassyLitGrid.dds"						SliceCorner="16,48"	SliceSize="1,1"		SliceTextureSize="32,96" />
+  <TradeHeaderText	Color0="110,140,150,255" Color1="0,0,0,255" Style="FontNormal18" FontStyle="Shadow" />
+  <TradeBackingGrid	Texture="Assets/UI/Art/Controls/9 Grid/TradeBackingGrid.dds"					SliceCorner="2,114"	SliceSize="1,1"		SliceTextureSize="4,228" />
+
+  <ListElementText	Color0="110,140,150,255" Color="0,0,0,255" Style="FontNormal14" FontStyle="Shadow" />
+  <ListElement		Size="190,24"   String="" Anchor="L,C" TextAnchor="L,C" TextOffset="5,0" TextColor="110,140,150,255" >
+    <GridData Texture="Assets/UI/Art/Controls/9 Grids/ListElement.dds" Padding="0,0" StateOffsetIncrement="0,16" SliceCorner="8,8" SliceTextureSize="16,16" />
+  </ListElement>
+
+  <ListElement2		Size="190,24" Anchor="L,C" TextAnchor="L,C" TextColor="0,255,0,200" Color="0,0,255,200">
+    <GridData		Texture="Assets/UI/Art/Controls/9 Grids/ListElement.dds" Padding="0,0" StateOffsetIncrement="0,16" SliceCorner="8,8" SliceTextureSize="16,16" Color="255,0,0,200" />
+  </ListElement2>
+
+  <TradeOfferElement	Size="190,24"   String="" TextAnchor="L,C"   TextColor="110,140,150,255" >
+  </TradeOfferElement>
+
+
+
+
+
+  <BGBlock_ClearTopBar Size="Full,30"  Offset="0,0"  Anchor="C,T" Color="0,0,0,0" >
+    <Box Size="Full,Full"  Offset="0,30"  Anchor="C,T" Color="0,0,0,100" ConsumeMouse="1" />
+  </BGBlock_ClearTopBar>
+
+  <BGBlock_ClearTopBar_AlphaZero Size="Full,30"  Offset="0,0"  Anchor="C,T" Color="0,0,0,0" >
+    <Box Size="Full,Full"  Offset="0,30"  Anchor="C,T" Color="0,0,0,0" ConsumeMouse="1" />
+  </BGBlock_ClearTopBar_AlphaZero>
+
+  <BGBlock Size="Full,Full"  Anchor="C,C" Color="0,0,0,100" ConsumeMouse="1" />
+
+  <!-- Square Check -->
+  <SquareCheck ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" />
+
+  <!-- X Check -->
+  <XCheck CheckTexture="assets/UI/Art/Controls/CheckX.dds" />
+
+  <!-- Square X Check -->
+  <SquareXCheck ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckX.dds" />
+
+
+
+  <!-- The bits that go on the left and right outer edge of menu boxes -->
+  <MenuLeftSideTreatment Anchor="L,C" AnchorSide="O.I">
+    <AlphaAnim  Anchor="R,C"  Offset="-8,0" Size="16,32" TextureOffset="0.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0" />
+    <Image Anchor="R,C" Offset="-8,0" TextureOffset="0.0" Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+  </MenuLeftSideTreatment>
+  <MenuRightSideTreatment Anchor="R,C" AnchorSide="O.I">
+    <AlphaAnim  Anchor="L,C"  Offset="-8,0" Size="16,32" TextureOffset="16.0" Texture="Assets/UI/Art/Controls/buttonsidesglow.dds" Pause="0" Cycle="Bounce" Speed="1" AlphaStart=".99" AlphaEnd=".25" Hidden="0" />
+    <Image Anchor="L,C" Offset="-8,0" TextureOffset="8.0" Texture="Assets/UI/Art/Controls/buttonsides.dds" Size="8,16" />
+  </MenuRightSideTreatment>
+
+  <PopupLeftSideTreatment Anchor="L,C" AnchorSide="O.I">
+    <Image Anchor="R,C" Offset="-17,0" Texture="Dec32x64Left.dds" Size="32.64" />
+  </PopupLeftSideTreatment>
+
+  <PopupRightSideTreatment Anchor="R,C" AnchorSide="O.I">
+    <Image Anchor="L,C" Offset="-17,0" Texture="Dec32x64Right.dds" Size="32.64" />
+  </PopupRightSideTreatment>
+
+
+  <!--
+ ________ ________  ________   _________  ________      
+|\  _____\\   __  \|\   ___  \|\___   ___\\   ____\     
+\ \  \__/\ \  \|\  \ \  \\ \  \|___ \  \_\ \  \___|_    
+ \ \   __\\ \  \\\  \ \  \\ \  \   \ \  \ \ \_____  \   
+  \ \  \_| \ \  \\\  \ \  \\ \  \   \ \  \ \|____|\  \  
+   \ \__\   \ \_______\ \__\\ \__\   \ \__\  ____\_\  \ 
+    \|__|    \|_______|\|__| \|__|    \|__| |\_________\
+                                            \|_________|  -->	
+  <!-- Custom: NimbusSansNovus -->
+  <FontNormal14 Font="n023014t.ttf" FontSize="12"/>
+  <FontNormal15 Font="n023014t.ttf" FontSize="13"/>
+  <FontNormal16 Font="n023014t.ttf" FontSize="14"/>
+  <FontNormal17 Font="n023014t.ttf" FontSize="15"/>
+  <FontNormal18 Font="n023014t.ttf" FontSize="16"/>
+  <FontNormal20 Font="n023014t.ttf" FontSize="18"/>
+  <FontNormal22 Font="n023014t.ttf" FontSize="20"/>
+  <FontNormal23 Font="n023014t.ttf" FontSize="21"/>
+  <FontNormal24 Font="n023014t.ttf" FontSize="22"/>
+  <FontNormal25 Font="n023014t.ttf" FontSize="23"/>
+  <FontNormal26 Font="n023014t.ttf" FontSize="24"/>
+  <FontNormal28 Font="n023014t.ttf" FontSize="26"/>
+  <FontNormal36 Font="n023014t.ttf" FontSize="36"/>
+
+  <!-- Custom: BankGothic -->
+  <FontTitle		Font="p0_bgt45.ttf" FontSize="18"/>
+	<FontTitle20	Font="p0_bgt45.ttf" FontSize="20"/>
+
+
+	
+  <!-- ======================================================
+					Beyond Earth styles  
+  ====================================================== -->
+  <TestNormal   Font="n023014t.ttf" FontSize="22" Color0="255,0,0,255"   Color1="0,99,99,200"  FontStyle="Stroke" />
+  <TestOver     Font="n023014t.ttf" FontSize="26" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Glow"  />
+  <TestDown     Font="n023014t.ttf" FontSize="18" Color0="255,255,0,255" Color1="255,0,0,255"  FontStyle="Stroke"  />
+  <TestDisabled Font="n023014t.ttf" FontSize="26" Color0="90,90,90,190"  Color1="0,0,0,255"    FontStyle="Normal"  />
+
+  <TextOff	Style="FontNormal14" Color0="182,203,228,255" Color1="0,0,0,100" FontStyle="Shadow"/>
+  <TextOver Style="FontNormal14" Color0="182,203,228,255" Color1="182,203,228,100" FontStyle="Glow"/>
+
+  <!-- debug styles -->
+  <d1 Color="d1" Size="parent,parent" />
+  <d2 Color="d2" Size="parent,parent" />
+  <d3 Color="d3" Size="parent,parent" />
+  <d4 Color="d4" Size="parent,parent" />
+  <d5 Color="d5" Size="parent,parent" />
+	
+	
+  <!-- Temp: StopGap for a missing Color/Style from prior CivBE tags.  
+            Those elements should be styled with something else; when all are style, remove this old placeholder. -->
+  <SoftShadow ColorSet="SoftShadowSet" />
+
+  <GridSecondaryPanel Texture="Assets/UI/Art/Controls/9 Grids/WindowWithRightDivider.dds"
+        Padding="0,0"
+        StateOffsetIncrement="0,0"
+        ULSize="29,29"  ULTexStart="0,0"
+        UCSize="1,29"  UCTexStart="29,0"
+        URSize="30,29"  URTexStart="30,0"
+        LSize="29,1"   LTexStart="0,29"
+        CSize="1,1"   CTexStart="29,29"
+        RSize="30,1"   RTexStart="30,29"
+        LLSize="29,30"  LLTexStart="0,30"
+        LCSize="1,30"  LCTexStart="29,30"
+        LRSize="30,30"  LRTexStart="30,30"
+                 />
+
+  <GridWindowWithHeader Texture="Assets/UI/Art/Controls/9 Grids/WindowWithHeader.dds"
+        StateOffsetIncrement="0,0"
+        SliceCorner="73,73"
+                        />
+
+  <GridWindowNoHeader Texture="Assets/UI/Art/Controls/9 Grids/WindowNoHeader.dds"
+      StateOffsetIncrement="0,0"
+      SliceCorner="34,34"
+                        />
+  <GridWindowInterrupt Texture="Assets/UI/Art/Controls/9 Grids/WindowInterrupt.dds"
+      StateOffsetIncrement="0,0"
+      SliceCorner="257,102"
+      SliceTextureSize="518,256"
+                       />
+  <GridAffinityReq Texture="Assets/UI/Art/Controls/9 Grids/Upgrade_AffinityReq.dds"
+      StateOffsetIncrement="0,0"
+      SliceCorner="13,5"
+      SliceTextureSize="27,30"
+                       />
+  <GridAffinityOwned Texture="Assets/UI/Art/Controls/9 Grids/Upgrade_AffinityOwned.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="45,29"
+                       />
+
+  <GridGradientGray Texture="Assets/UI/Art/Controls/9 Grids/Container_gray.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="7,90"
+                       />
+
+  <GridGradientBlue Texture="Assets/UI/Art/Controls/9 Grids/Container_blue.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="7,90"
+                       />
+
+  <GridTextField Texture="Assets/UI/Art/Controls/9 Grids/TextField.dds"
+  StateOffsetIncrement="0,0"
+  SliceCorner="2,2"
+  SliceTextureSize="24,24"
+                        />
+  
+  <GridColumnHeader Texture="Assets/UI/Art/Controls/9 Grids/ColumnHeader.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="32,32"
+                        />
+
+  <GridColumnHeader2 Texture="Assets/UI/Art/Controls/9 Grids/ColumnHeader_2.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="2,2"
+    SliceTextureSize="32,32"
+                        />
+
+  <GridWindowWithSideBorders Texture="Assets/UI/Art/Controls/9 Grids/WindowWithSideBorders.dds"
+      StateOffsetIncrement="0,0"
+      SliceCorner="20,20"
+                        />
+
+  <GridWindowHeader Texture="assets\UI\Art\GameSetup\InfoHeadingBackground.dds"
+      StateOffsetIncrement="0,0"
+      SliceCorner="194,3"
+      SliceTextureSize="410,57"
+                    />
+
+  <GridSecondaryPanelHeader Texture="Assets/UI/Art/Controls/9 Grids/ListElement_Header.dds"
+        Padding="0,0"
+        StateOffsetIncrement="0,0"
+      SliceCorner="12,12"
+      SliceTextureSize="30,30"
+				/>
+
+  <GridListElementBlue Texture="Assets/UI/Art/Controls/9 Grids/ListElement_Blue.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,65"
+	  SliceCorner="31,31"
+	  SliceTextureSize="64,64"
+      />
+
+  <GridListElementGray Texture="Assets/UI/Art/Controls/9 Grids/ListElement_Gray.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,65"
+	  SliceCorner="31,31"
+	  SliceTextureSize="64,64"
+      />
+
+  <GridListElementGreen Texture="Assets/UI/Art/Controls/9 Grids/ListElement_Green.dds"
+	StateOffsetIncrement="0,16"
+	SliceCorner="2,2"
+	SliceTextureSize="16,16"
+	/>
+
+  <GridSlotButtonGray Texture="Assets/UI/Art/Controls/9 Grids/SlotButton_Gray.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,80"
+      ULSize="37,9"  ULTexStart="0,0"
+      UCSize="1,9"  UCTexStart="37,0"
+      URSize="42,9"  URTexStart="38,0"
+      LSize="37,1"   LTexStart="0,9"
+      CSize="1,1"   CTexStart="37,9"
+      RSize="42,1"   RTexStart="38,9"
+      LLSize="37,70"  LLTexStart="0,10"
+      LCSize="1,70"  LCTexStart="37,10"
+      LRSize="42,70"  LRTexStart="38,10"
+               />
+
+  <GridSlotButtonBlue Texture="Assets/UI/Art/Controls/9 Grids/SlotButton_Blue.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,80"
+      ULSize="37,9"  ULTexStart="0,0"
+      UCSize="1,9"  UCTexStart="37,0"
+      URSize="42,9"  URTexStart="38,0"
+      LSize="37,1"   LTexStart="0,9"
+      CSize="1,1"   CTexStart="37,9"
+      RSize="42,1"   RTexStart="38,9"
+      LLSize="37,70"  LLTexStart="0,10"
+      LCSize="1,70"  LCTexStart="37,10"
+      LRSize="42,70"  LRTexStart="38,10"
+               />
+
+  <GridSlotButtonYellow Texture="Assets/UI/Art/Controls/9 Grids/SlotButton_Yellow.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,80"
+      ULSize="37,9"  ULTexStart="0,0"
+      UCSize="1,9"  UCTexStart="37,0"
+      URSize="42,9"  URTexStart="38,0"
+      LSize="37,1"   LTexStart="0,9"
+      CSize="1,1"   CTexStart="37,9"
+      RSize="42,1"   RTexStart="38,9"
+      LLSize="37,70"  LLTexStart="0,10"
+      LCSize="1,70"  LCTexStart="37,10"
+      LRSize="42,70"  LRTexStart="38,10"
+               />
+
+  <GridSlotButtonPurple Texture="Assets/UI/Art/Controls/9 Grids/SlotButton_Purple.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,80"
+      ULSize="37,9"  ULTexStart="0,0"
+      UCSize="1,9"  UCTexStart="37,0"
+      URSize="42,9"  URTexStart="38,0"
+      LSize="37,1"   LTexStart="0,9"
+      CSize="1,1"   CTexStart="37,9"
+      RSize="42,1"   RTexStart="38,9"
+      LLSize="37,70"  LLTexStart="0,10"
+      LCSize="1,70"  LCTexStart="37,10"
+      LRSize="42,70"  LRTexStart="38,10"
+               />
+
+  <GridWindowWithSideBorders Texture="Assets/UI/Art/Controls/9 Grids/WindowWithSideBorders.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,0"
+      ULSize="20,20"  ULTexStart="0,0"
+      UCSize="1,20"  UCTexStart="20,0"
+      URSize="20,20"  URTexStart="21,0"
+      LSize="20,1"   LTexStart="0,20"
+      CSize="1,1"   CTexStart="20,20"
+      RSize="20,1"   RTexStart="21,20"
+      LLSize="20,20"  LLTexStart="0,21"
+      LCSize="1,20"  LCTexStart="20,21"
+      LRSize="20,20"  LRTexStart="21,21"
+               />
+
+  <GridUpgradePreviewHeader Texture="Assets/UI/Art/Controls/UpgradePreviewHeader.dds"
+      Padding="0,0"
+      StateOffsetIncrement="0,0"
+      ULSize="26,26"  ULTexStart="0,0"
+      UCSize="1,26"  UCTexStart="26,0"
+      URSize="28,26"  URTexStart="27,0"
+      LSize="26,1"   LTexStart="0,26"
+      CSize="1,1"   CTexStart="26,26"
+      RSize="28,1"   RTexStart="27,26"
+      LLSize="26,28"  LLTexStart="0,27"
+      LCSize="1,28"  LCTexStart="26,27"
+      LRSize="28,28"  LRTexStart="27,27"
+               />
+
+  <GridSetupGameSectionBackground Texture="assets/UI/Art/GameSetup/9GridStartGameSectionBackground.dds"
+    Padding="0,0"
+    SliceCorner="20,20"
+    />
+
+  <CivilopediaHeader Texture="Assets/UI/Art/Civilopedia/CivilopediaHeader.dds"
+    Padding="0,0"
+    SliceCorner="74,20"
+    SliceTextureSize="148,40"
+   />
+
+  <FullscreenHeader Texture="Assets/UI/Art/Controls/9Grids/FullscreenHeader.dds"
+   Padding="0,0"
+   SliceCorner="74,20"
+   SliceTextureSize="148,40"
+   />
+  
+  <GradientHeaderBlue Texture="Assets/UI/Art/Controls/9Grids/GradientHeader_blue.dds"
+    Padding="0,0"
+    SliceCorner="20,3"
+    SliceTextureSize="41,41"
+  />
+
+  <SearchBar Texture="Assets/UI/Art/Civilopedia/SearchBar.dds"
+    Padding="0,0"
+    SliceCorner="15,13"
+    SliceTextureSize="33,28"
+  />
+
+
+  <BadgeGrid Texture="assets/UI/Art/Controls/9 Grids/BadgeScalable.dds" SliceCorner="19,19" SliceTextureSize="40,40" />
+  <BadgeText Style="FontNormal20" Color0="239,237,156,255" Color1="107,92,48,150" FontStyle="Glow"/>
+  
+  <!-- ======================================================	
+			Shell
+	====================================================== -->
+  <MainGameLogo	Anchor="C,T" Offset="0,1%"  Size="1500,312" Texture="CivilizationBE_RisingTide_Logo.dds" />
+  
+  <ShellDialogHeaderText	Style="FontNormal24" Color0="167,190,217,255"	Color1="0,0,0,250" FontStyle="Shadow" />
+  <ShellDialogSubHeaderText	Style="FontNormal20" Color0="90,118,152,255"	Color1="0,0,0,200" FontStyle="Shadow" />
+	
+  <ShellTextEditBackground	Texture="Assets/UI/Art/Civilopedia/SearchBar.dds" Padding="0,0" SliceCorner="15,13" SliceTextureSize="33,28" />
+  <ShellTextEdit			CallOnChar="1" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Anchor="C,C" Offset="0,0" Size="parent-20,22" Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,160" MaxLength="60" />
+  <ShellLabelText			Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <ShellListItem			Texture="CivilopediaSideButtons.dds" SliceCorner="2,2" SliceTextureSize="22,22" StateOffsetIncrement="0,22" />
+
+  <!-- Multiplayer / Network specific Shell pieces -->
+  <ShellMPLabelText					Style="FontNormal26" Color0="167,190,217,255"	Color1="167,190,217,100"	FontStyle="Glow" />  
+  <ShellMPHostLabelText				Style="FontNormal22" Color0="74,96,120,255"		Color1="0,0,0,100"			FontStyle="Shadow" />  
+  <ShellMPPlayerListBG				Texture="Assets/UI/Art/GameSetup/MPPlayerListBackground.dds"  SliceCorner="23,2" SliceSize="2,2" SliceTextureSize="128,128" />	
+  
+  <ShellMPLobbyPullDown							Anchor="L,T" ScrollThreshold="270" Size="64,64" AutoSizePopup="0" >
+		<GridData								Anchor="L,B" Offset="0.-2" AnchorSide="I,O" Style="Grid9Frame27SquareBlack" Padding="5,5" />
+		<ScrollPanelData						Anchor="C,C"  Vertical="1" Size="18,18"  AutoScrollBar="1" >
+			<ScrollBar  Style="VertSlider"      Anchor="R,C" AnchorSide="O,I"   />
+		</ScrollPanelData>
+		<StackData StackGrowth="Bottom"			Anchor="C,T"	Padding="0"  />
+		  <InstanceData			Name="ShellMPLobbyPullInstance">
+			  <Button			ID="Button"		Size="395,90" >
+				  <Image		ID="CheckMark"  ShowOnMouseOver="1" Anchor="R,B" Size="32,32" Offset="8,0" Texture="Assets/UI/Art/Controls/QuestActive_CheckMark.dds" />
+				  <Container	ID="Content"	Size="395,90" >
+					  <Grid		ID="Highlight"	Size="Parent,Parent" Style="GridSlotButtonBlue" />
+					  <Image	ID="Portrait"	Anchor="L,C" Size="64,64" Offset="5,0" />
+					  <Label	ID="NameLabel"	Anchor="L,T" Offset="80,15" Style="FontNormal20" Color0="75,177,247" Color1="0,0,0,0" String="NAME HERE" />
+					  <Label	ID="DescriptionLabel"	Anchor="L,T" Offset="80,40" WrapWidth="300" Style="FontNormal16" ColorSet="Gray_Black_Alpha" FontStyle="Shadow" String="DESCRIPTION HERE" />
+				  </Container>
+			  </Button>
+		 </InstanceData>
+  </ShellMPLobbyPullDown>	
+	
+	
+	
+  <!-- ======================================================
+			Tutorial / FTUE
+	====================================================== -->
+  <TutorialListGrid			Texture="Assets/UI/Art/Controls/9 Grids/FTUEListBackground.dds"			SliceCorner="8,6" SliceTextureSize="32,32"	/>
+
+
+  <!-- ======================================================
+			City View 
+	====================================================== -->
+  <CityText					Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <CitySectionText			Style="FontNormal20" Color0="167,190,217,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <CityButtonText			Style="FontNormal20" Color0="167,190,217,255"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <CityCheckbox				Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,255" FontStyle="Shadow" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="32,32" />
+  <CityProductionButtonText	Style="FontNormal16" Color0="177,193,210,255"	Color1="0,0,0,255" FontStyle="Shadow" Align="Center" />
+  <CityListHeaderText		Style="FontNormal20" Color0="90,118,152,255"	Color1="0,0,0,200" FontStyle="Shadow" />
+
+  <CityButtonBaseGrid		Texture="Assets/UI/Art/Icons/CityBannerButtonBase.dds" 							SliceCorner="16,32" SliceSize="2,2"		SliceTextureSize="32,64" />
+  <CityGrid					Texture="Assets/UI/Art/Controls/9 Grid/CitySectionBackground.dds"				SliceCorner="1,1"	SliceSize="22,22"	SliceTextureSize="24,24" />
+  <CityFocusButton			Texture="Assets/UI/Art/Controls/9 Grid/CityFocusButtons.dds" 					SliceCorner="2,2"	SliceSize="28,26"	SliceTextureSize="32,32" />
+  <CityFocusHighlight		Texture="Assets/UI/Art/Controls/9 Grid/CityFocusButtons.dds" SliceStart="0,32"	SliceCorner="2,2"	SliceSize="28,26"	SliceTextureSize="32,32" />
+  <CityBannerBackgroundGrid	Texture="Assets/UI/Art/Icons/CityBannerBackground.dds"							SliceCorner="16,32" SliceSize="1,1"		SliceTextureSize="32,64" />
+  <CityListCategoryBackground Texture="Assets/UI/Art/Controls/9 Grid/ProductionCategoryBackground.dds"		SliceCorner="7,7"	SliceSize="1,1"		SliceTextureSize="16,16" />
+  <CityCategoryBackground	Texture="Assets/UI/Art/Controls/9 Grid/ListCategoryBackground.dds"				SliceCorner="7,7"	SliceSize="1,1"		SliceTextureSize="16,16" />
+  <CityCultureGrid			Texture="Assets/UI/Art/Controls/9 Grid/CityCultureGrid.dds"						SliceCorner="16,16"	SliceSize="1,1"		SliceTextureSize="32,32" />
+  <CitySectionHeaderGrid	Texture="Assets/UI/Art/Controls/9 Grid/CitySectionHeaderGrid.dds"				SliceCorner="14,14"	SliceSize="1,1"		SliceTextureSize="28,28" />
+
+  <CitySectionBackingGrid	Texture="Assets/UI/Art/Controls/9 Grids/PanelBackground.dds"					SliceCorner="6,6" SliceTextureSize="32,32"	/>
+  <CityProductionListGrid	Texture="Assets/UI/Art/Controls/9 Grids/ProductionListBackground.dds"			SliceCorner="8,6" SliceTextureSize="32,32"	/>
+  <CityProductionUnitsGrid	Texture="Assets/UI/Art/Controls/9 Grids/UnitsBackground.dds"					SliceCorner="8,6" SliceTextureSize="32,32"	/>
+
+  <CityConfirmDialogGrid	Texture="Assets/UI/Art/Controls/9 Grids/ConfirmDialogGrid.dds"					SliceCorner="4,8"	SliceSize="1,1"		SliceTextureSize="8,16"	/>
+  <CityConfirmDialogLabel	Color0="96,125,160,255" Color1="0,0,0,100"			Style="FontNormal22" FontStyle="Shadow" />
+
+  <CityEditHighlight		Style="FontNormal14" FontStyle="Glow" Color0="255,255,255,120" Color1="255,255,255,120" />
+
+
+  <!-- Production List exists in City View or on it's own... -->
+
+  <ProductionListText			Color0="164,173,183,255"	Color1="0,0,0,200"						Style="FontNormal16" FontStyle="Shadow" />
+  <ProductionListHeaderText		Color0="90,118,152,255"		Color1="0,0,0,200"						Style="FontNormal20" FontStyle="Shadow" />
+
+  <ProductionCategoryBackground Texture="Assets/UI/Art/Controls/9 Grid/ListCategoryBackground.dds"	SliceCorner="7,7" SliceSize="1,1"		SliceTextureSize="16,16" />
+
+  <ProductionListHeaderGrid		Texture="assets/UI/Art/Controls/9 Grids/ListHeaderBackingGrid.dds"	SliceCorner="17,14"	SliceSize="1,1"		SliceTextureSize="38,38" />
+  <ProductionListFooterGrid		Texture="assets/UI/Art/Controls/9 Grids/ListFooterBackingGrid.dds"	SliceCorner="17,23"	SliceSize="1,1"		SliceTextureSize="38,38" />
+	
+  <ProductionQueueText			Align="Right" Color0="164,173,183,255" Color1="0,0,0,128"			Style="FontNormal16" FontStyle="Shadow" />
+  <ProductionQueueItemGrid		Texture="Assets/UI/Art/Controls/9 Grids/ProductionQueueItem.dds"	SliceCorner="24,24" SliceSize="2,2" SliceTextureSize="32,32" />
+  <ProductionQueueItemIcon		Texture="45x45FrameButtons.dds"	Size="45,45" />
+  <ProductionQueueRemove		Texture="Assets/UI/Art/Controls/ProductionQueueRemoveButtons.dds"	Size="41,42" />
+
+
+  <!-- ======================================================
+			Unit Upgrade
+	====================================================== -->
+	
+	<UnitUpgradeCardNameLabel Style="FontNormal20" Color0="162,179,204,255"	Color1="162,179,204,100" FontStyle="Glow" WrapWidth="230" />
+	<UnitUpgradeStatLabel			Style="FontNormal24" Color0="162,179,204,255"	Color1="0,0,0,200" FontStyle="Shadow"  />
+	<UnitUpgradeHeader				Style="FontNormal22" FontStyle="Shadow" Color0="182,203,228,255" Color1="117,142,180,150" />
+	<UnitUpgradePerkTitle			Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,0,150" />
+	<UnitUpgradePerkText			Style="FontNormal16" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,0,200" />
+	<UnitUpgradeAbilityText		Style="FontNormal18" FontStyle="Shadow" Color0="182,203,228,255" Color1="0,0,0,0,200" />
+	
+	<UnitUpgradeBadgeGrid			Style="BadgeGrid" Anchor="R,C" Offset="-5,-5" Size="40,40" />
+	
+	
+	
+	<!-- ======================================================
+			Artifacts
+	====================================================== -->
+
+	<ArtifactAreaHeader				Style="FontNormal22" FontStyle="glow"		Color0="177,200,227,255"	Color1="177,200,227,100" />
+	<ArtifactHeader						Style="FontNormal18" FontStyle="Shadow" Color0="160,170,180,255"	Color1="0,0,0,100" />
+	<ArtifactText							Style="FontNormal16" FontStyle="Shadow" Color0="160,170,180,255"	Color1="0,0,0,100" />
+	<ArtifactCardText					Style="FontNormal14" FontStyle="Shadow" Color0="177,200,227,255"	Color1="0,0,0,100" Align="Center" />
+	<ArtifactBackingSlices		Texture="ArtifactButton.dds"	SliceCorner="6,6" SliceSize="18,52" SliceTextureSize="30,64" />
+	<ArtifactSlotGrid					Style="ArtifactBackingSlices"	Size="163,180"	StateOffsetIncrement="0,64" />
+	<ArtifactSlotGridLibrary	Style="ArtifactBackingSlices">
+		<GridData StateOffsetIncrement="0,64" />
+	</ArtifactSlotGridLibrary>
+	<ArtifactSlotGridTopper																	Size="parent-4,7" Texture="ArtifactsConditionBar.dds" SliceCorner="50,3" SliceSize="1,1" SliceTextureSize="100,7" />
+
+	
+
+	
+<!-- ======================================================
+			Diplomacy 2.0
+	====================================================== -->
+  <DiploLeaderBoxGrid Texture="Assets/DLC/Expansion1/UI/Art/Diplomacy/dip_leaderbox.dds" Size="100,300" />
+  <DiploLeaderBoxGrid_Highlight Texture="Assets/DLC/Expansion1/UI/Art/Diplomacy/dip_leaderbox_hi.dds" Size="100,300" />
+  <DiploLeaderBoxSlideAnim Start="0,20" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+  <DiploAlphaAnim AlphaBegin="0" AlphaEnd="1" Cycle="Once" Pause="0" Function="Root" Speed="2"/>
+  <DiploSlideH Start="-20,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="4" />
+  <DiploInfoPanelSlideAnim Start="20,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+  <DiploInfoPanelSlideAnimLTR Start="-20,0" End="0,0" Cycle="Once" Pause="0" Function="Root" Speed="1" />
+  <DiploTraitPopupSlideAnim Start="0,20" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+  <DiploAgreementSlideLeftAnim Start="20,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+  <DiploAgreementSlideRightAnim Start="-20,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+  <DiploConversationSlideLeft Start="-20,0" End="0,0" Cycle="Once" Pause="0" Function="OutQuint" Speed="1" />
+
+  <!-- Service Instance: Used in DiplomacyState_Agreements -->
+  <ForeignPolicyEntry Size="465,67" Color="0,0,0,0" ID="EntryContent">
+    <GridButton ID="Button" Style="DiploServicesButton" Size="parent,parent"/>
+    <Image ID="Icon" Size="64,64" Offset="7,0" Anchor="L,C" />
+    <Container Size="parent-32,parent" Anchor="R,T">
+      <Stack ID="InfoStack" Offset="40,5" Anchor="L,T" StackGrowth="Down" Padding="0">
+        <Label ID="Name" Style="GradientHeader18" String="SERVICE NAME" />
+        <Label ID="Description" Style="WhiteShadow16" WrapWidth="parent-150" String="Description"/>
+      </Stack>
+      <Grid Size="90,parent" Anchor="R,T" Offset="10,0" Style="Grid9BlackGradientSubContainer">
+        <AlphaAnim ID="RelationshipRequirementAnim" AlphaStart=".2" AlphaEnd=".8" Speed="1" Cycle="Bounce"  Size="42,42" Offset="-21,0" Anchor="L,C" Hidden="1">
+          <Image Texture="Relationship_Selector.dds" Size="42,42" Color="255,0,0,255"/>
+        </AlphaAnim>
+        <Image Texture="Diplo_RelationshipIndicators.dds" Size="30,30"  Offset="-15,0" Anchor="L,C" ID="RelationshipRequirement" Hidden="1"/>
+        <Stack ID="AllCostStack" StackGrowth="Down" Anchor="C,C">
+          <Grid ID="CostContainer" Style="Grid9CostContainer" Size="70,40" Anchor="C,T">
+            <Stack ID="CostStack" StackGrowth="Right" Padding="2" Anchor="R,C" Offset="9,2" >
+              <Label ID="Cost" Style="DiploCapitalText20" String="$$$"/>
+              <Label String="[ICON_DIPLO_CAPITAL]" Offset="0,3"/>
+            </Stack>
+          </Grid>
+          <Stack StackGrowth="Right" Padding="2" Anchor="C,T" WrapWidth="90">
+            <Label ID="CostPerTurn" Style="DiploCapitalText20" Offset="0,0" Align="Center" String="Cost" />
+            <Label ID="PerTurn" String="TXT_KEY_DIPLOMACYUI_PERTURN" Style="DarkGrayShadow"/>
+          </Stack>
+        </Stack>
+      </Grid>
+    </Container>
+    <Image ID="BoostedIndicator" Size="71,74" Texture="Agreements_BoostedCooperative.dds" Anchor="L,C" Offset="2,1" Hidden="1"/>
+  </ForeignPolicyEntry>
+  
+  <FearReqTooltipStyle>
+    <Grid Style="Callout" Size="220,110" ID="TooltipFrame">
+      <Stack StackGrowth="Bottom" ID="ContentStack">
+        <Box Color="0,0,0,255" Size="parent,2"/>
+        <Grid Style="TooltipHeader" Size="parent,22">
+          <AlphaAnim AlphaBegin="0" AlphaEnd=".5" Cycle="Bounce" Speed="1" Size="parent,parent">
+            <Box ID="PassFailBanner" Size="parent,parent" Color="0,0,0,0"/>
+          </AlphaAnim>
+          <Label ID="TooltipHeader" String="$$ REQUIREMENTS" Style="GradientHeader" FontSize="16" Anchor="L,C" Offset="4,0"/>
+        </Grid>
+        <Box Color="0,0,0,255" Size="parent,2"/>
+        <Stack StackGrowth="Bottom" ID="RespectStack">
+          <Grid Style="TooltipSubheader" Size="parent,32">
+            <Image Size="68,34" Texture="FearRespectRequirements.dds" Anchor="L,C" ID="RespectImage">
+              <Label Style="RespectText" FontSize="20" String="0" Anchor="C,C" Offset="-4,0" ID="RespectReq"/>
+            </Image>
+            <Stack Anchor="R,C" StackGrowth="Right" Offset="22,0" ID="RespectHeaderStack" Padding="2">
+              <Label Anchor="R,C" Style="GrayShadow" String="TXT_KEY_DIPLOMACYUI_THEIRRESPECT" FontSize="14"/>
+              <Label Anchor="R,C" Style="RespectText" String="0" FontSize="20" ID="RespectVal"/>
+            </Stack>
+            <Image ID="RespectCheck" Texture="Tooltip_RespectCheck.dds" Size="62,32" Anchor="R,C" Offset="-6,0"/>
+          </Grid>
+          <Box Color="0,0,0,255" ID="RespectExplanation" Size="parent, 50" Hidden="1">
+            <Label ID="RespectExplanationText" String="TXT_KEY_DIPLOMACYUI_RES_TT" Style="GrayShadow" FontSize="14" WrapWidth="210" Anchor="L,T" Offset="5,5"/>
+          </Box>
+        </Stack>
+        <Label Style="GradientHeader" FontSize="22" String="TXT_KEY_DIPLOMACYUI_OR" Anchor="C,T"/>
+        <Stack StackGrowth="Bottom" ID="FearStack">
+          <Grid Style="TooltipSubheader" Size="parent,32">
+            <Image Size="68,34" Texture="FearRespectRequirements.dds" Anchor="L,C" ID="FearImage">
+              <Label Style="FearText" FontSize="20" String="0" Anchor="C,C" Offset="-4,0" ID="FearReq"/>
+            </Image>
+            <Stack Anchor="R,C" StackGrowth="Right" Offset="22,0" ID="FearHeaderStack" Padding="2">
+              <Label Anchor="R,C" Style="GrayShadow" String="TXT_KEY_DIPLOMACYUI_THEIRFEAR" FontSize="14"/>
+              <Label Anchor="R,C" Style="FearText" String="0" FontSize="20" ID="FearVal"/>
+            </Stack>
+            <Image ID="FearCheck" Texture="Tooltip_FearCheck.dds" Size="62,32" Anchor="R,C" Offset="-6,0"/>
+          </Grid>
+          <Box Color="0,0,0,255" ID="FearExplanation" Size="parent,50" Hidden="1">
+            <Label ID="FearExplanationText" String="TXT_KEY_DIPLOMACYUI_FEAR_TT" Style="GrayShadow" FontSize="14" WrapWidth="210" Anchor="L,T" Offset="5,5"/>
+          </Box>
+        </Stack>
+      </Stack>
+    </Grid>
+  </FearReqTooltipStyle>
+  
+  <TooltipHeader 
+      Texture="TooltipHeader.dds"
+      SliceCorner="11,5"
+      SliceTextureSize="22,22"
+    />
+  
+  <TooltipSubheader
+    Texture="TooltipSubheader.dds"
+    SliceCorner="16,5"
+    SliceTextureSize="32,32"
+    />
+
+  <DiploSummaryButton Size="43,43" Texture="SummaryButton.dds">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0">
+      <Image Texture="SummaryButton.dds" Size="43,43"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="3" AlphaStart="1" AlphaEnd="0" >
+      <Image Texture="SummaryButton.dds" TextureOffset="0,43" Size="43,43"/>
+    </AlphaAnim>
+  </DiploSummaryButton>
+
+  <BreadCrumb Style="GrayShadow">
+    <GridData Style="Grid9BreadCrumb" />
+  </BreadCrumb>
+
+  <DiploChoiceText ColorSet="HeaderGradient" FontStyle="Glow" Style="FontTitle" Anchor="C,T"/>
+  
+  <DiploChoice Style="DiploChoiceText">
+    <GridData Style="Grid9DiploChoice" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="0" AlphaEnd="1">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploChoiceHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploChoiceHighlight" />
+    </AlphaAnim>
+  </DiploChoice>
+
+  <DiploCapitalText36 ColorSet="DiploGradient" FontStyle="Glow" Style="FontNormal36" KerningAdjustment="-1"/>
+  <DiploCapitalText20 ColorSet="DiploGradient" FontStyle="Glow" Style="FontNormal20" KerningAdjustment="-1"/>
+  <DiploCapitalText ColorSet="DiploGradient" FontStyle="Glow" Style="FontNormal22"/>
+  <DiploCapitalText14 ColorSet="DiploGradient" FontStyle="Glow" Style="FontNormal14"/>
+  <SupremacyText ColorSet="AffinitySupremacySet"	FontStyle="Glow" Style="FontNormal22"/>
+  <PurityText ColorSet="AffinityPuritySet"		FontStyle="Glow" Style="FontNormal22"/>
+  <HarmonyText ColorSet="AffinityHarmonySet"		FontStyle="Glow" Style="FontNormal22"/>
+  
+  <UpgradeText Color0="232,229,151,255" Color1="44,28,18,100" FontStyle="Glow" Style="FontNormal18"/>
+  <UpgradeText16 Color0="232,229,151,255" Color1="100,79,34,255" FontStyle="Glow" Style="FontNormal16"/>
+
+  <DiploUpgradeButton Style="UpgradeText">
+    <GridData Style="Grid9DiploUpgradeButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploUpgradeButtonNormal" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploUpgradeButtonH" />
+    </AlphaAnim>
+  </DiploUpgradeButton>
+
+  <DiploServicesButton>
+    <GridData Style="Grid9DiploServicesButton" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="4" AlphaStart="1" AlphaEnd="0">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploServicesButtonN" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9DiploServicesButtonH" />
+    </AlphaAnim>
+  </DiploServicesButton>
+  
+  <RespectPip
+   Texture="Diplo_RespectPip.dds"
+   SliceCorner="4,3"
+   SliceTextureSize="8,8"
+    />
+  
+  <FearPip
+   Texture="Diplo_FearPip.dds"
+   SliceCorner="4,3"
+   SliceTextureSize="8,8"
+    />
+
+  <SubIncomeContainer
+    Texture="Agreements_SubIncomeContainer.dds"
+    SliceCorner="18,54"
+    SliceTextureSize="102,61"
+    />
+  
+  <Grid9DiploServicesButton
+     Texture="Services_Button.dds"
+     SliceCorner="50,32"
+     SliceTextureSize="67,67"
+     StateOffsetIncrement="0,67"
+    />
+  
+  <Grid9DiploServicesButtonN
+     Texture="Services_Button.dds"
+     SliceCorner="50,32"
+     SliceTextureSize="67,67"
+     StateOffsetIncrement="0,0"
+    />
+
+  <Grid9DiploServicesButtonH
+   Texture="Services_Button.dds"
+   SliceCorner="50,32"
+   SliceTextureSize="67,67"
+   SliceStart="0,67"
+   StateOffsetIncrement="0,0"
+    />
+
+    <Grid9AgreementsContainer
+    Texture="Agreements_Container.dds"
+    SliceCorner="19,35"
+    SliceTextureSize="38,38"
+    />
+  
+  <Grid9WordBubble
+    Texture="Diplo_WordBubble.dds"
+    SliceCorner="60,5"
+    SliceTextureSize="70,69"
+    />
+
+  <Grid9BlackGradientHeader
+    Texture="UnemploymentCitizensGrid.dds"
+    SliceCorner="2,2"
+    SliceTextureSize="8,94"
+/>
+  
+  <Grid9HighlightBox
+    Texture="SwitchTrait_SelectedTrait.dds"
+    SliceCorner="16,16"
+    SliceTextureSize="32,32"
+    />
+  
+  <Grid9DiploUpgradeButton
+    Texture="ManageTraits_UpgradeButton.dds"
+    SliceCorner="30,55"
+    SliceTextureSize="61,61"
+    StateOffsetIncrement="0,61"
+    />
+
+  <Grid9DiploUpgradeButtonNormal
+     Texture="ManageTraits_UpgradeButton.dds"
+     SliceCorner="30,55"
+     SliceTextureSize="61,61"
+     StateOffsetIncrement="0,0"
+    />
+
+  <Grid9DiploUpgradeButtonH
+     Texture="ManageTraits_UpgradeButton.dds"
+     SliceCorner="30,55"
+     SliceTextureSize="61,61"
+     StateOffsetIncrement="0,0"
+     SliceStart="0,61"
+    />
+
+  <Grid9BlackGradientSmall Texture="BlackGradient_small.dds"
+   SliceCorner="32,62"
+   SliceTextureSize="64,64"
+             />
+  <Grid9CostContainer
+    Texture="ManageTraits_CostContainer.dds"
+    SliceCorner="20,20"
+    SliceTextureSize="58,40"
+    />
+
+  <Grid9TraitContainer
+    Texture="ManageTraits_TraitContainer.dds"
+    SliceCorner="33,104"
+    SliceTextureSize="69,144"
+    />
+
+  <Grid9DiplomacyContainer
+    Texture="Diplomacy_Slot.dds"
+    SliceCorner="12,12"
+    SliceTextureSize="24,24"
+    />
+
+  <Grid9DiplomacyWindow
+    Texture="Diplomacy_Window.dds"
+    SliceCorner="10,36"
+    SliceTextureSize="21,192"
+    />
+  
+  <Grid9YieldBacking
+    Texture="YieldBacking.dds"
+    SliceCorner="9,7"
+    SliceTextureSize="18,14"
+    />
+
+  <Grid9AgreementsBacking
+    Texture="AgreementsBacking.dds"
+    SliceCorner="2,2"
+    SliceTextureSize="34,71"
+    />
+  
+  <Grid9DiploChoice
+    Texture="Diplo_ChoiceButton.dds"
+    SliceCorner="15,2"
+    SliceTextureSize="30,30"
+    StateOffsetIncrement="0,30"
+    />
+  
+  <Grid9DiploChoiceHighlight
+    Texture="Diplo_ChoiceButton.dds"
+    SliceStart="0,120"
+    SliceCorner="15,2"
+    SliceTextureSize="30,30"
+    StateOffsetIncrement="0,0"
+    />
+
+  <Grid9BreadCrumb
+  Texture="Header_Breadcrumbs.dds"
+  SliceCorner="16,13"
+  SliceTextureSize="33,28"
+  StateOffsetIncrement="0,28"
+    />
+
+  <Grid9FirstBreadCrumb
+    Texture="Header_FirstBreadcrumb.dds"
+    SliceCorner="16,13"
+    SliceTextureSize="33,28"
+    StateOffsetIncrement="0,28"
+    />
+
+  <Grid9DropShadow
+  Texture="DropShadow.dds"
+  SliceCorner="100,100"
+  SliceTextureSize="200,200"
+    />
+
+  <Grid9ChoiceArea
+    Texture="Diplo_ChoiceArea.dds"
+    SliceCorner="20,2"
+    SliceTextureSize="41,41"
+    />
+  
+  <Grid9Card
+    Texture="Card_Backing.dds"
+    SliceCorner="10,58"
+    SliceTextureSize="20,175"
+    />
+  
+  <Grid9RelationshipsBracket
+    Texture="PlayerRibbon_ShowRelationshipsBracket.dds"
+    SliceCorner="10,40"
+    SliceTextureSize="46,80"
+    />
+
+  <Grid9BlackGradientContainer
+    Texture="BlackGradientContainer.dds"
+    SliceCorner="47,4"
+    SliceTextureSize="93,87"
+  />
+  <Grid9BlackGradientSubContainer
+    Texture="BlackGradientSubContainer.dds"
+    SliceCorner="20,2"
+    SliceTextureSize="41,41"
+  />
+  
+  <Grid9DiploPanelHighlight
+    Texture="dip_grid_linesq_hi.dds"
+    SliceCorner="32,32"
+    SliceSize="1,1"
+    SliceTextureSize="64,64" />
+
+  <Grid9DiploShadowedPanel 
+    Texture="assets/UI/Art/Controls/9 Grids/ListHeaderBackingGrid.dds"	
+    SliceCorner="17,14"
+    SliceSize="1,1"		
+    SliceTextureSize="38,38" />
+
+  <Grid9DiploHeader
+    Texture="dip_header.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="16,16"
+    SliceTextureSize="500,32"/>
+  
+  <Grid9ConversationBubble
+    Texture="dip_grid_chat.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="64,32"
+    SliceTextureSize="128,64"/>
+
+  <Grid9TraitCharacter
+    Texture="dip_grid_trait1.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="32,32"
+    SliceTextureSize="64,64"/>
+  
+  <Grid9TraitMilitary 
+    Texture="dip_grid_trait2.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="32,32"
+    SliceTextureSize="64,64"/>
+
+  <Grid9TraitPolitical
+    Texture="dip_grid_trait3.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="32,32"
+    SliceTextureSize="64,64"/>
+
+  <Grid9TraitDomestic
+    Texture="dip_grid_trait4.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="32,32"
+    SliceTextureSize="64,64"/>
+
+  <Grid9TraitHighlight
+    Texture="dip_grid_line_hi.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="32,32"
+    SliceTextureSize="64,64"/>
+
+  <Grid9TextBox 
+    Texture="dip_grid_textbox.dds"
+    StateOffsetIncrement="0,0"
+    SliceCorner="16,32"
+    SliceTextureSize="32,64"/>
+  
+  <Grid9TraitsButton
+    Texture="dip_leaderbox_traitbutton.dds"
+    Padding="0,0"
+    StateOffsetIncrement="0,100"
+    SliceCorner ="0,0"
+    SliceTextureSize="100,100"/>
+
+  <Grid9TraitsButtonHighlight
+    Texture="dip_leaderbox_traitbutton.dds"
+    Padding="0,0"
+    StateOffsetIncrement="0,0"
+    SliceStart="0,200"
+    SliceTextureSize="100,100"/>
+
+  <TraitsButton Style="WhiteShadow20">
+    <GridData Style="Grid9TraitsButton"/>
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd="0.5">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9TraitsButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9TraitsButtonHighlight" />
+    </AlphaAnim>
+  </TraitsButton>
+
+  <Grid9GreenArrowButton 
+    Texture ="dip_traitadd.dds" 
+    Padding="0,0"
+    StateOffsetIncrement="0,64"
+    SliceCorner="0,0"
+    SliceTextureSize="64,64"/>
+
+  <Grid9GreenArrowButtonHighlight
+    Texture="dip_traitadd.dds"
+    Padding="0,0"
+    StateOffsetIncrement="0,0"
+    SliceStart="0,128"
+    SliceTextureSize="64,64"/>
+
+  <GreenArrowButton Style="WhiteShadow20">
+    <GridData Style="Grid9GreenArrowButton"/>
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Bounce" Speed="1.5" AlphaStart="1" AlphaEnd="0.5">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GreenArrowButtonHighlight" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Style="Grid9GreenArrowButtonHighlight" />
+    </AlphaAnim>
+  </GreenArrowButton>
+
+  <CommuniqueHeader Style="FontNormal18" Anchor="L,C" Offset="6,2" Color0="70,85,130"	Color1="0,0,0,255" FontStyle="Shadow" />
+  <CommuniqueNewHeader Style="FontNormal18" Anchor="L,C" Offset="6,2" Color0="130,140,200"	Color1="0,0,0,255" FontStyle="Shadow" />
+
+	<DiplomacyColumnHeader		FontStyle="glow" ColorSet="HeaderGradient" Style="FontTitle20"/>
+	
+	
+	<AffinityInfoButton				Style="SmallButton" FontSize="16" ColorSet="Diplo_Text" />
+	<AffinityWheelListText		Style="FontNormal20"					Color0="180,180,180,255" Color1="0,0,0,200" />
+	<AffinityWheelText				Style="FontNormal20"					Color0="180,190,230,255" Color1="180,190,230,100" FontStyle="Glow" />
+	<AffinityWheelFlavorText	Style="FontNormal14"					Color0="180,190,230,255" Color1="180,190,230,50"	FontStyle="Glow" />
+	
+	
+  <!-- ======================================================
+			Quests (Missions/Victories)
+	====================================================== -->
+  <QuestHeaderText					Style="FontNormal22" Color0="167,190,217,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+  <QuestIncompleteText			Style="FontNormal18" Color0="167,190,217,255"	Color1="167,190,217,100"	FontStyle="Glow" />
+  <QuestCompleteText				Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,100"			FontStyle="Shadow" />
+  <QuestDescriptionText			Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,100"			FontStyle="Shadow" />
+  <QuestHeaderInactiveText	Style="FontNormal20" Color0="144,165,185"			Color1="0,0,0,100"			FontStyle="Shadow" />
+  <QuestFilterText					Style="FontNormal18" Color0="67,87,131"				Color1="0,0,0,150"			FontStyle="Shadow" />
+  <QuestRewardHeaderText		Style="FontNormal20" Color0="85,100,132,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+  <QuestRewardText					Style="FontNormal18" Color0="85,100,132,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+  <QuestRewardChoiceText		Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+
+	
+  <QuestFilterCheckBoxes		Style="QuestFilterText"	ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="32,32" Color="67,87,131,255" />
+  <QuestListHeaderGrid			Texture="assets/UI/Art/Controls/9 Grids/ListHeaderBackingGrid.dds"	SliceCorner="17,14"	SliceSize="1,1"		SliceTextureSize="38,38" />
+  <QuestItemHighlightGrid		Texture="assets/UI/Art/Quests/QuestItemHighlightBacking.dds"		SliceCorner="1,1"	SliceSize="2,30"	SliceTextureSize="4,32" />
+  <BadgeGrid					Texture="assets/UI/Art/Controls/9 Grids/BadgeScalable.dds"			SliceCorner="19,19"						SliceTextureSize="40,40" />
+  <QuestMissionTypeBanner		Texture="assets/UI/Art/Quests/QuestLogMissionTypeBanners.dds"		Size="50,46"	TextureOffset="0,0"  Alpha="1.0" />
+  <QuestCheckButtons			Texture="assets/UI/Art/Quests/QuestCheckButtons.dds"				Size="32,32"	TextureOffset="0,0" />
+
+  <VictoryHeaderText			Style="FontNormal20" Color0="167,190,217,255"	Color1="40,70,170,255"		FontStyle="Glow" />
+  
+
+
+  <!-- ======================================================
+			Quests Popup (completed)
+	====================================================== -->
+  <QuestPopupText				Style="FontNormal24" Color0="167,190,217,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+  <QuestPopupHeaderText			Style="FontNormal24" Color0="167,190,217,255"	Color1="167,190,217,150"	FontStyle="Glow" />
+  <QuestPopupEpilogueText		Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+  <QuestPopupRewardText			Style="FontNormal18" Color0="167,190,217,255"	Color1="0,0,0,250"			FontStyle="Shadow" />
+
+  <!-- ======================================================
+			Water Gameplay
+	====================================================== -->
+
+  <MoveCityButton Style="WhiteShadow20">
+    <Grid Anchor="C,B" Size="parent,48" Offset="0,0" Padding="0,0" Texture="ButtonMoveCity.dds" SliceStart="0,0" SliceCorner="47,0" SliceTextureSize="52,52"/>
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="1.5" AlphaStart="0" AlphaEnd="0.7">
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" TextureOffset="0,208" Texture="ButtonMoveCity.dds" SliceStart="0,0" SliceCorner="47,0" SliceTextureSize="52,52"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="2" AlphaStart=".7" AlphaEnd="0" >
+      <Grid   Size="parent,parent" Offset="0,0" Padding="0,0" TextureOffset="0,208" Texture="ButtonMoveCity.dds" SliceStart="0,0" SliceCorner="47,0" SliceTextureSize="52,52"/>
+    </AlphaAnim>
+  </MoveCityButton>
+
+
+  <!-- ======================================================
+			My2K / FiraxisLive
+	====================================================== -->
+
+  <MOTDTitle Style="FontTitle" Align="Center" FontStyle="Glow" Color0="182,203,228,255" Color1="182,203,228,150" />
+  <MOTDMessage Style="FontNormal16" Align="Center" FontStyle="Glow" Color0="182,203,228,255" Color1="182,203,228,150" />
+  
+  <My2KTitleText   Style="FontNormal24" Anchor="C,T" Color="230,230,230,255" />
+  <My2KMessageText Style="FontNormal18" Color="160,160,160,255" />
+  <My2KButtonText  Style="FontNormal24" Color="255,255,255,255" Color1="0,0,0,150" FontStyle="Shadow" />
+  
+  <My2KWindowBackground Texture="My2KWindow.dds"
+      ULSize  ="20,20"      ULTexStart  ="0,0"
+      UCSize  ="20,20"      UCTexStart  ="20,0"
+      URSize  ="20,20"      URTexStart  ="40,0"
+      LSize   ="20,20"      LTexStart   ="0,20"
+      CSize   ="20,20"      CTexStart   ="20,20"
+      RSize   ="20,20"      RTexStart   ="40,20"
+      LLSize  ="20,20"      LLTexStart  ="0,40"
+      LCSize  ="20,20"      LCTexStart  ="20,40"
+      LRSize  ="20,20"      LRTexStart  ="40,40" />
+
+  <My2KButtonData Texture="My2KButton.dds"
+      ULSize  ="20,20"      ULTexStart  ="0,0"
+      UCSize  ="20,20"      UCTexStart  ="20,0"
+      URSize  ="20,20"      URTexStart  ="40,0"
+      LSize   ="20,20"      LTexStart   ="0,20"
+      CSize   ="20,20"      CTexStart   ="20,20"
+      RSize   ="20,20"      RTexStart   ="40,20"
+      LLSize  ="20,20"      LLTexStart  ="0,40"
+      LCSize  ="20,20"      LCTexStart  ="20,40"
+      LRSize  ="20,20"      LRTexStart  ="40,40"
+      StateOffsetIncrement="0,64"/>
+
+  <My2KButton>
+    <GridData Style="My2KButtonData" />
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Texture="My2KButton.dds" Style="My2KButtonData"/>
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0" >
+      <Grid Size="parent,parent" Offset="0,0" Padding="0,0" Texture="My2KButton.dds" Style="My2KButtonData" TextureOffset="0,64"/>
+    </AlphaAnim>
+  </My2KButton>
+
+  <My2KLogoButton Texture="My2KLogoButton.dds" Size="128,64">
+    <AlphaAnim ShowOnMouseOver="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0">
+      <Image ID="AnimIn" Size="parent,parent" Offset="0,0" Padding="0,0" Texture="My2KLogoButton.dds" TextureOffset="0,0" />
+    </AlphaAnim>
+    <AlphaAnim ShowOnMouseOut="1" Anchor="L,T" Size="parent,parent" Pause="0" Cycle="Once" Speed="8" AlphaStart="1" AlphaEnd="0" >
+      <Image ID="AnimOut" Size="parent,parent" Offset="0,0" Padding="0,0" Texture="My2KLogoButton.dds" TextureOffset="0,64" />
+    </AlphaAnim>
+  </My2KLogoButton>
+
+  <My2KWindow>
+    <Box ID="WindowBacking" Size="parent,parent" Offset="0,0" Padding="16,16" Color="0,0,0,255">
+      <Grid ID="WindowOutline" Size="parent,parent" Offset="0,0" Style="My2KWindowBackground">
+        <Image Anchor="C,T" Offset="30,30" Size="256,100" Texture="My2KLogo.dds" />
+      </Grid>
+    </Box>
+  </My2KWindow>
+
+  <My2KWindowPlain>
+    <Box Size="parent,parent" Offset="0,0" Padding="16,16" Color="0,0,0,255">
+      <Grid Size="parent,parent" Offset="0,0" Style="My2KWindowBackground">
+      </Grid>
+    </Box>
+  </My2KWindowPlain>
+
+  <FiraxisLiveTitleText Style="FontNormal24" Color0="255,255,255,255" Color1="0,0,0,250" FontStyle="Glow" />
+  <FiraxisLiveMessageText Style="FontNormal18" Color0="200,200,200,255" Color1="0,0,0,250" FontStyle="Shadow" />
+  <!-- Grid9FiraxisLive  -->
+  <Grid9FiraxisLive Texture="FiraxisLiveWindowBackground.dds" Padding="0,0"
+      ULSize  ="6,6"      ULTexStart  ="0,0"
+      UCSize  ="6,6"      UCTexStart  ="6,0"
+      URSize  ="6,6"      URTexStart  ="12,0"
+      LSize   ="6,6"      LTexStart   ="0,6"
+      CSize   ="6,6"      CTexStart   ="6,6"
+      RSize   ="6,6"      RTexStart   ="12,6"
+      LLSize  ="6,6"      LLTexStart  ="0,12"
+      LCSize  ="6,6"      LCTexStart  ="6,12"
+      LRSize  ="6,6"      LRTexStart  ="12,12"
+               />
+  
+  <!--CIV ICON DEFINITIONS-->
+
+  <CivIcon32	Color="0,0,0,255" ID="CivIconFrame"	Size="30,30">
+    <Image	ID="CivIconBG"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+    <Image	ID="CivIcon"		Size="24,24"	Anchor="C,C" Offset="1,1" Texture="CivSymbolsColor256.dds"/>
+    <Image	ID="CivIconHighlight"		Size="32,32"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+  </CivIcon32>
+
+  <CivIcon64	ID="CivIconFrame"	Size="59,59" Color="0,0,0,255">
+    <Image	ID="CivIconBG"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes.dds"/>
+    <Image	ID="CivIcon"		Size="45,45"	Anchor="C,C" Offset="-2,0" Texture="CivSymbolsColor512.dds"/>
+    <Image	ID="CivIconHighlight"		Size="64,64"	Anchor="C,C" Offset="0,0" Texture="CivIconBGSizes_Highlight.dds"/>
+  </CivIcon64>
+  
+  
+  
+</StyleSheet>

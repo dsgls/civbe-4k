@@ -2,10 +2,14 @@
 
 
 <Context ColorSet="Gray_Black_Alpha" Style="FontNormal24" Name="MainMenu">
-
-	<Image ID="CivBELogo" Style="MainGameLogo" /> 
   
-	<Box Color="0,0,0,0" Offset="0,-50" Anchor="C,B" Size="480,480" Padding="0,0">
+  <AlphaAnim		ID="LogoAlpha"	Cycle="Once" AlphaStart="0" AlphaEnd="1" Speed="1" Size="parent,parent" Anchor="C,T" >
+    <SlideAnim	ID="LogoSlide"	Begin="0,50" End="0,0" Cycle="Once" Speed=".5" Size="parent,parent" Anchor="C,T" Function="OutQuint">
+        <Image	ID="CivBELogo"	Style="MainGameLogo" />
+    </SlideAnim>
+  </AlphaAnim>
+	
+  <Container Offset="0,-50" Anchor="C,B" Size="480,480">
 	
 	  <AlphaAnim ID="FirstShowDelay" Pause="0.1" AlphaStart="0" AlphaEnd="0" Cycle="Once" />
 		
@@ -71,7 +75,7 @@
           <Button ID="ExitButton"			Size="280,35" Style="MainMenuButton" String="TXT_KEY_EXIT_BUTTON"/>
         </Stack>
       </AlphaAnim>
-  </Box>
+  </Container>
 
   <Button ID="My2KLogin" Disabled="true" Size="128,64" Anchor="R,B" Offset="5,5" Style="My2KLogoButton" />
 

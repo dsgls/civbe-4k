@@ -8,9 +8,9 @@ function ShowHideHandler( bIsHide, bIsInit )
 		-- the CivBEApp::eHasShownLegal and not show the legal/touch screens.
 		UI:CheckForCommandLineInvitation();
 		
-    -- if( not UI:HasShownLegal() ) then
-        -- UIManager:QueuePopup( Controls.LegalScreen, PopupPriority.LegalScreen );
-    -- end
+    if( not UI:HasShownLegal() ) then
+        UIManager:QueuePopup( Controls.LegalScreen, PopupPriority.LegalScreen );
+    end
 
     if( not bIsHide ) then
 		screenWidth, screenHeight = UIManager:GetScreenSizeVal();

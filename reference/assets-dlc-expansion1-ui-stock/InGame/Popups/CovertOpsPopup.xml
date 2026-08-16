@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Covert Ops Popup (loads a panel as at one point... maybe again has tabbed content.) -->
+<Context >
+
+	<Grid ID="OuterGrid"				Anchor="R,B" Offset="-10,70" Size="470,659"  Style="GridWindowWithHeader" ConsumeMouse="1" >		
+		<Label Style="MenuTitleCaption" Offset="10,17"	Anchor="U,L" String="{TXT_KEY_COVERT_OPS:upper}" />	
+		<Button ID="CloseButton"		Offset="10,8"	Anchor="R,T" Style="CloseButton"/>
+		
+		<Grid	ID="InnerGridBG"		Anchor="R,B" Offset="10,20"		Size="Parent-17,Parent-68"	Style="GridSetupGameSectionBackground" />
+		
+		<LuaContext ID="CovertOpsPanel" FileName="Assets/UI/InGame/Popups/CovertOpsPanel"  />
+	</Grid>
+	
+</Context>
