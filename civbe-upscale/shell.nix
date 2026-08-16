@@ -44,8 +44,16 @@ let
   python = pkgs.python3.override {
     self = python;
     packageOverrides = self: super: {
-      torch = super.torch-bin;
-      torchvision = super.torchvision-bin;
+      # The wheel caps setuptools below 82 while nixpkgs ships 83, which fails
+      # the runtime-deps check. torch only reaches for setuptools through
+      # pkg_resources, so the cap is advisory. Patch torch-bin itself rather
+      # than the torch alias: torchvision-bin depends on torch-bin by name, and
+      # would otherwise pull an unpatched second torch onto sys.path.
+      torch-bin = super.torch-bin.overrideAttrs (old: {
+        pythonRelaxDeps = (old.pythonRelaxDeps or [ ]) ++ [ "setuptools" ];
+      });
+      torch = self.torch-bin;
+      torchvision = self.torchvision-bin;
     };
   };
 in
