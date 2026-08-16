@@ -134,6 +134,7 @@ def run_padded(
     scale: int,
     *,
     tile: int | None = None,
+    overlap: int = TILE_OVERLAP,
     out_scale: int | None = None,
     resample: int = Image.LANCZOS,
 ) -> np.ndarray:
@@ -153,7 +154,7 @@ def run_padded(
     if tile is None:
         result = run(padded)
     else:
-        result = tiled_run(run, padded, scale, tile)
+        result = tiled_run(run, padded, scale, tile, overlap)
     expected = (ph * scale, pw * scale)
     if result.shape[:2] != expected:
         raise RuntimeError(
@@ -320,34 +321,51 @@ def load_model(path: Path, scale: int) -> SpandrelModel:
 
 
 def _run_with_oom_fallback(
-    model: SpandrelModel,
+    run: PlaneRunner,
     arr: np.ndarray,
     scale: int,
     resample: int,
+    is_oom: Callable[[BaseException], bool],
+    free_memory: Callable[[], None] = lambda: None,
+    max_tile: int = MAX_TILE,
+    overlap: int = TILE_OVERLAP,
 ) -> np.ndarray:
-    """Whole-image inference, falling back to halving tiles on CUDA OOM."""
-    try:
-        return run_padded(model, arr, scale, out_scale=2, resample=resample)
-    except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
-        if not (model.device.type == "cuda" and model.is_oom(exc)):
-            raise
-        model.free_memory()
+    """Whole-image inference, falling back to halving tiles on CUDA OOM.
 
-    tile = MAX_TILE
-    while tile > 2 * TILE_OVERLAP:
-        log.warning("CUDA OOM on whole-image inference, retrying with %d px tiles", tile)
+    ``is_oom`` classifies an exception as an out-of-memory condition; anything
+    else propagates. The ladder parameters are arguments so the retry path can
+    be driven with small planes in tests.
+    """
+    if max_tile <= 2 * overlap:
+        raise ValueError(f"max tile {max_tile} is not larger than 2x overlap {overlap}")
+    try:
+        return run_padded(run, arr, scale, out_scale=2, resample=resample)
+    except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
+        if not is_oom(exc):
+            raise
+        free_memory()
+
+    tile, failed_at = max_tile, "whole-image inference"
+    while tile > 2 * overlap:
+        log.warning("CUDA OOM on %s, retrying with %d px tiles", failed_at, tile)
         try:
             return run_padded(
-                model, arr, scale, tile=tile, out_scale=2, resample=resample
+                run,
+                arr,
+                scale,
+                tile=tile,
+                overlap=overlap,
+                out_scale=2,
+                resample=resample,
             )
         except Exception as exc:  # noqa: BLE001 - re-raised unless it is an OOM
-            if not model.is_oom(exc):
+            if not is_oom(exc):
                 raise
-            model.free_memory()
-            tile //= 2
+            free_memory()
+            tile, failed_at = tile // 2, f"{tile} px tiles"
     raise RuntimeError(
-        f"CUDA OOM even at the smallest usable tile ({2 * TILE_OVERLAP + 1} px "
-        f"with {TILE_OVERLAP} px overlap)"
+        f"CUDA OOM at every tile size down to {tile * 2} px, the smallest "
+        f"larger than 2x the {overlap} px overlap"
     )
 
 
@@ -356,21 +374,28 @@ def build_upscaler(
     scale: int,
     *,
     alpha_plane: bool = False,
+    is_oom: Callable[[BaseException], bool] | None = None,
+    free_memory: Callable[[], None] = lambda: None,
 ) -> PlaneUpscaler:
     """Wrap a native-``scale`` runner into an exact-2x, clamped PlaneUpscaler.
 
-    A `SpandrelModel` runner additionally gets the OOM-fallback tiling path;
-    classical scalers and test fakes never OOM and always run whole-image.
+    Passing ``is_oom`` enables the OOM-fallback tiling path for runners that can
+    exhaust VRAM. Without it — classical scalers, CPU inference, test fakes —
+    every run is whole-image and an exception from the runner propagates.
     """
     # 4x -> 2x with Lanczos rings alpha a few levels above zero just outside
     # every hard edge, compositing a faint coloured outline in game. Alpha
     # planes get a non-negative kernel instead.
     resample = Image.BOX if alpha_plane else Image.LANCZOS
 
-    def upscale(arr: np.ndarray) -> np.ndarray:
-        if isinstance(run, SpandrelModel):
-            return _run_with_oom_fallback(run, arr, scale, resample)
-        return run_padded(run, arr, scale, out_scale=2, resample=resample)
+    if is_oom is None:
+        def upscale(arr: np.ndarray) -> np.ndarray:
+            return run_padded(run, arr, scale, out_scale=2, resample=resample)
+    else:
+        def upscale(arr: np.ndarray) -> np.ndarray:
+            return _run_with_oom_fallback(
+                run, arr, scale, resample, is_oom, free_memory
+            )
 
     return upscale
 
@@ -394,4 +419,13 @@ def get_upscaler(name: str, *, alpha_plane: bool = False) -> PlaneUpscaler:
 
     assert entry.checkpoint is not None
     model = load_model(ensure_checkpoint(entry.checkpoint), entry.scale)
-    return build_upscaler(model, entry.scale, alpha_plane=alpha_plane)
+    # Only CUDA runs out of VRAM; on the CPU fallback an OOM is a host
+    # MemoryError that tiling would not help.
+    is_oom = model.is_oom if model.device.type == "cuda" else None
+    return build_upscaler(
+        model,
+        entry.scale,
+        alpha_plane=alpha_plane,
+        is_oom=is_oom,
+        free_memory=model.free_memory,
+    )

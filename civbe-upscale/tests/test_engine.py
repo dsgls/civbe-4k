@@ -122,6 +122,92 @@ def test_output_is_clamped_to_unit_range():
     assert out.max() <= 1.0
 
 
+class VramLimitedFake:
+    """nearest_2x that OOMs like CUDA does on any plane above ``limit`` px."""
+
+    def __init__(self, limit: int):
+        self.limit = limit
+        self.oom_shapes = []
+
+    def __call__(self, arr: np.ndarray) -> np.ndarray:
+        if max(arr.shape[:2]) > self.limit:
+            self.oom_shapes.append(arr.shape[:2])
+            raise RuntimeError("CUDA out of memory. Tried to allocate 2.00 GiB")
+        return nearest_2x(arr)
+
+
+def looks_like_oom(exc: BaseException) -> bool:
+    return isinstance(exc, RuntimeError) and "out of memory" in str(exc).lower()
+
+
+def test_oom_halves_the_tile_size_until_inference_fits():
+    # Padded to 272x272: whole-image, 128 px and 64 px tiles all exceed the
+    # 50 px limit, so it takes two halvings to reach a tile that runs.
+    src = random_plane(200, 200, seed=5)
+    run = VramLimitedFake(limit=50)
+    freed = []
+
+    out = engine._run_with_oom_fallback(
+        run,
+        src,
+        2,
+        Image.LANCZOS,
+        looks_like_oom,
+        free_memory=lambda: freed.append(1),
+        max_tile=128,
+        overlap=8,
+    )
+
+    # One OOM per abandoned round: the whole image, then 128 and 64 px tiles.
+    assert [max(shape) for shape in run.oom_shapes] == [272, 132, 68]
+    assert len(freed) == 3
+    np.testing.assert_array_equal(out, nearest_2x(src))
+
+
+def test_oom_at_the_smallest_usable_tile_is_reported():
+    run = VramLimitedFake(limit=0)
+
+    with pytest.raises(RuntimeError, match="down to 32 px"):
+        engine._run_with_oom_fallback(
+            run, random_plane(200, 200, seed=6), 2, Image.LANCZOS, looks_like_oom,
+            max_tile=128, overlap=8,
+        )
+
+    # 128, 64 and 32 px tiles tried; 16 would not exceed 2x the 8 px overlap.
+    assert len(run.oom_shapes) == 4
+
+
+def test_a_non_oom_failure_is_not_retried():
+    def explode(arr):
+        raise ValueError("bad weights")
+
+    with pytest.raises(ValueError, match="bad weights"):
+        engine._run_with_oom_fallback(
+            explode, random_plane(16, 16), 2, Image.LANCZOS, looks_like_oom
+        )
+
+
+def test_build_upscaler_retries_only_when_given_an_oom_predicate():
+    src = random_plane(100, 100, seed=7)
+    # Padded to 168x168, which fits in one MAX_TILE tile, so the retry succeeds.
+    calls = []
+
+    def oom_first_call(arr):
+        calls.append(arr.shape[:2])
+        if len(calls) == 1:
+            raise RuntimeError("CUDA out of memory")
+        return nearest_2x(arr)
+
+    retrying = engine.build_upscaler(oom_first_call, 2, is_oom=looks_like_oom)
+    np.testing.assert_array_equal(retrying(src), nearest_2x(src))
+    assert len(calls) == 2
+
+    calls.clear()
+    plain = engine.build_upscaler(oom_first_call, 2)
+    with pytest.raises(RuntimeError, match="out of memory"):
+        plain(src)
+
+
 def test_a_checkpoint_is_loaded_once_for_both_plane_kinds(monkeypatch):
     loads = []
 
