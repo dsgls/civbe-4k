@@ -27,14 +27,15 @@ extracted/              per-archive .fpk extractions + decoded PNGs
   Expansion1UITextures_converted/  129 .png
   MiscTextures.fpk/                252 .dds  (3 files needed from here)
 reference/
-  assets-ui-stock/      pristine Assets/UI from a clean install
+  assets-ui-stock/                    pristine Assets/UI
+  assets-dlc-expansion1-ui-stock/     pristine Assets/DLC/Expansion1/UI
 analysis/               scripts that produced and check ui_textures.txt
 ```
 
-`reference/assets-ui-stock` is the source of truth for the sweep and for
-regenerating the texture list. Keep it: it makes the analysis reproducible
-without a game install, and it is the baseline every acceptance check compares
-against.
+The `reference/` trees are the source of truth for the sweep and for
+regenerating the texture list. Keep them: they make the analysis reproducible
+without a game install, and they are the baseline every acceptance check
+compares against. Only XML and Lua are tracked — see `.gitignore`.
 
 ---
 
@@ -384,7 +385,8 @@ python3 build_texture_list.py          # regenerate ui_textures.txt
 python3 derive_block_sizes.py          # block size of every dictionary pair
 python3 verify_pair_decode.py          # decode all 724 pairs, diff against the PNGs
 python3 verify_pair_decode.py 256x256frame         # decode one, write a PNG beside it
-python3 verify_ui_sweep.py <patched Assets/UI> 2   # acceptance check on a sweep
+python3 verify_ui_sweep.py <patched install> 2     # acceptance check, every tree
+python3 verify_ui_sweep.py --tree base <install> 2 # one tree only
 ```
 
 `analysis/dds.py` backs `verify_pair_decode.py` and is the piece phase 2 needs:
@@ -394,12 +396,15 @@ only.
 
 `analysis/paths.py` holds every location; edit `GAME` if the install moves.
 
-The sweep's acceptance check compares a patched tree against
-`reference/assets-ui-stock` attribute by attribute, using a value oracle
-independent of the tool's own code. It covers the base tree; the DLC trees have
-no stock reference yet. Current result: 12,777 screen-space values
-scaled correctly, 3,945 texture-space frozen, 31,649 untouched, no change to
-line counts, byte-order marks, attribute counts or attribute order.
+The sweep's acceptance check compares each patched tree against its
+`reference/` counterpart attribute by attribute, using a value oracle
+independent of the tool's own code. Current result, with no change to line
+counts, byte-order marks, attribute counts or attribute order:
+
+| tree | files | screen-space scaled | texture-space frozen | untouched |
+|---|---|---|---|---|
+| base | 534 | 12,795 | 3,927 | 31,649 |
+| Expansion1 | 150 | 6,976 | 2,655 | 17,598 |
 
 ## Gotchas
 

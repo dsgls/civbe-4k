@@ -10,6 +10,16 @@ GAME = "/mnt/c/Steam/steamapps/common/Sid Meier's Civilization Beyond Earth"
 # Stock Assets/UI, kept so the analysis is reproducible without the game.
 STOCK_UI = os.path.join(PROJECT, "reference", "assets-ui-stock")
 
+# Every stock UI tree, keyed by the name the sweep gives it, with the
+# install-relative path the patched copy lives at.
+STOCK_TREES = {
+    "base": (STOCK_UI, ("assets", "UI")),
+    "Expansion1": (
+        os.path.join(PROJECT, "reference", "assets-dlc-expansion1-ui-stock"),
+        ("assets", "DLC", "Expansion1", "UI"),
+    ),
+}
+
 # Per-archive extractions and the decoded PNGs.
 EXTRACTED = os.path.join(PROJECT, "extracted")
 
