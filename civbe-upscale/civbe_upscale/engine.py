@@ -12,9 +12,11 @@ alpha overshoot at hard edges into punched-out transparent rings.
 
 from __future__ import annotations
 
+import gc
 import hashlib
 import logging
 import os
+import sys
 import urllib.request
 from collections.abc import Callable
 from pathlib import Path
@@ -198,9 +200,10 @@ def _sha256(path: Path) -> str:
 
 
 #: Checkpoint paths already hash-verified in this process; `ensure_checkpoint`
-#: trusts these without re-hashing. `apply_upscalers` resolves each upscaler
-#: name per image, so without this a batch run re-hashes every checkpoint
-#: once per image.
+#: trusts these without re-hashing. Every upscaler name is resolved once per
+#: image, so without this a run re-hashes its checkpoint once per image.
+#: Deliberately not cleared by `unload_models`: the bytes on disk have not
+#: changed, only the model built from them was dropped.
 _VERIFIED_CHECKPOINTS: set[Path] = set()
 
 
@@ -329,6 +332,26 @@ def load_model(path: Path, scale: int) -> SpandrelModel:
         model = SpandrelModel(path, scale)
         _MODEL_CACHE[key] = model
     return model
+
+
+def unload_models() -> None:
+    """Drop every cached model and return its memory to the device.
+
+    Compare mode calls this between upscalers so only one checkpoint is
+    resident at a time. The `gc.collect()` is load-bearing: dropping the cache
+    entry only queues the descriptor for collection, and torch frees device
+    memory in the tensor destructor, so an uncollected cycle would keep the
+    weights on the card past `empty_cache`.
+
+    Reaching for torch through `sys.modules` keeps this importable from the
+    light (torch-free) shell: the module is there exactly when a model that
+    needs it has been loaded.
+    """
+    _MODEL_CACHE.clear()
+    gc.collect()
+    torch = sys.modules.get("torch")
+    if torch is not None and torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 
 # --------------------------------------------------------------------------

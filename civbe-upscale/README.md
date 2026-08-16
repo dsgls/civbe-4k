@@ -37,8 +37,11 @@ SHA-256-verified; expect a one-time download when running ML entries.
 - The tile ladder has two rungs (1024, 512). A card that OOMs at 512 px tiles
   gets an error, not a smaller tile; raise `MAX_TILE` or relax the degenerate
   guard in `engine.py` if that ever bites.
-- `compare --upscalers all` keeps every model's weights resident (the model
-  cache never evicts); fine at 7 entries, revisit before growing the registry.
+- `compare` loops upscaler-outer and evicts the model between upscalers, so
+  only one checkpoint is resident however large the registry grows. It pays
+  for the RGB extrapolation once per (input, upscaler) pair rather than once
+  per input; that is the intended trade, but it makes `compare` a poor way to
+  process a large work list. Use `batch` for those.
 - `lanczos-rgba` is a diagnostic control, not a candidate: if it ever beats
   `lanczos` on soft alpha edges, the alpha pipeline has a bug.
 - CUDA builds on this machine: always pass `--option max-jobs 1 --cores 4`,

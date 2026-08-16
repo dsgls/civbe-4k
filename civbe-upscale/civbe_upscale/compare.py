@@ -11,11 +11,13 @@ from __future__ import annotations
 
 import html
 import shutil
+import sys
 from pathlib import Path
 
 from PIL import Image
 
-from .apply import apply_upscalers
+from .apply import apply_upscaler
+from .engine import unload_models
 
 #: (label, is_nearest) for the two reference cells that lead every row,
 #: rendered straight from the source PNG -- no extra files, no upscaler.
@@ -30,6 +32,12 @@ def run_compare(
 ) -> int:
     """Upscale every input with every upscaler and write the comparison HTML.
 
+    The loop is upscaler-outer, input-inner, with `unload_models()` between
+    upscalers, so exactly one checkpoint is resident at a time regardless of
+    how large the registry grows. The cost is that the RGB extrapolation runs
+    once per (input, upscaler) pair rather than once per input -- compare
+    runs on a handful of samples, where that is cheap next to inference.
+
     `crops` is keyed by input filename (`Path.name`), matching how cli.py's
     `--crop <file>=<x,y,w,h>` is parsed and grouped. A crop key that matches
     no input is an error rather than a silently-ignored typo, consistent
@@ -41,25 +49,28 @@ def run_compare(
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Sizes and reference copies are all the HTML needs from the inputs, so
+    # every row exists before a single model is loaded.
     rows = []
     for p in input_files:
         with Image.open(p) as img:
-            img.load()
             orig_w, orig_h = img.size
-            variants = [
-                (name, out_img) for name, out_img in apply_upscalers(upscaler_names, img)
-            ]
+        shutil.copyfile(p, output_dir / p.name)
+        rows.append(_Row(p.name, orig_w, orig_h, p.name, [], crops.get(p.name, [])))
 
-        ref_name = p.name
-        shutil.copyfile(p, output_dir / ref_name)
-
-        variant_files = []
-        for name, out_img in variants:
+    total = len(upscaler_names) * len(input_files)
+    n = 0
+    for name in upscaler_names:
+        for p, row in zip(input_files, rows):
+            n += 1
             fname = f"{p.stem}-{name}.png"
-            out_img.save(output_dir / fname)
-            variant_files.append((name, fname))
-
-        rows.append(_Row(p.name, orig_w, orig_h, ref_name, variant_files, crops.get(p.name, [])))
+            row.variant_files.append((name, fname))
+            print(f"[{n}/{total}] {name}: {p.name}", file=sys.stderr)
+            with Image.open(p) as img:
+                img.load()
+                out = apply_upscaler(name, img)
+            out.save(output_dir / fname)
+        unload_models()
 
     (output_dir / "index.html").write_text(_render_html(rows), encoding="utf-8")
     return 0

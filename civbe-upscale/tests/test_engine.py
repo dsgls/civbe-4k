@@ -228,12 +228,31 @@ def test_a_checkpoint_is_loaded_once_for_both_plane_kinds(monkeypatch):
     assert loads == [(Path("dat2.pth"), 4), (Path("swinir.pth"), 4)]
 
 
+def test_unload_models_drops_the_cache_so_the_next_load_rebuilds(monkeypatch):
+    """Compare mode's per-upscaler eviction; also the torch-free light shell."""
+    loads = []
+
+    class FakeModel:
+        def __init__(self, path, scale):
+            loads.append((path, scale))
+
+    monkeypatch.setattr(engine, "SpandrelModel", FakeModel)
+    monkeypatch.setattr(engine, "_MODEL_CACHE", {})
+
+    first = engine.load_model(Path("dat2.pth"), 4)
+    engine.unload_models()
+    second = engine.load_model(Path("dat2.pth"), 4)
+
+    assert second is not first
+    assert loads == [(Path("dat2.pth"), 4)] * 2
+
+
 def test_ensure_checkpoint_hashes_a_cached_file_only_once(tmp_path, monkeypatch):
     """A second `ensure_checkpoint` call for the same path must not re-hash.
 
-    `apply_upscalers` resolves each upscaler name once per plane kind per
-    image, so an unmemoized hash turns a batch run into two full-file SHA-256
-    passes per image per upscaler.
+    `apply_upscaler` resolves the upscaler name once per plane kind per image,
+    so an unmemoized hash turns a batch run into two full-file SHA-256 passes
+    per image per upscaler.
     """
     monkeypatch.setattr(engine, "_VERIFIED_CHECKPOINTS", set())
     monkeypatch.setattr(engine, "models_dir", lambda: tmp_path)
