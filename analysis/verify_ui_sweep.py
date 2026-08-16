@@ -7,6 +7,7 @@ its separators and each component multiplied as an integer.
     verify_ui_sweep.py                     # live install, scale 2, every tree
     verify_ui_sweep.py <game-dir> 2        # another install
     verify_ui_sweep.py --tree base 2       # one tree only
+    verify_ui_sweep.py --texture-scale 2 <dir> 2   # texture space scaled too
 """
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -84,7 +85,7 @@ def structural(pristine, patched):
     return files
 
 
-def attributes(pristine, patched, scale, table):
+def attributes(pristine, patched, scale, table, texture_scale=1):
     checked = collections.Counter()
     wrong, frozen_violations = [], []
 
@@ -115,6 +116,11 @@ def attributes(pristine, patched, scale, table):
                     checked["screen"] += 1
                     if want is not None and got != want:
                         wrong.append((rel, line_no, element, attr, old, got, want))
+                elif space is Space.TEXTURE and texture_scale != 1:
+                    want = expected(old, texture_scale)
+                    checked["texture"] += 1
+                    if want is not None and got != want:
+                        wrong.append((rel, line_no, element, attr, old, got, want))
                 else:
                     checked[space.value] += 1
                     if got != old:
@@ -125,15 +131,16 @@ def attributes(pristine, patched, scale, table):
     return checked
 
 
-def spot_checks(pristine, patched, scale):
+def spot_checks(pristine, patched, scale, texture_scale=1):
     """A few end-to-end assertions per tree, on the files that have them."""
     def both(rel):
         return os.path.join(pristine, rel), os.path.join(patched, rel)
 
     stock, live = both("FontIcons/FontIcons.xml")
     if os.path.exists(stock):
-        check(open(stock, "rb").read() == open(live, "rb").read(),
-              "FontIcons.xml changed at texture-scale=1")
+        check((open(stock, "rb").read() == open(live, "rb").read())
+              == (texture_scale == 1),
+              "FontIcons.xml must move exactly when the texture scale does")
 
     stock, live = both("Styles.xml")
     if os.path.exists(stock):
@@ -141,13 +148,16 @@ def spot_checks(pristine, patched, scale):
         want = '<FontNormal14 Font="n023014t.ttf" FontSize="%d"/>' % (int(was.group(1)) * scale)
         text = read(live)
         check(want in text, "font not scaled (expected %s)" % want)
-        check('StepSize="200,0"' in text, "AIAnim StepSize should stay frozen")
-        check('<AIAnim Size="200,200"' in text, "AIAnim cell size should stay frozen")
+        step = 200 * texture_scale
+        check('StepSize="%d,0"' % step in text,
+              "AIAnim StepSize should follow the texture scale")
+        check('<AIAnim Size="%d,%d"' % (step, step) in text,
+              "AIAnim cell size should follow the texture scale")
 
     stock, live = both("IconSupport.lua")
     if os.path.exists(stock):
         text = read(live)
-        check("iconSize * 1" in text, "icon size pin missing")
+        check("iconSize * %d" % texture_scale in text, "icon size pin missing")
         check("atlas[iconSize]" in text, "atlas database key must not change")
 
 
@@ -159,17 +169,18 @@ def style_table(pristine, base_styles):
     return style_reader.flatten({**base_styles, **raw})
 
 
-def verify(name, pristine, patched, scale, base_styles):
+def verify(name, pristine, patched, scale, base_styles, texture_scale):
     print("--- %s" % name)
     if not os.path.isdir(patched):
         failures.append("%s: no patched tree at %s" % (name, patched))
         return
 
     print("compared %d files" % structural(pristine, patched))
-    checked = attributes(pristine, patched, scale, style_table(pristine, base_styles))
+    checked = attributes(pristine, patched, scale,
+                         style_table(pristine, base_styles), texture_scale)
     print("verified %d screen-space, %d texture-space, %d untouched attributes"
           % (checked["screen"], checked["texture"], checked["none"]))
-    spot_checks(pristine, patched, scale)
+    spot_checks(pristine, patched, scale, texture_scale)
 
 
 def main(argv):
@@ -178,13 +189,19 @@ def main(argv):
         at = argv.index("--tree")
         trees = [argv[at + 1]]
         del argv[at:at + 2]
+    texture_scale = 1
+    if "--texture-scale" in argv:
+        at = argv.index("--texture-scale")
+        texture_scale = int(argv[at + 1])
+        del argv[at:at + 2]
     game = argv[1] if len(argv) > 1 else GAME
     scale = int(argv[2]) if len(argv) > 2 else 2
 
     base_styles = style_reader.collect(pathlib.Path(STOCK_TREES["base"][0]))
     for name in trees:
         pristine, rel = STOCK_TREES[name]
-        verify(name, pristine, os.path.join(game, *rel), scale, base_styles)
+        verify(name, pristine, os.path.join(game, *rel), scale, base_styles,
+               texture_scale)
 
     print()
     if failures:

@@ -10,6 +10,8 @@ sys.path.insert(0, TOOL)
 from civbe_uiscale.classify import Space, classify
 from civbe_uiscale.xmlpatch import _ATTR, iter_tags
 
+import lua_textures
+
 ROOT = EXTRACTED
 OUT = TEXTURE_LIST
 DBS = ATLAS_DBS
@@ -33,40 +35,6 @@ def note(ref, reason, site=None):
         reasons[name].add(reason)
         if site and name not in first_site:
             first_site[name] = site
-
-
-# Controls whose texture offset or size is set from Lua carry no atlas marker
-# in the XML, so the classifier alone misses their textures. Resolve each
-# `control:SetTextureOffsetVal/SetTextureSizeVal` call to the control's XML
-# element by ID -- the screen's same-name XML first, then its directory, then
-# the whole tree (instanced controls can be defined in Styles.xml). ID
-# collisions over-approximate; a stretched texture upscaled by mistake is
-# harmless, a sampled texture missed is not.
-_LUA_CALL = re.compile(r'([A-Za-z_][\w\.\[\]"]*?)\s*:\s*SetTexture(?:Offset|Size)Val\s*\(')
-
-
-def _tree_xmls(root, cache={}):
-    if root not in cache:
-        cache[root] = [os.path.join(dp, x)
-                       for dp, dn, fn in os.walk(root)
-                       for x in fn if x.lower().endswith(".xml")]
-    return cache[root]
-
-
-def _id_textures(xml_path, cache={}):
-    """ID -> set of texture names, for every element carrying a Texture ref."""
-    if xml_path not in cache:
-        table = collections.defaultdict(set)
-        text = open(xml_path, encoding="utf-8", errors="replace").read()
-        for element, s, e, _depth in iter_tags(text):
-            attrs = {m.group(1): m.group(2) for m in _ATTR.finditer(text, s, e)}
-            cid = attrs.get("ID")
-            if cid:
-                for key in TEXTURE_REFS:
-                    if key in attrs:
-                        table[cid].add(attrs[key])
-        cache[xml_path] = table
-    return cache[xml_path]
 
 
 for tree_name, (pristine, _rel) in sorted(STOCK_TREES.items()):
@@ -98,22 +66,8 @@ for tree_name, (pristine, _rel) in sorted(STOCK_TREES.items()):
                 text = open(path, encoding="utf-8", errors="replace").read()
                 if "SetTextureOffsetVal" not in text and "SetTextureSizeVal" not in text:
                     continue
-                for m in re.finditer(r'SetTexture\(\s*"([^"]+)"\s*\)', text):
-                    note(m.group(1), "lua-runtime-offset", site)
-                base_xml = os.path.join(dp, f[:-4] + ".xml")
-                fallback = [os.path.join(dp, x) for x in sorted(os.listdir(dp))
-                            if x.lower().endswith(".xml")]
-                for m in _LUA_CALL.finditer(text):
-                    cid = re.split(r"[.\[]", m.group(1))[-1].strip('"]')
-                    hits = _id_textures(base_xml).get(cid, set()) if os.path.exists(base_xml) else set()
-                    if not hits:
-                        for xp in fallback:
-                            hits |= _id_textures(xp).get(cid, set())
-                    if not hits:
-                        for xp in _tree_xmls(pristine):
-                            hits |= _id_textures(xp).get(cid, set())
-                    for ref in hits:
-                        note(ref, "lua-runtime-offset", site)
+                for ref in lua_textures.resolve(pristine, path, text):
+                    note(ref, "lua-runtime-offset", site)
 
 ROW = re.compile(r"<Row>(.*?)</Row>", re.S)
 FIELD = re.compile(r"<(Filename)>(.*?)</\1>", re.S)
