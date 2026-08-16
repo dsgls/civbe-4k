@@ -1,31 +1,30 @@
-"""Applying the sweep across a game tree.
+"""Applying the sweep across the game's UI trees.
 
 Patched output is always derived from the pristine backup, never from the live
 files, so re-running at a different scale replaces the previous result instead
 of compounding on top of it.
+
+Every tree the game can load is swept -- see `trees.py` for why the DLC ones
+matter -- and each gets its own pristine copy inside the one backup root.
 """
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import fastmenu
+from . import backup, fastmenu, trees
 from .classify import Space
 from .luapatch import patch_icon_support, patch_lua
+from .trees import find_ui_dir  # noqa: F401  (re-exported)
 from .xmlpatch import patch_xml
 
 _BOM = b"\xef\xbb\xbf"
 ICON_SUPPORT = "IconSupport.lua"
 
-# Rising Tide ships its own front end, and a DLC file wins over the base tree,
-# so the menu the player sees comes from here whenever the expansion is
-# installed. It sits outside Assets/UI and so outside the pristine backup; the
-# --fast-menu pass gives it a backup of its own.
-EXPANSION_MAIN_MENU = ("assets", "DLC", "Expansion1", "UI", "FrontEnd", "MainMenu.xml")
-EXPANSION_BACKUP_REL = Path("Expansion1/UI/FrontEnd/MainMenu.xml")
-
 
 @dataclass
-class Report:
+class TreeReport:
+    """What one tree's sweep changed."""
+    name: str
     files_changed: int = 0
     screen_changes: int = 0
     texture_changes: int = 0
@@ -43,35 +42,46 @@ class Report:
             self.details.append((str(rel), change))
 
 
-def _child(path: Path, name: str) -> Path:
-    """Case-insensitive child lookup; installs vary in casing."""
-    if (path / name).exists():
-        return path / name
-    lowered = name.lower()
-    for entry in path.iterdir():
-        if entry.name.lower() == lowered:
-            return entry
-    raise FileNotFoundError("%s not found under %s" % (name, path))
+@dataclass
+class Report:
+    """Every tree's sweep. The totals are what the summary line quotes; the
+    per-tree entries are what tells you the DLC tree was actually reached."""
+    trees: list = field(default_factory=list)
 
+    def _total(self, attr):
+        return sum(getattr(tree, attr) for tree in self.trees)
 
-def find_ui_dir(game_dir) -> Path:
-    return _child(_child(Path(game_dir), "assets"), "UI")
+    @property
+    def files_changed(self):
+        return self._total("files_changed")
 
+    @property
+    def screen_changes(self):
+        return self._total("screen_changes")
 
-def expansion_main_menu(game_dir) -> Path:
-    """The Rising Tide MainMenu.xml, or None when the expansion is absent."""
-    path = Path(game_dir)
-    for name in EXPANSION_MAIN_MENU:
-        try:
-            path = _child(path, name)
-        except FileNotFoundError:
-            return None
-    return path
+    @property
+    def texture_changes(self):
+        return self._total("texture_changes")
 
+    @property
+    def icon_support_edits(self):
+        return self._total("icon_support_edits")
 
-def expansion_backup_dir(backup_dir) -> Path:
-    backup_dir = Path(backup_dir)
-    return backup_dir.with_name(backup_dir.name + "-dlc")
+    @property
+    def fast_menu_edits(self):
+        return self._total("fast_menu_edits")
+
+    @property
+    def details(self):
+        """(tree name, file, change) -- the tree name is load-bearing: 102 DLC
+        files sit at the same relative path as a base file."""
+        return [(tree.name, rel, change)
+                for tree in self.trees for rel, change in tree.details]
+
+    @property
+    def foreign_files(self):
+        return [(tree.name, rel)
+                for tree in self.trees for rel in tree.foreign_files]
 
 
 def _read(path: Path):
@@ -86,17 +96,35 @@ def _write(path: Path, text: str, had_bom: bool):
     path.write_bytes(_BOM + data if had_bom else data)
 
 
-def run(game_dir, backup_dir, ui_scale, texture_scale,
-        pin_icon_size=True, fast_menu=False, dry_run=False) -> Report:
-    """Patch the UI tree from the pristine backup. Returns what changed."""
-    game_dir, backup_dir = Path(game_dir), Path(backup_dir)
-    ui_dir = find_ui_dir(game_dir)
+def run(game_dir, backup_dir, ui_scale, texture_scale, pin_icon_size=True,
+        fast_menu=False, dry_run=False, skip_trees=()) -> Report:
+    """Patch every UI tree from its pristine copy. Returns what changed."""
+    game_dir, backup_root = Path(game_dir), Path(backup_dir)
+    if not dry_run:
+        backup.migrate(backup_root, game_dir)
 
-    if not backup_dir.exists() and not dry_run:
-        shutil.copytree(ui_dir, backup_dir)
-
-    source_dir = backup_dir if backup_dir.exists() else ui_dir
     report = Report()
+    for tree in trees.discover(game_dir):
+        if tree.name in skip_trees:
+            continue
+        report.trees.append(_run_tree(
+            tree, backup_root, ui_scale, texture_scale,
+            pin_icon_size=pin_icon_size, fast_menu=fast_menu, dry_run=dry_run,
+        ))
+    return report
+
+
+def _run_tree(tree, backup_root, ui_scale, texture_scale,
+              pin_icon_size, fast_menu, dry_run) -> TreeReport:
+    report = TreeReport(tree.name)
+    source_dir = backup.pristine_dir(tree, backup_root)
+    if source_dir is None:
+        if dry_run:
+            source_dir = tree.live_dir  # nothing to derive from yet
+        else:
+            source_dir = backup_root / tree.backup_rel
+            source_dir.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(tree.live_dir, source_dir)
 
     for source in sorted(source_dir.rglob("*")):
         if not source.is_file():
@@ -127,78 +155,57 @@ def run(game_dir, backup_dir, ui_scale, texture_scale,
         report.files_changed += 1
         report.record(rel, changes)
         if not dry_run:
-            destination = ui_dir / rel
+            destination = tree.live_dir / rel
             destination.parent.mkdir(parents=True, exist_ok=True)
             _write(destination, patched, had_bom)
 
-    _run_expansion(game_dir, backup_dir, fast_menu, dry_run, report)
-    report.foreign_files = _foreign_files(ui_dir, source_dir)
+    report.foreign_files = _foreign_files(tree.live_dir, source_dir)
     return report
 
 
-def _run_expansion(game_dir, backup_dir, fast_menu, dry_run, report):
-    """Rewrite the Rising Tide MainMenu.xml from its own pristine copy.
-
-    Only --fast-menu touches this file, but once a backup exists every later
-    run re-derives from it, so dropping the flag puts the stock menu back.
-    """
-    live = expansion_main_menu(game_dir)
-    if live is None:
-        return
-    backup = expansion_backup_dir(backup_dir) / EXPANSION_BACKUP_REL
-    if not backup.exists():
-        if not fast_menu:
-            return
-        if not dry_run:
-            backup.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(live, backup)
-
-    text, had_bom = _read(backup if backup.exists() else live)
-    patched, changes = text, []
-    if fast_menu:
-        patched, changes = fastmenu.patch_main_menu(text)
-        report.fast_menu_edits += len(changes)
-
-    if patched == _read(live)[0]:
-        return
-    report.files_changed += 1
-    report.record(EXPANSION_BACKUP_REL, changes)
-    if not dry_run:
-        _write(live, patched, had_bom)
-
-
-def _foreign_files(ui_dir: Path, source_dir: Path):
-    """UI files with no counterpart in the pristine backup.
+def _foreign_files(live_dir: Path, source_dir: Path):
+    """UI files with no counterpart in the pristine copy.
 
     Anything another tool dropped in is never rewritten by the sweep, and a
     LanguageSpecific stylesheet overrides Styles.xml, so a stale one silently
     pins the fonts at whatever scale it was generated for.
     """
-    if source_dir == ui_dir:
+    if source_dir == live_dir:
         return []
     found = []
-    for live in sorted(ui_dir.rglob("*")):
+    for live in sorted(live_dir.rglob("*")):
         if not live.is_file() or live.suffix.lower() not in (".xml", ".lua"):
             continue
-        rel = live.relative_to(ui_dir)
+        rel = live.relative_to(live_dir)
         if not (source_dir / rel).exists():
             found.append(rel)
     return found
 
 
 def restore(game_dir, backup_dir):
-    """Copy the pristine backup back over the live UI tree."""
-    backup_dir = Path(backup_dir)
-    if not backup_dir.exists():
-        raise FileNotFoundError("no backup at %s" % backup_dir)
-    ui_dir = find_ui_dir(game_dir)
-    for source in sorted(backup_dir.rglob("*")):
-        if source.is_file():
-            destination = ui_dir / source.relative_to(backup_dir)
+    """Copy the pristine backup back over every tree it covers.
+
+    Returns the (tree, file count) pairs restored and the names of trees whose
+    backup outlived the install -- a DLC removed since the copy was taken.
+    """
+    backup_root = Path(backup_dir)
+    if not backup_root.exists():
+        raise FileNotFoundError("no backup at %s" % backup_root)
+    backup.migrate(backup_root, game_dir)
+
+    restored, orphaned = [], []
+    for tree in backup.stored_trees(game_dir, backup_root):
+        source_dir = backup.pristine_dir(tree, backup_root)
+        if tree.live_dir is None or source_dir is None:
+            orphaned.append(tree.name)
+            continue
+        count = 0
+        for source in sorted(source_dir.rglob("*")):
+            if not source.is_file():
+                continue
+            destination = tree.live_dir / source.relative_to(source_dir)
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
-
-    expansion_backup = expansion_backup_dir(backup_dir) / EXPANSION_BACKUP_REL
-    live = expansion_main_menu(game_dir)
-    if expansion_backup.exists() and live is not None:
-        shutil.copy2(expansion_backup, live)
+            count += 1
+        restored.append((tree.name, count))
+    return restored, orphaned

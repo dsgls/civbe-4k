@@ -3,6 +3,8 @@
 Every run re-derives from the pristine backup, so re-running at a different
 scale never compounds.
 """
+import shutil
+
 import pytest
 
 from civbe_uiscale.apply import find_ui_dir, restore, run
@@ -32,7 +34,7 @@ class TestFirstRun:
     def test_takes_a_pristine_backup(self, game):
         backup = game / "backup"
         run(game, backup, ui_scale=2.0, texture_scale=1.0)
-        assert (backup / "Styles.xml").read_bytes() == (
+        assert (backup / "assets" / "UI" / "Styles.xml").read_bytes() == (
             b'<?xml version="1.0"?>\n<Box Size="100,50" Offset="10,10"/>\n'
         )
 
@@ -80,7 +82,7 @@ class TestRerunning:
         backup = game / "backup"
         run(game, backup, ui_scale=2.0, texture_scale=1.0)
         run(game, backup, ui_scale=4.0, texture_scale=1.0)
-        assert b'Size="100,50"' in (backup / "Styles.xml").read_bytes()
+        assert b'Size="100,50"' in (backup / "assets" / "UI" / "Styles.xml").read_bytes()
 
 
 class TestTextureScale:
@@ -153,32 +155,96 @@ class TestFastMenu:
         run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
             fast_menu=True)
         assert 'Start="0,0"' in expansion_menu(front_end).read_text()
-        assert (front_end / "backup-dlc" / "Expansion1" / "UI" / "FrontEnd"
-                / "MainMenu.xml").read_text() == SLIDE
+        assert (front_end / "backup" / "assets" / "DLC" / "Expansion1" / "UI"
+                / "FrontEnd" / "MainMenu.xml").read_text() == SLIDE
 
-    def test_leaves_the_expansion_geometry_alone(self, front_end):
+    def test_scales_the_expansion_menu_geometry(self, front_end):
         run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
             fast_menu=True)
-        assert 'Size="280,35"' in expansion_menu(front_end).read_text()
+        assert 'Size="560,70"' in expansion_menu(front_end).read_text()
 
-    def test_dropping_the_flag_puts_the_stock_menu_back(self, front_end):
+    def test_dropping_the_flag_puts_the_stock_animation_back(self, front_end):
         run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
             fast_menu=True)
         run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
-        assert expansion_menu(front_end).read_text() == SLIDE
-        assert 'AlphaStart="0"' in (
-            ui_of(front_end) / "FrontEnd" / "MainMenu.xml").read_text()
+        for menu in (expansion_menu(front_end),
+                     ui_of(front_end) / "FrontEnd" / "MainMenu.xml"):
+            text = menu.read_text()
+            assert 'AlphaStart="0"' in text
+            assert 'Start="120,0"' in text
 
     def test_dry_run_touches_neither_tree(self, front_end):
         report = run(front_end, front_end / "backup", ui_scale=2.0,
                      texture_scale=1.0, fast_menu=True, dry_run=True)
         assert expansion_menu(front_end).read_text() == SLIDE
-        assert not (front_end / "backup-dlc").exists()
+        assert not (front_end / "backup").exists()
         assert report.fast_menu_edits > 0
 
     def test_a_missing_expansion_is_not_an_error(self, game):
-        run(game, game / "backup", ui_scale=2.0, texture_scale=1.0, fast_menu=True)
-        assert not (game / "backup-dlc").exists()
+        report = run(game, game / "backup", ui_scale=2.0, texture_scale=1.0,
+                     fast_menu=True)
+        assert [tree.name for tree in report.trees] == ["base"]
+
+
+class TestEveryTree:
+    def test_takes_a_pristine_copy_of_every_tree(self, front_end):
+        backup = front_end / "backup"
+        run(front_end, backup, ui_scale=2.0, texture_scale=1.0)
+        assert (backup / "assets" / "UI" / "Styles.xml").exists()
+        assert (backup / "assets" / "DLC" / "Expansion1" / "UI" / "FrontEnd"
+                / "MainMenu.xml").read_text() == SLIDE
+
+    def test_scales_a_dlc_file_that_shadows_a_base_file(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        assert 'Size="560,70"' in expansion_menu(front_end).read_text()
+
+    def test_reports_each_tree_separately(self, front_end):
+        report = run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        assert [tree.name for tree in report.trees] == ["base", "Expansion1"]
+        assert all(tree.files_changed for tree in report.trees)
+
+    def test_details_distinguish_two_trees_at_the_same_path(self, front_end):
+        report = run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        menus = {tree for tree, rel, _ in report.details
+                 if rel.replace("\\", "/") == "FrontEnd/MainMenu.xml"}
+        assert menus == {"base", "Expansion1"}
+
+    def test_skips_a_tree_on_request(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            skip_trees=["Expansion1"])
+        assert expansion_menu(front_end).read_text() == SLIDE
+        assert not (front_end / "backup" / "assets" / "DLC").exists()
+
+    def test_a_dlc_installed_later_gets_its_own_backup(self, game):
+        backup = game / "backup"
+        run(game, backup, ui_scale=2.0, texture_scale=1.0)
+        late = game / "assets" / "DLC" / "Expansion1" / "UI" / "FrontEnd"
+        late.mkdir(parents=True)
+        (late / "MainMenu.xml").write_text(SLIDE)
+
+        run(game, backup, ui_scale=2.0, texture_scale=1.0)
+        assert (backup / "assets" / "DLC" / "Expansion1" / "UI" / "FrontEnd"
+                / "MainMenu.xml").read_text() == SLIDE
+        assert 'Size="560,70"' in (late / "MainMenu.xml").read_text()
+
+    def test_ignores_a_dlc_with_no_ui_directory(self, front_end):
+        maps = front_end / "assets" / "DLC" / "DLC_SP_Maps" / "Maps"
+        maps.mkdir(parents=True)
+        (maps / "Terrain.lua").write_text("Controls.X:SetSizeVal(10, 20);\n")
+
+        report = run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        assert [tree.name for tree in report.trees] == ["base", "Expansion1"]
+        assert "SetSizeVal(10, 20)" in (maps / "Terrain.lua").read_text()
+
+    def test_icon_support_is_patched_only_where_it_exists(self, front_end):
+        (ui_of(front_end) / "IconSupport.lua").write_text(
+            "imageControl:SetTextureOffsetVal( (offset % numCols) * iconSize,"
+            " math.floor(offset / numCols) * iconSize );\n"
+        )
+        report = run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=2.0)
+        by_name = {tree.name: tree for tree in report.trees}
+        assert by_name["base"].icon_support_edits > 0
+        assert by_name["Expansion1"].icon_support_edits == 0
 
 
 class TestRestore:
@@ -192,11 +258,28 @@ class TestRestore:
         for rel, data in originals.items():
             assert (ui_of(game) / rel).read_bytes() == data
 
-    def test_restores_the_expansion_menu_too(self, front_end):
+    def test_restores_every_tree(self, front_end):
+        originals = {
+            path: path.read_text()
+            for path in front_end.rglob("*.xml") if path.is_file()
+        }
         run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
             fast_menu=True)
-        restore(front_end, front_end / "backup")
-        assert expansion_menu(front_end).read_text() == SLIDE
+        restored, orphaned = restore(front_end, front_end / "backup")
+
+        assert dict(restored) == {"base": 5, "Expansion1": 1}
+        assert orphaned == []
+        for path, text in originals.items():
+            assert path.read_text() == text
+
+    def test_tolerates_a_dlc_uninstalled_since_the_backup(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        shutil.rmtree(front_end / "assets" / "DLC" / "Expansion1")
+
+        restored, orphaned = restore(front_end, front_end / "backup")
+        assert dict(restored) == {"base": 5}
+        assert orphaned == ["Expansion1"]
+        assert not (front_end / "assets" / "DLC" / "Expansion1").exists()
 
     def test_restoring_without_a_backup_is_an_error(self, game):
         with pytest.raises(FileNotFoundError):

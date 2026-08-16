@@ -26,7 +26,7 @@ def _build_parser():
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    apply_cmd = sub.add_parser("apply", help="patch the UI tree")
+    apply_cmd = sub.add_parser("apply", help="patch the UI trees")
     apply_cmd.add_argument("--scale", type=_scale, default=2.0,
                            help="screen geometry and font scale (default: 2.0)")
     apply_cmd.add_argument("--texture-scale", type=_scale, default=1.0,
@@ -37,6 +37,9 @@ def _build_parser():
     apply_cmd.add_argument("--fast-menu", action="store_true",
                            help="drop the main menu's staggered fade-in and the "
                                 "legal disclaimer popup")
+    apply_cmd.add_argument("--skip-tree", action="append", default=[], metavar="NAME",
+                           help="leave a tree stock: 'base' or a DLC directory "
+                                "name such as Expansion1 (repeatable)")
     apply_cmd.add_argument("--dry-run", action="store_true")
     apply_cmd.add_argument("--report", type=Path, help="write a per-change listing here")
 
@@ -52,11 +55,11 @@ def _build_parser():
 def _write_report(path: Path, report):
     lines = []
     by_file = collections.defaultdict(list)
-    for rel, change in report.details:
-        by_file[rel].append(change)
-    for rel in sorted(by_file):
-        lines.append(rel)
-        for change in by_file[rel]:
+    for tree, rel, change in report.details:
+        by_file[(tree, rel)].append(change)
+    for tree, rel in sorted(by_file):
+        lines.append("[%s] %s" % (tree, rel))
+        for change in by_file[(tree, rel)]:
             lines.append("  %5d  %-14s %-22s %-8s %r -> %r" % (
                 change.line,
                 getattr(change, "element", getattr(change, "call", "")),
@@ -68,13 +71,35 @@ def _write_report(path: Path, report):
     path.write_text("\n".join(lines) + "\n")
 
 
+def _print_per_tree(report):
+    width = max(len(tree.name) for tree in report.trees)
+    for tree in report.trees:
+        print("    %-*s  %4d file(s), %5d screen, %5d texture"
+              % (width, tree.name, tree.files_changed,
+                 tree.screen_changes, tree.texture_changes))
+
+
+def _print_foreign(report):
+    print()
+    print("WARNING: %d UI file(s) are not in the pristine backup, so the sweep"
+          % len(report.foreign_files))
+    print("never rewrites them. A LanguageSpecific stylesheet here overrides")
+    print("Styles.xml and will pin the fonts at whatever scale it was made for:")
+    for tree, rel in report.foreign_files:
+        print("  [%s] %s" % (tree, rel))
+
+
 def main(argv=None):
     args = _build_parser().parse_args(argv)
     backup = args.backup or (args.game_dir / DEFAULT_BACKUP_NAME)
 
     if args.command == "restore":
-        restore(args.game_dir, backup)
+        restored, orphaned = restore(args.game_dir, backup)
         print("Stock UI restored from %s" % backup)
+        for name, count in restored:
+            print("  %s: %d file(s)" % (name, count))
+        for name in orphaned:
+            print("  %s: no longer installed, skipped" % name)
         return 0
 
     report = run(
@@ -84,6 +109,7 @@ def main(argv=None):
         pin_icon_size=not args.no_pin_icon_size,
         fast_menu=args.fast_menu,
         dry_run=args.dry_run,
+        skip_trees=args.skip_tree,
     )
 
     print("UI scale %sx, texture scale %sx%s"
@@ -95,15 +121,12 @@ def main(argv=None):
         print("  %d IconSupport.lua edit(s)" % report.icon_support_edits)
     if args.fast_menu:
         print("  %d front-end animation edit(s)" % report.fast_menu_edits)
+    if report.trees:
+        print("  per tree:")
+        _print_per_tree(report)
 
     if report.foreign_files:
-        print()
-        print("WARNING: %d UI file(s) are not in the pristine backup, so the sweep"
-              % len(report.foreign_files))
-        print("never rewrites them. A LanguageSpecific stylesheet here overrides")
-        print("Styles.xml and will pin the fonts at whatever scale it was made for:")
-        for rel in report.foreign_files:
-            print("  %s" % rel)
+        _print_foreign(report)
 
     if args.report:
         _write_report(args.report, report)

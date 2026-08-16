@@ -51,6 +51,49 @@ def test_fast_menu_patches_the_front_end(game, capsys):
     assert "front-end animation edit" in capsys.readouterr().out
 
 
+@pytest.fixture
+def game_with_dlc(game):
+    dlc = game / "assets" / "DLC" / "Expansion1" / "UI"
+    dlc.mkdir(parents=True)
+    (dlc / "Styles.xml").write_bytes(b'<Box Size="10,20"/>\n')
+    return game
+
+
+def test_summary_breaks_the_counts_down_per_tree(game_with_dlc, capsys):
+    main(["apply", "--game-dir", str(game_with_dlc),
+          "--backup", str(game_with_dlc / "bak"), "--scale", "2"])
+    out = capsys.readouterr().out
+    assert "2 file(s) changed" in out
+    assert "base" in out and "Expansion1" in out
+
+
+def test_report_file_separates_the_trees(game_with_dlc, tmp_path):
+    out = tmp_path / "changes.txt"
+    main(["apply", "--game-dir", str(game_with_dlc),
+          "--backup", str(game_with_dlc / "bak"), "--scale", "2", "--report", str(out)])
+    text = out.read_text()
+    assert "[base] Styles.xml" in text
+    assert "[Expansion1] Styles.xml" in text
+
+
+def test_skip_tree_leaves_that_tree_stock(game_with_dlc):
+    main(["apply", "--game-dir", str(game_with_dlc),
+          "--backup", str(game_with_dlc / "bak"), "--scale", "2",
+          "--skip-tree", "Expansion1"])
+    dlc = game_with_dlc / "assets" / "DLC" / "Expansion1" / "UI" / "Styles.xml"
+    assert dlc.read_bytes() == b'<Box Size="10,20"/>\n'
+
+
+def test_restore_names_the_trees_it_put_back(game_with_dlc, capsys):
+    main(["apply", "--game-dir", str(game_with_dlc),
+          "--backup", str(game_with_dlc / "bak"), "--scale", "2"])
+    main(["restore", "--game-dir", str(game_with_dlc),
+          "--backup", str(game_with_dlc / "bak")])
+    out = capsys.readouterr().out
+    assert "base: 1 file(s)" in out
+    assert "Expansion1: 1 file(s)" in out
+
+
 def test_rejects_a_scale_outside_the_sane_range(game):
     with pytest.raises(SystemExit):
         main(["apply", "--game-dir", str(game), "--scale", "12"])

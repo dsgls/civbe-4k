@@ -11,10 +11,39 @@ python3 -m civbe_uiscale restore
 ```
 
 `--game-dir` defaults to the standard Steam install path; pass it for anywhere
-else. The first run copies
-`Assets/UI` to `backup-ui-pristine/`; every later run re-derives from that
-backup, so changing `--scale` replaces the previous result instead of
-compounding on it.
+else. The first run copies each UI tree into `backup-ui-pristine/`; every later
+run re-derives from that backup, so changing `--scale` replaces the previous
+result instead of compounding on it.
+
+## Which trees are swept
+
+Every UI tree the game can load: `Assets/UI`, plus `UI` under each
+`Assets/DLC/*` that has one. A DLC ships its own copy of a UI file at the same
+relative path as the base one and the engine loads **that** copy — with Rising
+Tide installed the main menu comes from `Assets/DLC/Expansion1/UI`, so patching
+only the base tree leaves most of the interface stock-sized. `Assets/DLC` is
+globbed rather than hardcoded, so a DLC installed later is picked up on the
+next run and gets its pristine copy then.
+
+Whether a DLC is *enabled* is player configuration and is not readable from the
+install directory, so an installed-but-disabled DLC is patched anyway. The
+engine never loads it; the pristine copy makes it reversible either way. Use
+`--skip-tree NAME` (`base`, or a DLC directory name) to leave one alone.
+
+The backup mirrors the install, which is what lets `restore` put every tree
+back without a manifest to consult:
+
+```
+backup-ui-pristine/assets/UI/...
+backup-ui-pristine/assets/DLC/Expansion1/UI/...
+```
+
+A backup from before DLC trees were swept — the contents of `Assets/UI` sitting
+at the root — is adopted by *renaming* it into place. It is never re-copied:
+once a tree has been patched, its backup is the only stock copy left, so a
+fall-through that snapshotted a patched tree as "pristine" would make restore
+impossible. An unrecognisable backup root is an error rather than a fresh
+start, for the same reason.
 
 ## Two coordinate spaces
 
@@ -75,21 +104,16 @@ a growing `Pause`, and comments out the legal disclaimer popup in
 at its end position, so the change is scale-independent — it runs on top of the
 scaled output, after `Start="60,0"` has already become `Start="120,0"`.
 
-Rising Tide ships its own `MainMenu.xml`, and a DLC file wins over the base
-tree, so with the expansion installed that is the menu you actually see. It
-lives outside `Assets/UI`, so this pass gives it a pristine copy of its own
-next to the main backup, in `backup-ui-pristine-dlc/`. Only `--fast-menu`
-creates it; once it exists, later runs re-derive from it like everything else,
-so dropping the flag puts the stock animation back. `restore` covers it too.
+It applies in every tree that has a `FrontEnd/MainMenu.xml`, so Rising Tide's
+menu is covered as well as the base one. Dropping the flag puts the stock
+animation back, like any other change.
 
 ## What it does not do
 
 - Rescale the `.dds` art. Until that exists, run with the default
   `--texture-scale 1.0`.
-- Touch anything outside `Assets/UI` — the `IconTextureAtlases` rows in
-  `Assets/Gameplay/XML`, or the DLC UI trees. The one exception is the Rising
-  Tide `MainMenu.xml` under `--fast-menu`, which is *not* rescaled, only
-  de-animated.
+- Touch anything outside the UI trees, such as the `IconTextureAtlases` rows in
+  `Assets/Gameplay/XML`.
 - Edit commented-out markup, or reformat files. Only the bytes inside a matched
   attribute's quotes change; byte-order marks and line endings survive.
 
@@ -101,9 +125,10 @@ rather than corrupt, and both resolve when the textures are rescaled and
 `--texture-scale` is raised to match. Panel background textures are stretched
 by the engine and will be correspondingly soft.
 
-If another tool has added files to `Assets/UI`, the sweep reports them: it
-never rewrites them, and a `LanguageSpecific` stylesheet overrides `Styles.xml`
-and will pin fonts at whatever scale it was generated for.
+If another tool has added files to a swept tree, the sweep reports them with
+the tree they are in: it never rewrites them, and a `LanguageSpecific`
+stylesheet overrides `Styles.xml` and will pin fonts at whatever scale it was
+generated for.
 
 ## Tests
 

@@ -18,7 +18,7 @@ traps here are non-obvious and cost real time to rediscover.
 ## Layout
 
 ```
-civbe-uiscale/          the phase-1 tool (Python, 115 tests). See its README.
+civbe-uiscale/          the phase-1 tool (Python, 170 tests). See its README.
 ui_textures.txt         the phase-2 work list: 405 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
   UITextures.fpk/                 1642 .dds  (base game UI)
@@ -365,11 +365,13 @@ Each of these is cheap to test and expensive to get wrong.
 ## Commands
 
 ```bash
-# phase 1: scale a live install (always re-derives from the pristine backup)
+# phase 1: scale a live install — every UI tree, always re-derived from the
+# pristine backup
 cd civbe-uiscale
 python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2
 python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --texture-scale 2
 python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --fast-menu
+python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --skip-tree Expansion1
 python3 -m civbe_uiscale restore --game-dir "<install>"
 
 # tests (nix-shell wrapper needed on this machine)
@@ -394,7 +396,8 @@ only.
 
 The sweep's acceptance check compares a patched tree against
 `reference/assets-ui-stock` attribute by attribute, using a value oracle
-independent of the tool's own code. Current result: 12,777 screen-space values
+independent of the tool's own code. It covers the base tree; the DLC trees have
+no stock reference yet. Current result: 12,777 screen-space values
 scaled correctly, 3,945 texture-space frozen, 31,649 untouched, no change to
 line counts, byte-order marks, attribute counts or attribute order.
 
@@ -413,14 +416,13 @@ line counts, byte-order marks, attribute counts or attribute order.
 - `--no-pin-icon-size` exists if the icon-size pin turns out to fight a screen.
 - `--fast-menu` deliberately writes values the sweep would otherwise scale
   (`SlideAnim Start`) and values it never touches (`AlphaStart`), so
-  `verify_ui_sweep.py` will flag `FrontEnd/MainMenu.xml` on such a tree. Verify
-  a sweep run without the flag.
-- Rising Tide ships its own UI tree at `Assets/DLC/Expansion1/UI`: 150 XML/Lua
-  files, 102 of them at the same relative path as a base `Assets/UI` file,
-  including a full `Styles.xml` that carries the font sizes. The sweep does not
-  touch that tree, so every file the expansion overrides stays stock-sized when
-  Rising Tide is enabled. **Unverified: which copy the engine actually loads.**
-  `--fast-menu` reaches into that tree for `MainMenu.xml` alone, and only to
-  de-animate it — it is never rescaled.
+  `verify_ui_sweep.py` will flag `FrontEnd/MainMenu.xml` in every tree that has
+  one. Verify a sweep run without the flag.
+- A DLC UI file wins over the base file at the same relative path — confirmed
+  in game: the Rising Tide main menu rendered stock-sized while the base
+  `Assets/UI/FrontEnd/MainMenu.xml` was patched to 2x. Rising Tide's tree is
+  150 XML/Lua files, 102 of them shadowing a base file, including a full
+  `Styles.xml` that carries the font sizes, so leaving it alone left most of
+  the interface unscaled. Every tree is now swept; see the tool's README.
 - Large copies out of this directory over WSL/NTFS occasionally fail with
   "Cannot allocate memory"; `tar cf - . | (cd dst && tar xf -)` works.

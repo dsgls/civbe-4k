@@ -28,8 +28,23 @@ def test_reports_a_file_absent_from_the_backup(game):
     (intruder / "LanguageSpecificStyles.xml").write_bytes(b"<StyleSheet/>\n")
 
     report = run(game, backup, ui_scale=3.0, texture_scale=1.0)
-    assert [str(p).replace("\\", "/") for p in report.foreign_files] == [
-        "LanguageSpecific/en_US/LanguageSpecificStyles.xml"
+    assert [(tree, str(rel).replace("\\", "/")) for tree, rel in report.foreign_files] == [
+        ("base", "LanguageSpecific/en_US/LanguageSpecificStyles.xml")
+    ]
+
+
+def test_names_the_tree_a_foreign_file_belongs_to(game):
+    backup = game / "bak"
+    dlc = game / "assets" / "DLC" / "Expansion1" / "UI"
+    dlc.mkdir(parents=True)
+    (dlc / "Styles.xml").write_bytes(b'<Box Size="10,10"/>\n')
+    run(game, backup, ui_scale=2.0, texture_scale=1.0)
+
+    (dlc / "Intruder.xml").write_bytes(b"<StyleSheet/>\n")
+
+    report = run(game, backup, ui_scale=2.0, texture_scale=1.0)
+    assert [(tree, str(rel)) for tree, rel in report.foreign_files] == [
+        ("Expansion1", "Intruder.xml")
     ]
 
 
