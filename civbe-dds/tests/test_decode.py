@@ -8,7 +8,7 @@ from civbe_dds.dxt import BLOCK_BYTES
 from civbe_dds.encode import write
 from civbe_dds.header import (
     DDPF_ALPHAPIXELS, DDPF_FOURCC, DDPF_LUMINANCE, DDPF_RGB, DDS_MAGIC,
-    DDSCAPS2_CUBEMAP, HEADER_LEN,
+    DDSCAPS2_CUBEMAP, HEADER_LEN, UnrecognizedPixelFormatError,
 )
 from civbe_dds.image import Image
 
@@ -78,7 +78,7 @@ class TestDispatch32Bit:
         raw = _raw_header(1, 1, pfflags=DDPF_RGB, bits=32, rmask=0x0000ff00) \
             + bytes(4)
         p = _write_dds(tmp_path, "t", raw)
-        with pytest.raises(ValueError):
+        with pytest.raises(UnrecognizedPixelFormatError):
             read(p)
 
     def test_group_is_carried_from_ftxt(self, tmp_path):
@@ -86,6 +86,19 @@ class TestDispatch32Bit:
                            group=b"Interface Scalable\0", tag=b"COLOR\0\0\0") + bytes(4)
         p = _write_dds(tmp_path, "t", raw)
         assert read(p).group == "Interface Scalable"
+
+    def test_reads_exactly_level_0_ignoring_trailing_mip_data(self, tmp_path):
+        # dwMipMapCount > 1: level 1 follows level 0 tightly packed, per
+        # *Decoding*'s "pixel data is tightly packed from offset 0x80". The
+        # trailing bytes are deliberately different from level 0, so
+        # accidentally including them would change img.rgba.
+        level0 = bytes([10, 20, 30, 40, 50, 60, 70, 80])
+        trailing_mip = bytes([255, 255, 255, 255])
+        raw = _raw_header(2, 1, pfflags=DDPF_RGB | DDPF_ALPHAPIXELS,
+                           bits=32, rmask=0xff) + level0 + trailing_mip
+        p = _write_dds(tmp_path, "t", raw)
+        img = read(p)
+        assert img.rgba == level0
 
 
 class TestDispatchLuminance:
@@ -144,10 +157,14 @@ class TestDispatchDxt:
 
 class TestUnsupportedFormats:
     def test_fic_fourcc_raises_named_error(self, tmp_path):
+        # Not just "any UnsupportedFormatError": the generic unrecognised-
+        # fourCC message at the end of read()'s dispatch is also one, and
+        # its %r of the fourCC bytes never spells out "114" -- matching on
+        # that pins the dedicated .fic branch, not the fallthrough.
         raw = _raw_header(4, 4, pfflags=DDPF_FOURCC,
                            fourcc=struct.pack("<I", 114))
         p = _write_dds(tmp_path, "t", raw)
-        with pytest.raises(UnsupportedFormatError):
+        with pytest.raises(UnsupportedFormatError, match="114"):
             read(p)
 
     def test_other_fourcc_raises_named_error_not_a_struct_failure(self, tmp_path):
@@ -164,13 +181,28 @@ class TestUnsupportedFormats:
 
 
 class TestCubemap:
-    def test_decodes_face_0_and_warns_on_stderr(self, tmp_path, capsys):
-        rgba = bytes([1, 2, 3, 4])
+    def test_decodes_face_0_only_and_warns_on_stderr(self, tmp_path, capsys):
+        # Five more faces follow face 0, each with different bytes -- a
+        # decoder that read past face 0 (e.g. to end of file) would return
+        # more than 4 bytes, or the wrong bytes.
+        face0 = bytes([1, 2, 3, 4])
+        other_faces = bytes(range(5, 5 + 4 * 5))
         raw = _raw_header(1, 1, pfflags=DDPF_RGB, bits=32, rmask=0xff,
-                           caps2=DDSCAPS2_CUBEMAP) + rgba
+                           caps2=DDSCAPS2_CUBEMAP) + face0 + other_faces
         p = _write_dds(tmp_path, "t", raw)
         img = read(p)
-        assert img.rgba == rgba
+        assert img.rgba == face0
+        assert "cubemap" in capsys.readouterr().err.lower()
+
+    def test_dxt_cubemap_also_warns_on_stderr(self, tmp_path, capsys):
+        # 19 of the 22 stock cubemaps are DXT1, not 32-bit -- the warning
+        # must fire regardless of which fourCC branch decodes face 0.
+        c0, c1 = 0xFFFF, 0x0000
+        block = struct.pack("<HHI", c0, c1, 0)
+        raw = _raw_header(4, 4, pfflags=DDPF_FOURCC, fourcc=b"DXT1",
+                           caps2=DDSCAPS2_CUBEMAP) + block
+        p = _write_dds(tmp_path, "t", raw)
+        read(p)
         assert "cubemap" in capsys.readouterr().err.lower()
 
     def test_non_cubemap_flag_bits_dont_trigger_the_warning(self, tmp_path, capsys):
@@ -185,23 +217,30 @@ class TestCubemap:
 
 class TestPairDispatch:
     def test_pair_delegates_to_decode_pair(self, tmp_path):
-        # Minimal N=1 dictionary/index pair, built the same way test_pair.py
-        # does, to confirm read() routes to pair.decode_pair rather than
-        # trying to parse the dictionary as a plain texture.
-        colour = (9, 8, 7, 255)
-        dic_hdr = _raw_header(1, 1, pfflags=0, bits=32, rmask=0xff,
+        # N=1 dictionary/index pair, built the same way test_pair.py does.
+        # The geometry is chosen so a plain-32-bit decode of the dictionary
+        # bytes CANNOT produce the same result: the 2x1 dictionary read as a
+        # plain texture is 2x1, but the 2x2 index makes the paired decode
+        # 2x2 -- so the dimension assertion alone fails if read() ever stops
+        # routing to pair.decode_pair. The index also scrambles tile order,
+        # so a positional (non-pair) copy would additionally get the wrong
+        # pixels even if the dimensions coincided.
+        colour_a = (1, 2, 3, 255)
+        colour_b = (9, 8, 7, 255)
+        dic_hdr = _raw_header(2, 1, pfflags=0, bits=32, rmask=0xff,
                                group=b"Interface\0", tag=b"BC001\0\0")
-        dic = dic_hdr + bytes(colour)
-        idx_hdr = _raw_header(1, 1, pfflags=DDPF_LUMINANCE, bits=8, rmask=0xff)
-        idx = idx_hdr + bytes([0])
+        dic = dic_hdr + bytes(colour_a) + bytes(colour_b)
+        idx_hdr = _raw_header(2, 2, pfflags=DDPF_LUMINANCE, bits=8, rmask=0xff)
+        idx = idx_hdr + bytes([1, 0, 0, 1])
         dds = tmp_path / "t.dds"
         dds.write_bytes(dic)
         (tmp_path / "t-index.dds").write_bytes(idx)
 
         img = read(str(dds))
 
-        assert (img.width, img.height) == (1, 1)
-        assert img.rgba == bytes(colour)
+        assert (img.width, img.height) == (2, 2)
+        expected = bytes(colour_b) + bytes(colour_a) + bytes(colour_a) + bytes(colour_b)
+        assert img.rgba == expected
         assert img.group == "Interface"
 
 
@@ -251,6 +290,16 @@ class TestRoundTrip:
         (tmp_path / "t-index.dds").write_bytes(idx)
 
         decoded = read(str(dds))
+
+        # Pin the actual tile arrangement first -- rows top to bottom, cols
+        # left to right, cols = pw // n = 2 -- so the round-trip below is
+        # checked against the spec-derived layout, not against whatever the
+        # decoder happened to produce.
+        row0 = bytes(colours[3]) * n + bytes(colours[0]) * n
+        row1 = bytes(colours[2]) * n + bytes(colours[1]) * n
+        expected = (row0 * n) + (row1 * n)
+        assert decoded.rgba == expected
+
         out = tmp_path / "roundtrip.dds"
         write(str(out), decoded)
         reread = read(str(out))
