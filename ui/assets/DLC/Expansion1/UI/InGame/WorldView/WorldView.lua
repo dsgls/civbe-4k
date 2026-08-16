@@ -81,19 +81,19 @@ local DefaultMessageHandler = {};
 
 DefaultMessageHandler[KeyEvents.KeyDown] =
 function( wParam, lParam )
-	if ( wParam == Keys.VK_LEFT ) then
+	if ( wParam == Keys.VK_LEFT or wParam == Keys.A ) then
 		Events.SerialEventCameraStopMovingRight();
 		Events.SerialEventCameraStartMovingLeft();
 		return true;
-	elseif ( wParam == Keys.VK_RIGHT ) then
+	elseif ( wParam == Keys.VK_RIGHT or wParam == Keys.D ) then
 		Events.SerialEventCameraStopMovingLeft();
 		Events.SerialEventCameraStartMovingRight();
 		return true;
-	elseif ( wParam == Keys.VK_UP ) then
+	elseif ( wParam == Keys.VK_UP or wParam == Keys.W ) then
 		Events.SerialEventCameraStopMovingBack();
 		Events.SerialEventCameraStartMovingForward();
 		return true;
-	elseif ( wParam == Keys.VK_DOWN ) then
+	elseif ( wParam == Keys.VK_DOWN or wParam == Keys.S ) then
 		Events.SerialEventCameraStopMovingForward();
 		Events.SerialEventCameraStartMovingBack();
 		return true;
@@ -109,16 +109,16 @@ end
 
 DefaultMessageHandler[KeyEvents.KeyUp] =
 function( wParam, lParam )
-	if ( wParam == Keys.VK_LEFT ) then
+	if ( wParam == Keys.VK_LEFT or wParam == Keys.A ) then
 		Events.SerialEventCameraStopMovingLeft();
         return true;
-	elseif ( wParam == Keys.VK_RIGHT ) then
+	elseif ( wParam == Keys.VK_RIGHT or wParam == Keys.D ) then
 		Events.SerialEventCameraStopMovingRight();
         return true;
-	elseif ( wParam == Keys.VK_UP ) then
+	elseif ( wParam == Keys.VK_UP or wParam == Keys.W ) then
 		Events.SerialEventCameraStopMovingForward();
         return true;
-	elseif ( wParam == Keys.VK_DOWN ) then
+	elseif ( wParam == Keys.VK_DOWN or wParam == Keys.S ) then
 		Events.SerialEventCameraStopMovingBack();
         return true;
 	end
@@ -128,13 +128,13 @@ end
 
 -- Emergency key up handler
 function KeyUpHandler( wParam )
-	if ( wParam == Keys.VK_LEFT ) then
+	if ( wParam == Keys.VK_LEFT or wParam == Keys.A ) then
 		Events.SerialEventCameraStopMovingLeft();
-	elseif ( wParam == Keys.VK_RIGHT ) then
+	elseif ( wParam == Keys.VK_RIGHT or wParam == Keys.D ) then
 		Events.SerialEventCameraStopMovingRight();
-	elseif ( wParam == Keys.VK_UP ) then
+	elseif ( wParam == Keys.VK_UP or wParam == Keys.W ) then
 		Events.SerialEventCameraStopMovingForward();
-	elseif ( wParam == Keys.VK_DOWN ) then
+	elseif ( wParam == Keys.VK_DOWN or wParam == Keys.S ) then
 		Events.SerialEventCameraStopMovingBack();
 	end
 end
