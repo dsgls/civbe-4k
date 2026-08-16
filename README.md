@@ -97,6 +97,28 @@ be block-compressed.
 `config.ini` has `LooseFilesOverridePAK = 1` (already set). Note the qualifier
 in the comment: *"if the loose file is newer"* — timestamps matter.
 
+**Verified in game.** A loose `civilopedia_searchicon.dds` dropped at the root
+of a UI tree (`Assets/DLC/Expansion1/UI/`) replaced the icon the Civilopedia
+draws. Three things follow, and they decide the shape of phase 2:
+
+- **A loose file in the DLC UI tree beats a texture packed in the base
+  archive.** The original lives in `UITextures.fpk`, the override sat in
+  `Assets/DLC/Expansion1/UI/`, and the override won — resolved by bare
+  filename, with no `Art/` subdirectory needed. That is the same DLC-over-base
+  precedence the XML follows, so it says nothing about the other direction:
+  whether a loose file in `Assets/UI` overrides a texture the expansion owns is
+  **untested**. Phase 2 sidesteps the question by planting everything in the
+  DLC UI tree, which wins either way. (On an install without Rising Tide there
+  is no such tree, and the base UI root is the only candidate.)
+- **A plain DDS replaces a dictionary pair.** The stock texture is a pair —
+  a 163x1 `A8B8G8R8` dictionary plus a 30x30 `L8` index. The override was a
+  single plain `A8B8G8R8` file with no `-index.dds` sibling, and it won. So the
+  encoder never has to emit dictionary pairs: converted art ships as plain DDS.
+- The override was 14x6 against a 30x30 original and still drew, so the engine
+  does not require the replacement to match the stock dimensions. How it treats
+  the mismatch — stretch, clip, or letting the XML `Size` decide — is not
+  established, and phase 2 outputs match the source dimensions anyway.
+
 ---
 
 ## The texture format
@@ -314,7 +336,10 @@ Ignore them; there is nothing to convert.
    933 stock textures already use, so it is the safe target format — but see
    the memory ceiling: at 1.2 GB uncompressed for the full list, the icon
    atlases almost certainly need DXT.
-3. **Place** the results where loose files override the archives.
+3. **Place** the results loose at the DLC UI tree root
+   (`Assets/DLC/Expansion1/UI/`) — one flat directory of plain DDS, no pairs,
+   no `Art/` hierarchy to reproduce. Base-tree art goes there too; the DLC tree
+   wins over both archives.
 4. **Run the sweep with matching scale**: `--texture-scale 2`.
 
 ### Constraint: `--texture-scale` is global
@@ -332,21 +357,17 @@ it is new work, not a configuration change.
 
 Each of these is cheap to test and expensive to get wrong.
 
-1. **Where do loose overrides go?** Never verified. The archives are flat and
-   the engine resolves textures by bare filename (the XML mixes
-   `Texture="buttonsides.dds"` with `Texture="assets\UI\Art\Icons\MainOpen.dds"`
-   and both work), so `Assets/UI/` is the reasonable guess, with
-   `Assets/DLC/Expansion1/UI/` for expansion art. **Test with one obviously
-   altered texture before converting anything.** Remember the "if the loose
-   file is newer" clause.
-2. **Will a plain DDS override replace a dictionary+index pair?** Unknown. The
-   packed pair may still win, or the engine may look for `foo-index.dds` and
-   find the packed one. The fallback is no longer frightening, though: the
-   format is fully specified and `analysis/dds.py` decodes every pair
-   byte-exactly, so writing the encoder is mechanical — dedupe NxN tiles, pack
-   them into a rectangle, emit the two files. Note the encoder must also ship
-   an override for `foo-index.dds`, and that `seededstartcargoselectback` shows
-   the format can inflate art that does not dedupe.
+1. ~~Where do loose overrides go?~~ **Answered** — the DLC UI tree root, by
+   bare filename, for base-archive and expansion art alike. See *Loose files
+   can override the archives*. Remember the "if the loose file is newer"
+   clause.
+2. ~~Will a plain DDS override replace a dictionary+index pair?~~ **Answered:
+   yes.** A plain single-file override displaced a packed pair, so phase 2
+   emits plain DDS and needs no pair encoder. `analysis/dds.py` still decodes
+   every pair byte-exactly, which is what phase 2 *reads*; the encoder half is
+   simply not needed. (`seededstartcargoselectback` remains the reminder that
+   the pair format can inflate art that does not dedupe — an argument against
+   ever writing pairs, not for it.)
 3. **Does the engine accept DXT for UI textures?** Largely answered: of the 115
    stock DXT textures, 96 sit in the `Interface Scalable` and `Strategic View`
    usage groups and 26 are on the phase-2 work list (`forgeui_*` 9-slice frames
@@ -429,5 +450,9 @@ counts, byte-order marks, attribute counts or attribute order:
   150 XML/Lua files, 102 of them shadowing a base file, including a full
   `Styles.xml` that carries the font sizes, so leaving it alone left most of
   the interface unscaled. Every tree is now swept; see the tool's README.
+- Loose `.dds` overrides live *inside* a swept tree, but the sweep only reads
+  and reports `.xml`/`.lua`, so they are never rewritten, never reported as
+  foreign, and `restore` leaves them in place (it copies the pristine files
+  back, it does not delete anything else).
 - Large copies out of this directory over WSL/NTFS occasionally fail with
   "Cannot allocate memory"; `tar cf - . | (cd dst && tar xf -)` works.
