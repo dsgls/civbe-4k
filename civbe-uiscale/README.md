@@ -5,7 +5,7 @@ interface is authored in literal pixels against a ~1080p canvas and exposes no
 scaling lever, so at 3840x2160 it renders at roughly half its intended size.
 
 ```
-python3 -m civbe_uiscale apply --scale 2
+python3 -m civbe_uiscale apply --scale 2 --fast-menu
 python3 -m civbe_uiscale apply --scale 1.75 --dry-run --report changes.txt
 python3 -m civbe_uiscale restore
 ```
@@ -66,12 +66,30 @@ marks them as atlas-sampled. To stop their authored `Size` from bleeding into
 neighbouring icons, `IconHookup` also pins the control to one cell. Disable
 with `--no-pin-icon-size` if a screen looks wrong.
 
+## Faster front end
+
+`--fast-menu` is unrelated to scaling and off by default. It makes the main
+menu appear at once instead of staging each entry behind a slide and a fade on
+a growing `Pause`, and comments out the legal disclaimer popup in
+`FrontEnd.lua`. Entries open at `AlphaStart="1"` and every `SlideAnim` starts
+at its end position, so the change is scale-independent — it runs on top of the
+scaled output, after `Start="60,0"` has already become `Start="120,0"`.
+
+Rising Tide ships its own `MainMenu.xml`, and a DLC file wins over the base
+tree, so with the expansion installed that is the menu you actually see. It
+lives outside `Assets/UI`, so this pass gives it a pristine copy of its own
+next to the main backup, in `backup-ui-pristine-dlc/`. Only `--fast-menu`
+creates it; once it exists, later runs re-derive from it like everything else,
+so dropping the flag puts the stock animation back. `restore` covers it too.
+
 ## What it does not do
 
 - Rescale the `.dds` art. Until that exists, run with the default
   `--texture-scale 1.0`.
-- Touch anything outside `Assets/UI`, including the `IconTextureAtlases` rows
-  in `Assets/Gameplay/XML`.
+- Touch anything outside `Assets/UI` — the `IconTextureAtlases` rows in
+  `Assets/Gameplay/XML`, or the DLC UI trees. The one exception is the Rising
+  Tide `MainMenu.xml` under `--fast-menu`, which is *not* rescaled, only
+  de-animated.
 - Edit commented-out markup, or reformat files. Only the bytes inside a matched
   attribute's quotes change; byte-order marks and line endings survive.
 

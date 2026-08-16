@@ -369,6 +369,7 @@ Each of these is cheap to test and expensive to get wrong.
 cd civbe-uiscale
 python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2
 python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --texture-scale 2
+python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --fast-menu
 python3 -m civbe_uiscale restore --game-dir "<install>"
 
 # tests (nix-shell wrapper needed on this machine)
@@ -410,5 +411,16 @@ line counts, byte-order marks, attribute counts or attribute order.
   pixel size deliberately. They look small and the frames read thin. That is
   correct, not broken, and it is what phase 2 fixes.
 - `--no-pin-icon-size` exists if the icon-size pin turns out to fight a screen.
+- `--fast-menu` deliberately writes values the sweep would otherwise scale
+  (`SlideAnim Start`) and values it never touches (`AlphaStart`), so
+  `verify_ui_sweep.py` will flag `FrontEnd/MainMenu.xml` on such a tree. Verify
+  a sweep run without the flag.
+- Rising Tide ships its own UI tree at `Assets/DLC/Expansion1/UI`: 150 XML/Lua
+  files, 102 of them at the same relative path as a base `Assets/UI` file,
+  including a full `Styles.xml` that carries the font sizes. The sweep does not
+  touch that tree, so every file the expansion overrides stays stock-sized when
+  Rising Tide is enabled. **Unverified: which copy the engine actually loads.**
+  `--fast-menu` reaches into that tree for `MainMenu.xml` alone, and only to
+  de-animate it — it is never rescaled.
 - Large copies out of this directory over WSL/NTFS occasionally fail with
   "Cannot allocate memory"; `tar cf - . | (cd dst && tar xf -)` works.

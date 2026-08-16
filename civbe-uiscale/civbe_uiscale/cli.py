@@ -34,6 +34,9 @@ def _build_parser():
                                 "textures have actually been rescaled")
     apply_cmd.add_argument("--no-pin-icon-size", action="store_true",
                            help="do not pin runtime atlas icons to one cell")
+    apply_cmd.add_argument("--fast-menu", action="store_true",
+                           help="drop the main menu's staggered fade-in and the "
+                                "legal disclaimer popup")
     apply_cmd.add_argument("--dry-run", action="store_true")
     apply_cmd.add_argument("--report", type=Path, help="write a per-change listing here")
 
@@ -79,6 +82,7 @@ def main(argv=None):
         ui_scale=args.scale,
         texture_scale=args.texture_scale,
         pin_icon_size=not args.no_pin_icon_size,
+        fast_menu=args.fast_menu,
         dry_run=args.dry_run,
     )
 
@@ -89,6 +93,8 @@ def main(argv=None):
     print("  %d texture-space value(s) scaled" % report.texture_changes)
     if report.icon_support_edits:
         print("  %d IconSupport.lua edit(s)" % report.icon_support_edits)
+    if args.fast_menu:
+        print("  %d front-end animation edit(s)" % report.fast_menu_edits)
 
     if report.foreign_files:
         print()

@@ -40,6 +40,17 @@ def test_writes_a_detailed_report_when_asked(game, tmp_path):
     assert '100,50' in out.read_text()
 
 
+def test_fast_menu_patches_the_front_end(game, capsys):
+    front = game / "assets" / "UI" / "FrontEnd"
+    front.mkdir()
+    (front / "MainMenu.xml").write_text('<SlideAnim Start="60,0" AlphaStart="0"/>\n')
+    main(["apply", "--game-dir", str(game), "--backup", str(game / "bak"),
+          "--scale", "2", "--fast-menu"])
+    assert (front / "MainMenu.xml").read_text() == (
+        '<SlideAnim Start="0,0" AlphaStart="1"/>\n')
+    assert "front-end animation edit" in capsys.readouterr().out
+
+
 def test_rejects_a_scale_outside_the_sane_range(game):
     with pytest.raises(SystemExit):
         main(["apply", "--game-dir", str(game), "--scale", "12"])

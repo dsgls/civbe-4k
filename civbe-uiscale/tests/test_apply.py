@@ -107,6 +107,80 @@ class TestDryRun:
         assert not (game / "backup").exists()
 
 
+SLIDE = ('<SlideAnim Size="280,35" Start="60,0" End="0,0">'
+         '<AlphaAnim AlphaStart="0" AlphaEnd="1"/></SlideAnim>\n')
+LEGAL = ("    UIManager:QueuePopup( Controls.LegalScreen, "
+         "PopupPriority.LegalScreen );\n")
+
+
+@pytest.fixture
+def front_end(game):
+    front = ui_of(game) / "FrontEnd"
+    front.mkdir()
+    (front / "MainMenu.xml").write_text(SLIDE)
+    (front / "FrontEnd.lua").write_text(LEGAL)
+    expansion = game / "assets" / "DLC" / "Expansion1" / "UI" / "FrontEnd"
+    expansion.mkdir(parents=True)
+    (expansion / "MainMenu.xml").write_text(SLIDE)
+    return game
+
+
+def expansion_menu(game):
+    return game / "assets" / "DLC" / "Expansion1" / "UI" / "FrontEnd" / "MainMenu.xml"
+
+
+class TestFastMenu:
+    def test_off_by_default(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        text = (ui_of(front_end) / "FrontEnd" / "MainMenu.xml").read_text()
+        assert 'AlphaStart="0"' in text
+        assert 'Start="120,0"' in text
+
+    def test_flattens_the_menu_animation(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        text = (ui_of(front_end) / "FrontEnd" / "MainMenu.xml").read_text()
+        assert 'AlphaStart="1"' in text
+        assert 'Start="0,0"' in text
+
+    def test_skips_the_legal_screen(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        text = (ui_of(front_end) / "FrontEnd" / "FrontEnd.lua").read_text()
+        assert text.lstrip().startswith("-- UIManager:QueuePopup")
+
+    def test_patches_the_expansion_menu_from_its_own_backup(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        assert 'Start="0,0"' in expansion_menu(front_end).read_text()
+        assert (front_end / "backup-dlc" / "Expansion1" / "UI" / "FrontEnd"
+                / "MainMenu.xml").read_text() == SLIDE
+
+    def test_leaves_the_expansion_geometry_alone(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        assert 'Size="280,35"' in expansion_menu(front_end).read_text()
+
+    def test_dropping_the_flag_puts_the_stock_menu_back(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0)
+        assert expansion_menu(front_end).read_text() == SLIDE
+        assert 'AlphaStart="0"' in (
+            ui_of(front_end) / "FrontEnd" / "MainMenu.xml").read_text()
+
+    def test_dry_run_touches_neither_tree(self, front_end):
+        report = run(front_end, front_end / "backup", ui_scale=2.0,
+                     texture_scale=1.0, fast_menu=True, dry_run=True)
+        assert expansion_menu(front_end).read_text() == SLIDE
+        assert not (front_end / "backup-dlc").exists()
+        assert report.fast_menu_edits > 0
+
+    def test_a_missing_expansion_is_not_an_error(self, game):
+        run(game, game / "backup", ui_scale=2.0, texture_scale=1.0, fast_menu=True)
+        assert not (game / "backup-dlc").exists()
+
+
 class TestRestore:
     def test_restores_every_byte(self, game):
         originals = {
@@ -117,6 +191,12 @@ class TestRestore:
         restore(game, game / "backup")
         for rel, data in originals.items():
             assert (ui_of(game) / rel).read_bytes() == data
+
+    def test_restores_the_expansion_menu_too(self, front_end):
+        run(front_end, front_end / "backup", ui_scale=2.0, texture_scale=1.0,
+            fast_menu=True)
+        restore(front_end, front_end / "backup")
+        assert expansion_menu(front_end).read_text() == SLIDE
 
     def test_restoring_without_a_backup_is_an_error(self, game):
         with pytest.raises(FileNotFoundError):
