@@ -19,6 +19,7 @@ traps here are non-obvious and cost real time to rediscover.
 
 ```
 civbe-uiscale/          the phase-1 tool (Python, 170 tests). See its README.
+civbe-dds/              reads/writes UI texture .dds (Python, 115 tests). See its README.
 ui_textures.txt         the phase-2 work list: 474 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
   UITextures.fpk/                 1642 .dds  (base game UI)
@@ -391,7 +392,8 @@ Each of these is cheap to test and expensive to get wrong.
    every pair byte-exactly, which is what phase 2 *reads*; the encoder half is
    simply not needed. (`seededstartcargoselectback` remains the reminder that
    the pair format can inflate art that does not dedupe — an argument against
-   ever writing pairs, not for it.)
+   ever writing pairs, not for it.) `civbe-dds` provides the plain-RGBA
+   encoder this calls for.
 3. **Does the engine accept DXT for UI textures?** Largely answered: of the 115
    stock DXT textures, 96 sit in the `Interface Scalable` and `Strategic View`
    usage groups and 26 are on the phase-2 work list (`forgeui_*` 9-slice frames
@@ -422,6 +424,12 @@ python3 -m civbe_uiscale restore --game-dir "<install>"
 
 # tests (nix-shell wrapper needed on this machine)
 nix-shell -p 'python3.withPackages(ps: [ps.pytest])' --run 'python3 -m pytest tests/ -q'
+
+# civbe-dds: decode/encode UI textures for the upscale pipeline. See its README.
+cd civbe-dds
+python3 -m civbe_dds info   <path>...
+python3 -m civbe_dds decode <dds>...  [-o DIR]
+python3 -m civbe_dds encode <png>...  [-o DIR] [--like STOCK.dds | --group NAME]
 
 # analysis
 cd analysis
