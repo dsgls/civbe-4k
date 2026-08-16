@@ -5,8 +5,8 @@ and the engine exposes no scaling lever (the exe offers only
 `UIManager::GetScreenSizeVal`, a query). At 3840x2160 the whole UI renders at
 roughly half its intended physical size.
 
-**Phase 1 is done**: `civbe-uiscale/` rewrites the authored geometry and font
-sizes in `Assets/UI`. It is tested and works.
+**Phase 1 is done**: `ui/` holds the game's UI XML and Lua with the geometry,
+font sizes and Lua layout arithmetic rescaled to 2x. Installing it is a copy.
 
 **Phase 2 is the open work**: rescaling the .dds art so that atlas icons,
 9-slice frames and font icons can grow too. Everything needed to start is in
@@ -18,7 +18,8 @@ traps here are non-obvious and cost real time to rediscover.
 ## Layout
 
 ```
-civbe-uiscale/          the phase-1 tool (Python, 170 tests). See its README.
+ui/                     the patched UI trees, at install-relative paths.
+                        See "The vendored UI trees" below.
 civbe-dds/              reads/writes UI texture .dds (Python, 115 tests). See its README.
 ui_textures.txt         the phase-2 work list: 474 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
@@ -33,10 +34,47 @@ reference/
 analysis/               scripts that produced and check ui_textures.txt
 ```
 
-The `reference/` trees are the source of truth for the sweep and for
-regenerating the texture list. Keep them: they make the analysis reproducible
-without a game install, and they are the baseline every acceptance check
-compares against. Only XML and Lua are tracked — see `.gitignore`.
+The `reference/` trees are the pristine stock baseline: they make the analysis
+reproducible without a game install, they regenerate the texture list, and
+diffing `ui/` against them shows exactly what the project changes. They keep
+the stock CRLF line endings; everything vendored under `ui/` is LF-normalized.
+Only XML and Lua are tracked — see `.gitignore`.
+
+---
+
+## The vendored UI trees
+
+`ui/` mirrors the install: `ui/assets/UI` and `ui/assets/DLC/Expansion1/UI`.
+It contains every stock `.xml`/`.lua` (546 files), with 2x baked in:
+
+- every screen-space attribute and all-literal Lua layout call at 2x;
+- every texture-space coordinate (atlas sub-rects, 9-slice geometry, state
+  bands, flipbook strides, font-icon cells) at 2x — **the game's art must be
+  at 2x too**, so do not install `ui/` without the phase-2 textures;
+- the `IconHookup` offset arithmetic at 2x with the `IconTextureAtlases` keys
+  left stock, plus a pin holding each hooked icon to one cell;
+- the ~60 computed Lua texture offsets and the Lua-computed tech-web layout
+  (`g_radiusScalar` and friends in `TechTree.lua`) at 2x;
+- the fast menu: no staged fade-in, no legal popup.
+
+The tree was generated from the stock files by a rule-driven sweep
+(`civbe-uiscale`, deleted after use; see history around the "Bake scale 2"
+commit) and certified attribute-by-attribute against an independent oracle:
+19,771 screen-space and 6,582 texture-space values at exactly 2x, everything
+else byte-identical. **From here on, `ui/` is edited directly** — the vendor
+commit gives every change full diff context.
+
+Install: copy the two trees over the install (they only replace `.xml`/`.lua`;
+everything else in the install is untouched), plus the 2x textures when they
+exist:
+
+```bash
+cp -r ui/assets "<install>"/
+```
+
+Files are LF; if the engine turns out to require CRLF, convert during install.
+Restore: copy the same paths from `reference/` (or delete the loose files and
+verify integrity through Steam).
 
 ---
 
@@ -71,9 +109,9 @@ of neighbouring icons. Precedence, as implemented in `classify.py`:
 
 `IconHookup(offset, iconSize, atlas, control)` looks `iconSize` up in the
 `IconTextureAtlases` table *and* multiplies it by the cell index to get a pixel
-offset. Scale the key and the lookup misses. The tool therefore rescales only
-the arithmetic, at two sites in `IconSupport.lua`, and never touches the
-database or any call site. It also pins the control to one cell inside
+offset. Scale the key and the lookup misses. `ui/`'s `IconSupport.lua`
+therefore rescales only the arithmetic, at two sites, and touches neither the
+database nor any call site. It also pins the control to one cell inside
 `IconHookup`, because controls that receive their `TextureOffset` at runtime
 carry no static marker in the XML and would otherwise bleed.
 
@@ -284,8 +322,9 @@ a `.png` for a decoded dictionary pair, a `.dds` for a plain texture.
 A texture is listed exactly when a texture-space coordinate reads it: an atlas
 sub-rect, a 9-slice rect, a flipbook stride, a font-icon cell, an
 `IconTextureAtlases` row, or a Lua `SetTextureOffsetVal`/`SetTextureSizeVal`
-call. Both UI trees are swept, base and Expansion1. The XML side derives from
-the same `classify.py` the tool uses; the Lua side resolves each call's
+call. Both UI trees are scanned, base and Expansion1. The XML side derives
+from the same `analysis/classify.py` the 2x bake of `ui/` was verified
+against; the Lua side resolves each call's
 control to its XML element by ID (same-name XML, then directory, then tree),
 which over-approximates on ID collisions — an extra stretched texture is
 harmless, a missed sampled one is not. Textures merely stretched to fit a
@@ -345,36 +384,25 @@ Ignore them; there is nothing to convert.
    (`Assets/DLC/Expansion1/UI/`) — one flat directory of plain DDS, no pairs,
    no `Art/` hierarchy to reproduce. Base-tree art goes there too; the DLC tree
    wins over both archives.
-4. **Run the sweep with matching scale**: `--texture-scale 2`.
+4. **Install the vendored `ui/` trees** alongside — their texture-space
+   coordinates are already at 2x.
 
-### Constraint: `--texture-scale` is global
+### Constraint: the texture scale is global
 
-The tool applies one texture scale to every texture-space coordinate. If only
-some art is rescaled, the rest samples wrong. So it is currently **all 474 or
-none** — the "convert the cheap tier first" idea needs per-texture scale
-support in `classify.py`/`xmlpatch.py`, which does not exist. Adding it means
-resolving each element's texture reference to a per-file factor; feasible, but
-it is new work, not a configuration change.
+`ui/` bakes 2x into every texture-space coordinate. If only some art is
+rescaled, the rest samples wrong. So it is **all 474 or none** — the "convert
+the cheap tier first" idea would need per-texture coordinate edits in `ui/`,
+which is real work, not a shortcut.
 
-### Lua sites `--texture-scale` cannot reach
+The engine reads texture coordinates from more places than the XML: about 40
+Lua call sites compute a `SetTextureOffsetVal`/`SetTextureSizeVal` argument
+from constants or expressions, and the tech-web layout is Lua arithmetic
+(`GridRadius * g_radiusScalar` in `TechTree.lua`). All of these are already at
+2x in `ui/`; when editing near a texture offset in the Lua, keep them
+consistent — the wrong cell is drawn silently, not flagged.
 
-`luapatch.py` rewrites only all-literal `SetTextureOffsetVal` /
-`SetTextureSizeVal` calls. About 40 call sites across ~15 screens compute an
-argument instead — constants (`TEXTURE_OFFSET_CHECK_ON`, `CITIZEN_ICON_SIZE`,
-`ICON_RANK_HEIGHT`, `BANNER_IMAGE_HEIGHT`), expressions (`56*(i-1)`), table
-lookups (TechTree's `m_textureBgLeaf[...]`) — and a mixed call like
-`SetTextureOffsetVal(50, relationshipOffset)` is skipped whole, literal
-included. Each needs a per-file Lua patch before its texture goes 2x, or it
-samples the wrong cell.
-
-Separately, the tech-web layout is Lua-computed *screen* space: `GetTechXY` in
-`TechTree.lua` spreads nodes by `GridRadius * g_radiusScalar` (a local, 400)
-and hangs leaf techs at literal parent offsets. The sweep doubles the node
-controls but cannot see this arithmetic, so at `--scale 2` the nodes overlap.
-Doubling `g_radiusScalar` and the leaf/bounds literals is a TechTree-specific
-patch, needed regardless of texture scale. Mouse-wheel zoom on that screen is
-also broken at scale 2; the zoom code is not in the UI Lua/XML and the cause
-is unestablished.
+Mouse-wheel zoom on the tech web is broken at 2x; the zoom code is not in the
+UI Lua/XML and the cause is unestablished. This is the one known open UI bug.
 
 ---
 
@@ -413,17 +441,8 @@ Each of these is cheap to test and expensive to get wrong.
 ## Commands
 
 ```bash
-# phase 1: scale a live install — every UI tree, always re-derived from the
-# pristine backup
-cd civbe-uiscale
-python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2
-python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --texture-scale 2
-python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --fast-menu
-python3 -m civbe_uiscale apply --game-dir "<install>" --scale 2 --skip-tree Expansion1
-python3 -m civbe_uiscale restore --game-dir "<install>"
-
-# tests (nix-shell wrapper needed on this machine)
-nix-shell -p 'python3.withPackages(ps: [ps.pytest])' --run 'python3 -m pytest tests/ -q'
+# install the patched UI (requires the 2x textures; see The vendored UI trees)
+cp -r ui/assets "<install>"/
 
 # civbe-dds: decode/encode UI textures for the upscale pipeline. See its README.
 cd civbe-dds
@@ -439,8 +458,6 @@ python3 derive_block_sizes.py          # block size of every dictionary pair
 python3 verify_decode.py               # decode all 724 pairs, diff against the PNGs;
                                         # round-trip every plain texture through civbe_dds
 python3 verify_decode.py 256x256frame  # decode one, write a PNG beside it
-python3 verify_ui_sweep.py <patched install> 2     # acceptance check, every tree
-python3 verify_ui_sweep.py --tree base <install> 2 # one tree only
 ```
 
 `civbe-dds` backs `verify_decode.py` and is the piece phase 2 needs: DDS
@@ -449,42 +466,30 @@ codec the packs contain, and PNG read/write. See `civbe-dds/README.md`.
 
 `analysis/paths.py` holds every location; edit `GAME` if the install moves.
 
-The sweep's acceptance check compares each patched tree against its
-`reference/` counterpart attribute by attribute, using a value oracle
-independent of the tool's own code. Current result, with no change to line
-counts, byte-order marks, attribute counts or attribute order:
-
-| tree | files | screen-space scaled | texture-space frozen | untouched |
-|---|---|---|---|---|
-| base | 534 | 12,795 | 3,927 | 31,649 |
-| Expansion1 | 150 | 6,976 | 2,655 | 17,598 |
+When `ui/` was generated, an oracle independent of the generator verified
+every attribute against `reference/`: 12,795 + 6,976 screen-space and
+3,927 + 2,655 texture-space values (base + Expansion1) at exactly 2x, with no
+change to line counts, byte-order marks, attribute counts or order, and every
+computed Lua texture-offset site accounted for. The generator and its checks
+(`civbe-uiscale`, `verify_ui_sweep.py`, `verify_lua_sites.py`) live in the
+history around the "Bake scale 2" commit.
 
 ## Gotchas
 
-- The tool warns about UI files absent from the pristine backup. A
-  `LanguageSpecific` stylesheet dropped in by another tool overrides
-  `Styles.xml` and will silently pin fonts at whatever scale it was made for.
-  Delete such files rather than leaving them.
-- Font scaling needs no override file: the sweep scales the `FontSize` values
-  in `Styles.xml` and in every `LanguageSpecific/*/LanguageSpecificStyles.xml`
-  directly.
-- At `--texture-scale 1` the icons and 9-slice borders keep their authored
-  pixel size deliberately. They look small and the frames read thin. That is
-  correct, not broken, and it is what phase 2 fixes.
-- `--no-pin-icon-size` exists if the icon-size pin turns out to fight a screen.
-- `--fast-menu` deliberately writes values the sweep would otherwise scale
-  (`SlideAnim Start`) and values it never touches (`AlphaStart`), so
-  `verify_ui_sweep.py` will flag `FrontEnd/MainMenu.xml` in every tree that has
-  one. Verify a sweep run without the flag.
+- A `LanguageSpecific` stylesheet dropped in by another tool overrides
+  `Styles.xml` and silently pins fonts at whatever scale it was made for.
+  Delete such files rather than leaving them. Font scaling needs no override
+  file: `ui/` carries the scaled `FontSize` values in `Styles.xml` and in
+  every `LanguageSpecific/*/LanguageSpecificStyles.xml`.
 - A DLC UI file wins over the base file at the same relative path — confirmed
   in game: the Rising Tide main menu rendered stock-sized while the base
   `Assets/UI/FrontEnd/MainMenu.xml` was patched to 2x. Rising Tide's tree is
   150 XML/Lua files, 102 of them shadowing a base file, including a full
-  `Styles.xml` that carries the font sizes, so leaving it alone left most of
-  the interface unscaled. Every tree is now swept; see the tool's README.
-- Loose `.dds` overrides live *inside* a swept tree, but the sweep only reads
-  and reports `.xml`/`.lua`, so they are never rewritten, never reported as
-  foreign, and `restore` leaves them in place (it copies the pristine files
-  back, it does not delete anything else).
+  `Styles.xml` that carries the font sizes. Any edit to a shadowed base file
+  must be mirrored in the Expansion1 copy or it never takes effect.
+- `IconSupport.lua` pins every runtime-hooked icon to one atlas cell
+  (`SetSizeVal(iconSize * 2, ...)` next to the hookup). If a screen's icons
+  look wrong, that pin is the first thing to suspect — it can be removed per
+  control by editing `ui/`.
 - Large copies out of this directory over WSL/NTFS occasionally fail with
   "Cannot allocate memory"; `tar cf - . | (cd dst && tar xf -)` works.
