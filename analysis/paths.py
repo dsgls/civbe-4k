@@ -24,6 +24,7 @@ STOCK_TREES = {
 EXTRACTED = os.path.join(PROJECT, "extracted")
 
 TOOL = os.path.join(PROJECT, "civbe-uiscale")
+DDS_TOOL = os.path.join(PROJECT, "civbe-dds")
 TEXTURE_LIST = os.path.join(PROJECT, "ui_textures.txt")
 
 ATLAS_DBS = [
