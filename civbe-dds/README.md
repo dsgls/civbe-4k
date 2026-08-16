@@ -122,6 +122,6 @@ the goal — see
 nix-shell -p 'python3.withPackages(ps: [ps.pytest])' --run 'python3 -m pytest tests/ -q'
 ```
 
-106 tests, constructed fixtures only — no committed binaries, and
+115 tests, constructed fixtures only — no committed binaries, and
 `extracted/` (read from by the analysis scripts, not by these tests) is not
 tracked.
