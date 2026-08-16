@@ -38,7 +38,11 @@ _NEIGHBORS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 
 
 
 def upscale_rgba(
-    img: Image.Image, up: PlaneUpscaler, *, alpha_up: PlaneUpscaler | None = None
+    img: Image.Image,
+    up: PlaneUpscaler,
+    *,
+    alpha_up: PlaneUpscaler | None = None,
+    prepared_rgb: np.ndarray | None = None,
 ) -> Image.Image:
     """Upscale an RGBA image 2x through the two-plane path.
 
@@ -47,12 +51,17 @@ def upscale_rgba(
     variant (``get_upscaler(name, alpha_plane=True)``) so any native-4x
     model's 4x->2x downscale uses a non-negative kernel on alpha instead of
     Lanczos.
+
+    ``prepared_rgb`` skips extrapolation, reusing an already-extrapolated RGB
+    plane in its place -- see ``prepare_rgb_plane`` and ``apply_upscalers``,
+    which computes it once per input and shares it across every upscaler run
+    on that input. Defaults to ``None``, which extrapolates from ``img``.
     """
     if alpha_up is None:
         alpha_up = up
     rgb, alpha = _to_planes(img)
 
-    rgb = extrapolate_color(rgb, alpha)
+    rgb = prepared_rgb if prepared_rgb is not None else extrapolate_color(rgb, alpha)
     rgb2 = _upscale_plane(rgb, up)
 
     alpha3 = np.repeat(alpha[:, :, None], 3, axis=2)
@@ -60,6 +69,18 @@ def upscale_rgba(
 
     out = np.concatenate([rgb2, np.clip(alpha2, 0.0, 1.0)[:, :, None]], axis=2)
     return _to_image(out)
+
+
+def prepare_rgb_plane(img: Image.Image) -> np.ndarray:
+    """Split ``img`` and extrapolate its RGB plane, for reuse across upscalers.
+
+    ``apply_upscalers`` calls this once per input and passes the result to
+    every non-bypass upscaler's ``upscale_rgba(..., prepared_rgb=...)``, so a
+    compare run over several upscalers pays for the dilation once rather than
+    once per upscaler.
+    """
+    rgb, a = _to_planes(img)
+    return extrapolate_color(rgb, a)
 
 
 def upscale_rgba_direct(img: Image.Image) -> Image.Image:
