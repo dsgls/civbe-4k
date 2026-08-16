@@ -16,11 +16,19 @@ DDPF_RGB = 0x40
 DDPF_LUMINANCE = 0x20000
 
 DDSCAPS_TEXTURE = 0x1000
+DDSCAPS_COMPLEX = 0x8
+DDSCAPS_MIPMAP = 0x400000
 DDSCAPS2_CUBEMAP = 0x200
 
-# dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PITCH | DDSD_PIXELFORMAT
-#         | DDSD_MIPMAPCOUNT
-_HEADER_FLAGS = 0x2100F
+# dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH | DDSD_PIXELFORMAT
+#         | DDSD_MIPMAPCOUNT -- no DDSD_PITCH. dwPitchOrLinearSize is left 0
+# and dwCaps carries DDSCAPS_COMPLEX | DDSCAPS_MIPMAP alongside
+# DDSCAPS_TEXTURE, even though there is exactly one level: this is the
+# combination all 756 stock plain single-level UI textures use, and the
+# engine treats a conforming DDSD_PITCH/DDSCAPS_TEXTURE-only file as a
+# distinct, non-default case. Matching stock, not the DDS documentation, is
+# the goal here -- see *Encoding* in the design spec.
+_HEADER_FLAGS = 0x21007
 
 _FTXT_MAGIC = b"FTXT"
 _USAGE_NAME_LEN = 40
@@ -84,7 +92,6 @@ def build_header(width, height, group=None):
     struct.pack_into("<I", d, 4, 124)                      # dwSize
     struct.pack_into("<I", d, 8, _HEADER_FLAGS)             # dwFlags
     struct.pack_into("<II", d, 12, height, width)
-    struct.pack_into("<I", d, 20, width * 4)                # dwPitchOrLinearSize
     struct.pack_into("<I", d, 28, 1)                        # dwMipMapCount
     d[32:36] = _FTXT_MAGIC
     d[36:76] = group.encode("latin1")[:_USAGE_NAME_LEN].ljust(_USAGE_NAME_LEN, b"\0")
@@ -92,7 +99,8 @@ def build_header(width, height, group=None):
     struct.pack_into("<I", d, 80, DDPF_RGB | DDPF_ALPHAPIXELS)
     struct.pack_into("<I", d, 88, 32)                       # dwRGBBitCount
     struct.pack_into("<IIII", d, 92, 0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000)
-    struct.pack_into("<I", d, 108, DDSCAPS_TEXTURE)          # dwCaps
+    struct.pack_into("<I", d, 108,
+                      DDSCAPS_TEXTURE | DDSCAPS_COMPLEX | DDSCAPS_MIPMAP)  # dwCaps
     d[116:124] = _ENCODE_TAG.encode("latin1")[:_TAG_LEN].ljust(_TAG_LEN, b"\0")
     return bytes(d)
 
