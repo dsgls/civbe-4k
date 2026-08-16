@@ -42,18 +42,21 @@ def test_padding_reaches_the_minimum_and_a_multiple_of_sixteen():
 
 
 def test_tiled_output_is_identical_to_untiled():
+    # Padded to 576x528, so a 512 px tile leaves a genuine 64x16 remainder tile
+    # and the halo clips against every array bound.
     src = random_plane(500, 460, seed=1)
 
     untiled = engine.run_padded(nearest_2x, src, 2)
-    tiled = engine.run_padded(nearest_2x, src, 2, tile=256)
+    tiled = engine.run_padded(nearest_2x, src, 2, tile=512)
 
     assert tiled.shape == untiled.shape
     np.testing.assert_array_equal(tiled, untiled)
 
 
 def test_tile_not_larger_than_twice_the_overlap_is_refused():
+    degenerate = 2 * engine.TILE_OVERLAP
     with pytest.raises(ValueError, match="2x overlap"):
-        engine.tiled_run(nearest_2x, random_plane(200, 200), 2, tile=128, overlap=64)
+        engine.tiled_run(nearest_2x, random_plane(800, 800), 2, tile=degenerate)
 
 
 def test_four_x_runner_is_normalized_to_two_x():

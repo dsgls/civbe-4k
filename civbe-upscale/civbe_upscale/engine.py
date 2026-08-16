@@ -38,7 +38,11 @@ PAD_MULTIPLE = 16
 #: First tile size tried when whole-image inference hits CUDA OOM.
 MAX_TILE = 1024
 #: Input-space overlap between neighbouring tiles; constant while tiles halve.
-TILE_OVERLAP = 64
+#: Half of it is the context halo each interior tile side reads and discards, so
+#: 128 buys 64 px of real context — tiling is the routine path for the 2048 px
+#: atlas tier, and the shifted-window transformers in the registry have
+#: effective receptive fields well past 32 px.
+TILE_OVERLAP = 128
 
 _DOWNLOAD_CHUNK = 1 << 20
 
