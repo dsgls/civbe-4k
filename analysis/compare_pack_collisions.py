@@ -6,7 +6,7 @@ own, and the base-game copy that won the earlier flat extraction.
 """
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GAME, STOCK_UI, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
+from paths import GAME, STOCK_UI, EXTRACTED, TEXTURE_LIST, ATLAS_DBS
 import os, struct, hashlib, collections
 
 EXP = os.path.join(GAME, "Resource/dx11/Expansion1UITextures.fpk")

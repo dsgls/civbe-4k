@@ -2,11 +2,10 @@
 """Where is each dead texture reference made, and is that reference live?"""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GAME, STOCK_UI, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
+from paths import GAME, STOCK_UI, EXTRACTED, TEXTURE_LIST, ATLAS_DBS
 import os, re, sys, collections
 
-sys.path.insert(0, TOOL)
-from civbe_uiscale.xmlpatch import _ATTR, _iter_tags
+from uixml import ATTR, iter_tags
 
 PRISTINE = STOCK_UI
 DBS = ATLAS_DBS
@@ -29,12 +28,12 @@ for dp, dn, fn in os.walk(PRISTINE):
         rel = os.path.relpath(os.path.join(dp, f), PRISTINE).replace("\\", "/")
         text = open(os.path.join(dp, f), encoding="utf-8", errors="replace").read()
         live = set()
-        for element, s, e in _iter_tags(text):
-            for m in _ATTR.finditer(text, s, e):
+        for element, s, e, _depth in iter_tags(text):
+            for m in ATTR.finditer(text, s, e):
                 if m.group(1) in ("Texture", "MaskTexture", "ButtonTexture"):
                     live.add(base(m.group(2)))
         # every occurrence, including commented-out ones
-        allrefs = set(base(m.group(2)) for m in _ATTR.finditer(text)
+        allrefs = set(base(m.group(2)) for m in ATTR.finditer(text)
                       if m.group(1) in ("Texture", "MaskTexture", "ButtonTexture"))
         for name in DEAD:
             if name in live:

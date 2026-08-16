@@ -3,7 +3,7 @@
 converted PNG, and check the dictionary is big enough to hold that many blocks."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GAME, STOCK_UI, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
+from paths import GAME, STOCK_UI, EXTRACTED, TEXTURE_LIST, ATLAS_DBS
 import os, struct, collections
 
 ROOT = EXTRACTED

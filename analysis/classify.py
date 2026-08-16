@@ -1,7 +1,9 @@
 """Coordinate-space classification for UI XML attributes.
 
-Deny by default: an attribute is only rewritten if it is named here. The
+Deny by default: an attribute counts as geometry only if it is named here. The
 inventory comes from a sweep of every attribute in the stock Assets/UI tree.
+This is the classifier the 2x bake of ui/ was generated and verified with; it
+now drives the ui_textures.txt derivation.
 """
 import enum
 

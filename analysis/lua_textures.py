@@ -16,10 +16,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import TOOL
-
-sys.path.insert(0, TOOL)
-from civbe_uiscale.xmlpatch import _ATTR, iter_tags
+from uixml import ATTR, iter_tags
 
 TEXTURE_REFS = ("Texture", "MaskTexture", "ButtonTexture")
 
@@ -42,7 +39,7 @@ def _id_textures(xml_path, cache={}):
         table = collections.defaultdict(set)
         text = open(xml_path, encoding="utf-8", errors="replace").read()
         for element, s, e, _depth in iter_tags(text):
-            attrs = {m.group(1): m.group(2) for m in _ATTR.finditer(text, s, e)}
+            attrs = {m.group(1): m.group(2) for m in ATTR.finditer(text, s, e)}
             cid = attrs.get("ID")
             if cid:
                 for key in TEXTURE_REFS:

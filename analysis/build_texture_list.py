@@ -3,14 +3,12 @@
 input file to feed the upscaler and its measured decoded size."""
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from paths import GAME, STOCK_TREES, EXTRACTED, TOOL, TEXTURE_LIST, ATLAS_DBS
+from paths import GAME, STOCK_TREES, EXTRACTED, TEXTURE_LIST, ATLAS_DBS
 import os, re, struct, sys, hashlib, collections
 
-sys.path.insert(0, TOOL)
-from civbe_uiscale.classify import Space, classify
-from civbe_uiscale.xmlpatch import _ATTR, iter_tags
-
 import lua_textures
+from classify import Space, classify
+from uixml import ATTR, iter_tags
 
 ROOT = EXTRACTED
 OUT = TEXTURE_LIST
@@ -45,7 +43,7 @@ for tree_name, (pristine, _rel) in sorted(STOCK_TREES.items()):
             if f.lower().endswith(".xml"):
                 text = open(path, encoding="utf-8", errors="replace").read()
                 for element, s, e, _depth in iter_tags(text):
-                    found = list(_ATTR.finditer(text, s, e))
+                    found = list(ATTR.finditer(text, s, e))
                     attrs = {m.group(1): m.group(2) for m in found}
                     spaces = {a: classify(element, a, attrs) for a in attrs}
                     if Space.TEXTURE not in spaces.values():
@@ -146,7 +144,7 @@ for name in sorted(reasons):
     ))
 
 with open(OUT, "w", encoding="utf-8") as fh:
-    fh.write("# UI textures requiring 2x conversion for civbe-uiscale --texture-scale 2\n#\n")
+    fh.write("# UI textures requiring 2x conversion to match the vendored ui/ trees\n#\n")
     fh.write("# A texture is listed when a texture-space coordinate reads it: an atlas\n")
     fh.write("# sub-rect (TextureOffset/StateOffsetIncrement), a 9-slice rect, a flipbook\n")
     fh.write("# stride, a font-icon cell, an IconTextureAtlases row, or a Lua\n")

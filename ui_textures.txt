@@ -1,4 +1,4 @@
-# UI textures requiring 2x conversion for civbe-uiscale --texture-scale 2
+# UI textures requiring 2x conversion to match the vendored ui/ trees
 #
 # A texture is listed when a texture-space coordinate reads it: an atlas
 # sub-rect (TextureOffset/StateOffsetIncrement), a 9-slice rect, a flipbook
