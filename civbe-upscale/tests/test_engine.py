@@ -5,6 +5,8 @@ masquerade as "the upscaler is mediocre" in game: padding that leaks into the
 cropped result, and tiling that does not reassemble.
 """
 
+from pathlib import Path
+
 import numpy as np
 import pytest
 from PIL import Image
@@ -118,6 +120,25 @@ def test_output_is_clamped_to_unit_range():
 
     assert out.min() >= 0.0
     assert out.max() <= 1.0
+
+
+def test_a_checkpoint_is_loaded_once_for_both_plane_kinds(monkeypatch):
+    loads = []
+
+    class FakeModel:
+        def __init__(self, path, scale):
+            loads.append((path, scale))
+
+    monkeypatch.setattr(engine, "SpandrelModel", FakeModel)
+    monkeypatch.setattr(engine, "_MODEL_CACHE", {})
+
+    rgb = engine.load_model(Path("dat2.pth"), 4)
+    alpha = engine.load_model(Path("dat2.pth"), 4)
+    other = engine.load_model(Path("swinir.pth"), 4)
+
+    assert rgb is alpha
+    assert other is not rgb
+    assert loads == [(Path("dat2.pth"), 4), (Path("swinir.pth"), 4)]
 
 
 def test_non_float32_plane_is_rejected():

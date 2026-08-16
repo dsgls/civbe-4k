@@ -296,6 +296,24 @@ class SpandrelModel:
             self._torch.cuda.empty_cache()
 
 
+_MODEL_CACHE: dict[tuple[Path, int], SpandrelModel] = {}
+
+
+def load_model(path: Path, scale: int) -> SpandrelModel:
+    """Return the `SpandrelModel` for a checkpoint, loading it at most once.
+
+    Every ML upscaler is requested twice — once for the colour planes and once
+    for the alpha plane, which differ only in the 4x->2x kernel — so without
+    this each checkpoint is parsed and uploaded to the device twice.
+    """
+    key = (path, scale)
+    model = _MODEL_CACHE.get(key)
+    if model is None:
+        model = SpandrelModel(path, scale)
+        _MODEL_CACHE[key] = model
+    return model
+
+
 # --------------------------------------------------------------------------
 # assembling a PlaneUpscaler
 # --------------------------------------------------------------------------
@@ -375,5 +393,5 @@ def get_upscaler(name: str, *, alpha_plane: bool = False) -> PlaneUpscaler:
         return build_upscaler(BUILTINS[entry.builtin], entry.scale, alpha_plane=alpha_plane)
 
     assert entry.checkpoint is not None
-    model = SpandrelModel(ensure_checkpoint(entry.checkpoint), entry.scale)
+    model = load_model(ensure_checkpoint(entry.checkpoint), entry.scale)
     return build_upscaler(model, entry.scale, alpha_plane=alpha_plane)
