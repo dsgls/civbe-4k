@@ -64,6 +64,7 @@ pkgs.mkShell {
       torchvision
       numpy
       pillow
+      scipy
       spandrel
       pytest
     ]))

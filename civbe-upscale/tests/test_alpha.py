@@ -270,6 +270,43 @@ def test_extrapolation_leaves_opaque_pixels_alone():
     np.testing.assert_array_equal(out[0, 1:], rgb[0, 1:])
 
 
+def test_extrapolation_completes_far_from_a_single_seed():
+    """192x192 with one corner seed: 191 px of Chebyshev distance to cover,
+    six times the dilation cap. Every filled pixel -- reached by dilation or
+    by the EDT fallback -- must land on the seed's color, since it is the
+    only color that ever exists in the plane."""
+    n = 192
+    rgb = np.zeros((n, n, 3), dtype=np.uint8)
+    a = np.zeros((n, n), dtype=np.uint8)
+    rgb[0, 0] = (200, 100, 50)
+    a[0, 0] = 255
+
+    out = extrapolate(rgb, a)
+
+    assert (out == (200, 100, 50)).all()
+
+
+def test_edt_fallback_picks_the_unambiguous_nearest_known_pixel():
+    """70 px row, red seed at 0 and blue seed at 69. The capped dilation
+    (32 rounds) reaches indices [0, 32] from red and [37, 69] from blue,
+    leaving 33..36 unreached; the EDT fallback must assign each to whichever
+    boundary is strictly nearer."""
+    n = 70
+    rgb = np.zeros((1, n, 3), dtype=np.uint8)
+    a = np.zeros((1, n), dtype=np.uint8)
+    rgb[0, 0] = (255, 0, 0)
+    a[0, 0] = 255
+    rgb[0, n - 1] = (0, 0, 255)
+    a[0, n - 1] = 255
+
+    out = extrapolate(rgb, a)
+
+    np.testing.assert_array_equal(out[0, 33], (255, 0, 0))  # dist 1 to 32 vs 4 to 37
+    np.testing.assert_array_equal(out[0, 34], (255, 0, 0))  # dist 2 vs 3
+    np.testing.assert_array_equal(out[0, 35], (0, 0, 255))  # dist 3 vs 2
+    np.testing.assert_array_equal(out[0, 36], (0, 0, 255))  # dist 4 vs 1
+
+
 def test_alpha_up_used_for_alpha_plane_when_given():
     src = solid(2, 2, (10, 20, 30, 200))
     src[0, 0] = (40, 50, 60, 128)  # keep both planes non-constant

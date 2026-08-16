@@ -16,6 +16,7 @@ from typing import Callable
 
 import numpy as np
 from PIL import Image
+from scipy.ndimage import distance_transform_edt
 
 # A 2x upscaler over one RGB-shaped float plane. Contract: input float32
 # HxWx3 in [0,1], output float32 2Hx2Wx3 in [0,1], already clamped.
@@ -24,6 +25,14 @@ PlaneUpscaler = Callable[[np.ndarray], np.ndarray]
 # Alpha (in 8-bit units) below which the authored RGB is treated as junk and
 # blended toward the extrapolated color by `1 - a/threshold`.
 BLEND_THRESHOLD = 8.0
+
+# Cap on iterative dilation rounds. Each round is a full-array pass, and a
+# pixel's cost is one round per unit of Chebyshev distance to its nearest
+# seed -- on a large, mostly-transparent atlas with sparsely scattered
+# opaque icons that distance can run into the thousands. Pixels within the
+# cap get the exact alpha-weighted-neighbor-mean result; anything the capped
+# dilation doesn't reach is filled in one pass by `_fill_unreached`.
+MAX_DILATION_ROUNDS = 32
 
 _NEIGHBORS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
 
@@ -104,7 +113,9 @@ def _dilate(rgb: np.ndarray, alpha: np.ndarray, seeds: np.ndarray) -> np.ndarray
     weight = np.where(seeds, alpha, 0.0).astype(np.float32)
     known = seeds.copy()
 
-    while not known.all():
+    for _ in range(MAX_DILATION_ROUNDS):
+        if known.all():
+            break
         num = np.zeros_like(color)
         den = np.zeros_like(weight)
         count = np.zeros_like(weight)
@@ -123,7 +134,25 @@ def _dilate(rgb: np.ndarray, alpha: np.ndarray, seeds: np.ndarray) -> np.ndarray
         weight[frontier] = den[frontier] / count[frontier]
         known |= frontier
 
+    if not known.all():
+        color = _fill_unreached(color, known)
+
     return color
+
+
+def _fill_unreached(color: np.ndarray, known: np.ndarray) -> np.ndarray:
+    """Assign every pixel the capped dilation never reached its nearest known color.
+
+    One distance-transform pass replaces what would otherwise be one dilation
+    round per unit of Chebyshev distance to the nearest seed, independent of
+    how far that distance is.
+    """
+    unknown = ~known
+    _, indices = distance_transform_edt(unknown, return_indices=True)
+    nearest = color[indices[0], indices[1]]
+    out = color.copy()
+    out[unknown] = nearest[unknown]
+    return out
 
 
 def _shift(a: np.ndarray, dy: int, dx: int) -> np.ndarray:
