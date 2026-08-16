@@ -8,9 +8,35 @@
 # cudaPackages is pinned to 13: the default set (12.9) is older than the
 # cuda-bindings the torch wheels declare, and torch-bin refuses to evaluate
 # against it.
+#
+# libnvshmem is the one dependency here with no binary cache entry, so it builds
+# from source. Stock it compiles device code for nine GPU architectures with its
+# test and example suites — enough to exhaust this machine. Both cuts below are
+# safe for this tool: inference is single-GPU (nvshmem is a multi-GPU/multi-node
+# transport that never runs), and torch-bin needs the library only so
+# autoPatchelf can resolve libtorch_cuda.so's link against it.
 { pkgs ? import <nixpkgs> {
     config.allowUnfree = true;
-    overlays = [ (final: prev: { cudaPackages = final.cudaPackages_13; }) ];
+    # Blackwell (RTX 5090) only. Every extra capability is another full pass of
+    # device-code compilation through every CUDA package built from source.
+    config.cudaCapabilities = [ "12.0" ];
+    overlays = [
+      (final: prev: {
+        cudaPackages = final.cudaPackages_13.overrideScope (cudaFinal: cudaPrev: {
+          libnvshmem = cudaPrev.libnvshmem.overrideAttrs (old: {
+            cmakeFlags =
+              (builtins.filter
+                (flag: !(final.lib.hasPrefix "-DNVSHMEM_BUILD_TESTS" flag
+                      || final.lib.hasPrefix "-DNVSHMEM_BUILD_EXAMPLES" flag))
+                old.cmakeFlags)
+              ++ [
+                "-DNVSHMEM_BUILD_TESTS:BOOL=FALSE"
+                "-DNVSHMEM_BUILD_EXAMPLES:BOOL=FALSE"
+              ];
+          });
+        });
+      })
+    ];
   }
 }:
 
