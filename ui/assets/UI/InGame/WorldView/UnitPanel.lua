@@ -519,7 +519,7 @@ function UpdateUnitPortrait( unit : table )
     convertedKey = Locale.ToUpper(convertedKey);
 
 	Controls.UnitName:SetFontSize( 48 );
-	TruncateString(Controls.UnitName, 260, convertedKey);
+	TruncateString(Controls.UnitName, 520, convertedKey);
 
 	-- Help text
 	local unitInfo = GameInfo.Units[unit:GetUnitType()];

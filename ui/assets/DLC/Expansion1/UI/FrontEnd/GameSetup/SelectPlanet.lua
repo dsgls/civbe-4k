@@ -748,7 +748,7 @@ function View(folder)
 				item.Name:SetText(v.Name .. " [ICON_ARROW_RIGHT]");
 			else
 				if ( v.Name ~= nil ) then
-					TruncateStringWithTooltip( item.Name, 300, v.Name );
+					TruncateStringWithTooltip( item.Name, 600, v.Name );
 				end
 			end
 			

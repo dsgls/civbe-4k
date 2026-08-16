@@ -130,7 +130,7 @@ function UpdateDisplay()
         instance.Button:SetVoid1( unit:GetID() );
         
         sortEntry.name = Locale.ConvertTextKey( unit:GetNameKey() );
-        TruncateString( instance.UnitName, 110, sortEntry.name );
+        TruncateString( instance.UnitName, 220, sortEntry.name );
         
         if( unit:MovesLeft() > 0 ) then
             instance.Button:SetAlpha( 1.0 );

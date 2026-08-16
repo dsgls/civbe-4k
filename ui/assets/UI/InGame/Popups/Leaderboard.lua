@@ -170,7 +170,7 @@ function PopulateLeaderboardResults()
 		local controlTable = g_GamesIM:GetInstance();
 		table.insert(gameEntries, controlTable);
 		
-		TruncateString( controlTable.LeaderName, 200, v.PlayerName );
+		TruncateString( controlTable.LeaderName, 400, v.PlayerName );
 		
 		controlTable.GlobalRank:SetText(v.GlobalRank);
 		if(newTopRank == -1 or v.GlobalRank < newTopRank) then
@@ -213,7 +213,7 @@ function PopulateLeaderboardResults()
 		end
 				
 		if(v.PlayerTeamWon)then
-			TruncateString( controlTable.WinningSponsorName, 150, v.PlayerName );
+			TruncateString( controlTable.WinningSponsorName, 300, v.PlayerName );
 		else
 			if(civ)then
 				controlTable.WinningSponsorName:LocalizeAndSetText(civ.ShortDescription);

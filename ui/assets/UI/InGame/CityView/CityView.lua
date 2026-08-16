@@ -1198,7 +1198,7 @@ function OnCityViewUpdate()
 
 	local tw = Controls.FocusLabel:GetSizeX() + Controls.FocusWord:GetSizeX();
 	if (tw > 230) then
-		TruncateStringWithTooltip(Controls.FocusLabel, 76, focusString);
+		TruncateStringWithTooltip(Controls.FocusLabel, 152, focusString);
 	else
 		Controls.FocusLabel:SetText( focusColor .. focusString .. "[ENDCOLOR]");	-- Main text
 	end
@@ -1846,7 +1846,7 @@ function DoUpdateProductionInfo( primaryColor, primaryColorAlphaed )
 		return;
 	end
 
-	TruncateStringWithTooltip(Controls.ProductionItemName, 300, szItemName);
+	TruncateStringWithTooltip(Controls.ProductionItemName, 600, szItemName);
 
 	SetProductionQueueGrowthBar( Controls.ProductionBar, Controls.ProductionBarShadow);	
 		

@@ -146,7 +146,7 @@ function UpdateWindow()
 	local strTitle = objective:GetSummary();
 		
 	-- Prompt text
-	local MAX_SIZE_TITLE = 650;
+	local MAX_SIZE_TITLE = 1300;
 	TruncateStringWithTooltip(Controls.TitleText, MAX_SIZE_TITLE, Locale.ToUpper(strTitle) );
 
 	--Controls.TitleText:SetText(Locale.ToUpper(strTitle));

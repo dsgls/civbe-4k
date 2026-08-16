@@ -114,7 +114,7 @@ function UpdateDisplay()
 			m_SortTable[ tostring( instance.Root ) ] = sortEntry;
 			sortEntry.name = Locale.ConvertTextKey( resource.Description );
 			instance.ResourceQty:SetText( iAvailable );
-			TruncateString( instance.ResourceName, 140, resource.IconString .. " " .. sortEntry.name );
+			TruncateString( instance.ResourceName, 280, resource.IconString .. " " .. sortEntry.name );
 
 			if( bIsStrategic and iUsed > 0 ) then
 				strTradeInfo = Locale.ConvertTextKey( "TXT_KEY_RESOURCE_USED", iUsed );

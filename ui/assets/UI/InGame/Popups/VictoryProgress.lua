@@ -488,7 +488,7 @@ function PopulateScoreScreen()
 		SetCivLeader(pPlayer, 64, controlTable.Portrait);
 	
 		-- Set Civ Name
-		SetCivName(pPlayer, i, controlTable.Score, PreGame.IsMultiplayerGame(), 730);
+		SetCivName(pPlayer, i, controlTable.Score, PreGame.IsMultiplayerGame(), 1460);
 		controlTable.Name:SetText(controlTable.Score:GetText());
 		
 		-- Set Civ Icon

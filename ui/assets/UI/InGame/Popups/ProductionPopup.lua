@@ -50,7 +50,7 @@ local m_screenSizeX, m_screenSizeY = UIManager:GetScreenSizeVal()
 local listOfStrings = {};
 
 -- Base width to truncate to before advisor icons are taken into account.
-local g_UnitNameBaseTruncateWidth = 205;
+local g_UnitNameBaseTruncateWidth = 410;
 
 
 -------------------------------------------------

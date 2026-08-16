@@ -209,7 +209,7 @@ function UpdatePlayerData( pPlayer, controlTable )
 			-- empty observer slot
 			controlTable.Name:LocalizeAndSetText( "TXT_KEY_SLOTTYPE_OPEN" );
 		else		
-			TruncateStringWithTooltip(controlTable.Name, 150, pPlayer:GetNickName() );
+			TruncateStringWithTooltip(controlTable.Name, 300, pPlayer:GetNickName() );
 		end
             
 		if (g_bShowPings) then

@@ -131,7 +131,7 @@ function OnChat( fromPlayer, toPlayer, text, eTargetType )
         table.remove( g_ChatInstances, 1 );
     end
     
-    TruncateString( controlTable.String, 200, Players[fromPlayer]:GetNickName() );
+    TruncateString( controlTable.String, 400, Players[fromPlayer]:GetNickName() );
     local fromName = controlTable.String:GetText();
     
     if( eTargetType == ChatTargetTypes.CHATTARGET_TEAM ) then
@@ -144,7 +144,7 @@ function OnChat( fromPlayer, toPlayer, text, eTargetType )
         if( toPlayer == g_iLocalPlayer ) then
             toName = Locale.ConvertTextKey( "TXT_KEY_YOU" );
         else
-            TruncateString( controlTable.String, 200, Players[toPlayer]:GetNickName() );
+            TruncateString( controlTable.String, 400, Players[toPlayer]:GetNickName() );
             toName = Locale.ConvertTextKey( "TXT_KEY_DIPLO_TO_PLAYER", controlTable.String:GetText() );
         end
         controlTable.String:SetText( fromName .. " (" .. toName .. "): " .. text ); 

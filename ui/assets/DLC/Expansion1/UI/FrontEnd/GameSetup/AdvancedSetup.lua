@@ -32,7 +32,7 @@ g_GameOptionsManager		= InstanceManager:new("GameOptionInstance",		"GameOptionRo
 g_DropDownOptionsManager	= InstanceManager:new("DropDownOptionInstance", "DropDownOptionRoot", Controls.DropDownOptionsStack);
 g_VictoryCondtionsManager	= InstanceManager:new("GameOptionInstance",		"GameOptionRoot", Controls.VictoryConditionsStack);
 
-local MAX_NAME_SIZE		= 220;
+local MAX_NAME_SIZE		= 440;
 
 ------------------------------------------------------------------------------------------------------
 -- Complex Methods
@@ -290,7 +290,7 @@ function RefreshPlayerList()
 					local leaderDescription = leader.Description;
 					local leaderButton		= controlTable.CivPulldown:GetButton();
 					local leaderName		= Locale.ConvertTextKey("TXT_KEY_RANDOM_LEADER_CIV", Locale.ConvertTextKey(leaderDescription), Locale.ConvertTextKey(civ.ShortDescription));
-					local MAX_NAME_SIZE		= 220;
+					local MAX_NAME_SIZE		= 440;
 					TruncateStringWithTooltip( leaderButton, MAX_NAME_SIZE, leaderName );
 
 					IconHookup( civ.PortraitIndex, 64, civ.IconAtlas, controlTable.Icon );
@@ -1554,11 +1554,11 @@ function OnCancelEditPlayerDetails()
 		local leaderDescription = leader.Description;
 	
 		local leaderName = Locale.Lookup("TXT_KEY_RANDOM_LEADER_CIV", leaderDescription, civ.ShortDescription);
-		local MAX_NAME_SIZE		= 220;
+		local MAX_NAME_SIZE		= 440;
 		TruncateStringWithTooltip( Controls.CivPulldown:GetButton(), MAX_NAME_SIZE, leaderName );
 	else
 		local leaderName = Locale.Lookup("TXT_KEY_RANDOM_SPONSOR");
-		local MAX_NAME_SIZE		= 220;
+		local MAX_NAME_SIZE		= 440;
 		TruncateStringWithTooltip( Controls.CivPulldown:GetButton(), MAX_NAME_SIZE, leaderName );
 	end
 end

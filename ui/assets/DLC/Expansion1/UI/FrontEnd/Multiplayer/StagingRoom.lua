@@ -709,7 +709,7 @@ function UpdatePlayer( slotInstance, playerInfo )
 		-- Set player/host label area, with truncation...
 		local bHideHostLabel = playerID ~= m_HostID;
 		slotInstance.HostLabel:SetHide( bHideHostLabel );
-		local playerLabelMaxWidth = 240;
+		local playerLabelMaxWidth = 480;
 		if (not bHideHostLabel) then  
 			playerLabelMaxWidth = playerLabelMaxWidth - Controls.HostLabel:GetSizeX();
 		end
@@ -976,7 +976,7 @@ function UpdateLocalPlayer( playerInfo )
 	-- Set player/host label area, with truncation...
 	local bHideHostLabel = (Matchmaking.GetLocalID() ~= m_HostID);
 	Controls.HostLabel:SetHide( bHideHostLabel );
-	local playerLabelMaxWidth = 240;
+	local playerLabelMaxWidth = 480;
 	if (not bHideHostLabel) then  
 		playerLabelMaxWidth = playerLabelMaxWidth - Controls.HostLabel:GetSizeX();
 	end
@@ -1504,7 +1504,7 @@ function UpdateOptions()
 
 	-- Set Game Name
 	local strGameName = Matchmaking.GetCurrentGameName();
-	TruncateString( Controls.NameLabel, 260, strGameName ); 
+	TruncateString( Controls.NameLabel, 520, strGameName ); 
 	Controls.NameLabel:SetToolTipString( Locale.ConvertTextKey("TXT_KEY_GAME_NAME") .. " " .. strGameName );
 
 	-- Game State Indicator

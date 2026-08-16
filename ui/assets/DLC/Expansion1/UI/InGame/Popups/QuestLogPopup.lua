@@ -276,7 +276,7 @@ function InsertQuestEntry(quest)
 	table.insert( m_uiMainContentStackInstances, questInstance );
 
 
-	local MAX_QUEST_NAME_LENGTH = 400;
+	local MAX_QUEST_NAME_LENGTH = 800;
 	local questNameTitle		= "";
 	if (name ~= nil) then
 		if (isFinished) then
