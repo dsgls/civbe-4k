@@ -12,6 +12,7 @@ import pytest
 from PIL import Image
 
 from civbe_upscale import engine
+from civbe_upscale.registry import Checkpoint
 
 
 def nearest_2x(arr: np.ndarray) -> np.ndarray:
@@ -225,6 +226,37 @@ def test_a_checkpoint_is_loaded_once_for_both_plane_kinds(monkeypatch):
     assert rgb is alpha
     assert other is not rgb
     assert loads == [(Path("dat2.pth"), 4), (Path("swinir.pth"), 4)]
+
+
+def test_ensure_checkpoint_hashes_a_cached_file_only_once(tmp_path, monkeypatch):
+    """A second `ensure_checkpoint` call for the same path must not re-hash.
+
+    `apply_upscalers` resolves each upscaler name once per plane kind per
+    image, so an unmemoized hash turns a batch run into two full-file SHA-256
+    passes per image per upscaler.
+    """
+    monkeypatch.setattr(engine, "_VERIFIED_CHECKPOINTS", set())
+    monkeypatch.setattr(engine, "models_dir", lambda: tmp_path)
+
+    target = tmp_path / "model.pth"
+    target.write_bytes(b"pretend model weights")
+    ckpt = Checkpoint(url=f"https://example.invalid/{target.name}", sha256=engine._sha256(target))
+
+    calls = []
+    real_sha256 = engine._sha256
+
+    def counting_sha256(path):
+        calls.append(path)
+        return real_sha256(path)
+
+    monkeypatch.setattr(engine, "_sha256", counting_sha256)
+
+    first = engine.ensure_checkpoint(ckpt)
+    second = engine.ensure_checkpoint(ckpt)
+
+    assert first == target
+    assert second == target
+    assert calls == [target]
 
 
 def test_non_float32_plane_is_rejected():

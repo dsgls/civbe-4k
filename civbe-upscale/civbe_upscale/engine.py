@@ -196,12 +196,23 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+#: Checkpoint paths already hash-verified in this process; `ensure_checkpoint`
+#: trusts these without re-hashing. `apply_upscalers` resolves each upscaler
+#: name per image, so without this a batch run re-hashes every checkpoint
+#: once per image.
+_VERIFIED_CHECKPOINTS: set[Path] = set()
+
+
 def ensure_checkpoint(ckpt: Checkpoint) -> Path:
     """Return the cached checkpoint path, downloading and verifying if needed."""
     target = models_dir() / ckpt.filename
+    if target in _VERIFIED_CHECKPOINTS:
+        return target
+
     if target.exists():
         actual = _sha256(target)
         if actual == ckpt.sha256:
+            _VERIFIED_CHECKPOINTS.add(target)
             return target
         raise RuntimeError(
             f"cached {target} has sha256 {actual}, expected {ckpt.sha256}; "
@@ -221,6 +232,7 @@ def ensure_checkpoint(ckpt: Checkpoint) -> Path:
             f"{ckpt.url} has sha256 {actual}, expected {ckpt.sha256}"
         )
     partial.rename(target)
+    _VERIFIED_CHECKPOINTS.add(target)
     return target
 
 

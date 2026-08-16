@@ -36,11 +36,13 @@ def _validate_rgba_png(p: Path) -> str | None:
     return None
 
 
-def _list_rgba_pngs(input_dir: Path) -> list[Path]:
+def list_rgba_pngs(input_dir: Path) -> list[Path]:
     """Validate every file in `input_dir` up front; error out on the first bad batch.
 
     Validating before writing anything means a bad file aborts the whole run
-    instead of leaving a partial output directory behind.
+    instead of leaving a partial output directory behind. Public: `batch` and
+    `compare` share this enumeration, and it is the contract task 4's
+    `compare.run_compare` input-file list is built from.
     """
     files = _list_dir_files(input_dir)
     problems = [msg for p in files if (msg := _validate_rgba_png(p)) is not None]
@@ -70,7 +72,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
             f"unknown upscaler {args.upscaler!r}; known: {', '.join(sorted(REGISTRY))}"
         )
 
-    files = _list_rgba_pngs(input_dir)
+    files = list_rgba_pngs(input_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     for p in files:
         with Image.open(p) as img:
@@ -81,8 +83,6 @@ def cmd_batch(args: argparse.Namespace) -> int:
 
 
 def cmd_compare(args: argparse.Namespace) -> int:
-    from . import compare  # lazy: keeps `batch` usable before task 4 lands
-
     input_dir = Path(args.input_dir)
     output_dir = Path(args.output_dir)
 
@@ -96,11 +96,15 @@ def cmd_compare(args: argparse.Namespace) -> int:
             f"unknown upscaler(s) {', '.join(unknown)}; known: {', '.join(sorted(REGISTRY))}"
         )
 
+    files = list_rgba_pngs(input_dir)
+
     crops: dict[str, list[tuple[int, int, int, int]]] = {}
     for name, rect in args.crops:
         crops.setdefault(name, []).append(rect)
 
-    return compare.run_compare(input_dir, output_dir, names, crops)
+    from . import compare  # lazy: keeps `batch` usable before task 4 lands
+
+    return compare.run_compare(files, output_dir, names, crops)
 
 
 def build_parser() -> argparse.ArgumentParser:
