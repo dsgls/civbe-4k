@@ -100,14 +100,41 @@ in the comment: *"if the loose file is newer"* — timestamps matter.
 
 ## The texture format
 
+Every file is a stock Microsoft DDS: magic `DDS `, `dwSize` 124, no DX10
+extension header, pixel data at offset 0x80. Any DDS reader opens them. The
+base and expansion packs are identical in layout despite the different packfile
+version — only the mix of pixel formats differs. Byte-exact size checks pass on
+all 1417 non-index files.
+
+### Firaxis metadata in the reserved fields
+
+| Offset | DDS field | Content |
+|--------|-----------|---------|
+| 0x20   | `dwReserved1[0]` | `FTXT` magic |
+| 0x24   | `dwReserved1[1..10]` | 40-byte NUL-padded usage name: `Interface`, `Interface Scalable`, `Strategic View`, `Stub Texture`, `Leader Diffuse (No Alpha)`, `Irradiance Cube`, … |
+| 0x74   | `dwCaps3` + `dwCaps4` | 8-byte ASCII format tag: `COLOR`, `BC0nn`, `FICwwhh`, `COLOR_NA`, `Typeless` |
+
+Two traps. 21 of the `forgeui_*.dds` carry **uninitialized memory** after the
+usage name and in `dwReserved2` — raw pointer values, different in every file.
+Read the name up to the first NUL and ignore `dwReserved2` (the only meaningful
+value it ever holds is `0x30`, on the 11 `.fic` stubs below). And eight base
+textures have no `FTXT` at all (`civbeicon`, `missingtexture`, `toppanelbar`,
+`cubelight_ui`, the four `forgeui_toolslider*`); the game draws them anyway.
+
+### Dictionary pairs
+
 Most UI textures ship as a **block dictionary plus an index**, not as plain
 images:
 
 - `foo.dds` — a dictionary holding NxN pixel blocks
-- `foo-index.dds` — one dictionary entry per block, 8- or 16-bit
+- `foo-index.dds` — one dictionary entry per block, `L8` or `L16`
+  (`DDPF_LUMINANCE`, mask `0xff` or `0xffff`)
 - decoded image = `index_dims x N`
 
-Verified against all 724 pairs, with the converted PNGs as ground truth:
+**The block size is in the header.** `BC0nn` at offset 0x74 is N in decimal —
+`BC010` is 10, not 16. Verified on all 724 pairs against the converted PNGs:
+tag and ground-truth dimensions agree every time, so nothing has to solve for N
+or measure a PNG to decode a pair.
 
 | block | textures |     | block | textures |
 |-------|----------|-----|-------|----------|
@@ -118,15 +145,50 @@ Verified against all 724 pairs, with the converted PNGs as ground truth:
 Blocks are always square. **Images usually are not** — 407 of 724 decoded PNGs
 are non-square (`actionrowbackground` 433x55, `1920_leftside` 100x1200).
 Index dimensions divide the image exactly in every case, and the dictionary is
-never too small for the indices used. Note 10 and 20: the sizes are not all
-powers of two, which will break a solver that only tries 1/2/4/8/16.
+never too small for the indices used. Note 10 and 20: N is not always a power
+of two, so a decoder that guesses from 1/2/4/8/16 gets 11 textures wrong.
+Read the tag.
 
-The DDS files carry an `FTXT` + usage tag (`Interface`, `Leader Diffuse`, …) in
-the reserved field at offset 32. Whether the engine requires it on an override
-is unknown — see *Open questions*.
+Pairing is exact — 595 pairs in `UITextures.fpk`, 129 in
+`Expansion1UITextures.fpk`, no orphan on either side.
 
 Decoding is already done: `extracted/*_converted/` holds a PNG per pair. Only
 the 211 plain-DDS entries have no PNG, because they need no decode.
+
+### Plain textures
+
+The 693 files with no `-index` sibling:
+
+| Pixel format | base | expansion |
+|--------------|------|-----------|
+| `A8B8G8R8` — R mask `0x000000ff`, bytes R,G,B,A | 167 | 86 |
+| `A8R8G8B8` — R mask `0x00ff0000`, bytes B,G,R,A | 196 | 118 |
+| DXT4 | 48 | 36 |
+| DXT2 | 13 | — |
+| DXT1 | 14 | 1 |
+| DXT3 | 2 | — |
+| DXT5 | 1 | — |
+| fourCC 114 (`.fic` stub) | 11 | — |
+
+**Both channel orders ship, and the masks tell the truth.** Read the masks per
+file; do not hardcode an order. Confirmed by decoding both ways and comparing
+against known art — `my2klogo.dds` (mask `0xff`) is the red 2K logo only as
+R,G,B,A, `civilizationbe_risingtide_logo.dds` (mask `0xff0000`) is the blue
+Rising Tide logo only as B,G,R,A. The split follows neither the usage name nor
+the pack, so there is no shortcut.
+
+**DXT2 and DXT4 are mislabelled.** Those fourCCs mean premultiplied alpha and
+the data is not premultiplied: `colorred.dds` (DXT2) breaks `max(rgb) <= a` on
+100% of its texels, `blue_centeroneturn_tallglow.dds` (DXT4) on 73%. Decode
+DXT2 as DXT3 and DXT4 as DXT5, and do **not** divide out alpha — a converter
+that honours the fourCC washes these out.
+
+Three files are cubemaps carrying six faces (`dwCaps2` `0xFE00`, so 6x the
+data): `cubelight_ui.dds` and the two `atlas_environment_*.dds`.
+
+The 11 fourCC-114 files (`atlas_*`, `globe_*`) each have a `.fic` sidecar
+holding the real payload — an opaque compressed blob with no magic — and a
+`FICwwhh` tag giving the hex dimensions. Leader-scene art, not UI.
 
 ---
 
@@ -219,12 +281,19 @@ Each of these is cheap to test and expensive to get wrong.
    packed pair may still win, or the engine may look for `foo-index.dds` and
    find the packed one. If a plain override does not work, the pipeline has to
    re-encode into the dictionary format, which is a much larger job.
-3. **Does the engine accept DXT for UI textures?** 115 stock textures are DXT
-   (mostly cubemaps and globe art) but the UI sprites are uncompressed. If DXT
-   is rejected, the memory budget forces a smaller scale or a shorter list.
-4. **Does the `FTXT` tag matter?** Preserve it in output until proven optional.
-5. **Mipmaps.** Some stock textures carry full chains, most do not. Match the
-   original per file unless something proves otherwise.
+3. **Does the engine accept DXT for UI textures?** Largely answered: of the 115
+   stock DXT textures, 96 sit in the `Interface Scalable` and `Strategic View`
+   usage groups and 26 are on the phase-2 work list (`forgeui_*` 9-slice frames
+   and scrollbars). Only two are cubemaps. So the engine does draw DXT UI
+   sprites. What is untested is DXT arriving as a *loose override* — fold it
+   into the test for question 1.
+4. **Does the `FTXT` tag matter?** Probably not required: eight stock textures
+   ship without it (see *The texture format*) and draw fine. Still cheap to
+   preserve, so preserve it until an override test says otherwise.
+5. **Mipmaps.** Split cleanly by kind: all 724 dictionary textures are
+   single-level, while 480 of the 693 plain ones carry chains (361 full to
+   1x1, 119 stopping early). Match the original per file unless something
+   proves otherwise.
 
 ---
 
