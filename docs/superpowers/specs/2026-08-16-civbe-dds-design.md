@@ -27,8 +27,8 @@ under *The texture format*; this spec does not restate it.
 ## Scope
 
 In: decode every form the three UI packs contain except the `.fic` stubs;
-encode plain single-level `A8B8G8R8`; a CLI; tests; migration of the six
-`analysis/` consumers.
+encode plain single-level `A8B8G8R8`; a CLI; tests; migration of the one
+`analysis/` consumer.
 
 Out: DXT encoding, mipmap generation, dictionary-pair encoding (the verified
 loose-override test showed a plain DDS displaces a stock pair, so nothing needs
@@ -260,7 +260,7 @@ not tracked, so nothing in the suite may depend on it.
 
 ## Status
 
-Tasks 1-6 and 8 are implemented, reviewed and merged. The tool decodes every
+All eight tasks are implemented, reviewed and merged. The tool decodes every
 format the packs contain, encodes plain RGBA DDS, and has its CLI, README and
 115 tests. Verified across the whole corpus: **2382 of 2382 non-stub stock files
 round-trip their level-0 image byte-identically** through `.dds` → RGBA `.png` →
@@ -271,30 +271,27 @@ and DXT4 (249 files) have no independent reference, because Pillow refuses both
 fourCCs; their evidence is the round-trip and the README's premultiplication
 argument.
 
-**Task 7 (migration) is deliberately not done.** It waits on a decision that is
-not the implementer's to make: `analysis/dds.py` is also referenced by the
-concurrent texture-upscaling work stream, whose spec names its `read_png` /
-`write_png` as the seam between the two. Deleting it as described below breaks
-that stream mid-flight. The three options are to delete it and re-point that
-stream at `civbe_dds`, to defer until it lands, or to leave a thin shim — the
-last reintroduces the duplicate source of truth this spec exists to remove.
-Until then `analysis/dds.py` stays, and the top-level README's references to it
-are correct as written.
+`analysis/dds.py` is deleted; `analysis/verify_decode.py` (renamed from
+`verify_pair_decode.py`) is its only former consumer, and now imports
+`civbe_dds` instead. It diffs all 724 pairs against the converted PNGs
+byte-exactly and round-trips every plain texture through the encoder: 724
+pair matches, 934 plain textures round-tripped, 0 mismatches, 11 `.fic`
+stubs skipped.
 
 ## Migration
 
 - `analysis/paths.py` gains `DDS_TOOL = os.path.join(PROJECT, "civbe-dds")`.
-- The six consumers (`build_texture_list.py`, `compare_pack_collisions.py`,
-  `dead_reference_report.py`, `derive_block_sizes.py`,
-  `verify_conversion_inputs.py`, `verify_pair_decode.py`) switch from
-  `import dds` to `sys.path.insert(0, DDS_TOOL)` then `from civbe_dds import …`,
-  the convention those scripts already use for `civbe_uiscale`.
+- `analysis/verify_pair_decode.py` is the only consumer that imports `dds.py`;
+  every other analysis script's `.dds` mentions are the file extension, not
+  the module. It switches from `import dds` to `sys.path.insert(0, DDS_TOOL)`
+  then `import civbe_dds`, the convention those scripts already use for
+  `civbe_uiscale`.
 - `analysis/dds.py` is deleted. No shim.
 - `verify_pair_decode.py` becomes `verify_decode.py`: it still diffs all 724
   pairs against the converted PNGs byte-exactly, and additionally decodes every
-  plain texture in the three packs and round-trips each through `encode`. That
-  turns the corpus into an acceptance run for the new formats, which the unit
-  tests deliberately cannot cover.
+  plain texture in the three packs and round-trips each through `civbe_dds`'s
+  encoder. That turns the corpus into an acceptance run for the new formats,
+  which the unit tests deliberately cannot cover.
 
 ## Docs
 
@@ -322,8 +319,8 @@ are correct as written.
 6. **`cli.py` + `__main__.py` + the `__init__.py` re-export block.** Tasks 2-5
    and their tests import submodules directly, so only this task writes the
    public API and no two tasks contend for one file.
-7. **Migration**: `paths.py`, the six consumers, delete `dds.py`, rewrite
-   `verify_pair_decode.py` as `verify_decode.py`.
+7. **Migration**: `paths.py`, delete `dds.py`, rewrite `verify_pair_decode.py`
+   as `verify_decode.py`.
 8. **Docs**: both READMEs.
 
 Dependencies: 1 first. Then 2, 3 and 4 are independent of each other and may run
