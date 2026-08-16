@@ -14,6 +14,9 @@ from .values import scale_value_checked
 SCREEN_SETTERS = (
     "SetSizeVal", "SetOffsetVal", "SetSizeX", "SetSizeY",
     "SetOffsetX", "SetOffsetY", "SetWrapWidth", "SetFontSize",
+    # A SlideAnim's travel, set from Lua: the counterpart of the XML
+    # Start/End that classify.py already scales.
+    "SetBeginVal", "SetEndVal",
 )
 TEXTURE_SETTERS = ("SetTextureOffsetVal", "SetTextureSizeVal")
 

@@ -62,13 +62,22 @@ sets only `SetTexture` and `SetTextureOffsetVal`, so the sampled width and
 height come from the control's size. Doubling `Size` on such a control makes
 it read a 2x2 block of neighbouring icons.
 
-The rule, in precedence order:
+The rule, in precedence order, applied to the control's **effective**
+attributes — its own, over whatever its `Style=` gives it:
 
-1. A 9-sliced control (`SliceCorner`, `SliceTextureSize`, …) stretches its
-   texture, so `Size` is screen-space even alongside `StateOffsetIncrement`.
-2. Otherwise, `TextureOffset` or `StateOffsetIncrement` on the element makes
-   `Size` a source rect — texture-space.
+1. A 9-sliced control stretches its texture, so `Size` is screen-space even
+   alongside `StateOffsetIncrement`. Both spellings count: `SliceCorner`,
+   `SliceTextureSize`, … and the per-piece form (`CSize`, `ULTexStart`, …)
+   that most of the game's 9-grids actually use.
+2. Otherwise, `TextureOffset` or `StateOffsetIncrement` makes `Size` a source
+   rect — texture-space.
 3. Otherwise it is screen-space.
+
+The markers are usually in the style, not on the control: the End Turn button
+is `Style="NextButtonFlag"` and nothing else, and the unit-cycle arrows get
+their atlas offset from `ForwardButton`. `styles.py` reads every `<StyleSheet>`
+in the tree and flattens each style's own `Style=` chain, so classification
+sees them. Only the control's own values are ever rewritten.
 
 ### `.` and `,` are both separators
 

@@ -112,3 +112,38 @@ class TestChangeReport:
     def test_distinguishes_texture_space_changes(self):
         out, changes = patch('<Image TextureOffset="8,0"/>', ui=2.0, texture=2.0)
         assert changes[0].space is Space.TEXTURE
+
+
+class TestInheritedStyles:
+    """A control's Style= carries the markers that decide how Size is read."""
+
+    ARROWS = {"ForwardButton": {"Texture": "UnitPanelArrows.dds",
+                                "TextureOffset": "45,0",
+                                "StateOffsetIncrement": "45,0"}}
+    FLAG = {"NextButtonFlag": {"SliceCorner": "135,15",
+                               "SliceTextureSize": "294,45"}}
+
+    def test_an_inherited_atlas_offset_freezes_size(self):
+        src = '<Button Size="45,45" Style="ForwardButton"/>'
+        out, _ = patch_xml(src, 2.0, 1.0, self.ARROWS)
+        assert out == src
+
+    def test_inherited_slicing_keeps_size_screen_space(self):
+        src = '<GridButton Size="200,45" StateOffsetIncrement="0,0" Style="NextButtonFlag"/>'
+        out, _ = patch_xml(src, 2.0, 1.0, self.FLAG)
+        assert 'Size="400,90"' in out
+
+    def test_the_elements_own_markers_still_win(self):
+        src = '<Button Size="45,45" TextureOffset="0,0" Style="Plain"/>'
+        out, _ = patch_xml(src, 2.0, 1.0, {"Plain": {"Texture": "x.dds"}})
+        assert out == src
+
+    def test_an_unknown_style_name_is_harmless(self):
+        src = '<Button Size="45,45" Style="Missing"/>'
+        out, _ = patch_xml(src, 2.0, 1.0, {})
+        assert 'Size="90,90"' in out
+
+    def test_only_the_elements_own_values_are_rewritten(self):
+        src = '<Button Style="ForwardButton" Offset="10,10"/>'
+        out, _ = patch_xml(src, 2.0, 1.0, self.ARROWS)
+        assert out == '<Button Style="ForwardButton" Offset="20,20"/>'

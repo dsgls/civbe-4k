@@ -36,6 +36,16 @@ class TestScreenSpace:
         assert classify("Line", "Start", attrs) is Space.SCREEN
         assert classify("Line", "Width", attrs) is Space.SCREEN
 
+    def test_a_slide_defined_as_a_named_style_travels_too(self):
+        # Rising Tide defines its slides as styles, so the element name is the
+        # style's -- Start/End beside a Cycle is what identifies one.
+        attrs = {"Start": "-20,0", "End": "0,0", "Cycle": "Once", "Speed": "1"}
+        assert classify("DiploSlideH", "Start", attrs) is Space.SCREEN
+        assert classify("DiploSlideH", "End", attrs) is Space.SCREEN
+
+    def test_a_start_without_travel_is_still_left_alone(self):
+        assert classify("Whatever", "Start", {"Start": "4"}) is Space.NONE
+
 
 class TestTextureSpace:
     def test_texture_offset_is_texture_space(self):
@@ -99,6 +109,41 @@ class TestSizeIsContextDependent:
     def test_size_with_a_plain_texture_is_screen_space(self):
         attrs = {"Size": "45,45", "Texture": "MainOpen.dds"}
         assert classify("Image", "Size", attrs) is Space.SCREEN
+
+    def test_the_per_piece_nine_grid_form_also_overrides_it(self):
+        # Most of the game's 9-grids name each piece instead of using
+        # SliceCorner. Scrollbar shuttles and slider thumbs are authored this
+        # way, and they stretch just the same.
+        attrs = {
+            "Size": "16,16",
+            "StateOffsetIncrement": "0,18",
+            "LSize": "3,18", "CSize": "12,18", "RSize": "3,18",
+        }
+        assert classify("Grid3Shuttle", "Size", attrs) is Space.SCREEN
+
+    def test_markers_inherited_from_a_style_count(self):
+        # The End Turn button carries its slicing entirely in NextButtonFlag.
+        # classify() is handed the effective attributes, so the button scales.
+        attrs = {
+            "Size": "Parent-2,45",
+            "StateOffsetIncrement": "0,0",
+            "Style": "NextButtonFlag",
+            "SliceCorner": "135,15",
+            "SliceTextureSize": "294,45",
+        }
+        assert classify("GridButton", "Size", attrs) is Space.SCREEN
+
+    def test_an_atlas_marker_inherited_from_a_style_freezes_size(self):
+        # UnitPanelArrows.dds is a 2x2 sheet of 45px arrows; the cycle buttons
+        # inherit the offset from ForwardButton and must not double.
+        attrs = {
+            "Size": "45,45",
+            "Style": "ForwardButton",
+            "Texture": "UnitPanelArrows.dds",
+            "TextureOffset": "45,0",
+            "StateOffsetIncrement": "45,0",
+        }
+        assert classify("Button", "Size", attrs) is Space.TEXTURE
 
 
 class TestUnclassifiedAttributesAreLeftAlone:

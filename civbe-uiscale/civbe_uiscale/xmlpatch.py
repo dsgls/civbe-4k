@@ -45,11 +45,14 @@ def _end_of_tag(text: str, start: int) -> int:
     return len(text)
 
 
-def _iter_tags(text: str):
-    """Yield (element_name, body_start, body_end) for each opening tag, skipping
-    comments, CDATA sections, processing instructions and closing tags."""
+def iter_tags(text: str):
+    """Yield (element_name, body_start, body_end, depth) for each opening tag,
+    skipping comments, CDATA sections, processing instructions and closing
+    tags. The root sits at depth 0, so a stylesheet's style definitions are its
+    depth-1 tags."""
     i = 0
     n = len(text)
+    depth = 0
     while i < n:
         lt = text.find("<", i)
         if lt < 0:
@@ -64,6 +67,7 @@ def _iter_tags(text: str):
             i = _skip_to(text, lt, ">")
             continue
         if text.startswith("</", lt):
+            depth -= 1
             i = _skip_to(text, lt, ">")
             continue
         m = _NAME.match(text, lt + 1)
@@ -71,22 +75,39 @@ def _iter_tags(text: str):
             i = lt + 1
             continue
         end = _end_of_tag(text, m.end())
-        yield m.group(0), m.end(), end - 1
+        yield m.group(0), m.end(), end - 1, depth
+        if text[end - 2:end] != "/>":
+            depth += 1
         i = end
 
 
-def patch_xml(text: str, ui_scale: float, texture_scale: float):
-    """Return the rewritten text and the list of changes made."""
+def attrs_of(text: str, body_start: int, body_end: int) -> dict:
+    return {m.group(1): m.group(2)
+            for m in _ATTR.finditer(text, body_start, body_end)}
+
+
+def patch_xml(text: str, ui_scale: float, texture_scale: float, styles=None):
+    """Return the rewritten text and the list of changes made.
+
+    `styles` maps a style name to the attributes a control inherits by naming
+    it. Those attributes decide how the control's own `Size` is read, so
+    classification sees them merged in -- but only the element's own values are
+    ever rewritten.
+    """
     scales = {Space.SCREEN: ui_scale, Space.TEXTURE: texture_scale}
     edits = []
     changes = []
 
-    for element, body_start, body_end in _iter_tags(text):
+    for element, body_start, body_end, _depth in iter_tags(text):
         found = list(_ATTR.finditer(text, body_start, body_end))
         attrs = {m.group(1): m.group(2) for m in found}
+        effective = attrs
+        inherited = (styles or {}).get(attrs.get("Style"))
+        if inherited:
+            effective = {**inherited, **attrs}
         for m in found:
             attr, old = m.group(1), m.group(2)
-            space = classify(element, attr, attrs)
+            space = classify(element, attr, effective)
             scale = scales.get(space)
             if scale is None:
                 continue

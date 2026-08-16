@@ -41,25 +41,42 @@ _FONT_ICON_ATTRS = frozenset({"Start", "Size", "Advance", "Baseline"})
 # Elements that travel across the screen or draw a primitive.
 _SCREEN_GEOMETRY_ELEMENTS = frozenset({"SlideAnim", "NotificationSlide", "Line"})
 _SCREEN_GEOMETRY_ATTRS = frozenset({"Start", "End", "Width"})
+_TRAVEL_MARKERS = ("Start", "End", "Cycle")
 
 _ATLAS_MARKERS = ("TextureOffset", "StateOffsetIncrement")
 _STRETCH_MARKERS = ("SliceCorner", "SliceSize", "SliceTextureSize", "SliceStart")
+
+
+def _stretches(attrs) -> bool:
+    """True when the texture is stretched to fit rather than sampled at 1:1.
+    Both spellings count: the four Slice* attributes, and the per-piece form
+    (`CSize`, `ULTexStart`, ...) that most of the game's 9-grids use."""
+    return (any(marker in attrs for marker in _STRETCH_MARKERS)
+            or not NINE_GRID_ATTRS.isdisjoint(attrs))
 
 
 def _samples_a_sub_rect(attrs) -> bool:
     """True when the control reads a sub-rect of an atlas, making its Size the
     source rect. A 9-sliced control stretches its texture instead, so slicing
     takes precedence over the atlas markers."""
-    if any(marker in attrs for marker in _STRETCH_MARKERS):
+    if _stretches(attrs):
         return False
     return any(marker in attrs for marker in _ATLAS_MARKERS)
+
+
+def _travels(attrs) -> bool:
+    """True for an animation that moves a control across the screen. The engine
+    element is <SlideAnim>, but a slide can also be defined as a named style,
+    and then the element name is the style's -- so match the shape instead."""
+    return all(marker in attrs for marker in _TRAVEL_MARKERS)
 
 
 def classify(element: str, attr: str, attrs) -> Space:
     """Return the coordinate space of `attr` on `element`.
 
-    `attrs` is the full attribute mapping of the element, needed because Size
-    is only a source rect in the company of atlas coordinates.
+    `attrs` is the element's effective attributes -- its own, over those it
+    inherits from its `Style` -- needed because Size is only a source rect in
+    the company of atlas coordinates, and those often live in the style.
     """
     if element == "Icon" and attr in _FONT_ICON_ATTRS:
         return Space.TEXTURE
@@ -73,7 +90,9 @@ def classify(element: str, attr: str, attrs) -> Space:
         return Space.TEXTURE if _samples_a_sub_rect(attrs) else Space.SCREEN
 
     if attr in _SCREEN_GEOMETRY_ATTRS:
-        return Space.SCREEN if element in _SCREEN_GEOMETRY_ELEMENTS else Space.NONE
+        if element in _SCREEN_GEOMETRY_ELEMENTS or _travels(attrs):
+            return Space.SCREEN
+        return Space.NONE
 
     if attr in SCREEN_ATTRS:
         return Space.SCREEN

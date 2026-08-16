@@ -11,7 +11,7 @@ import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import backup, fastmenu, trees
+from . import backup, fastmenu, styles, trees
 from .classify import Space
 from .luapatch import patch_icon_support, patch_lua
 from .trees import find_ui_dir  # noqa: F401  (re-exported)
@@ -103,18 +103,35 @@ def run(game_dir, backup_dir, ui_scale, texture_scale, pin_icon_size=True,
     if not dry_run:
         backup.migrate(backup_root, game_dir)
 
+    found = trees.discover(game_dir)
+    base_styles = _base_styles(found, backup_root)
+
     report = Report()
-    for tree in trees.discover(game_dir):
+    for tree in found:
         if tree.name in skip_trees:
             continue
         report.trees.append(_run_tree(
-            tree, backup_root, ui_scale, texture_scale,
+            tree, backup_root, ui_scale, texture_scale, base_styles,
             pin_icon_size=pin_icon_size, fast_menu=fast_menu, dry_run=dry_run,
         ))
     return report
 
 
-def _run_tree(tree, backup_root, ui_scale, texture_scale,
+def _base_styles(found, backup_root) -> dict:
+    """The base tree's raw style definitions.
+
+    A DLC control can name a style the expansion never redefines, so its tree's
+    stylesheets are read over these rather than instead of them. Collected even
+    when the base tree is skipped, since the DLC trees still need it.
+    """
+    for tree in found:
+        if tree.name == trees.BASE:
+            source_dir = backup.pristine_dir(tree, backup_root) or tree.live_dir
+            return styles.collect(source_dir)
+    return {}
+
+
+def _run_tree(tree, backup_root, ui_scale, texture_scale, base_styles,
               pin_icon_size, fast_menu, dry_run) -> TreeReport:
     report = TreeReport(tree.name)
     source_dir = backup.pristine_dir(tree, backup_root)
@@ -125,6 +142,10 @@ def _run_tree(tree, backup_root, ui_scale, texture_scale,
             source_dir = backup_root / tree.backup_rel
             source_dir.parent.mkdir(parents=True, exist_ok=True)
             shutil.copytree(tree.live_dir, source_dir)
+
+    own_styles = base_styles if tree.name == trees.BASE else {
+        **base_styles, **styles.collect(source_dir)}
+    style_table = styles.flatten(own_styles)
 
     for source in sorted(source_dir.rglob("*")):
         if not source.is_file():
@@ -137,7 +158,7 @@ def _run_tree(tree, backup_root, ui_scale, texture_scale,
         text, had_bom = _read(source)
 
         if suffix == ".xml":
-            patched, changes = patch_xml(text, ui_scale, texture_scale)
+            patched, changes = patch_xml(text, ui_scale, texture_scale, style_table)
         else:
             patched, changes = patch_lua(text, ui_scale, texture_scale)
             if source.name == ICON_SUPPORT and (texture_scale != 1.0 or pin_icon_size):
