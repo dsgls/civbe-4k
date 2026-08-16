@@ -37,9 +37,11 @@ against a file that legitimately carries more (a mip chain, cubemap faces),
 since the check only ever compares "shorter than", never "equal to".
 
 `decode` resolves a dictionary/index pair itself; point it at the dictionary
-half (or either half — `is_pair` looks for the sibling) and it decodes the
-full tiled image. `encode` only ever writes a plain, single-level texture —
-see *What this does not do*.
+half and it decodes the full tiled image. Pointing it at the `-index.dds`
+half instead decodes that file on its own, as a plain L8/L16 texture — a
+greyscale map of tile numbers, not the picture — since `is_pair` only
+recognises the dictionary half. `encode` only ever writes a plain,
+single-level texture — see *What this does not do*.
 
 `--like` exists because the FTXT usage name (`Interface`, `Interface
 Scalable`, ...) does not survive the PNG hop. Point it at the stock `.dds`
