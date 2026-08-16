@@ -270,6 +270,19 @@ def test_extrapolation_leaves_opaque_pixels_alone():
     np.testing.assert_array_equal(out[0, 1:], rgb[0, 1:])
 
 
+def test_alpha_up_used_for_alpha_plane_when_given():
+    src = solid(2, 2, (10, 20, 30, 200))
+    src[0, 0] = (40, 50, 60, 128)  # keep both planes non-constant
+    rgb_up = FakeUpscaler()
+    alpha_up = FakeUpscaler()
+
+    alpha.upscale_rgba(make_image(src), rgb_up, alpha_up=alpha_up)
+
+    assert len(rgb_up.calls) == 1  # only the RGB plane
+    assert len(alpha_up.calls) == 1  # only the alpha plane
+    np.testing.assert_array_equal(rgb_up.calls[0][:, :, 0] * 255.0, src[:, :, 0])
+
+
 # --- lanczos-rgba bypass -------------------------------------------------
 
 

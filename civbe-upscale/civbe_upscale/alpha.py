@@ -28,15 +28,26 @@ BLEND_THRESHOLD = 8.0
 _NEIGHBORS = ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1))
 
 
-def upscale_rgba(img: Image.Image, up: PlaneUpscaler) -> Image.Image:
-    """Upscale an RGBA image 2x through the two-plane path."""
+def upscale_rgba(
+    img: Image.Image, up: PlaneUpscaler, *, alpha_up: PlaneUpscaler | None = None
+) -> Image.Image:
+    """Upscale an RGBA image 2x through the two-plane path.
+
+    ``alpha_up`` upscales the replicated alpha plane; it defaults to ``up`` so
+    a single upscaler can drive both planes. Pass the engine's alpha-plane
+    variant (``get_upscaler(name, alpha_plane=True)``) so any native-4x
+    model's 4x->2x downscale uses a non-negative kernel on alpha instead of
+    Lanczos.
+    """
+    if alpha_up is None:
+        alpha_up = up
     rgb, alpha = _to_planes(img)
 
     rgb = extrapolate_color(rgb, alpha)
     rgb2 = _upscale_plane(rgb, up)
 
     alpha3 = np.repeat(alpha[:, :, None], 3, axis=2)
-    alpha2 = _upscale_plane(alpha3, up).mean(axis=2)
+    alpha2 = _upscale_plane(alpha3, alpha_up).mean(axis=2)
 
     out = np.concatenate([rgb2, np.clip(alpha2, 0.0, 1.0)[:, :, None]], axis=2)
     return _to_image(out)
