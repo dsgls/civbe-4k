@@ -93,12 +93,16 @@ Scale normalization to exactly 2x:
 
 Whole-image inference by default (best quality, no seams possible). On CUDA
 OOM only, retry with overlapping tiles, halving the tile size from 1024 px
-until it fits, and log that tiling engaged. Overlap is 64 px in input space,
+until it fits, and log that tiling engaged. Overlap is 128 px in input space,
 constant while tiles halve; each interior tile side discards overlap/2 of
 output (crop, not blend). If halving would bring the tile size to ≤ 2x the
 overlap, error out instead of degenerating. Seams are not blended and the
 overlap is chosen to exceed typical effective receptive fields, but tiled
-output is not guaranteed identical to whole-image output.
+output is not guaranteed identical to whole-image output. Measured on the
+real hardware: a 2048x2048 atlas OOMs whole-image even at 32 GiB, so the
+icon-atlas tier (93% of the pixels) takes the tiled path routinely — the
+overlap is sized for that reality, and comparison judging must look at
+seams deliberately (`--crop` rows across cell boundaries).
 
 Determinism: `torch.backends.cudnn.benchmark = False` (inference is
 feed-forward; there is nothing to seed). Reruns reproduce given the same
