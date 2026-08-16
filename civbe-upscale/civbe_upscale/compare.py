@@ -18,6 +18,7 @@ from PIL import Image
 
 from .apply import apply_upscaler
 from .engine import unload_models
+from .output import save_atomic
 
 #: (label, is_nearest) for the two reference cells that lead every row,
 #: rendered straight from the source PNG -- no extra files, no upscaler.
@@ -29,6 +30,8 @@ def run_compare(
     output_dir: Path,
     upscaler_names: list[str],
     crops: dict[str, list[tuple[int, int, int, int]]],
+    *,
+    redo: bool = False,
 ) -> int:
     """Upscale every input with every upscaler and write the comparison HTML.
 
@@ -37,6 +40,10 @@ def run_compare(
     how large the registry grows. The cost is that the RGB extrapolation runs
     once per (input, upscaler) pair rather than once per input -- compare
     runs on a handful of samples, where that is cheap next to inference.
+
+    Variants already present in `output_dir` are left alone unless `redo` is
+    set; the caller is responsible for having checked the run manifest first
+    (see `output.check_manifest`). `index.html` is rewritten either way.
 
     `crops` is keyed by input filename (`Path.name`), matching how cli.py's
     `--crop <file>=<x,y,w,h>` is parsed and grouped. A crop key that matches
@@ -58,18 +65,39 @@ def run_compare(
         shutil.copyfile(p, output_dir / p.name)
         rows.append(_Row(p.name, orig_w, orig_h, p.name, [], crops.get(p.name, [])))
 
-    total = len(upscaler_names) * len(input_files)
-    n = 0
+    # Every variant is listed in the HTML whether or not this run produces it;
+    # only the missing ones become work. Grouping the work by upscaler keeps
+    # the eviction boundary intact and lets a fully-done upscaler skip loading
+    # its checkpoint at all.
+    pending: dict[str, list[tuple[Path, str]]] = {}
     for name in upscaler_names:
         for p, row in zip(input_files, rows):
-            n += 1
             fname = f"{p.stem}-{name}.png"
             row.variant_files.append((name, fname))
-            print(f"[{n}/{total}] {name}: {p.name}", file=sys.stderr)
+            if redo or not (output_dir / fname).exists():
+                pending.setdefault(name, []).append((p, fname))
+
+    total = len(upscaler_names) * len(input_files)
+    remaining = sum(len(work) for work in pending.values())
+    if remaining < total:
+        print(
+            f"{total - remaining} of {total} variants already done, "
+            f"{remaining} remaining",
+            file=sys.stderr,
+        )
+
+    n = 0
+    for name in upscaler_names:
+        work = pending.get(name)
+        if not work:
+            continue
+        for p, fname in work:
+            n += 1
+            print(f"[{n}/{remaining}] {name}: {p.name}", file=sys.stderr)
             with Image.open(p) as img:
                 img.load()
                 out = apply_upscaler(name, img)
-            out.save(output_dir / fname)
+            save_atomic(out, output_dir / fname)
         unload_models()
 
     (output_dir / "index.html").write_text(_render_html(rows), encoding="utf-8")

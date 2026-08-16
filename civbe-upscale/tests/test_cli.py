@@ -1,9 +1,10 @@
-"""Tests for the CLI's input/output directory guard.
+"""Tests for the CLI's directory guard and `batch`'s resume.
 
-`cmd_batch`'s and `cmd_compare`'s other behavior needs a real work list and is
-exercised by the smoke tests recorded in the task output, not here -- the
-only thing worth pinning at this layer is that in==out is rejected before
-anything is read or written.
+`cmd_batch`'s and `cmd_compare`'s upscaling behavior needs a real work list
+and is exercised by the smoke tests recorded in the task output, not here.
+What is worth pinning at this layer is that in==out is rejected before
+anything is read or written, and that a second `batch` run over the same
+output directory does the remaining files and only those.
 """
 
 from __future__ import annotations
@@ -65,3 +66,51 @@ def test_in_dir_equal_to_out_dir_is_rejected_with_dot_path(tmp_path, monkeypatch
         cli.cmd_batch(args)
 
     assert [p.name for p in tmp_path.iterdir()] == ["in.png"]
+
+
+def batch_args(in_dir, out_dir, *, redo=False):
+    return argparse.Namespace(
+        input_dir=str(in_dir), output_dir=str(out_dir), upscaler="lanczos", redo=redo
+    )
+
+
+def test_batch_resumes_past_outputs_that_already_exist(tmp_path, monkeypatch):
+    in_dir, out_dir = tmp_path / "in", tmp_path / "out"
+    in_dir.mkdir()
+    for name in ("a.png", "b.png", "c.png"):
+        make_rgba_png(in_dir / name)
+
+    upscaled = []
+    real_apply = cli.apply_upscaler
+
+    def counting_apply(name, img):
+        upscaled.append(name)
+        return real_apply(name, img)
+
+    monkeypatch.setattr(cli, "apply_upscaler", counting_apply)
+
+    assert cli.cmd_batch(batch_args(in_dir, out_dir)) == 0
+    assert len(upscaled) == 3
+
+    (out_dir / "b.png").unlink()
+    upscaled.clear()
+    assert cli.cmd_batch(batch_args(in_dir, out_dir)) == 0
+    assert len(upscaled) == 1
+    assert (out_dir / "b.png").exists()
+
+    upscaled.clear()
+    assert cli.cmd_batch(batch_args(in_dir, out_dir, redo=True)) == 0
+    assert len(upscaled) == 3
+
+
+def test_batch_refuses_to_resume_under_a_different_upscaler(tmp_path):
+    in_dir, out_dir = tmp_path / "in", tmp_path / "out"
+    in_dir.mkdir()
+    make_rgba_png(in_dir / "a.png")
+
+    assert cli.cmd_batch(batch_args(in_dir, out_dir)) == 0
+
+    args = batch_args(in_dir, out_dir)
+    args.upscaler = "lanczos-rgba"
+    with pytest.raises(SystemExit, match="belongs to a different run"):
+        cli.cmd_batch(args)

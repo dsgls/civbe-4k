@@ -14,6 +14,7 @@ from pathlib import Path
 from PIL import Image, UnidentifiedImageError
 
 from .apply import apply_upscaler
+from .output import check_manifest, save_atomic
 from .registry import REGISTRY
 
 
@@ -88,13 +89,30 @@ def cmd_batch(args: argparse.Namespace) -> int:
 
     files = list_rgba_pngs(input_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    total = len(files)
-    for i, p in enumerate(files, start=1):
+    check_manifest(
+        output_dir,
+        {
+            "mode": "batch",
+            "input_dir": str(input_dir.resolve()),
+            "upscaler": args.upscaler,
+        },
+        redo=args.redo,
+    )
+
+    todo = files if args.redo else [p for p in files if not (output_dir / p.name).exists()]
+    if len(todo) < len(files):
+        print(
+            f"{len(files) - len(todo)} of {len(files)} already done, "
+            f"{len(todo)} remaining",
+            file=sys.stderr,
+        )
+    total = len(todo)
+    for i, p in enumerate(todo, start=1):
         print(f"[{i}/{total}] {p.name}", file=sys.stderr)
         with Image.open(p) as img:
             img.load()
             out = apply_upscaler(args.upscaler, img)
-        out.save(output_dir / p.name)
+        save_atomic(out, output_dir / p.name)
     return 0
 
 
@@ -119,9 +137,24 @@ def cmd_compare(args: argparse.Namespace) -> int:
     for name, rect in args.crops:
         crops.setdefault(name, []).append(rect)
 
-    from . import compare  # lazy: keeps `batch` usable before task 4 lands
+    output_dir.mkdir(parents=True, exist_ok=True)
+    check_manifest(
+        output_dir,
+        {"mode": "compare", "input_dir": str(input_dir.resolve())},
+        redo=args.redo,
+    )
 
-    return compare.run_compare(files, output_dir, names, crops)
+    from . import compare  # lazy: keeps `batch` usable in a torch-free shell
+
+    return compare.run_compare(files, output_dir, names, crops, redo=args.redo)
+
+
+def _add_redo(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--redo",
+        action="store_true",
+        help="rewrite every output instead of resuming past the ones already written",
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -132,6 +165,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_batch.add_argument("input_dir")
     p_batch.add_argument("output_dir")
     p_batch.add_argument("--upscaler", required=True, metavar="NAME", help="registry name")
+    _add_redo(p_batch)
     p_batch.set_defaults(func=cmd_batch)
 
     p_compare = sub.add_parser(
@@ -154,6 +188,7 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="<file>=<x,y,w,h>",
         help="add a comparison row cropped to this pixel rect of <file> (repeatable)",
     )
+    _add_redo(p_compare)
     p_compare.set_defaults(func=cmd_compare)
 
     return parser

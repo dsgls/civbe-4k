@@ -28,6 +28,22 @@ Upscalers: `realesrgan-x4plus`, `realesrgan-x2plus`, `realesr-compact`,
 `lanczos-rgba`. Checkpoints download to `models/` (gitignored) on first use,
 SHA-256-verified; expect a one-time download when running ML entries.
 
+## Resuming
+
+Both modes resume: rerun the same command and it picks up where it stopped.
+Progress state is the output files themselves — each is written to a `.part`
+sibling and atomically renamed, so a file that exists is a file that
+finished. Redo one texture by deleting it; redo everything with `--redo`.
+
+`.civbe-upscale-run.json` in the output directory records what the run was,
+and a rerun whose parameters disagree with it is refused rather than blended
+into the existing output. A directory holding PNGs but no manifest is refused
+for the same reason; `--redo` adopts it.
+
+Input validation still decodes every input on each resume, so a restart over
+the ~500-texture work list spends a minute revalidating before it does any
+work.
+
 ## Operational notes
 
 - The 2048x2048 icon atlases exceed whole-image VRAM even on the 5090, so they
