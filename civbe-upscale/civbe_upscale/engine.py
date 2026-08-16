@@ -45,6 +45,7 @@ MAX_TILE = 1024
 TILE_OVERLAP = 128
 
 _DOWNLOAD_CHUNK = 1 << 20
+_DOWNLOAD_TIMEOUT = 30  # seconds; a stalled connection should error, not hang
 
 
 # --------------------------------------------------------------------------
@@ -222,7 +223,10 @@ def ensure_checkpoint(ckpt: Checkpoint) -> Path:
     target.parent.mkdir(parents=True, exist_ok=True)
     partial = target.with_suffix(target.suffix + ".part")
     log.info("downloading %s", ckpt.url)
-    with urllib.request.urlopen(ckpt.url) as response, partial.open("wb") as fh:
+    with (
+        urllib.request.urlopen(ckpt.url, timeout=_DOWNLOAD_TIMEOUT) as response,
+        partial.open("wb") as fh,
+    ):
         while chunk := response.read(_DOWNLOAD_CHUNK):
             fh.write(chunk)
     actual = _sha256(partial)

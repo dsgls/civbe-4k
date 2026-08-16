@@ -244,10 +244,10 @@ body.bg-white .imgwrap { background: #fff; }
 body.bg-darkblue .imgwrap { background: #1b2838; }
 """
 
-# Re-run on load and on resize: Windows display scaling changes
-# `devicePixelRatio` without a page reload, and without recomputing CSS size
-# from it every variant gets resampled with smooth filtering by the browser,
-# which is exactly the artifact this sizing exists to avoid judging.
+# Re-run on DOMContentLoaded, load, and resize: Windows display scaling
+# changes `devicePixelRatio` without a page reload, and without recomputing
+# CSS size from it every variant gets resampled with smooth filtering by the
+# browser, which is exactly the artifact this sizing exists to avoid judging.
 _SCRIPT = """
 function updateSizes() {
   const dpr = window.devicePixelRatio || 1;
@@ -264,6 +264,10 @@ function updateSizes() {
     img.style.top = (-cy / dpr) + 'px';
   });
 }
+// DOMContentLoaded sizes the page before the browser evaluates loading="lazy",
+// so images off-screen at their real size stay deferred instead of every
+// image loading eagerly against a zero-height pre-layout document.
+document.addEventListener('DOMContentLoaded', updateSizes);
 window.addEventListener('load', updateSizes);
 window.addEventListener('resize', updateSizes);
 

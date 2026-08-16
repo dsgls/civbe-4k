@@ -102,8 +102,11 @@ def extrapolate_color(rgb: np.ndarray, alpha: np.ndarray) -> np.ndarray:
     so a faint glow still seeds without dragging the average toward its own
     dim color. Everything below `BLEND_THRESHOLD` is refilled by iterative
     8-connected dilation of the seed set: each round, an unfilled pixel takes
-    the alpha-weighted mean of its already-filled neighbors, so a pixel with a
-    unique nearest seed ends up with exactly that seed's color.
+    the alpha-weighted mean of its already-filled neighbors. Dilation runs for
+    up to `MAX_DILATION_ROUNDS`; pixels it reaches get that exact weighted
+    mean, and anything still unreached past the cap is filled in one pass by
+    `_fill_unreached` with its nearest already-filled pixel's color
+    (Euclidean nearest, via a distance transform).
 
     The result is blended in by `1 - a/threshold`, i.e. fully replacing color
     at alpha 0 and fading to a no-op at the threshold. Above the threshold the

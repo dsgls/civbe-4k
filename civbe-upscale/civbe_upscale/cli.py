@@ -8,6 +8,7 @@ the run with an error before anything is written.
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 from PIL import Image, UnidentifiedImageError
@@ -64,9 +65,22 @@ def _parse_crop(spec: str) -> tuple[str, tuple[int, int, int, int]]:
     return name, (x, y, w, h)
 
 
+def _check_dirs_differ(input_dir: Path, output_dir: Path) -> None:
+    """Reject input_dir == output_dir before anything is read or written.
+
+    `batch` would overwrite sources with their own 2x upscale; `compare`
+    would pollute the input dir with variant PNGs and then crash copying a
+    reference file onto itself. Both are data-destroying, so this runs
+    before any file is touched.
+    """
+    if input_dir.resolve() == output_dir.resolve():
+        raise SystemExit("output directory must differ from input directory")
+
+
 def cmd_batch(args: argparse.Namespace) -> int:
     input_dir = Path(args.input_dir)
     output_dir = Path(args.output_dir)
+    _check_dirs_differ(input_dir, output_dir)
     if args.upscaler not in REGISTRY:
         raise SystemExit(
             f"unknown upscaler {args.upscaler!r}; known: {', '.join(sorted(REGISTRY))}"
@@ -74,7 +88,9 @@ def cmd_batch(args: argparse.Namespace) -> int:
 
     files = list_rgba_pngs(input_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    for p in files:
+    total = len(files)
+    for i, p in enumerate(files, start=1):
+        print(f"[{i}/{total}] {p.name}", file=sys.stderr)
         with Image.open(p) as img:
             img.load()
             out = apply_upscaler(args.upscaler, img)
@@ -85,6 +101,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
 def cmd_compare(args: argparse.Namespace) -> int:
     input_dir = Path(args.input_dir)
     output_dir = Path(args.output_dir)
+    _check_dirs_differ(input_dir, output_dir)
 
     if args.upscalers.strip() == "all":
         names = sorted(REGISTRY)
