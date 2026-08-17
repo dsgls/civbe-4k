@@ -9,6 +9,9 @@ upscaled so icons, frames and font icons stay sharp.
 Rising Tide is required — the expansion's UI tree is part of the patch and the
 texture overrides are installed through it.
 
+Thanks to [The-INTJ](https://github.com/The-INTJ/civbe-ui-scale), their work
+gave me the idea and I used their work as a base.
+
 ## Installing
 
 1. From [Releases](https://github.com/dsgls/civbe-4k/releases), download the
