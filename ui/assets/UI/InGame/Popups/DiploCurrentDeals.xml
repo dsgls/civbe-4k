@@ -284,7 +284,7 @@
       <Label Offset="64,0" Anchor="L,C" ID="Name" Style="WhiteShadow14"/>
       <Box ID="ButtonSize" Color="255,255,255,0" Size="390,2" Anchor="C,B" Offset="0,-2"/>
       <Box Color="255,255,255,0" Size="64,64" Anchor="L,C" AnchorSide="i,i">
-        <Image ID="CivSymbol" Size="32,32," Offset="0,0" Anchor="C,C" Texture="CivSymbolsColor256.dds"/>
+        <Image ID="CivSymbol" Size="64,64," Offset="0,0" Anchor="C,C" Texture="CivSymbolsColor256.dds"/>
       </Box>
     </GridButton>
   </Instance>

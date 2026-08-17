@@ -16,11 +16,11 @@ include("GameplayUtilities");
 --		CONSTANTS
 -- ===========================================================================
 local ART_PROGRESS_BAR_WIDTH				= 155 * 2;			-- progress bars
-local ART_INTRIGUE_WIDTH					= 102;
-local ART_INTRIGUE_HEIGHT					= 24;
-local ART_MAINSCROLLPANEL_WITH_CHOICE_HEIGHT= 518;
-local ART_MAINSCROLLPANEL_FULL_HEIGHT		= 575;
-local ART_LIST_ITEM_W_SCROLLBAR_WIDTH		= 426;
+local ART_INTRIGUE_WIDTH					= 204;
+local ART_INTRIGUE_HEIGHT					= 48;
+local ART_MAINSCROLLPANEL_WITH_CHOICE_HEIGHT= 1036;
+local ART_MAINSCROLLPANEL_FULL_HEIGHT		= 1150;
+local ART_LIST_ITEM_W_SCROLLBAR_WIDTH		= 852;
 local ICON_RANK_HEIGHT 						= 32 * 2;
 local COLOR_DISABLED_TEXT					= 0xcca0a0a0;
 local PARENT_CONTEXT_PATH					= "/InGame/CovertOpsPopup/";
@@ -824,7 +824,7 @@ function CreateMissionAgent( agent )
 		end		
 
 		ui.OperationList:CalculateInternals();			-- Pulldown will autosize 
-		ui.OpGrid:SetSizeY( ui.OpGrid:GetSizeY() + 8 );	-- ... so fix grid art to be slighty taller so it doesn't look like text is running over edges.
+		ui.OpGrid:SetSizeY( ui.OpGrid:GetSizeY() + 16 );	-- ... so fix grid art to be slighty taller so it doesn't look like text is running over edges.
 
 
 	elseif (agent:GetOperation() ~= nil  ) then
@@ -1217,7 +1217,7 @@ function RealizeScrollArea( callbackAssign, callbackCancel )
 			Controls.PlayerChoice:SetOffsetVal(24, 1000 );
 		else
 			local parentSizeY	= parentControl:GetSizeY();		
-			Controls.PlayerChoice:SetOffsetVal(12, parentSizeY - 20 );
+			Controls.PlayerChoice:SetOffsetVal(24, parentSizeY - 40 );
 		end
 		Controls.MainScrollPanel:SetSizeY( ART_MAINSCROLLPANEL_WITH_CHOICE_HEIGHT );
 		Controls.Assign:RegisterCallback( Mouse.eLClick, callbackAssign );

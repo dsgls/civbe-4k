@@ -11,24 +11,25 @@ function Alphabetically(a, b)
 end
 
 local portraitSize = 128;
-local buttonSize = 64;
+local buttonSize = 64;		-- IconLookup/IconHookup atlas key; keep at stock
+local buttonStride = 128;	-- on-screen pitch of the small square buttons
 
 -- various sizes of elements
-local wideOuterFrameWidth		= 436;
-local wideInnerFrameWidth		= 440;
-local wideLabelWrapWidth		= 410
-local superWideOuterFrameWidth	= 680;
-local superWideInnerFrameWidth	= 680;
-local superWideLabelWrapWidth	= 610;
-local narrowOuterFrameWidth		= 234;
-local narrowInnerFrameWidth		= 238;
-local narrowLabelWrapWidth		= 210
-local textPaddingFromInnerFrame = 34;
-local offsetsBetweenFrames		= 4;
-local quoteButtonOffset			= 60;
+local wideOuterFrameWidth		= 872;
+local wideInnerFrameWidth		= 880;
+local wideLabelWrapWidth		= 820
+local superWideOuterFrameWidth	= 1360;
+local superWideInnerFrameWidth	= 1360;
+local superWideLabelWrapWidth	= 1220;
+local narrowOuterFrameWidth		= 468;
+local narrowInnerFrameWidth		= 476;
+local narrowLabelWrapWidth		= 420
+local textPaddingFromInnerFrame = 68;
+local offsetsBetweenFrames		= 8;
+local quoteButtonOffset			= 120;
 local numberOfButtonsPerRow		= 3;
-local buttonPadding				= 8;
-local buttonPaddingTimesTwo		= 16;
+local buttonPadding				= 16;
+local buttonPaddingTimesTwo		= 32;
 
 -- textures that will be used a lot
 local defaultErrorTextureSheet = "TechAtlasSmall.dds";
@@ -183,7 +184,7 @@ function SetSelectedCategory( thisCategory, isAddingToHistoryList )
 		
 		print(thisCategory);
 		-- set up tab
-		Controls.SelectedCategoryTab:SetOffsetVal(49 * (m_selectedCategory - 1), 0);
+		Controls.SelectedCategoryTab:SetOffsetVal(98 * (m_selectedCategory - 1), 0);
 		Controls.SelectedCategoryTab:SetTexture( CivilopediaCategory[m_selectedCategory].buttonTexture );
 		
 		-- set up label for category
@@ -2070,7 +2071,7 @@ end
 function UpdateButtonFrame( numButtonsAdded, innerFrame, outerFrame )
 	if numButtonsAdded > 0 then
 		local frameSize = {};
-		local h = (math.floor((numButtonsAdded - 1) / numberOfButtonsPerRow) + 1) * buttonSize + buttonPaddingTimesTwo;
+		local h = (math.floor((numButtonsAdded - 1) / numberOfButtonsPerRow) + 1) * buttonStride + buttonPaddingTimesTwo;
 		frameSize.x = narrowInnerFrameWidth;
 		frameSize.y = h;
 		innerFrame:SetSize( frameSize );
@@ -2091,7 +2092,7 @@ function UpdateSmallButton( buttonAdded, image, button, textureSheet, textureOff
 		image:SetTextureOffset( textureOffset );	
 	end
 	
-	button:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );				
+	button:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );				
 	button:SetToolTipString( localizedText );
 	
 	if(category ~= nil) then
@@ -2285,7 +2286,7 @@ CivilopediaCategory[CategoryTech].SelectArticle = function( techID, shouldAddToL
 				end
 
 				--move this button
-				thisBuildingInstance.UnlockedBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );
+				thisBuildingInstance.UnlockedBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );
 				
 				thisBuildingInstance.UnlockedBuildingButton:SetToolTipString( Locale.ConvertTextKey( thisBuildingInfo.Description ) );
 				thisBuildingInstance.UnlockedBuildingButton:SetVoids( thisBuildingInfo.ID, addToList );
@@ -3222,7 +3223,7 @@ function SelectBuildingOrWonderArticle( buildingID )
 						end
 						
 						--move this button
-						thisBuildingInstance.RequiredBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );
+						thisBuildingInstance.RequiredBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );
 						
 						thisBuildingInstance.RequiredBuildingButton:SetToolTipString( Locale.ConvertTextKey( thisBuildingInfo.Description ) );
 						thisBuildingInstance.RequiredBuildingButton:SetVoids( thisBuildingInfo.ID, addToList );
@@ -3754,7 +3755,7 @@ CivilopediaCategory[CategoryWonders].SelectArticle = function( wonderID, shouldA
 							end
 							
 							--move this button
-							thisBuildingInstance.RequiredBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );
+							thisBuildingInstance.RequiredBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );
 							
 							thisBuildingInstance.RequiredBuildingButton:SetToolTipString( Locale.ConvertTextKey( thisBuildingInfo.Description ) );
 							thisBuildingInstance.RequiredBuildingButton:SetVoids( thisBuildingInfo.ID, addToList );
@@ -4049,7 +4050,7 @@ CivilopediaCategory[CategoryCivilizations].SelectArticle = function( rawCivID, s
 								end
 								
 								--move this button
-								thisBuildingInstance.UniqueBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );
+								thisBuildingInstance.UniqueBuildingButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );
 								
 								thisBuildingInstance.UniqueBuildingButton:SetToolTipString( Locale.ConvertTextKey( thisBuildingInfo.Description ) );
 								thisBuildingInstance.UniqueBuildingButton:SetVoids( thisBuildingInfo.ID, addToList );
@@ -4080,7 +4081,7 @@ CivilopediaCategory[CategoryCivilizations].SelectArticle = function( rawCivID, s
 						end
 						
 						--move this button
-						thisImprovementInstance.UniqueImprovementButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonSize + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonSize + buttonPadding );
+						thisImprovementInstance.UniqueImprovementButton:SetOffsetVal( (buttonAdded % numberOfButtonsPerRow) * buttonStride + buttonPadding, math.floor(buttonAdded / numberOfButtonsPerRow) * buttonStride + buttonPadding );
 						
 						thisImprovementInstance.UniqueImprovementButton:SetToolTipString( Locale.ConvertTextKey( thisImprovement.Description ) );
 						thisImprovementInstance.UniqueImprovementButton:SetVoids( thisImprovement.ID, addToList );

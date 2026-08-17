@@ -72,14 +72,14 @@ local g_AcquiredDepthKickerTextures =
 	[GameInfo.PolicyDepthTypes["POLICY_DEPTH_EXTREME"].ID] = "Virtue_Level3Bonus_On.dds",
 };
 
-local g_BaseVirtueXOffset = -1;
-local g_BaseVirtueYOffset = 5;
-local g_PerVirtueXOffset = 30;
-local g_PerVirtueYOffset = 62;
-local g_PerDepthYOffset = 182;
+local g_BaseVirtueXOffset = -2;
+local g_BaseVirtueYOffset = 10;
+local g_PerVirtueXOffset = 60;
+local g_PerVirtueYOffset = 124;
+local g_PerDepthYOffset = 364;
 
-local g_FromLineYOffset = 10;
-local g_ToLineYOffset = -10;
+local g_FromLineYOffset = 20;
+local g_ToLineYOffset = -20;
 
 local g_Shown = false;
 
@@ -539,8 +539,8 @@ function ShowConfirmInteraction(confirmText, kickerText, confirmHandler)
 	Controls.MainBodyText:ReprocessAnchoring();
 
 	local bodyTextHeight = Controls.MainBodyText:GetSizeY();
-	if (bodyTextHeight > Controls.PopupWindow:GetSizeY() - 200 ) then
-		Controls.PopupWindow:SetSizeY( bodyTextHeight +  Controls.ButtonStack:GetOffsetY() + 120 );
+	if (bodyTextHeight > Controls.PopupWindow:GetSizeY() - 400 ) then
+		Controls.PopupWindow:SetSizeY( bodyTextHeight +  Controls.ButtonStack:GetOffsetY() + 240 );
 	else
 		Controls.PopupWindow:SetSizeY(800);
 	end

@@ -45,21 +45,21 @@ function UpdateData()
 			if (pPlayer:GetAffinityPercentTowardsMaxLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_PURITY"].ID) >= 100) then
 				percentToNextPurityLevel = 100;
 			end
-			Controls.PurityProgressBar:Resize(5,math.floor((percentToNextPurityLevel/100)*30));
+			Controls.PurityProgressBar:Resize(10,math.floor((percentToNextPurityLevel/100)*60));
 			
 			local harmonyText = Locale.ConvertTextKey("TXT_KEY_AFFINITY_STATUS", GameInfo.Affinity_Types["AFFINITY_TYPE_HARMONY"].IconString, pPlayer:GetAffinityLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_HARMONY"].ID));
 			local percentToNextHarmonyLevel = pPlayer:GetAffinityPercentTowardsNextLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_HARMONY"].ID);
 			if (pPlayer:GetAffinityPercentTowardsMaxLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_HARMONY"].ID) >= 100) then
 				percentToNextHarmonyLevel = 100;
 			end
-			Controls.HarmonyProgressBar:Resize(5,math.floor((percentToNextHarmonyLevel/100)*30));
+			Controls.HarmonyProgressBar:Resize(10,math.floor((percentToNextHarmonyLevel/100)*60));
 			
 			local supremacyText = Locale.ConvertTextKey("TXT_KEY_AFFINITY_STATUS", GameInfo.Affinity_Types["AFFINITY_TYPE_SUPREMACY"].IconString, pPlayer:GetAffinityLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_SUPREMACY"].ID));
 			local percentToNextSupremacyLevel = pPlayer:GetAffinityPercentTowardsNextLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_SUPREMACY"].ID);
 			if (pPlayer:GetAffinityPercentTowardsMaxLevel(GameInfo.Affinity_Types["AFFINITY_TYPE_SUPREMACY"].ID) >= 100) then
 				percentToNextSupremacyLevel = 100;
 			end
-			Controls.SupremacyProgressBar:Resize(5,math.floor((percentToNextSupremacyLevel/100)*30));
+			Controls.SupremacyProgressBar:Resize(10,math.floor((percentToNextSupremacyLevel/100)*60));
 
 			Controls.Harmony	:SetText(harmonyText);
 			Controls.Purity		:SetText(purityText);
@@ -97,7 +97,7 @@ function UpdateData()
 				strScienceText = "[ICON_RESEARCH]" .. strScienceText;
 			end
 			
-			local BUTTON_PADDING = 30;
+			local BUTTON_PADDING = 60;
 			SetAutoWidthGridButton( Controls.SciencePerTurn, strScienceText, BUTTON_PADDING );
 
 			-----------------------------
@@ -226,7 +226,7 @@ function UpdateData()
 					end
 				end
 			end
-			Controls.ResourceString:SetSizeX(48*resourceCtr);
+			Controls.ResourceString:SetSizeX(96*resourceCtr);
 			Controls.ResourceString:SetText(strResourceText);	
 		elseif(pPlayer:IsObserver()) then
 			-- Observers only see game turn and menu buttons.
@@ -410,7 +410,7 @@ function ShowToolTip( text )
 		local gw, gh = tipControlTable.TopPanelMouseover:GetSizeVal();
 --		print("Grid Old Size: " .. tostring(gw) .. " by " .. tostring(gh));
 
-		tipControlTable.TopPanelMouseover:SetSizeVal(w + 16, h + 16);
+		tipControlTable.TopPanelMouseover:SetSizeVal(w + 32, h + 32);
 
 		local gw, gh = tipControlTable.TopPanelMouseover:GetSizeVal();
 --		print("Grid New Size: " .. tostring(gw) .. " by " .. tostring(gh));

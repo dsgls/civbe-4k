@@ -959,7 +959,7 @@
 
 
   <Button_256_Shine Texture="Assets/UI/Art/Controls/Buttons_256.dds" Size="512,72" >
-    <ScrollAnim Size="256 30" Anchor="C,C" Speed="1" Pause="2.0" Texture="Assets/UI/Art/Controls/ShineAnim.dds" MaskTexture="Assets/UI/Art/Controls/ButtonMask.dds" />
+    <ScrollAnim Size="512 60" Anchor="C,C" Speed="1" Pause="2.0" Texture="Assets/UI/Art/Controls/ShineAnim.dds" MaskTexture="Assets/UI/Art/Controls/ButtonMask.dds" />
   </Button_256_Shine>
 
 
