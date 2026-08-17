@@ -23,6 +23,21 @@
     overlays = [
       (final: prev: {
         cudaPackages = final.cudaPackages_13.overrideScope (cudaFinal: cudaPrev: {
+          # nixpkgs pins this backport to cccl's squash-merge commit, which
+          # NVIDIA has since rewritten away — the URL 404s. The PR refs still
+          # serve the same diff (only hunk context differs, hence a new hash).
+          cccl = cudaPrev.cccl.overrideAttrs (old: {
+            patches = map (p:
+              if (p.name or "") == "fix-invalid-cpp-syntax" then
+                final.fetchpatch {
+                  name = "fix-invalid-cpp-syntax";
+                  url = "https://github.com/NVIDIA/cccl/pull/8771.patch";
+                  stripLen = 2;
+                  extraPrefix = "include/";
+                  hash = "sha256-SSUtfO9cKMkefVD/e2yLvRV0IeRNeNBKuT6DKX9rhpE=";
+                }
+              else p) (old.patches or [ ]);
+          });
           libnvshmem = cudaPrev.libnvshmem.overrideAttrs (old: {
             cmakeFlags =
               (builtins.filter
