@@ -131,7 +131,7 @@ function ShowWindow()
 	Controls.TextStack:ReprocessAnchoring();
 
 	local textHeight = Controls.TextStack:GetSizeY() + Controls.RewardsStack:GetSizeY();
-	Controls.Popup:SetSizeY(textHeight + 250);
+	Controls.Popup:SetSizeY(textHeight + 500);
 
 	Controls.Popup:ReprocessAnchoring();
 

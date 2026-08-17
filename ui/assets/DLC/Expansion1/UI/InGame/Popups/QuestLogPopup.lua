@@ -229,7 +229,7 @@ function OptionsGridHide( isHidden )
 	if ( isHidden ) then
 		Controls.MainContentScrollPanel:SetSizeY( m_ScrollPanelSizeDefault );
 	else
-		local ART_EXTRA_PADDING = 7;
+		local ART_EXTRA_PADDING = 14;
 		local optionPanelY		= Controls.OptionsPanel:GetSizeY();
 
 		offsetY = offsetY + (optionPanelY - ART_EXTRA_PADDING);

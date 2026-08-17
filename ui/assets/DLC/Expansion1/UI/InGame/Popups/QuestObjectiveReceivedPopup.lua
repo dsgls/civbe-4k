@@ -271,7 +271,7 @@ function ShowWindow()
 
 	local textHeight = Controls.TextStack:GetSizeY() + Controls.ObjectiveStack:GetSizeY();
 
-	Controls.Popup:SetSizeY(textHeight + 250);
+	Controls.Popup:SetSizeY(textHeight + 500);
 
 	Controls.Popup:ReprocessAnchoring();
 

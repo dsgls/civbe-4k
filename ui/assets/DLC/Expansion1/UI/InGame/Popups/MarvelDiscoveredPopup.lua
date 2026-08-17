@@ -119,10 +119,10 @@ function ShowWindow()
 	local textHeight = Controls.TextStack:GetSizeY() + Controls.ObjectiveStack:GetSizeY();
 
 	local width : number, height : number = UIManager.GetScreenSizeVal();
-	local maxHeight : number = 1162;
-	local minHeight : number = 768;
+	local maxHeight : number = 2324;
+	local minHeight : number = 1536;
 
-	local ratio : number = (100 - 0) / (maxHeight - minHeight);
+	local ratio : number = (200 - 0) / (maxHeight - minHeight);
 	local bufferDisanceY : number = (0 + ((height - minHeight) * ratio));
 
 	local popupOffset : number = Controls.Popup:GetOffsetY();
@@ -130,7 +130,7 @@ function ShowWindow()
 	Controls.Popup:SetOffsetY(popupOffset + bufferDisanceY);
 
 
-	Controls.Popup:SetSizeY(textHeight + 250);
+	Controls.Popup:SetSizeY(textHeight + 500);
 
 	Controls.Popup:ReprocessAnchoring();
 

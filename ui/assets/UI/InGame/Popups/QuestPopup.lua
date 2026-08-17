@@ -240,7 +240,7 @@ function ResizeWindow()
 	Controls.StoryStack:CalculateSize();
 	Controls.StoryStack:ReprocessAnchoring();
 	
-	local PADDING	= 80;
+	local PADDING	= 160;
 	local totalY	= Controls.StoryStack:GetSizeY() + Controls.StoryStack:GetOffsetY() + PADDING;
 	if ( totalY > Controls.PopupFrame:GetSizeY() ) then
 		Controls.PopupFrame:SetSizeY( totalY );
