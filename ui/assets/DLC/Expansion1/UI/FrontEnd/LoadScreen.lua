@@ -127,7 +127,7 @@ function OnInitScreen()
 		Controls.BackgroundText:LocalizeAndSetText(quote);
 
 		local w : number = Controls.TextBacking:GetSizeX();
-		local h : number = Controls.BackgroundText:GetSizeY() + 145;
+		local h : number = Controls.BackgroundText:GetSizeY() + 290;
 		Controls.TextBacking:SetSizeVal(w, h);
 
 		-- Sets Dawn of Man Image

@@ -160,7 +160,7 @@ end
 -- Dynamically resize frame based on contents.
 --
 function ShowAndSizeFrameToText( textString, textControl, gridInnerFrameControl, gridOutterFrameControl )
-	local PADDING = 20;
+	local PADDING = 40;
 	textControl:SetText( textString );
 	local height = textControl:GetSizeY();				
 	gridInnerFrameControl:SetSizeY( height + PADDING );
@@ -1530,15 +1530,15 @@ function ResizeEtc()
 	-- adjust the various parts to fit the screen size
 	local _, screenSizeY = UIManager:GetScreenSizeVal(); -- Controls.BackDrop:GetSize();
 
-	Controls.LeftScrollPanel:SetSizeY( screenSizeY - 149 );
+	Controls.LeftScrollPanel:SetSizeY( screenSizeY - 298 );
 	Controls.ListOfArticles:CalculateSize();	
 	Controls.LeftScrollPanel:CalculateInternalSize();
 
-	Controls.ScrollPanel:SetSizeY( screenSizeY - 186 );	
+	Controls.ScrollPanel:SetSizeY( screenSizeY - 372 );	
 	Controls.ScrollPanel:CalculateInternalSize();
 
-	Controls.MainVerticalContentDivider:SetSizeY( screenSizeY - 149 );
-	Controls.MainBackground:SetSizeY( screenSizeY - 104 );
+	Controls.MainVerticalContentDivider:SetSizeY( screenSizeY - 298 );
+	Controls.MainBackground:SetSizeY( screenSizeY - 208 );
 end
 
 --------------------------------------------------------------------------------------------------------
