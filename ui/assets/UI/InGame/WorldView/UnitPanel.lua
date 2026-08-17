@@ -141,7 +141,7 @@ function UpdateUnitActions( unit : table )
 	local numSecondaryActions 	= 0;
 	
 	local numberOfButtonsPerRow = 8;
-	local buttonSize 			= 55;
+	local buttonSize 			= 110;
 	local buttonPadding 		= 8;
 	local buttonOffsetX 		= 16;
 	local buttonOffsetY 		= 40;
@@ -391,9 +391,9 @@ function UpdateUnitActions( unit : table )
 	Controls.WorkerActionPanel:ReprocessAnchoring();
 	local width,height = Controls.WorkerActionPanel:GetSizeVal();
 	local lwidth,lheight = 0,0; --TRON Controls.WorkerText:GetSizeVal();
-	Controls.BuildPanel:SetSizeVal(math.max(width+1,(Controls.BuildLabel:GetSizeX())+10),height+lheight+10);
+	Controls.BuildPanel:SetSizeVal(math.max(width+2,(Controls.BuildLabel:GetSizeX())+20),height+lheight+20);
 	Controls.BuildPanel:ReprocessAnchoring();
-	Controls.BuildHeader:SetSizeX(math.max(width+1,(Controls.BuildLabel:GetSizeX())+10));
+	Controls.BuildHeader:SetSizeX(math.max(width+2,(Controls.BuildLabel:GetSizeX())+20));
 	Controls.BuildHeader:ReprocessAnchoring();
 	
     Controls.ContainerStack:CalculateSize();
@@ -415,8 +415,8 @@ function UpdateUnitActions( unit : table )
 	if (numActions > 8) then
 		panelAdjust = numActions - 8;
 	end
-	Controls.HealthBar:SetOffsetX(432 + (55*panelAdjust));
-	Controls.UnitPanelBackground:SetSizeX(492 + (55*panelAdjust));
+	Controls.HealthBar:SetOffsetX(864 + (110*panelAdjust));
+	Controls.UnitPanelBackground:SetSizeX(984 + (110*panelAdjust));
 end
 
 --------------------------------------------------------------------------------
@@ -998,7 +998,7 @@ function UpdateImprovementStatus(improvementInfo : table, plot)
 	else	
 		local healthPercent = 1.0 - (siteData.Damage / siteData.MaxHitPoints);
 		local healthTimes100 =  math.floor(100 * healthPercent + 0.5);
-		local barSize = { x = 10, y = math.min(math.floor(115 * healthPercent),115) };
+		local barSize = { x = 20, y = math.min(math.floor(230 * healthPercent),230) };
 		if healthTimes100 <= 33 then
 			Controls.RedBar:Resize(barSize.x,barSize.y);
 			Controls.GreenBar:SetHide(true);
