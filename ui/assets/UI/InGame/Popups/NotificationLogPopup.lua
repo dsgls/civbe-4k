@@ -61,7 +61,7 @@ function AddNotificationButton( id, description, turn, dismissed )
     controlTable.TextStack:CalculateSize();
     controlTable.TextStack:ReprocessAnchoring();
     
-    local sizeY = controlTable.TextStack:GetSizeY() + 10;
+    local sizeY = controlTable.TextStack:GetSizeY() + 20;
     controlTable.Button:SetSizeY(sizeY);
     
     controlTable.Button:RegisterCallback( Mouse.eLClick, NotificationSelected );

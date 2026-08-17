@@ -61,7 +61,7 @@ function Update()
 		end
 	end
 
-	Controls.HelpBox:SetSizeY(Controls.Help:GetSizeY() + 35);
+	Controls.HelpBox:SetSizeY(Controls.Help:GetSizeY() + 70);
 
 	UpdateCities();
 	UpdateTechs();

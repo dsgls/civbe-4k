@@ -45,7 +45,7 @@ function OnPopup( popupInfo )
 	end	
 	
 	local textSizeY : number = Controls.DetailsLabel:GetSizeY();
-	Controls.Content:SetSizeY(textSizeY + 275);
+	Controls.Content:SetSizeY(textSizeY + 550);
 	Controls.Content:ReprocessAnchoring();
 
 	UIManager:QueuePopup( ContextPtr, PopupPriority.BarbarianCamp );

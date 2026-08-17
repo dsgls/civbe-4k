@@ -2164,7 +2164,7 @@ function TipHandler( control )
     tipControlTable.UnitActionMouseover:DoAutoSize();
     local mouseoverSize = tipControlTable.UnitActionMouseover:GetSize();
     if mouseoverSize.x < 350 then
-		tipControlTable.UnitActionMouseover:SetSizeVal( 350, mouseoverSize.y );
+		tipControlTable.UnitActionMouseover:SetSizeVal( 700, mouseoverSize.y );
     end
 
 end
@@ -2212,7 +2212,7 @@ function LandmarkActionTipHandler(control : table)
     tipControlTable.UnitActionMouseover:DoAutoSize();
     local mouseoverSize = tipControlTable.UnitActionMouseover:GetSize();
     if mouseoverSize.x < 350 then
-		tipControlTable.UnitActionMouseover:SetSizeVal( 350, mouseoverSize.y );
+		tipControlTable.UnitActionMouseover:SetSizeVal( 700, mouseoverSize.y );
     end
 end
 
@@ -2238,7 +2238,7 @@ function PassiveAbilityTipHandler(control : table)
     tipControlTable.UnitActionMouseover:DoAutoSize();
     local mouseoverSize = tipControlTable.UnitActionMouseover:GetSize();
     if mouseoverSize.x < 350 then
-		tipControlTable.UnitActionMouseover:SetSizeVal( 350, mouseoverSize.y );
+		tipControlTable.UnitActionMouseover:SetSizeVal( 700, mouseoverSize.y );
     end
 end
 

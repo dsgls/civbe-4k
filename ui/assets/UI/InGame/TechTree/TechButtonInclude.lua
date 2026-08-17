@@ -202,8 +202,8 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 		local thisButton:table = GetNextSmallButton( thisTechButtonInstance );
 		local textureInfo   = m_textureAffinity[ tostring(affinityType) ];
 		if ( textureInfo ~= nil and thisButton ~= nil) then 
-			thisButton:SetSizeVal( textureInfo.size, textureInfo.size);
-			thisButton:SetOffsetY( thisButton:GetOffsetY() - 6 );	
+			thisButton:SetSizeVal( textureInfo.size * 2, textureInfo.size * 2);
+			thisButton:SetOffsetY( thisButton:GetOffsetY() - 12 );	
 
 			IconHookup( textureInfo.index, textureInfo.size, textureInfo.atlas, thisButton );
 			local toolTipString = Locale.ConvertTextKey(m_tooltipAffinity[ affinityType ]);

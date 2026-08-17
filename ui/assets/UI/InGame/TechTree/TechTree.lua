@@ -284,7 +284,7 @@ function DrawLines()
 	local color			:number;
 	local firstTechId	:number;
 	local secondTechId	:number;
-	local lineWidth		:number = 5;
+	local lineWidth		:number = 10;
 	local currentResearchID :number = g_player:GetCurrentResearch();
 
 	for i,lineInstance in ipairs(g_lineInstances) do
@@ -384,7 +384,7 @@ function OnDragChange( eventRaiser, x, y )
 	y = y - g_screenCenterV;
 
 	-- Clamp
-	local EXTRA_SPACE = 150;
+	local EXTRA_SPACE = 300;
 	local clampx = math.clamp(x, g_webExtents.xmin - EXTRA_SPACE, g_webExtents.xmax );
 	local clampy = math.clamp(y, g_webExtents.ymin, g_webExtents.ymax );
 
@@ -1129,7 +1129,7 @@ function ShowTechState( thisTechButton, techStateString )
 
 	-- Increase background size to match text width
 	local spaceUsedByAdvisors = (32 * thisTechButton.advisorsNum);
-	local extraSpaceNeeded	  = 40;
+	local extraSpaceNeeded	  = 80;
 	if ( thisTechButton.NodeName:GetSizeX() > (thisTechButton.bg:GetSizeX() - (extraSpaceNeeded + spaceUsedByAdvisors)) ) then
 		thisTechButton.bg:SetSizeVal( thisTechButton.NodeName:GetSizeX() + (extraSpaceNeeded + spaceUsedByAdvisors), thisTechButton.bg:GetSizeY() );
 	end

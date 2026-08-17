@@ -15,8 +15,8 @@ local g_iMinorCivTeamID = -1;
 local m_PopupInfo = nil;
 local m_bNewQuestAvailable = false;
 local lastBackgroundImage = "citystatebackgroundculture.dds"
-local WordWrapOffset = 19;
-local WordWrapAnimOffset = 3;
+local WordWrapOffset = 38;
+local WordWrapAnimOffset = 6;
 
 local kiNoAction = 0;
 local kiMadePeace = 1;

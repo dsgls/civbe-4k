@@ -42,7 +42,7 @@ function DisplayPopup(fromExpedition, messageTextTable)
 	Controls.DetailsLabel:SetText(details);
 
 	local textSizeY : number = Controls.DetailsLabel:GetSizeY();
-	Controls.Content:SetSizeY(textSizeY + 275);
+	Controls.Content:SetSizeY(textSizeY + 550);
 
 	Controls.Content:ReprocessAnchoring();
 

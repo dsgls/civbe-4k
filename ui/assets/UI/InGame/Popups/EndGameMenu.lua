@@ -280,7 +280,7 @@ function OnDisplay( type, team )
 
 	Controls.BackButton:SetDisabled( not m_bAllowBack );
 		
-	local PADDING	= 30;	
+	local PADDING	= 60;	
 	local sizeY		= Controls.EndGameText:GetSizeY();
 	Controls.GameOverContainer:SetSizeY( sizeY + PADDING );
 

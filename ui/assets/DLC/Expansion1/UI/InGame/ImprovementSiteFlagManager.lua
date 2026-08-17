@@ -498,7 +498,7 @@ function ResizeBanner(self : ImprovementSiteFlag)
 		end
 
 		if ( controls.SettlementBannerShadow ~= nil ) then
-			controls.SettlementBannerShadow:SetSizeX( iWidth + 40 );
+			controls.SettlementBannerShadow:SetSizeX( iWidth + 80 );
 		end
 
 		controls.SettlementButton:SetSizeX(iWidth);

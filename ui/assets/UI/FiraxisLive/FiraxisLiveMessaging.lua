@@ -9,9 +9,9 @@ include( "InstanceManager" );
 -- ===========================================================================
 
 local DIALOG_TIME_IN_SECONDS	=	10;
-local DIALOG_BUFFER_IN_PIXELS	=	17;
-local DIALOG_ICON_WIDTH			=	48;
-local DIALOG_SLIDE_SPEED		=	400;	-- Pixels per second
+local DIALOG_BUFFER_IN_PIXELS	=	34;
+local DIALOG_ICON_WIDTH			=	96;
+local DIALOG_SLIDE_SPEED		=	800;	-- Pixels per second
 local DIALOG_DEFAULT_ICON		=	"CivBEIcon.dds";
 
 -- ===========================================================================

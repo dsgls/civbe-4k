@@ -10,7 +10,7 @@ local g_IconModes = {}; -- GetStrategicViewIconSettings();
 ----------------------------------------------------------------        
 function OnMinimapInfo( uiHandle, width, height, paddingX )
     
-	local BORDER_ART_SIZE = 44;
+	local BORDER_ART_SIZE = 88;
 	--width = 245; height = 140;	-- force value for debug test
 	--width = 600; height = 400;	-- force value for debug test
 

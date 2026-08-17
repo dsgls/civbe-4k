@@ -814,12 +814,12 @@ function UpdateWindow( city, focusOnCity )
 		end
 	end
 
-	local ADDITION_HEIGHT_PADDING = 180;
+	local ADDITION_HEIGHT_PADDING = 360;
 	local subAmount		= Controls.ScrollPanel:GetOffsetY() + productionQueueHeight + productionQueueOffsetY + ADDITION_HEIGHT_PADDING;
 	local newHeight		= m_screenSizeY - subAmount;
-	Controls.ScrollPanel:SetSizeY( newHeight - 95);
-	Controls.ScrollBar:SetSizeY( newHeight - 89);
-	Controls.FixScrollArea:SetEndVal( -16, newHeight - 4);
+	Controls.ScrollPanel:SetSizeY( newHeight - 190);
+	Controls.ScrollBar:SetSizeY( newHeight - 178);
+	Controls.FixScrollArea:SetEndVal( -32, newHeight - 8);
 	Controls.ScrollPanel:CalculateInternalSize();
 	Controls.ScrollPanel:ReprocessAnchoring();
 

@@ -106,9 +106,9 @@ function OnPasswordChanged( ePlayer )
 	Controls.Stack:SetHide(not bShowPassword);
 	
 	-- Adjust the overall size of the box
-	local iBoxHeight = 240;
+	local iBoxHeight = 480;
 	if ( bShowPassword ) then
-		iBoxHeight = 320;
+		iBoxHeight = 640;
 		Controls.ChangePasswordLabel:LocalizeAndSetText("TXT_KEY_MP_CHANGE_PASSWORD");
 	else
 		Controls.ChangePasswordLabel:LocalizeAndSetText("TXT_KEY_MP_ADD_PASSWORD");	

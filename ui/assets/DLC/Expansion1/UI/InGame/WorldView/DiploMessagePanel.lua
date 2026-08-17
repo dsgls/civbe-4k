@@ -293,8 +293,8 @@ function DisplayNextQueuedCommunique()
 			-- Message
 			local sizedMessage : string = TruncateStringByLength(g_activeCommunique.Message, MAX_COMMUNIQUE_CHARS);
 			Controls.MessageLabel:SetText(sizedMessage);
-			local entryPadding = 20;
-			Controls.MessageLabel:SetWrapWidth(Controls.Content:GetSizeX()-75);
+			local entryPadding = 40;
+			Controls.MessageLabel:SetWrapWidth(Controls.Content:GetSizeX()-150);
 			local heightNeeded = Controls.CivIcon:GetSizeY();
 			Controls.MessageStack:CalculateSize();
 			Controls.MessageStack:ReprocessAnchoring();

@@ -13,13 +13,13 @@ local g_TeamData		= {};
 local m_PlayersAliveNum = -1;
 local m_miniMapControl;
 
-local TOP_COMPENSATION	= 120;
-local CHAT_COMPENSATION = 170;
-local MINIMAP_GUESS		= 250;
+local TOP_COMPENSATION	= 240;
+local CHAT_COMPENSATION = 340;
+local MINIMAP_GUESS		= 500;
 local _, screenY = UIManager:GetScreenSizeVal();
 Controls.MPListScroll:SetSizeY( screenY - MINIMAP_GUESS - TOP_COMPENSATION - CHAT_COMPENSATION );
 
-local SEPARATOR_MARGIN = 10;
+local SEPARATOR_MARGIN = 20;
 
 local DiploRequestIncoming = Locale.ConvertTextKey( "TXT_KEY_DIPLO_REQUEST_INCOMING" );
 local DiploRequestOutgoing = Locale.ConvertTextKey( "TXT_KEY_DIPLO_REQUEST_OUTGOING" );
@@ -476,13 +476,13 @@ end
 -------------------------------------------------------------------------------
 function UpdateAndSort()
 
-	local yOffset = 170;
+	local yOffset = 340;
 
 	if ( m_miniMapControl == nil ) then
 		m_miniMapControl = ContextPtr:LookUpControl( "/InGame/WorldView/MiniMapPanel/MinimapHolder" );
 	end
 	if ( m_miniMapControl ~= nil ) then
-		local topBarSize = 30;
+		local topBarSize = 60;
 		yOffset = m_miniMapControl:GetSizeY() + topBarSize;
 		Controls.MPListScroll:SetOffsetY( yOffset );
 	end

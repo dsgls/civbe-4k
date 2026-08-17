@@ -250,7 +250,7 @@ function SetSelected( index )
 			end
 
 			--Set Save File Text
-			local truncateWidth = Controls.DetailsBox:GetSizeX() - 40;
+			local truncateWidth = Controls.DetailsBox:GetSizeX() - 80;
 			TruncateStringWithTooltip(Controls.SaveFileName, truncateWidth, name); 
 
 			Controls.CurrentTurn:LocalizeAndSetText("TXT_KEY_CUR_TURNS_FORMAT", header.TurnNumber );
@@ -396,7 +396,7 @@ function SetSelected( index )
 			
 			Controls.ShowModsButton:SetHide(g_SavedGameModsRequired == nil or #g_SavedGameModsRequired == 0);
 
-			Controls.ShowDLCButton:SetSizeX(Controls.DLCtext:GetSizeX() + 20);
+			Controls.ShowDLCButton:SetSizeX(Controls.DLCtext:GetSizeX() + 40);
 			Controls.ShowDLCButton:SetHide(g_SavedGameDLCRequired == nil or #g_SavedGameDLCRequired == 0);
 								
 			local tooltip = nil;

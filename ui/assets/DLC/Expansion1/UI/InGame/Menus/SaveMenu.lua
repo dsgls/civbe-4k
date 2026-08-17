@@ -622,7 +622,7 @@ function SetupFileButtonList()
 				
 			end
 			local cloudSave = Locale.ConvertTextKey("TXT_KEY_STEAMCLOUD_SAVE", i, title);
-			TruncateString(instance.ButtonText, (instance.Button:GetSizeX()-30), cloudSave); 
+			TruncateString(instance.ButtonText, (instance.Button:GetSizeX()-60), cloudSave); 
 			instance.Button:RegisterCallback( Mouse.eLClick, function() SetSelected(g_SavedGames[i]); end);
 		end
     else
@@ -651,7 +651,7 @@ function SetupFileButtonList()
 				DisplayName = displayName,
 			}
 	    	
-			TruncateString(instance.ButtonText, (instance.Button:GetSizeX()-30), displayName); 
+			TruncateString(instance.ButtonText, (instance.Button:GetSizeX()-60), displayName); 
 			
 			instance.Button:SetVoid1( i );
 			instance.Button:RegisterCallback( Mouse.eLClick, function() SetSelected(g_SavedGames[i]); end);

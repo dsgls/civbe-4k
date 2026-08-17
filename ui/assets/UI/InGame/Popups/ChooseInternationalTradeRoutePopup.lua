@@ -39,11 +39,11 @@ function Initialize()
 	local spHeight						= Controls.ItemScrollPanel:GetSizeY();
 	local bpHeight						= Controls.BottomPanel:GetSizeY();
 
-	local ART_BUFFER					= 5;
+	local ART_BUFFER					= 10;
 	Controls.BottomPanel:SetSizeY( m_screenSizeY - ART_BUFFER );
 	Controls.BottomPanel:ReprocessAnchoring();
 
-	local ART_BUFFER_SCROLLAREA			= 211;
+	local ART_BUFFER_SCROLLAREA			= 422;
 	Controls.ItemScrollPanel:SetSizeY( Controls.BottomPanel:GetSizeY() - ART_BUFFER_SCROLLAREA );
 	Controls.ItemScrollPanel:CalculateInternalSize();
 	Controls.ItemScrollPanel:ReprocessAnchoring();

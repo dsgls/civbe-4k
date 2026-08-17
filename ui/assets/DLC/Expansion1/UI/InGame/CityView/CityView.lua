@@ -20,11 +20,11 @@ include( "IntrigueHelper" );
 --	Constants
 -- ===========================================================================
 
-local ART_INTRIGUE_WIDTH					= 102;
-local ART_INTRIGUE_HEIGHT					= 24;
+local ART_INTRIGUE_WIDTH					= 204;
+local ART_INTRIGUE_HEIGHT					= 48;
 local ART_HEIGHT_PRODUCTION_PANEL_CLOSED	= 66;
 local ART_HEIGHT_PRODUCTION_PANEL_OPEN		= 600;
-local ART_HEIGHT_AROUND_BUILDINGS_PANEL		= 270;	
+local ART_HEIGHT_AROUND_BUILDINGS_PANEL		= 540;	
 local MAX_QUEUE_ITEMS						= 6;
 local COLOR_FOCUS_GLOW_NONE					= 0x00000000;
 local COLOR_FOCUS_GLOW_CULTURE				= 0xee9B3D81;
@@ -636,7 +636,7 @@ function AddBuildingButton( city, building )
 
 
 		-- If all the contents are taller than the icon, grow the box.
-		local EXTRA_HEIGHT_PADDING	= 8;
+		local EXTRA_HEIGHT_PADDING	= 16;
 		local totalHeight			= EXTRA_HEIGHT_PADDING;
 		totalHeight					= totalHeight + controlTable.ContentStack:GetSizeY();
 
@@ -708,7 +708,7 @@ function AddPlotProjectButton( city, project )
 	controlTable.BuildingStats:SetString( "" );
 
 	-- If all the contents are taller than the icon, grow the box.
-	local EXTRA_HEIGHT_PADDING	= 28;
+	local EXTRA_HEIGHT_PADDING	= 56;
 	local totalHeight			= EXTRA_HEIGHT_PADDING;
 	totalHeight					= totalHeight + controlTable.BuildingName:GetSizeY();
 	totalHeight					= totalHeight + controlTable.BuildingStats:GetSizeY();
@@ -1456,7 +1456,7 @@ function OnCityViewUpdate()
 	end
 		
 	Controls.ResourceDemandedString:SetText(szText);
-	Controls.ResourceDemandedBox:SetSizeX(Controls.ResourceDemandedString:GetSizeX() + 10);
+	Controls.ResourceDemandedBox:SetSizeX(Controls.ResourceDemandedString:GetSizeX() + 20);
 		
 	Controls.IconsStack:CalculateSize();
 	Controls.IconsStack:ReprocessAnchoring();
@@ -1545,7 +1545,7 @@ function OnCityViewUpdate()
 		Controls.CultureMeterLineTop:SetTextureOffsetVal( 0, (96+(48-(48 * percentComplete))) * 2);
 		Controls.CultureMeterLineTop:SetTextureSizeVal(96,2);
 		Controls.CultureMeterLineTop:SetSizeY( 2 );
-		Controls.CultureMeterLineTop:SetOffsetY( -(48 * percentComplete)+24 );
+		Controls.CultureMeterLineTop:SetOffsetY( -(96 * percentComplete)+48 );
 	
 	-- Water city culture meter help
 	elseif (city:IsWater()) then
@@ -1673,7 +1673,7 @@ function RecalcPanelSize()
 	-- Culture Header (3rd Row)
 	size =	screenSizeX - 
 		( Controls.CitizenManagementArea:GetSizeX() + Controls.ProductionArea:GetSizeX() );
-	Controls.CityCultureArea:SetSizeX( size + 6 );
+	Controls.CityCultureArea:SetSizeX( size + 12 );
 
 	-- Buildings and Wonders
 	Controls.BuildingStack:SortChildren( CVSortFunction );		
@@ -1681,11 +1681,11 @@ function RecalcPanelSize()
 	Controls.BuildingStack:ReprocessAnchoring();
 		
 	local maxHeight		= screenSizeY - ART_HEIGHT_AROUND_BUILDINGS_PANEL;
-	local currentHeight = Controls.BuildingStack:GetSizeY() + 10;
+	local currentHeight = Controls.BuildingStack:GetSizeY() + 20;
 	currentHeight		= math.min( currentHeight, maxHeight);
 		
 	Controls.BuildingListBackground:SetSizeY( currentHeight );
-	Controls.ScrollPanel:SetSizeY( currentHeight - 10 );
+	Controls.ScrollPanel:SetSizeY( currentHeight - 20 );
 
 	Controls.ScrollPanel:CalculateInternalSize();
 	Controls.ScrollPanel:ReprocessAnchoring();

@@ -15,8 +15,8 @@ local DEBUG_CACHE_SCREEN_NAME	:string = "ArtifactsPopup";
 local DEBUG_SHOW_INFO			:boolean= false;
 local DROP_OVERLAP_REQUIRED		:number = 0.4;
 local CATEGORY_ICONS_ATLAS		:string = "ARTIFACT_CATEGORY_ATLAS"
-local HEADER_WIDTH_NO_SCROLLBAR :number = 472;
-local HEADER_WIDTH_SCROLLBAR	:number = HEADER_WIDTH_NO_SCROLLBAR - 16;
+local HEADER_WIDTH_NO_SCROLLBAR :number = 944;
+local HEADER_WIDTH_SCROLLBAR	:number = HEADER_WIDTH_NO_SCROLLBAR - 32;
 
 local SelectedType				:table = {};
 local WasShown					:boolean = false;
@@ -399,8 +399,8 @@ end
 --	width		Size of the area to work with
 -- ===========================================================================
 function AddReward( rewardText:string, width:number )
-	local X_PADDING	:number = -10;
-	local Y_PADDING	:number = 10;
+	local X_PADDING	:number = -20;
+	local Y_PADDING	:number = 20;
 	local instance	:table = m_rewardIM:GetInstance();
 	instance.Description:SetWrapWidth( width + X_PADDING);
 	instance.Description:SetText( rewardText );
@@ -640,8 +640,8 @@ function RealizeComboArea()
 
 	-- Fill the rewards area.
 
-	local REWARD_WIDTH_NO_SCROLL	:number = 498;
-	local REWARD_WIDTH_WITH_SCROLL	:number = 481;
+	local REWARD_WIDTH_NO_SCROLL	:number = 996;
+	local REWARD_WIDTH_WITH_SCROLL	:number = 962;
 	local artifactsToResearch		:table	= GetArtifactsToCombineIDs();
 	local rewardRowWidth			:number = REWARD_WIDTH_NO_SCROLL;
 	local rewardID					:number = -1;
@@ -709,7 +709,7 @@ function RealizeComboArea()
 				AddReward( "[COLOR_ARTIFACT_REWARD_NAME]" .. rewardDescription .. "[ENDCOLOR]" .. ": " .. rewardEffectsSummary, rewardRowWidth );
 			end		
 		end
-		local SCROLL_BAR_WIDTH :number = 20;
+		local SCROLL_BAR_WIDTH :number = 40;
 		Controls.RewardScroll:SetSizeX( rewardRowWidth + SCROLL_BAR_WIDTH );
 		Controls.RewardStack:CalculateSize();
 		Controls.RewardScroll:CalculateInternalSize();

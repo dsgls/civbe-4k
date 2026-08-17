@@ -469,7 +469,7 @@ function DisplayData()
 
 			instance.TradeRouteInfo:SetText(tradeRouteInfoStr);
 			local height : number = instance.TradeRouteInfo:GetSizeY();
-			local PADDING : number = 12;
+			local PADDING : number = 24;
 			instance.Root:SetSizeY(height + PADDING);
 
 			local sortByPulldown = Controls.SortByPullDown;

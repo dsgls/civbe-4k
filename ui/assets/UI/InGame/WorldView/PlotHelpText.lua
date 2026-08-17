@@ -14,7 +14,7 @@ local m_miniMapControl;
 -- ===========================================================================
 function OnMouseOverHex( hexX, hexY )
 
-	local xOffset = 245;
+	local xOffset = 490;
 	if ( m_miniMapControl == nil ) then
 		m_miniMapControl = ContextPtr:LookUpControl( "/InGame/WorldView/MiniMapPanel/MinimapHolder" );
 	end

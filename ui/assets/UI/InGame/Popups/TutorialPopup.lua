@@ -127,7 +127,7 @@ function UpdateWindow()
 		Controls.ProTip:SetText(Locale.ConvertTextKey(m_TutorialInfo.ProTip));
 		--scale the pro tip box to fit the text if it's larger than the default.
 		if (Controls.ProTip:GetSizeY() > Controls.ProTipBox:GetSizeY()) then
-			Controls.ProTipBox:SetSizeY(Controls.ProTip:GetSizeY() + 16);
+			Controls.ProTipBox:SetSizeY(Controls.ProTip:GetSizeY() + 32);
 		end
 	else
 		Controls.ProTip:SetText("");
@@ -135,8 +135,8 @@ function UpdateWindow()
 
 	--make sure the scroll panel doesn't overlap the pro tip box
 	local scrollPanelHeight = Controls.StepsContainer:GetSizeY() - (  Controls.StepsScrollPanel:GetOffsetY() + Controls.ProTipBox:GetSizeY() )
-	Controls.StepsScrollPanel:SetSizeY( scrollPanelHeight - 6);
-	Controls.PanelBacking:SetSizeY( scrollPanelHeight + 10 )
+	Controls.StepsScrollPanel:SetSizeY( scrollPanelHeight - 12);
+	Controls.PanelBacking:SetSizeY( scrollPanelHeight + 20 )
 
 	if (m_TutorialInfo ~= nil and m_StepInfos ~= nil) then
 		-- Build the list of steps
@@ -148,7 +148,7 @@ function UpdateWindow()
 			local instance = m_StepInstanceManager:GetInstance();
 
 			instance.StepTextLabel:SetText(Locale.ConvertTextKey(stepInfo.Text));
-			local newSize : number = instance.StepTextLabel:GetSizeY() + 15;
+			local newSize : number = instance.StepTextLabel:GetSizeY() + 30;
 			if (newSize < 64) then
 				newSize = 64;
 			end

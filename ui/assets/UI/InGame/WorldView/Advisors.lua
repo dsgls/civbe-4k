@@ -285,11 +285,11 @@ function OnAdvisorDisplayShow (eventInfo)
 	end
 	
 	--Resize the window
-	local sizeY = 500;
+	local sizeY = 1000;
 	Controls.AdvisorStack:CalculateSize();
 	Controls.AdvisorStack:ReprocessAnchoring();
 	sizeY = Controls.AdvisorStack:GetSizeY();
-	Controls.AdvisorGrid:SetSizeY(sizeY + 5);
+	Controls.AdvisorGrid:SetSizeY(sizeY + 10);
 	Controls.AdvisorGrid:ReprocessAnchoring();
 
 	AdvisorOpen();

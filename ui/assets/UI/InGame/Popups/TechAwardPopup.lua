@@ -85,7 +85,7 @@ function RefreshDisplay( pTechInfo )
 		
 		-- Resize 
 		local contentSize : number = Controls.ContentStack:GetSizeY();
-		Controls.OuterGrid:SetSizeY(contentSize + 250);
+		Controls.OuterGrid:SetSizeY(contentSize + 500);
 		
 		Controls.OuterGrid:ReprocessAnchoring();
 	end	

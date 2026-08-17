@@ -935,13 +935,13 @@ function UpdateWindow( city, focusOnCity )
 
 	-- WRM: This is kind of hacky.  We need this to compensate for the purchase
 	--		currency tabs added for diplo currency.
-	local ADDITION_HEIGHT_PADDING = 220;
+	local ADDITION_HEIGHT_PADDING = 440;
 	local subAmount		= Controls.ScrollPanel:GetOffsetY() + productionQueueHeight + productionQueueOffsetY + ADDITION_HEIGHT_PADDING;
 	local newHeight		= m_screenSizeY - subAmount;
 	
-	local BASE_OFFSET_Y : number = 176;
-	local MOVE_CITY_OFFSET_Y : number = 44;
-	local PURCHASE_TABS_OFFSET_Y : number = 41;
+	local BASE_OFFSET_Y : number = 352;
+	local MOVE_CITY_OFFSET_Y : number = 88;
+	local PURCHASE_TABS_OFFSET_Y : number = 82;
 	local totalOffset : number = 0;
 	if (g_IsProductionMode) then
 		if (city:IsWater()) then
@@ -954,9 +954,9 @@ function UpdateWindow( city, focusOnCity )
 	Controls.Backdrop:SetOffsetY(BASE_OFFSET_Y + totalOffset);
 	newHeight = newHeight - totalOffset;
 
-	Controls.ScrollPanel:SetSizeY( newHeight - 95);
-	Controls.ScrollBar:SetSizeY( newHeight - 89);
-	Controls.FixScrollArea:SetEndVal( -16, newHeight - 4);
+	Controls.ScrollPanel:SetSizeY( newHeight - 190);
+	Controls.ScrollBar:SetSizeY( newHeight - 178);
+	Controls.FixScrollArea:SetEndVal( -32, newHeight - 8);
 	Controls.ScrollPanel:CalculateInternalSize();
 	Controls.ScrollPanel:ReprocessAnchoring();
 	Controls.Backdrop:SetSizeY( newHeight );

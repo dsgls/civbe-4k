@@ -13,8 +13,8 @@ include( "IconSupport" );
 ------------------------------------------------------
 local kPosInfRange = math.abs( GameDefines["FRIENDSHIP_THRESHOLD_ALLIES"] - GameDefines["FRIENDSHIP_THRESHOLD_NEUTRAL"] );
 local kNegInfRange = math.abs( GameDefines["MINOR_FRIENDSHIP_AT_WAR"] - GameDefines["FRIENDSHIP_THRESHOLD_NEUTRAL"] );
-local kPosBarRange = 81;
-local kNegBarRange = 81;
+local kPosBarRange = 162;
+local kNegBarRange = 162;
 local kBarIconAtlas = "CITY_STATE_INFLUENCE_METER_ICON_ATLAS";
 local kBarIconNeutralIndex = 4;
 

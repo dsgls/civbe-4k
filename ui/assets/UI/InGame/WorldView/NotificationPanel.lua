@@ -12,10 +12,10 @@ include( "InstanceManager" );
 
 
 -- ===========================================================================
-local LIMIT_BIG_DESCRIPTION_SIZE_Y = 45;
-local OFFSET_WITH_SCROLL_BAR	= 16;
+local LIMIT_BIG_DESCRIPTION_SIZE_Y = 90;
+local OFFSET_WITH_SCROLL_BAR	= 32;
 local OFFSET_NO_SCROLL_BAR		= 0;
-local DIPLO_SIZE_GUESS			= 210;
+local DIPLO_SIZE_GUESS			= 420;
 local _, screenY				= UIManager:GetScreenSizeVal();
 local _, g_offsetY				= Controls.ContainerStack:GetOffsetVal();
 local g_SmallScrollMax			= screenY - g_offsetY - DIPLO_SIZE_GUESS;
@@ -418,8 +418,8 @@ function OnNotificationAdded( Id, type, toolTip, strSummary, iGameValue, iExtraG
 			--BPF: decided to use the height of the text string instead of char length to determine if a tooltip is used
 			instance.FingerTitleOver	:SetText( strSummary );
 			instance.DescriptionOver	:SetText( toolTip );
-			local PADDING		= 20;
-			local MAX_HEIGHT	= 70;
+			local PADDING		= 40;
+			local MAX_HEIGHT	= 140;
 			local notificationHeight = instance.FingerTitle:GetSizeY() + instance.DescriptionOver:GetSizeY() + PADDING;
 
 			if ( notificationHeight > MAX_HEIGHT) then

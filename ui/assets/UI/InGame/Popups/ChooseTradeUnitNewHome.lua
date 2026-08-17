@@ -34,11 +34,11 @@ function Initialize()
 	local spHeight						= Controls.ItemScrollPanel:GetSizeY();
 	local bpHeight						= Controls.BottomPanel:GetSizeY();
 
-	local ART_BUFFER					= 5;
+	local ART_BUFFER					= 10;
 	Controls.BottomPanel:SetSizeY( m_screenSizeY - ART_BUFFER );
 	Controls.BottomPanel:ReprocessAnchoring();
 
-	local ART_BUFFER_SCROLLAREA			= 211;
+	local ART_BUFFER_SCROLLAREA			= 422;
 	Controls.ItemScrollPanel:SetSizeY( Controls.BottomPanel:GetSizeY() - ART_BUFFER_SCROLLAREA );
 	Controls.ItemScrollPanel:CalculateInternalSize();
 	Controls.ItemScrollPanel:ReprocessAnchoring();
@@ -177,7 +177,7 @@ function RefreshList()
 
 		-- Update piano key color/anim
 		local buttonWidth, buttonHeight = itemInstance.Button:GetSizeVal();
-		local newHeight = 80;	
+		local newHeight = 160;	
 		itemInstance.Button:SetSizeVal(buttonWidth, newHeight);
 		
 		itemInstance.GoToCity:RegisterCallback(Mouse.eLClick, function() 
@@ -196,7 +196,7 @@ function RefreshList()
 
 		local infoHeight = itemInstance.CityName:GetSizeY() + itemInstance.CityDescription:GetSizeY() + itemInstance.CityName:GetOffsetY();
 		if ( infoHeight > itemInstance.Button:GetSizeY() ) then
-			itemInstance.Button:SetSizeY(infoHeight + 10);
+			itemInstance.Button:SetSizeY(infoHeight + 20);
 		end
 	end
 

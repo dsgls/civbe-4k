@@ -18,7 +18,7 @@ local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal()
 local spWidth, spHeight = Controls.ItemScrollPanel:GetSizeVal();
 
 -- Original UI designed at 1050px 
-local heightOffset = screenSizeY - 1020;
+local heightOffset = screenSizeY - 2040;
 
 spHeight = spHeight + heightOffset;
 Controls.ItemScrollPanel:SetSizeVal(spWidth, spHeight); 
@@ -126,9 +126,9 @@ function RefreshList()
 	
 		
 		itemInstance.Button:SetSizeVal(buttonWidth, newHeight);
-		itemInstance.Box:SetSizeVal(buttonWidth + 20, newHeight);
-		itemInstance.BounceAnim:SetSizeVal(buttonWidth + 20, newHeight + 5);
-		itemInstance.BounceGrid:SetSizeVal(buttonWidth + 20, newHeight + 5);
+		itemInstance.Box:SetSizeVal(buttonWidth + 40, newHeight);
+		itemInstance.BounceAnim:SetSizeVal(buttonWidth + 40, newHeight + 10);
+		itemInstance.BounceGrid:SetSizeVal(buttonWidth + 40, newHeight + 10);
 		
 				
 		bTickTock = not bTickTock;

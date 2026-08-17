@@ -15,7 +15,8 @@ function OnPopup( popupInfo )
 
     if( popupInfo.Data1 ~= nil ) then
         print( "one" );
-        Controls.DescriptionLabel:SetWrapWidth( popupInfo.Data1 );
+        -- Data1 is an engine-supplied width in stock 1x canvas pixels.
+        Controls.DescriptionLabel:SetWrapWidth( popupInfo.Data1 * 2 );
     else
         print( "two" );
         Controls.DescriptionLabel:SetWrapWidth( 800 );

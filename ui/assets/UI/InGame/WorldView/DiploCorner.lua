@@ -75,7 +75,7 @@ function RefreshAdditionalInformationEntries()
 	Controls.MultiPull:CalculateInternals();
 	local dropDown = Controls.MultiPull;
 	local width, height = dropDown:GetGrid():GetSizeVal();
-	dropDown:GetGrid():SetSizeVal(width, height+20);
+	dropDown:GetGrid():SetSizeVal(width, height+40);
 
 end
 LuaEvents.RequestRefreshAdditionalInformationDropdownEntries.Add(RefreshAdditionalInformationEntries);
@@ -161,7 +161,7 @@ function OnChat( fromPlayer, toPlayer, text, eTargetType )
 			Controls.ChatWaiting:Play(); 
 		end
       
-    controlTable.Box:SetSizeY( controlTable.String:GetSizeY() + 8 );
+    controlTable.Box:SetSizeY( controlTable.String:GetSizeY() + 16 );
     controlTable.Box:ReprocessAnchoring();
 
     --if( bFlipper ) then

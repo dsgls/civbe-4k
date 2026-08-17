@@ -55,9 +55,9 @@ g_strProposeButtonToolTip = Locale.Lookup("TXT_KEY_LEAGUE_OVERVIEW_PROPOSE_BUTTO
 
 
 local _, screenSizeY = UIManager:GetScreenSizeVal();
-if(screenSizeY <= 768) then
+if(screenSizeY <= 1536) then
 	local offsetX, offsetY = Controls.MainFrame:GetOffsetVal();
-	Controls.MainFrame:SetOffsetVal(offsetX, offsetY + 30);
+	Controls.MainFrame:SetOffsetVal(offsetX, offsetY + 60);
 end
 
 
@@ -517,7 +517,7 @@ function View(model)
 	Controls.TurnsUntilVote:SetText(model.TurnString);
 	local frameW, frameH = Controls.TurnsUntilVoteFrame:GetSizeVal();
 	local labelW, labelH = Controls.TurnsUntilVote:GetSizeVal();
-	Controls.TurnsUntilVoteFrame:SetSizeVal(labelW + 100, frameH);
+	Controls.TurnsUntilVoteFrame:SetSizeVal(labelW + 200, frameH);
 	Controls.TurnsUntilVoteFrame:ReprocessAnchoring();
 	
 	if (model.VictorySessionString ~= nil and model.VictoryVotesString ~= nil and model.VictoryTooltip ~= nil) then

@@ -28,8 +28,8 @@ local DEBUG_ONE_UNIT_ONLY_ID	:number = -1;	-- When not -1, will be only unit pop
 
 local MAX_PARTICLES				:number = 30;	-- UI FX for upgrading
 local HEIGHT_TOP_PANEL			:number = 36;
-local HEIGHT_TOP_BANNER			:number = 2;
-local HEIGHT_TABS_BANNER		:number = 80;
+local HEIGHT_TOP_BANNER			:number = 4;
+local HEIGHT_TABS_BANNER		:number = 160;
 local MAX_UPGRADE_LEVELS		:number = 3;	
 local TEXTURE_SLOT				:string = "UnitUpgradePerkSlotPrevious.dds";
 local TEXTURE_SLOT_CURRENT		:string = "UnitUpgradePerkSlotCurrent.dds";
@@ -445,7 +445,7 @@ function PlayParticleEffect()
 		offsetX = math.sin(offsetX) * 550;
 		offsetY = 250 * (math.abs(offsetX)/550);		-- push upward the further out from center
 		instance.Content:SetBeginVal(offsetX,offsetY);
-		instance.Content:SetEndVal(offsetX,400+offsetY);		
+		instance.Content:SetEndVal(offsetX,800+offsetY);		
 		
 		local progress	:number = math.random();
 		instance.Content:SetProgress( progress );
@@ -465,7 +465,7 @@ function PlayParticleEffect()
 		offsetX = math.sin(offsetX) * 550;
 		offsetY = 250 * (math.abs(offsetX)/550);		-- push upward the further out from center
 		instance.Content:SetBeginVal(offsetX,offsetY);
-		instance.Content:SetEndVal(offsetX,400+offsetY);		
+		instance.Content:SetEndVal(offsetX,800+offsetY);		
 		
 		local progress	:number = math.random();
 		instance.Content:SetProgress( progress );
@@ -1190,7 +1190,7 @@ function View_GridOfUnits( units:table )
 	Controls.CardScroll:SetSizeY( m_height - (HEIGHT_TOP_BANNER + HEIGHT_TABS_BANNER ) );
 	Controls.CardStack:CalculateSize();
 	Controls.CardScroll:CalculateInternalSize();
-	Controls.BackBlackOutter:SetSizeY( m_height - 75 );
+	Controls.BackBlackOutter:SetSizeY( m_height - 150 );
 end
 
 
@@ -1544,11 +1544,11 @@ function ShowWindow()
 	end
 
 	Controls.MySupremacyLabel:SetText("[ICON_SUPREMACY]"  .. m_player:GetAffinityLevel(SUPREMACY_AFFINITY_TYPE));
-	Controls.MySupremacyContainer:SetSizeX(Controls.MySupremacyLabel:GetSizeX()+5);
+	Controls.MySupremacyContainer:SetSizeX(Controls.MySupremacyLabel:GetSizeX()+10);
 	Controls.MyPurityLabel:SetText("[ICON_PURITY]"  .. m_player:GetAffinityLevel(PURITY_AFFINITY_TYPE));
-	Controls.MyPurityContainer:SetSizeX(Controls.MyPurityLabel:GetSizeX()+5);
+	Controls.MyPurityContainer:SetSizeX(Controls.MyPurityLabel:GetSizeX()+10);
 	Controls.MyHarmonyLabel:SetText("[ICON_HARMONY]"  .. m_player:GetAffinityLevel(HARMONY_AFFINITY_TYPE));
-	Controls.MyHarmonyContainer:SetSizeX(Controls.MyHarmonyLabel:GetSizeX()+5);
+	Controls.MyHarmonyContainer:SetSizeX(Controls.MyHarmonyLabel:GetSizeX()+10);
 	Controls.HeaderYieldStack:CalculateSize();
 	Controls.HeaderYieldStack:ReprocessAnchoring();
 
@@ -1741,12 +1741,12 @@ function Initialize()
 
 	-- One time sizing:
 	m_width, m_height = UIManager:GetScreenSizeVal();
-	Controls.UnitSelectBG:SetSizeY( m_height + 26 );
-	Controls.UnitUpgradeBG:SetSizeY( m_height + -4 );
-	Controls.UnitPerkGrid:SetSizeY( m_height - 12 );
+	Controls.UnitSelectBG:SetSizeY( m_height + 52 );
+	Controls.UnitUpgradeBG:SetSizeY( m_height + -8 );
+	Controls.UnitPerkGrid:SetSizeY( m_height - 24 );
 
-	Controls.PerkSelectArea:SetSizeY(m_height - 477 );
-	Controls.AbilitiesScroll:SetSizeY( math.floor( 150 + ((m_height - 776) * 0.5 )));
+	Controls.PerkSelectArea:SetSizeY(m_height - 954 );
+	Controls.AbilitiesScroll:SetSizeY( math.floor( 300 + ((m_height - 1552) * 0.5 )));
 
 	Reset();				-- Must be done before tab setup.
 	PreAllocateParticles();

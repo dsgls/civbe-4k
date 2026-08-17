@@ -216,7 +216,7 @@ function InitForeignPolicyEntry(instance : table, foreignPolicyInfo : table, rel
 		instance.Description:SetText(Locale.Lookup("TXT_KEY_DIPLOMACYUI_NO_PERK_AT_RELATIONSHIP_LEVEL"));
 	end
 	instance.Cost:SetText(purchaseCapitalCost);
-	instance.CostContainer:SetSizeX(instance.CostStack:GetSizeX() + 22);
+	instance.CostContainer:SetSizeX(instance.CostStack:GetSizeX() + 44);
 	instance.CostPerTurn:SetText(perTurnCapitalCost .. "[ICON_DIPLO_CAPITAL]");
 	instance.CostStack:CalculateSize();
 	instance.CostStack:ReprocessAnchoring();

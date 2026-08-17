@@ -60,7 +60,7 @@ function Update()
 	Controls.ScrollPanel:CalculateInternalSize();
 
 	if (IsScrollbarShowing(Controls.ScrollPanel)) then
-		Controls.Grid:SetSizeX(1008+16);
+		Controls.Grid:SetSizeX(2016+32);
 	else
 		Controls.Grid:SetSizeX(2016);
 	end

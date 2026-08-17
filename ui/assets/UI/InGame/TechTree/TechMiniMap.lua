@@ -59,11 +59,11 @@ end
 -- ===========================================================================
 function SetSize( x, y )
 
-	local EXTRA_BACKGROUND_Y = 20;
+	local EXTRA_BACKGROUND_Y = 40;
 
 	Controls.TechTreeMiniMap:SetSizeVal( x, y );
 	Controls.Background:SetSizeVal( x, y + EXTRA_BACKGROUND_Y );	
-	Controls.ClipRect:SetSizeVal( x, y + (EXTRA_BACKGROUND_Y-4) );
+	Controls.ClipRect:SetSizeVal( x, y + (EXTRA_BACKGROUND_Y-8) );
 	Controls.TechTreeMiniMapCanvas:SetSizeVal( x, y );
 	Controls.TechTreeMiniMapCanvas:SetOffsetVal( (x/2) + m_xmlCanvasOffsetX, y/2 );	
 

@@ -28,13 +28,13 @@ Events.SerialEventGameMessagePopup.Add( OnPopup );
 function SizeWindowToContent()
 	Controls.ContentStack:CalculateSize();
 	Controls.ContentStack:ReprocessAnchoring();
-	local windowx = 500;
+	local windowx = 1000;
 	if(Controls.ContentStack:GetSizeX() > Controls.TitleLabel:GetSizeX()) then
-		windowx = Controls.ContentStack:GetSizeX() + 40;
+		windowx = Controls.ContentStack:GetSizeX() + 80;
 	else
-		windowx = Controls.TitleLabel:GetSizeX() + 40;
+		windowx = Controls.TitleLabel:GetSizeX() + 80;
 	end
-	local windowy = Controls.ContentStack:GetSizeY() + 75;
+	local windowy = Controls.ContentStack:GetSizeY() + 150;
 	Controls.Window:SetSizeX(windowx);
 	Controls.WindowHeader:SetSizeX(windowx);
 	Controls.HeaderSeparator:SetSizeX(windowx);

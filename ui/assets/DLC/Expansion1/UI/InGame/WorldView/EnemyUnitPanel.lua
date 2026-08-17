@@ -9,7 +9,7 @@ local g_TheirCombatDataIM	= InstanceManager:new( "ThemCombatInfo", "Text", Contr
 
 local g_NumButtons = 12;
 local g_lastUnitID = -1;		-- Used to determine if a different pUnit has been selected.
-local g_DAMAGE_BAR_SIZE = 111;	-- Size of damage
+local g_DAMAGE_BAR_SIZE = 222;	-- Size of damage
 
 local maxUnitHitPoints = GameDefines["MAX_HIT_POINTS"];
 
@@ -248,7 +248,7 @@ function ResizeAllContents()
     Controls.TheirCombatResultsStack:CalculateSize();
 
 	-- Increase size of grid if stack of upgrades goes past bottom.
-	local ART_HEIGHT = 50;
+	local ART_HEIGHT = 100;
 	local myGridHeight		= Controls.MyCombatResultsStack:GetSizeY() + ART_HEIGHT;
 	local theirGridHeight	= Controls.TheirCombatResultsStack:GetSizeY() + ART_HEIGHT;
 	
@@ -260,8 +260,8 @@ function ResizeAllContents()
 	Controls.ShadowsRight:SetSizeY( gridHeight );
 	Controls.DetailsGrid:ReprocessAnchoring();
 	local unitPanelX = ContextPtr:LookUpControl("/InGame/WorldView/UnitPanel/UnitPanelBackground"):GetSizeX();
-	Controls.EnemyPanel:SetOffsetX(unitPanelX-62);
-	Controls.DetailsGrid:SetOffsetX(unitPanelX-257);
+	Controls.EnemyPanel:SetOffsetX(unitPanelX-124);
+	Controls.DetailsGrid:SetOffsetX(unitPanelX-514);
 
 end
 
@@ -2310,7 +2310,7 @@ function UpdateSingleHealthBar( controlPrefix, iMaxMyHP, myCurrentDamage, inflic
     if myDamageTaken > 0 then
         deltaBar:       SetHide( false );
         deltaBarFlash:  SetMaskOffsetVal( 0, -g_DAMAGE_BAR_SIZE );
-        deltaBarFlash:  SetSizeVal( 13, damagePixels );
+        deltaBarFlash:  SetSizeVal( 26, damagePixels );
         deltaBarFlash:  SetOffsetVal( 0, g_DAMAGE_BAR_SIZE-healthLeftPixels-damagePixels);
     else
         deltaBar:		SetHide( true );

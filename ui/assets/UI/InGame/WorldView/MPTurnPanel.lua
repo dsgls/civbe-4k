@@ -17,8 +17,8 @@ local g_TurnQueueEntries = {};		-- List of turn queue controls
 local g_SortTable = {};
 
 -- Determine wrap size for Turn Queue.
-local INFOCORNER_GUESS = 400;		 -- estimated size of the unit panel
-local MINIMAP_GUESS = 400;			 -- estimated size of the minimap panel
+local INFOCORNER_GUESS = 800;		 -- estimated size of the unit panel
+local MINIMAP_GUESS = 800;			 -- estimated size of the minimap panel
 local TURNQUEUE_MINMARGIN = 0; -- combined minimum required margin size between the turn queue and the unit/minimap panels.
 
 local g_iconSizes = {};
@@ -320,8 +320,8 @@ function OnEndTurnTimerUpdate(percentComplete)
 	-- Resize Turn Time Text Panel
 	local timeTextSizeX;
   local timeTextSizeY;
-  local padSizeX = 40;
-  local padSizeY = 20;
+  local padSizeX = 80;
+  local padSizeY = 40;
   timeTextSizeX = Controls.TimerCountDown:GetSizeX() + padSizeX;
   timeTextSizeY = Controls.TimerCountDown:GetSizeY() + padSizeY;
   --Controls.TurnTimeRoot:SetSizeX(timeTextSizeX);

@@ -14,8 +14,8 @@ include( "SerializationUtilities" );
 -- ===========================================================================
 --		CONSTANTS
 -- ===========================================================================
-local ART_INTRIGUE_WIDTH					= 102;
-local ART_INTRIGUE_HEIGHT					= 24;
+local ART_INTRIGUE_WIDTH					= 204;
+local ART_INTRIGUE_HEIGHT					= 48;
 
 local ALPHA_BANNER_IDLE						= 0.6;
 local ALPHA_BANNER_OVER						= 0.95;
@@ -606,7 +606,7 @@ function RefreshCityBanner(cityBanner, iActiveTeam, iActivePlayer)
 	if(size == 3) then
 		controls.StatusBacking:SetHide( true );
 	else
-		controls.StatusBacking:SetSizeX(size+35);
+		controls.StatusBacking:SetSizeX(size+70);
 	end
 	controls.IconsStack:ReprocessAnchoring();
 
@@ -1488,9 +1488,9 @@ function DoResizeBanner(BannerInstance)
 
 	if ( BannerInstance.CityBannerShadow ~= nil ) then
 		if (isStation) then
-			BannerInstance.CityBannerShadow:SetSizeX( iWidth + 40 );
+			BannerInstance.CityBannerShadow:SetSizeX( iWidth + 80 );
 		else
-			BannerInstance.CityBannerShadow:SetSizeX( iWidth + 130 );
+			BannerInstance.CityBannerShadow:SetSizeX( iWidth + 260 );
 		end
 	end
 

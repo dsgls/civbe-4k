@@ -14,10 +14,10 @@ local g_OldMessagesIM = InstanceManager:new("OldMessageItem", "MouseAreaButton",
 function Reveal()
 	Controls.LogContainer:SetHide(false);
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
-	Controls.LogContainer:SetSizeY(screenSizeY-240);
-	Controls.ContainerSlide:SetSizeY(screenSizeY-240);
-	Controls.ContainerStack:SetSizeY(screenSizeY-240);
-	Controls.MessageStackPanel:SetSizeY(screenSizeY-320);
+	Controls.LogContainer:SetSizeY(screenSizeY-480);
+	Controls.ContainerSlide:SetSizeY(screenSizeY-480);
+	Controls.ContainerStack:SetSizeY(screenSizeY-480);
+	Controls.MessageStackPanel:SetSizeY(screenSizeY-640);
 
 	if (Controls.ContainerSlide:IsStopped()) then
 		Controls.ContainerSlide:SetToBeginning();
@@ -187,10 +187,10 @@ function AddMessage(sendingPlayerType : number, reactionType : number, subject :
 	end
 	instance.RespectDeltaContainer:SetToolTipString(tooltipString);
 	instance.RespectDelta:SetText(iconStr);
-	local entryPadding = 20;
+	local entryPadding = 40;
 	if(turnsAgo <= 0) then
 		instance.NewIndicator:SetHide(false);
-		instance.NewIndicator:SetSizeX(instance.NewLabel:GetSizeX()+30);
+		instance.NewIndicator:SetSizeX(instance.NewLabel:GetSizeX()+60);
 		instance.DeltaAnim:Play();
 		header = Locale.ConvertTextKey("TXT_KEY_COMMUNIQUE_LOG_HEADER_THIS_TURN", leaderInfo.Description);
 	else
@@ -200,7 +200,7 @@ function AddMessage(sendingPlayerType : number, reactionType : number, subject :
 	end
 	instance.HeaderLabel:SetText(header);
 	instance.SubjectLabel:SetText(subject);
-	instance.MessageLabel:SetWrapWidth(instance.Content:GetSizeX()-75);
+	instance.MessageLabel:SetWrapWidth(instance.Content:GetSizeX()-150);
 	instance.MessageLabel:SetText(message);
 	instance.MessageStack:CalculateSize();
 	instance.MessageStack:ReprocessAnchoring();

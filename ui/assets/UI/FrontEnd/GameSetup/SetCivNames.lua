@@ -333,9 +333,9 @@ function ShowHideHandler( bIsHide, bIsInit )
 		Controls.PasswordStack:SetHide(not bIsHotSeat);
 				
 		-- Adjust the overall size of the box
-		local iBoxHeight = 404;
+		local iBoxHeight = 808;
 		if ( bIsHotSeat ) then
-			iBoxHeight = 584;
+			iBoxHeight = 1168;
 		end
 		
 		local frameSize = {};

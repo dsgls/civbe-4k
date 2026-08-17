@@ -26,8 +26,8 @@ local CityNonGarrisonOffset = Vector2( 45, -45 );
 local CivilianOffset = Vector2( 0, -25 );
 local InOrbitOffset = Vector2( 0, -50 );
 
-local g_AirFlagNormalOffset = -24;
-local g_AirFlagHealthOffset = -19;
+local g_AirFlagNormalOffset = -48;
+local g_AirFlagHealthOffset = -38;
 
 local g_CityFlags = {};
 local g_CityFlagPlots = {};

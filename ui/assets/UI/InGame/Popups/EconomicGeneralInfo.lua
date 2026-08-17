@@ -98,13 +98,13 @@ function UpdateDisplay()
     	if( pct ~= 1 ) then
             if pct > 0.66 then
 				instance.GreenBar:SetHide( false );
-                instance.GreenBar:Resize(5, math.floor(31 * pct));
+                instance.GreenBar:Resize(10, math.floor(62 * pct));
             elseif pct > 0.33 then
 				instance.YellowBar:SetHide( false );
-                instance.YellowBar:Resize(5, math.floor(31 * pct));
+                instance.YellowBar:Resize(10, math.floor(62 * pct));
             else
 				instance.RedBar:SetHide( false );
-                instance.RedBar:Resize(5, math.floor(31 * pct));
+                instance.RedBar:Resize(10, math.floor(62 * pct));
             end
         	instance.HealthBarBox:SetHide( false );
     	else
@@ -128,8 +128,8 @@ function UpdateDisplay()
 				fGrowthProgressPlusThisTurnPercent = 1
 			end
 
-			instance.GrowthBar:Resize(5, math.floor(31 * fGrowthProgressPercent));
-			instance.GrowthBarShadow:Resize(5, math.floor(31 * fGrowthProgressPlusThisTurnPercent));
+			instance.GrowthBar:Resize(10, math.floor(62 * fGrowthProgressPercent));
+			instance.GrowthBarShadow:Resize(10, math.floor(62 * fGrowthProgressPlusThisTurnPercent));
 			--instance.GrowthBar:SetPercent( fGrowthProgressPercent );
 			--instance.GrowthBarShadow:SetPercent( fGrowthProgressPlusThisTurnPercent );
 		end
@@ -615,8 +615,8 @@ function ProductionDetails( city, instance )
 			fProductionProgressPlusThisTurnPercent = 1
 		end
 		
-		instance.ProductionBar:Resize(5, math.floor(31 * fProductionProgressPercent));
-		instance.ProductionBarShadow:Resize(5, math.floor(31 * fProductionProgressPlusThisTurnPercent));
+		instance.ProductionBar:Resize(10, math.floor(62 * fProductionProgressPercent));
+		instance.ProductionBarShadow:Resize(10, math.floor(62 * fProductionProgressPlusThisTurnPercent));
 	end	
 	
 	-- Update Production Time

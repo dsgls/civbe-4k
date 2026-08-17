@@ -13,11 +13,11 @@ include( "UIExtras" );
 -- ===========================================================================
 --		CONSTANTS
 -- ===========================================================================
-local ART_LIST_ITEM_W_SCROLLBAR_WIDTH		= 180;
-local Y_PADDING_AFFINITIES_BOX				= 10;
-local Y_PADDING_WONDERS_BOX					= 10;
-local Y_PADDING_STATUS_BOX					= 12;
-local HEIGHT_NAMEBOX_WITH_TEAM_LABEL		= 110;
+local ART_LIST_ITEM_W_SCROLLBAR_WIDTH		= 360;
+local Y_PADDING_AFFINITIES_BOX				= 20;
+local Y_PADDING_WONDERS_BOX					= 20;
+local Y_PADDING_STATUS_BOX					= 24;
+local HEIGHT_NAMEBOX_WITH_TEAM_LABEL		= 220;
 local MAX_SIZE_WONDER_TEXT					= 300;
 
 local g_colorGood  			=  0xff50dd80;	-- colors are packed: alpha,blue,green,red

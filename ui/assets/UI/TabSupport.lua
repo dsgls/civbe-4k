@@ -117,7 +117,7 @@ function CreateTabs( tabContainerControl, sizeX, sizeY )
 	-- ===========================================================================
 	tabs.CenterAlignTabs =
 		function( tabOverlapSpace )			
-			local DEFAULT_TAB_OVERLAP_SPACE = 20;
+			local DEFAULT_TAB_OVERLAP_SPACE = 40;
 			local width				= tabs.containerControl:GetSizeX();
 			local tabNum			= #tabs.tabControls;
 

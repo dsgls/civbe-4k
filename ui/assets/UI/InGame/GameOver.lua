@@ -179,7 +179,7 @@ function DoEndGameMenu()
 		Controls.Text:SetHide(true);
 	end
 
-	local sizeY : number = Controls.Text:GetSizeY() + 300;
+	local sizeY : number = Controls.Text:GetSizeY() + 600;
 	Controls.GameOverContent:SetSizeY(sizeY);
 	Controls.GameOverContent:ReprocessAnchoring();
 
@@ -412,7 +412,7 @@ function OnInitialize(isHotLoad : boolean)
 	Events.EndGameShow.Add(OnEndGameShow);
 	LuaEvents.DebugEndGameShow.Add(OnDebugEndGameShow);
 
-	Controls.Subtitles:SetWrapWidth(ContextPtr:GetSizeX() - 15);
+	Controls.Subtitles:SetWrapWidth(ContextPtr:GetSizeX() - 30);
 end
 ContextPtr:SetInitHandler(OnInitialize);
 

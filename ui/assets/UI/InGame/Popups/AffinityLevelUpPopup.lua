@@ -23,7 +23,7 @@ function SizeWindowToContent()
 	Controls.ContentStack:ReprocessAnchoring();
 	
 	local contentSize : number = Controls.ContentStack:GetSizeY();
-	Controls.OuterGrid:SetSizeY(contentSize + 260);
+	Controls.OuterGrid:SetSizeY(contentSize + 520);
 	
 	Controls.OuterGrid:ReprocessAnchoring();
 end

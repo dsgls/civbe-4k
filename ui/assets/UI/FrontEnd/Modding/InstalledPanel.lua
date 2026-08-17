@@ -251,7 +251,7 @@ function RefreshMods()
 						local pct = downloadedBytes/totalBytes;
 						
 						local ph = listing.ProgressBar:GetSizeY();
-						listing.ProgressBar:SetSizeVal(pct * 390, ph);
+						listing.ProgressBar:SetSizeVal(pct * 780, ph);
 						listing.ProgressBar:SetHide(false);
 						listing.StatusLabel:LocalizeAndSetText("TXT_KEY_MODDING_INSTALL_PROGRESS", FileSizeAsString(downloadedBytes), FileSizeAsString(totalBytes));
 						
@@ -286,7 +286,7 @@ function RefreshMods()
 						if(progress.TotalFiles > 0) then
 							local pct = progress.FilesProcessed/progress.TotalFiles;
 							local ph = listing.ProgressBar:GetSizeY();
-							listing.ProgressBar:SetSizeVal(pct * 390, ph);
+							listing.ProgressBar:SetSizeVal(pct * 780, ph);
 							listing.ProgressBar:SetHide(false);
 						else
 							listing.ProgressBar:SetHide(true);

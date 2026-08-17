@@ -67,7 +67,7 @@ function HideAllInfoControls(bHide)
 	local frameWidth, frameHeight = Controls.ButtonStackFrame:GetSizeVal();
 	local stackWidth, stackHeight = Controls.ButtonStack:GetSizeVal();
 	
-	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 160);	
+	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 320);	
 	Controls.ButtonStackFrame:ReprocessAnchoring();
 end
 
@@ -489,7 +489,7 @@ function View(data)
 	local frameWidth, frameHeight = Controls.ButtonStackFrame:GetSizeVal();
 	local stackWidth, stackHeight = Controls.ButtonStack:GetSizeVal();
 	
-	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 160);
+	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 320);
 	
 	Controls.ButtonStackFrame:ReprocessAnchoring();
 end
@@ -604,7 +604,7 @@ PopupLayouts[ButtonPopupTypes.BUTTONPOPUP_ATTACK_SITE] = function(popupInfo)
 	local frameWidth, frameHeight = Controls.ButtonStackFrame:GetSizeVal();
 	local stackWidth, stackHeight = Controls.ButtonStack:GetSizeVal();
 	
-	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 160);	
+	Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 320);	
 	Controls.ButtonStackFrame:ReprocessAnchoring();
 
 	return true;
@@ -726,7 +726,7 @@ PopupLayouts[ButtonPopupTypes.BUTTONPOPUP_DECLAREWARRANGESTRIKE] = function(popu
 				local frameWidth, frameHeight = Controls.ButtonStackFrame:GetSizeVal();
 				local stackWidth, stackHeight = Controls.ButtonStack:GetSizeVal();
 	
-				Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 160);	
+				Controls.ButtonStackFrame:SetSizeVal(frameWidth, stackHeight + 320);	
 				Controls.ButtonStackFrame:ReprocessAnchoring();
 
 				return true;

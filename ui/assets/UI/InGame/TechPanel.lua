@@ -55,18 +55,18 @@ function HideSmallIconBacking( thisTechButtonInstance, maxSmallButtons, numButto
 end
 
 function ResizeTechPanel(numButtonsAdded)
-	local minPanelSize = 382;
-	local TechPanelSize = 70;
-	local PanelFadeoutSpace=90
+	local minPanelSize = 764;
+	local TechPanelSize = 140;
+	local PanelFadeoutSpace=180
 	local smallButtonStackSize = 0;
 	-- Buttons are 64x64 with a padding of -8
 	if(numButtonsAdded > 3) then
-		smallButtonStackSize =  57*numButtonsAdded;
+		smallButtonStackSize =  114*numButtonsAdded;
 	end;
 	-- Figure out which is bigger - the labels or the stack, and add that number of pixels to the TechPanelSize
 	TechPanelSize = TechPanelSize + math.max(smallButtonStackSize, Controls.TechText:GetSizeX(), Controls.FinishedTechText:GetSizeX());
 	
-	Controls.ActiveStyle:SetSizeVal(math.max(TechPanelSize+PanelFadeoutSpace,minPanelSize),71);
+	Controls.ActiveStyle:SetSizeVal(math.max(TechPanelSize+PanelFadeoutSpace,minPanelSize),142);
 end
 
 function OnTechPanelUpdated()
