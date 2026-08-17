@@ -7,6 +7,11 @@ PROJECT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # and for running the UI sweep against a live install.
 GAME = "/mnt/c/Steam/steamapps/common/Sid Meier's Civilization Beyond Earth"
 
+# The engine's user config, written on first game start. install.py patches the
+# minimap size and the loose-file override here.
+CONFIG = ("/mnt/c/Users/user/Documents/My Games/"
+          "Sid Meier's Civilization Beyond Earth/config.ini")
+
 # Stock Assets/UI, kept so the analysis is reproducible without the game.
 STOCK_UI = os.path.join(PROJECT, "reference", "assets-ui-stock")
 

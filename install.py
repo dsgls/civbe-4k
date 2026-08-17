@@ -22,6 +22,11 @@ the two lines to update.
 
 Only the files under ui/ and the package are written; nothing is deleted.
 Restore by copying the same paths back from reference/ (stock, CRLF).
+
+The user config.ini is also patched: the minimap grows to 2x (only when it is
+at the engine default, so a hand-tuned size survives) and
+LooseFilesOverridePAK is switched on, without which the engine ignores every
+installed texture.
 """
 import hashlib
 import os
@@ -32,7 +37,7 @@ import urllib.error
 import urllib.request
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "analysis"))
-from paths import GAME, PROJECT
+from paths import CONFIG, GAME, PROJECT
 
 SOURCE = os.path.join(PROJECT, "ui")
 
@@ -151,6 +156,44 @@ def install_ui(game: str, keep_lf: bool) -> None:
              extra, unchanged))
 
 
+# config.ini values to change: (section, key, engine default, wanted). The
+# minimap is only bumped from the engine default, so a hand-tuned size stays.
+CONFIG_EDITS = [
+    ("MiniMap", "Width", "245", "490"),
+    ("MiniMap", "Height", "140", "280"),
+    ("Debugging", "LooseFilesOverridePAK", "0", "1"),
+]
+
+
+def patch_config() -> None:
+    if not os.path.exists(CONFIG):
+        print("config: %s not found - run the game once, then re-run "
+              "install.py to get the 2x minimap and the loose-file override"
+              % CONFIG)
+        return
+
+    with open(CONFIG, "rb") as fh:
+        lines = fh.read().decode("utf-8", "replace").splitlines(keepends=True)
+    section = None
+    changed = []
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            section = stripped[1:-1]
+            continue
+        for sec, key, old, new in CONFIG_EDITS:
+            if section == sec and stripped == "%s = %s" % (key, old):
+                lines[i] = line.replace("%s = %s" % (key, old),
+                                        "%s = %s" % (key, new))
+                changed.append("%s.%s = %s" % (sec, key, new))
+    if changed:
+        with open(CONFIG, "wb") as fh:
+            fh.write("".join(lines).encode("utf-8"))
+        print("config: set %s" % ", ".join(changed))
+    else:
+        print("config: already good")
+
+
 def main(argv):
     flags = {a for a in argv if a.startswith("--")}
     unknown = flags - {"--keep-lf", "--no-textures", "--force-textures"}
@@ -168,6 +211,7 @@ def main(argv):
         print("textures: skipped")
     else:
         install_textures(game, "--force-textures" in flags)
+    patch_config()
     return 0
 
 
