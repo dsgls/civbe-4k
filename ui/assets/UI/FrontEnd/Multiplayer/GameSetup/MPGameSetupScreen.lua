@@ -203,10 +203,10 @@ function AdjustScreenSize()
     local SIZE = screenY - (TOP_COMPENSATION + BOTTOM_COMPENSATION);
 
 	local parentY = screenY;
-    Controls.MainGrid:SetSizeY( parentY - 50 );
-	parentY = parentY - 50;
-    Controls.OptionsScrollPanel:SetSizeY( parentY - 224 );
-	parentY = parentY - 224;
+    Controls.MainGrid:SetSizeY( parentY - 100 );
+	parentY = parentY - 100;
+    Controls.OptionsScrollPanel:SetSizeY( parentY - 448 );
+	parentY = parentY - 448;
 
 
 	Controls.InnerGridBG:ReprocessAnchoring();

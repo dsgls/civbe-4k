@@ -151,9 +151,9 @@ function OnTechPanelUpdated()
 	Controls.ScrollPanelBlackFrame:SetSizeY( screenY );
 	Controls.ScrollPanelFrame:SetSizeY( screenY );
 	if( OptionsManager.GetSmallUIAssets() ) then
-    	Controls.ScrollPanel:SetSizeY( screenY - 244 );
+    	Controls.ScrollPanel:SetSizeY( screenY - 488 );
 	else
-    	Controls.ScrollPanel:SetSizeY( screenY - 300 );
+    	Controls.ScrollPanel:SetSizeY( screenY - 600 );
 	end
 
 	Controls.ButtonStack:CalculateSize();

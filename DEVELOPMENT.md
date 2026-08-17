@@ -253,7 +253,7 @@ Symptoms map to causes reliably:
 | Art at half size in the top-left of its slot / frame too small | Texture missing from the work list, still 1x in game |
 | A 2x2 block of four wrong icons in one icon's space, or nothing | 2x coordinates sampling a 1x texture (atlas or font-icon sheet) |
 | A button showing two stacked states; hover shows garbage | 1x button texture under a 2x control (state bands index by control height) |
-| Correct icons, wrong positions: overlapping, cramped, or half-width layouts | Unscaled Lua layout — a file-level constant or the pixel term of a mixed expression |
+| Correct icons, wrong positions: overlapping, cramped, or half-width layouts | Unscaled Lua layout — a file-level or function-local constant, or the pixel term of a mixed expression (`GetScreenSizeVal` consumers are the classic case) |
 | Text ellipsized with room to spare | Unscaled Lua truncate width |
 | Icon shows a quarter of the right image | Texture-space coordinate doubled twice, or a hookup key scaled (never scale `IconHookup`/`IconLookup` size arguments) |
 

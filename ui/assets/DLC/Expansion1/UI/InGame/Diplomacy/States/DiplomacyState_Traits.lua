@@ -332,31 +332,31 @@ function OnInitialize(isHotload : boolean)
 	ContextPtr:SetHide(true);
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 	local paddingFromEdge = 0;
-	local headerSize = 78;
-	local footerSize = 116;
-	local minimumReqHeight = 690;
+	local headerSize = 156;
+	local footerSize = 232;
+	local minimumReqHeight = 1380;
 	-- This is an approximation of the offset that the text should have from the side of the screen
-	local offsetMultiplier = .00006*(screenSizeX)-.07;
+	local offsetMultiplier = .00003*(screenSizeX)-.07;
 	if(screenSizeX/screenSizeY > 1.5 and ((screenSizeY-headerSize-footerSize) > minimumReqHeight) and offsetMultiplier > .02) then
 		paddingFromEdge = screenSizeX * offsetMultiplier;
 		Controls.WindowAlpha:SetAnchor("R,T");
 		Controls.WindowAlpha:SetOffsetX((screenSizeX/2)*(-1)+(Controls.MainWindow:GetSizeX()/2)+paddingFromEdge);
-		Controls.MainWindow:SetSizeY(screenSizeY-194);
-		Controls.SwitchTraitWindow:SetSizeY(screenSizeY-194);
-		Controls.SelectTraitsAlpha:SetSizeY(screenSizeY-115);
-		Controls.SelectTraitsPanel:SetSizeVal(890,screenSizeY-230);
+		Controls.MainWindow:SetSizeY(screenSizeY-388);
+		Controls.SwitchTraitWindow:SetSizeY(screenSizeY-388);
+		Controls.SelectTraitsAlpha:SetSizeY(screenSizeY-230);
+		Controls.SelectTraitsPanel:SetSizeVal(1780,screenSizeY-460);
 		Controls.SelectTraitsPanel:CalculateInternalSize();
 		Controls.SelectTraitsPanel:ReprocessAnchoring();
 	else
-		local windowWidth = (screenSizeX - 1024)/2+900;
+		local windowWidth = (screenSizeX - 2048)/2+1800;
 		Controls.MainWindow:SetSizeX(windowWidth);
-		Controls.MainWindowDropShadow:SetSizeX(windowWidth+90);
+		Controls.MainWindowDropShadow:SetSizeX(windowWidth+180);
 		Controls.SwitchTraitWindow:SetSizeX(windowWidth);
-		Controls.SwitchTraitDropShadow:SetSizeX(windowWidth+90);
-		Controls.SelectTraitsPanel:SetSizeVal((windowWidth-10),(screenSizeY-115));
+		Controls.SwitchTraitDropShadow:SetSizeX(windowWidth+180);
+		Controls.SelectTraitsPanel:SetSizeVal((windowWidth-20),(screenSizeY-230));
 		Controls.ScrollPanelGradient:SetSizeX(windowWidth);
-		Controls.CancelAlpha:SetSizeX(windowWidth-10);
-		Controls.CancelSlide:SetSizeX(windowWidth-10);
+		Controls.CancelAlpha:SetSizeX(windowWidth-20);
+		Controls.CancelSlide:SetSizeX(windowWidth-20);
 		Controls.ConfirmSwap:SetSizeX(windowWidth);
 	end
 end

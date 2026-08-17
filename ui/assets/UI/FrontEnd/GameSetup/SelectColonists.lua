@@ -22,7 +22,7 @@ function ShowHideHandler( bIsHide )
 
 		-- Fixes list item over-run in one rare case of x768 screen going from full screen to windowed.
 		local screenWidth, screenHeight = UIManager:GetScreenSizeVal();	
-		Controls.ScrollPanel:SetSizeY( screenHeight - 204 );
+		Controls.ScrollPanel:SetSizeY( screenHeight - 408 );
 
 		UpdateWindow();
 	end
@@ -95,8 +95,8 @@ function UpdateWindow()
 	-- Hack for nice UI with dynamic scrollbars on the inside of art.
 	-- Need to set explicitly as ResetInstances() above pools the old LUA instances so
 	-- if the width is shrunk based on GetSizeX (from XML) then subsequent calls will keep shriting it.
-	local NORMAL_WIDTH		= 395;
-	local SCROLLING_WIDTH	= 381;
+	local NORMAL_WIDTH		= 790;
+	local SCROLLING_WIDTH	= 762;
 	local sizeX				= NORMAL_WIDTH;
 	if IsScrollbarShowing( Controls.ScrollPanel ) then
 		sizeX = SCROLLING_WIDTH;
@@ -105,7 +105,7 @@ function UpdateWindow()
 		uiItem.Content:SetSizeX( sizeX );
 		uiItem.Highlight:SetSizeX( sizeX );
 		uiItem.Button:SetSizeX( sizeX );
-		uiItem.DescriptionLabel:SetWrapWidth( sizeX - 85 );
+		uiItem.DescriptionLabel:SetWrapWidth( sizeX - 170 );
 	end
 	Controls.ScrollPanel:CalculateInternalSize();	-- Once more.
 

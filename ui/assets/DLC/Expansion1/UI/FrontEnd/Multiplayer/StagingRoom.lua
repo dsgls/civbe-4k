@@ -2220,25 +2220,25 @@ function AdjustScreenSize()
 
 	-- Player Tab
 	local parentY = screenY;		
-	Controls.AllPlayerContents:SetSizeY( parentY - 168 );
-	parentY = parentY - 168;
-	Controls.PlayerListing:SetSizeY( parentY - 125 );
-	parentY = parentY - 125;
-	Controls.ListingScrollPanel:SetSizeY( parentY - 22 );
+	Controls.AllPlayerContents:SetSizeY( parentY - 336 );
+	parentY = parentY - 336;
+	Controls.PlayerListing:SetSizeY( parentY - 250 );
+	parentY = parentY - 250;
+	Controls.ListingScrollPanel:SetSizeY( parentY - 44 );
 	Controls.ListingScrollPanel:CalculateInternalSize();
 
 	-- Options Tab
 	parentY = screenY;		
-	Controls.GameOptionsContents:SetSizeY( parentY - 168 );
-	parentY = parentY - 168;
-	Controls.OptionsScrollPanel:SetSizeY( parentY - 22 );
-	parentY = parentY - 22;
+	Controls.GameOptionsContents:SetSizeY( parentY - 336 );
+	parentY = parentY - 336;
+	Controls.OptionsScrollPanel:SetSizeY( parentY - 44 );
+	parentY = parentY - 44;
 	Controls.GameOptionsFullStack:CalculateSize();
 	
 	
 	-- Chat panel
 	parentY = screenY;
-	Controls.ChatPanel:SetSizeY( parentY - 587 );
+	Controls.ChatPanel:SetSizeY( parentY - 1174 );
 	Controls.ChatScroll:CalculateInternalSize();
 	
     Controls.GameOptionsSummary:CalculateInternalSize();    

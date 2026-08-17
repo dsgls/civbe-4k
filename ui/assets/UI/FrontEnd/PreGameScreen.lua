@@ -467,7 +467,7 @@ function ShowHideHandler( isHide, isInit )
 			UpdateDisplay();
 
 			local screenWidth, screenHeight = UIManager:GetScreenSizeVal();	
-			Controls.SubPanel:SetSizeY( screenHeight - 188 );
+			Controls.SubPanel:SetSizeY( screenHeight - 376 );
 		end
 	end
 end

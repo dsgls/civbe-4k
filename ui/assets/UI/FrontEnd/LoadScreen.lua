@@ -117,7 +117,7 @@ function OnInitScreen()
 
 
 		local w,h = Controls.BackgroundText:GetSizeVal();
-		Controls.TextBacking:SetSizeVal(w+45,h+120);
+		Controls.TextBacking:SetSizeVal(w+90,h+240);
 
 		-- Sets Dawn of Man Image
 		local screenWidth, screenHeight = UIManager:GetScreenSizeVal();
