@@ -55,8 +55,8 @@ Expansion1UITextures.fpk	be_exp1_artifacts_atlas_128.dds	Expansion1UITextures_co
 Expansion1UITextures.fpk	be_exp1_artifacts_atlas_200.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_200.png	2400x1200	2813040	database-ref,icon-atlas
 Expansion1UITextures.fpk	be_exp1_artifacts_atlas_300.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_300.png	3600x1800	5457767	database-ref,drawn-1to1,icon-atlas
 Expansion1UITextures.fpk	be_exp1_artifacts_atlas_80.dds	Expansion1UITextures_converted/be_exp1_artifacts_atlas_80.png	960x480	546473	database-ref,drawn-1to1,icon-atlas,lua-runtime-offset
-Expansion1UITextures.fpk	be_exp1_foreign_policies_atlas_128.dds	Expansion1UITextures_converted/be_exp1_foreign_policies_atlas_128.png	640x640	2855	database-ref,icon-atlas
-Expansion1UITextures.fpk	be_exp1_traits_atlas_128.dds	Expansion1UITextures_converted/be_exp1_traits_atlas_128.png	640x640	1718	database-ref,icon-atlas
+Expansion1UITextures.fpk	be_exp1_foreign_policies_atlas_128.dds	Expansion1UITextures_converted/be_exp1_foreign_policies_atlas_128.png	1024x1024	6630	database-ref,icon-atlas
+Expansion1UITextures.fpk	be_exp1_traits_atlas_128.dds	Expansion1UITextures_converted/be_exp1_traits_atlas_128.png	1024x1024	4144	database-ref,icon-atlas
 Expansion1UITextures.fpk	blackgradient_small.dds	Expansion1UITextures.fpk/blackgradient_small.dds	64x64	21972	9-slice
 Expansion1UITextures.fpk	blackgradientcontainer.dds	Expansion1UITextures.fpk/blackgradientcontainer.dds	93x87	42896	9-slice
 Expansion1UITextures.fpk	blackgradientsubcontainer.dds	Expansion1UITextures.fpk/blackgradientsubcontainer.dds	41x41	8972	9-slice
@@ -323,7 +323,7 @@ UITextures.fpk	buildingatlas512.dds	UITextures_converted/buildingatlas512.png	51
 UITextures.fpk	buttonmask.dds	UITextures_converted/buttonmask.png	256x30	3418	drawn-1to1
 UITextures.fpk	buttons_128.dds	UITextures_converted/buttons_128.png	128x64	6494	drawn-1to1
 UITextures.fpk	buttons_64.dds	UITextures_converted/buttons_64.png	64x64	5360	drawn-1to1
-UITextures.fpk	buttonsides.dds	UITextures_converted/buttonsides.png	10x10	468	atlas-subrect
+UITextures.fpk	buttonsides.dds	UITextures_converted/buttonsides.png	16x16	825	atlas-subrect
 UITextures.fpk	buttonsidesglow.dds	UITextures_converted/buttonsidesglow.png	32x32	902	atlas-subrect
 UITextures.fpk	cancelbuttonicon.dds	UITextures_converted/cancelbuttonicon.png	25x25	1535	drawn-1to1
 UITextures.fpk	chaticons32.dds	UITextures_converted/chaticons32.png	64x64	2359	drawn-1to1
@@ -687,7 +687,7 @@ UITextures.fpk	questactive_checkmark.dds	UITextures_converted/questactive_checkm
 UITextures.fpk	questactive_minus.dds	UITextures_converted/questactive_minus.png	32x32	736	drawn-1to1
 UITextures.fpk	questactive_plus.dds	UITextures_converted/questactive_plus.png	32x32	1644	drawn-1to1
 UITextures.fpk	questcheckbuttons.dds	UITextures_converted/questcheckbuttons.png	32x64	1691	atlas-subrect
-UITextures.fpk	questicons100.dds	UITextures_converted/questicons100.png	640x640	67170	database-ref,icon-atlas
+UITextures.fpk	questicons100.dds	UITextures_converted/questicons100.png	1024x1024	147520	database-ref,icon-atlas
 UITextures.fpk	questinactive_minus.dds	UITextures_converted/questinactive_minus.png	34x34	430	drawn-1to1
 UITextures.fpk	questinactive_plus.dds	UITextures_converted/questinactive_plus.png	34x34	654	drawn-1to1
 UITextures.fpk	questitemhighlightbacking.dds	UITextures.fpk/questitemhighlightbacking.dds	4x32	800	9-slice
@@ -718,13 +718,13 @@ UITextures.fpk	seededstartatlas64.dds	UITextures_converted/seededstartatlas64.pn
 UITextures.fpk	seededstartcargo128.dds	UITextures_converted/seededstartcargo128.png	512x512	90008	database-ref,icon-atlas
 UITextures.fpk	seededstartcargo256.dds	UITextures_converted/seededstartcargo256.png	1024x1024	184137	database-ref,icon-atlas
 UITextures.fpk	seededstartcargo64.dds	UITextures_converted/seededstartcargo64.png	256x256	44905	database-ref,icon-atlas
-UITextures.fpk	seededstartcargoselectback.dds	UITextures_converted/seededstartcargoselectback.png	1600x900	3862304	drawn-1to1
+UITextures.fpk	seededstartcargoselectback.dds	UITextures_converted/seededstartcargoselectback.png	2560x1440	10339420	drawn-1to1
 UITextures.fpk	seededstartcolonists128.dds	UITextures_converted/seededstartcolonists128.png	512x512	76460	database-ref,icon-atlas
 UITextures.fpk	seededstartcolonists256.dds	UITextures_converted/seededstartcolonists256.png	1024x1024	170836	database-ref,icon-atlas
 UITextures.fpk	seededstartcolonists64.dds	UITextures_converted/seededstartcolonists64.png	256x256	30205	database-ref,icon-atlas
-UITextures.fpk	seededstartcolonistselectback.dds	UITextures_converted/seededstartcolonistselectback.png	1600x900	2249759	drawn-1to1
+UITextures.fpk	seededstartcolonistselectback.dds	UITextures_converted/seededstartcolonistselectback.png	2560x1440	7093371	drawn-1to1
 UITextures.fpk	seededstartleaderselectback.dds	UITextures.fpk/seededstartleaderselectback.dds	5333x3000	63996128	drawn-1to1
-UITextures.fpk	seededstartshipselectback.dds	UITextures_converted/seededstartshipselectback.png	1600x900	2354551	drawn-1to1
+UITextures.fpk	seededstartshipselectback.dds	UITextures_converted/seededstartshipselectback.png	2560x1440	7289218	drawn-1to1
 UITextures.fpk	seededstartspacecraft128.dds	UITextures_converted/seededstartspacecraft128.png	512x512	135130	database-ref,icon-atlas
 UITextures.fpk	seededstartspacecraft256.dds	UITextures_converted/seededstartspacecraft256.png	1024x1024	409864	database-ref,icon-atlas
 UITextures.fpk	seededstartspacecraft64.dds	UITextures_converted/seededstartspacecraft64.png	256x256	42769	database-ref,icon-atlas
@@ -1131,15 +1131,15 @@ UITextures.fpk	yieldatlas_128_culture.dds	UITextures.fpk/yieldatlas_128_culture.
 
 # Cost by reason (measured pixels at 1x; 2x output = pixels * 4):
 #
-#   database-ref         276 files   124.5 Mpx   1992.8 MB RGBA@2x   498.2 MB DXT5@2x
-#   drawn-1to1           462 files    78.8 Mpx   1260.8 MB RGBA@2x   315.2 MB DXT5@2x
-#   icon-atlas           160 files    73.0 Mpx   1168.3 MB RGBA@2x   292.1 MB DXT5@2x
-#   atlas-subrect         73 files     4.0 Mpx     63.2 MB RGBA@2x    15.8 MB DXT5@2x
+#   database-ref         276 files   126.5 Mpx   2023.4 MB RGBA@2x   505.9 MB DXT5@2x
+#   drawn-1to1           462 files    85.5 Mpx   1368.6 MB RGBA@2x   342.2 MB DXT5@2x
+#   icon-atlas           160 files    74.9 Mpx   1199.0 MB RGBA@2x   299.7 MB DXT5@2x
+#   atlas-subrect         73 files     4.0 Mpx     63.3 MB RGBA@2x    15.8 MB DXT5@2x
 #   lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2x
 #   9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
 #   flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
 #   font-icon-cell         2 files     0.1 Mpx      2.1 MB RGBA@2x     0.5 MB DXT5@2x
-#   TOTAL                950 files   190.3 Mpx   3044.2 MB RGBA@2x   761.1 MB DXT5@2x
+#   TOTAL                950 files   198.9 Mpx   3182.7 MB RGBA@2x   795.7 MB DXT5@2x
 #
 # The game is a 32-bit process (~3.5GB ceiling). The shipped packages are
 # raw RGBA so far and the game holds; switch the atlases to DXT if memory

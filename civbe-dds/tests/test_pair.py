@@ -35,7 +35,7 @@ def _dict_bytes(width, height, n, tile_colours, rmask=0xff, group=b"Interface\0"
     tile slots per row, tile k filled solid with tile_colours[k]. `tile_colours`
     holds (r, g, b, a) tuples; stored in dictionary byte order per `rmask`
     (A8B8G8R8 stores r,g,b,a verbatim; A8R8G8B8 stores b,g,r,a)."""
-    tag = ("BC0%02d" % n).encode("latin1")
+    tag = ("BC0%02X" % n).encode("latin1")
     hdr = _raw_header(width, height, bits=32, rmask=rmask, tag=tag, group=group)
     cols = width // n
     pixels = bytearray(width * height * 4)
@@ -118,33 +118,35 @@ class TestDecodePair:
         assert tile(0, 1) == bytes(colours[2]) * (n * n)
         assert tile(1, 1) == bytes(colours[1]) * (n * n)
 
-    def test_non_power_of_two_n_and_unpadded_dictionary_width(self, tmp_path):
-        # N=10, dictionary width 16 is not a multiple of 10 (cols = 16 // 10
-        # == 1, floor division) -- the buttonsides shape from the README.
-        # iw != ih also makes the decoded image non-square.
-        n = 10
+    def test_tag_is_hexadecimal_bc010_means_16(self, tmp_path):
+        # The nn in BC0nn is hex: BC010 is 16-pixel tiles, not 10. The
+        # buttonsides shape: one 16x16 tile, 1x1 index. A decimal reading
+        # would decode a 10x10 crop.
+        n = 16
         colours = [(10, 20, 30, 255), (40, 50, 60, 255), (70, 80, 90, 255)]
-        dic = _dict_bytes(16, 30, n, colours)
+        dic = _dict_bytes(48, 16, n, colours)
         idx = _index_bytes(3, 1, 8, [0, 1, 2])
         p = _write_pair(tmp_path, "t", dic, idx)
+        assert dic[116:121] == b"BC010"
 
         img = decode_pair(p)
 
-        assert (img.width, img.height) == (30, 10)
+        assert (img.width, img.height) == (48, 16)
         for i, colour in enumerate(colours):
             block = img.rgba[i * n * 4:(i + 1) * n * 4]
             assert block == bytes(colour) * n
 
-    def test_n_20(self, tmp_path):
-        # N=20 also ships (seededstartcargoselectback). cols = 20 // 20 == 1.
-        n = 20
-        dic = _dict_bytes(20, 20, n, [(5, 6, 7, 255)])
+    def test_tag_is_hexadecimal_bc020_means_32(self, tmp_path):
+        # BC020 (seededstartcargoselectback) is 32-pixel tiles.
+        n = 32
+        dic = _dict_bytes(32, 32, n, [(5, 6, 7, 255)])
         idx = _index_bytes(1, 1, 8, [0])
         p = _write_pair(tmp_path, "t", dic, idx)
+        assert dic[116:121] == b"BC020"
 
         img = decode_pair(p)
 
-        assert (img.width, img.height) == (20, 20)
+        assert (img.width, img.height) == (32, 32)
         assert img.rgba == bytes((5, 6, 7, 255)) * (n * n)
 
     def test_l16_index(self, tmp_path):

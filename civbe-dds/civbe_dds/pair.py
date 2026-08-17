@@ -30,12 +30,10 @@ def is_pair(dds_path):
 def decode_pair(dds_path):
     """Decode a dictionary/index pair into an Image.
 
-    N comes from the dictionary's `BC0nn` tag, decimal -- `BC010` is 10, not
-    16. `cols = dictionary_width // N` is floor division: the dictionary may
-    be padded on the right and the bottom (7 of the 9 stock N=10 dictionaries
-    have a width that is not a multiple of N), so rounding up or asserting
-    divisibility misdecodes those. `group` comes from the dictionary's FTXT
-    block, not the index's.
+    N comes from the dictionary's `BC0nn` tag, hexadecimal -- `BC010` is 16
+    and `BC020` is 32; every stock N is a power of two. Every stock
+    dictionary's dimensions are exact multiples of N. `group` comes from the
+    dictionary's FTXT block, not the index's.
     """
     dic = header(dds_path)
     idx = header(index_path(dds_path))
@@ -44,7 +42,7 @@ def decode_pair(dds_path):
     if not dic.tag.startswith("BC"):
         raise NotDictionaryCodedError(
             "%s is not dictionary-coded (tag %r)" % (dds_path, dic.tag))
-    n = int(dic.tag[2:])
+    n = int(dic.tag[2:], 16)
 
     with open(dds_path, "rb") as fh:
         pal = fh.read()[HEADER_LEN:]

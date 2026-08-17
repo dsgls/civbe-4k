@@ -99,7 +99,7 @@ for pack, converted, stem in pairs():
                     if truth.rgba[i:i + 4] != image.rgba[i:i + 4])
         bad.append((stem, "%d of %d pixels differ" % (wrong, image.width * image.height)))
     else:
-        blocks[int(civbe_dds.header(path).tag[2:])] += 1
+        blocks[int(civbe_dds.header(path).tag[2:], 16)] += 1
     checked += 1
 
 print("pairs decoded: %d" % checked)

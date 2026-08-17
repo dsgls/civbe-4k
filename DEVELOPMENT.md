@@ -191,8 +191,9 @@ all; the game draws them anyway.
 
 Most UI textures ship as tile deduplication: `foo.dds` is a dictionary of
 distinct NxN tiles, `foo-index.dds` (`L8`/`L16`) maps each output tile to a
-dictionary slot; decoded image = index dims x N. N is in the `BC0nn` tag —
-read it, it is not always a power of two (10 and 20 occur). Decoding is
+dictionary slot; decoded image = index dims x N. N is in the `BC0nn` tag,
+**hexadecimal**: `BC010` is 16, `BC020` is 32. Every stock N is a power of
+two and divides its dictionary's dimensions exactly. Decoding is
 lossless; `civbe-dds` implements it and `extracted/*_converted/` holds a PNG
 per pair. Two blank placeholder atlases (`be_exp1_traits_atlas_128`,
 `be_exp1_foreign_policies_atlas_128`) are a single tile repeated — anything
