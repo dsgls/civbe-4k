@@ -23,7 +23,8 @@ reference/
   assets-dlc-expansion1-ui-stock/     pristine Assets/DLC/Expansion1/UI
 analysis/               scripts that produce and check ui_textures.txt
 install.py              installs ui/ + the texture package, patches config.ini
-package-textures.sh     builds and uploads a texture package
+package-textures.sh     builds a texture package, publishes it as a release
+package-mod.sh          builds the release zip of ui/ (CRLF baked in)
 ```
 
 The `reference/` trees are the pristine stock baseline: they regenerate the
@@ -58,8 +59,8 @@ coordinate edits.
 
 ## The texture package
 
-Textures ship as a generic package on git.dsg.is because they are far too
-large to vendor. `install.py` pins `TEXTURE_VERSION`/`TEXTURE_SHA256`,
+Textures ship as a `.7z` asset on a `textures-v*` GitHub release because they
+are far too large to vendor. `install.py` pins `TEXTURE_VERSION`/`TEXTURE_SHA256`,
 downloads once into `~/.cache/civbe-4k`, verifies, and extracts into the game
 directory. All overrides land flat in `Assets/DLC/Expansion1/UI/` — the engine
 resolves loose overrides by bare filename, and the DLC tree beats both
@@ -77,10 +78,27 @@ nix-shell shell.nix --option max-jobs 1 --cores 4 \
 # 3. encode each output against its stock header
 cd ../civbe-dds
 python3 -m civbe_dds encode <png> --like ../extracted/<pack>/<name>.dds -o <dest>
-# 4. package (writes into install.py's cache, uploads, prints the new pins)
+# 4. package (writes into install.py's cache, publishes the release,
+#    prints the new pins)
 ./package-textures.sh <encoded-root> <version>
 # 5. update TEXTURE_VERSION / TEXTURE_SHA256 in install.py
 ```
+
+## Releases
+
+Two independent streams on GitHub, matching how the artifacts evolve:
+
+- **Mod zip** (`v*` tags): pushing a tag `v1.2.3` triggers
+  `.github/workflows/release.yml`, which runs `package-mod.sh` and creates the
+  release with `civbe-4k-v1.2.3.zip` attached. The zip is `ui/` with CRLF
+  baked in (byte-identical to what `install.py` writes) and `assets/` at the
+  archive root, so it extracts straight into the game directory.
+- **Texture pack** (`textures-v*` tags): `package-textures.sh` builds the
+  `.7z` and publishes the release itself via `gh`; CI is not involved. Bump
+  the `install.py` pins it prints in the same change.
+
+Both archives keep their payload at the archive root — users extract into the
+game directory, and a wrapping folder is the classic "it doesn't work" report.
 
 Shipped packages are plain RGBA (`A8B8G8R8`), single level, `tag=COLOR`, usage
 group copied from the stock file, upscaled with `animesharp-v4`. The 32-bit
@@ -208,8 +226,8 @@ trailing section lists dead references; there is nothing to convert for them.
 ## Commands
 
 ```bash
-python3 install.py                     # install everything (see README.md)
-python3 install.py --no-textures       # ui/ only - fast loop for Lua/XML fixes
+./install.py                           # install everything (via nix-shell: needs 7z)
+./install.py --no-textures             # ui/ only - fast loop for Lua/XML fixes
 
 cd analysis
 python3 build_texture_list.py          # regenerate ui_textures.txt

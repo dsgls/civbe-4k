@@ -11,27 +11,22 @@ texture overrides are installed through it.
 
 ## Installing
 
-Requirements: the game installed through Steam on Windows, and a Linux
-environment with Python 3 that can see the Windows drives (WSL works; this is
-what the project is developed on).
+1. From [Releases](https://github.com/dsgls/civbe-4k/releases), download the
+   newest texture pack (`civbe-4k-textures-v*.7z`, ~470 MB) and the newest
+   mod zip (`civbe-4k-v*.zip`).
+2. Extract both archives into the game directory, for example
+   `C:\Program Files (x86)\Steam\steamapps\common\Sid Meier's Civilization Beyond Earth`.
+   Both archives contain the `assets` tree directly — extract them so their
+   contents merge into the existing `assets` folder, not into a new subfolder
+   named after the archive.
+3. Run the game once if you never have — that creates `config.ini`. Then open
+   `%USERPROFILE%\Documents\My Games\Sid Meier's Civilization Beyond Earth\config.ini`
+   in a text editor and change three values:
 
-1. Clone this repository.
-2. If your paths differ from the defaults, edit `GAME` (the game directory)
-   and `CONFIG` (the engine's `config.ini` under `Documents\My Games`) in
-   `analysis/paths.py`.
-3. Run the game once if you never have — that creates `config.ini`.
-4. Run:
+   - under `[MiniMap]`: `Width = 490` and `Height = 280`
+   - under `[Debugging]`: `LooseFilesOverridePAK = 1`
 
-   ```bash
-   python3 install.py
-   ```
-
-The installer copies the patched UI files over the install, downloads the 2x
-texture package (~480 MB, one-time, SHA-256 verified) and unpacks it into the
-game directory, and adjusts `config.ini`: the minimap grows to 2x (only when
-it is still at the engine default, so a hand-tuned size survives) and
-`LooseFilesOverridePAK` is switched on, without which the game ignores the
-installed textures.
+   If you skip this step the minimap stays at its tiny stock size.
 
 Nothing is deleted; saves and settings are otherwise untouched.
 
@@ -43,8 +38,8 @@ Nothing is deleted; saves and settings are otherwise untouched.
 ## Uninstalling
 
 Delete the loose `.dds` files under `Assets/DLC/Expansion1/UI/` in the game
-directory, then verify game file integrity through Steam (or copy the stock
-files back from this repository's `reference/` trees). Revert the `[MiniMap]`
+directory, then restore the overwritten UI files — verify game file integrity
+through Steam, or uninstall and reinstall the game. Revert the `[MiniMap]`
 values in `config.ini` if you want the stock minimap back.
 
 ## Development
