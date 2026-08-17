@@ -542,7 +542,7 @@ function LeaderMessageHandler( iPlayer, iDiploUIState, szLeaderMessage, iAnimati
 		Controls.TalkOptionStack:CalculateSize();
 		Controls.TalkOptionStack:ReprocessAnchoring();
 
-		local ART_PADDING_FOR_BORDER	= 48;
+		local ART_PADDING_FOR_BORDER	= 96;
 		local sizeOfButtonY				= Controls.BackButton:GetSizeY();
 		local stackY = Controls.TalkOptionStack:GetSizeY();
 		Controls.TalkOptionsFrame:SetSizeY( stackY + ART_PADDING_FOR_BORDER + sizeOfButtonY);

@@ -86,22 +86,22 @@ function OnInitialize(isHotload : boolean)
 	LuaEvents.ShowDiplomacyOverviewUI.Add(ShowWindow);
 	LuaEvents.DiplomacyUI_ResetAnimations.Add(ResetAnimations);
 
-	local cardSize :number = 500;
+	local cardSize :number = 1000;
 	local screenSizeX:number, screenSizeY:number  = UIManager:GetScreenSizeVal();
 	local cardOffsetX:number = screenSizeX*.12;
-	if((screenSizeX-cardOffsetX*2)<1000) then
+	if((screenSizeX-cardOffsetX*2)<2000) then
 		cardOffsetX = screenSizeX*.05;
-		cardSize=415;
+		cardSize=830;
 	end
 	cardOffsetX = math.floor(cardOffsetX);	-- If this isn't a whole number, lines may appear on certain glyphs of the contained font.
 	Controls.ChoiceArea:SetSizeX(cardOffsetX+cardSize);
 	Controls.StackArea:SetSizeX(cardOffsetX+cardSize);
 	Controls.StackGlowAlpha:SetSizeX(cardOffsetX+cardSize);
-	Controls.StackGlowImage:Resize(cardOffsetX+cardSize,215);
-	Controls.ChoiceGlowImage:Resize(cardOffsetX+cardSize,215);
+	Controls.StackGlowImage:Resize(cardOffsetX+cardSize,430);
+	Controls.ChoiceGlowImage:Resize(cardOffsetX+cardSize,430);
 	--Set the size of the actions box to offset appropriately FOR SQUARE RESOLUTIONS
 	if((screenSizeX/screenSizeY)==1.25) then
-		Controls.ChoiceArea:SetSizeY(screenSizeY-230);
+		Controls.ChoiceArea:SetSizeY(screenSizeY-460);
 	end
 end
 ContextPtr:SetInitHandler(OnInitialize);
@@ -171,14 +171,14 @@ function UpdateWordBubble()
 		--Horizontal sizing for TheirSpeechBubble
 		local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 		Controls.TheirSpeechBubble:SetSizeX(screenSizeX/2);
-		Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-20);
+		Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-40);
 
 		--Vertical sizing for TheirSpeechBubble
-		local bubblePadding = 40;
+		local bubblePadding = 80;
 		Controls.TheirSpeechBubbleStack:CalculateSize();
 		Controls.TheirSpeechBubbleStack:ReprocessAnchoring();
-		local theirBubbleY = 69;
-		if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 69) then
+		local theirBubbleY = 138;
+		if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 138) then
 			theirBubbleY = Controls.TheirResponse:GetSizeY() + bubblePadding;
 		end
 		Controls.TheirSpeechBubble:SetSizeY(theirBubbleY);
@@ -190,9 +190,9 @@ function InitWordBubble()
 		--Position bubble for screen resolution
 		local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 		local cardOffsetX = screenSizeX*.11;
-		local headerY = 72;
+		local headerY = 144;
 		Controls.TheirSpeechBubble:SetOffsetY(headerY);
-		Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 18);
+		Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 36);
 
 		UpdateWordBubble();
 

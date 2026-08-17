@@ -15,8 +15,8 @@ include("AffinityInclude");
 --	CONSTANTS	/ DEFINES
 -- ===========================================================================
 local	MAX_AFFINITY_LEVELS		:number		= 20;
-local	RADIUS_START			:number		= 9;
-local	RADIUS_MULT				:number		= 15;
+local	RADIUS_START			:number		= 18;
+local	RADIUS_MULT				:number		= 30;
 local	DEBUG_CACHE_SCREEN_NAME	:string		= "DiplomacyState_Affinity";	--hotloading support
 local	AFFINITY_UNLOCK_ENUM	:number		= 0x10c;						--'lock' enum for unlocked perks button
 local	MODE					:table		= { wheel=1, affinityInfo=2, unlocks=3 };
@@ -31,12 +31,12 @@ local	DEGREES					:table		= {};
 
 -- Contains the suffix for corresponding textures, and the coordinates for each type of texture.
 local	IMAGES			:table				= {};
-		IMAGES[AFFINITY.purity]				= { suffix="P",  background={ x=307, y=275, w=242, h=240},	hover={ x=274,  y=272,  w=277, h=244} };
-		IMAGES[AFFINITY.supremacy]			= { suffix="S",  background={ x=2,	 y=275, w=250, h=241},	hover={ x=0,	y=276,  w=280, h=243}  };
-		IMAGES[AFFINITY.harmony]			= { suffix="H",  background={ x=136, y=3,	w=281, h=233},	hover={ x=137,  y=0,	w=280, h=281} };
-		IMAGES[AFFINITY.supremacypurity]	= { suffix="SP", background={ x=138, y=327, w=278, h=224},	hover={ x=138,  y=276,	w=277, h=277} };
-		IMAGES[AFFINITY.harmonysupremacy]	= { suffix="HS", background={ x=2,	 y=38,	w=252, h=244},	hover={ x=1,	y=38,	w=280, h=243}  };
-		IMAGES[AFFINITY.purityharmony]		= { suffix="PH", background={ x=301, y=38,	w=249, h=243},	hover={ x=275,  y=37,	w=277, h=242} };
+		IMAGES[AFFINITY.purity]				= { suffix="P",  background={ x=614, y=550, w=484, h=480},	hover={ x=548,  y=544,  w=554, h=488} };
+		IMAGES[AFFINITY.supremacy]			= { suffix="S",  background={ x=4,	 y=550, w=500, h=482},	hover={ x=0,	y=552,  w=560, h=486}  };
+		IMAGES[AFFINITY.harmony]			= { suffix="H",  background={ x=272, y=6,	w=562, h=466},	hover={ x=274,  y=0,	w=560, h=562} };
+		IMAGES[AFFINITY.supremacypurity]	= { suffix="SP", background={ x=276, y=654, w=556, h=448},	hover={ x=276,  y=552,	w=554, h=554} };
+		IMAGES[AFFINITY.harmonysupremacy]	= { suffix="HS", background={ x=4,	 y=76,	w=504, h=488},	hover={ x=2,	y=76,	w=560, h=486}  };
+		IMAGES[AFFINITY.purityharmony]		= { suffix="PH", background={ x=602, y=76,	w=498, h=486},	hover={ x=550,  y=74,	w=554, h=484} };
 
 -- Maps affinity types to the victory quest that matches it
 local m_affinityQuests : table = {};
@@ -227,7 +227,7 @@ end
 -- ===========================================================================
 function AddAffinityUnlock( perkAtLevel:table, affinityEnum:number )
 	
-	local PADDING_Y		:number	= 25;
+	local PADDING_Y		:number	= 50;
 	local level			:number = perkAtLevel.level; 
 	local degree		:number = DEGREES[affinityEnum];
 	local unlockInstance:table	= m_AffinityIM:GetInstance();
@@ -236,13 +236,13 @@ function AddAffinityUnlock( perkAtLevel:table, affinityEnum:number )
 	unlockInstance.Amt:SetColorByName( GetAffinityColorSet( affinityEnum ) );
 	unlockInstance.Amt:SetText( tostring(level) );
 	unlockInstance.Info:SetText( Locale.Lookup(perkAtLevel.perk.Help) )
-	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 55) );
+	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 110) );
 end
 
 -- ===========================================================================
 function AddAffinityProjectUnlock( projectAtLevel:table, affinityEnum:number )
 	
-	local PADDING_Y		:number	= 25;
+	local PADDING_Y		:number	= 50;
 	local level			:number = projectAtLevel.level; 
 	local degree		:number = DEGREES[affinityEnum];
 	local unlockInstance:table	= m_AffinityIM:GetInstance();
@@ -253,7 +253,7 @@ function AddAffinityProjectUnlock( projectAtLevel:table, affinityEnum:number )
 	unlockInstance.Amt:SetColorByName( GetAffinityColorSet( affinityEnum ) );
 	unlockInstance.Amt:SetText( tostring(level) );
 	unlockInstance.Info:SetText( Locale.ConvertTextKey( "TXT_KEY_AFFINITY_UNLOCK_CAN_BUILD", projectInfo.Description, questInfo.Description ) );
-	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 55) );
+	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 110) );
 end
 
 -- ===========================================================================
@@ -277,7 +277,7 @@ end
 -- ===========================================================================
 function AddCurrentPerkUnlock( perkAtLevel:table, affinityEnum:number )
 	
-	local PADDING_Y		:number	= 25;
+	local PADDING_Y		:number	= 50;
 	local level			:number = perkAtLevel.level; 
 	local degree		:number = DEGREES[affinityEnum];
 	local unlockInstance:table	= m_UnlockIM:GetInstance();
@@ -286,13 +286,13 @@ function AddCurrentPerkUnlock( perkAtLevel:table, affinityEnum:number )
 	unlockInstance.Amt:SetColorByName( GetAffinityColorSet( affinityEnum ) );
 	unlockInstance.Amt:SetText( tostring(level) );
 	unlockInstance.Info:SetText( Locale.Lookup(perkAtLevel.perk.Help) )
-	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 55) );
+	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 110) );
 end
 
 -- ===========================================================================
 function AddCurrentProjectUnlock( projectAtLevel:table, affinityEnum:number )
 	
-	local PADDING_Y		:number	= 25;
+	local PADDING_Y		:number	= 50;
 	local level			:number = projectAtLevel.level; 
 	local degree		:number = DEGREES[affinityEnum];
 	local unlockInstance:table	= m_UnlockIM:GetInstance();
@@ -301,7 +301,7 @@ function AddCurrentProjectUnlock( projectAtLevel:table, affinityEnum:number )
 	unlockInstance.Amt:SetColorByName( GetAffinityColorSet( affinityEnum ) );
 	unlockInstance.Amt:SetText( tostring(level) );
 	unlockInstance.Info:SetText( Locale.Lookup(GameInfo.Projects[projectAtLevel.projectType].Description) )
-	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 55) );
+	unlockInstance.Content:SetSizeY( math.max(unlockInstance.Info:GetSizeY() + PADDING_Y, 110) );
 end
 
 -- ===========================================================================

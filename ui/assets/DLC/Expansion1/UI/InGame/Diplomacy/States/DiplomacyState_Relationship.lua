@@ -18,17 +18,17 @@ local m_holdArrowFlyout : boolean = false;
 
 function UpdateConversationControlSizes()
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
-	local headerSize= 72;
-	local bubblePadding = 40;
-	local cardOffsetY = 90;
+	local headerSize= 144;
+	local bubblePadding = 80;
+	local cardOffsetY = 180;
 	local cardOffsetX = screenSizeX*.11;
-	local cardHeight = 160;
-	local headerY = 72;
-	local bubbleNubCorrection = 8;
-	local myBubblePadding = 38;
-	if((screenSizeX-cardOffsetX*2)<970) then
+	local cardHeight = 320;
+	local headerY = 144;
+	local bubbleNubCorrection = 16;
+	local myBubblePadding = 76;
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;	
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	end
 
 	--Vertical sizing for MySpeechBubble
@@ -43,13 +43,13 @@ function UpdateConversationControlSizes()
 
 	--Horizontal sizing for TheirSpeechBubble
 	Controls.TheirSpeechBubble:SetSizeX(screenSizeX/2);
-	Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-20);
+	Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-40);
 
 	--Vertical sizing for TheirSpeechBubble
 	Controls.TheirSpeechBubbleStack:CalculateSize();
 	Controls.TheirSpeechBubbleStack:ReprocessAnchoring();
-	local theirBubbleY = 69;
-	if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 69) then
+	local theirBubbleY = 138;
+	if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 138) then
 		theirBubbleY = Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding;
 	end
 	Controls.TheirSpeechBubble:SetSizeY(theirBubbleY);
@@ -212,20 +212,20 @@ function OnFearRespectTooltip( respectStageVal,reqRespectStageVal,fearStageVal,r
 	tipControlTable.FearImage:SetTextureOffsetVal(0,reqImageOffsetY+(34 * 2));
 	if(respectStageVal < reqRespectStageVal) then
 		tipControlTable.RespectCheck:SetHide(true);
-		tipControlTable.RespectHeaderStack:SetOffsetX(4);
+		tipControlTable.RespectHeaderStack:SetOffsetX(8);
 		tipControlTable.RespectExplanation:SetHide(false);
 	else
 		tipControlTable.RespectCheck:SetHide(false);
-		tipControlTable.RespectHeaderStack:SetOffsetX(64);
+		tipControlTable.RespectHeaderStack:SetOffsetX(128);
 		tipControlTable.RespectExplanation:SetHide(true);
 	end
 	if(fearStageVal < reqFearStageVal) then
 		tipControlTable.FearCheck:SetHide(true);
-		tipControlTable.FearHeaderStack:SetOffsetX(4);
+		tipControlTable.FearHeaderStack:SetOffsetX(8);
 		tipControlTable.FearExplanation:SetHide(false);
 	else
 		tipControlTable.FearCheck:SetHide(false);
-		tipControlTable.FearHeaderStack:SetOffsetX(64);
+		tipControlTable.FearHeaderStack:SetOffsetX(128);
 		tipControlTable.FearExplanation:SetHide(true);
 	end
 	local headerString : string = Locale.Lookup("{TXT_KEY_DIPLOMACYUI_REQUIREMENTS:upper}");
@@ -237,18 +237,18 @@ function OnFearRespectTooltip( respectStageVal,reqRespectStageVal,fearStageVal,r
 		tipControlTable.PassFailBanner:SetColor(0x551714a0);
 	end
 	tipControlTable.TooltipHeader:SetText(headerString);
-	tipControlTable.FearExplanationText:SetWrapWidth(tipControlTable.TooltipHeader:GetSizeX()-5);
-	tipControlTable.RespectExplanationText:SetWrapWidth(tipControlTable.TooltipHeader:GetSizeX()-5);
+	tipControlTable.FearExplanationText:SetWrapWidth(tipControlTable.TooltipHeader:GetSizeX()-10);
+	tipControlTable.RespectExplanationText:SetWrapWidth(tipControlTable.TooltipHeader:GetSizeX()-10);
 	tipControlTable.FearExplanation:SetSizeY(tipControlTable.FearExplanationText:GetSizeY());
 	tipControlTable.RespectExplanation:SetSizeY(tipControlTable.RespectExplanationText:GetSizeY());
-	tipControlTable.FearExplanation:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+100);
-	tipControlTable.RespectExplanation:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+100);
-	tipControlTable.FearExplanationText:SetWrapWidth(tipControlTable.FearExplanation:GetSizeX()-5);
-	tipControlTable.RespectExplanationText:SetWrapWidth(tipControlTable.RespectExplanation:GetSizeX()-5);
+	tipControlTable.FearExplanation:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+200);
+	tipControlTable.RespectExplanation:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+200);
+	tipControlTable.FearExplanationText:SetWrapWidth(tipControlTable.FearExplanation:GetSizeX()-10);
+	tipControlTable.RespectExplanationText:SetWrapWidth(tipControlTable.RespectExplanation:GetSizeX()-10);
 	tipControlTable.ContentStack:CalculateSize();
 	tipControlTable.ContentStack:ReprocessAnchoring();
 	tipControlTable.TooltipFrame:SetSizeY(tipControlTable.ContentStack:GetSizeY());
-	tipControlTable.TooltipFrame:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+100);
+	tipControlTable.TooltipFrame:SetSizeX(tipControlTable.TooltipHeader:GetSizeX()+200);
 end
 
 local m_relationships : table = {};
@@ -599,27 +599,27 @@ function OnInitialize(isHotload : boolean)
 
 	--Size and position speech bubble and services list
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
-	local cardSize = 390;
+	local cardSize = 780;
 	local cardOffsetX = screenSizeX*.11;
-	local cardOffsetY = 90;
-	local cardHeight = 160;
-	local headerY = 72;
-	if((screenSizeX-cardOffsetX*2)<970) then
+	local cardOffsetY = 180;
+	local cardHeight = 320;
+	local headerY = 144;
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	else
-		cardSize = (screenSizeX-2*cardOffsetX-100)/2;
-		if(cardSize>490) then
-			Controls.MySpeechBubble:SetOffsetX(cardOffsetX + 22);
+		cardSize = (screenSizeX-2*cardOffsetX-200)/2;
+		if(cardSize>980) then
+			Controls.MySpeechBubble:SetOffsetX(cardOffsetX + 44);
 			Controls.MySpeechBubble:SetOffsetY(cardOffsetY+cardHeight);
 			Controls.MySpeechBubble:SetSizeX(cardSize);
 			Controls.BubbleWindowBacking:SetSizeX(cardSize);
 		else
-			Controls.MySpeechBubble:SetSizeX(cardSize+cardOffsetX + 22);
+			Controls.MySpeechBubble:SetSizeX(cardSize+cardOffsetX + 44);
 		end
 	end
 	Controls.TheirSpeechBubble:SetOffsetY(headerY);
-	Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 18);
+	Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 36);
 	Controls.ChoicesStack:CalculateSize();
 	Controls.ChoicesStack:ReprocessAnchoring();
 end

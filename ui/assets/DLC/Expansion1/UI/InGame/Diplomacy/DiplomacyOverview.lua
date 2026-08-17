@@ -697,32 +697,32 @@ function InitControls()
 	ContextPtr:BuildInstanceForControl("RecentActivity", m_selectedPlayerActivityInstance, Controls.SelectedPlayerActivityPlaceholder);
 	m_selectedPlayerActivityInstance.Content:SetHide(true);
 
-	local cardSize = 390;
+	local cardSize = 780;
 	local cardOffsetX = 0;
-	local cardOffsetY = 90;
+	local cardOffsetY = 180;
 
 	--Special sizing of the info cards for different screen resolutions
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 	cardOffsetX = screenSizeX*.11;
 	
-	if((screenSizeX-cardOffsetX*2)<970) then
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	else
-		cardSize = (screenSizeX-2*cardOffsetX-100)/2;
+		cardSize = (screenSizeX-2*cardOffsetX-200)/2;
 	end
 
 	--Size the bottom bar appropriately FOR SQUARE RESOLUTIONS
 	if((screenSizeX/screenSizeY)==1.25) then
-		Controls.BottomBox:SetSizeY(310);
+		Controls.BottomBox:SetSizeY(620);
 	end
 
 	Controls.SelectedPlayerActivityPlaceholder:SetOffsetX(cardOffsetX);
 	Controls.SelectedPlayerActivityPlaceholder:SetOffsetY(cardOffsetY);
 	
-	m_selectedPlayerActivityInstance.Content:SetSizeX(cardSize+45);
+	m_selectedPlayerActivityInstance.Content:SetSizeX(cardSize+90);
 	m_selectedPlayerActivityInstance.CardBacking:SetSizeX(cardSize);
-	m_selectedPlayerActivityInstance.CardBackingDropShadow:SetSizeX(cardSize+45);
+	m_selectedPlayerActivityInstance.CardBackingDropShadow:SetSizeX(cardSize+90);
 
 
 --	RefreshData();
@@ -929,19 +929,19 @@ function InitInfoCard(instance : table, playerType : number)
 	local civInfo : table = GameInfo.Civilizations[player:GetCivilizationType()];
 	local relationshipInfo : table = GameInfo.RelationshipLevels[Game.GetRelationship(player:GetID(), m_player:GetID())];
 	-- 
-	local cardSize = 390;
+	local cardSize = 780;
 	local cardOffsetX = 0;
-	local cardOffsetY = 90;
+	local cardOffsetY = 180;
 
 	--Special sizing of the info cards for different screen resolutions
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 	cardOffsetX = screenSizeX*.11;
 	
-	if((screenSizeX-cardOffsetX*2)<970) then
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	else
-		cardSize = (screenSizeX-2*cardOffsetX-100)/2;
+		cardSize = (screenSizeX-2*cardOffsetX-200)/2;
 	end
 
 	Controls.SelectedPlayerInfoCardPlaceholder:SetOffsetX(cardOffsetX);
@@ -951,9 +951,9 @@ function InitInfoCard(instance : table, playerType : number)
 	Controls.ActivePlayerInfoCardPlaceholder:SetOffsetY(cardOffsetY);
 	Controls.SelectedPlayerActivityPlaceholder:SetOffsetY(cardOffsetY);
 	
-	instance.Content:SetSizeX(cardSize+45);
+	instance.Content:SetSizeX(cardSize+90);
 	instance.CardBacking:SetSizeX(cardSize);
-	instance.CardBackingDropShadow:SetSizeX(cardSize+45);
+	instance.CardBackingDropShadow:SetSizeX(cardSize+90);
 	
 	-- Icons and basic info
 	CivIconHookup( player:GetID(), 64, instance.CivIcon, instance.CivIconBG, nil, false, false, instance.CivIconHighlight );

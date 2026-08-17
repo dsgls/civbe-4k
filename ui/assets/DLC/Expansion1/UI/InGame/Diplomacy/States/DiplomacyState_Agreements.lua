@@ -190,7 +190,7 @@ function UpdateAllPolicies()
 		instance.CancelButton:SetHide(true);
 		instance.NumberIcon:SetHide(true);
 		--Resizing the All Policies agreement container to fit the width of the sorting bar FOR SQUARE RESOLUTIONS
-		instance.AgreementContainer:SetSizeX(instance.Content:GetSizeX()-87);
+		instance.AgreementContainer:SetSizeX(instance.Content:GetSizeX()-174);
 
 		local canAfford : boolean = m_player:GetDiplomaticCapital() >= m_player:GetForeignPolicyPurchaseCapitalCost(policyInfo.ID);
 		local canMake : boolean = Game.CanMakeAgreement(m_player:GetID(), otherPlayer:GetID(), policyType);
@@ -402,7 +402,7 @@ function UpdateMyAgreements()
 	end
 
 	Controls.CapitalBanked:SetText(capitalBanked);	
-	Controls.CapitalFromServices:SetWrapWidth(Controls.SubIncomeContainer:GetSizeX()-90);
+	Controls.CapitalFromServices:SetWrapWidth(Controls.SubIncomeContainer:GetSizeX()-180);
 	Controls.CapitalFromServices:SetText(Locale.Lookup("{TXT_KEY_DIPLOMACYUI_CAPITAL_FROM_AGREEMENTS:upper}"));
 	
 	if (capitalFromAgreements > 0) then
@@ -819,17 +819,17 @@ end
 
 function UpdateConversationControlSizes()
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
-	local headerSize= 72;
-	local bubblePadding = 40;
-	local cardOffsetY = 90;
+	local headerSize= 144;
+	local bubblePadding = 80;
+	local cardOffsetY = 180;
 	local cardOffsetX = screenSizeX*.11;
-	local cardHeight = 160;
-	local headerY = 72;
-	local bubbleNubCorrection = 8;
-	local myBubblePadding = 38;
-	if((screenSizeX-cardOffsetX*2)<970) then
+	local cardHeight = 320;
+	local headerY = 144;
+	local bubbleNubCorrection = 16;
+	local myBubblePadding = 76;
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;	
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	end
 
 	Controls.MySpeechBubbleStack:CalculateSize();
@@ -837,12 +837,12 @@ function UpdateConversationControlSizes()
 	Controls.MySpeechBubble:SetSizeY(Controls.MySpeechBubbleStack:GetSizeY());
 	--Horizontal sizing for their speech bubble
 	Controls.TheirSpeechBubble:SetSizeX(screenSizeX/2);
-	Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-20);
+	Controls.TheirResponse:SetWrapWidth((screenSizeX/2)-40);
 	--Vertical sizing for their speech bubble
 	Controls.TheirSpeechBubbleStack:CalculateSize();
 	Controls.TheirSpeechBubbleStack:ReprocessAnchoring();
-	local theirBubbleY = 69;
-	if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 69) then
+	local theirBubbleY = 138;
+	if(Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding > 138) then
 		theirBubbleY = Controls.TheirSpeechBubbleStack:GetSizeY() + bubblePadding;
 	end
 	Controls.TheirSpeechBubble:SetSizeY(theirBubbleY);
@@ -892,25 +892,25 @@ function OnInitialize(isHotload : boolean)
 	--Size and position View Agreements and Browse All Services
 	local screenSizeX, screenSizeY = UIManager:GetScreenSizeVal();
 	local paddingFromEdge = 0;
-	local headerSize = 78;
-	local footerSize = 116;
-	local minimumReqHeight = 690;
+	local headerSize = 156;
+	local footerSize = 232;
+	local minimumReqHeight = 1380;
 	-- This is an approximation of the offset that the text should have from the side of the screen
-	local offsetMultiplier = .00006*(screenSizeX)-.07;
+	local offsetMultiplier = .00003*(screenSizeX)-.07;
 	if(screenSizeX/screenSizeY > 1.5 and ((screenSizeY-headerSize-footerSize) > minimumReqHeight) and offsetMultiplier > .02) then
 		paddingFromEdge = screenSizeX * offsetMultiplier;
 		Controls.WindowAlpha:SetAnchor("R,T");
 		Controls.WindowAlpha:SetOffsetX((screenSizeX/2)*(-1)+(Controls.MainWindow:GetSizeX()/2)+paddingFromEdge);
-		Controls.MainWindow:SetSizeY(screenSizeY-194);
+		Controls.MainWindow:SetSizeY(screenSizeY-388);
 		Controls.AllServicesWindowAlpha:SetAnchor("R,T");
 		Controls.AllServicesWindowAlpha:SetOffsetX((screenSizeX/2)*(-1)+(Controls.AllServicesWindow:GetSizeX()/2)+paddingFromEdge);
 	else
-		local windowWidth = (screenSizeX - 1024)/2+900;
+		local windowWidth = (screenSizeX - 2048)/2+1800;
 		Controls.MainWindow:SetSizeX(windowWidth);
-		Controls.MainWindowDropShadow:SetSizeX(windowWidth+90);	
+		Controls.MainWindowDropShadow:SetSizeX(windowWidth+180);	
 		-- Repositioning and sizing the All Services window FOR SQUARE RESOLUTIONS
-		Controls.AllServicesWindowDropShadow:SetSizeX(windowWidth+110);	
-		Controls.AllServicesWindow:SetSizeX(windowWidth+20);
+		Controls.AllServicesWindowDropShadow:SetSizeX(windowWidth+220);	
+		Controls.AllServicesWindow:SetSizeX(windowWidth+40);
 	end
 
 	m_tabs = CreateTabs(Controls.TabRow, 250, 32);
@@ -932,34 +932,34 @@ function OnInitialize(isHotload : boolean)
 	m_tabs.SelectTab(Controls.MyAgreementsTab);
 
 	--Size and position speech bubble and services list
-	local cardSize = 390;
+	local cardSize = 780;
 	local cardOffsetX = screenSizeX*.11;
-	local cardOffsetY = 90;
-	local cardHeight = 160;
-	local headerY = 72;
-	if((screenSizeX-cardOffsetX*2)<970) then
+	local cardOffsetY = 180;
+	local cardHeight = 320;
+	local headerY = 144;
+	if((screenSizeX-cardOffsetX*2)<1940) then
 		cardOffsetX = screenSizeX*.085;
-		cardOffsetY = 60;
+		cardOffsetY = 120;
 	else
-		cardSize = (screenSizeX-2*cardOffsetX-100)/2;
-		if(cardSize>490) then
-			Controls.MySpeechBubble:SetOffsetX(cardOffsetX + 22);
+		cardSize = (screenSizeX-2*cardOffsetX-200)/2;
+		if(cardSize>980) then
+			Controls.MySpeechBubble:SetOffsetX(cardOffsetX + 44);
 			Controls.MySpeechBubble:SetOffsetY(cardOffsetY+cardHeight);
 			Controls.MySpeechBubble:SetSizeX(cardSize);
 			Controls.BubbleWindow:SetSizeX(cardSize);
 			Controls.BubbleWindowBacking:SetSizeX(cardSize);
-			Controls.ScrollPanelGradient:SetSizeX(cardSize-10);
+			Controls.ScrollPanelGradient:SetSizeX(cardSize-20);
 			Controls.OptionButton1:SetSizeX(cardSize);
 			Controls.OptionButton2:SetSizeX(cardSize);
 			Controls.OptionButton3:SetSizeX(cardSize);
 			Controls.ButtonStack:CalculateSize();
 			Controls.ButtonStack:ReprocessAnchoring();
 		else
-			Controls.MySpeechBubble:SetSizeX(cardSize+cardOffsetX + 22);
+			Controls.MySpeechBubble:SetSizeX(cardSize+cardOffsetX + 44);
 		end
 	end
 	Controls.TheirSpeechBubble:SetOffsetY(headerY);
-	Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 18);
+	Controls.TheirSpeechBubble:SetOffsetX(cardOffsetX + 36);
 end
 ContextPtr:SetInitHandler(OnInitialize);
 
