@@ -45,8 +45,8 @@ SOURCE = os.path.join(PROJECT, "ui")
 # the conversion over a .dds would rewrite every 0x0A that falls in pixel data.
 TEXT_SUFFIXES = (".xml", ".lua")
 
-TEXTURE_VERSION = "0.0.3"
-TEXTURE_SHA256 = "a609d6623f427bf470338642af20f0233520cabf19747964487e4cd060fc1325"
+TEXTURE_VERSION = "0.0.4"
+TEXTURE_SHA256 = "0fdc72281420d84e7f08c080e74b682686ca3320fccad97d186f5a5945453965"
 TEXTURE_URL = (
     "https://github.com/dsgls/civbe-4k/releases/download/"
     "textures-v{v}/civbe-4k-textures-v{v}.7z"
