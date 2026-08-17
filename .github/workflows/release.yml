@@ -1,0 +1,23 @@
+name: release
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build mod zip
+        run: bash package-mod.sh "${GITHUB_REF_NAME#v}"
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "civbe-4k $GITHUB_REF_NAME" \
+            --notes "The 2x UI files. Extract into the game directory alongside the texture pack; see the README for the full install procedure." \
+            civbe-4k-v*.zip
