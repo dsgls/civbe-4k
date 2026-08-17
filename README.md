@@ -21,7 +21,7 @@ traps here are non-obvious and cost real time to rediscover.
 ui/                     the patched UI trees, at install-relative paths.
                         See "The vendored UI trees" below.
 civbe-dds/              reads/writes UI texture .dds (Python, 115 tests). See its README.
-ui_textures.txt         the phase-2 work list: 839 textures needing conversion.
+ui_textures.txt         the phase-2 work list: 950 textures needing conversion.
 extracted/              per-archive .fpk extractions + decoded PNGs
   UITextures.fpk/                 1642 .dds  (base game UI)
   UITextures_converted/            595 .png  (decoded dictionary pairs)
@@ -341,7 +341,9 @@ drawn 1:1, never stretched* above; there is no safe-to-skip category. The
 `reasons` column records what reads each texture: a texture-space coordinate
 (atlas sub-rect, 9-slice rect, flipbook stride, font-icon cell,
 `IconTextureAtlases` row, Lua `SetTextureOffsetVal`/`SetTextureSizeVal`), or
-`drawn-1to1` for a plain reference. The XML side derives from the same
+`drawn-1to1` for a plain reference, or `database-ref` for a texture named in
+the gameplay database (Lua reads fields like `PolicyBranchTypes.BackgroundImage`
+and hands them to `SetTexture`). The XML side derives from the same
 `analysis/classify.py` the 2x bake of `ui/` was verified against; the Lua side
 takes every `.dds` string literal, plus offset-call control resolution by ID
 (same-name XML, then directory, then tree), which over-approximates — an
@@ -352,6 +354,7 @@ XMLs, whose cell coordinates live on sibling `<Icon>` elements.
 Cost, measured (a file can carry several reasons; the rows overlap):
 
 ```
+database-ref         276 files   124.5 Mpx   1992.8 MB RGBA@2x   498.2 MB DXT5@2x
 drawn-1to1           462 files    78.8 Mpx   1260.8 MB RGBA@2x   315.2 MB DXT5@2x
 icon-atlas           160 files    73.0 Mpx   1168.3 MB RGBA@2x   292.1 MB DXT5@2x
 atlas-subrect         73 files     4.0 Mpx     63.2 MB RGBA@2x    15.8 MB DXT5@2x
@@ -359,16 +362,16 @@ lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2
 9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
 flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
 font-icon-cell         2 files     0.1 Mpx      2.1 MB RGBA@2x     0.5 MB DXT5@2x
-TOTAL                839 files   141.3 Mpx   2261.0 MB RGBA@2x   565.3 MB DXT5@2x
+TOTAL                950 files   190.3 Mpx   3044.2 MB RGBA@2x   761.1 MB DXT5@2x
 ```
 
-Source forms across the 839, dictionary pairs still carrying most pixels:
+Source forms across the 950, dictionary pairs still carrying most pixels:
 
 | source form | files | pixels |
 |-------------|-------|--------|
-| dictionary pair (dictionary is RGBA) | 422 | 84.13 Mpx |
-| plain `A8B8G8R8` (RGBA bytes) | 181 | 38.60 Mpx |
-| plain `A8R8G8B8` (BGRA bytes) | 203 | 18.28 Mpx |
+| dictionary pair (dictionary is RGBA) | 486 | 112.63 Mpx |
+| plain `A8B8G8R8` (RGBA bytes) | 211 | 52.58 Mpx |
+| plain `A8R8G8B8` (BGRA bytes) | 220 | 24.75 Mpx |
 | plain DXT4 | 24 | 0.26 Mpx |
 | plain DXT1 | 7 | 0.04 Mpx |
 | plain DXT3/DXT5 | 2 | 0.01 Mpx |
@@ -376,7 +379,7 @@ Source forms across the 839, dictionary pairs still carrying most pixels:
 No cubemaps and no `.fic` stubs make the list; the mislabelled-DXT and
 `forgeui_*` reserved-field corners do (decode DXT2/4 as DXT3/5, see above).
 
-A trailing section lists 132 names referenced by shipped data but present in
+A trailing section lists 149 names referenced by shipped data but present in
 no archive and not loose on disk — dead references (mostly unused `grid9*`
 style definitions and screens inherited from Civ5). They draw nothing at 1x
 either. Ignore them; there is nothing to convert.
@@ -403,7 +406,7 @@ either. Ignore them; there is nothing to convert.
 ### Constraint: the texture scale is global
 
 `ui/` bakes 2x into every texture-space coordinate. If only some art is
-rescaled, the rest samples wrong. So it is **all 839 or none** — the "convert
+rescaled, the rest samples wrong. So it is **all 950 or none** — the "convert
 the cheap tier first" idea would need per-texture coordinate edits in `ui/`,
 which is real work, not a shortcut.
 

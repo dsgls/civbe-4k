@@ -87,6 +87,20 @@ for path in DBS:
             for m in FIELD.finditer(row.group(1)):
                 note(m.group(2).strip(), "icon-atlas", "IconTextureAtlases database")
 
+# Any .dds named anywhere else in the gameplay database: Lua reads such fields
+# (e.g. PolicyBranchTypes.BackgroundImage) and hands them to SetTexture, which
+# draws 1:1 like every other plain reference.
+DB_DDS = re.compile(r"[\w\-. ]+?\.dds", re.I)
+for root in [os.path.join(GAME, "assets", "Gameplay", "XML"),
+             os.path.join(GAME, "assets", "DLC", "Expansion1", "Gameplay", "XML")]:
+    for dp, dn, fn in os.walk(root):
+        for f in fn:
+            if not f.lower().endswith(".xml"):
+                continue
+            path = os.path.join(dp, f)
+            for m in DB_DDS.finditer(open(path, encoding="utf-8", errors="replace").read()):
+                note(m.group(0), "database-ref", "gameplay database: " + f)
+
 
 def dds_size(path):
     d = open(path, "rb").read(128)
