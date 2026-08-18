@@ -29,3 +29,5 @@ ghidra-projects/*/tmp
 ghidra-projects/*/*.gpr
 ghidra-projects/*/*.rep
 ghidra-projects/*/*.lock*
+
+result
