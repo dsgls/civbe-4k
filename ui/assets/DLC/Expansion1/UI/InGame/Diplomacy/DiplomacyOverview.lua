@@ -772,16 +772,16 @@ function InitPlayerActivityInstance(instance : table, player : object)
 			recordInstance.RespectDelta:SetText(iconStr);
 			recordInstance.Header:SetText( Locale.Lookup(reactionInfo.CommuniqueSubject));
 			recordInstance.Message:SetText(Locale.Lookup(record:GetMessageTextKey()));
-			local entryPadding = 30;
+			local entryPadding = 60;
 			if(record:GetTurnSent() == Game.GetGameTurn()) then
 				recordInstance.NewIndicator:SetHide(false);
-				recordInstance.NewIndicator:SetSizeX(recordInstance.NewLabel:GetSizeX()+30);
+				recordInstance.NewIndicator:SetSizeX(recordInstance.NewLabel:GetSizeX()+60);
 				recordInstance.DeltaAnim:Play();
 			else
 				recordInstance.DeltaAnim:SetToBeginning();
 				recordInstance.DeltaAnim:Stop();
 			end
-			recordInstance.Message:SetWrapWidth(recordInstance.Content:GetSizeX()-10);
+			recordInstance.Message:SetWrapWidth(recordInstance.Content:GetSizeX()-20);
 			recordInstance.Content:SetSizeY(recordInstance.Header:GetSizeY() + recordInstance.Message:GetSizeY() + entryPadding);
 			recordInstance.ContentStack:CalculateSize();
 			recordInstance.ContentStack:ReprocessAnchoring();
