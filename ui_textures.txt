@@ -333,7 +333,7 @@ UITextures.fpk	checkbox_blue.dds	UITextures_converted/checkbox_blue.png	32x32	54
 UITextures.fpk	checkbox_gray.dds	UITextures_converted/checkbox_gray.png	32x32	422	drawn-1to1
 UITextures.fpk	checkmark.dds	UITextures_converted/checkmark.png	32x32	1337	drawn-1to1
 UITextures.fpk	checkmark_blue.dds	UITextures_converted/checkmark_blue.png	32x32	1402	atlas-subrect
-UITextures.fpk	checkmark_gray.dds	UITextures_converted/checkmark_gray.png	32x32	980	atlas-subrect
+UITextures.fpk	checkmark_gray.dds	UITextures_converted/checkmark_gray.png	32x32	980	atlas-subrect,drawn-1to1
 UITextures.fpk	chevrons.dds	UITextures_converted/chevrons.png	16x128	526	drawn-1to1,lua-runtime-offset
 UITextures.fpk	citizeniconbackings.dds	UITextures_converted/citizeniconbackings.png	64x256	14560	drawn-1to1,lua-runtime-offset
 UITextures.fpk	citizenicons128.dds	UITextures.fpk/citizenicons128.dds	128x128	87508	database-ref,icon-atlas
@@ -482,6 +482,8 @@ UITextures.fpk	forgeui_buttonsides.dds	UITextures.fpk/forgeui_buttonsides.dds	16
 UITextures.fpk	forgeui_buttonsides_glow.dds	UITextures.fpk/forgeui_buttonsides_glow.dds	32x32	4224	atlas-subrect
 UITextures.fpk	forgeui_checkboxbutton.dds	UITextures.fpk/forgeui_checkboxbutton.dds	32x128	16512	drawn-1to1
 UITextures.fpk	forgeui_checkboxbutton_square.dds	UITextures.fpk/forgeui_checkboxbutton_square.dds	32x128	16512	drawn-1to1
+UITextures.fpk	forgeui_checkmark.dds	UITextures.fpk/forgeui_checkmark.dds	32x32	4224	drawn-1to1
+UITextures.fpk	forgeui_checkmark_x.dds	UITextures.fpk/forgeui_checkmark_x.dds	32x32	4224	drawn-1to1
 UITextures.fpk	forgeui_detailwindow.dds	UITextures.fpk/forgeui_detailwindow.dds	256x256	87536	9-slice
 UITextures.fpk	forgeui_emptyframe.dds	UITextures.fpk/forgeui_emptyframe.dds	64x64	5616	9-slice
 UITextures.fpk	forgeui_glass.dds	UITextures.fpk/forgeui_glass.dds	128x128	22000	9-slice
@@ -970,7 +972,7 @@ UITextures.fpk	yieldatlas.dds	UITextures.fpk/yieldatlas.dds	512x896	2446768	draw
 UITextures.fpk	yieldatlas_128_culture.dds	UITextures.fpk/yieldatlas_128_culture.dds	128x640	437028	drawn-1to1
 
 
-# Referenced by shipped data but absent from the whole install (149):
+# Referenced by shipped data but absent from the whole install (150):
 # in none of the install's .fpk archives and not loose on disk. There is nothing
 # to convert - these draw no art at 1x either. Mostly style definitions no
 # control uses, and screens inherited from Civ5, plus atlas rows for size
@@ -992,6 +994,7 @@ UITextures.fpk	yieldatlas_128_culture.dds	UITextures.fpk/yieldatlas_128_culture.
 # dead	buttons_512.dds	Expansion1:Styles.xml	drawn-1to1
 # dead	buttonsides_left.dds	base:InGame/Popups/CityStateGreetingPopupOpenCenter.xml	atlas-subrect
 # dead	buttonsidesglowgold.dds	base:InGame/TechPopup.xml	atlas-subrect
+# dead	checkx.dds	Expansion1:Styles.xml	drawn-1to1
 # dead	citizenicons1024.dds	IconTextureAtlases database	database-ref,icon-atlas
 # dead	citybannerstrengthalpha_small.dds	Expansion1:InGame/CityBannerManager.xml	drawn-1to1
 # dead	citybombard_small.dds	Expansion1:InGame/CityBannerManager.xml	drawn-1to1
@@ -1132,14 +1135,14 @@ UITextures.fpk	yieldatlas_128_culture.dds	UITextures.fpk/yieldatlas_128_culture.
 # Cost by reason (measured pixels at 1x; 2x output = pixels * 4):
 #
 #   database-ref         276 files   126.5 Mpx   2023.4 MB RGBA@2x   505.9 MB DXT5@2x
-#   drawn-1to1           462 files    85.5 Mpx   1368.6 MB RGBA@2x   342.2 MB DXT5@2x
+#   drawn-1to1           465 files    85.5 Mpx   1368.7 MB RGBA@2x   342.2 MB DXT5@2x
 #   icon-atlas           160 files    74.9 Mpx   1199.0 MB RGBA@2x   299.7 MB DXT5@2x
 #   atlas-subrect         73 files     4.0 Mpx     63.3 MB RGBA@2x    15.8 MB DXT5@2x
 #   lua-runtime-offset    36 files     2.5 Mpx     40.1 MB RGBA@2x    10.0 MB DXT5@2x
 #   9-slice              225 files     2.5 Mpx     39.4 MB RGBA@2x     9.8 MB DXT5@2x
 #   flipbook-sheet         3 files     0.3 Mpx      4.3 MB RGBA@2x     1.1 MB DXT5@2x
 #   font-icon-cell         2 files     0.1 Mpx      2.1 MB RGBA@2x     0.5 MB DXT5@2x
-#   TOTAL                950 files   198.9 Mpx   3182.7 MB RGBA@2x   795.7 MB DXT5@2x
+#   TOTAL                952 files   198.9 Mpx   3182.8 MB RGBA@2x   795.7 MB DXT5@2x
 #
 # The game is a 32-bit process (~3.5GB ceiling). The shipped packages are
 # raw RGBA so far and the game holds; switch the atlases to DXT if memory

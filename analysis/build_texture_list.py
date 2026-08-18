@@ -22,7 +22,7 @@ SOURCES = [
     ("Expansion1UITextures.fpk", "Expansion1UITextures.fpk", "Expansion1UITextures_converted"),
 ]
 
-TEXTURE_REFS = ("Texture", "MaskTexture", "ButtonTexture")
+TEXTURE_REFS = ("Texture", "MaskTexture", "ButtonTexture", "CheckTexture")
 # Any .dds literal in Lua: SetTexture() and friends draw 1:1 like the XML refs.
 LUA_DDS = re.compile(r'["\']([\w\-\. /\\]+?\.dds)["\']', re.I)
 reasons = collections.defaultdict(set)
