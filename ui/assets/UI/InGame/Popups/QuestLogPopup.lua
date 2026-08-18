@@ -632,7 +632,7 @@ function UpdateWindow()
 
 	-- Resize the contents based on whether or not a scrollbar is present.
 	-- This is a bit ugly due to resizing in scrollable areas not playing nice with scrollbars.
-	local WIDTH_WITH_SCROLL_BAR = 550;	
+	local WIDTH_WITH_SCROLL_BAR = 1100;
 	if IsScrollbarShowing( Controls.MainContentScrollPanel ) then
 		
 		Controls.MainContentScrollPanel:SetSizeX( WIDTH_WITH_SCROLL_BAR );
