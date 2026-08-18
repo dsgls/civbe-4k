@@ -22,16 +22,16 @@
 						<Button Style="Button_128" Anchor="C,Top" Void2="13" ID="ReloadTextures_Button" String="Reload Textures"/>
 
 						<Button Anchor="C,Top" ID="ToggleUIScratchBoxes_Button" Style="Button_128" String="UI Scratchbox">
-							<CheckBox Anchor="R,C" AnchorSide="O,I" ID="ToggleUIScratchBoxes_Checkbox" IsChecked="False"/>
+							<CheckBox Anchor="R,C" AnchorSide="O,I" ID="ToggleUIScratchBoxes_Checkbox" IsChecked="False" ButtonSize="64,64" CheckSize="64,64"/>
 						</Button>
 			
 						
 						<Label Anchor="C,T" String="Icons" Style="FontNormal20" ColorSet="Beige_Black_Alpha" FontStyle="Shadow"/>
 						<Button Anchor="C,Top" ID="ToggleCityBanners_Button" Style="Button_128" String="City">
-							<CheckBox Anchor="R,C" AnchorSide="o,i" ID="ToggleCityBanners_Checkbox" IsChecked="True"/>
+							<CheckBox Anchor="R,C" AnchorSide="o,i" ID="ToggleCityBanners_Checkbox" IsChecked="True" ButtonSize="64,64" CheckSize="64,64"/>
 						</Button>
 						<Button Anchor="C,Top" ID="ToggleUnitFlags_Button" Style="Button_128" String="Units">
-							<CheckBox Anchor="R,C" AnchorSide="o,i" ID="ToggleUnitFlags_Checkbox" IsChecked="True"/>
+							<CheckBox Anchor="R,C" AnchorSide="o,i" ID="ToggleUnitFlags_Checkbox" IsChecked="True" ButtonSize="64,64" CheckSize="64,64"/>
 						</Button>
 						<Label Anchor="L,T" String="SyncRandSeed" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="SyncRandSeedLabel"/>
 						<Label Anchor="L,T" String="MapRandSeed" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="MapRandSeedLabel"/>

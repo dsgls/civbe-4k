@@ -140,7 +140,7 @@
       <GridButton Anchor ="L,T" Size="120,72" ID="LoadColorKey" Style="BaseButton" >
         <Label Anchor="C,C" String="Reload"></Label>
       </GridButton>	  
-      <CheckBox Anchor ="L,T" TextAnchor="R,C" Size="132,72" ID="ToggleColorKey" String="Toggle Color Key" IsChecked="1" >
+      <CheckBox Anchor ="L,T" TextAnchor="R,C" Size="132,72" ID="ToggleColorKey" String="Toggle Color Key" IsChecked="1" ButtonSize="64,64" CheckSize="64,64">
        
       </CheckBox>
     </Stack>
@@ -168,7 +168,7 @@
 
       <Stack Anchor="L,B" StackGrowth="Bottom" >
           <Label Anchor="L,B" Size="220,60" ID="CompressionRateLabel" />
-          <CheckBox Anchor="L,B" Size="220,60" ID="CompressionBenchButton" String ="Compression Bench" IsChecked="0" />
+          <CheckBox Anchor="L,B" Size="220,60" ID="CompressionBenchButton" String ="Compression Bench" IsChecked="0" ButtonSize="64,64" CheckSize="64,64"/>
       </Stack>
 	</Stack>
 
@@ -306,9 +306,9 @@
         </GridButton>
       </Stack>
 	  
-      <CheckBox ID="HIDE_UI_ON_ANIMATION" String="Hide UI for animations" ButtonTexture="Assets/UI/Art/Controls/CheckBox.dds"  Texture="Assets/UI/Art/Controls/buttons_256.dds" TextAnchor="R,C" IsChecked="1" ToolTip="When active, the UI will dissapear whenever an animation gets activated"/>
+      <CheckBox ID="HIDE_UI_ON_ANIMATION" String="Hide UI for animations" ButtonTexture="Assets/UI/Art/Controls/CheckBox.dds"  Texture="Assets/UI/Art/Controls/buttons_256.dds" TextAnchor="R,C" IsChecked="1" ToolTip="When active, the UI will dissapear whenever an animation gets activated" ButtonSize="64,64" CheckSize="64,64"/>
 
-        <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleFallback"  String="Toggle Fallback" IsChecked="0" >
+        <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleFallback"  String="Toggle Fallback" IsChecked="0" ButtonSize="64,64" CheckSize="64,64">
         </CheckBox>
 
         <Stack Anchor="R,Top" StackGrowth="Left" >
@@ -404,9 +404,9 @@
 
 
         
-      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleBloom" String="Toggle Bloom" IsChecked="1" >        
+      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleBloom" String="Toggle Bloom" IsChecked="1" ButtonSize="64,64" CheckSize="64,64">        
       </CheckBox>
-      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleDistort"  String="Toggle Distort" IsChecked="1" >
+      <CheckBox Anchor="R,B" Offset="0,0" TextAnchor="L,C" Size="256,72" ID="ToggleDistort"  String="Toggle Distort" IsChecked="1" ButtonSize="64,64" CheckSize="64,64">
       </CheckBox>
      
         
@@ -475,7 +475,7 @@
                     </ButtonData>
 
                     <InstanceData Name="PullDownEntry">
-                        <CheckBox ID="Button" Size="600,200" Anchor="L,T" IsChecked="0"/>
+                        <CheckBox ID="Button" Size="600,200" Anchor="L,T" IsChecked="0" ButtonSize="64,64" CheckSize="64,64"/>
                     </InstanceData>
 
                 </PullDown>

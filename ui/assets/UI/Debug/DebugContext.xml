@@ -23,8 +23,8 @@
             <ColorBox Color="0,0,0,90" Anchor="C,C" AutoSize="1" SizePadding="2,2" >
                 <EditBox Anchor="C,C" Size="1460,40" MaxLength="255" ID="ConsoleEdit" />
             </ColorBox>
-            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" ToolTip="Toggle Log" ID="LogCheck" />
-            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" Offset="60,0" ToolTip="Toggle Panel" ID="SubPanelCheck" />
+            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" ToolTip="Toggle Log" ID="LogCheck" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox Style="SquareCheck" Anchor="L,C" AnchorSide="o,i" Offset="60,0" ToolTip="Toggle Panel" ID="SubPanelCheck" ButtonSize="64,64" CheckSize="64,64"/>
         </Grid>
 
         
@@ -48,7 +48,7 @@
     </Instance>
     
     <Instance Name="RadioInstance" >
-        <RadioButton ID="Button" Anchor="R,C" RadioGroup="DebugPanelGroup" Style="SquareCheck" TextAnchor="L,C" TextAnchorSide="o,i" IsChecked="0" />
+        <RadioButton ID="Button" Anchor="R,C" RadioGroup="DebugPanelGroup" Style="SquareCheck" TextAnchor="L,C" TextAnchorSide="o,i" IsChecked="0" ButtonSize="64,64" CheckSize="64,64"/>
     </Instance>
 	
 	

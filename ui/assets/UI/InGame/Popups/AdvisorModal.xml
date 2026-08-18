@@ -51,7 +51,7 @@
 					<Label Anchor="C,C" ColorSet="Beige_Black_Alpha" Style="FontNormal18" FontStyle="Shadow"/>
 				</GridButton>
 			</Stack>
-			<CheckBox String="TXT_KEY_ADVISOR_MODAL_DONT_SHOW_ME_AGAIN" TextAnchor="R,C" Anchor="L,B" ID="DontShowAgainCheckbox"/>
+			<CheckBox String="TXT_KEY_ADVISOR_MODAL_DONT_SHOW_ME_AGAIN" TextAnchor="R,C" Anchor="L,B" ID="DontShowAgainCheckbox" ButtonSize="64,64" CheckSize="64,64"/>
 		</Stack>
 	</Grid>
 </Context>

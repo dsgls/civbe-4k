@@ -22,18 +22,18 @@
 					<Label Anchor="L,T" ColorSet="Beige_Black" Style="FontNormal18" Offset="0,10" FontStyle="Shadow" ID="IconName" String="TXT_KEY_STRAT_ICON_MODE"/>
 					<PullDown Style="GenericPullDown" ScrollThreshold="512" Offset="0,10" Size="420,54" SpaceForScroll="0" ID="IconDropDown"/>
 
-					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFeatures" String="TXT_KEY_STRAT_FEATURES" />
-					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" />
+					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFeatures" String="TXT_KEY_STRAT_FEATURES" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox Anchor="L,T" TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="1" ID="ShowFogOfWar" String="TXT_KEY_STRAT_FOW" ButtonSize="64,64" CheckSize="64,64"/>
 					<Box Anchor="C,T" Offset="0,10" Size="350,2" Color="Beige,120" />
 				</Stack>
 
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" />        
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowArtifacts" String="TXT_KEY_MAP_OPTIONS_ARTIFACT_ICONS" />
-        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowNests" String="TXT_KEY_MAP_OPTIONS_ALIEN_NESTS" />				
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" />
-				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" />
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="HideRecommendation" String="TXT_KEY_MAP_OPTIONS_RECOMMENDATIONS" ButtonSize="64,64" CheckSize="64,64"/>
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowYield" String="TXT_KEY_MAP_OPTIONS_YIELD_ICONS" ButtonSize="64,64" CheckSize="64,64"/>
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowResources" String="TXT_KEY_MAP_OPTIONS_RESOURCE_ICONS" ButtonSize="64,64" CheckSize="64,64"/>        
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowArtifacts" String="TXT_KEY_MAP_OPTIONS_ARTIFACT_ICONS" ButtonSize="64,64" CheckSize="64,64"/>
+        <CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowNests" String="TXT_KEY_MAP_OPTIONS_ALIEN_NESTS" ButtonSize="64,64" CheckSize="64,64"/>				
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowGrid" String="TXT_KEY_MAP_OPTIONS_HEX_GRID" ButtonSize="64,64" CheckSize="64,64"/>
+				<CheckBox Anchor="L,T"  TextAnchorSide="Right" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="ShowTrade" String="TXT_KEY_MAP_OPTIONS_TRADE_ROUTES" ButtonSize="64,64" CheckSize="64,64"/>
 				<Box Anchor="C,T" Size="420,2" Color="0,0,0,0" />
 			</Stack>
 		</Grid>

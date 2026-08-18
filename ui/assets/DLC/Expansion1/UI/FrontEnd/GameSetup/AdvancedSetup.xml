@@ -47,7 +47,7 @@
 	</Instance>
 
 	<Instance Name="GameOptionInstance">
-		<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" Style="FontNormal20" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="GameOptionRoot" ConsumeMouse="1"  />
+		<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" Style="FontNormal20" Offset="0,0" TextOffset="80,0" IsChecked="0" ID="GameOptionRoot" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 	</Instance>
 
 	<Instance Name="DropDownOptionInstance">
@@ -155,7 +155,7 @@
 				<Box							Anchor="L,T" Size="960,50" Offset="60,0" Color="255,255,255,0" >
 					<Stack	ID="MaxTurnStack"	Anchor="L,T" Size="926,64" Offset="0,0" StackGrowth="Right">
 						<Box					Anchor="L,C"  Size="322,64" Color="255,255,200,0" >
-							<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ID="MaxTurnsCheck" ConsumeMouse="1" />
+							<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ID="MaxTurnsCheck" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 						</Box>
 						<Box		ID="MaxTurnsEditbox"	Anchor="L,C"	Size="68,48" Color="40,55,100,255" Hidden="1">
 							<Box							Anchor="C,C"	Offset="0,0" Size="64,44" Color="0,0,0,255" >

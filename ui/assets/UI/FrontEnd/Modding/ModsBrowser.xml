@@ -37,7 +37,7 @@
 		<Grid		Size="900,520"	Offset="0,0"		Anchor="C,C" Padding="0,40" Style="Grid9DetailFive140"  >
 			<Label	Anchor="C,T"	Offset="0,40"	Style="ShellDialogHeaderText" String="{TXT_KEY_MODDING_OPTIONS:upper}"  />
 			<Stack	Size="680,220"	Offset="60,100"	StackGrowth="Bottom">
-				<CheckBox	ID="ShowDLCMods" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Right" Style="FontNormal20" TextOffset="80,0" IsChecked="0" String="TXT_KEY_MODDING_SHOWDLCMODS" ConsumeMouse="1"  />
+				<CheckBox	ID="ShowDLCMods" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Right" Style="FontNormal20" TextOffset="80,0" IsChecked="0" String="TXT_KEY_MODDING_SHOWDLCMODS" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 			</Stack>
 			<GridButton	ID="OptionsOK"	Anchor="C,B" Offset="0,60" Style="BaseButton" String="TXT_KEY_OK_BUTTON" />
 		</Grid>

@@ -303,9 +303,9 @@
 	</Image>
 	<Image Anchor="C,B" Texture="assets\UI\Art\WorldView\BottomPanelCenter.dds" ConsumeMouse="1">
 		<!--<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-150,-1"	Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip=""/> -->
-		<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-300,-2"	Style="CityCheckbox" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="64,64"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_BUILDINGLIST_O_TT"/> 
+		<CheckBox ID="ShowQueueBuildWondersButton"	Anchor="C,B"	Offset="-300,-2"	Style="CityCheckbox" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" CheckTexture="assets/UI/Art/Controls/CheckMark_Gray.dds" Size="64,64"  String="{TXT_KEY_CITYVIEW_SHOW:upper}"		TextAnchor="L,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_BUILDINGLIST_O_TT" ButtonSize="64,64" CheckSize="64,64"/> 
 		
-		<CheckBox ID="ShowQueueProductionButton"	Anchor="C,B"	Offset="320,-2"		Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_ACTIVATE:upper}"	TextAnchor="R,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_QUEUE_O_TT" BoxOnLeft="1"  />
+		<CheckBox ID="ShowQueueProductionButton"	Anchor="C,B"	Offset="320,-2"		Style="CityCheckbox"  String="{TXT_KEY_CITYVIEW_ACTIVATE:upper}"	TextAnchor="R,B" IsChecked="0" ToolTip="TXT_KEY_CITYVIEW_QUEUE_O_TT" BoxOnLeft="1" ButtonSize="64,64" CheckSize="64,64"/>
 	</Image>
 	
 	<!-- Civ Icon  -->

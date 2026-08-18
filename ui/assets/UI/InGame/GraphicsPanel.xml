@@ -10,37 +10,37 @@
 			<ScrollBar 	Offset="-60,0"	 Style="VertSlider"	Anchor="R,T" AnchorSide="O,I" Length="parent-200" AutoScrollBar="1" />
 			<Stack ID="GraphicMenu" Offset="0,0">
 				<Stack Anchor="L,T" StackGrowth="Bottom" String="Toggle Systems">
-					<CheckBox String="Terrain"				Anchor="R,C"  TextAnchor="R,C" ID="TerrainToggle" Void2="1" IsChecked="1"/>
-					<CheckBox String="Landmarks"			Anchor="R,C" TextAnchor="R,C"  ID="FeatureToggle" Void2="2" IsChecked="1"/>
-					<CheckBox String="Cities"				Anchor="R,C"  TextAnchor="R,C" ID="CityToggle" Void2="3" IsChecked="1"/>
-					<CheckBox String="Units"				Anchor="R,C" TextAnchor="R,C"  ID="UnitToggle" Void2="4" IsChecked="1"/>
-					<CheckBox String="Forests"				Anchor="R,C"  TextAnchor="R,C" ID="ForestToggle" Void2="5" IsChecked="1"/>
-					<CheckBox String="Particles"			Anchor="R,C" TextAnchor="R,C" ID="ParticleToggle" Void2="6" IsChecked="1"/>
-					<CheckBox String="FOW"					Anchor="R,C" TextAnchor="R,C" ID="FOWToggle" Void2="7" IsChecked="1"/>			
-					<CheckBox String="Overlay"				Anchor="R,C" TextAnchor="R,C" ID="Overlay" Void2="8" IsChecked="1"/>
-					<CheckBox String="DistanceFog"			Anchor="R,C" TextAnchor="R,C" ID="DistanceFOG" Void2="9" IsChecked="1"/>
-					<CheckBox String="Water"				Anchor="R,C" TextAnchor="R,C" ID="Water" Void2="10" IsChecked="1"/>
-					<CheckBox String="Toggle Overlay Style"	Anchor="R,C" TextAnchor="R,C" ID="SSOverlay" Void2="12" IsChecked="1"/>
-					<CheckBox String="Toggle Bloom"			Anchor="R,C" TextAnchor="R,C" ID="BloomToggle" Void2="13" IsChecked="1"/>
-					<CheckBox String="Toggle Depth-of-Field" Anchor="R,C" TextAnchor="R,C" ID="DoFToggle" Void2="14" IsChecked="1"/>
-					<CheckBox String="Toggle UIBlur"		Anchor="R,C" TextAnchor="R,C" ID="UIBlurToggle" Void2="15" IsChecked="1"/>
+					<CheckBox String="Terrain"				Anchor="R,C"  TextAnchor="R,C" ID="TerrainToggle" Void2="1" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Landmarks"			Anchor="R,C" TextAnchor="R,C"  ID="FeatureToggle" Void2="2" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Cities"				Anchor="R,C"  TextAnchor="R,C" ID="CityToggle" Void2="3" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Units"				Anchor="R,C" TextAnchor="R,C"  ID="UnitToggle" Void2="4" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Forests"				Anchor="R,C"  TextAnchor="R,C" ID="ForestToggle" Void2="5" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Particles"			Anchor="R,C" TextAnchor="R,C" ID="ParticleToggle" Void2="6" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="FOW"					Anchor="R,C" TextAnchor="R,C" ID="FOWToggle" Void2="7" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>			
+					<CheckBox String="Overlay"				Anchor="R,C" TextAnchor="R,C" ID="Overlay" Void2="8" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="DistanceFog"			Anchor="R,C" TextAnchor="R,C" ID="DistanceFOG" Void2="9" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Water"				Anchor="R,C" TextAnchor="R,C" ID="Water" Void2="10" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Toggle Overlay Style"	Anchor="R,C" TextAnchor="R,C" ID="SSOverlay" Void2="12" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Toggle Bloom"			Anchor="R,C" TextAnchor="R,C" ID="BloomToggle" Void2="13" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Toggle Depth-of-Field" Anchor="R,C" TextAnchor="R,C" ID="DoFToggle" Void2="14" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
+					<CheckBox String="Toggle UIBlur"		Anchor="R,C" TextAnchor="R,C" ID="UIBlurToggle" Void2="15" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
 				</Stack>
 
 				<Stack Ancor="L,T">
-					<RadioButton String="MIP Display None" ID="DisplayNOMIP_Button" Void2="1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" />
-					<RadioButton String="MIP Display Relative" ID="DisplayAbsMIP_Button" Void2="2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" />
-					<RadioButton String="MIP Display Absolute" ID="DisplayRelMIP_Button" Void2="3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" />
+					<RadioButton String="MIP Display None" ID="DisplayNOMIP_Button" Void2="1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+					<RadioButton String="MIP Display Relative" ID="DisplayAbsMIP_Button" Void2="2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+					<RadioButton String="MIP Display Absolute" ID="DisplayRelMIP_Button" Void2="3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
 				</Stack>
         <Stack Ancor="L,T">
-          <CheckBox String="Thread Submission" ID="ThreadedSubmit" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="5"/>
-          <CheckBox String="Enable MultiGPU" ID="MultiGPU" TextAnchor="R,C" TextAnchorSize="O,O" IsChecked="1" RadioGroup="one" Void2="7" />
-          <CheckBox String="CB Rebase" ID="CBRebase" TextAnchor="R,C" TextAnchorSide="0,0" IsChecked="1" RadioGroup="one" Void2="6"/>
+          <CheckBox String="Thread Submission" ID="ThreadedSubmit" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="5" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="Enable MultiGPU" ID="MultiGPU" TextAnchor="R,C" TextAnchorSize="O,O" IsChecked="1" RadioGroup="one" Void2="7" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="CB Rebase" ID="CBRebase" TextAnchor="R,C" TextAnchorSide="0,0" IsChecked="1" RadioGroup="one" Void2="6" ButtonSize="64,64" CheckSize="64,64"/>
 
-          <CheckBox String="Threading Mode 1" ID="Mode0" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="0"/>
-          <CheckBox String="Threading Mode 2" ID="Mode1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="1"/>
-          <CheckBox String="Threading Mode 3" ID="Mode2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="2"/>
-          <CheckBox String="Threading Mode 4" ID="Mode3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="3"/>
-          <CheckBox String="Threading Mode 5" ID="Mode4" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="4"/>
+          <CheckBox String="Threading Mode 1" ID="Mode0" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="0" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="Threading Mode 2" ID="Mode1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="1" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="Threading Mode 3" ID="Mode2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="2" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="Threading Mode 4" ID="Mode3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="3" ButtonSize="64,64" CheckSize="64,64"/>
+          <CheckBox String="Threading Mode 5" ID="Mode4" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" Void2="4" ButtonSize="64,64" CheckSize="64,64"/>
         </Stack>
 			</Stack>			
 		</ScrollPanel>

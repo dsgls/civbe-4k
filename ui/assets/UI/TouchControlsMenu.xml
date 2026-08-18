@@ -100,7 +100,7 @@
 
         <Image Anchor="C,B" Offset="0,200" Texture="HorizontalTrim.dds" Size="1848.10" /> 
 
-        <CheckBox String="TXT_KEY_TOUCH_HIDE" Offset="400,108" TextAnchor="R,C" Anchor="L,B" ID="DontShowAgainCheckbox"/>
+        <CheckBox String="TXT_KEY_TOUCH_HIDE" Offset="400,108" TextAnchor="R,C" Anchor="L,B" ID="DontShowAgainCheckbox" ButtonSize="64,64" CheckSize="64,64"/>
         
         <!-- Close Button -->
         <Box Anchor="C,B" AnchorSide="I.I" Offset="0,108"   Size="1820,112" Color="255,255,255,0" >

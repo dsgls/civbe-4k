@@ -13,9 +13,9 @@
 					<Label			ID="BodyText"		Anchor="L,T" Offset="360,0" String="Body" Style="WhiteShadow" WrapWidth="940" WrapGrowth="Bottom" />
 				</Container>								
 				<Stack				ID="ChoicesStack"	Anchor="L,T" Offset="20,40">
-					<RadioButton	ID="RadioOption1"	Style="QuestRewardChoiceText" String="reward1"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
-					<RadioButton	ID="RadioOption2"	Style="QuestRewardChoiceText" String="reward2"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
-					<RadioButton	ID="RadioOption3"	Style="QuestRewardChoiceText" String="reward3"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" />
+					<RadioButton	ID="RadioOption1"	Style="QuestRewardChoiceText" String="reward1"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" ButtonSize="64,64" CheckSize="64,64"/>
+					<RadioButton	ID="RadioOption2"	Style="QuestRewardChoiceText" String="reward2"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" ButtonSize="64,64" CheckSize="64,64"/>
+					<RadioButton	ID="RadioOption3"	Style="QuestRewardChoiceText" String="reward3"	TextAnchorSide="1" RadioGroup="QuestOptions" WrapWidth="1200" ButtonSize="64,64" CheckSize="64,64"/>
 				</Stack>								
 			</Stack>			
 			

@@ -14,7 +14,7 @@
           <Label  Anchor="C,Top" String="Reload Waves" />
         </Button>
 
-        <CheckBox String="Wireframe"		 Anchor="R,C"  TextAnchor="R,C" ID="TerrainWireframe" Void2="1" IsChecked="0"/>
+        <CheckBox String="Wireframe"		 Anchor="R,C"  TextAnchor="R,C" ID="TerrainWireframe" Void2="1" IsChecked="0" ButtonSize="64,64" CheckSize="64,64"/>
         <Label Offset="0,32" Anchor="L,T" String="Cached Tiles" ID="TerrainCacheTiles_Label" />
 				<Label Offset="0,0" Anchor="L,T" String="Cached Memory Usage" ID="TerrainCachedMemoryUsage_Label" />
 				<Label Offset="0,0" Anchor="L,T" String="Rendered Tiles" ID="TerrainRenderedTiles_Label" />

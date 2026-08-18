@@ -31,7 +31,7 @@
 			<Label ID="SaveButtonLabel" String="TXT_KEY_MENU_SAVE" Anchor="C,C"  Offset="0,0" Style="FontNormal18" FontStyle="shadow" Color0="255,255,255,255" Color1="0,0,0,100"/>
 		</GridButton>
 
-		<CheckBox Offset="80,96" Anchor="R,T"  String="TXT_KEY_STEAMCLOUD" Style="FontNormal18" TextAnchor="L,C"  IsChecked="0" ID="CloudCheck" />
+		<CheckBox Offset="80,96" Anchor="R,T"  String="TXT_KEY_STEAMCLOUD" Style="FontNormal18" TextAnchor="L,C"  IsChecked="0" ID="CloudCheck" ButtonSize="64,64" CheckSize="64,64"/>
 
 		<!-- Screen Title  -->
 		<Label Style="MenuTitleCaption" String="TXT_KEY_MENU_SAVE_BUTTON"/>

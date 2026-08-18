@@ -252,7 +252,7 @@
                 <Label Anchor="C,C" ID="Relationship" Style="GrayGlow20" Offset="10,2" String="RELATIONSHIP" />
               </Grid>
 
-              <CheckBox ID="ShowRelationshipCheckBox" Anchor="L,T" Offset="-10,-70" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="WhiteShadow16" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS" ToolTip="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS_TT" IsChecked="0" ConsumeMouse="1" Hidden="1"/>
+              <CheckBox ID="ShowRelationshipCheckBox" Anchor="L,T" Offset="-10,-70" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="WhiteShadow16" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS" ToolTip="TXT_KEY_DIPLOMACYUI_SHOWRELATIONSHIPS_TT" IsChecked="0" ConsumeMouse="1" Hidden="1" ButtonSize="64,64" CheckSize="64,64"/>
             </Grid>
           </Grid>
         </SlideAnim>

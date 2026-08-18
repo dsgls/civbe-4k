@@ -166,7 +166,7 @@
 					<Box									Anchor="L,T" Size="960,48" Offset="40,0" Color="255,255,255,0" >
 						<Stack			ID="MaxTurnStack"	Anchor="L,T" Size="926,64" Offset="20,0" StackGrowth="Right" Padding="40">
 							<CheckBox	ID="MaxTurnsCheck" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0"
-											String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ConsumeMouse="1" />
+											String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 							<Grid Hidden="1" Anchor="L,C"  Size="80,60" Style="GridColumnHeader" ID="MaxTurnsEditbox">
 								<EditBox ID="MaxTurnsEdit" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" Size="70,36" Anchor="C,C" Style="WhiteShadow20" NumberInput="1" MaxLength="3" CallOnChar="1" />
 							</Grid>
@@ -177,7 +177,7 @@
 					<Box Anchor="L,T" Size="960,50" Offset="60,0" Color="255,255,255,0" >
 
 						<Stack ID="TurnTimerStack" Anchor="L,T" Size="926,64" Offset="0,0" StackGrowth="Right" Padding="40">
-							<CheckBox ID="TurnTimerCheck"  ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED" ToolTip="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED_HELP" IsChecked="0" ConsumeMouse="1" />
+							<CheckBox ID="TurnTimerCheck"  ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED" ToolTip="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED_HELP" IsChecked="0" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 							<Grid Hidden="1" Anchor="L,C"  Size="80,60" Style="GridColumnHeader" ID="TurnTimerEditbox">
 								<EditBox ID="TurnTimerEdit" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" EditMode="1" Size="70,36" Anchor="C,C" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
 								<Label  Anchor="R,C"  AnchorSide="O,I" Offset="10,0" ID="TurnTimerUnits" String="" Style="FontNormal20" />
@@ -201,7 +201,7 @@
 					<Stack Anchor="L,T" Offset="0,24"   Size="256,256" StackGrowth="Bottom" Padding="6" Hidden="1">
 
 						<Box Anchor="L,B"  Offset="232,0" Color="255,255,255,24" Size="860,60" ConsumeMouse="1"  ID="LoadScenarioBox">
-							<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_LOAD_SCENARIO" ID="ScenarioCheck" ConsumeMouse="1"  />
+							<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_LOAD_SCENARIO" ID="ScenarioCheck" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 						</Box>
 
 						<GridButton  Style="ZoomButton" Anchor="L,T" Offset="0,0" Size="680,54"  ID="ModsButton">
@@ -415,13 +415,13 @@
 
 
 			<Button				ID="KickButton" 		Anchor="R,T"	Offset="10,6"	Size="48,48" Style="CloseButtonSmall" ToolTip="TXT_KEY_MP_KICK_PLAYER" />
-			<CheckBox			ID="LockCheck"			Anchor="R,B"	Offset="0,14" Size="80,80" ButtonTexture="BadgeScalable.DDS" CheckTexture="Badge.DDS" ToolTip="TXT_KEY_MP_LOCK_SLOT" />
+			<CheckBox			ID="LockCheck"			Anchor="R,B"	Offset="0,14" Size="80,80" ButtonTexture="BadgeScalable.DDS" CheckTexture="Badge.DDS" ToolTip="TXT_KEY_MP_LOCK_SLOT" ButtonSize="64,64" CheckSize="64,64"/>
 
 			<!-- Disabled Slot Panel Cover -->
 			<Box				ID="DisableBlock"		Anchor="L,T"	Offset="0,66" Size="900,214"  Color="Black.220" ConsumeMouse="1" Hidden="1" />
 
 			<!-- Enable/Disable Checkbox -->
-			<CheckBox			ID="EnableCheck"		Anchor="R,T"	Offset="12,6" ToolTip="TXT_KEY_MP_DISABLE_SLOT" Hidden="1"/>
+			<CheckBox			ID="EnableCheck"		Anchor="R,T"	Offset="12,6" ToolTip="TXT_KEY_MP_DISABLE_SLOT" Hidden="1" ButtonSize="64,64" CheckSize="64,64"/>
 
 
 			<!-- Ping Time -->
@@ -440,7 +440,7 @@
 
 	<!-- Editiable Game Option Checkbox Instance -->
 	<Instance Name="GameOptionInstance">
-		<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" Style="FontNormal20" Offset="20,0" TextOffset="80,0" IsChecked="0" ID="GameOptionRoot" ConsumeMouse="1" />
+		<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" Style="FontNormal20" Offset="20,0" TextOffset="80,0" IsChecked="0" ID="GameOptionRoot" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 	</Instance>
 
 	<!-- Editiable Game Option Dropdown Instance -->

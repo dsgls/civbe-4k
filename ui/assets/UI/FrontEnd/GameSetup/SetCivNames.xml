@@ -39,7 +39,7 @@
 
 					<Stack				ID="PasswordStack"		Anchor="L,T" Size="576,64" StackGrowth="Bottom">
 						<Box									Anchor="L,C"  Size="322,64" Color="255,255,200,0" >
-							<CheckBox	ID="UsePasswordCheck"	ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_MP_USE_PASSWORD" ToolTip="TXT_KEY_MP_USE_PASSWORD_TT" IsChecked="0" ConsumeMouse="1" />
+							<CheckBox	ID="UsePasswordCheck"	ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_MP_USE_PASSWORD" ToolTip="TXT_KEY_MP_USE_PASSWORD_TT" IsChecked="0" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 						</Box>
 						
 						<Stack			ID="PasswordTextStack"	Anchor="L,T" Size="576,64" Offset="68,48" StackGrowth="Bottom" Padding="60">							

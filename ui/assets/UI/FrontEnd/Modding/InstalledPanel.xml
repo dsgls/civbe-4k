@@ -150,7 +150,7 @@
 				</ScrollPanel>
 			</Box>
 
-			<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Right" Style="FontNormal20" Offset="60,440" TextOffset="80,0" IsChecked="0" ID="DeleteUserData" String="Delete Userdata" ConsumeMouse="1"  />
+			<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" TextAnchorSide="Right" Style="FontNormal20" Offset="60,440" TextOffset="80,0" IsChecked="0" ID="DeleteUserData" String="Delete Userdata" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 			<Container Size="800,84" Anchor="C,B" Offset="0,100">
 				<GridButton Anchor="R,T" Style="BaseButton"  ID="Yes" Size="300,84">
 					<Label Anchor="C,C" Offset="0,0" String="TXT_KEY_YES_BUTTON" ColorSet="Beige_Black" Style="FontNormal18" FontStyle="Shadow" />

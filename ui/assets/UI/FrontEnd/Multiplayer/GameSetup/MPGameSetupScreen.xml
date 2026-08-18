@@ -12,7 +12,7 @@
 					<EditBox	ID="NameBox"			Style="ShellTextEdit"				MaxLength="15"/>
 				</Grid>
 			</Stack>
-			<CheckBox		ID="PrivateGameCheckbox" Anchor="R,C" Offset="40,0" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds"  TextAnchorSide="Left" Style="ShellLabelText" TextOffset="64,-4" String="TXT_KEY_MULTIPLAYER_HOST_PRIVATE_GAME" ConsumeMouse="1" />
+			<CheckBox		ID="PrivateGameCheckbox" Anchor="R,C" Offset="40,0" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds"  TextAnchorSide="Left" Style="ShellLabelText" TextOffset="64,-4" String="TXT_KEY_MULTIPLAYER_HOST_PRIVATE_GAME" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 		</Box>
 
 		<!-- One turned off, based on type of screen that's up. - good choise for a refactorin'. -->
@@ -87,7 +87,7 @@
 				<Box									Anchor="L,T" Size="960,48" Offset="20,0" Color="255,255,255,0" >
 					<Stack			ID="MaxTurnStack"	Anchor="L,T" Size="926,64" Offset="20,0" StackGrowth="Right" Padding="40">
 						<CheckBox	ID="MaxTurnsCheck" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0"
-										String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ConsumeMouse="1" />
+										String="TXT_KEY_AD_SETUP_MAX_TURNS" ToolTip="TXT_KEY_AD_SETUP_MAX_TURNS_TT" IsChecked="0" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 						<Grid Hidden="1" Anchor="L,C"  Size="80,60" Style="GridColumnHeader" ID="MaxTurnsEditbox">
 							<EditBox ID="MaxTurnsEdit" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" Size="70,36" Anchor="C,C" Style="WhiteShadow20" NumberInput="1" MaxLength="3" CallOnChar="1" />
 						</Grid>
@@ -98,7 +98,7 @@
 				<Box Anchor="L,T" Size="960,50" Offset="40,0" Color="255,255,255,0" >
 
 					<Stack ID="TurnTimerStack" Anchor="L,T" Size="926,64" Offset="0,0" StackGrowth="Right" Padding="40">
-						<CheckBox ID="TurnTimerCheck"  ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED" ToolTip="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED_HELP" IsChecked="0" ConsumeMouse="1" />
+						<CheckBox ID="TurnTimerCheck"  ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Style="FontNormal20" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED" ToolTip="TXT_KEY_GAME_OPTION_END_TURN_TIMER_ENABLED_HELP" IsChecked="0" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 						<Grid Hidden="1" Anchor="L,C"  Size="80,60" Style="GridColumnHeader" ID="TurnTimerEditbox">
 							<EditBox ID="TurnTimerEdit" CursorColor="62,75,95,255" HighlightColor="26,42,80,255" Offset="6,-2" EditMode="1" Size="70,36" Anchor="C,C" Style="WhiteShadow20" NumberInput="1" MaxLength="3" />
 							<Label  Anchor="R,C"  AnchorSide="O,I" Offset="10,0" ID="TurnTimerUnits" String="" Style="FontNormal20" />
@@ -122,7 +122,7 @@
 				<Stack Anchor="L,T" Offset="0,24"   Size="256,256" StackGrowth="Bottom" Padding="6" Hidden="1">
 
 					<Box Anchor="L,B"  Offset="232,0" Color="White.24" Size="860,60" ConsumeMouse="1"  ID="LoadScenarioBox">
-						<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_LOAD_SCENARIO" ID="ScenarioCheck" ConsumeMouse="1"  />
+						<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds" Anchor="L,C" TextAnchorSide="Right" TextOffset="80,0" String="TXT_KEY_LOAD_SCENARIO" ID="ScenarioCheck" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 					</Box>
 
 					<GridButton  Style="ZoomButton" Anchor="L,T" Offset="0,0" Size="680,54"  ID="ModsButton">
@@ -164,7 +164,7 @@
 
 	<Instance Name="GameOptionInstance">
 		<CheckBox   ID="GameOptionRoot" ButtonTexture="assets/UI/Art/Controls/CheckBox2TheBox.dds"
-					Style="FontNormal20" IsChecked="0" BoxOnLeft="True" Anchor="L,C"/>
+					Style="FontNormal20" IsChecked="0" BoxOnLeft="True" Anchor="L,C" ButtonSize="64,64" CheckSize="64,64"/>
 	</Instance>
 
 	<Instance Name="DropDownOptionInstance">

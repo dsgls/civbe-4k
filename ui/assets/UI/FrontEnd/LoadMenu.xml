@@ -33,8 +33,8 @@
 
       <!-- Filters -->
       <Stack StackGrowth="Right" Anchor="R,T" Offset="80,140" Padding="10">
-        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_AUTOSAVES" TextAnchor="L,C"  IsChecked="0" ID="AutoCheck" />
-        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_STEAMCLOUD" TextAnchor="L,C"  IsChecked="0" ID="CloudCheck" />
+        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_AUTOSAVES" TextAnchor="L,C"  IsChecked="0" ID="AutoCheck" ButtonSize="64,64" CheckSize="64,64"/>
+        <CheckBox Style="FontNormal18" Anchor="R,T"  String="TXT_KEY_STEAMCLOUD" TextAnchor="L,C"  IsChecked="0" ID="CloudCheck" ButtonSize="64,64" CheckSize="64,64"/>
       </Stack>
 
       <!-- Screen Title  -->

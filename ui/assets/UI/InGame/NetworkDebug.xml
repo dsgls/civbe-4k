@@ -4,7 +4,7 @@
 		<Stack Anchor="L,T" Offset="20,40" Padding = "0" StackGrowth="Bottom" ID="NetworkDebugMenu">
 			<Button Style="Button_128" Anchor="C,Top" Void2="0" ID="Exit_Button" String="Exit"/>
 			<Stack Anchor="L,T" StackGrowth="Bottom" String="Toggle Systems">
-				<CheckBox String="Verbose Logging"		 Anchor="L,C"  TextAnchor="R,C" ID="VerboseLoggingToggle" Void2="1" IsChecked="1"/>
+				<CheckBox String="Verbose Logging"		 Anchor="L,C"  TextAnchor="R,C" ID="VerboseLoggingToggle" Void2="1" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
 				<Box Anchor="L,T" Size="360,32" Padding="0,0" Color="0,0,0,0" >
 					<Label Anchor="L,T" Offset="16,10" String="Max Messages:"/>
 					<Label Anchor="R,T" Offset="100,10" ID="MaxMessages"/>

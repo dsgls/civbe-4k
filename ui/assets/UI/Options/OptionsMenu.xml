@@ -30,14 +30,14 @@
       <Container Size="parent,1000" Offset="0,88" ID="GamePanel" Hidden="1" >
         <Grid Anchor="L,C" Size="800,900" Offset="60,80" Style="CivilopediaListItem">
           <Stack StackPadding="30" Anchor="C,C" Offset="0,-10">
-            <CheckBox ID="AutoWorkersDontReplaceCB"			String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE_TT" />
-            <CheckBox ID="AutoWorkersDontRemoveFeaturesCB"	String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES"	LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES_TT" />
-            <CheckBox ID="NoRewardPopupsCheckbox"			String="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS_TT" />
-            <CheckBox ID="NoTileRecommendationsCheckbox"	String="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS_TT" />
-            <CheckBox ID="CivilianYieldsCheckbox"			String="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS_TT"  />
-            <CheckBox ID="QuickSelectionAdvCheckbox"		String="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE_TT"  />
-            <CheckBox ID="DisablePlanetfallFXCheckbox"		String="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX"				LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX_TT" />
-            <CheckBox ID="AutoLoginFiraxisLiveCheckbox" String="TXT_KEY_OPSCREEN_AUTO_LOGIN"            LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_LOGIN_TT" />
+            <CheckBox ID="AutoWorkersDontReplaceCB"			String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REPLACE_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="AutoWorkersDontRemoveFeaturesCB"	String="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES"	LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_WORKERS_DONT_REMOVE_FEATURES_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="NoRewardPopupsCheckbox"			String="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_REWARD_POPUPS_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="NoTileRecommendationsCheckbox"	String="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_NO_TILE_RECOMMENDATIONS_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="CivilianYieldsCheckbox"			String="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS"					LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_CIVILIAN_YIELDS_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="QuickSelectionAdvCheckbox"		String="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE"			LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_QUICK_SELECTION_ADVANCE_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="DisablePlanetfallFXCheckbox"		String="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX"				LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_DISABLE_PLANETFALL_FX_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="AutoLoginFiraxisLiveCheckbox" String="TXT_KEY_OPSCREEN_AUTO_LOGIN"            LeadingOffset="4" WrapWidth="720" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_AUTO_LOGIN_TT" ButtonSize="64,64" CheckSize="64,64"/>
             <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES" Size="600,64" ID="ResetMy2KMessagesButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_MY2K_MESSAGES_TT" />
           </Stack>
         </Grid>
@@ -50,13 +50,13 @@
               <Label Style="GrayGlow" Anchor="L,C" AnchorSide="o,i" Offset="20,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
             </PullDown>
             <GridButton Anchor="C,B" String="TXT_KEY_OPSCREEN_RESET_TUTORIAL" Size="600,64" ID="ResetTutorialButton" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_RESET_TUTORIAL_TT"/>
-            <CheckBox ID="HideAdvisorIntroCheckBox"	String="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO_TT" />
-            <CheckBox ID="SinglePlayerAutoEndTurnCheckBox"	String="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN_TT" />
-            <CheckBox ID="SPQuickCombatCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT_TT" />
-            <CheckBox ID="SPQuickMovementCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT_TT" />
-            <CheckBox ID="MultiplayerAutoEndTurnCheckbox"	String="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN_TT" />
-			      <CheckBox ID="MPQuickCombatCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT_TT" />
-            <CheckBox ID="MPQuickMovementCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT"	WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT_TT" />
+            <CheckBox ID="HideAdvisorIntroCheckBox"	String="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_HIDE_ADVISOR_INTRO_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="SinglePlayerAutoEndTurnCheckBox"	String="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_AUTO_END_TURN_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="SPQuickCombatCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT"			WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_COMBAT_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="SPQuickMovementCheckBox"			String="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_SPLAYER_QUICK_MOVEMENT_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="MultiplayerAutoEndTurnCheckbox"	String="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_AUTO_END_TURN_TT" ButtonSize="64,64" CheckSize="64,64"/>
+			      <CheckBox ID="MPQuickCombatCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT"		WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_COMBAT_TT" ButtonSize="64,64" CheckSize="64,64"/>
+            <CheckBox ID="MPQuickMovementCheckbox"			String="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT"	WrapWidth="700" Style="WhiteShadow" Anchor="R,C" ToolTip="TXT_KEY_OPSCREEN_MULTIPLAYER_QUICK_MOVEMENT_TT" ButtonSize="64,64" CheckSize="64,64"/>
           </Stack>
         </Grid>
       </Container>
@@ -81,18 +81,18 @@
               </PullDown>
             </Stack>
             <Stack Offset="0,0" Anchor="L,C">
-              <CheckBox ID="ZoomCheck" BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_OPSCREEN_DYNAMIC_CAMERA_ZOOM"	IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_DYNAMIC_CAMERA_ZOOM_TT" />
-              <CheckBox ID="ScoreListCheck"	BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"  String="TXT_KEY_OPSCREEN_SCORE_LIST"			IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_SCORE_LIST_TT" />
-              <CheckBox ID="MPScoreListCheck"		BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_OPSCREEN_MP_SCORE_LIST"			IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_MP_SCORE_LIST_TT" />
-              <CheckBox ID="AutoUnitCycleCheck"	BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_AUTO_UNIT_CYCLE"				IsChecked="0" ToolTip="TXT_KEY_AUTO_UNIT_CYCLE_TT" />
+              <CheckBox ID="ZoomCheck" BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_OPSCREEN_DYNAMIC_CAMERA_ZOOM"	IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_DYNAMIC_CAMERA_ZOOM_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox ID="ScoreListCheck"	BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"  String="TXT_KEY_OPSCREEN_SCORE_LIST"			IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_SCORE_LIST_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox ID="MPScoreListCheck"		BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_OPSCREEN_MP_SCORE_LIST"			IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_MP_SCORE_LIST_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox ID="AutoUnitCycleCheck"	BoxOnLeft="true" Style="WhiteShadow" Anchor="L,T" Offset="0,0"	String="TXT_KEY_AUTO_UNIT_CYCLE"				IsChecked="0" ToolTip="TXT_KEY_AUTO_UNIT_CYCLE_TT" ButtonSize="64,64" CheckSize="64,64"/>
             </Stack>
           </Grid>
           <!--front end only interface options-->
           <Grid Size="1930,340" Anchor="L,T" Style="CivilopediaListItem">
             <Stack Anchor="R,T" Padding="16" Hidden="0" >
-              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA" IsChecked="1" ID="EnableMapInertiaCheck" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA_TT" />
-              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY" IsChecked="1" ID="EnableTransparentMinimap" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY_TT" />
-              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO" IsChecked="1" ID="SkipIntroVideoCheck" ToolTip="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO_TT" />
+              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA" IsChecked="1" ID="EnableMapInertiaCheck" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MAP_INERTIA_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY" IsChecked="1" ID="EnableTransparentMinimap" ToolTip="TXT_KEY_OPSCREEN_ENABLE_MINIMAP_TRANSPARENCY_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO" IsChecked="1" ID="SkipIntroVideoCheck" ToolTip="TXT_KEY_OPSCREEN_SKIP_INTRO_VIDEO_TT" ButtonSize="64,64" CheckSize="64,64"/>
               <!--  Leaving the hooks for this in, just in case we decide to bring back small UI versions for tablet/phone in expansions
 			  <CheckBox Anchor="R,C" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_AUTOSIZE_UI" IsChecked="1" ID="AutoUIAssetsCheck" ToolTip="TXT_KEY_OPSCREEN_AUTOSIZE_UI_TT" />              
               <CheckBox Anchor="R,C" String="TXT_KEY_OPSCREEN_USE_SMALL_UI" Style="WhiteShadow" IsChecked="0" ID="SmallUIAssetsCheck" NoStateChange="1" Disabled="1" ToolTip="TXT_KEY_OPSCREEN_USE_SMALL_UI_TT" />
@@ -141,7 +141,7 @@
               <PullDown ID="MSAAPull"			Style="GenericPullDown" Anchor="R,T" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" Hidden="0" >
                 <Label							Style="GrayGlow" Anchor="L,C" Offset="20,0" AnchorSide="O,I" String="TXT_KEY_OPSCREEN_MSAA" />
               </PullDown>
-              <CheckBox ID="FullscreenCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FULLSCREEN" IsChecked="0" />
+              <CheckBox ID="FullscreenCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FULLSCREEN" IsChecked="0" ButtonSize="64,64" CheckSize="64,64"/>
             </Stack>
             <Grid								Anchor="C,B" Offset="0,-12" Size="parent,100" Style="ProductionListHeaderGrid">
               <GridButton ID="ApplyResButton"	Anchor="C,C" Size="500,64" String="{TXT_KEY_OPSCREEN_APPLY_RESOLUTION:upper}" Offset="0,-6" Style="BaseButton" ToolTip="TXT_KEY_OPSCREEN_APPLY_RESOLUTION_TT"/>
@@ -151,9 +151,9 @@
           <!-- Other Video Options-->
           <Grid Anchor="L,T" Size="940,140" Style="CivilopediaListItem">
             <Stack Offset="0,0" Anchor="R,C">
-              <CheckBox ID="VSyncCheck"			Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_VSYNC" IsChecked="1" ToolTip="TXT_KEY_OPSCREEN_RESTART_REQ_TT" />
-              <CheckBox ID="FadeShadowsCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FADE_SHADOWS" IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_FADE_SHADOWS_TT" Hidden="1"/>
-              <CheckBox ID="ThreadedRenderingCheck" Style="GrayGlow" Ancor="R,T" String="TXT_KEY_OPSCREEN_THREADED_RENDERING" IsChecked="1" ToolTip="TXT_KEY_OPSCREEN_RESTART_REQ_TT" />
+              <CheckBox ID="VSyncCheck"			Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_VSYNC" IsChecked="1" ToolTip="TXT_KEY_OPSCREEN_RESTART_REQ_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox ID="FadeShadowsCheck"	Style="GrayGlow" Anchor="R,T" String="TXT_KEY_OPSCREEN_FADE_SHADOWS" IsChecked="0" ToolTip="TXT_KEY_OPSCREEN_FADE_SHADOWS_TT" Hidden="1" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox ID="ThreadedRenderingCheck" Style="GrayGlow" Ancor="R,T" String="TXT_KEY_OPSCREEN_THREADED_RENDERING" IsChecked="1" ToolTip="TXT_KEY_OPSCREEN_RESTART_REQ_TT" ButtonSize="64,64" CheckSize="64,64"/>
             </Stack>
           </Grid>
         </Stack>
@@ -161,7 +161,7 @@
         <!-- Fake background for sub-options -->
         <Grid Anchor="R,T" Offset="60,140" Size="940,1020" Style="CivilopediaListItem">
           <Grid Size="parent,90" Color="255,255,255,200" Style="GridColumnHeader">
-            <CheckBox Anchor="R,C" Size="460,64" Style="GrayGlow" String="TXT_KEY_OPSCREEN_SHOW_ADVANCED_GRAPHICS" IsChecked="0" ID="AdvancedOptionsCheck"/>
+            <CheckBox Anchor="R,C" Size="460,64" Style="GrayGlow" String="TXT_KEY_OPSCREEN_SHOW_ADVANCED_GRAPHICS" IsChecked="0" ID="AdvancedOptionsCheck" ButtonSize="64,64" CheckSize="64,64"/>
           </Grid>
           <Stack ID="AdvancedGraphicsStack" Padding="20" Hidden="1" Anchor="R,T" Offset="0,110" >
             <PullDown Style="GenericPullDown" ScrollThreshold="400" SpaceForScroll="0" Size="460,64" ID="LeaderPull" >
@@ -202,12 +202,12 @@
 				
 			<Container Size="400,52">
 				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="20,10" String="TXT_KEY_OPSCREEN_UI_BLUR" />
-	            <CheckBox ID="UIBlurCheck"	Style="GrayGlow" Offset="-14,0" String=""	IsChecked="1" />
+	            <CheckBox ID="UIBlurCheck"	Style="GrayGlow" Offset="-14,0" String=""	IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>
 			</Container>
 
 			<Container Size="400,52" >
 				<Label	Style="GrayGlow"  AnchorSide="o,i" Align="right"  Offset="20,10" String="TXT_KEY_OPSCREEN_MAP_BLUR" />
-				<CheckBox ID="MapBlurCheck"	Style="GrayGlow" Offset="-14,0" String="" IsChecked="1" />  
+				<CheckBox ID="MapBlurCheck"	Style="GrayGlow" Offset="-14,0" String="" IsChecked="1" ButtonSize="64,64" CheckSize="64,64"/>  
 			</Container>
 			  
           </Stack>
@@ -262,8 +262,8 @@
           </Grid>
           <Box Anchor="C,T" Offset="0,80" Size="750,320" Color="0,0,0,0">
             <Stack Anchor="L,T" Padding="0" StackGrowth="Bottom">
-              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySteamInviteCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE_TT" />
-              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifyEmailCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySteamInviteCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_STEAM_INVITE_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="TurnNotifyEmailCheckbox" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_TT" ButtonSize="64,64" CheckSize="64,64"/>
               <Label Anchor="R,T" Offset="0,20" LeadingOffset="-20" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_EMAIL_ADDRESS_TT" >
                 <Grid Anchor="R,C" Offset="10,0" AnchorSide="O,I"  Size="370,60" Style="GridColumnHeader">
                   <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="1" Size="360,36" Anchor="C,C" ID="TurnNotifyEmailAddressEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
@@ -279,12 +279,12 @@
           </Grid>
           <Box Anchor="C,T" Offset="0,60" Size="750,320" Color="0,0,0,0">
             <Stack Anchor="L,T" Padding="0" StackGrowth="Bottom">
-              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatEnabledCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED_TT" />
-              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="PushToTalkCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatEnabledCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_ENABLED_TT" ButtonSize="64,64" CheckSize="64,64"/>
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="PushToTalkCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_PUSH_TO_TALK_TT" ButtonSize="64,64" CheckSize="64,64"/>
               <Slider Anchor="R,T" Offset="0,40" Length="600"  ID="VoiceChatSquelchSlider" Style="Slider" WheelSteps="10" >
                 <Label Anchor="C,T" AnchorSide="i,o" ID="VoiceChatSquelchText" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_VOICECHAT_SQUELCH_SLIDER" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_SQUELCH_SLIDER_TT" />
               </Slider>
-              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_TEST" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatTestCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_TEST_TT" />
+              <CheckBox Anchor="R,T" Offset="-64,0" String="TXT_KEY_OPSCREEN_VOICECHAT_TEST" Style="WhiteShadow" LeadingOffset="0" WrapWidth="700" ID="VoiceChatTestCheckbox" ToolTip="TXT_KEY_OPSCREEN_VOICECHAT_TEST_TT" ButtonSize="64,64" CheckSize="64,64"/>
             </Stack>
           </Box>
         </Grid>
@@ -312,7 +312,7 @@
                   <EditBox CursorColor="62,75,95,255" HighlightColor="26,42,80,255" EditMode="1" FocusStop="4" Size="60,36" Anchor="C,C" ID="TurnNotifySmtpPortEdit" Style="WhiteShadow" NumberInput="0" MaxLength="64" />
                 </Grid>
               </Label>
-            <CheckBox Anchor="R,T" Offset="0,-14" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySmtpTLS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS_TT" />
+            <CheckBox Anchor="R,T" Offset="0,-14" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS" LeadingOffset="0" WrapWidth="700" ID="TurnNotifySmtpTLS" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_TLS_TT" ButtonSize="64,64" CheckSize="64,64"/>
             </Stack>
             <Label Anchor="R,T" Offset="0,-40" WrapWidth="600" Style="WhiteShadow" String="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME" ToolTip="TXT_KEY_OPSCREEN_TURN_NOTIFY_SMTP_USERNAME_TT" >
               <Grid Offset="10,0" Anchor="R,C" AnchorSide="O,I"  Size="170,60" Style="GridColumnHeader">

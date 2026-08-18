@@ -79,7 +79,7 @@
 						<Label Style="GrayGlow" Anchor="L,C" AnchorSide="L,C" Offset="20,0" String="{TXT_KEY_OPSCREEN_TUTORIAL_LEVEL:upper}" />
 						<PullDown Anchor="L,C" Style="GenericPullDown" ScrollThreshold="400"   SpaceForScroll="0" Size="500,64" ID="TutorialLevelPull" ToolTip="TXT_KEY_OPSCREEN_TUTORIAL_LEVEL_TT" />
 					</Stack>
-					<CheckBox ID="DontShowAdvisorIntroCheckBox"	TextAnchorSide="Right" String="TXT_KEY_DONT_SHOW_ADVISOR_INTRO"	ToolTip="TXT_KEY_DONT_SHOW_ADVISOR_INTRO_TT" LeadingOffset="0" WrapWidth="700" Style="WhiteShadow" Anchor="L,C" />
+					<CheckBox ID="DontShowAdvisorIntroCheckBox"	TextAnchorSide="Right" String="TXT_KEY_DONT_SHOW_ADVISOR_INTRO"	ToolTip="TXT_KEY_DONT_SHOW_ADVISOR_INTRO_TT" LeadingOffset="0" WrapWidth="700" Style="WhiteShadow" Anchor="L,C" ButtonSize="64,64" CheckSize="64,64"/>
 				</Stack>
 
 				<Grid Style="Grid9DetailFive140" Anchor="C,B" Size="parent,162">

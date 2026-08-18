@@ -24,7 +24,7 @@
       <Label	ID="UnitInfo"		Anchor="L,T" Offset="132,60" Style="GrayShadow"  />
     </Grid>
     <Grid Style="GridColumnHeader" Size="parent-14,130" Offset="0,200">
-      <CheckBox ID="AutoRenewCheckBox" TextAnchor="R,C" Anchor="C,T" Style="GrayShadow" String="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW" ToolTip="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW_TT" />
+      <CheckBox ID="AutoRenewCheckBox" TextAnchor="R,C" Anchor="C,T" Style="GrayShadow" String="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW" ToolTip="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_AUTO_RENEW_TT" ButtonSize="64,64" CheckSize="64,64"/>
 			<Box Anchor="C,B" Size="872,80" Color="0,0,0,0">
 				<PullDown  Anchor="C,C" Offset="0,4" Style="GenericPullDown" ScrollThreshold="220" Size="520,54" AutoSizePopUp="1" SpaceForScroll="0" ID="SortByPullDown" />
 			</Box>

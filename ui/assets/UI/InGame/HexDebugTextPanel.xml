@@ -4,16 +4,16 @@
 		<Stack Anchor="L,T" Offset="40,40" Padding="0" StackGrowth="Bottom" ID="HexDebugTextMenu">
 			<Button Style="Button_128" Anchor="C,Top" Void2="0" ID="Exit_Button" String="Exit"/>
 			<Stack Ancor="L,T">
-				<RadioButton String="OFF" ID="HexDebug_Off_Button" Void2="1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one"/>
-				<RadioButton String="Start Fertility" ID="HexDebug_StartFertility_Button" Void2="2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Settler Fertility" ID="HexDebug_SettlerFert_Button" Void2="3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Tactical Analysis" ID="HexDebug_WorkerPriority_Button" Void2="4" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Revealed" ID="HexDebug_Revealed_Button" Void2="5" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Danger Value" ID="HexDebug_DangerValue_Button" Void2="6" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Visible" ID="HexDebug_Visible_Button" Void2="7" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Artifact Sites" ID="HexDebug_Artifact_Button" Void2="8" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-				<RadioButton String="Targeting Path" ID="HexDebug_Targeting_Button" Void2="9" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
-        <RadioButton String="Plot Coords" ID="HexDebug_PlotCoords_Button" Void2="10" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one"/>
+				<RadioButton String="OFF" ID="HexDebug_Off_Button" Void2="1" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="1" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Start Fertility" ID="HexDebug_StartFertility_Button" Void2="2" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Settler Fertility" ID="HexDebug_SettlerFert_Button" Void2="3" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Tactical Analysis" ID="HexDebug_WorkerPriority_Button" Void2="4" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Revealed" ID="HexDebug_Revealed_Button" Void2="5" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Danger Value" ID="HexDebug_DangerValue_Button" Void2="6" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Visible" ID="HexDebug_Visible_Button" Void2="7" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Artifact Sites" ID="HexDebug_Artifact_Button" Void2="8" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+				<RadioButton String="Targeting Path" ID="HexDebug_Targeting_Button" Void2="9" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
+        <RadioButton String="Plot Coords" ID="HexDebug_PlotCoords_Button" Void2="10" TextAnchor="R,C" TextAnchorSide="O,O" IsChecked="0" RadioGroup="one" ButtonSize="64,64" CheckSize="64,64"/>
       </Stack>
 			<Label Offset="20,0" Anchor="R,C" AnchorSide="O,I" String="Player:">
 				<Button Anchor="R,C" AnchorSide="O,I" Style="Button_16" Void1="-1" ID="HexDebug_ButtonDown" String="&lt;">

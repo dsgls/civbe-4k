@@ -33,7 +33,7 @@
 			<Image Anchor="L,C" Offset="0,0" Size="64,64"   Texture="Assets/UI/Art/Icons/CivSymbolsColor256.dds"  ID="LegendIcon"/>
 			<Line Color="0,255,255,120" Start="80,16" End="220,16" Width="4" ID="LegendLine"/>
 			<Label Offset="72,28" String="America" Style="FontNormal14" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" ID="LegendName" />
-			<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox.dds" Anchor="R,C" Offset="10,0" TextOffset="80,0" IsChecked="1" ID="ShowHide" ConsumeMouse="1"  />
+			<CheckBox ButtonTexture="assets/UI/Art/Controls/CheckBox.dds" Anchor="R,C" Offset="10,0" TextOffset="80,0" IsChecked="1" ID="ShowHide" ConsumeMouse="1" ButtonSize="64,64" CheckSize="64,64"/>
 		</Box>
 	</Instance>
 

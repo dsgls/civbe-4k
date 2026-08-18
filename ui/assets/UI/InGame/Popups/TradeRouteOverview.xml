@@ -24,7 +24,7 @@
 					<Label ID="TurnsLeft" Anchor="C,C" Offset="0,0" Style="FontNormal18" FontStyle="Stroke" />
 				</Box>
         <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Size="140,84">
-          <CheckBox ID="AutoRenew" Anchor="C,C" String=""/>
+          <CheckBox ID="AutoRenew" Anchor="C,C" String="" ButtonSize="64,64" CheckSize="64,64"/>
         </Box>
         <Box Anchor="L,C" Color="0,0,0,0" Offset="0,0" Padding="4,0" Size="260,84">
           <Label ID="TradeRouteInfo" Anchor="L,C" Offset="6,0" Style="FontNormal18" FontStyle="Stroke" WrapWidth="440"/>
