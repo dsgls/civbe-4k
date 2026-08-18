@@ -149,6 +149,21 @@ arithmetic and pins each hooked control to one cell; every call site keeps the
 stock key. When a Lua variable serves both as a hookup key and a pixel stride,
 it is split in two.
 
+### CheckBox geometry is `ButtonSize`/`CheckSize`, default 32x32
+
+A `<CheckBox>` (and `<RadioButton>`, same code path) sizes its box from
+`ButtonSize` and its checkmark from `CheckSize` — hardcoded 32x32 defaults, the
+texture's natural size is never consulted. Each drives everything at once: draw
+size, sampled UV span (size / texture dims), the 4-state band stride, the hit
+rect, and the layout reservation (control width = text + box, box anchored to
+one edge, text to the other). `Size` on a CheckBox is parsed and then
+overwritten — ignored. Default art is `ForgeUI_CheckBoxButton.dds` /
+`ForgeUI_CheckMark.dds`, hardcoded in the engine (`Debug/CoreStyles.xml` names
+the same files). Consequence: every CheckBox/RadioButton needs explicit
+`ButtonSize`/`CheckSize` at 2x of its art's band size — 64,64 for all stock art
+except `MPPlayerReady.dds` (128). Established by decompilation
+(`CheckBoxControl_*` in the Ghidra project, see CLAUDE.md).
+
 ### The atlas database over-declares its sheets
 
 `IconsPerRow x IconsPerColumn` is an upper bound, not the image size
@@ -255,6 +270,7 @@ Symptoms map to causes reliably:
 | A button showing two stacked states; hover shows garbage | 1x button texture under a 2x control (state bands index by control height) |
 | Correct icons, wrong positions: overlapping, cramped, or half-width layouts | Unscaled Lua layout — a file-level or function-local constant, or the pixel term of a mixed expression (`GetScreenSizeVal` consumers are the classic case) |
 | Text ellipsized with room to spare | Unscaled Lua truncate width |
+| Checkbox overlapping its label or hanging past its frame; quarter-cropped box art | CheckBox missing explicit `ButtonSize`/`CheckSize` (engine defaults 32x32) |
 | Icon shows a quarter of the right image | Texture-space coordinate doubled twice, or a hookup key scaled (never scale `IconHookup`/`IconLookup` size arguments) |
 
 For Lua suspects, diff the file against its `reference/` copy: a pixel
