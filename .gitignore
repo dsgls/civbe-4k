@@ -21,3 +21,11 @@ __pycache__/
 
 # Upscaler checkpoints, downloaded on demand and hash-verified.
 /civbe-upscale/models/
+
+# ghidra-cli — ignore the binary project DB and runtime state.
+ghidra-projects/*/logs
+ghidra-projects/*/run
+ghidra-projects/*/tmp
+ghidra-projects/*/*.gpr
+ghidra-projects/*/*.rep
+ghidra-projects/*/*.lock*
