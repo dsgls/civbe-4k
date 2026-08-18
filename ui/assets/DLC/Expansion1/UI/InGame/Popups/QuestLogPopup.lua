@@ -483,7 +483,7 @@ function InsertQuestEntry(quest)
 		local descriptionMessageInstance = {};
 		ContextPtr:BuildInstanceForControl("MessageEntryInstance", descriptionMessageInstance, Controls.MainContentStack);
 		descriptionMessageInstance.Label:LocalizeAndSetText(quest:GetPrologue());
-		descriptionMessageInstance.Grid:SetSizeX(Controls.MainContentStack:GetSizeX() - 2);
+		descriptionMessageInstance.Grid:SetSizeX(Controls.MainContentStack:GetSizeX() - 4);
 		descriptionMessageInstance.Grid:SetSizeY(descriptionMessageInstance.Label:GetSizeY() + 20);
 
 		local objectives = quest:GetObjectives();
@@ -514,14 +514,14 @@ function InsertQuestEntry(quest)
 				completeObjectiveLabel:SetHide(true);
 				incompleteObjectiveLabel:LocalizeAndSetText(objective:GetSummary());
 
-				newSizeX = Controls.MainContentStack:GetSizeX() - 2;
+				newSizeX = Controls.MainContentStack:GetSizeX() - 4;
 				newSizeY = incompleteObjectiveLabel:GetSizeY() + 20;
 			else
 				incompleteObjectiveLabel:SetHide(true);
 				completeObjectiveLabel:SetHide(false);
 				completeObjectiveLabel:LocalizeAndSetText(objective:GetSummary());
 
-				newSizeX = Controls.MainContentStack:GetSizeX() - 2;
+				newSizeX = Controls.MainContentStack:GetSizeX() - 4;
 				newSizeY = completeObjectiveLabel:GetSizeY() + 20;
 
 				if (objective:DidSucceed()) then
