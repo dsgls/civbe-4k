@@ -21,8 +21,7 @@ gave me the idea and I used their work as a base.
    - [civbe-4k-textures-v1.0.1.7z](https://github.com/dsgls/civbe-4k/releases/download/textures-v1.0.1/civbe-4k-textures-v1.0.1.7z)
      — the 2x textures, 500 MB
 
-   Both are needed. Ignore the "Source code" links on the releases page —
-   those are not the mod.
+   Both are needed.
 
 2. Extract both archives into the game directory, for example
    `C:\Program Files (x86)\Steam\steamapps\common\Sid Meier's Civilization Beyond Earth`.
@@ -35,10 +34,6 @@ gave me the idea and I used their work as a base.
 
    - under `[MiniMap]`: `Width = 490` and `Height = 280`
    - under `[Debugging]`: `LooseFilesOverridePAK = 1`
-
-   If you skip this step the minimap stays at its tiny stock size.
-
-Nothing is deleted; saves and settings are otherwise untouched.
 
 ## Notes
 
