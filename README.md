@@ -35,6 +35,15 @@ gave me the idea and I used their work as a base.
    - under `[MiniMap]`: `Width = 490` and `Height = 280`
    - under `[Debugging]`: `LooseFilesOverridePAK = 1`
 
+# Comparison screenshot
+
+Below is a screenshot comparing the mod at 2160p vs the base game at 1080p. The
+base game screenshot was scaled to the same size. Other than resolution, both
+screenshots were taken with the same graphics settings. I recommend opening
+the screenshot in fullscreen on a 4K monitor to get an accurate representation.
+
+![Comparison screenshot](screenshot_comparison.png)
+
 ## Notes
 
 - The texture scale is all-or-nothing: do not install the UI files without the
