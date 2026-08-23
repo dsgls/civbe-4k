@@ -45,8 +45,15 @@ SOURCE = os.path.join(PROJECT, "ui")
 # the conversion over a .dds would rewrite every 0x0A that falls in pixel data.
 TEXT_SUFFIXES = (".xml", ".lua")
 
-TEXTURE_VERSION = "1.0.0"
-TEXTURE_SHA256 = "b5ac5628a30f1522f01bef8b330454bfed070f74cabf82f12bf1195da78dba18"
+# The engine honours a loose file over a PAK only if the loose file is newer
+# (config.ini's LooseFilesOverridePAK). Every installed file is stamped far
+# into the future so it keeps winning even if the game is reinstalled later;
+# the release archives carry the same date, so a drag-and-drop install of the
+# published zip/7z lands on it too.
+STAMP_MTIME = 4070908800  # 2099-01-01T00:00:00Z
+
+TEXTURE_VERSION = "1.0.1"
+TEXTURE_SHA256 = "9c59cd7569d21ba0a396b9c3127570e0a5a55eed10e6b58f2a6bf7252c4c2e6e"
 TEXTURE_URL = (
     "https://github.com/dsgls/civbe-4k/releases/download/"
     "textures-v{v}/civbe-4k-textures-v{v}.7z"
@@ -107,12 +114,23 @@ def fetch_package() -> str:
     return cached
 
 
+def restamp_textures(dest: str) -> None:
+    """Re-stamp the flat .dds overrides; every one of them came from the package."""
+    for f in os.listdir(dest):
+        if f.lower().endswith(".dds"):
+            os.utime(os.path.join(dest, f), (STAMP_MTIME, STAMP_MTIME))
+
+
 def install_textures(game: str, force: bool) -> None:
     want = "%s %s\n" % (TEXTURE_VERSION, TEXTURE_SHA256)
     stamp = os.path.join(game, STAMP)
     if not force and os.path.exists(stamp):
         with open(stamp) as fh:
             if fh.read() == want:
+                # Same reason install_ui restamps: the package is not
+                # re-extracted, so this is the only chance to lift its files
+                # back over archives a game reinstall has made newer.
+                restamp_textures(os.path.dirname(stamp))
                 print("textures: v%s already installed" % TEXTURE_VERSION)
                 return
 
@@ -141,14 +159,18 @@ def install_ui(game: str, keep_lf: bool) -> None:
                 data = to_crlf(data)
             if os.path.exists(dst) and open(dst, "rb").read() == data:
                 unchanged += 1
-                continue
-            os.makedirs(os.path.dirname(dst), exist_ok=True)
-            with open(dst, "wb") as fh:
-                fh.write(data)
-            if is_text:
-                wrote_text += 1
             else:
-                wrote_binary += 1
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                with open(dst, "wb") as fh:
+                    fh.write(data)
+                if is_text:
+                    wrote_text += 1
+                else:
+                    wrote_binary += 1
+            # Restamped even when the bytes already match: a game reinstall
+            # bumps the archives past an older install and the engine then
+            # ignores it, so a re-run has to be able to repair that.
+            os.utime(dst, (STAMP_MTIME, STAMP_MTIME))
 
     print("%s -> %s" % (SOURCE, game))
     extra = " + %d binary verbatim" % wrote_binary if wrote_binary else ""

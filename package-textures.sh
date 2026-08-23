@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -i bash -p bash p7zip github-cli coreutils
+#! nix-shell -i bash -p bash p7zip github-cli coreutils findutils
 # Build the phase-2 texture package and publish it as a GitHub release.
 #
 #   ./package-textures.sh <encoded-dds-root> <version> [--no-upload]
@@ -27,6 +27,8 @@ VERSION=$2
 UPLOAD=1
 [ "${3:-}" = "--no-upload" ] && UPLOAD=0
 
+STAMP_DATE="2099-01-01T00:00:00"
+
 HERE=$(cd "$(dirname "$0")" && pwd)
 LIST="$HERE/ui_textures.txt"
 REPO="dsgls/civbe-4k"
@@ -52,6 +54,13 @@ while IFS=$'\t' read -r pack file _rest; do
     n=$((n + 1))
 done < "$LIST"
 echo "staged $n textures" >&2
+
+# The engine honours a loose file over a PAK only if the loose file is newer
+# (config.ini's LooseFilesOverridePAK), and the archive's stored mtimes are
+# what the user's extractor writes. Stamping them far into the future keeps
+# the installed textures newer than the game's archives no matter when the
+# game itself was installed.
+find "$STAGE" -exec touch -d "$STAMP_DATE" {} +
 
 rm -f "$OUT/$NAME"
 ( cd "$STAGE" && 7z a -t7z -m0=lzma2 -mx=9 "$OUT/$NAME" assets >/dev/null )

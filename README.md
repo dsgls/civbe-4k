@@ -14,9 +14,16 @@ gave me the idea and I used their work as a base.
 
 ## Installing
 
-1. From [Releases](https://github.com/dsgls/civbe-4k/releases), download the
-   newest texture pack (`civbe-4k-textures-v*.7z`, ~470 MB) and the newest
-   mod zip (`civbe-4k-v*.zip`).
+1. Download both archives:
+
+   - [civbe-4k-v1.0.4.zip](https://github.com/dsgls/civbe-4k/releases/download/v1.0.4/civbe-4k-v1.0.4.zip)
+     — the UI files, 1.6 MB
+   - [civbe-4k-textures-v1.0.1.7z](https://github.com/dsgls/civbe-4k/releases/download/textures-v1.0.1/civbe-4k-textures-v1.0.1.7z)
+     — the 2x textures, 500 MB
+
+   Both are needed. Ignore the "Source code" links on the releases page —
+   those are not the mod.
+
 2. Extract both archives into the game directory, for example
    `C:\Program Files (x86)\Steam\steamapps\common\Sid Meier's Civilization Beyond Earth`.
    Both archives contain the `assets` tree directly — extract them so their

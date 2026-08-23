@@ -14,6 +14,8 @@ fi
 VERSION=$1
 OUTDIR=$(cd "${2:-.}" && pwd)
 
+STAMP_DATE="2099-01-01T00:00:00"
+
 HERE=$(cd "$(dirname "$0")" && pwd)
 NAME="civbe-4k-v$VERSION.zip"
 STAGE=$(mktemp -d)
@@ -27,6 +29,13 @@ cp -r "$HERE/ui/assets" "$STAGE/assets"
 # line with no newline stays unterminated (sed's s/$/\r/ would grow it).
 find "$STAGE" -type f \( -name '*.xml' -o -name '*.lua' \) \
     -exec perl -pi -e 's/\r?\n/\r\n/' {} +
+
+# The engine honours a loose file over a PAK only if the loose file is newer
+# (config.ini's LooseFilesOverridePAK), and the archive's stored mtimes are
+# what the user's extractor writes. Stamping them far into the future keeps
+# the installed files newer than the game's archives no matter when the game
+# itself was installed.
+find "$STAGE" -exec touch -d "$STAMP_DATE" {} +
 
 n=$(find "$STAGE" -type f | wc -l)
 rm -f "$OUTDIR/$NAME"

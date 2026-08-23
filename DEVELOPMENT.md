@@ -100,6 +100,11 @@ Two independent streams on GitHub, matching how the artifacts evolve:
 Both archives keep their payload at the archive root — users extract into the
 game directory, and a wrapping folder is the classic "it doesn't work" report.
 
+The README links both assets by their exact download URL, so bump those two
+links whenever either stream gets a new version. The releases page groups by
+tag name rather than date and puts GitHub's own "Source code" archives beside
+each asset, which is what the direct links exist to avoid.
+
 Shipped packages are plain RGBA (`A8B8G8R8`), single level, `tag=COLOR`, usage
 group copied from the stock file, upscaled with `animesharp-v4`. The 32-bit
 game process (~3.5 GB, `LARGE_ADDRESS_AWARE`) holds ~3 GB of decoded texture
@@ -183,6 +188,13 @@ Verified in game:
 - A plain single-file DDS displaces a packed dictionary/index pair, so
   converted art ships as plain DDS and no pair encoder exists.
 - The replacement need not match stock dimensions to draw.
+
+The mtime rule is what makes both release archives stamp every entry with
+`2099-01-01` (`STAMP_DATE` in the package scripts, `STAMP_MTIME` in
+`install.py`). An archive's stored mtimes are what the extractor writes, so
+without the stamp anyone who installs the game *after* the package was built
+gets loose textures older than `Resource/dx11/*UITextures.fpk` and the engine
+ignores them.
 
 ### Texture names come from four places
 
